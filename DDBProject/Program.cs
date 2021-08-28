@@ -16,7 +16,7 @@ namespace DDBProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Views.mainFrame());
+            Application.Run(new Views.MainFrame());
         }
     }
 }

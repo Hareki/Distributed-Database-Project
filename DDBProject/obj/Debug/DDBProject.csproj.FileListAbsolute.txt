@@ -211,7 +211,6 @@ D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\DDBProject\bi
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\DDBProject\bin\Debug\ComponentFactory.Krypton.Toolkit.dll
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\DDBProject\bin\Debug\ComponentFactory.Krypton.Workspace.dll
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\DDBProject\bin\Debug\Guna.UI2.dll
-D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\DDBProject\bin\Debug\MaterialSkin.dll
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\DDBProject\bin\Debug\Bunifu.Dataviz.WinForms.xml
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\DDBProject\bin\Debug\Bunifu.UI.WinForms.1.5.3.xml
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\DDBProject\bin\Debug\Bunifu.UI.WinForms.BunifuButton.xml
@@ -344,3 +343,4 @@ D:\CNTT\2021\HK1N4\CSDL PT\Test\DDBProject\obj\Debug\DDBProject.exe
 D:\CNTT\2021\HK1N4\CSDL PT\Test\DDBProject\obj\Debug\DDBProject.pdb
 D:\CNTT\2021\HK1N4\CSDL PT\Test\DDBProject\obj\Debug\DDBProject.Views.PanelChucNang.resources
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\DDBProject\obj\Debug\DDBProject.Views.PanelChucNang.resources
+D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\DDBProject\bin\Debug\MaterialSkin.dll

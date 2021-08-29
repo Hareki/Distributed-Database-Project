@@ -1,4 +1,5 @@
 ﻿using DDBProject.SQL_Connection;
+using DDBProject.Views.Custom_UI;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -21,6 +22,7 @@ namespace DDBProject.Views
             DataGridViewColumn column = table.Columns[0];
             column.DefaultCellStyle.Padding = new Padding(30, 0, 0, 0);
             column.HeaderCell.Style.Padding = new Padding(25, 0, 0, 0);
+            guna2ComboBox1.SelectedIndex = 0;
         }
         private void AddRowToTable(TestObject obj)
         {

@@ -31,7 +31,7 @@ namespace DDBProject.Views
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFrame));
-            Utilities.BunifuPages.BunifuAnimatorNS.Animation animation1 = new Utilities.BunifuPages.BunifuAnimatorNS.Animation();
+            Utilities.BunifuPages.BunifuAnimatorNS.Animation animation2 = new Utilities.BunifuPages.BunifuAnimatorNS.Animation();
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.buttonChuaBiet = new Guna.UI2.WinForms.Guna2Button();
@@ -71,7 +71,7 @@ namespace DDBProject.Views
             this.panelSideMenu.Controls.Add(this.panelAccount);
             this.panelSideMenu.Location = new System.Drawing.Point(12, 22);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(254, 639);
+            this.panelSideMenu.Size = new System.Drawing.Size(254, 812);
             this.panelSideMenu.TabIndex = 2;
             // 
             // guna2Button1
@@ -87,7 +87,7 @@ namespace DDBProject.Views
             this.guna2Button1.CheckedState.Parent = this.guna2Button1;
             this.guna2Button1.CustomImages.Parent = this.guna2Button1;
             this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.guna2Button1.Font = new System.Drawing.Font("Baloo 2 SemiBold", 12F, System.Drawing.FontStyle.Bold);
             this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(130)))), ((int)(((byte)(143)))));
             this.guna2Button1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(92)))), ((int)(((byte)(93)))));
             this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(92)))), ((int)(((byte)(93)))));
@@ -98,7 +98,7 @@ namespace DDBProject.Views
             this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button1.ImageOffset = new System.Drawing.Point(10, 0);
             this.guna2Button1.ImageSize = new System.Drawing.Size(25, 25);
-            this.guna2Button1.Location = new System.Drawing.Point(37, 592);
+            this.guna2Button1.Location = new System.Drawing.Point(37, 765);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.PressedColor = System.Drawing.Color.Red;
             this.guna2Button1.PressedDepth = 100;
@@ -121,7 +121,7 @@ namespace DDBProject.Views
             this.buttonChuaBiet.CheckedState.Parent = this.buttonChuaBiet;
             this.buttonChuaBiet.CustomImages.Parent = this.buttonChuaBiet;
             this.buttonChuaBiet.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.buttonChuaBiet.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.buttonChuaBiet.Font = new System.Drawing.Font("Baloo 2 SemiBold", 12F, System.Drawing.FontStyle.Bold);
             this.buttonChuaBiet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(130)))), ((int)(((byte)(143)))));
             this.buttonChuaBiet.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.buttonChuaBiet.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
@@ -156,7 +156,7 @@ namespace DDBProject.Views
             this.buttonGiDo.CheckedState.Parent = this.buttonGiDo;
             this.buttonGiDo.CustomImages.Parent = this.buttonGiDo;
             this.buttonGiDo.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.buttonGiDo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.buttonGiDo.Font = new System.Drawing.Font("Baloo 2 SemiBold", 12F, System.Drawing.FontStyle.Bold);
             this.buttonGiDo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(130)))), ((int)(((byte)(143)))));
             this.buttonGiDo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.buttonGiDo.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
@@ -191,7 +191,7 @@ namespace DDBProject.Views
             this.buttonChucNang.CheckedState.Parent = this.buttonChucNang;
             this.buttonChucNang.CustomImages.Parent = this.buttonChucNang;
             this.buttonChucNang.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.buttonChucNang.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.buttonChucNang.Font = new System.Drawing.Font("Baloo 2 SemiBold", 12F, System.Drawing.FontStyle.Bold);
             this.buttonChucNang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(130)))), ((int)(((byte)(143)))));
             this.buttonChucNang.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.buttonChucNang.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
@@ -227,7 +227,7 @@ namespace DDBProject.Views
             this.buttonQuanLy.CheckedState.Parent = this.buttonQuanLy;
             this.buttonQuanLy.CustomImages.Parent = this.buttonQuanLy;
             this.buttonQuanLy.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.buttonQuanLy.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.buttonQuanLy.Font = new System.Drawing.Font("Baloo 2 SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonQuanLy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(130)))), ((int)(((byte)(143)))));
             this.buttonQuanLy.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.buttonQuanLy.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
@@ -282,11 +282,11 @@ namespace DDBProject.Views
             // labelPosition
             // 
             this.labelPosition.AutoSize = true;
-            this.labelPosition.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPosition.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPosition.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(46)))), ((int)(((byte)(80)))));
             this.labelPosition.Location = new System.Drawing.Point(46, 75);
             this.labelPosition.Name = "labelPosition";
-            this.labelPosition.Size = new System.Drawing.Size(127, 25);
+            this.labelPosition.Size = new System.Drawing.Size(134, 32);
             this.labelPosition.TabIndex = 1;
             this.labelPosition.Text = "Quản trị viên";
             // 
@@ -310,46 +310,46 @@ namespace DDBProject.Views
             this.panelMainView.PageName = "tabPage1";
             this.panelMainView.PageTitle = "QuanLy";
             this.panelMainView.SelectedIndex = 0;
-            this.panelMainView.Size = new System.Drawing.Size(785, 636);
+            this.panelMainView.Size = new System.Drawing.Size(981, 809);
             this.panelMainView.TabIndex = 3;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 1F;
-            this.panelMainView.Transition = animation1;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 0;
+            animation2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 0F;
+            animation2.TransparencyCoeff = 1F;
+            this.panelMainView.Transition = animation2;
             this.panelMainView.TransitionType = Utilities.BunifuPages.BunifuAnimatorNS.AnimationType.Transparent;
             this.panelMainView.SizeChanged += new System.EventHandler(this.panelMainView_SizeChanged);
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPage1.BackColor = System.Drawing.Color.GhostWhite;
             this.tabPage1.Controls.Add(this.panelQuanLy1);
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(777, 607);
+            this.tabPage1.Size = new System.Drawing.Size(973, 780);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "QuanLy";
             // 
             // panelQuanLy1
             // 
-            this.panelQuanLy1.BackColor = System.Drawing.Color.Gainsboro;
+            this.panelQuanLy1.BackColor = System.Drawing.Color.GhostWhite;
             this.panelQuanLy1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelQuanLy1.Location = new System.Drawing.Point(3, 3);
             this.panelQuanLy1.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.panelQuanLy1.Name = "panelQuanLy1";
-            this.panelQuanLy1.Size = new System.Drawing.Size(771, 601);
+            this.panelQuanLy1.Size = new System.Drawing.Size(967, 774);
             this.panelQuanLy1.TabIndex = 0;
             // 
             // tabPage2
@@ -359,7 +359,7 @@ namespace DDBProject.Views
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(777, 607);
+            this.tabPage2.Size = new System.Drawing.Size(973, 780);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "ChucNang";
             // 
@@ -368,7 +368,7 @@ namespace DDBProject.Views
             this.panelChucNang1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChucNang1.Location = new System.Drawing.Point(3, 3);
             this.panelChucNang1.Name = "panelChucNang1";
-            this.panelChucNang1.Size = new System.Drawing.Size(771, 601);
+            this.panelChucNang1.Size = new System.Drawing.Size(967, 774);
             this.panelChucNang1.TabIndex = 0;
             // 
             // tabPage3
@@ -377,7 +377,7 @@ namespace DDBProject.Views
             this.tabPage3.Location = new System.Drawing.Point(4, 4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(777, 607);
+            this.tabPage3.Size = new System.Drawing.Size(973, 780);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "GiDo";
             // 
@@ -387,7 +387,7 @@ namespace DDBProject.Views
             this.tabPage4.Location = new System.Drawing.Point(4, 4);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(777, 607);
+            this.tabPage4.Size = new System.Drawing.Size(973, 780);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "ChuaBiet";
             // 
@@ -439,14 +439,14 @@ namespace DDBProject.Views
             this.mainPalette.ButtonStyles.ButtonFormClose.StateTracking.Border.Width = 0;
             this.mainPalette.FormStyles.FormMain.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.mainPalette.FormStyles.FormMain.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.mainPalette.FormStyles.FormMain.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.mainPalette.FormStyles.FormMain.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.mainPalette.FormStyles.FormMain.StateCommon.Border.Color1 = System.Drawing.Color.Silver;
+            this.mainPalette.FormStyles.FormMain.StateCommon.Border.Color2 = System.Drawing.Color.Silver;
             this.mainPalette.FormStyles.FormMain.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.mainPalette.FormStyles.FormMain.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.None;
-            this.mainPalette.FormStyles.FormMain.StateCommon.Border.Rounding = 12;
-            this.mainPalette.FormStyles.FormMain.StateCommon.Border.Width = 0;
+            this.mainPalette.FormStyles.FormMain.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.mainPalette.FormStyles.FormMain.StateCommon.Border.Rounding = 15;
+            this.mainPalette.FormStyles.FormMain.StateCommon.Border.Width = 1;
             this.mainPalette.HeaderStyles.HeaderForm.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.mainPalette.HeaderStyles.HeaderForm.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.mainPalette.HeaderStyles.HeaderForm.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
@@ -461,11 +461,11 @@ namespace DDBProject.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.ClientSize = new System.Drawing.Size(1086, 680);
+            this.ClientSize = new System.Drawing.Size(1282, 853);
             this.Controls.Add(this.panelMainView);
             this.Controls.Add(this.panelSideMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(1050, 650);
+            this.MinimumSize = new System.Drawing.Size(1300, 900);
             this.Name = "MainFrame";
             this.Palette = this.mainPalette;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;

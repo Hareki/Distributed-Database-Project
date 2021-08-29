@@ -157,6 +157,10 @@ namespace DDBProject.Views
             else canSearch = true;
         }
 
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            contextMenuStrip1.Show(this.guna2Button1, 6, 45);
+        }
     }
     public class TestObject
     {

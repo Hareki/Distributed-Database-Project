@@ -352,5 +352,71 @@
   <ItemGroup>
     <None Include="Resources\settings_500px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checked_500px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_500px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checked_500px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_500px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_50px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\data_recovery_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_50px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_50px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_property_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\data_backup_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_property_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\data_backup_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_25px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus_25px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_property_25px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\data_backup_25px1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

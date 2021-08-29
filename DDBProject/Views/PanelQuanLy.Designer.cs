@@ -91,7 +91,7 @@ namespace DDBProject.Views
             this.table.RowHeadersWidth = 51;
             this.table.RowTemplate.Height = 40;
             this.table.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.table.Size = new System.Drawing.Size(777, 347);
+            this.table.Size = new System.Drawing.Size(777, 350);
             this.table.TabIndex = 0;
             this.table.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.White;
             this.table.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -118,10 +118,12 @@ namespace DDBProject.Views
             // 
             // ID
             // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ID.HeaderText = "ID";
             this.ID.MinimumWidth = 6;
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
+            this.ID.Width = 60;
             // 
             // Ten
             // 
@@ -150,8 +152,8 @@ namespace DDBProject.Views
             this.SearchBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.SearchBox.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
             this.SearchBox.BorderColorIdle = System.Drawing.Color.Silver;
-            this.SearchBox.BorderRadius = 1;
-            this.SearchBox.BorderThickness = 1;
+            this.SearchBox.BorderRadius = 20;
+            this.SearchBox.BorderThickness = 2;
             this.SearchBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.SearchBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.SearchBox.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
@@ -193,7 +195,7 @@ namespace DDBProject.Views
             this.SearchBox.Padding = new System.Windows.Forms.Padding(3);
             this.SearchBox.PasswordChar = '\0';
             this.SearchBox.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.SearchBox.PlaceholderText = "Search by names";
+            this.SearchBox.PlaceholderText = "Tìm kiếm theo tên";
             this.SearchBox.ReadOnly = false;
             this.SearchBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.SearchBox.SelectedText = "";
@@ -207,7 +209,7 @@ namespace DDBProject.Views
             this.SearchBox.TextMarginBottom = 0;
             this.SearchBox.TextMarginLeft = 3;
             this.SearchBox.TextMarginTop = 0;
-            this.SearchBox.TextPlaceholder = "Search by names";
+            this.SearchBox.TextPlaceholder = "Tìm kiếm theo tên";
             this.SearchBox.UseSystemPasswordChar = false;
             this.SearchBox.WordWrap = true;
             this.SearchBox.TextChange += new System.EventHandler(this.SearchBox_TextChange);
@@ -216,11 +218,11 @@ namespace DDBProject.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gainsboro;
             this.Controls.Add(this.SearchBox);
             this.Controls.Add(this.table);
             this.Name = "PanelQuanLy";
             this.Size = new System.Drawing.Size(777, 607);
-            this.Load += new System.EventHandler(this.PanelQuanLy_Load);
             ((System.ComponentModel.ISupportInitialize)(this.table)).EndInit();
             this.ResumeLayout(false);
 
@@ -229,9 +231,9 @@ namespace DDBProject.Views
         #endregion
 
         private Guna.UI2.WinForms.Guna2DataGridView table;
+        private Bunifu.UI.WinForms.BunifuTextBox SearchBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
         private System.Windows.Forms.DataGridViewTextBoxColumn Loại;
-        private Bunifu.UI.WinForms.BunifuTextBox SearchBox;
     }
 }

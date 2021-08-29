@@ -253,7 +253,6 @@ D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\DDBProject\ob
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\DDBProject\obj\Debug\DDBProject.csproj.CopyComplete
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\DDBProject\obj\Debug\DDBProject.exe
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\DDBProject\obj\Debug\DDBProject.pdb
-D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\DDBProject\obj\Debug\DDBProject.Views.Form1.resources
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\DDBProject\bin\Debug\Bunifu.Utils.dll
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\DDBProject\obj\Debug\DDBProject.Views.PanelQuanLy.resources
 D:\CNTT\2021\HK1N4\CSDL PT\Test\DDBProject\bin\Debug\DDBProject.exe.config
@@ -344,3 +343,4 @@ D:\CNTT\2021\HK1N4\CSDL PT\Test\DDBProject\obj\Debug\DDBProject.csproj.CopyCompl
 D:\CNTT\2021\HK1N4\CSDL PT\Test\DDBProject\obj\Debug\DDBProject.exe
 D:\CNTT\2021\HK1N4\CSDL PT\Test\DDBProject\obj\Debug\DDBProject.pdb
 D:\CNTT\2021\HK1N4\CSDL PT\Test\DDBProject\obj\Debug\DDBProject.Views.PanelChucNang.resources
+D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\DDBProject\obj\Debug\DDBProject.Views.PanelChucNang.resources

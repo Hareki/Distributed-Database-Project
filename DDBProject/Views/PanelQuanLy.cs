@@ -1,15 +1,8 @@
 ﻿using DDBProject.SQL_Connection;
-using Guna.UI2.WinForms;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DDBProject.Views
@@ -17,21 +10,38 @@ namespace DDBProject.Views
     public partial class PanelQuanLy : UserControl
     {
         private Boolean canSearch = true;
+        List<TestObject> testList;
+
+
         public PanelQuanLy()
         {
             InitializeComponent();
             //Bunifu.Utils.ScrollbarBinder.BindDatagridView(table, customScrollbar);
-        }
-
-        private void PanelQuanLy_Load(object sender, EventArgs e)
-        {
-            // table.DataSource = loadDataToTable().Tables[0].DefaultView;
             loadDataToTable3();
             DataGridViewColumn column = table.Columns[0];
-            column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             column.DefaultCellStyle.Padding = new Padding(30, 0, 0, 0);
-            column.HeaderCell.Style.Padding = new Padding(30, 0, 0, 0);
+            column.HeaderCell.Style.Padding = new Padding(25, 0, 0, 0);
         }
+        private void AddRowToTable(TestObject obj)
+        {
+            DataGridViewRow newRow = new DataGridViewRow();
+            newRow.Height = 40;
+            newRow.CreateCells(table);
+            newRow.Cells[0].Value = obj.ID;
+            newRow.Cells[1].Value = obj.Ten;
+            newRow.Cells[2].Value = obj.Loai;
+            table.Rows.Add(newRow);
+        }
+
+        private void ReloadSearchTable(List<TestObject> list)
+        {
+            table.RowCount = 0;
+            foreach (TestObject element in list)
+            {
+                AddRowToTable(element);
+            }
+        }
+
         //Cách 1
         private DataSet loadDataToTable()
         {
@@ -70,7 +80,7 @@ namespace DDBProject.Views
             SqlDataReader row;
             row = GetData(query, connection);
 
-            var testList = new List<TestObject>();
+            testList = new List<TestObject>();
             if (row.HasRows)
             {
                 while (row.Read())
@@ -84,13 +94,7 @@ namespace DDBProject.Views
 
                 foreach (TestObject element in testList)
                 {
-                    DataGridViewRow newRow = new DataGridViewRow();
-                    newRow.Height = 40;
-                    newRow.CreateCells(table);
-                    newRow.Cells[0].Value = element.ID;
-                    newRow.Cells[1].Value = element.Ten;
-                    newRow.Cells[2].Value = element.Loai;
-                    table.Rows.Add(newRow);
+                    AddRowToTable(element);
                 }
             }
 
@@ -98,47 +102,72 @@ namespace DDBProject.Views
         //Cách 3 - Dữ liệu không từ SQL
         private void loadDataToTable3()
         {
-            for(int i = 1; i<= 100; i++)
+            testList = new List<TestObject>();
+            for (int i = 1; i <= 100; i++)
             {
-                DataGridViewRow newRow = new DataGridViewRow();
-                newRow.Height = 40;
-                newRow.CreateCells(table);
-                newRow.Cells[0].Value = i;
-                newRow.Cells[1].Value = "Tên sản phẩm " + i;
-                newRow.Cells[2].Value = "Loại " + i;
-                table.Rows.Add(newRow);
+                TestObject obj = new TestObject(i, "Tên sản phẩm " + i, "Loại " + i);
+                AddRowToTable(obj);
+                testList.Add(obj);
             }
-            
+
+        }
+
+        private List<TestObject> GetListByName(string SearchName)
+        {
+            List<TestObject> SearchList = new List<TestObject>();
+            string SearchText = SearchName.ToLower();
+            string TestedName;
+            int SearchLength = SearchText.Length;
+            foreach (TestObject element in testList)
+            {
+                TestedName = element.Ten.ToLower();
+                for (int j = 0; j < TestedName.Length; j++)
+                {
+                    if (j + SearchLength > TestedName.Length)
+                    {
+                        break;
+                    }
+
+                    if (SearchText.Equals(TestedName.Substring(j, SearchLength)) && !SearchList.Contains(element))
+                    {
+                        SearchList.Add(element);
+                        break;
+                    }
+                }
+            }
+            return SearchList;
         }
 
         private void SearchBox_TextChange(object sender, EventArgs e)
         {
             if (canSearch)
             {
-                var SearchList = new List<TestObject>();
-                string SearchText = SearchBox.Text.ToLower();
-                string TestedName;
-                int PreferedLength;
-                int Length = SearchText.Length;
-                //đang làm...
+                if (SearchBox.Text.Length == 0)
+                {
+                    loadDataToTable3();
+                }
+                else
+                {
+                    ReloadSearchTable(GetListByName(SearchBox.Text));
+                }
                 canSearch = false;
             }
             else canSearch = true;
-
-
         }
+
     }
     public class TestObject
     {
-        public int ID;
-        public string Ten;
-        public string Loai;
+        public int ID { get; set; }
+        public string Ten { get; set; }
+        public string Loai { get; set; }
         public TestObject(int ID, string Ten, string loai)
         {
             this.ID = ID;
             this.Ten = Ten;
             this.Loai = loai;
         }
+
     }
-    
+
 }

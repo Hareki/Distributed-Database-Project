@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="table.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -129,35 +126,8 @@
   <metadata name="Loại.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="bunifuLabel7.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="bunifuLabel7.BaseStylesheet" xml:space="preserve">
-    <value>#bunifu-label { padding: 0px; font-family: 'Baloo 2 SemiBold'; font-size: 17pt; width: 100%; height: 100%; font-style: normal; font-weight: bold; text-decoration: none; color: rgb(0, 0, 0); text-align: left; }</value>
-  </data>
-  <metadata name="panel1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="guna2CircleButton2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="guna2CircleButton1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="guna2CircleButton2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="guna2CircleButton1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </metadata>
-  <metadata name="guna2Button1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="bunifuSeparator1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="bunifuSeparator1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -184,9 +154,6 @@
         EEIIIYQQQgghhBBC+F/Q0/MXXSVsiZrUFWwAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="bunifuPanel1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="bunifuPanel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAwkAAADhCAYAAACDZPn+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -219,18 +186,6 @@
         4/PeGGOMMcYY86Tny5jrGQrryA8AAPAzu91f+7hIt5jIxZMAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="guna2CustomRadioButton1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="guna2CustomRadioButton2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="guna2ComboBox1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="bunifuDatePicker1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="bunifuDatePicker1.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -244,47 +199,6 @@
         AABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="bunifuTextBox3.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="bunifuTextBox3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAPkAAAAuCAYAAADqdL8HAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAJUSURBVHhe7d0vbyJBGMdxZOXJkydPVlZWnqysrOxLqMT1
-        JVRW3svgj9gjCEIIoQgCIYRUNitIQzbbueeZPltoCr2c23n6/SQ/wcwO7peZHbMNAF9cq9X6JjmXNAkh
-        tcovyQ+r6v+RhSftdvtW8igJhJBa50nyW3r73Sr8OXnwTBY87P1BGA6HYTabhcViQQipQebzeexlt9t9
-        V3bd3a3Kh1nB44J+vx/yPA8A6m2z2YTBYPBWdunxlVX6PZnQI3rcwcfjcSiKwv4CQAp0h7eiP0ufP76r
-        y8SdPqA7eFmWtgxASkajUVX0P1btHRnUl3eO6EDCttvt23u67Oa7izj58VMHsyyzRwGkqtrNpdcXVvFY
-        8gsd1EkAadObdyv5jVU8lrypgzoJIG3L5bIqedMqviu53s4BSFt1y07JAacoOeAcJQeco+SAc5QccI6S
-        A85RcsA5Sg44R8kB5yg54BwlB5yj5IBzlBxwjpIDzlFywDlKDjhHyQHnKDngHCUHnKPkgHOUHHCOkgPO
-        UXLAOUoOOHes5Nc6qJ8sBpC2Y19QOdVB/WwxgLTpZm0lv7SKx5KfyOCzTuinTwGkqSzL0Ov1qpKfWsVf
-        yWBLJziyA+mq3sclj7p5W71fyYB+ozzu5uv12pYASEWe56HT6bxoh6XPu2+T75OJeAGnmU6noSgKWw6g
-        zvSyrSq45N4qfZgU/aYqepZlYTKZxD/QYwAhpD5ZrVZxM9YL86qzWvAPx/RD5KEzefhhbyEhpN55OnpE
-        /4yWXXIlaRJCaplrybnk37s3AI8ajb9Vge86TbP6ZgAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="bunifuTextBox2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="bunifuTextBox2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAPkAAAAuCAYAAADqdL8HAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAJUSURBVHhe7d0vbyJBGMdxZOXJkydPVlZWnqysrOxLqMT1
-        JVRW3svgj9gjCEIIoQgCIYRUNitIQzbbueeZPltoCr2c23n6/SQ/wcwO7peZHbMNAF9cq9X6JjmXNAkh
-        tcovyQ+r6v+RhSftdvtW8igJhJBa50nyW3r73Sr8OXnwTBY87P1BGA6HYTabhcViQQipQebzeexlt9t9
-        V3bd3a3Kh1nB44J+vx/yPA8A6m2z2YTBYPBWdunxlVX6PZnQI3rcwcfjcSiKwv4CQAp0h7eiP0ufP76r
-        y8SdPqA7eFmWtgxASkajUVX0P1btHRnUl3eO6EDCttvt23u67Oa7izj58VMHsyyzRwGkqtrNpdcXVvFY
-        8gsd1EkAadObdyv5jVU8lrypgzoJIG3L5bIqedMqviu53s4BSFt1y07JAacoOeAcJQeco+SAc5QccI6S
-        A85RcsA5Sg44R8kB5yg54BwlB5yj5IBzlBxwjpIDzlFywDlKDjhHyQHnKDngHCUHnKPkgHOUHHCOkgPO
-        UXLAOUoOOHes5Nc6qJ8sBpC2Y19QOdVB/WwxgLTpZm0lv7SKx5KfyOCzTuinTwGkqSzL0Ov1qpKfWsVf
-        yWBLJziyA+mq3sclj7p5W71fyYB+ozzu5uv12pYASEWe56HT6bxoh6XPu2+T75OJeAGnmU6noSgKWw6g
-        zvSyrSq45N4qfZgU/aYqepZlYTKZxD/QYwAhpD5ZrVZxM9YL86qzWvAPx/RD5KEzefhhbyEhpN55OnpE
-        /4yWXXIlaRJCaplrybnk37s3AI8ajb9Vge86TbP6ZgAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="bunifuTextBox1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="bunifuTextBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPkAAAAuCAYAAADqdL8HAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -301,57 +215,38 @@
         /4yWXXIlaRJCaplrybnk37s3AI8ajb9Vge86TbP6ZgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="bunifuLabel5.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="bunifuLabel5.BaseStylesheet" xml:space="preserve">
-    <value>#bunifu-label { padding: 0px; font-family: 'Baloo 2'; font-size: 13pt; width: 100%; height: 100%; font-style: normal; font-weight: normal; text-decoration: none; color: rgb(150, 150, 150); text-align: left; }</value>
+  <data name="bunifuTextBox2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAPkAAAAuCAYAAADqdL8HAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAJUSURBVHhe7d0vbyJBGMdxZOXJkydPVlZWnqysrOxLqMT1
+        JVRW3svgj9gjCEIIoQgCIYRUNitIQzbbueeZPltoCr2c23n6/SQ/wcwO7peZHbMNAF9cq9X6JjmXNAkh
+        tcovyQ+r6v+RhSftdvtW8igJhJBa50nyW3r73Sr8OXnwTBY87P1BGA6HYTabhcViQQipQebzeexlt9t9
+        V3bd3a3Kh1nB44J+vx/yPA8A6m2z2YTBYPBWdunxlVX6PZnQI3rcwcfjcSiKwv4CQAp0h7eiP0ufP76r
+        y8SdPqA7eFmWtgxASkajUVX0P1btHRnUl3eO6EDCttvt23u67Oa7izj58VMHsyyzRwGkqtrNpdcXVvFY
+        8gsd1EkAadObdyv5jVU8lrypgzoJIG3L5bIqedMqviu53s4BSFt1y07JAacoOeAcJQeco+SAc5QccI6S
+        A85RcsA5Sg44R8kB5yg54BwlB5yj5IBzlBxwjpIDzlFywDlKDjhHyQHnKDngHCUHnKPkgHOUHHCOkgPO
+        UXLAOUoOOHes5Nc6qJ8sBpC2Y19QOdVB/WwxgLTpZm0lv7SKx5KfyOCzTuinTwGkqSzL0Ov1qpKfWsVf
+        yWBLJziyA+mq3sclj7p5W71fyYB+ozzu5uv12pYASEWe56HT6bxoh6XPu2+T75OJeAGnmU6noSgKWw6g
+        zvSyrSq45N4qfZgU/aYqepZlYTKZxD/QYwAhpD5ZrVZxM9YL86qzWvAPx/RD5KEzefhhbyEhpN55OnpE
+        /4yWXXIlaRJCaplrybnk37s3AI8ajb9Vge86TbP6ZgAAAABJRU5ErkJggg==
+</value>
   </data>
-  <metadata name="bunifuLabel4.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="bunifuLabel4.BaseStylesheet" xml:space="preserve">
-    <value>#bunifu-label { padding: 0px; font-family: 'Baloo 2'; font-size: 13pt; width: 100%; height: 100%; font-style: normal; font-weight: normal; text-decoration: none; color: rgb(150, 150, 150); text-align: left; }</value>
+  <data name="bunifuTextBox3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAPkAAAAuCAYAAADqdL8HAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAJUSURBVHhe7d0vbyJBGMdxZOXJkydPVlZWnqysrOxLqMT1
+        JVRW3svgj9gjCEIIoQgCIYRUNitIQzbbueeZPltoCr2c23n6/SQ/wcwO7peZHbMNAF9cq9X6JjmXNAkh
+        tcovyQ+r6v+RhSftdvtW8igJhJBa50nyW3r73Sr8OXnwTBY87P1BGA6HYTabhcViQQipQebzeexlt9t9
+        V3bd3a3Kh1nB44J+vx/yPA8A6m2z2YTBYPBWdunxlVX6PZnQI3rcwcfjcSiKwv4CQAp0h7eiP0ufP76r
+        y8SdPqA7eFmWtgxASkajUVX0P1btHRnUl3eO6EDCttvt23u67Oa7izj58VMHsyyzRwGkqtrNpdcXVvFY
+        8gsd1EkAadObdyv5jVU8lrypgzoJIG3L5bIqedMqviu53s4BSFt1y07JAacoOeAcJQeco+SAc5QccI6S
+        A85RcsA5Sg44R8kB5yg54BwlB5yj5IBzlBxwjpIDzlFywDlKDjhHyQHnKDngHCUHnKPkgHOUHHCOkgPO
+        UXLAOUoOOHes5Nc6qJ8sBpC2Y19QOdVB/WwxgLTpZm0lv7SKx5KfyOCzTuinTwGkqSzL0Ov1qpKfWsVf
+        yWBLJziyA+mq3sclj7p5W71fyYB+ozzu5uv12pYASEWe56HT6bxoh6XPu2+T75OJeAGnmU6noSgKWw6g
+        zvSyrSq45N4qfZgU/aYqepZlYTKZxD/QYwAhpD5ZrVZxM9YL86qzWvAPx/RD5KEzefhhbyEhpN55OnpE
+        /4yWXXIlaRJCaplrybnk37s3AI8ajb9Vge86TbP6ZgAAAABJRU5ErkJggg==
+</value>
   </data>
-  <metadata name="bunifuLabel9.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="bunifuLabel9.BaseStylesheet" xml:space="preserve">
-    <value>#bunifu-label { padding: 0px; font-family: 'Baloo 2'; font-size: 13pt; width: 100%; height: 100%; font-style: normal; font-weight: normal; text-decoration: none; color: rgb(150, 150, 150); text-align: left; }</value>
-  </data>
-  <metadata name="bunifuLabel3.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="bunifuLabel3.BaseStylesheet" xml:space="preserve">
-    <value>#bunifu-label { padding: 0px; font-family: 'Baloo 2'; font-size: 13pt; width: 100%; height: 100%; font-style: normal; font-weight: normal; text-decoration: none; color: rgb(150, 150, 150); text-align: left; }</value>
-  </data>
-  <metadata name="bunifuLabel8.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="bunifuLabel8.BaseStylesheet" xml:space="preserve">
-    <value>#bunifu-label { padding: 0px; font-family: 'Baloo 2'; font-size: 13pt; width: 100%; height: 100%; font-style: normal; font-weight: normal; text-decoration: none; color: rgb(150, 150, 150); text-align: left; }</value>
-  </data>
-  <metadata name="bunifuLabel6.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="bunifuLabel6.BaseStylesheet" xml:space="preserve">
-    <value>#bunifu-label { padding: 0px; font-family: 'Baloo 2'; font-size: 13pt; width: 100%; height: 100%; font-style: normal; font-weight: normal; text-decoration: none; color: rgb(150, 150, 150); text-align: left; }</value>
-  </data>
-  <metadata name="bunifuLabel2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="bunifuLabel2.BaseStylesheet" xml:space="preserve">
-    <value>#bunifu-label { padding: 0px; font-family: 'Baloo 2'; font-size: 13pt; width: 100%; height: 100%; font-style: normal; font-weight: normal; text-decoration: none; color: rgb(150, 150, 150); text-align: left; }</value>
-  </data>
-  <metadata name="bunifuLabel1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="bunifuLabel1.BaseStylesheet" xml:space="preserve">
-    <value>#bunifu-label { padding: 0px; font-family: 'Baloo 2'; font-size: 13pt; width: 100%; height: 100%; font-style: normal; font-weight: normal; text-decoration: none; color: rgb(150, 150, 150); text-align: left; }</value>
-  </data>
-  <metadata name="SearchBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="SearchBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAUMAAAAuCAYAAACyLns3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -371,7 +266,4 @@
         SUVORK5CYII=
 </value>
   </data>
-  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
 </root>

@@ -23,6 +23,7 @@ namespace DDBProject.Views
             column.DefaultCellStyle.Padding = new Padding(30, 0, 0, 0);
             column.HeaderCell.Style.Padding = new Padding(25, 0, 0, 0);
             guna2ComboBox1.SelectedIndex = 0;
+            bunifuDatePicker1.Value = DateTime.Now;
         }
         private void AddRowToTable(TestObject obj)
         {
@@ -161,6 +162,7 @@ namespace DDBProject.Views
         {
             contextMenuStrip1.Show(this.guna2Button1, 6, 45);
         }
+
     }
     public class TestObject
     {

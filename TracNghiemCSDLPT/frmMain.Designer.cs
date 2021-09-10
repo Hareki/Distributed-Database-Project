@@ -92,6 +92,7 @@ namespace TracNghiemCSDLPT
             this.barButtonItem11,
             this.barButtonItem12});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
+            this.ribbon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ribbon.MaxItemId = 22;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -118,6 +119,8 @@ namespace TracNghiemCSDLPT
             this.barButtonItem1.Caption = "Môn học";
             this.barButtonItem1.Id = 6;
             this.barButtonItem1.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.book_480px;
+            this.barButtonItem1.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barButtonItem1.ItemAppearance.Normal.Options.UseFont = true;
             this.barButtonItem1.LargeWidth = 80;
             this.barButtonItem1.Name = "barButtonItem1";
             // 
@@ -333,6 +336,7 @@ namespace TracNghiemCSDLPT
             this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem2, true);
             this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem3, true);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 579);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(801, 28);

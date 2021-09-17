@@ -146,6 +146,10 @@
     <Reference Include="DevExpress.Utils.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="Guna.UI2">
       <HintPath>C:\Users\MINH TU\source\repos\DDBProject\packages\Guna2 UI\Guna.UI2.dll</HintPath>
     </Reference>
@@ -165,25 +169,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmLogin.cs">
+    <Compile Include="SQL Connection\MySQLConncetion.cs" />
+    <Compile Include="MyForms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.cs">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <Compile Include="MyForms\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
+    <Compile Include="MyForms\MainView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <Compile Include="MyForms\MainView.Designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <Compile Include="MyForms\MonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForms\MonHoc.Designer.cs">
+      <DependentUpon>MonHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="MyForms\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <EmbeddedResource Include="MyForms\MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -196,6 +208,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="MyForms\MonHoc.resx">
+      <DependentUpon>MonHoc.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -320,6 +335,69 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Plus +_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\restart_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book_500px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_40px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reset_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus_40px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus_sign_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undo_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undo_480px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redo_480px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

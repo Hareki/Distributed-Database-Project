@@ -13,13 +13,22 @@ namespace TracNghiemCSDLPT
         /// </summary>
 
         public static BindingSource BS_Subcribers = new BindingSource();
+        public static string LoginName;
+        public static string Password;
+        public static string SubcriberName;
+        public static string UserName;
+        public static string HoTen;
+        public static string Quyen;
 
+        public static MainView FormMain;
+        public static Login FormLogin;
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainView());
+            FormLogin = new Login();
+            Application.Run(FormLogin);
             
         }
     }

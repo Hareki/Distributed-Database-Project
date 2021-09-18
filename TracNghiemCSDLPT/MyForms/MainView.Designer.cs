@@ -41,9 +41,9 @@ namespace TracNghiemCSDLPT
             this.buttonDKTN = new DevExpress.XtraBars.BarButtonItem();
             this.buttonTaoTK = new DevExpress.XtraBars.BarButtonItem();
             this.buttonDangXuat = new DevExpress.XtraBars.BarButtonItem();
-            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
+            this.statusMa = new DevExpress.XtraBars.BarStaticItem();
+            this.statusTen = new DevExpress.XtraBars.BarStaticItem();
+            this.statusQuyen = new DevExpress.XtraBars.BarStaticItem();
             this.buttonBangDiem = new DevExpress.XtraBars.BarButtonItem();
             this.buttonKQThi = new DevExpress.XtraBars.BarButtonItem();
             this.buttonToChucThi = new DevExpress.XtraBars.BarButtonItem();
@@ -82,9 +82,9 @@ namespace TracNghiemCSDLPT
             this.buttonDKTN,
             this.buttonTaoTK,
             this.buttonDangXuat,
-            this.barStaticItem1,
-            this.barStaticItem2,
-            this.barStaticItem3,
+            this.statusMa,
+            this.statusTen,
+            this.statusQuyen,
             this.buttonBangDiem,
             this.buttonKQThi,
             this.buttonToChucThi,
@@ -179,29 +179,29 @@ namespace TracNghiemCSDLPT
             this.buttonDangXuat.LargeWidth = 80;
             this.buttonDangXuat.Name = "buttonDangXuat";
             // 
-            // barStaticItem1
+            // statusMa
             // 
-            this.barStaticItem1.Caption = "Mã NV: ABC123";
-            this.barStaticItem1.Id = 15;
-            this.barStaticItem1.ItemAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.barStaticItem1.ItemAppearance.Normal.Options.UseFont = true;
-            this.barStaticItem1.Name = "barStaticItem1";
+            this.statusMa.Caption = "Mã NV: ABC123";
+            this.statusMa.Id = 15;
+            this.statusMa.ItemAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusMa.ItemAppearance.Normal.Options.UseFont = true;
+            this.statusMa.Name = "statusMa";
             // 
-            // barStaticItem2
+            // statusTen
             // 
-            this.barStaticItem2.Caption = "Họ và tên: Nguyễn Ngọc Minh Tú";
-            this.barStaticItem2.Id = 16;
-            this.barStaticItem2.ItemAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.barStaticItem2.ItemAppearance.Normal.Options.UseFont = true;
-            this.barStaticItem2.Name = "barStaticItem2";
+            this.statusTen.Caption = "Họ và tên: Nguyễn Ngọc Minh Tú";
+            this.statusTen.Id = 16;
+            this.statusTen.ItemAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusTen.ItemAppearance.Normal.Options.UseFont = true;
+            this.statusTen.Name = "statusTen";
             // 
-            // barStaticItem3
+            // statusQuyen
             // 
-            this.barStaticItem3.Caption = "Nhóm: Admin";
-            this.barStaticItem3.Id = 17;
-            this.barStaticItem3.ItemAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.barStaticItem3.ItemAppearance.Normal.Options.UseFont = true;
-            this.barStaticItem3.Name = "barStaticItem3";
+            this.statusQuyen.Caption = "Nhóm: Admin";
+            this.statusQuyen.Id = 17;
+            this.statusQuyen.ItemAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusQuyen.ItemAppearance.Normal.Options.UseFont = true;
+            this.statusQuyen.Name = "statusQuyen";
             // 
             // buttonBangDiem
             // 
@@ -331,9 +331,9 @@ namespace TracNghiemCSDLPT
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem1, true);
-            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem2, true);
-            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem3, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.statusMa, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.statusTen, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.statusQuyen, true);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 579);
             this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
@@ -349,21 +349,22 @@ namespace TracNghiemCSDLPT
             this.documentManager1.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
             this.tabbedView1});
             // 
-            // frmMain
+            // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 607);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
-            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("frmMain.IconOptions.Icon")));
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("MainView.IconOptions.Icon")));
             this.IsMdiContainer = true;
-            this.Name = "frmMain";
+            this.Name = "MainView";
             this.Ribbon = this.ribbon;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Quản lý thi trắc nghiệm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainView_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barAndDockingController1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
@@ -393,9 +394,6 @@ namespace TracNghiemCSDLPT
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.BarButtonItem buttonDangXuat;
-        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
-        private DevExpress.XtraBars.BarStaticItem barStaticItem2;
-        private DevExpress.XtraBars.BarStaticItem barStaticItem3;
         private DevExpress.XtraBars.BarButtonItem buttonBangDiem;
         private DevExpress.XtraBars.BarButtonItem buttonKQThi;
         private DevExpress.XtraBars.BarButtonItem buttonToChucThi;
@@ -405,5 +403,8 @@ namespace TracNghiemCSDLPT
         private DevExpress.XtraBars.BarAndDockingController barAndDockingController1;
         private DevExpress.XtraBars.Docking2010.DocumentManager documentManager1;
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
+        public DevExpress.XtraBars.BarStaticItem statusMa;
+        public DevExpress.XtraBars.BarStaticItem statusTen;
+        public DevExpress.XtraBars.BarStaticItem statusQuyen;
     }
 }

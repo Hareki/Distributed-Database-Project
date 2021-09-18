@@ -147,7 +147,7 @@
         VQhf79E0V7mECaAAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="FieldPasword.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="TextPassword.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAWoAAAA1CAYAAABod6F1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAB9SURBVHhe7dZLDQAgDETBSkUKzlpnfO4IaMhM8ixsNgAA
@@ -155,7 +155,7 @@
         AAAAAAAAAAD+k5njNCVJPYuqWpKkvt1H/VxwSVKHcm5831YvCV80eQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="FieldLoginName.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="TextLogin.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAWoAAAA1CAYAAABod6F1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAB9SURBVHhe7dZLDQAgDETBSkUKzlpnfO4IaMhM8ixsNgAA

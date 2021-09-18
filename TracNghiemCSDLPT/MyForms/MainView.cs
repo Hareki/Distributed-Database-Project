@@ -47,7 +47,11 @@ namespace TracNghiemCSDLPT
             showForm(typeof(MonHoc));
         }
 
-        
+        private void MainView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //Program.FormLogin.Close();
+            Application.Exit();
+        }
     }
 
 }

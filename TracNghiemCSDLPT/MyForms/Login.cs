@@ -29,7 +29,7 @@ namespace TracNghiemCSDLPT
         private void InitializeUI()
         {
             DataTable dataTable = GetSubcriber();
-            if(dataTable == null)
+            if (dataTable == null)
             {
                 Utils.ShowErrorMessage("Lỗi không xác định", "Lỗi kết nối");
                 return;
@@ -71,10 +71,10 @@ namespace TracNghiemCSDLPT
 
         private void FieldPasword_TextChange(object sender, EventArgs e)
         {
-            if (FieldPasword.Text.Equals(""))
-                FieldPasword.UseSystemPasswordChar = false;
+            if (TextPassword.Text.Equals(""))
+                TextPassword.UseSystemPasswordChar = false;
             else if (ShowPassword == true)
-                FieldPasword.UseSystemPasswordChar = true;
+                TextPassword.UseSystemPasswordChar = true;
         }
 
         private void LabelGiangVien_Click(object sender, EventArgs e)
@@ -91,7 +91,7 @@ namespace TracNghiemCSDLPT
 
         private void ComboBoxCoSo_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            Program.SubcriberName = ComboBoxCoSo.SelectedValue.ToString();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -101,23 +101,64 @@ namespace TracNghiemCSDLPT
 
         private void FieldPasword_OnIconRightClick(object sender, EventArgs e)
         {
-            if (FieldPasword.UseSystemPasswordChar == true)
+            if (TextPassword.UseSystemPasswordChar == true)
             {
                 ShowPassword = false;
-                FieldPasword.IconRight = global::TracNghiemCSDLPT.Properties.Resources.eye_512px;
-                FieldPasword.UseSystemPasswordChar = false;
+                TextPassword.IconRight = global::TracNghiemCSDLPT.Properties.Resources.eye_512px;
+                TextPassword.UseSystemPasswordChar = false;
             }
             else
             {
                 ShowPassword = true;
-                FieldPasword.IconRight = global::TracNghiemCSDLPT.Properties.Resources.invisible_512px;
-                FieldPasword.UseSystemPasswordChar = true;
+                TextPassword.IconRight = global::TracNghiemCSDLPT.Properties.Resources.invisible_512px;
+                TextPassword.UseSystemPasswordChar = true;
             }
         }
 
         private void buttonThoat_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
+        }
+
+        private void buttonDangNhap_Click(object sender, EventArgs e)
+        {
+            string loginName = TextLogin.Text.Trim();
+            string password = TextPassword.Text.Trim();
+
+            Program.LoginName = loginName;
+            Program.Password = password;
+
+            if (loginName.Equals("") || password.Equals(""))
+            {
+                Utils.ShowErrorMessage("Không được để trống tên đăng nhập và mật khẩu", "Lỗi đăng nhập");
+                return;
+            }
+            if (MySQLConncetion.GetSubcriberConnection(loginName, password, ComboBoxCoSo.SelectedValue.ToString()) == null)
+            {
+                return;
+            }
+
+
+            string query = "EXEC SP_GET_INFO_FROM_LOGIN_NAME '" + loginName + "'";
+            SqlDataReader myReader = MySQLConncetion.ExecuteSqlDataReader(query);
+            if (myReader == null)
+            {
+                Utils.ShowErrorMessage("Xảy ra lỗi không xác định", "Lỗi kết nối");
+                Console.WriteLine(System.Environment.StackTrace);
+                return;
+            }
+            myReader.Read();
+            Program.UserName = myReader.GetString(0); // Lấy Mã GV, chính là Username ở cột 1.
+            Program.HoTen = myReader.GetString(1);
+            Program.Quyen = myReader.GetString(2);
+            myReader.Close();
+            Program.FormMain = new MainView();
+            Program.FormMain.statusMa.Caption = "Mã GV: " + Program.UserName;
+            Program.FormMain.statusTen.Caption = "Họ tên: " + Program.HoTen;
+            Program.FormMain.statusQuyen.Caption = "Nhóm: " + Program.Quyen;
+            Program.FormMain.Show();
+            this.Hide();
+            
         }
     }
 

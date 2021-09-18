@@ -220,3 +220,4 @@ D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSD
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.Login.resources
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.MainView.resources
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.Views.MonHoc.resources
+D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.csproj.AssemblyReference.cache

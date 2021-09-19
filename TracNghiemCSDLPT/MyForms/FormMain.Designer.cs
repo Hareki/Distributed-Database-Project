@@ -93,21 +93,21 @@ namespace TracNghiemCSDLPT
             this.ribbon.Margin = new System.Windows.Forms.Padding(4);
             this.ribbon.MaxItemId = 22;
             this.ribbon.Name = "ribbon";
+            this.ribbon.OptionsTouch.ShowTouchUISelectorInSearchMenu = false;
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
             this.ribbonPage2,
             this.ribbonPage4,
             this.ribbonPage3});
             this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbon.ShowSearchItem = true;
             this.ribbon.ShowToolbarCustomizeItem = false;
-            this.ribbon.Size = new System.Drawing.Size(801, 199);
+            this.ribbon.Size = new System.Drawing.Size(801, 206);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             this.ribbon.Toolbar.ShowCustomizeItem = false;
             // 
             // barAndDockingController1
             // 
-            this.barAndDockingController1.AppearancesRibbon.PageGroupCaption.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barAndDockingController1.AppearancesRibbon.PageGroupCaption.Font = new System.Drawing.Font("Baloo 2", 7.8F, System.Drawing.FontStyle.Italic);
             this.barAndDockingController1.AppearancesRibbon.PageGroupCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
             this.barAndDockingController1.AppearancesRibbon.PageGroupCaption.Options.UseFont = true;
             this.barAndDockingController1.AppearancesRibbon.PageGroupCaption.Options.UseForeColor = true;
@@ -116,9 +116,14 @@ namespace TracNghiemCSDLPT
             // 
             this.buttonMonHoc.Caption = "Môn học";
             this.buttonMonHoc.Id = 6;
+            this.buttonMonHoc.ImageOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.choice_480px;
             this.buttonMonHoc.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.book_480px;
-            this.buttonMonHoc.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMonHoc.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonMonHoc.ItemAppearance.Hovered.Options.UseFont = true;
+            this.buttonMonHoc.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
             this.buttonMonHoc.ItemAppearance.Normal.Options.UseFont = true;
+            this.buttonMonHoc.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonMonHoc.ItemAppearance.Pressed.Options.UseFont = true;
             this.buttonMonHoc.LargeWidth = 80;
             this.buttonMonHoc.Name = "buttonMonHoc";
             this.buttonMonHoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonMonHoc_ItemClick);
@@ -128,6 +133,12 @@ namespace TracNghiemCSDLPT
             this.buttonDeThi.Caption = "Đề thi";
             this.buttonDeThi.Id = 7;
             this.buttonDeThi.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.choice_480px;
+            this.buttonDeThi.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonDeThi.ItemAppearance.Hovered.Options.UseFont = true;
+            this.buttonDeThi.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonDeThi.ItemAppearance.Normal.Options.UseFont = true;
+            this.buttonDeThi.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonDeThi.ItemAppearance.Pressed.Options.UseFont = true;
             this.buttonDeThi.LargeWidth = 80;
             this.buttonDeThi.Name = "buttonDeThi";
             // 
@@ -136,6 +147,12 @@ namespace TracNghiemCSDLPT
             this.buttonSinhVien.Caption = "Sinh viên";
             this.buttonSinhVien.Id = 8;
             this.buttonSinhVien.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.student_male_480px;
+            this.buttonSinhVien.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonSinhVien.ItemAppearance.Hovered.Options.UseFont = true;
+            this.buttonSinhVien.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonSinhVien.ItemAppearance.Normal.Options.UseFont = true;
+            this.buttonSinhVien.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonSinhVien.ItemAppearance.Pressed.Options.UseFont = true;
             this.buttonSinhVien.LargeWidth = 80;
             this.buttonSinhVien.Name = "buttonSinhVien";
             // 
@@ -144,6 +161,12 @@ namespace TracNghiemCSDLPT
             this.butonGiaoVien.Caption = "Giáo viên";
             this.butonGiaoVien.Id = 9;
             this.butonGiaoVien.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.teacher_500px;
+            this.butonGiaoVien.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.butonGiaoVien.ItemAppearance.Hovered.Options.UseFont = true;
+            this.butonGiaoVien.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.butonGiaoVien.ItemAppearance.Normal.Options.UseFont = true;
+            this.butonGiaoVien.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.butonGiaoVien.ItemAppearance.Pressed.Options.UseFont = true;
             this.butonGiaoVien.LargeWidth = 80;
             this.butonGiaoVien.Name = "butonGiaoVien";
             // 
@@ -152,6 +175,12 @@ namespace TracNghiemCSDLPT
             this.buttonKhoaLop.Caption = "Khoa và lớp";
             this.buttonKhoaLop.Id = 10;
             this.buttonKhoaLop.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.class_208px;
+            this.buttonKhoaLop.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonKhoaLop.ItemAppearance.Hovered.Options.UseFont = true;
+            this.buttonKhoaLop.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonKhoaLop.ItemAppearance.Normal.Options.UseFont = true;
+            this.buttonKhoaLop.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonKhoaLop.ItemAppearance.Pressed.Options.UseFont = true;
             this.buttonKhoaLop.LargeWidth = 80;
             this.buttonKhoaLop.Name = "buttonKhoaLop";
             // 
@@ -160,6 +189,12 @@ namespace TracNghiemCSDLPT
             this.buttonDKTN.Caption = "Đăng ký thi TN";
             this.buttonDKTN.Id = 11;
             this.buttonDKTN.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.logbook_500px;
+            this.buttonDKTN.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonDKTN.ItemAppearance.Hovered.Options.UseFont = true;
+            this.buttonDKTN.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonDKTN.ItemAppearance.Normal.Options.UseFont = true;
+            this.buttonDKTN.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonDKTN.ItemAppearance.Pressed.Options.UseFont = true;
             this.buttonDKTN.LargeWidth = 80;
             this.buttonDKTN.Name = "buttonDKTN";
             // 
@@ -168,6 +203,12 @@ namespace TracNghiemCSDLPT
             this.buttonTaoTK.Caption = "Tạo tài khoản";
             this.buttonTaoTK.Id = 12;
             this.buttonTaoTK.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.add_user_male_480px;
+            this.buttonTaoTK.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonTaoTK.ItemAppearance.Hovered.Options.UseFont = true;
+            this.buttonTaoTK.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonTaoTK.ItemAppearance.Normal.Options.UseFont = true;
+            this.buttonTaoTK.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonTaoTK.ItemAppearance.Pressed.Options.UseFont = true;
             this.buttonTaoTK.LargeWidth = 80;
             this.buttonTaoTK.Name = "buttonTaoTK";
             // 
@@ -176,6 +217,12 @@ namespace TracNghiemCSDLPT
             this.buttonDangXuat.Caption = "Đăng xuất";
             this.buttonDangXuat.Id = 13;
             this.buttonDangXuat.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.export_480px;
+            this.buttonDangXuat.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonDangXuat.ItemAppearance.Hovered.Options.UseFont = true;
+            this.buttonDangXuat.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonDangXuat.ItemAppearance.Normal.Options.UseFont = true;
+            this.buttonDangXuat.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonDangXuat.ItemAppearance.Pressed.Options.UseFont = true;
             this.buttonDangXuat.LargeWidth = 80;
             this.buttonDangXuat.Name = "buttonDangXuat";
             // 
@@ -183,24 +230,36 @@ namespace TracNghiemCSDLPT
             // 
             this.statusMa.Caption = "Mã NV: ABC123";
             this.statusMa.Id = 15;
-            this.statusMa.ItemAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusMa.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.statusMa.ItemAppearance.Hovered.Options.UseFont = true;
+            this.statusMa.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
             this.statusMa.ItemAppearance.Normal.Options.UseFont = true;
+            this.statusMa.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.statusMa.ItemAppearance.Pressed.Options.UseFont = true;
             this.statusMa.Name = "statusMa";
             // 
             // statusTen
             // 
             this.statusTen.Caption = "Họ và tên: Nguyễn Ngọc Minh Tú";
             this.statusTen.Id = 16;
-            this.statusTen.ItemAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusTen.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.statusTen.ItemAppearance.Hovered.Options.UseFont = true;
+            this.statusTen.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
             this.statusTen.ItemAppearance.Normal.Options.UseFont = true;
+            this.statusTen.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.statusTen.ItemAppearance.Pressed.Options.UseFont = true;
             this.statusTen.Name = "statusTen";
             // 
             // statusQuyen
             // 
             this.statusQuyen.Caption = "Nhóm: Admin";
             this.statusQuyen.Id = 17;
-            this.statusQuyen.ItemAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusQuyen.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.statusQuyen.ItemAppearance.Hovered.Options.UseFont = true;
+            this.statusQuyen.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
             this.statusQuyen.ItemAppearance.Normal.Options.UseFont = true;
+            this.statusQuyen.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.statusQuyen.ItemAppearance.Pressed.Options.UseFont = true;
             this.statusQuyen.Name = "statusQuyen";
             // 
             // buttonBangDiem
@@ -208,6 +267,12 @@ namespace TracNghiemCSDLPT
             this.buttonBangDiem.Caption = "Bảng điểm";
             this.buttonBangDiem.Id = 18;
             this.buttonBangDiem.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.scorecard_480px;
+            this.buttonBangDiem.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonBangDiem.ItemAppearance.Hovered.Options.UseFont = true;
+            this.buttonBangDiem.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonBangDiem.ItemAppearance.Normal.Options.UseFont = true;
+            this.buttonBangDiem.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonBangDiem.ItemAppearance.Pressed.Options.UseFont = true;
             this.buttonBangDiem.LargeWidth = 80;
             this.buttonBangDiem.Name = "buttonBangDiem";
             // 
@@ -216,6 +281,12 @@ namespace TracNghiemCSDLPT
             this.buttonKQThi.Caption = "Kết quả thi";
             this.buttonKQThi.Id = 19;
             this.buttonKQThi.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.leaderboard_500px;
+            this.buttonKQThi.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonKQThi.ItemAppearance.Hovered.Options.UseFont = true;
+            this.buttonKQThi.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonKQThi.ItemAppearance.Normal.Options.UseFont = true;
+            this.buttonKQThi.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonKQThi.ItemAppearance.Pressed.Options.UseFont = true;
             this.buttonKQThi.LargeWidth = 80;
             this.buttonKQThi.Name = "buttonKQThi";
             // 
@@ -224,6 +295,12 @@ namespace TracNghiemCSDLPT
             this.buttonToChucThi.Caption = "Tổ chức thi";
             this.buttonToChucThi.Id = 20;
             this.buttonToChucThi.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.box_settings_500px;
+            this.buttonToChucThi.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonToChucThi.ItemAppearance.Hovered.Options.UseFont = true;
+            this.buttonToChucThi.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonToChucThi.ItemAppearance.Normal.Options.UseFont = true;
+            this.buttonToChucThi.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonToChucThi.ItemAppearance.Pressed.Options.UseFont = true;
             this.buttonToChucThi.LargeWidth = 80;
             this.buttonToChucThi.Name = "buttonToChucThi";
             // 
@@ -232,12 +309,18 @@ namespace TracNghiemCSDLPT
             this.buttonThamGiaThi.Caption = "Tham gia thi";
             this.buttonThamGiaThi.Id = 21;
             this.buttonThamGiaThi.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.time_500px;
+            this.buttonThamGiaThi.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonThamGiaThi.ItemAppearance.Hovered.Options.UseFont = true;
+            this.buttonThamGiaThi.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonThamGiaThi.ItemAppearance.Normal.Options.UseFont = true;
+            this.buttonThamGiaThi.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.buttonThamGiaThi.ItemAppearance.Pressed.Options.UseFont = true;
             this.buttonThamGiaThi.LargeWidth = 80;
             this.buttonThamGiaThi.Name = "buttonThamGiaThi";
             // 
             // ribbonPage1
             // 
-            this.ribbonPage1.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ribbonPage1.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ribbonPage1.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
             this.ribbonPage1.Appearance.Options.UseFont = true;
             this.ribbonPage1.Appearance.Options.UseForeColor = true;
@@ -273,7 +356,7 @@ namespace TracNghiemCSDLPT
             // 
             // ribbonPage2
             // 
-            this.ribbonPage2.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ribbonPage2.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
             this.ribbonPage2.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
             this.ribbonPage2.Appearance.Options.UseFont = true;
             this.ribbonPage2.Appearance.Options.UseForeColor = true;
@@ -292,7 +375,7 @@ namespace TracNghiemCSDLPT
             // 
             // ribbonPage4
             // 
-            this.ribbonPage4.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
+            this.ribbonPage4.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
             this.ribbonPage4.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
             this.ribbonPage4.Appearance.Options.UseFont = true;
             this.ribbonPage4.Appearance.Options.UseForeColor = true;
@@ -312,7 +395,7 @@ namespace TracNghiemCSDLPT
             // 
             // ribbonPage3
             // 
-            this.ribbonPage3.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ribbonPage3.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
             this.ribbonPage3.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
             this.ribbonPage3.Appearance.Options.UseFont = true;
             this.ribbonPage3.Appearance.Options.UseForeColor = true;

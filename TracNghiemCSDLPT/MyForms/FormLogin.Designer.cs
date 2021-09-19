@@ -1,7 +1,7 @@
 ﻿
 namespace TracNghiemCSDLPT
 {
-    partial class Login
+    partial class FormLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace TracNghiemCSDLPT
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
@@ -44,27 +44,33 @@ namespace TracNghiemCSDLPT
             this.label2 = new System.Windows.Forms.Label();
             this.ComboBoxCoSo = new Guna.UI2.WinForms.Guna2ComboBox();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
-            this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.PanelSV = new Bunifu.UI.WinForms.BunifuPanel();
             this.rdoSV = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.LabelSinhVien = new System.Windows.Forms.Label();
-            this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.PanelGV = new Bunifu.UI.WinForms.BunifuPanel();
             this.rdoGV = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.LabelGiangVien = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TextPassword = new Bunifu.UI.WinForms.BunifuTextBox();
             this.TextLogin = new Bunifu.UI.WinForms.BunifuTextBox();
             this.buttonThoat = new System.Windows.Forms.Button();
+            this.LoginEP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.PasswordEP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.RdoEP = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
-            this.bunifuPanel2.SuspendLayout();
-            this.bunifuPanel1.SuspendLayout();
+            this.PanelSV.SuspendLayout();
+            this.PanelGV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LoginEP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PasswordEP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RdoEP)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Baloo 2", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(110)))), ((int)(((byte)(190)))));
-            this.label3.Location = new System.Drawing.Point(223, 12);
+            this.label3.Location = new System.Drawing.Point(237, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(194, 91);
             this.label3.TabIndex = 8;
@@ -74,9 +80,9 @@ namespace TracNghiemCSDLPT
             // 
             this.buttonDangNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(110)))), ((int)(((byte)(190)))));
             this.buttonDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDangNhap.Font = new System.Drawing.Font("Source Serif Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDangNhap.Font = new System.Drawing.Font("Baloo 2 SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDangNhap.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonDangNhap.Location = new System.Drawing.Point(285, 408);
+            this.buttonDangNhap.Location = new System.Drawing.Point(299, 400);
             this.buttonDangNhap.Name = "buttonDangNhap";
             this.buttonDangNhap.Size = new System.Drawing.Size(163, 46);
             this.buttonDangNhap.TabIndex = 9;
@@ -87,11 +93,11 @@ namespace TracNghiemCSDLPT
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Source Serif Pro", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(82, 193);
+            this.label2.Font = new System.Drawing.Font("Baloo 2", 10.8F);
+            this.label2.Location = new System.Drawing.Point(96, 193);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 10, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 26);
+            this.label2.Size = new System.Drawing.Size(67, 30);
             this.label2.TabIndex = 4;
             this.label2.Text = "Vai trò";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -106,13 +112,13 @@ namespace TracNghiemCSDLPT
             this.ComboBoxCoSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxCoSo.FocusedColor = System.Drawing.Color.Empty;
             this.ComboBoxCoSo.FocusedState.Parent = this.ComboBoxCoSo;
-            this.ComboBoxCoSo.Font = new System.Drawing.Font("Source Serif Pro SemiBold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboBoxCoSo.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboBoxCoSo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(110)))), ((int)(((byte)(190)))));
             this.ComboBoxCoSo.FormattingEnabled = true;
             this.ComboBoxCoSo.HoverState.Parent = this.ComboBoxCoSo;
             this.ComboBoxCoSo.ItemHeight = 30;
             this.ComboBoxCoSo.ItemsAppearance.Parent = this.ComboBoxCoSo;
-            this.ComboBoxCoSo.Location = new System.Drawing.Point(86, 127);
+            this.ComboBoxCoSo.Location = new System.Drawing.Point(100, 127);
             this.ComboBoxCoSo.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
             this.ComboBoxCoSo.Name = "ComboBoxCoSo";
             this.ComboBoxCoSo.ShadowDecoration.Parent = this.ComboBoxCoSo;
@@ -121,22 +127,22 @@ namespace TracNghiemCSDLPT
             this.ComboBoxCoSo.TextOffset = new System.Drawing.Point(3, 3);
             this.ComboBoxCoSo.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCoSo_SelectedIndexChanged);
             // 
-            // bunifuPanel2
+            // PanelSV
             // 
-            this.bunifuPanel2.BackgroundColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel2.BackgroundImage")));
-            this.bunifuPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(208)))), ((int)(((byte)(213)))));
-            this.bunifuPanel2.BorderRadius = 10;
-            this.bunifuPanel2.BorderThickness = 1;
-            this.bunifuPanel2.Controls.Add(this.rdoSV);
-            this.bunifuPanel2.Controls.Add(this.LabelSinhVien);
-            this.bunifuPanel2.Location = new System.Drawing.Point(304, 181);
-            this.bunifuPanel2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
-            this.bunifuPanel2.Name = "bunifuPanel2";
-            this.bunifuPanel2.ShowBorders = true;
-            this.bunifuPanel2.Size = new System.Drawing.Size(144, 50);
-            this.bunifuPanel2.TabIndex = 11;
+            this.PanelSV.BackgroundColor = System.Drawing.Color.Transparent;
+            this.PanelSV.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelSV.BackgroundImage")));
+            this.PanelSV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PanelSV.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(208)))), ((int)(((byte)(213)))));
+            this.PanelSV.BorderRadius = 10;
+            this.PanelSV.BorderThickness = 1;
+            this.PanelSV.Controls.Add(this.rdoSV);
+            this.PanelSV.Controls.Add(this.LabelSinhVien);
+            this.PanelSV.Location = new System.Drawing.Point(318, 181);
+            this.PanelSV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
+            this.PanelSV.Name = "PanelSV";
+            this.PanelSV.ShowBorders = true;
+            this.PanelSV.Size = new System.Drawing.Size(144, 50);
+            this.PanelSV.TabIndex = 11;
             // 
             // rdoSV
             // 
@@ -157,35 +163,35 @@ namespace TracNghiemCSDLPT
             this.rdoSV.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdoSV.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.rdoSV.UncheckedState.Parent = this.rdoSV;
-            this.rdoSV.Click += new System.EventHandler(this.rdoSV_Click);
+            this.rdoSV.Click += new System.EventHandler(this.LabelSinhVien_Click);
             // 
             // LabelSinhVien
             // 
             this.LabelSinhVien.AutoSize = true;
-            this.LabelSinhVien.Font = new System.Drawing.Font("Source Serif Pro", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelSinhVien.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.LabelSinhVien.Location = new System.Drawing.Point(41, 13);
             this.LabelSinhVien.Name = "LabelSinhVien";
-            this.LabelSinhVien.Size = new System.Drawing.Size(93, 26);
+            this.LabelSinhVien.Size = new System.Drawing.Size(86, 30);
             this.LabelSinhVien.TabIndex = 4;
             this.LabelSinhVien.Text = "Sinh viên";
             this.LabelSinhVien.Click += new System.EventHandler(this.LabelSinhVien_Click);
             // 
-            // bunifuPanel1
+            // PanelGV
             // 
-            this.bunifuPanel1.BackgroundColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel1.BackgroundImage")));
-            this.bunifuPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(208)))), ((int)(((byte)(213)))));
-            this.bunifuPanel1.BorderRadius = 10;
-            this.bunifuPanel1.BorderThickness = 1;
-            this.bunifuPanel1.Controls.Add(this.rdoGV);
-            this.bunifuPanel1.Controls.Add(this.LabelGiangVien);
-            this.bunifuPanel1.Location = new System.Drawing.Point(151, 181);
-            this.bunifuPanel1.Margin = new System.Windows.Forms.Padding(3, 3, 10, 15);
-            this.bunifuPanel1.Name = "bunifuPanel1";
-            this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(144, 50);
-            this.bunifuPanel1.TabIndex = 11;
+            this.PanelGV.BackgroundColor = System.Drawing.Color.Transparent;
+            this.PanelGV.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelGV.BackgroundImage")));
+            this.PanelGV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PanelGV.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(208)))), ((int)(((byte)(213)))));
+            this.PanelGV.BorderRadius = 10;
+            this.PanelGV.BorderThickness = 1;
+            this.PanelGV.Controls.Add(this.rdoGV);
+            this.PanelGV.Controls.Add(this.LabelGiangVien);
+            this.PanelGV.Location = new System.Drawing.Point(165, 181);
+            this.PanelGV.Margin = new System.Windows.Forms.Padding(3, 3, 10, 15);
+            this.PanelGV.Name = "PanelGV";
+            this.PanelGV.ShowBorders = true;
+            this.PanelGV.Size = new System.Drawing.Size(144, 50);
+            this.PanelGV.TabIndex = 11;
             // 
             // rdoGV
             // 
@@ -206,15 +212,15 @@ namespace TracNghiemCSDLPT
             this.rdoGV.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdoGV.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.rdoGV.UncheckedState.Parent = this.rdoGV;
-            this.rdoGV.Click += new System.EventHandler(this.rdoGV_Click);
+            this.rdoGV.Click += new System.EventHandler(this.LabelGiangVien_Click);
             // 
             // LabelGiangVien
             // 
             this.LabelGiangVien.AutoSize = true;
-            this.LabelGiangVien.Font = new System.Drawing.Font("Source Serif Pro", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelGiangVien.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.LabelGiangVien.Location = new System.Drawing.Point(36, 13);
             this.LabelGiangVien.Name = "LabelGiangVien";
-            this.LabelGiangVien.Size = new System.Drawing.Size(105, 26);
+            this.LabelGiangVien.Size = new System.Drawing.Size(97, 30);
             this.LabelGiangVien.TabIndex = 4;
             this.LabelGiangVien.Text = "Giảng viên";
             this.LabelGiangVien.Click += new System.EventHandler(this.LabelGiangVien_Click);
@@ -222,7 +228,7 @@ namespace TracNghiemCSDLPT
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.logo31;
-            this.pictureBox1.Location = new System.Drawing.Point(112, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(126, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(105, 79);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -247,7 +253,7 @@ namespace TracNghiemCSDLPT
             this.TextPassword.BorderThickness = 2;
             this.TextPassword.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.TextPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TextPassword.DefaultFont = new System.Drawing.Font("Source Serif Pro", 10.8F);
+            this.TextPassword.DefaultFont = new System.Drawing.Font("Baloo 2", 10.8F);
             this.TextPassword.DefaultText = "";
             this.TextPassword.FillColor = System.Drawing.Color.White;
             this.TextPassword.HideSelection = true;
@@ -257,7 +263,7 @@ namespace TracNghiemCSDLPT
             this.TextPassword.IconRight = global::TracNghiemCSDLPT.Properties.Resources.invisible_512px;
             this.TextPassword.IconRightCursor = System.Windows.Forms.Cursors.Hand;
             this.TextPassword.Lines = new string[0];
-            this.TextPassword.Location = new System.Drawing.Point(86, 319);
+            this.TextPassword.Location = new System.Drawing.Point(101, 329);
             this.TextPassword.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
             this.TextPassword.MaxLength = 32767;
             this.TextPassword.MinimumSize = new System.Drawing.Size(1, 1);
@@ -294,7 +300,7 @@ namespace TracNghiemCSDLPT
             this.TextPassword.SelectionLength = 0;
             this.TextPassword.SelectionStart = 0;
             this.TextPassword.ShortcutsEnabled = true;
-            this.TextPassword.Size = new System.Drawing.Size(362, 53);
+            this.TextPassword.Size = new System.Drawing.Size(362, 59);
             this.TextPassword.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Material;
             this.TextPassword.TabIndex = 1;
             this.TextPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -304,7 +310,7 @@ namespace TracNghiemCSDLPT
             this.TextPassword.TextPlaceholder = "Mật khẩu";
             this.TextPassword.UseSystemPasswordChar = false;
             this.TextPassword.WordWrap = true;
-            this.TextPassword.TextChange += new System.EventHandler(this.FieldPasword_TextChange);
+            this.TextPassword.TextChange += new System.EventHandler(this.TextPassword_TextChange);
             this.TextPassword.OnIconRightClick += new System.EventHandler(this.FieldPasword_OnIconRightClick);
             // 
             // TextLogin
@@ -325,7 +331,7 @@ namespace TracNghiemCSDLPT
             this.TextLogin.BorderThickness = 2;
             this.TextLogin.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.TextLogin.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TextLogin.DefaultFont = new System.Drawing.Font("Source Serif Pro", 10.8F);
+            this.TextLogin.DefaultFont = new System.Drawing.Font("Baloo 2", 10.8F);
             this.TextLogin.DefaultText = "";
             this.TextLogin.FillColor = System.Drawing.Color.White;
             this.TextLogin.HideSelection = true;
@@ -335,7 +341,7 @@ namespace TracNghiemCSDLPT
             this.TextLogin.IconRight = null;
             this.TextLogin.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.TextLogin.Lines = new string[0];
-            this.TextLogin.Location = new System.Drawing.Point(86, 249);
+            this.TextLogin.Location = new System.Drawing.Point(100, 249);
             this.TextLogin.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
             this.TextLogin.MaxLength = 32767;
             this.TextLogin.MinimumSize = new System.Drawing.Size(1, 1);
@@ -372,7 +378,7 @@ namespace TracNghiemCSDLPT
             this.TextLogin.SelectionLength = 0;
             this.TextLogin.SelectionStart = 0;
             this.TextLogin.ShortcutsEnabled = true;
-            this.TextLogin.Size = new System.Drawing.Size(362, 53);
+            this.TextLogin.Size = new System.Drawing.Size(362, 59);
             this.TextLogin.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Material;
             this.TextLogin.TabIndex = 0;
             this.TextLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -382,14 +388,15 @@ namespace TracNghiemCSDLPT
             this.TextLogin.TextPlaceholder = "Tài khoản";
             this.TextLogin.UseSystemPasswordChar = false;
             this.TextLogin.WordWrap = true;
+            this.TextLogin.TextChange += new System.EventHandler(this.TextLogin_TextChange);
             // 
             // buttonThoat
             // 
             this.buttonThoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(202)))), ((int)(((byte)(202)))));
             this.buttonThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonThoat.Font = new System.Drawing.Font("Source Serif Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonThoat.Font = new System.Drawing.Font("Baloo 2 SemiBold", 13.8F, System.Drawing.FontStyle.Bold);
             this.buttonThoat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonThoat.Location = new System.Drawing.Point(87, 408);
+            this.buttonThoat.Location = new System.Drawing.Point(100, 400);
             this.buttonThoat.Name = "buttonThoat";
             this.buttonThoat.Size = new System.Drawing.Size(163, 46);
             this.buttonThoat.TabIndex = 9;
@@ -397,7 +404,22 @@ namespace TracNghiemCSDLPT
             this.buttonThoat.UseVisualStyleBackColor = false;
             this.buttonThoat.Click += new System.EventHandler(this.buttonThoat_Click);
             // 
-            // Login
+            // LoginEP
+            // 
+            this.LoginEP.ContainerControl = this;
+            this.LoginEP.Icon = ((System.Drawing.Icon)(resources.GetObject("LoginEP.Icon")));
+            // 
+            // PasswordEP
+            // 
+            this.PasswordEP.ContainerControl = this;
+            this.PasswordEP.Icon = ((System.Drawing.Icon)(resources.GetObject("PasswordEP.Icon")));
+            // 
+            // RdoEP
+            // 
+            this.RdoEP.ContainerControl = this;
+            this.RdoEP.Icon = ((System.Drawing.Icon)(resources.GetObject("RdoEP.Icon")));
+            // 
+            // FormLogin
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
@@ -405,10 +427,10 @@ namespace TracNghiemCSDLPT
             this.Appearance.Options.UseForeColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(531, 481);
+            this.ClientSize = new System.Drawing.Size(559, 526);
             this.Controls.Add(this.ComboBoxCoSo);
-            this.Controls.Add(this.bunifuPanel2);
-            this.Controls.Add(this.bunifuPanel1);
+            this.Controls.Add(this.PanelSV);
+            this.Controls.Add(this.PanelGV);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonThoat);
             this.Controls.Add(this.buttonDangNhap);
@@ -419,15 +441,18 @@ namespace TracNghiemCSDLPT
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IconOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.logo2;
             this.MaximizeBox = false;
-            this.Name = "Login";
+            this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
-            this.bunifuPanel2.ResumeLayout(false);
-            this.bunifuPanel2.PerformLayout();
-            this.bunifuPanel1.ResumeLayout(false);
-            this.bunifuPanel1.PerformLayout();
+            this.PanelSV.ResumeLayout(false);
+            this.PanelSV.PerformLayout();
+            this.PanelGV.ResumeLayout(false);
+            this.PanelGV.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LoginEP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PasswordEP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RdoEP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -442,13 +467,16 @@ namespace TracNghiemCSDLPT
         private System.Windows.Forms.Button buttonDangNhap;
         private System.Windows.Forms.Label LabelGiangVien;
         private Guna.UI2.WinForms.Guna2CustomRadioButton rdoGV;
-        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel1;
+        private Bunifu.UI.WinForms.BunifuPanel PanelGV;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2ComboBox ComboBoxCoSo;
-        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel2;
+        private Bunifu.UI.WinForms.BunifuPanel PanelSV;
         private Guna.UI2.WinForms.Guna2CustomRadioButton rdoSV;
         private System.Windows.Forms.Label LabelSinhVien;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private System.Windows.Forms.Button buttonThoat;
+        private System.Windows.Forms.ErrorProvider LoginEP;
+        private System.Windows.Forms.ErrorProvider PasswordEP;
+        private System.Windows.Forms.ErrorProvider RdoEP;
     }
 }

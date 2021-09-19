@@ -13,17 +13,21 @@ namespace TracNghiemCSDLPT.SQL_Connection
     {
         private static SqlConnection PublisherConnection = new SqlConnection();
         private static SqlConnection SubcriberConnection = new SqlConnection();
-        public static String PublisherName = "MSI";
-        public static String DatabaseName = "TN_CSDLPT";
-        public static String SysAdminName = "sa";
-        public static String SysAdminPassword = "123456";
+        private static string PublisherName = "MSI";
+        private static string DatabaseName = "TN_CSDLPT";
+        private static string SysAdminName = "sa";
+        private static string SysAdminPassword = "123456";
 
-        public static String PublisherConnectionString = "Data source=" + PublisherName + "; " +
+        private static string PublisherConnectionString = "Data source=" + PublisherName + "; " +
             "Initial Catalog=" + DatabaseName + ";Persist Security Info=True;" +
             "User ID=" + SysAdminName + ";Password=" + SysAdminPassword;
 
-        public static String RemoteLogin = "HTKN";
-        public static String RemotePassword = "123456";
+        private static string RemoteLogin = "HTKN";
+        private static string RemotePassword = "123456";
+
+        private static string LoginSV = "LOGIN_SINHVIEN";
+        private static string PasswordSV = "123456";
+
 
         public static SqlConnection GetPublisherConnection()
         {
@@ -39,8 +43,6 @@ namespace TracNghiemCSDLPT.SQL_Connection
             }
             catch (Exception ex)
             {
-                Utils.ShowErrorMessage("Kết nối đến CSDL thất bại\n" +
-                    "Vui lòng xem lại tên server và tên CSDL trong chuỗi kết nối", "Lỗi kết nối");
                 Console.WriteLine(ex.ToString());
                 return null;
             }
@@ -63,9 +65,28 @@ namespace TracNghiemCSDLPT.SQL_Connection
             }
             catch (Exception ex)
             {
-                Utils.ShowErrorMessage("Kết nối đến CSDL thất bại.\n" +
-                    "Tài khoản, mật khẩu hoặc cơ sở không chính xác.\nVui lòng xem " +
-                    "lại thông tin đăng nhập.", "Lỗi đăng nhập");
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+        }
+
+        public static SqlConnection GetSubcriberConnection(string subcriberName)
+        {
+            if (SubcriberConnection != null && SubcriberConnection.State == System.Data.ConnectionState.Open)
+            {
+                SubcriberConnection.Close();
+            }
+            try
+            {
+                string SubcriberConnectionString = "Data source=" + subcriberName + "; " +
+            "Initial Catalog=" + DatabaseName + ";Persist Security Info=True;" +
+            "User ID=" + LoginSV + ";Password=" + PasswordSV;
+                SubcriberConnection.ConnectionString = SubcriberConnectionString;
+                SubcriberConnection.Open();
+                return SubcriberConnection;
+            }
+            catch (Exception ex)
+            {
                 Console.WriteLine(ex.ToString());
                 return null;
             }
@@ -86,7 +107,7 @@ namespace TracNghiemCSDLPT.SQL_Connection
             catch (SqlException ex)
             {
                 SubcriberConnection.Close();
-                Utils.ShowErrorMessage("Lỗi không xác định", "Lỗi kết nối");
+                Utils.ShowErrorMessage("Lỗi không xác định (ExecuteSqlDataReader)", "Lỗi kết nối");
                 Console.WriteLine(ex.ToString());
                 return null;
             }
@@ -95,13 +116,25 @@ namespace TracNghiemCSDLPT.SQL_Connection
 
         public static DataTable ExecuteSqlDataTable(string query)
         {
-            DataTable result = new DataTable();
-            if (SubcriberConnection.State == ConnectionState.Closed)
-                SubcriberConnection.Open();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(query, SubcriberConnection);
-            dataAdapter.Fill(result);
-            SubcriberConnection.Close();
-            return result;
+            try
+            {
+                DataTable result = new DataTable();
+                if (SubcriberConnection.State == ConnectionState.Closed)
+                    SubcriberConnection.Open();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(query, SubcriberConnection);
+                dataAdapter.Fill(result);
+                SubcriberConnection.Close();
+                return result;
+            }
+            catch (SqlException ex)
+            {
+                SubcriberConnection.Close();
+                Utils.ShowErrorMessage("Lỗi không xác định (ExecuteSqlDataTable)", "Lỗi kết nối");
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+
+
         }
 
         public static bool ExecuteSqlNonQuery(string command)
@@ -118,7 +151,7 @@ namespace TracNghiemCSDLPT.SQL_Connection
             }
             catch (SqlException ex)
             {
-                Utils.ShowErrorMessage("Lỗi không xác định", "Lỗi kết nối");
+                Utils.ShowErrorMessage("Lỗi không xác định (ExecuteSqlNonQuery)", "Lỗi kết nối");
                 Console.WriteLine(ex.ToString());
                 SubcriberConnection.Close();
                 return false;

@@ -16,20 +16,19 @@ namespace TracNghiemCSDLPT
         public static string LoginName;
         public static string Password;
         public static string SubcriberName;
-        public static string UserName;
-        public static string HoTen;
-        public static string Quyen;
+        public static string UserName; // aka MaGV
+        public static string HoTen; // Ten GV
+        public static string NhomQuyen; 
 
-        public static MainView FormMain;
-        public static Login FormLogin;
+        public static MainView MainInstance;
+        public static FormLogin LoginInstance;
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            FormLogin = new Login();
-            Application.Run(FormLogin);
-            
+            LoginInstance = new FormLogin();
+            Application.Run(LoginInstance);  
         }
     }
 }

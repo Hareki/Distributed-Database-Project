@@ -17,5 +17,12 @@ namespace TracNghiemCSDLPT.Views
         {
             InitializeComponent();
         }
+
+
+
+        private void MonHoc_Load(object sender, EventArgs e)
+        { 
+            this.MonHocTableAdapter.Fill(this.TN_CSDLPTDataSet.MONHOC);
+        }
     }
 }

@@ -1,10 +1,10 @@
 # Distributed-Database-Project
-Đồ án cơ sở dữ liệu phân tán - PTIT 2021
-Đề tài thi trắc nghiệm
-Giảng viên hướng dẫn: Lưu Nguyễn Kỳ Thư
+Đồ án cơ sở dữ liệu phân tán - PTIT 2021 <br />
+Đề tài thi trắc nghiệm <br />
+Giảng viên hướng dẫn: Lưu Nguyễn Kỳ Thư <br />
 Sinh viên thực hiện:
-Nguyễn Ngọc Minh Tú - N18DCCN192
-Trần Minh Phúc - N18DCCN156
+-	Nguyễn Ngọc Minh Tú - N18DCCN192
+-	Trần Minh Phúc - N18DCCN156
 
 Phần mềm và các extensions sử dụng:
 -	SQL Server 2014 Enterprise Edition

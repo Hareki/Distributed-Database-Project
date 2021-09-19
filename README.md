@@ -1,4 +1,17 @@
 # Distributed-Database-Project
+Đồ án cơ sở dữ liệu phân tán - PTIT 2021
+Đề tài thi trắc nghiệm
+Giảng viên hướng dẫn: Lưu Nguyễn Kỳ Thư
+Sinh viên thực hiện:
+Nguyễn Ngọc Minh Tú - N18DCCN192
+Trần Minh Phúc - N18DCCN156
+
+Phần mềm và các extensions sử dụng:
+-	SQL Server 2014 Enterprise Edition
+-	Visual Studio 2019 Community Edition
+-	Bunifu UI Framework
+-	DevExpress 19.2.5 WinForms UI Controls
+-------------------------------------
 Nội dung: Thi trắc nghiệm các môn học theo các trình độ khác nhau.
 Yêu cầu: Giả sử  trường có 2 cơ sở chính : cơ sở 1  (CS1), cơ sở 2  (CS2) 
 Phân tán cơ sở dữ liệu THITN ra làm 3 mảnh với điều kiện sau: 

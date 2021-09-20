@@ -43,7 +43,7 @@ namespace TracNghiemCSDLPT
         }
         private DataTable GetSubcriber()
         {
-            SqlConnection MyConnection = MySQLConncetion.GetPublisherConnection();
+            SqlConnection MyConnection = MySQLConnection.GetPublisherConnection();
             if (MyConnection == null)
             {
                 Utils.ShowErrorMessage("Kết nối đến CSDL thất bại. " +
@@ -126,7 +126,7 @@ namespace TracNghiemCSDLPT
                 return;
             if (rdoGV.Checked)
             {
-                if (MySQLConncetion.GetSubcriberConnection(loginName, password, ComboBoxCoSo.SelectedValue.ToString()) == null)
+                if (MySQLConnection.GetSubcriberConnection(loginName, password, ComboBoxCoSo.SelectedValue.ToString()) == null)
                 {
                     Utils.ShowErrorMessage("Kết nối đến CSDL thất bại. " +
                         "Tài khoản, mật khẩu hoặc cơ sở không chính xác. Vui lòng xem " +
@@ -136,7 +136,7 @@ namespace TracNghiemCSDLPT
 
 
                 string query = "EXEC SP_GET_GV_INFO_FROM_LOGIN_NAME '" + loginName + "'";
-                SqlDataReader myReader = MySQLConncetion.ExecuteSqlDataReader(query);
+                SqlDataReader myReader = MySQLConnection.ExecuteSqlDataReader(query);
                 if (myReader == null)
                 {
                     Utils.ShowErrorMessage("Xảy ra lỗi không xác định", "Lỗi kết nối");
@@ -157,7 +157,7 @@ namespace TracNghiemCSDLPT
             }
             else
             {
-                if (MySQLConncetion.GetSubcriberConnection(ComboBoxCoSo.SelectedValue.ToString()) == null)
+                if (MySQLConnection.GetSubcriberConnection(ComboBoxCoSo.SelectedValue.ToString()) == null)
                 {
                     Utils.ShowErrorMessage("Kết nối đến CSDL thất bại. " +
                         "Login hoặc password của sinh viên trong chuỗi kết nối không chính xác", "Lỗi" +
@@ -166,7 +166,7 @@ namespace TracNghiemCSDLPT
                 }
                 string query = "EXEC SP_GET_SV_INFO_FROM_LOGIN_NAME '" + loginName + "', '"
                     + password + "'";
-                SqlDataReader myReader = MySQLConncetion.ExecuteSqlDataReader(query);
+                SqlDataReader myReader = MySQLConnection.ExecuteSqlDataReader(query);
                 if (myReader == null)
                 {
                     Utils.ShowErrorMessage("Xảy ra lỗi không xác định", "Lỗi kết nối");

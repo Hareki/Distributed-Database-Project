@@ -169,7 +169,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Others\MySQLConncetion.cs" />
+    <Compile Include="Others\MySQLConnection.cs" />
     <Compile Include="MyForms\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>

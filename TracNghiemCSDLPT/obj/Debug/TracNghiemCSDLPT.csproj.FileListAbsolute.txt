@@ -221,3 +221,5 @@ D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSD
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.Views.MonHoc.resources
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.FormLogin.resources
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.csproj.AssemblyReference.cache
+D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.Others.NotiForm.resources
+D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.Others.Test.resources

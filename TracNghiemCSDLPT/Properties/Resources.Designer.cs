@@ -153,6 +153,16 @@ namespace TracNghiemCSDLPT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cancel_35px {
+            get {
+                object obj = ResourceManager.GetObject("cancel_35px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cancel_40px {
             get {
                 object obj = ResourceManager.GetObject("cancel_40px", resourceCulture);
@@ -176,6 +186,16 @@ namespace TracNghiemCSDLPT.Properties {
         internal static System.Drawing.Bitmap cancel_480px {
             get {
                 object obj = ResourceManager.GetObject("cancel_480px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cancel1_25px {
+            get {
+                object obj = ResourceManager.GetObject("cancel1_25px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -283,6 +303,16 @@ namespace TracNghiemCSDLPT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap error_45px {
+            get {
+                object obj = ResourceManager.GetObject("error_45px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap export_480px {
             get {
                 object obj = ResourceManager.GetObject("export_480px", resourceCulture);
@@ -296,6 +326,16 @@ namespace TracNghiemCSDLPT.Properties {
         internal static System.Drawing.Bitmap eye_512px {
             get {
                 object obj = ResourceManager.GetObject("eye_512px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap info_45px {
+            get {
+                object obj = ResourceManager.GetObject("info_45px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -403,6 +443,16 @@ namespace TracNghiemCSDLPT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ok_45px {
+            get {
+                object obj = ResourceManager.GetObject("ok_45px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ok_480px {
             get {
                 object obj = ResourceManager.GetObject("ok_480px", resourceCulture);
@@ -466,6 +516,16 @@ namespace TracNghiemCSDLPT.Properties {
         internal static System.Drawing.Bitmap restart_25px {
             get {
                 object obj = ResourceManager.GetObject("restart_25px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sad_cloud_45px {
+            get {
+                object obj = ResourceManager.GetObject("sad_cloud_45px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -566,6 +626,16 @@ namespace TracNghiemCSDLPT.Properties {
         internal static System.Drawing.Bitmap user_480px1 {
             get {
                 object obj = ResourceManager.GetObject("user_480px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap warning_shield_45px {
+            get {
+                object obj = ResourceManager.GetObject("warning_shield_45px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TracNghiemCSDLPT.Others;
 
 namespace TracNghiemCSDLPT
 {
@@ -29,6 +30,7 @@ namespace TracNghiemCSDLPT
             Application.SetCompatibleTextRenderingDefault(false);
             LoginInstance = new FormLogin();
             Application.Run(LoginInstance);  
+          //  Application.Run(new Test());
         }
     }
 }

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace TracNghiemCSDLPT.SQL_Connection
 {
-    class MySQLConnection
+    class DatabaseConnection
     {
         private static SqlConnection PublisherConnection = new SqlConnection();
         private static SqlConnection SubcriberConnection = new SqlConnection();

@@ -38,12 +38,11 @@ namespace TracNghiemCSDLPT
             ComboBoxCoSo.DataSource = Program.BS_Subcribers.DataSource = dataTable;
             ComboBoxCoSo.DisplayMember = "TENCS";
             ComboBoxCoSo.ValueMember = "TENSERVER";
-            if (ComboBoxCoSo.Items.Count > 0)
-                ComboBoxCoSo.SelectedIndex = 0;
+            ComboBoxCoSo.SelectedIndex = -1;
         }
         private DataTable GetSubcriber()
         {
-            SqlConnection MyConnection = MySQLConnection.GetPublisherConnection();
+            SqlConnection MyConnection = DatabaseConnection.GetPublisherConnection();
             if (MyConnection == null)
             {
                 Utils.ShowErrorMessage("Kết nối đến CSDL thất bại. " +
@@ -65,6 +64,93 @@ namespace TracNghiemCSDLPT
         }
         bool ShowPassword = true;
 
+        private void RequestLogin()
+        {
+            string loginName = TextLogin.Text.Trim();
+            string password = TextPassword.Text.Trim();
+
+            Program.LoginName = loginName;
+            Program.Password = password;
+
+            bool test1 = ValidatePassword();
+            bool test2 = ValidateLoginName();
+            bool test3 = ValidateNhomQuyen();
+            bool test4 = ValidateCoSo();
+            if (!(test1 && test2 && test3 && test4))
+                return;
+            if (rdoGV.Checked)
+            {
+                if (DatabaseConnection.GetSubcriberConnection(loginName, password, ComboBoxCoSo.SelectedValue.ToString()) == null)
+                {
+                    Utils.ShowErrorMessage("Kết nối đến CSDL thất bại. " +
+                        "Tài khoản, mật khẩu hoặc cơ sở không chính xác. Vui lòng xem " +
+                        "lại thông tin đăng nhập.", "Lỗi đăng nhập");
+                    return;
+                }
+
+
+                string query = "EXEC SP_GET_GV_INFO_FROM_LOGIN_NAME '" + loginName + "'";
+                SqlDataReader myReader = DatabaseConnection.ExecuteSqlDataReader(query);
+                if (myReader == null)
+                {
+                    Utils.ShowErrorMessage("Xảy ra lỗi không xác định", "Lỗi kết nối");
+                    Console.WriteLine(System.Environment.StackTrace);
+                    return;
+                }
+                myReader.Read();
+                Program.UserName = myReader.GetString(0); // Lấy Mã GV, chính là Username ở cột 1.
+                Program.HoTen = myReader.GetString(1);
+                Program.NhomQuyen = myReader.GetString(2);
+                myReader.Close();
+                Program.MainInstance = new MainView();
+                Program.MainInstance.statusMa.Caption = "Mã GV: " + Program.UserName;
+                Program.MainInstance.statusTen.Caption = "Họ tên: " + Program.HoTen;
+                Program.MainInstance.statusQuyen.Caption = "Nhóm: " + Program.NhomQuyen;
+                Program.MainInstance.Show();
+                this.Hide();
+            }
+            else
+            {
+                if (DatabaseConnection.GetSubcriberConnection(ComboBoxCoSo.SelectedValue.ToString()) == null)
+                {
+                    Utils.ShowErrorMessage("Kết nối đến CSDL thất bại. " +
+                        "Login hoặc password của sinh viên trong chuỗi kết nối không chính xác", "Lỗi" +
+                        "đăng nhập");
+                    return;
+                }
+                string query = "EXEC SP_GET_SV_INFO_FROM_LOGIN_NAME '" + loginName + "', '"
+                    + password + "'";
+                SqlDataReader myReader = DatabaseConnection.ExecuteSqlDataReader(query);
+                if (myReader == null)
+                {
+                    Utils.ShowErrorMessage("Xảy ra lỗi không xác định", "Lỗi kết nối");
+                    Console.WriteLine(System.Environment.StackTrace);
+                    return;
+                }
+                myReader.Read();
+                try
+                {
+                    myReader.GetString(1);
+                }
+                catch (SqlNullValueException ex)
+                {
+                    Utils.ShowErrorMessage("Kết nối đến CSDL thất bại. " +
+                        "Mã sinh viên, mật khẩu hoặc cơ sở không chính xác. Vui lòng xem " +
+                        "lại thông tin đăng nhập.", "Lỗi đăng nhập");
+                    return;
+                }
+                Program.UserName = "USER_SINHVIEN"; // Lấy Mã GV, chính là Username ở cột 1.
+                Program.HoTen = myReader.GetString(1);
+                Program.NhomQuyen = myReader.GetString(2);
+                myReader.Close();
+                Program.MainInstance = new MainView();
+                Program.MainInstance.statusMa.Caption = "Mã SV: " + Program.UserName;
+                Program.MainInstance.statusTen.Caption = "Họ tên: " + Program.HoTen;
+                Program.MainInstance.statusQuyen.Caption = "Nhóm: " + Program.NhomQuyen;
+                Program.MainInstance.Show();
+                this.Hide();
+            }
+        }
 
         private void LabelGiangVien_Click(object sender, EventArgs e)
         {
@@ -82,12 +168,13 @@ namespace TracNghiemCSDLPT
 
         private void ComboBoxCoSo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Program.SubcriberName = ComboBoxCoSo.SelectedValue.ToString();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+            if(ComboBoxCoSo.SelectedIndex != -1)
+            {
+                ValidateCoSo();
+                Program.SubcriberName = ComboBoxCoSo.SelectedValue.ToString();
+            }
+                
+            
         }
 
         private void FieldPasword_OnIconRightClick(object sender, EventArgs e)
@@ -113,92 +200,7 @@ namespace TracNghiemCSDLPT
 
         private void buttonDangNhap_Click(object sender, EventArgs e)
         {
-            string loginName = TextLogin.Text.Trim();
-            string password = TextPassword.Text.Trim();
-
-            Program.LoginName = loginName;
-            Program.Password = password;
-
-            bool test1 = ValidatePassword();
-            bool test2 = ValidateLoginName();
-            bool test3 = ValidateNhomQuyen();
-            if (!(test1 && test2 && test3))
-                return;
-            if (rdoGV.Checked)
-            {
-                if (MySQLConnection.GetSubcriberConnection(loginName, password, ComboBoxCoSo.SelectedValue.ToString()) == null)
-                {
-                    Utils.ShowErrorMessage("Kết nối đến CSDL thất bại. " +
-                        "Tài khoản, mật khẩu hoặc cơ sở không chính xác. Vui lòng xem " +
-                        "lại thông tin đăng nhập.", "Lỗi đăng nhập");
-                    return;
-                }
-
-
-                string query = "EXEC SP_GET_GV_INFO_FROM_LOGIN_NAME '" + loginName + "'";
-                SqlDataReader myReader = MySQLConnection.ExecuteSqlDataReader(query);
-                if (myReader == null)
-                {
-                    Utils.ShowErrorMessage("Xảy ra lỗi không xác định", "Lỗi kết nối");
-                    Console.WriteLine(System.Environment.StackTrace);
-                    return;
-                }
-                myReader.Read();
-                Program.UserName = myReader.GetString(0); // Lấy Mã GV, chính là Username ở cột 1.
-                Program.HoTen = myReader.GetString(1);
-                Program.NhomQuyen = myReader.GetString(2);
-                myReader.Close();
-                Program.MainInstance = new MainView();
-                Program.MainInstance.statusMa.Caption = "Mã GV: " + Program.UserName;
-                Program.MainInstance.statusTen.Caption = "Họ tên: " + Program.HoTen;
-                Program.MainInstance.statusQuyen.Caption = "Nhóm: " + Program.NhomQuyen;
-                Program.MainInstance.Show();
-                this.Hide();
-            }
-            else
-            {
-                if (MySQLConnection.GetSubcriberConnection(ComboBoxCoSo.SelectedValue.ToString()) == null)
-                {
-                    Utils.ShowErrorMessage("Kết nối đến CSDL thất bại. " +
-                        "Login hoặc password của sinh viên trong chuỗi kết nối không chính xác", "Lỗi" +
-                        "đăng nhập");
-                    return;
-                }
-                string query = "EXEC SP_GET_SV_INFO_FROM_LOGIN_NAME '" + loginName + "', '"
-                    + password + "'";
-                SqlDataReader myReader = MySQLConnection.ExecuteSqlDataReader(query);
-                if (myReader == null)
-                {
-                    Utils.ShowErrorMessage("Xảy ra lỗi không xác định", "Lỗi kết nối");
-                    Console.WriteLine(System.Environment.StackTrace);
-                    return;
-                }
-                myReader.Read();
-                try
-                {
-                    myReader.GetString(1);
-                }
-                catch(SqlNullValueException ex)
-                {
-                    Utils.ShowErrorMessage("Kết nối đến CSDL thất bại. " +
-                        "Mã sinh viên, mật khẩu hoặc cơ sở không chính xác. Vui lòng xem " +
-                        "lại thông tin đăng nhập.", "Lỗi đăng nhập");
-                    return;
-                }
-                Program.UserName = "USER_SINHVIEN"; // Lấy Mã GV, chính là Username ở cột 1.
-                Program.HoTen = myReader.GetString(1);
-                Program.NhomQuyen = myReader.GetString(2);
-                myReader.Close();
-                Program.MainInstance = new MainView();
-                Program.MainInstance.statusMa.Caption = "Mã SV: " + Program.UserName;
-                Program.MainInstance.statusTen.Caption = "Họ tên: " + Program.HoTen;
-                Program.MainInstance.statusQuyen.Caption = "Nhóm: " + Program.NhomQuyen;
-                Program.MainInstance.Show();
-                this.Hide();
-            }
-
-
-
+            RequestLogin();
         }
         private bool ValidateLoginName()
         {
@@ -213,9 +215,21 @@ namespace TracNghiemCSDLPT
                 return true;
             }
 
-
-
         }
+        private bool ValidateCoSo()
+            {
+                if(ComboBoxCoSo.SelectedIndex == -1)
+                {
+                    CSEP.SetError(ComboBoxCoSo, "Vui lòng chọn cơ sở công tác/học tập");
+                    return false;
+                }
+                else
+                {
+                    CSEP.SetError(ComboBoxCoSo, null);
+                    return true;
+                }
+            }
+        
         private bool ValidatePassword()
         {
             if (string.IsNullOrEmpty(TextPassword.Text))
@@ -268,6 +282,12 @@ namespace TracNghiemCSDLPT
         private void rdoGV_Validating(object sender, CancelEventArgs e)
         {
             ValidateNhomQuyen();
+        }
+
+        private void TextLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+                RequestLogin();
         }
     }
 

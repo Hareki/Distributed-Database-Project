@@ -169,7 +169,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Others\MySQLConnection.cs" />
+    <Compile Include="Others\AlertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Others\AlertForm.Designer.cs">
+      <DependentUpon>AlertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Others\DatabaseConnection.cs" />
     <Compile Include="MyForms\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,12 @@
     </Compile>
     <Compile Include="MyForms\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Others\Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Others\Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -204,6 +216,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForms\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Others\AlertForm.resx">
+      <DependentUpon>AlertForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Others\Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -417,6 +435,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\redo_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error_45px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info_45px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok_45px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sad_cloud_45px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning_shield_45px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel1_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_35px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

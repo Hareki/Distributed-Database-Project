@@ -14,6 +14,8 @@ using System.Data.SqlClient;
 using TracNghiemCSDLPT.SQL_Connection;
 using System.Windows.Forms;
 using System.Data.SqlTypes;
+using Bunifu.UI.WinForms;
+using static Bunifu.UI.WinForms.BunifuTextBox;
 
 namespace TracNghiemCSDLPT
 {
@@ -25,14 +27,14 @@ namespace TracNghiemCSDLPT
             InitializeComponent();
             InitializeUI();
         }
-
-
+        public StateProperties ErrorState;
+        private Color ErrorColor = Color.FromArgb(236, 65, 52);
         private void InitializeUI()
         {
             DataTable dataTable = GetSubcriber();
             if (dataTable == null)
             {
-                Utils.ShowErrorMessage("Lỗi không xác định", "Lỗi kết nối");
+                Utils.ShowMessage("Lỗi không xác định", Others.NotiForm.FormType.Error, 1);
                 return;
             }
             ComboBoxCoSo.DataSource = Program.BS_Subcribers.DataSource = dataTable;
@@ -45,8 +47,9 @@ namespace TracNghiemCSDLPT
             SqlConnection MyConnection = DatabaseConnection.GetPublisherConnection();
             if (MyConnection == null)
             {
-                Utils.ShowErrorMessage("Kết nối đến CSDL thất bại. " +
-                     "Vui lòng xem lại tên server và tên CSDL trong chuỗi kết nối", "Lỗi kết nối");
+                Utils.ShowMessage("Kết nối đến CSDL thất bại. " +
+                     "Vui lòng xem lại tên server và tên CSDL trong chuỗi kết nối",
+                     Others.NotiForm.FormType.Error, 3);
                 return null;
             }
 
@@ -82,9 +85,8 @@ namespace TracNghiemCSDLPT
             {
                 if (DatabaseConnection.GetSubcriberConnection(loginName, password, ComboBoxCoSo.SelectedValue.ToString()) == null)
                 {
-                    Utils.ShowErrorMessage("Kết nối đến CSDL thất bại. " +
-                        "Tài khoản, mật khẩu hoặc cơ sở không chính xác. Vui lòng xem " +
-                        "lại thông tin đăng nhập.", "Lỗi đăng nhập");
+                    Utils.ShowMessage("Tài khoản, mật khẩu hoặc cơ sở không chính xác. Vui lòng xem " +
+                        "lại thông tin đăng nhập.", Others.NotiForm.FormType.Error, 4);
                     return;
                 }
 
@@ -93,7 +95,7 @@ namespace TracNghiemCSDLPT
                 SqlDataReader myReader = DatabaseConnection.ExecuteSqlDataReader(query);
                 if (myReader == null)
                 {
-                    Utils.ShowErrorMessage("Xảy ra lỗi không xác định", "Lỗi kết nối");
+                    Utils.ShowMessage("Xảy ra lỗi không xác định", Others.NotiForm.FormType.Error, 1);
                     Console.WriteLine(System.Environment.StackTrace);
                     return;
                 }
@@ -113,9 +115,8 @@ namespace TracNghiemCSDLPT
             {
                 if (DatabaseConnection.GetSubcriberConnection(ComboBoxCoSo.SelectedValue.ToString()) == null)
                 {
-                    Utils.ShowErrorMessage("Kết nối đến CSDL thất bại. " +
-                        "Login hoặc password của sinh viên trong chuỗi kết nối không chính xác", "Lỗi" +
-                        "đăng nhập");
+                    Utils.ShowMessage("Kết nối đến CSDL thất bại. " +
+                        "Login hoặc password của sinh viên trong chuỗi kết nối không chính xác", Others.NotiForm.FormType.Error, 3);
                     return;
                 }
                 string query = "EXEC SP_GET_SV_INFO_FROM_LOGIN_NAME '" + loginName + "', '"
@@ -123,7 +124,7 @@ namespace TracNghiemCSDLPT
                 SqlDataReader myReader = DatabaseConnection.ExecuteSqlDataReader(query);
                 if (myReader == null)
                 {
-                    Utils.ShowErrorMessage("Xảy ra lỗi không xác định", "Lỗi kết nối");
+                    Utils.ShowMessage("Xảy ra lỗi không xác định", Others.NotiForm.FormType.Error, 1);
                     Console.WriteLine(System.Environment.StackTrace);
                     return;
                 }
@@ -134,9 +135,8 @@ namespace TracNghiemCSDLPT
                 }
                 catch (SqlNullValueException ex)
                 {
-                    Utils.ShowErrorMessage("Kết nối đến CSDL thất bại. " +
-                        "Mã sinh viên, mật khẩu hoặc cơ sở không chính xác. Vui lòng xem " +
-                        "lại thông tin đăng nhập.", "Lỗi đăng nhập");
+                    Utils.ShowMessage("Mã sinh viên, mật khẩu hoặc cơ sở không chính xác. Vui lòng xem " +
+                        "lại thông tin đăng nhập.", Others.NotiForm.FormType.Error, 4);
                     return;
                 }
                 Program.UserName = "USER_SINHVIEN"; // Lấy Mã GV, chính là Username ở cột 1.
@@ -156,25 +156,23 @@ namespace TracNghiemCSDLPT
         {
             rdoGV.Checked = true;
             rdoSV.Checked = !rdoGV.Checked;
-            ValidateNhomQuyen();
+
         }
 
         private void LabelSinhVien_Click(object sender, EventArgs e)
         {
             rdoSV.Checked = true;
             rdoGV.Checked = !rdoSV.Checked;
-            ValidateNhomQuyen();
         }
 
         private void ComboBoxCoSo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(ComboBoxCoSo.SelectedIndex != -1)
+            if (ComboBoxCoSo.SelectedIndex != -1)
             {
-                ValidateCoSo();
                 Program.SubcriberName = ComboBoxCoSo.SelectedValue.ToString();
             }
-                
-            
+
+
         }
 
         private void FieldPasword_OnIconRightClick(object sender, EventArgs e)
@@ -207,39 +205,44 @@ namespace TracNghiemCSDLPT
             if (string.IsNullOrEmpty(TextLogin.Text))
             {
                 LoginEP.SetError(TextLogin, "Vui lòng nhập tài khoản");
+                SetBorderState(TextLogin, BorderState.error);
                 return false;
             }
             else
             {
+                SetBorderState(TextLogin, BorderState.normal);
                 LoginEP.SetError(TextLogin, null);
                 return true;
             }
 
         }
         private bool ValidateCoSo()
+        {
+            if (ComboBoxCoSo.SelectedIndex == -1)
             {
-                if(ComboBoxCoSo.SelectedIndex == -1)
-                {
-                    CSEP.SetError(ComboBoxCoSo, "Vui lòng chọn cơ sở công tác/học tập");
-                    return false;
-                }
-                else
-                {
-                    CSEP.SetError(ComboBoxCoSo, null);
-                    return true;
-                }
+                ComboBoxCoSo.BorderColor = ErrorColor;
+                CSEP.SetError(ComboBoxCoSo, "Vui lòng chọn cơ sở công tác/học tập");
+                return false;
             }
-        
+            else
+            {
+                CSEP.SetError(ComboBoxCoSo, null);
+                return true;
+            }
+        }
+
         private bool ValidatePassword()
         {
             if (string.IsNullOrEmpty(TextPassword.Text))
             {
                 PasswordEP.SetError(TextPassword, "Vui lòng nhập mật khẩu");
+                SetBorderState(TextPassword, BorderState.error);
                 return false;
             }
             else
             {
                 PasswordEP.SetError(TextPassword, null);
+                SetBorderState(TextPassword, BorderState.normal);
                 return true;
             }
 
@@ -250,12 +253,41 @@ namespace TracNghiemCSDLPT
             if (!rdoGV.Checked && !rdoSV.Checked)
             {
                 RdoEP.SetError(PanelSV, "Vui lòng chọn nhóm quyền");
+                PanelSV.BorderColor = ErrorColor;
+                PanelGV.BorderColor = ErrorColor;
                 return false;
             }
             else
             {
+                PanelSV.BorderColor = Color.FromArgb(204, 208, 213);
+                PanelGV.BorderColor = Color.FromArgb(204, 208, 213);
                 RdoEP.SetError(PanelSV, null);
                 return true;
+            }
+        }
+
+        enum BorderState
+        {
+            normal, error
+        }
+        private void SetBorderState(BunifuTextBox textBox, BorderState state)
+        {
+            if (state == BorderState.error)
+            {
+                textBox.OnActiveState.BorderColor = textBox.OnIdleState.BorderColor
+                = textBox.OnHoverState.BorderColor = Color.IndianRed;
+
+                textBox.BorderColorIdle = textBox.BorderColorActive = textBox.BorderColorHover = Color.IndianRed;
+                this.guna2TextBox1.BorderColor = this.guna2TextBox1.HoverState.BorderColor =
+                    this.guna2TextBox1.FocusedState.BorderColor = ErrorColor;
+
+
+            }
+            else
+            {
+                textBox.OnActiveState.BorderColor = textBox.BorderColorActive = Color.FromArgb(16, 110, 190);
+                textBox.OnHoverState.BorderColor = textBox.BorderColorHover = Color.FromArgb(105, 181, 255);
+                textBox.OnIdleState.BorderColor = textBox.BorderColorIdle = Color.Silver;
             }
         }
 
@@ -267,27 +299,41 @@ namespace TracNghiemCSDLPT
 
         private void TextPassword_TextChange(object sender, EventArgs e)
         {
-            ValidatePassword();
             if (TextPassword.Text.Equals(""))
                 TextPassword.UseSystemPasswordChar = false;
             else if (ShowPassword == true)
                 TextPassword.UseSystemPasswordChar = true;
         }
 
-        private void rdoSV_Validating(object sender, CancelEventArgs e)
-        {
-            ValidateNhomQuyen();
-        }
-
-        private void rdoGV_Validating(object sender, CancelEventArgs e)
-        {
-            ValidateNhomQuyen();
-        }
 
         private void TextLogin_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Enter)
                 RequestLogin();
+        }
+
+        private void guna2TextBox1_IconRightClick(object sender, EventArgs e)
+        {
+            if (guna2TextBox1.UseSystemPasswordChar == true)
+            {
+                ShowPassword = false;
+                guna2TextBox1.IconRight = global::TracNghiemCSDLPT.Properties.Resources.eye_512px;
+                guna2TextBox1.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                ShowPassword = true;
+                guna2TextBox1.IconRight = global::TracNghiemCSDLPT.Properties.Resources.invisible_512px;
+                guna2TextBox1.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (guna2TextBox1.Text.Equals(""))
+                guna2TextBox1.UseSystemPasswordChar = false;
+            else if (ShowPassword == true)
+                guna2TextBox1.UseSystemPasswordChar = true;
         }
     }
 

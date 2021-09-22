@@ -42,9 +42,10 @@ namespace TracNghiemCSDLPT.Others
             // 
             this.message.AutoSize = true;
             this.message.ForeColor = System.Drawing.Color.White;
-            this.message.Location = new System.Drawing.Point(67, 46);
+            this.message.Location = new System.Drawing.Point(67, 52);
+            this.message.MaximumSize = new System.Drawing.Size(350, 0);
             this.message.Name = "message";
-            this.message.Size = new System.Drawing.Size(174, 43);
+            this.message.Size = new System.Drawing.Size(185, 45);
             this.message.TabIndex = 0;
             this.message.Text = "Message Text";
             // 
@@ -55,7 +56,7 @@ namespace TracNghiemCSDLPT.Others
             // pictureBox
             // 
             this.pictureBox.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_45px;
-            this.pictureBox.Location = new System.Drawing.Point(19, 41);
+            this.pictureBox.Location = new System.Drawing.Point(19, 52);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(42, 48);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -64,8 +65,9 @@ namespace TracNghiemCSDLPT.Others
             // 
             // pictureClose
             // 
+            this.pictureClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureClose.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_35px;
-            this.pictureClose.Location = new System.Drawing.Point(363, 12);
+            this.pictureClose.Location = new System.Drawing.Point(361, 12);
             this.pictureClose.Name = "pictureClose";
             this.pictureClose.Size = new System.Drawing.Size(37, 50);
             this.pictureClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -77,7 +79,7 @@ namespace TracNghiemCSDLPT.Others
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(412, 126);
+            this.ClientSize = new System.Drawing.Size(410, 170);
             this.Controls.Add(this.pictureClose);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.message);
@@ -87,6 +89,7 @@ namespace TracNghiemCSDLPT.Others
             this.ShowInTaskbar = false;
             this.Text = "AlertForm";
             this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NotiForm_FormClosing);
             this.MouseEnter += new System.EventHandler(this.NotiForm_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.NotiForm_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();

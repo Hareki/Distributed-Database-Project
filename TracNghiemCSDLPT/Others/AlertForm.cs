@@ -17,14 +17,24 @@ namespace TracNghiemCSDLPT.Others
         private int x, y;
         private FormType type;
         private bool forceClose = false;
+        private readonly Size origSize = new Size(410, 135);
+        private readonly int lineHeight = 35;
+        private readonly int manualLifting = 140;
+        public static int Lifting = 0;
+        private static int NotiNum = 0;
         public NotiForm()
         {
             InitializeComponent();
         }
-        public NotiForm(String message, FormType type)
+        public NotiForm(String message, FormType type, int lineNum)
         {
             InitializeComponent();
-            showNoti(message, type);
+            this.Size = new Size(410, 135 + (lineNum - 1) * lineHeight);
+            NotiNum++;
+            showNoti(message, type, lineNum);
+            Lifting += this.Height;
+            
+            
         }
         public enum FormAction
         {
@@ -104,8 +114,18 @@ namespace TracNghiemCSDLPT.Others
             }
 
         }
+        private void GetLineNum(string message)
+        {
 
-        private void showNoti(string message, FormType type)
+        }
+
+        private void NotiForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Lifting -= this.Height;
+            NotiNum--;
+        }
+
+        private void showNoti(string message, FormType type, int lineNum)
         {
             this.Opacity = 0.0;
             this.StartPosition = FormStartPosition.Manual;
@@ -117,9 +137,19 @@ namespace TracNghiemCSDLPT.Others
                 NotiForm frm = (NotiForm)Application.OpenForms[fname];
                 if (frm == null)
                 {
+                    
                     this.Name = fname;
                     this.x = Screen.PrimaryScreen.WorkingArea.Width - this.Width + 15;
-                    this.y = Screen.PrimaryScreen.WorkingArea.Height - this.Height * i - 15 * i - 139;
+                    Console.WriteLine("Noti: " + NotiNum + " i: " + i);
+                    if (NotiNum > i + 1)
+                    {
+                        this.y = Screen.PrimaryScreen.WorkingArea.Height - manualLifting - (lineNum - 1) * lineHeight;
+                    }
+                    else
+                    {
+                        this.y = Screen.PrimaryScreen.WorkingArea.Height - Lifting - 15 * i - manualLifting - (lineNum - 1) * lineHeight;
+                    }
+                    
                     this.Location = new Point(this.x, this.y);
                     break;
                 }

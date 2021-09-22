@@ -65,7 +65,7 @@ namespace TracNghiemCSDLPT
             // 
             this.label3.Font = new System.Drawing.Font("Baloo 2", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(110)))), ((int)(((byte)(190)))));
-            this.label3.Location = new System.Drawing.Point(237, 12);
+            this.label3.Location = new System.Drawing.Point(241, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(194, 91);
             this.label3.TabIndex = 8;
@@ -77,7 +77,7 @@ namespace TracNghiemCSDLPT
             this.buttonDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDangNhap.Font = new System.Drawing.Font("Baloo 2 SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDangNhap.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonDangNhap.Location = new System.Drawing.Point(302, 491);
+            this.buttonDangNhap.Location = new System.Drawing.Point(306, 445);
             this.buttonDangNhap.Name = "buttonDangNhap";
             this.buttonDangNhap.Size = new System.Drawing.Size(163, 46);
             this.buttonDangNhap.TabIndex = 9;
@@ -89,7 +89,7 @@ namespace TracNghiemCSDLPT
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Baloo 2", 10.8F);
-            this.label2.Location = new System.Drawing.Point(105, 209);
+            this.label2.Location = new System.Drawing.Point(109, 206);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 10, 5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 30);
@@ -102,6 +102,7 @@ namespace TracNghiemCSDLPT
             this.ComboBoxCoSo.BackColor = System.Drawing.Color.Transparent;
             this.ComboBoxCoSo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(208)))), ((int)(((byte)(213)))));
             this.ComboBoxCoSo.BorderRadius = 3;
+            this.ComboBoxCoSo.BorderThickness = 2;
             this.ComboBoxCoSo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.ComboBoxCoSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxCoSo.FocusedColor = System.Drawing.Color.Empty;
@@ -112,7 +113,7 @@ namespace TracNghiemCSDLPT
             this.ComboBoxCoSo.HoverState.Parent = this.ComboBoxCoSo;
             this.ComboBoxCoSo.ItemHeight = 30;
             this.ComboBoxCoSo.ItemsAppearance.Parent = this.ComboBoxCoSo;
-            this.ComboBoxCoSo.Location = new System.Drawing.Point(100, 163);
+            this.ComboBoxCoSo.Location = new System.Drawing.Point(104, 160);
             this.ComboBoxCoSo.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.ComboBoxCoSo.Name = "ComboBoxCoSo";
             this.ComboBoxCoSo.ShadowDecoration.Parent = this.ComboBoxCoSo;
@@ -128,10 +129,10 @@ namespace TracNghiemCSDLPT
             this.PanelSV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PanelSV.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(208)))), ((int)(((byte)(213)))));
             this.PanelSV.BorderRadius = 10;
-            this.PanelSV.BorderThickness = 1;
+            this.PanelSV.BorderThickness = 2;
             this.PanelSV.Controls.Add(this.rdoSV);
             this.PanelSV.Controls.Add(this.LabelSinhVien);
-            this.PanelSV.Location = new System.Drawing.Point(289, 244);
+            this.PanelSV.Location = new System.Drawing.Point(293, 241);
             this.PanelSV.Margin = new System.Windows.Forms.Padding(3, 0, 3, 15);
             this.PanelSV.Name = "PanelSV";
             this.PanelSV.ShowBorders = true;
@@ -177,10 +178,10 @@ namespace TracNghiemCSDLPT
             this.PanelGV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PanelGV.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(208)))), ((int)(((byte)(213)))));
             this.PanelGV.BorderRadius = 10;
-            this.PanelGV.BorderThickness = 1;
+            this.PanelGV.BorderThickness = 2;
             this.PanelGV.Controls.Add(this.rdoGV);
             this.PanelGV.Controls.Add(this.LabelGiangVien);
-            this.PanelGV.Location = new System.Drawing.Point(101, 244);
+            this.PanelGV.Location = new System.Drawing.Point(105, 241);
             this.PanelGV.Margin = new System.Windows.Forms.Padding(3, 0, 10, 15);
             this.PanelGV.Name = "PanelGV";
             this.PanelGV.ShowBorders = true;
@@ -222,7 +223,7 @@ namespace TracNghiemCSDLPT
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.logo31;
-            this.pictureBox1.Location = new System.Drawing.Point(126, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(130, 9);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(105, 79);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -235,7 +236,7 @@ namespace TracNghiemCSDLPT
             this.buttonThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonThoat.Font = new System.Drawing.Font("Baloo 2 SemiBold", 13.8F, System.Drawing.FontStyle.Bold);
             this.buttonThoat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonThoat.Location = new System.Drawing.Point(100, 491);
+            this.buttonThoat.Location = new System.Drawing.Point(105, 445);
             this.buttonThoat.Name = "buttonThoat";
             this.buttonThoat.Size = new System.Drawing.Size(163, 46);
             this.buttonThoat.TabIndex = 9;
@@ -262,7 +263,7 @@ namespace TracNghiemCSDLPT
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Baloo 2", 10.8F);
-            this.label1.Location = new System.Drawing.Point(105, 128);
+            this.label1.Location = new System.Drawing.Point(109, 125);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 0, 10, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 30);
@@ -295,8 +296,8 @@ namespace TracNghiemCSDLPT
             this.TextPassword.IconRight = global::TracNghiemCSDLPT.Properties.Resources.invisible_512px;
             this.TextPassword.IconRightOffset = new System.Drawing.Point(0, -3);
             this.TextPassword.IconRightSize = new System.Drawing.Size(35, 35);
-            this.TextPassword.Location = new System.Drawing.Point(98, 381);
-            this.TextPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextPassword.Location = new System.Drawing.Point(102, 378);
+            this.TextPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 15);
             this.TextPassword.Name = "TextPassword";
             this.TextPassword.PasswordChar = '\0';
             this.TextPassword.PlaceholderText = "Mật khẩu";
@@ -328,7 +329,7 @@ namespace TracNghiemCSDLPT
             this.TextLogin.IconLeftSize = new System.Drawing.Size(35, 35);
             this.TextLogin.IconRightOffset = new System.Drawing.Point(0, -3);
             this.TextLogin.IconRightSize = new System.Drawing.Size(35, 35);
-            this.TextLogin.Location = new System.Drawing.Point(101, 313);
+            this.TextLogin.Location = new System.Drawing.Point(105, 310);
             this.TextLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 15);
             this.TextLogin.Name = "TextLogin";
             this.TextLogin.PasswordChar = '\0';
@@ -349,7 +350,7 @@ namespace TracNghiemCSDLPT
             this.Appearance.Options.UseForeColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 567);
+            this.ClientSize = new System.Drawing.Size(564, 533);
             this.Controls.Add(this.TextLogin);
             this.Controls.Add(this.TextPassword);
             this.Controls.Add(this.ComboBoxCoSo);

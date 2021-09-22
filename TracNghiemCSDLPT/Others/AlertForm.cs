@@ -164,7 +164,7 @@ namespace TracNghiemCSDLPT.Others
                     break;
                 case FormType.Error:
                     this.pictureBox.Image = global::TracNghiemCSDLPT.Properties.Resources.error_45px;
-                    this.BackColor = Color.DarkRed;
+                    this.BackColor = Color.FromArgb(226, 54, 54);
                     break;
                 case FormType.Info:
                     this.pictureBox.Image = global::TracNghiemCSDLPT.Properties.Resources.info_45px;

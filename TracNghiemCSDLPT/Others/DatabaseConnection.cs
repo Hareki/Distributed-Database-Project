@@ -25,8 +25,8 @@ namespace TracNghiemCSDLPT.SQL_Connection
         private static string RemoteLogin = "HTKN";
         private static string RemotePassword = "123456";
 
-        private static string LoginSV = "LOGIN_SINHVIEN";
-        private static string PasswordSV = "123456";
+        public static string LoginSV = "LOGIN_SINHVIEN";
+        public static string PasswordSV = "123456";
 
 
         public static SqlConnection GetPublisherConnection()

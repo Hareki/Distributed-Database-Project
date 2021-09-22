@@ -73,17 +73,23 @@ namespace TracNghiemCSDLPT
             string loginName = TextLogin.Text.Trim();
             string password = TextPassword.Text.Trim();
 
-            Program.LoginName = loginName;
-            Program.Password = password;
+
+
 
             bool test1 = ValidatePassword();
             bool test2 = ValidateLoginName();
             bool test3 = ValidateNhomQuyen();
             bool test4 = ValidateCoSo();
             if (!(test1 && test2 && test3 && test4))
+            {
+                Utils.ShowMessage("Vui lòng điền đầy đủ thông tin đăng nhập!", Others.NotiForm.FormType.Error, 2);
                 return;
+            }
+
             if (rdoGV.Checked)
             {
+                Program.LoginName = loginName;
+                Program.Password = password;
                 if (DatabaseConnection.GetSubcriberConnection(loginName, password, ComboBoxCoSo.SelectedValue.ToString()) == null)
                 {
                     Utils.ShowMessage("Tài khoản, mật khẩu hoặc cơ sở không chính xác. Vui lòng xem " +
@@ -140,6 +146,8 @@ namespace TracNghiemCSDLPT
                         "lại thông tin đăng nhập.", Others.NotiForm.FormType.Error, 4);
                     return;
                 }
+                Program.LoginName = DatabaseConnection.LoginSV;
+                Program.Password = DatabaseConnection.PasswordSV;
                 Program.UserName = "USER_SINHVIEN"; // Lấy Mã GV, chính là Username ở cột 1.
                 Program.HoTen = myReader.GetString(1);
                 Program.NhomQuyen = myReader.GetString(2);
@@ -227,6 +235,7 @@ namespace TracNghiemCSDLPT
             }
             else
             {
+                ComboBoxCoSo.BorderColor = Color.FromArgb(204, 208, 213);
                 CSEP.SetError(ComboBoxCoSo, null);
                 return true;
             }

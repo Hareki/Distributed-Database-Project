@@ -16,6 +16,7 @@ using System.Windows.Forms;
 using System.Data.SqlTypes;
 using Bunifu.UI.WinForms;
 using static Bunifu.UI.WinForms.BunifuTextBox;
+using Guna.UI2.WinForms;
 
 namespace TracNghiemCSDLPT
 {
@@ -270,24 +271,20 @@ namespace TracNghiemCSDLPT
         {
             normal, error
         }
-        private void SetBorderState(BunifuTextBox textBox, BorderState state)
+        private void SetBorderState(Guna2TextBox textBox, BorderState state)
         {
             if (state == BorderState.error)
             {
-                textBox.OnActiveState.BorderColor = textBox.OnIdleState.BorderColor
-                = textBox.OnHoverState.BorderColor = Color.IndianRed;
-
-                textBox.BorderColorIdle = textBox.BorderColorActive = textBox.BorderColorHover = Color.IndianRed;
-                this.guna2TextBox1.BorderColor = this.guna2TextBox1.HoverState.BorderColor =
-                    this.guna2TextBox1.FocusedState.BorderColor = ErrorColor;
+                textBox.BorderColor = textBox.HoverState.BorderColor =
+                   textBox.FocusedState.BorderColor = ErrorColor;
 
 
             }
             else
             {
-                textBox.OnActiveState.BorderColor = textBox.BorderColorActive = Color.FromArgb(16, 110, 190);
-                textBox.OnHoverState.BorderColor = textBox.BorderColorHover = Color.FromArgb(105, 181, 255);
-                textBox.OnIdleState.BorderColor = textBox.BorderColorIdle = Color.Silver;
+                textBox.FocusedState.BorderColor = Color.FromArgb(16, 110, 190);
+                textBox.HoverState.BorderColor = Color.FromArgb(104, 168, 255);
+                textBox.BorderColor = Color.Silver;
             }
         }
 
@@ -314,26 +311,26 @@ namespace TracNghiemCSDLPT
 
         private void guna2TextBox1_IconRightClick(object sender, EventArgs e)
         {
-            if (guna2TextBox1.UseSystemPasswordChar == true)
+            if (TextPassword.UseSystemPasswordChar == true)
             {
                 ShowPassword = false;
-                guna2TextBox1.IconRight = global::TracNghiemCSDLPT.Properties.Resources.eye_512px;
-                guna2TextBox1.UseSystemPasswordChar = false;
+                TextPassword.IconRight = global::TracNghiemCSDLPT.Properties.Resources.eye_512px;
+                TextPassword.UseSystemPasswordChar = false;
             }
             else
             {
                 ShowPassword = true;
-                guna2TextBox1.IconRight = global::TracNghiemCSDLPT.Properties.Resources.invisible_512px;
-                guna2TextBox1.UseSystemPasswordChar = true;
+                TextPassword.IconRight = global::TracNghiemCSDLPT.Properties.Resources.invisible_512px;
+                TextPassword.UseSystemPasswordChar = true;
             }
         }
 
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)
         {
-            if (guna2TextBox1.Text.Equals(""))
-                guna2TextBox1.UseSystemPasswordChar = false;
+            if (TextPassword.Text.Equals(""))
+                TextPassword.UseSystemPasswordChar = false;
             else if (ShowPassword == true)
-                guna2TextBox1.UseSystemPasswordChar = true;
+                TextPassword.UseSystemPasswordChar = true;
         }
     }
 

@@ -31,14 +31,6 @@ namespace TracNghiemCSDLPT
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties41 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties42 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties43 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties44 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties45 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties46 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties47 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties48 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonDangNhap = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,15 +43,14 @@ namespace TracNghiemCSDLPT
             this.rdoGV = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.LabelGiangVien = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.TextPassword = new Bunifu.UI.WinForms.BunifuTextBox();
-            this.TextLogin = new Bunifu.UI.WinForms.BunifuTextBox();
             this.buttonThoat = new System.Windows.Forms.Button();
             this.LoginEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.PasswordEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.RdoEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.CSEP = new System.Windows.Forms.ErrorProvider(this.components);
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.TextPassword = new Guna.UI2.WinForms.Guna2TextBox();
+            this.TextLogin = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.PanelSV.SuspendLayout();
             this.PanelGV.SuspendLayout();
@@ -86,7 +77,7 @@ namespace TracNghiemCSDLPT
             this.buttonDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDangNhap.Font = new System.Drawing.Font("Baloo 2 SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDangNhap.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonDangNhap.Location = new System.Drawing.Point(301, 491);
+            this.buttonDangNhap.Location = new System.Drawing.Point(302, 491);
             this.buttonDangNhap.Name = "buttonDangNhap";
             this.buttonDangNhap.Size = new System.Drawing.Size(163, 46);
             this.buttonDangNhap.TabIndex = 9;
@@ -238,168 +229,13 @@ namespace TracNghiemCSDLPT
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
-            // TextPassword
-            // 
-            this.TextPassword.AcceptsReturn = false;
-            this.TextPassword.AcceptsTab = false;
-            this.TextPassword.AnimationSpeed = 100;
-            this.TextPassword.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.TextPassword.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.TextPassword.AutoSizeHeight = true;
-            this.TextPassword.BackColor = System.Drawing.Color.White;
-            this.TextPassword.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TextPassword.BackgroundImage")));
-            this.TextPassword.BorderColorActive = System.Drawing.Color.DodgerBlue;
-            this.TextPassword.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.TextPassword.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.TextPassword.BorderColorIdle = System.Drawing.Color.Yellow;
-            this.TextPassword.BorderRadius = 10;
-            this.TextPassword.BorderThickness = 2;
-            this.TextPassword.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.TextPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TextPassword.DefaultFont = new System.Drawing.Font("Baloo 2", 10.8F);
-            this.TextPassword.DefaultText = "";
-            this.TextPassword.FillColor = System.Drawing.Color.White;
-            this.TextPassword.HideSelection = true;
-            this.TextPassword.IconLeft = global::TracNghiemCSDLPT.Properties.Resources.lock_500px;
-            this.TextPassword.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-            this.TextPassword.IconPadding = 10;
-            this.TextPassword.IconRight = global::TracNghiemCSDLPT.Properties.Resources.invisible_512px;
-            this.TextPassword.IconRightCursor = System.Windows.Forms.Cursors.Hand;
-            this.TextPassword.Lines = new string[0];
-            this.TextPassword.Location = new System.Drawing.Point(101, 393);
-            this.TextPassword.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
-            this.TextPassword.MaxLength = 32767;
-            this.TextPassword.MinimumSize = new System.Drawing.Size(1, 1);
-            this.TextPassword.Modified = false;
-            this.TextPassword.Multiline = false;
-            this.TextPassword.Name = "TextPassword";
-            stateProperties41.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(110)))), ((int)(((byte)(190)))));
-            stateProperties41.FillColor = System.Drawing.Color.Empty;
-            stateProperties41.ForeColor = System.Drawing.Color.Empty;
-            stateProperties41.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.TextPassword.OnActiveState = stateProperties41;
-            stateProperties42.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties42.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties42.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.TextPassword.OnDisabledState = stateProperties42;
-            stateProperties43.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties43.FillColor = System.Drawing.Color.Empty;
-            stateProperties43.ForeColor = System.Drawing.Color.Empty;
-            stateProperties43.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.TextPassword.OnHoverState = stateProperties43;
-            stateProperties44.BorderColor = System.Drawing.Color.Yellow;
-            stateProperties44.FillColor = System.Drawing.Color.White;
-            stateProperties44.ForeColor = System.Drawing.Color.Empty;
-            stateProperties44.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.TextPassword.OnIdleState = stateProperties44;
-            this.TextPassword.Padding = new System.Windows.Forms.Padding(3);
-            this.TextPassword.PasswordChar = '\0';
-            this.TextPassword.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.TextPassword.PlaceholderText = "Mật khẩu";
-            this.TextPassword.ReadOnly = false;
-            this.TextPassword.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.TextPassword.SelectedText = "";
-            this.TextPassword.SelectionLength = 0;
-            this.TextPassword.SelectionStart = 0;
-            this.TextPassword.ShortcutsEnabled = true;
-            this.TextPassword.Size = new System.Drawing.Size(362, 59);
-            this.TextPassword.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Material;
-            this.TextPassword.TabIndex = 1;
-            this.TextPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.TextPassword.TextMarginBottom = 0;
-            this.TextPassword.TextMarginLeft = 3;
-            this.TextPassword.TextMarginTop = 1;
-            this.TextPassword.TextPlaceholder = "Mật khẩu";
-            this.TextPassword.UseSystemPasswordChar = false;
-            this.TextPassword.WordWrap = true;
-            this.TextPassword.TextChange += new System.EventHandler(this.TextPassword_TextChange);
-            this.TextPassword.OnIconRightClick += new System.EventHandler(this.FieldPasword_OnIconRightClick);
-            // 
-            // TextLogin
-            // 
-            this.TextLogin.AcceptsReturn = false;
-            this.TextLogin.AcceptsTab = false;
-            this.TextLogin.AnimationSpeed = 100;
-            this.TextLogin.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.TextLogin.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.TextLogin.AutoSizeHeight = true;
-            this.TextLogin.BackColor = System.Drawing.Color.White;
-            this.TextLogin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TextLogin.BackgroundImage")));
-            this.TextLogin.BorderColorActive = System.Drawing.Color.DodgerBlue;
-            this.TextLogin.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.TextLogin.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.TextLogin.BorderColorIdle = System.Drawing.Color.Yellow;
-            this.TextLogin.BorderRadius = 10;
-            this.TextLogin.BorderThickness = 2;
-            this.TextLogin.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.TextLogin.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TextLogin.DefaultFont = new System.Drawing.Font("Baloo 2", 10.8F);
-            this.TextLogin.DefaultText = "";
-            this.TextLogin.FillColor = System.Drawing.Color.White;
-            this.TextLogin.HideSelection = true;
-            this.TextLogin.IconLeft = global::TracNghiemCSDLPT.Properties.Resources.user_480px1;
-            this.TextLogin.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-            this.TextLogin.IconPadding = 10;
-            this.TextLogin.IconRight = null;
-            this.TextLogin.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-            this.TextLogin.Lines = new string[0];
-            this.TextLogin.Location = new System.Drawing.Point(100, 316);
-            this.TextLogin.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
-            this.TextLogin.MaxLength = 32767;
-            this.TextLogin.MinimumSize = new System.Drawing.Size(1, 1);
-            this.TextLogin.Modified = false;
-            this.TextLogin.Multiline = false;
-            this.TextLogin.Name = "TextLogin";
-            stateProperties45.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(110)))), ((int)(((byte)(190)))));
-            stateProperties45.FillColor = System.Drawing.Color.Empty;
-            stateProperties45.ForeColor = System.Drawing.Color.Empty;
-            stateProperties45.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.TextLogin.OnActiveState = stateProperties45;
-            stateProperties46.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties46.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties46.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.TextLogin.OnDisabledState = stateProperties46;
-            stateProperties47.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties47.FillColor = System.Drawing.Color.Empty;
-            stateProperties47.ForeColor = System.Drawing.Color.Empty;
-            stateProperties47.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.TextLogin.OnHoverState = stateProperties47;
-            stateProperties48.BorderColor = System.Drawing.Color.Yellow;
-            stateProperties48.FillColor = System.Drawing.Color.White;
-            stateProperties48.ForeColor = System.Drawing.Color.Empty;
-            stateProperties48.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.TextLogin.OnIdleState = stateProperties48;
-            this.TextLogin.Padding = new System.Windows.Forms.Padding(3);
-            this.TextLogin.PasswordChar = '\0';
-            this.TextLogin.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.TextLogin.PlaceholderText = "Tài khoản";
-            this.TextLogin.ReadOnly = false;
-            this.TextLogin.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.TextLogin.SelectedText = "";
-            this.TextLogin.SelectionLength = 0;
-            this.TextLogin.SelectionStart = 0;
-            this.TextLogin.ShortcutsEnabled = true;
-            this.TextLogin.Size = new System.Drawing.Size(362, 59);
-            this.TextLogin.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Material;
-            this.TextLogin.TabIndex = 0;
-            this.TextLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.TextLogin.TextMarginBottom = 0;
-            this.TextLogin.TextMarginLeft = 3;
-            this.TextLogin.TextMarginTop = 1;
-            this.TextLogin.TextPlaceholder = "Tài khoản";
-            this.TextLogin.UseSystemPasswordChar = false;
-            this.TextLogin.WordWrap = true;
-            this.TextLogin.TextChange += new System.EventHandler(this.TextLogin_TextChange);
-            // 
             // buttonThoat
             // 
             this.buttonThoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(202)))), ((int)(((byte)(202)))));
             this.buttonThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonThoat.Font = new System.Drawing.Font("Baloo 2 SemiBold", 13.8F, System.Drawing.FontStyle.Bold);
             this.buttonThoat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonThoat.Location = new System.Drawing.Point(101, 491);
+            this.buttonThoat.Location = new System.Drawing.Point(100, 491);
             this.buttonThoat.Name = "buttonThoat";
             this.buttonThoat.Size = new System.Drawing.Size(163, 46);
             this.buttonThoat.TabIndex = 9;
@@ -438,39 +274,72 @@ namespace TracNghiemCSDLPT
             this.CSEP.ContainerControl = this;
             this.CSEP.Icon = ((System.Drawing.Icon)(resources.GetObject("CSEP.Icon")));
             // 
-            // guna2TextBox1
+            // TextPassword
             // 
-            this.guna2TextBox1.BorderThickness = 3;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Font = new System.Drawing.Font("Baloo 2", 10.8F);
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.IconLeft = global::TracNghiemCSDLPT.Properties.Resources.lock_500px;
-            this.guna2TextBox1.IconLeftOffset = new System.Drawing.Point(0, -5);
-            this.guna2TextBox1.IconLeftSize = new System.Drawing.Size(35, 35);
-            this.guna2TextBox1.IconRight = global::TracNghiemCSDLPT.Properties.Resources.invisible_512px;
-            this.guna2TextBox1.IconRightOffset = new System.Drawing.Point(0, -3);
-            this.guna2TextBox1.IconRightSize = new System.Drawing.Size(35, 35);
-            this.guna2TextBox1.Location = new System.Drawing.Point(289, 107);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "Mật khẩu";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(267, 44);
-            this.guna2TextBox1.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.guna2TextBox1.TabIndex = 13;
-            this.guna2TextBox1.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
-            this.guna2TextBox1.IconRightClick += new System.EventHandler(this.guna2TextBox1_IconRightClick);
+            this.TextPassword.BorderThickness = 2;
+            this.TextPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TextPassword.DefaultText = "";
+            this.TextPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TextPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.TextPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TextPassword.DisabledState.Parent = this.TextPassword;
+            this.TextPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TextPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TextPassword.FocusedState.Parent = this.TextPassword;
+            this.TextPassword.Font = new System.Drawing.Font("Baloo 2", 10.8F);
+            this.TextPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(168)))), ((int)(((byte)(255)))));
+            this.TextPassword.HoverState.Parent = this.TextPassword;
+            this.TextPassword.IconLeft = global::TracNghiemCSDLPT.Properties.Resources.lock_500px;
+            this.TextPassword.IconLeftOffset = new System.Drawing.Point(0, -5);
+            this.TextPassword.IconLeftSize = new System.Drawing.Size(35, 35);
+            this.TextPassword.IconRight = global::TracNghiemCSDLPT.Properties.Resources.invisible_512px;
+            this.TextPassword.IconRightOffset = new System.Drawing.Point(0, -3);
+            this.TextPassword.IconRightSize = new System.Drawing.Size(35, 35);
+            this.TextPassword.Location = new System.Drawing.Point(98, 381);
+            this.TextPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextPassword.Name = "TextPassword";
+            this.TextPassword.PasswordChar = '\0';
+            this.TextPassword.PlaceholderText = "Mật khẩu";
+            this.TextPassword.SelectedText = "";
+            this.TextPassword.ShadowDecoration.Parent = this.TextPassword;
+            this.TextPassword.Size = new System.Drawing.Size(364, 49);
+            this.TextPassword.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.TextPassword.TabIndex = 13;
+            this.TextPassword.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
+            this.TextPassword.IconRightClick += new System.EventHandler(this.guna2TextBox1_IconRightClick);
+            // 
+            // TextLogin
+            // 
+            this.TextLogin.BorderThickness = 2;
+            this.TextLogin.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TextLogin.DefaultText = "";
+            this.TextLogin.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TextLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.TextLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TextLogin.DisabledState.Parent = this.TextLogin;
+            this.TextLogin.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TextLogin.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TextLogin.FocusedState.Parent = this.TextLogin;
+            this.TextLogin.Font = new System.Drawing.Font("Baloo 2", 10.8F);
+            this.TextLogin.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(168)))), ((int)(((byte)(255)))));
+            this.TextLogin.HoverState.Parent = this.TextLogin;
+            this.TextLogin.IconLeft = global::TracNghiemCSDLPT.Properties.Resources.user_480px1;
+            this.TextLogin.IconLeftOffset = new System.Drawing.Point(0, -5);
+            this.TextLogin.IconLeftSize = new System.Drawing.Size(35, 35);
+            this.TextLogin.IconRightOffset = new System.Drawing.Point(0, -3);
+            this.TextLogin.IconRightSize = new System.Drawing.Size(35, 35);
+            this.TextLogin.Location = new System.Drawing.Point(101, 313);
+            this.TextLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 15);
+            this.TextLogin.Name = "TextLogin";
+            this.TextLogin.PasswordChar = '\0';
+            this.TextLogin.PlaceholderText = "Tài khoản";
+            this.TextLogin.SelectedText = "";
+            this.TextLogin.ShadowDecoration.Parent = this.TextLogin;
+            this.TextLogin.Size = new System.Drawing.Size(364, 49);
+            this.TextLogin.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.TextLogin.TabIndex = 13;
+            this.TextLogin.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
+            this.TextLogin.IconRightClick += new System.EventHandler(this.guna2TextBox1_IconRightClick);
             // 
             // FormLogin
             // 
@@ -481,7 +350,8 @@ namespace TracNghiemCSDLPT
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(564, 567);
-            this.Controls.Add(this.guna2TextBox1);
+            this.Controls.Add(this.TextLogin);
+            this.Controls.Add(this.TextPassword);
             this.Controls.Add(this.ComboBoxCoSo);
             this.Controls.Add(this.PanelSV);
             this.Controls.Add(this.PanelGV);
@@ -491,8 +361,6 @@ namespace TracNghiemCSDLPT
             this.Controls.Add(this.buttonDangNhap);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.TextPassword);
-            this.Controls.Add(this.TextLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IconOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.logo2;
             this.MaximizeBox = false;
@@ -515,9 +383,6 @@ namespace TracNghiemCSDLPT
         }
 
         #endregion
-
-        private Bunifu.UI.WinForms.BunifuTextBox TextLogin;
-        private Bunifu.UI.WinForms.BunifuTextBox TextPassword;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonDangNhap;
@@ -536,6 +401,7 @@ namespace TracNghiemCSDLPT
         private System.Windows.Forms.ErrorProvider RdoEP;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ErrorProvider CSEP;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox TextPassword;
+        private Guna.UI2.WinForms.Guna2TextBox TextLogin;
     }
 }

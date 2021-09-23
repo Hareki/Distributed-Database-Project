@@ -308,6 +308,7 @@ namespace TracNghiemCSDLPT
             this.TextPassword.TabIndex = 13;
             this.TextPassword.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
             this.TextPassword.IconRightClick += new System.EventHandler(this.guna2TextBox1_IconRightClick);
+            this.TextPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextLogin_KeyDown);
             // 
             // TextLogin
             // 
@@ -341,6 +342,7 @@ namespace TracNghiemCSDLPT
             this.TextLogin.TabIndex = 13;
             this.TextLogin.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
             this.TextLogin.IconRightClick += new System.EventHandler(this.guna2TextBox1_IconRightClick);
+            this.TextLogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextLogin_KeyDown);
             // 
             // FormLogin
             // 

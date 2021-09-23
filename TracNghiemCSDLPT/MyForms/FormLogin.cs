@@ -27,6 +27,7 @@ namespace TracNghiemCSDLPT
         {
             InitializeComponent();
             InitializeUI();
+            AutoFilled();
         }
         public StateProperties ErrorState;
         private Color ErrorColor = Color.FromArgb(236, 65, 52);
@@ -38,15 +39,14 @@ namespace TracNghiemCSDLPT
                 Utils.ShowMessage("Lỗi không xác định", Others.NotiForm.FormType.Error, 1);
                 return;
             }
-            ComboBoxCoSo.DataSource = Program.BS_Subcribers.DataSource = dataTable;
+            ComboBoxCoSo.DataSource = DBConnection.BS_Subcribers.DataSource = dataTable;
             ComboBoxCoSo.DisplayMember = "TENCS";
             ComboBoxCoSo.ValueMember = "TENSERVER";
             ComboBoxCoSo.SelectedIndex = -1;
         }
         private DataTable GetSubcriber()
         {
-            SqlConnection MyConnection = DatabaseConnection.GetPublisherConnection();
-            if (MyConnection == null)
+            if (!DBConnection.ConnectToPublisher())
             {
                 Utils.ShowMessage("Kết nối đến CSDL thất bại. " +
                      "Vui lòng xem lại tên server và tên CSDL trong chuỗi kết nối",
@@ -57,9 +57,9 @@ namespace TracNghiemCSDLPT
 
             string query = "SELECT * FROM V_GET_SUBSCRIBER";
             DataTable dataTable = new DataTable();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(query, MyConnection);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(query, DBConnection.PublisherConnection);
             dataAdapter.Fill(dataTable);
-            MyConnection.Close();
+            DBConnection.PublisherConnection.Close();
             return dataTable;
         }
         protected override FormPainter CreateFormBorderPainter()
@@ -68,13 +68,18 @@ namespace TracNghiemCSDLPT
         }
         bool ShowPassword = true;
 
+        private void AutoFilled()
+        {
+            ComboBoxCoSo.SelectedIndex = 0;
+            rdoGV.Checked = true;
+            TextLogin.Text = "PVH";
+            TextPassword.Text = "123456";
+            
+        }
         private void RequestLogin()
         {
             string loginName = TextLogin.Text.Trim();
             string password = TextPassword.Text.Trim();
-
-
-
 
             bool test1 = ValidatePassword();
             bool test2 = ValidateLoginName();
@@ -88,9 +93,7 @@ namespace TracNghiemCSDLPT
 
             if (rdoGV.Checked)
             {
-                Program.LoginName = loginName;
-                Program.Password = password;
-                if (DatabaseConnection.GetSubcriberConnection(loginName, password, ComboBoxCoSo.SelectedValue.ToString()) == null)
+                if (!DBConnection.ConnectToSubcriber(loginName, password, ComboBoxCoSo.SelectedValue.ToString()))
                 {
                     Utils.ShowMessage("Tài khoản, mật khẩu hoặc cơ sở không chính xác. Vui lòng xem " +
                         "lại thông tin đăng nhập.", Others.NotiForm.FormType.Error, 4);
@@ -99,7 +102,7 @@ namespace TracNghiemCSDLPT
 
 
                 string query = "EXEC SP_GET_GV_INFO_FROM_LOGIN_NAME '" + loginName + "'";
-                SqlDataReader myReader = DatabaseConnection.ExecuteSqlDataReader(query);
+                SqlDataReader myReader = DBConnection.ExecuteSqlDataReader(query);
                 if (myReader == null)
                 {
                     Utils.ShowMessage("Xảy ra lỗi không xác định", Others.NotiForm.FormType.Error, 1);
@@ -107,28 +110,29 @@ namespace TracNghiemCSDLPT
                     return;
                 }
                 myReader.Read();
-                Program.UserName = myReader.GetString(0); // Lấy Mã GV, chính là Username ở cột 1.
-                Program.HoTen = myReader.GetString(1);
-                Program.NhomQuyen = myReader.GetString(2);
+                DBConnection.UserName = myReader.GetString(0); // Lấy Mã GV, chính là Username ở cột 1.
+                DBConnection.HoTen = myReader.GetString(1);
+                DBConnection.NhomQuyen = myReader.GetString(2);
                 myReader.Close();
                 Program.MainInstance = new MainView();
-                Program.MainInstance.statusMa.Caption = "Mã GV: " + Program.UserName;
-                Program.MainInstance.statusTen.Caption = "Họ tên: " + Program.HoTen;
-                Program.MainInstance.statusQuyen.Caption = "Nhóm: " + Program.NhomQuyen;
+                Program.MainInstance.statusMa.Caption = "Mã GV: " + DBConnection.UserName;
+                Program.MainInstance.statusTen.Caption = "Họ tên: " + DBConnection.HoTen;
+                Program.MainInstance.statusQuyen.Caption = "Nhóm: " + DBConnection.NhomQuyen;
                 Program.MainInstance.Show();
                 this.Hide();
             }
             else
             {
-                if (DatabaseConnection.GetSubcriberConnection(ComboBoxCoSo.SelectedValue.ToString()) == null)
+                if (!DBConnection.ConnectToSubcriber(ComboBoxCoSo.SelectedValue.ToString()))
                 {
                     Utils.ShowMessage("Kết nối đến CSDL thất bại. " +
                         "Login hoặc password của sinh viên trong chuỗi kết nối không chính xác", Others.NotiForm.FormType.Error, 3);
                     return;
                 }
+                
                 string query = "EXEC SP_GET_SV_INFO_FROM_LOGIN_NAME '" + loginName + "', '"
                     + password + "'";
-                SqlDataReader myReader = DatabaseConnection.ExecuteSqlDataReader(query);
+                SqlDataReader myReader = DBConnection.ExecuteSqlDataReader(query);
                 if (myReader == null)
                 {
                     Utils.ShowMessage("Xảy ra lỗi không xác định", Others.NotiForm.FormType.Error, 1);
@@ -146,16 +150,15 @@ namespace TracNghiemCSDLPT
                         "lại thông tin đăng nhập.", Others.NotiForm.FormType.Error, 4);
                     return;
                 }
-                Program.LoginName = DatabaseConnection.LoginSV;
-                Program.Password = DatabaseConnection.PasswordSV;
-                Program.UserName = "USER_SINHVIEN"; // Lấy Mã GV, chính là Username ở cột 1.
-                Program.HoTen = myReader.GetString(1);
-                Program.NhomQuyen = myReader.GetString(2);
+
+                DBConnection.UserName = DBConnection.UserNameSV; 
+                DBConnection.HoTen = myReader.GetString(1);
+                DBConnection.NhomQuyen = myReader.GetString(2);
                 myReader.Close();
                 Program.MainInstance = new MainView();
-                Program.MainInstance.statusMa.Caption = "Mã SV: " + Program.UserName;
-                Program.MainInstance.statusTen.Caption = "Họ tên: " + Program.HoTen;
-                Program.MainInstance.statusQuyen.Caption = "Nhóm: " + Program.NhomQuyen;
+                Program.MainInstance.statusMa.Caption = "Mã SV: " + DBConnection.UserName;
+                Program.MainInstance.statusTen.Caption = "Họ tên: " + DBConnection.HoTen;
+                Program.MainInstance.statusQuyen.Caption = "Nhóm: " + DBConnection.NhomQuyen;
                 Program.MainInstance.Show();
                 this.Hide();
             }
@@ -178,7 +181,7 @@ namespace TracNghiemCSDLPT
         {
             if (ComboBoxCoSo.SelectedIndex != -1)
             {
-                Program.SubcriberName = ComboBoxCoSo.SelectedValue.ToString();
+                DBConnection.SubcriberName = ComboBoxCoSo.SelectedValue.ToString();
             }
 
 
@@ -315,7 +318,11 @@ namespace TracNghiemCSDLPT
         private void TextLogin_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
                 RequestLogin();
+            }
+            
         }
 
         private void guna2TextBox1_IconRightClick(object sender, EventArgs e)
@@ -341,6 +348,7 @@ namespace TracNghiemCSDLPT
             else if (ShowPassword == true)
                 TextPassword.UseSystemPasswordChar = true;
         }
+
     }
 
     class MyFormPainter : FormPainter

@@ -45,19 +45,25 @@ namespace TracNghiemCSDLPT.Views
             this.bar5 = new DevExpress.XtraBars.Bar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.bunifuGroupBox1 = new Bunifu.UI.WinForms.BunifuGroupBox();
-            this.TFTenMH = new DevExpress.XtraEditors.TextEdit();
-            this.TFMaMH = new DevExpress.XtraEditors.TextEdit();
-            this.guna2CircleButton2 = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.guna2CircleButton4 = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.guna2CircleButton3 = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
+            this.InfoPanel = new Bunifu.UI.WinForms.BunifuGroupBox();
+            this.TextTenMH = new DevExpress.XtraEditors.TextEdit();
+            this.TextMaMH = new DevExpress.XtraEditors.TextEdit();
+            this.buttonHuy = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.buttonRedo = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.buttonUndo = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.buttonXacNhan = new Guna.UI2.WinForms.Guna2CircleButton();
             this.MonHocTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.MONHOCTableAdapter();
             this.tableAdapterManager = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
+            this.BoDeBindingSouce = new System.Windows.Forms.BindingSource(this.components);
+            this.BoDeTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.BODETableAdapter();
+            this.BangDiemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.BangDiemTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.BANGDIEMTableAdapter();
+            this.GV_DKBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.GV_DKTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.GIAOVIEN_DANGKYTableAdapter();
+            this.buttonXoa = new Guna.UI2.WinForms.Guna2Button();
+            this.buttonLamMoi = new Guna.UI2.WinForms.Guna2Button();
+            this.buttonThem = new Guna.UI2.WinForms.Guna2Button();
+            this.buttonSua = new Guna.UI2.WinForms.Guna2Button();
             LabelMaMH = new System.Windows.Forms.Label();
             LabelTenMH = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MonHocGridControl)).BeginInit();
@@ -67,16 +73,19 @@ namespace TracNghiemCSDLPT.Views
             ((System.ComponentModel.ISupportInitialize)(this.cardView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bunifuPanel1.SuspendLayout();
-            this.bunifuGroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TFTenMH.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TFMaMH.Properties)).BeginInit();
+            this.InfoPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TextTenMH.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TextMaMH.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BoDeBindingSouce)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BangDiemBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GV_DKBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // LabelMaMH
             // 
             LabelMaMH.AutoSize = true;
             LabelMaMH.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            LabelMaMH.Location = new System.Drawing.Point(234, 70);
+            LabelMaMH.Location = new System.Drawing.Point(234, 84);
             LabelMaMH.Name = "LabelMaMH";
             LabelMaMH.Size = new System.Drawing.Size(115, 30);
             LabelMaMH.TabIndex = 4;
@@ -86,7 +95,7 @@ namespace TracNghiemCSDLPT.Views
             // 
             LabelTenMH.AutoSize = true;
             LabelTenMH.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            LabelTenMH.Location = new System.Drawing.Point(234, 130);
+            LabelTenMH.Location = new System.Drawing.Point(234, 144);
             LabelTenMH.Name = "LabelTenMH";
             LabelTenMH.Size = new System.Drawing.Size(120, 30);
             LabelTenMH.TabIndex = 5;
@@ -99,10 +108,10 @@ namespace TracNghiemCSDLPT.Views
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MonHocGridControl.DataSource = this.MonHocBindingSouce;
             this.MonHocGridControl.Font = new System.Drawing.Font("Teko SemiBold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MonHocGridControl.Location = new System.Drawing.Point(0, 341);
+            this.MonHocGridControl.Location = new System.Drawing.Point(0, 343);
             this.MonHocGridControl.MainView = this.MonHocGridView;
             this.MonHocGridControl.Name = "MonHocGridControl";
-            this.MonHocGridControl.Size = new System.Drawing.Size(1029, 313);
+            this.MonHocGridControl.Size = new System.Drawing.Size(1192, 312);
             this.MonHocGridControl.TabIndex = 12;
             this.MonHocGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.MonHocGridView,
@@ -149,6 +158,8 @@ namespace TracNghiemCSDLPT.Views
             this.MonHocGridView.GridControl = this.MonHocGridControl;
             this.MonHocGridView.Name = "MonHocGridView";
             this.MonHocGridView.OptionsBehavior.Editable = false;
+            this.MonHocGridView.OptionsBehavior.ReadOnly = true;
+            this.MonHocGridView.OptionsCustomization.AllowRowSizing = true;
             this.MonHocGridView.OptionsDetail.EnableMasterViewMode = false;
             this.MonHocGridView.OptionsScrollAnnotations.ShowFocusedRow = DevExpress.Utils.DefaultBoolean.True;
             // 
@@ -205,7 +216,7 @@ namespace TracNghiemCSDLPT.Views
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.book_500px;
-            this.pictureBox1.Location = new System.Drawing.Point(64, 33);
+            this.pictureBox1.Location = new System.Drawing.Point(62, 47);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(128, 156);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -222,222 +233,149 @@ namespace TracNghiemCSDLPT.Views
             this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuPanel1.BorderRadius = 3;
             this.bunifuPanel1.BorderThickness = 1;
-            this.bunifuPanel1.Controls.Add(this.bunifuGroupBox1);
-            this.bunifuPanel1.Controls.Add(this.guna2CircleButton2);
-            this.bunifuPanel1.Controls.Add(this.guna2CircleButton4);
-            this.bunifuPanel1.Controls.Add(this.guna2CircleButton3);
-            this.bunifuPanel1.Controls.Add(this.guna2CircleButton1);
+            this.bunifuPanel1.Controls.Add(this.InfoPanel);
+            this.bunifuPanel1.Controls.Add(this.buttonHuy);
+            this.bunifuPanel1.Controls.Add(this.buttonRedo);
+            this.bunifuPanel1.Controls.Add(this.buttonUndo);
+            this.bunifuPanel1.Controls.Add(this.buttonXacNhan);
             this.bunifuPanel1.Location = new System.Drawing.Point(0, 12);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(1029, 242);
+            this.bunifuPanel1.Size = new System.Drawing.Size(1192, 266);
             this.bunifuPanel1.TabIndex = 10;
             // 
-            // bunifuGroupBox1
+            // InfoPanel
             // 
-            this.bunifuGroupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bunifuGroupBox1.BorderColor = System.Drawing.Color.LightGray;
-            this.bunifuGroupBox1.BorderRadius = 1;
-            this.bunifuGroupBox1.BorderThickness = 1;
-            this.bunifuGroupBox1.Controls.Add(LabelTenMH);
-            this.bunifuGroupBox1.Controls.Add(this.TFTenMH);
-            this.bunifuGroupBox1.Controls.Add(LabelMaMH);
-            this.bunifuGroupBox1.Controls.Add(this.TFMaMH);
-            this.bunifuGroupBox1.Controls.Add(this.pictureBox1);
-            this.bunifuGroupBox1.Font = new System.Drawing.Font("Baloo 2", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuGroupBox1.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.bunifuGroupBox1.LabelIndent = 10;
-            this.bunifuGroupBox1.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
-            this.bunifuGroupBox1.Location = new System.Drawing.Point(185, 3);
-            this.bunifuGroupBox1.Name = "bunifuGroupBox1";
-            this.bunifuGroupBox1.Size = new System.Drawing.Size(659, 223);
-            this.bunifuGroupBox1.TabIndex = 12;
-            this.bunifuGroupBox1.TabStop = false;
-            this.bunifuGroupBox1.Text = "Nhập thông tin môn học";
+            this.InfoPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.InfoPanel.BorderColor = System.Drawing.Color.LightGray;
+            this.InfoPanel.BorderRadius = 1;
+            this.InfoPanel.BorderThickness = 1;
+            this.InfoPanel.Controls.Add(LabelTenMH);
+            this.InfoPanel.Controls.Add(this.TextTenMH);
+            this.InfoPanel.Controls.Add(LabelMaMH);
+            this.InfoPanel.Controls.Add(this.TextMaMH);
+            this.InfoPanel.Controls.Add(this.pictureBox1);
+            this.InfoPanel.Enabled = false;
+            this.InfoPanel.Font = new System.Drawing.Font("Baloo 2", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InfoPanel.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.InfoPanel.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.InfoPanel.LabelIndent = 10;
+            this.InfoPanel.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
+            this.InfoPanel.Location = new System.Drawing.Point(272, 7);
+            this.InfoPanel.Name = "InfoPanel";
+            this.InfoPanel.Size = new System.Drawing.Size(648, 253);
+            this.InfoPanel.TabIndex = 12;
+            this.InfoPanel.TabStop = false;
+            this.InfoPanel.Text = "Thông tin môn học";
             // 
-            // TFTenMH
+            // TextTenMH
             // 
-            this.TFTenMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MonHocBindingSouce, "TENMH", true));
-            this.TFTenMH.Location = new System.Drawing.Point(365, 127);
-            this.TFTenMH.Name = "TFTenMH";
-            this.TFTenMH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.TFTenMH.Properties.Appearance.Options.UseFont = true;
-            this.TFTenMH.Size = new System.Drawing.Size(252, 34);
-            this.TFTenMH.TabIndex = 6;
+            this.TextTenMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MonHocBindingSouce, "TENMH", true));
+            this.TextTenMH.Location = new System.Drawing.Point(365, 141);
+            this.TextTenMH.Name = "TextTenMH";
+            this.TextTenMH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
+            this.TextTenMH.Properties.Appearance.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TextTenMH.Properties.Appearance.Options.UseFont = true;
+            this.TextTenMH.Properties.Appearance.Options.UseForeColor = true;
+            this.TextTenMH.Size = new System.Drawing.Size(252, 34);
+            this.TextTenMH.TabIndex = 6;
             // 
-            // TFMaMH
+            // TextMaMH
             // 
-            this.TFMaMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MonHocBindingSouce, "MAMH", true));
-            this.TFMaMH.Location = new System.Drawing.Point(365, 64);
-            this.TFMaMH.Name = "TFMaMH";
-            this.TFMaMH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.TFMaMH.Properties.Appearance.Options.UseFont = true;
-            this.TFMaMH.Size = new System.Drawing.Size(252, 34);
-            this.TFMaMH.TabIndex = 5;
+            this.TextMaMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MonHocBindingSouce, "MAMH", true));
+            this.TextMaMH.Location = new System.Drawing.Point(365, 78);
+            this.TextMaMH.Name = "TextMaMH";
+            this.TextMaMH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
+            this.TextMaMH.Properties.Appearance.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TextMaMH.Properties.Appearance.Options.UseFont = true;
+            this.TextMaMH.Properties.Appearance.Options.UseForeColor = true;
+            this.TextMaMH.Size = new System.Drawing.Size(252, 34);
+            this.TextMaMH.TabIndex = 5;
+            this.TextMaMH.EditValueChanged += new System.EventHandler(this.TextMaMH_EditValueChanged);
+            this.TextMaMH.TextChanged += new System.EventHandler(this.TextMaMH_TextChanged);
+            this.TextMaMH.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextMaMH_KeyDown);
             // 
-            // guna2CircleButton2
+            // buttonHuy
             // 
-            this.guna2CircleButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.guna2CircleButton2.CheckedState.Parent = this.guna2CircleButton2;
-            this.guna2CircleButton2.CustomImages.Parent = this.guna2CircleButton2;
-            this.guna2CircleButton2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2CircleButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2CircleButton2.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleButton2.HoverState.Parent = this.guna2CircleButton2;
-            this.guna2CircleButton2.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
-            this.guna2CircleButton2.ImageSize = new System.Drawing.Size(31, 31);
-            this.guna2CircleButton2.Location = new System.Drawing.Point(857, 148);
-            this.guna2CircleButton2.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.guna2CircleButton2.Name = "guna2CircleButton2";
-            this.guna2CircleButton2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton2.ShadowDecoration.Parent = this.guna2CircleButton2;
-            this.guna2CircleButton2.Size = new System.Drawing.Size(30, 30);
-            this.guna2CircleButton2.TabIndex = 2;
+            this.buttonHuy.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonHuy.CheckedState.Parent = this.buttonHuy;
+            this.buttonHuy.CustomImages.Parent = this.buttonHuy;
+            this.buttonHuy.FillColor = System.Drawing.Color.Transparent;
+            this.buttonHuy.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonHuy.ForeColor = System.Drawing.Color.White;
+            this.buttonHuy.HoverState.Parent = this.buttonHuy;
+            this.buttonHuy.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
+            this.buttonHuy.ImageSize = new System.Drawing.Size(31, 31);
+            this.buttonHuy.Location = new System.Drawing.Point(933, 137);
+            this.buttonHuy.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.buttonHuy.Name = "buttonHuy";
+            this.buttonHuy.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.buttonHuy.ShadowDecoration.Parent = this.buttonHuy;
+            this.buttonHuy.Size = new System.Drawing.Size(30, 30);
+            this.buttonHuy.TabIndex = 2;
+            this.buttonHuy.Visible = false;
+            this.buttonHuy.Click += new System.EventHandler(this.buttonHuy_Click);
             // 
-            // guna2CircleButton4
+            // buttonRedo
             // 
-            this.guna2CircleButton4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.guna2CircleButton4.CheckedState.Parent = this.guna2CircleButton4;
-            this.guna2CircleButton4.CustomImages.Parent = this.guna2CircleButton4;
-            this.guna2CircleButton4.FillColor = System.Drawing.Color.Transparent;
-            this.guna2CircleButton4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2CircleButton4.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleButton4.HoverState.Parent = this.guna2CircleButton4;
-            this.guna2CircleButton4.Image = global::TracNghiemCSDLPT.Properties.Resources.redo_480px;
-            this.guna2CircleButton4.ImageSize = new System.Drawing.Size(28, 28);
-            this.guna2CircleButton4.Location = new System.Drawing.Point(142, 148);
-            this.guna2CircleButton4.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.guna2CircleButton4.Name = "guna2CircleButton4";
-            this.guna2CircleButton4.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton4.ShadowDecoration.Parent = this.guna2CircleButton4;
-            this.guna2CircleButton4.Size = new System.Drawing.Size(30, 30);
-            this.guna2CircleButton4.TabIndex = 2;
+            this.buttonRedo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonRedo.CheckedState.Parent = this.buttonRedo;
+            this.buttonRedo.CustomImages.Parent = this.buttonRedo;
+            this.buttonRedo.FillColor = System.Drawing.Color.Transparent;
+            this.buttonRedo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonRedo.ForeColor = System.Drawing.Color.White;
+            this.buttonRedo.HoverState.Parent = this.buttonRedo;
+            this.buttonRedo.Image = global::TracNghiemCSDLPT.Properties.Resources.redo_480px;
+            this.buttonRedo.ImageSize = new System.Drawing.Size(28, 28);
+            this.buttonRedo.Location = new System.Drawing.Point(229, 138);
+            this.buttonRedo.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.buttonRedo.Name = "buttonRedo";
+            this.buttonRedo.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.buttonRedo.ShadowDecoration.Parent = this.buttonRedo;
+            this.buttonRedo.Size = new System.Drawing.Size(30, 30);
+            this.buttonRedo.TabIndex = 2;
+            this.buttonRedo.Visible = false;
             // 
-            // guna2CircleButton3
+            // buttonUndo
             // 
-            this.guna2CircleButton3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.guna2CircleButton3.CheckedState.Parent = this.guna2CircleButton3;
-            this.guna2CircleButton3.CustomImages.Parent = this.guna2CircleButton3;
-            this.guna2CircleButton3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2CircleButton3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2CircleButton3.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleButton3.HoverState.Parent = this.guna2CircleButton3;
-            this.guna2CircleButton3.Image = global::TracNghiemCSDLPT.Properties.Resources.undo_480px1;
-            this.guna2CircleButton3.ImageSize = new System.Drawing.Size(28, 28);
-            this.guna2CircleButton3.Location = new System.Drawing.Point(142, 69);
-            this.guna2CircleButton3.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.guna2CircleButton3.Name = "guna2CircleButton3";
-            this.guna2CircleButton3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton3.ShadowDecoration.Parent = this.guna2CircleButton3;
-            this.guna2CircleButton3.Size = new System.Drawing.Size(30, 30);
-            this.guna2CircleButton3.TabIndex = 2;
+            this.buttonUndo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonUndo.CheckedState.Parent = this.buttonUndo;
+            this.buttonUndo.CustomImages.Parent = this.buttonUndo;
+            this.buttonUndo.FillColor = System.Drawing.Color.Transparent;
+            this.buttonUndo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonUndo.ForeColor = System.Drawing.Color.White;
+            this.buttonUndo.HoverState.Parent = this.buttonUndo;
+            this.buttonUndo.Image = global::TracNghiemCSDLPT.Properties.Resources.undo_480px1;
+            this.buttonUndo.ImageSize = new System.Drawing.Size(28, 28);
+            this.buttonUndo.Location = new System.Drawing.Point(229, 30);
+            this.buttonUndo.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.buttonUndo.Name = "buttonUndo";
+            this.buttonUndo.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.buttonUndo.ShadowDecoration.Parent = this.buttonUndo;
+            this.buttonUndo.Size = new System.Drawing.Size(30, 30);
+            this.buttonUndo.TabIndex = 2;
+            this.buttonUndo.Visible = false;
             // 
-            // guna2CircleButton1
+            // buttonXacNhan
             // 
-            this.guna2CircleButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.guna2CircleButton1.CheckedState.Parent = this.guna2CircleButton1;
-            this.guna2CircleButton1.CustomImages.Parent = this.guna2CircleButton1;
-            this.guna2CircleButton1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2CircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleButton1.HoverState.Parent = this.guna2CircleButton1;
-            this.guna2CircleButton1.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
-            this.guna2CircleButton1.ImageSize = new System.Drawing.Size(31, 31);
-            this.guna2CircleButton1.Location = new System.Drawing.Point(857, 69);
-            this.guna2CircleButton1.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.guna2CircleButton1.Name = "guna2CircleButton1";
-            this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton1.ShadowDecoration.Parent = this.guna2CircleButton1;
-            this.guna2CircleButton1.Size = new System.Drawing.Size(30, 30);
-            this.guna2CircleButton1.TabIndex = 2;
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.guna2Button1.Animated = true;
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.Gainsboro;
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Image = global::TracNghiemCSDLPT.Properties.Resources.reset_480px;
-            this.guna2Button1.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2Button1.Location = new System.Drawing.Point(784, 264);
-            this.guna2Button1.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(147, 45);
-            this.guna2Button1.TabIndex = 11;
-            this.guna2Button1.Text = "Làm mới";
-            // 
-            // guna2Button2
-            // 
-            this.guna2Button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.guna2Button2.Animated = true;
-            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
-            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
-            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.guna2Button2.HoverState.FillColor = System.Drawing.Color.Gainsboro;
-            this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_480px;
-            this.guna2Button2.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2Button2.Location = new System.Drawing.Point(555, 264);
-            this.guna2Button2.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
-            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2Button2.Size = new System.Drawing.Size(147, 45);
-            this.guna2Button2.TabIndex = 11;
-            this.guna2Button2.Text = "Sửa";
-            // 
-            // guna2Button3
-            // 
-            this.guna2Button3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.guna2Button3.Animated = true;
-            this.guna2Button3.CheckedState.Parent = this.guna2Button3;
-            this.guna2Button3.CustomImages.Parent = this.guna2Button3;
-            this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.guna2Button3.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.Gainsboro;
-            this.guna2Button3.HoverState.Parent = this.guna2Button3;
-            this.guna2Button3.Image = global::TracNghiemCSDLPT.Properties.Resources.minus_sign_480px;
-            this.guna2Button3.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2Button3.Location = new System.Drawing.Point(326, 265);
-            this.guna2Button3.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
-            this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
-            this.guna2Button3.Size = new System.Drawing.Size(147, 45);
-            this.guna2Button3.TabIndex = 11;
-            this.guna2Button3.Text = "Xóa";
-            // 
-            // guna2Button4
-            // 
-            this.guna2Button4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.guna2Button4.Animated = true;
-            this.guna2Button4.CheckedState.Parent = this.guna2Button4;
-            this.guna2Button4.CustomImages.Parent = this.guna2Button4;
-            this.guna2Button4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.guna2Button4.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.guna2Button4.HoverState.FillColor = System.Drawing.Color.Gainsboro;
-            this.guna2Button4.HoverState.Parent = this.guna2Button4;
-            this.guna2Button4.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
-            this.guna2Button4.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2Button4.Location = new System.Drawing.Point(97, 264);
-            this.guna2Button4.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
-            this.guna2Button4.ShadowDecoration.Parent = this.guna2Button4;
-            this.guna2Button4.Size = new System.Drawing.Size(147, 45);
-            this.guna2Button4.TabIndex = 11;
-            this.guna2Button4.Text = "Thêm";
+            this.buttonXacNhan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonXacNhan.CheckedState.Parent = this.buttonXacNhan;
+            this.buttonXacNhan.CustomImages.Parent = this.buttonXacNhan;
+            this.buttonXacNhan.FillColor = System.Drawing.Color.Transparent;
+            this.buttonXacNhan.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonXacNhan.ForeColor = System.Drawing.Color.White;
+            this.buttonXacNhan.HoverState.Parent = this.buttonXacNhan;
+            this.buttonXacNhan.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
+            this.buttonXacNhan.ImageSize = new System.Drawing.Size(31, 31);
+            this.buttonXacNhan.Location = new System.Drawing.Point(933, 30);
+            this.buttonXacNhan.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.buttonXacNhan.Name = "buttonXacNhan";
+            this.buttonXacNhan.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.buttonXacNhan.ShadowDecoration.Parent = this.buttonXacNhan;
+            this.buttonXacNhan.Size = new System.Drawing.Size(30, 30);
+            this.buttonXacNhan.TabIndex = 2;
+            this.buttonXacNhan.Visible = false;
+            this.buttonXacNhan.Click += new System.EventHandler(this.buttonXacNhan_Click);
             // 
             // MonHocTableAdapter
             // 
@@ -452,17 +390,136 @@ namespace TracNghiemCSDLPT.Views
             this.tableAdapterManager.MONHOCTableAdapter = this.MonHocTableAdapter;
             this.tableAdapterManager.UpdateOrder = TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // BoDeBindingSouce
+            // 
+            this.BoDeBindingSouce.DataMember = "FK_BODE_MONHOC";
+            this.BoDeBindingSouce.DataSource = this.MonHocBindingSouce;
+            // 
+            // BoDeTableAdapter
+            // 
+            this.BoDeTableAdapter.ClearBeforeFill = true;
+            // 
+            // BangDiemBindingSource
+            // 
+            this.BangDiemBindingSource.DataMember = "FK_BANGDIEM_MONHOC";
+            this.BangDiemBindingSource.DataSource = this.MonHocBindingSouce;
+            // 
+            // BangDiemTableAdapter
+            // 
+            this.BangDiemTableAdapter.ClearBeforeFill = true;
+            // 
+            // GV_DKBindingSource
+            // 
+            this.GV_DKBindingSource.DataMember = "FK_GIAOVIEN_DANGKY_MONHOC1";
+            this.GV_DKBindingSource.DataSource = this.MonHocBindingSouce;
+            // 
+            // GV_DKTableAdapter
+            // 
+            this.GV_DKTableAdapter.ClearBeforeFill = true;
+            // 
+            // buttonXoa
+            // 
+            this.buttonXoa.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonXoa.Animated = true;
+            this.buttonXoa.CheckedState.Parent = this.buttonXoa;
+            this.buttonXoa.CustomImages.Parent = this.buttonXoa;
+            this.buttonXoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.buttonXoa.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonXoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
+            this.buttonXoa.HoverState.FillColor = System.Drawing.Color.Gainsboro;
+            this.buttonXoa.HoverState.Parent = this.buttonXoa;
+            this.buttonXoa.Image = global::TracNghiemCSDLPT.Properties.Resources.minus_sign_480px;
+            this.buttonXoa.ImageSize = new System.Drawing.Size(40, 40);
+            this.buttonXoa.Location = new System.Drawing.Point(412, 289);
+            this.buttonXoa.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.buttonXoa.Name = "buttonXoa";
+            this.buttonXoa.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
+            this.buttonXoa.ShadowDecoration.Parent = this.buttonXoa;
+            this.buttonXoa.Size = new System.Drawing.Size(147, 45);
+            this.buttonXoa.TabIndex = 11;
+            this.buttonXoa.Text = "Xóa";
+            this.buttonXoa.Click += new System.EventHandler(this.buttonXoa_Click);
+            // 
+            // buttonLamMoi
+            // 
+            this.buttonLamMoi.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonLamMoi.Animated = true;
+            this.buttonLamMoi.CheckedState.Parent = this.buttonLamMoi;
+            this.buttonLamMoi.CustomImages.Parent = this.buttonLamMoi;
+            this.buttonLamMoi.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.buttonLamMoi.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLamMoi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
+            this.buttonLamMoi.HoverState.FillColor = System.Drawing.Color.Gainsboro;
+            this.buttonLamMoi.HoverState.Parent = this.buttonLamMoi;
+            this.buttonLamMoi.Image = global::TracNghiemCSDLPT.Properties.Resources.reset_480px;
+            this.buttonLamMoi.ImageSize = new System.Drawing.Size(40, 40);
+            this.buttonLamMoi.Location = new System.Drawing.Point(854, 288);
+            this.buttonLamMoi.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.buttonLamMoi.Name = "buttonLamMoi";
+            this.buttonLamMoi.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
+            this.buttonLamMoi.ShadowDecoration.Parent = this.buttonLamMoi;
+            this.buttonLamMoi.Size = new System.Drawing.Size(147, 45);
+            this.buttonLamMoi.TabIndex = 11;
+            this.buttonLamMoi.Text = "Làm mới";
+            this.buttonLamMoi.Click += new System.EventHandler(this.buttonLamMoi_Click);
+            // 
+            // buttonThem
+            // 
+            this.buttonThem.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonThem.Animated = true;
+            this.buttonThem.CheckedState.Parent = this.buttonThem;
+            this.buttonThem.CustomImages.Parent = this.buttonThem;
+            this.buttonThem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.buttonThem.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonThem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
+            this.buttonThem.HoverState.FillColor = System.Drawing.Color.Gainsboro;
+            this.buttonThem.HoverState.Parent = this.buttonThem;
+            this.buttonThem.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
+            this.buttonThem.ImageSize = new System.Drawing.Size(40, 40);
+            this.buttonThem.Location = new System.Drawing.Point(191, 288);
+            this.buttonThem.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.buttonThem.Name = "buttonThem";
+            this.buttonThem.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
+            this.buttonThem.ShadowDecoration.Parent = this.buttonThem;
+            this.buttonThem.Size = new System.Drawing.Size(147, 45);
+            this.buttonThem.TabIndex = 11;
+            this.buttonThem.Text = "Thêm";
+            this.buttonThem.Click += new System.EventHandler(this.buttonThem_Click);
+            // 
+            // buttonSua
+            // 
+            this.buttonSua.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonSua.Animated = true;
+            this.buttonSua.CheckedState.Parent = this.buttonSua;
+            this.buttonSua.CustomImages.Parent = this.buttonSua;
+            this.buttonSua.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.buttonSua.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
+            this.buttonSua.HoverState.FillColor = System.Drawing.Color.Gainsboro;
+            this.buttonSua.HoverState.Parent = this.buttonSua;
+            this.buttonSua.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_480px;
+            this.buttonSua.ImageSize = new System.Drawing.Size(40, 40);
+            this.buttonSua.Location = new System.Drawing.Point(633, 288);
+            this.buttonSua.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.buttonSua.Name = "buttonSua";
+            this.buttonSua.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
+            this.buttonSua.ShadowDecoration.Parent = this.buttonSua;
+            this.buttonSua.Size = new System.Drawing.Size(147, 45);
+            this.buttonSua.TabIndex = 11;
+            this.buttonSua.Text = "Sửa";
+            this.buttonSua.Click += new System.EventHandler(this.buttonSua_Click);
+            // 
             // MonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1029, 652);
+            this.ClientSize = new System.Drawing.Size(1192, 654);
+            this.Controls.Add(this.buttonSua);
             this.Controls.Add(this.MonHocGridControl);
-            this.Controls.Add(this.guna2Button4);
-            this.Controls.Add(this.guna2Button3);
-            this.Controls.Add(this.guna2Button2);
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.buttonThem);
             this.Controls.Add(this.bunifuPanel1);
+            this.Controls.Add(this.buttonLamMoi);
+            this.Controls.Add(this.buttonXoa);
             this.Name = "MonHoc";
             this.Text = "Môn học";
             this.Load += new System.EventHandler(this.MonHoc_Load);
@@ -473,10 +530,13 @@ namespace TracNghiemCSDLPT.Views
             ((System.ComponentModel.ISupportInitialize)(this.cardView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.bunifuPanel1.ResumeLayout(false);
-            this.bunifuGroupBox1.ResumeLayout(false);
-            this.bunifuGroupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TFTenMH.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TFMaMH.Properties)).EndInit();
+            this.InfoPanel.ResumeLayout(false);
+            this.InfoPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TextTenMH.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TextMaMH.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BoDeBindingSouce)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BangDiemBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GV_DKBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -487,25 +547,31 @@ namespace TracNghiemCSDLPT.Views
         private DevExpress.XtraBars.Bar bar5;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
-        private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton2;
-        private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton4;
-        private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton3;
-        private Bunifu.UI.WinForms.BunifuGroupBox bunifuGroupBox1;
+        private Guna.UI2.WinForms.Guna2CircleButton buttonXacNhan;
+        private Guna.UI2.WinForms.Guna2CircleButton buttonHuy;
+        private Guna.UI2.WinForms.Guna2CircleButton buttonRedo;
+        private Guna.UI2.WinForms.Guna2CircleButton buttonUndo;
+        private Bunifu.UI.WinForms.BunifuGroupBox InfoPanel;
         private TN_CSDLPTDataSet TN_CSDLPTDataSet;
         private System.Windows.Forms.BindingSource MonHocBindingSouce;
         private TN_CSDLPTDataSetTableAdapters.MONHOCTableAdapter MonHocTableAdapter;
         private TN_CSDLPTDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraGrid.GridControl MonHocGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView MonHocGridView;
-        private DevExpress.XtraEditors.TextEdit TFTenMH;
-        private DevExpress.XtraEditors.TextEdit TFMaMH;
+        private DevExpress.XtraEditors.TextEdit TextTenMH;
+        private DevExpress.XtraEditors.TextEdit TextMaMH;
         private DevExpress.XtraGrid.Columns.GridColumn colMAMH;
         private DevExpress.XtraGrid.Columns.GridColumn colTENMH;
         private DevExpress.XtraGrid.Views.Card.CardView cardView1;
+        private System.Windows.Forms.BindingSource BoDeBindingSouce;
+        private TN_CSDLPTDataSetTableAdapters.BODETableAdapter BoDeTableAdapter;
+        private System.Windows.Forms.BindingSource BangDiemBindingSource;
+        private TN_CSDLPTDataSetTableAdapters.BANGDIEMTableAdapter BangDiemTableAdapter;
+        private System.Windows.Forms.BindingSource GV_DKBindingSource;
+        private TN_CSDLPTDataSetTableAdapters.GIAOVIEN_DANGKYTableAdapter GV_DKTableAdapter;
+        private Guna.UI2.WinForms.Guna2Button buttonXoa;
+        private Guna.UI2.WinForms.Guna2Button buttonLamMoi;
+        private Guna.UI2.WinForms.Guna2Button buttonThem;
+        private Guna.UI2.WinForms.Guna2Button buttonSua;
     }
 }

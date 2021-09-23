@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -9,68 +10,89 @@ using System.Windows.Forms;
 
 namespace TracNghiemCSDLPT.SQL_Connection
 {
-    class DatabaseConnection
+    class DBConnection
     {
-        private static SqlConnection PublisherConnection = new SqlConnection();
-        private static SqlConnection SubcriberConnection = new SqlConnection();
-        private static string PublisherName = "MSI";
         private static string DatabaseName = "TN_CSDLPT";
+        //Unique Publisher Connection
+        public static SqlConnection PublisherConnection = new SqlConnection();
+        private static string PublisherName = ConfigurationManager.AppSettings["PublisherName"];
         private static string SysAdminName = "sa";
         private static string SysAdminPassword = "123456";
-
         private static string PublisherConnectionString = "Data source=" + PublisherName + "; " +
             "Initial Catalog=" + DatabaseName + ";Persist Security Info=True;" +
             "User ID=" + SysAdminName + ";Password=" + SysAdminPassword;
 
-        private static string RemoteLogin = "HTKN";
-        private static string RemotePassword = "123456";
+        //Current Subcriber Connection
+        public static SqlConnection SubcriberConnection = new SqlConnection();
 
         public static string LoginSV = "LOGIN_SINHVIEN";
         public static string PasswordSV = "123456";
+        public static string UserNameSV = "USER_SINHVIEN";
+
+        public static string SubcriberName;
+        public static string LoginName;
+        public static string Password;
+        public static string SubcriberConnectionString;
+
+        public static BindingSource BS_Subcribers = new BindingSource();
+        public static string UserName; // aka MaGV
+        public static string HoTen; // Ten GV
+        public static string NhomQuyen;
 
 
-        public static SqlConnection GetPublisherConnection()
+        //HTKN Connection
+        private static string RemoteLogin = "HTKN";
+        private static string RemotePassword = "123456";
+
+        public static bool ConnectToPublisher()
         {
-            if (PublisherConnection != null && PublisherConnection.State == System.Data.ConnectionState.Open)
+            if (DBConnection.PublisherConnection != null && DBConnection.PublisherConnection.State == System.Data.ConnectionState.Open)
             {
                 PublisherConnection.Close();
             }
             try
             {
-                PublisherConnection.ConnectionString = PublisherConnectionString;
-                PublisherConnection.Open();
-                return PublisherConnection;
+                DBConnection.PublisherConnection.ConnectionString = PublisherConnectionString;
+                DBConnection.PublisherConnection.Open();
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                return null;
+                return false;
             }
         }
-
-        public static SqlConnection GetSubcriberConnection(string loginName, string password, string subcriberName)
+        private static void GenerateSubConString(string subcriberName, string loginName, string password)
         {
-            if (SubcriberConnection != null && SubcriberConnection.State == System.Data.ConnectionState.Open)
-            {
-                SubcriberConnection.Close();
-            }
-            try
-            {
-                string SubcriberConnectionString = "Data source=" + subcriberName + "; " +
+            DBConnection.SubcriberConnectionString = "Data source=" + subcriberName + "; " +
             "Initial Catalog=" + DatabaseName + ";Persist Security Info=True;" +
             "User ID=" + loginName + ";Password=" + password;
-                SubcriberConnection.ConnectionString = SubcriberConnectionString;
-                SubcriberConnection.Open();
-                return SubcriberConnection;
+        }
+
+        public static bool ConnectToSubcriber(string loginName, string password, string subcriberName)
+        {
+            if (DBConnection.SubcriberConnection != null && DBConnection.SubcriberConnection.State == System.Data.ConnectionState.Open)
+            {
+                DBConnection.SubcriberConnection.Close();
+            }
+            try
+            {
+                DBConnection.LoginName = loginName;
+                DBConnection.Password = password;
+                DBConnection.SubcriberName = subcriberName;
+                GenerateSubConString(subcriberName, loginName, password);
+                DBConnection.SubcriberConnection.ConnectionString = SubcriberConnectionString;
+                DBConnection.SubcriberConnection.Open();
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                return null;
+                return false;
             }
         }
 
-        public static SqlConnection GetSubcriberConnection(string subcriberName)
+        public static bool ConnectToSubcriber(string subcriberName)
         {
             if (SubcriberConnection != null && SubcriberConnection.State == System.Data.ConnectionState.Open)
             {
@@ -78,17 +100,20 @@ namespace TracNghiemCSDLPT.SQL_Connection
             }
             try
             {
-                string SubcriberConnectionString = "Data source=" + subcriberName + "; " +
-            "Initial Catalog=" + DatabaseName + ";Persist Security Info=True;" +
-            "User ID=" + LoginSV + ";Password=" + PasswordSV;
-                SubcriberConnection.ConnectionString = SubcriberConnectionString;
-                SubcriberConnection.Open();
-                return SubcriberConnection;
+                DBConnection.LoginName = DBConnection.LoginSV;
+                DBConnection.Password = DBConnection.PasswordSV;
+                DBConnection.SubcriberName = subcriberName;
+                GenerateSubConString(subcriberName, LoginSV, PasswordSV);
+                DBConnection.SubcriberConnection.ConnectionString = SubcriberConnectionString;
+                DBConnection.SubcriberConnection.Open();
+
+                Console.WriteLine("Connection String: " + DBConnection.SubcriberConnectionString);
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                return null;
+                return false;
             }
         }
 

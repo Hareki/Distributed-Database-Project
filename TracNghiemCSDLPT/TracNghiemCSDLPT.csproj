@@ -155,6 +155,7 @@
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
@@ -175,7 +176,7 @@
     <Compile Include="Others\AlertForm.Designer.cs">
       <DependentUpon>AlertForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Others\DatabaseConnection.cs" />
+    <Compile Include="Others\DBConnection.cs" />
     <Compile Include="MyForms\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>

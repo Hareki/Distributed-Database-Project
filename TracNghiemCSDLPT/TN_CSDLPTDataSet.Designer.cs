@@ -3806,7 +3806,6 @@ SELECT MAGV, MAMH, MALOP, TRINHDO, NGAYTHI, LAN, SOCAUTHI, THOIGIAN FROM GIAOVIE
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public MONHOCTableAdapter() {
-            this.Connection.ConnectionString = this.Connection.ConnectionString.Replace("XXX", Program.LoginName).Replace("YYY", Program.Password);
             this.ClearBeforeFill = true;
         }
         

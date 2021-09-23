@@ -26,7 +26,7 @@ namespace TracNghiemCSDLPT
             Application.SetCompatibleTextRenderingDefault(false);
             LoginInstance = new FormLogin();
             Application.Run(LoginInstance);
-            // Application.Run(new Test());
+             //Application.Run(new Test());
         }
     }
 }

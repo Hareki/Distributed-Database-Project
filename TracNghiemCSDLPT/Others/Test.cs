@@ -12,9 +12,12 @@ namespace TracNghiemCSDLPT.Others
 {
     public partial class Test : Form
     {
+        string test = "";
         public Test()
         {
             InitializeComponent();
+            Console.WriteLine(Utils.CapitalizeString(test, Utils.CapitalMode.EveryWord));
+         //   Console.WriteLine(test);
         }
         public static int time;
 

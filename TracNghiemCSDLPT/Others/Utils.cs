@@ -27,9 +27,58 @@ namespace TracNghiemCSDLPT
         {
             NotiForm frm = new NotiForm(message, type, lineNum);
         }
-        public static bool  HaveOnlyLettersAndDigits(string nameWithDigits)
+
+        public enum RegexType
         {
-            return new Regex(@"^[\p{L}\s0-9]*$").IsMatch(nameWithDigits);
+            LetterDigits, LetterOnly
+        }
+        private static Regex LetterDigitsRegex = new Regex(@"^[\p{L}\s0-9]*$");
+        private static Regex LetterOnlyRegex = new Regex(@"^[\p{L}\s]*$");
+        public static bool IsMathRegex(string testString, RegexType type)
+        {
+            switch (type)
+            {
+                case RegexType.LetterDigits:
+                    return LetterDigitsRegex.IsMatch(testString);
+                case RegexType.LetterOnly:
+                    return LetterOnlyRegex.IsMatch(testString);
+                default:
+                    return false;
+            }
+        }
+
+        public enum CapitalMode
+        {
+            FirstWordOnly, EveryWord
+        }
+        public static string CapitalizeString(string name, CapitalMode mode)
+        {
+            string temp = Regex.Replace(name.Trim(), @"\s+", " ");
+            if (temp.Equals("")) return "";
+            if (mode == CapitalMode.FirstWordOnly)
+                return temp.Substring(0, 1).ToUpper() + temp.Substring(1);
+            else temp = temp.ToLower();
+
+            string[] words = temp.Split(' ');
+            string result = "";
+            foreach (string word in words)
+                result += word.Substring(0, 1).ToUpper() + word.Substring(1).ToLower() + " ";
+            return result.Trim();
+        }
+
+        public static string CapitalizeString2(string name, CapitalMode mode)
+        {
+            name = "hahaha";
+            string temp = Regex.Replace(name.Trim(), @"\s+", " ");
+            if (mode == CapitalMode.FirstWordOnly)
+                return temp.Substring(0, 1).ToUpper() + temp.Substring(1);
+            else temp = temp.ToLower();
+
+            string[] words = temp.Split(' ');
+            string result = "";
+            foreach (string word in words)
+                result += word.Substring(0, 1).ToUpper() + word.Substring(1).ToLower() + " ";
+            return result.Trim();
         }
     }
 }

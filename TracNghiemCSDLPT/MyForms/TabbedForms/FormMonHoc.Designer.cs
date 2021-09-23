@@ -64,6 +64,8 @@ namespace TracNghiemCSDLPT.Views
             this.buttonLamMoi = new Guna.UI2.WinForms.Guna2Button();
             this.buttonThem = new Guna.UI2.WinForms.Guna2Button();
             this.buttonSua = new Guna.UI2.WinForms.Guna2Button();
+            this.MaMHEP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.TenMHEP = new System.Windows.Forms.ErrorProvider(this.components);
             LabelMaMH = new System.Windows.Forms.Label();
             LabelTenMH = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MonHocGridControl)).BeginInit();
@@ -79,6 +81,8 @@ namespace TracNghiemCSDLPT.Views
             ((System.ComponentModel.ISupportInitialize)(this.BoDeBindingSouce)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BangDiemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GV_DKBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaMHEP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TenMHEP)).BeginInit();
             this.SuspendLayout();
             // 
             // LabelMaMH
@@ -129,28 +133,36 @@ namespace TracNghiemCSDLPT.Views
             // 
             // MonHocGridView
             // 
-            this.MonHocGridView.Appearance.FocusedCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(164)))), ((int)(((byte)(236)))));
+            this.MonHocGridView.Appearance.EvenRow.BackColor = System.Drawing.Color.White;
+            this.MonHocGridView.Appearance.EvenRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
+            this.MonHocGridView.Appearance.EvenRow.Options.UseBackColor = true;
+            this.MonHocGridView.Appearance.EvenRow.Options.UseForeColor = true;
+            this.MonHocGridView.Appearance.FocusedCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(244)))), ((int)(((byte)(252)))));
             this.MonHocGridView.Appearance.FocusedCell.Options.UseBackColor = true;
-            this.MonHocGridView.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(164)))), ((int)(((byte)(236)))));
+            this.MonHocGridView.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(244)))), ((int)(((byte)(252)))));
             this.MonHocGridView.Appearance.FocusedRow.Options.UseBackColor = true;
             this.MonHocGridView.Appearance.GroupRow.Font = new System.Drawing.Font("Baloo 2", 10.2F);
             this.MonHocGridView.Appearance.GroupRow.Options.UseFont = true;
             this.MonHocGridView.Appearance.HeaderPanel.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MonHocGridView.Appearance.HeaderPanel.Options.UseFont = true;
-            this.MonHocGridView.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(164)))), ((int)(((byte)(236)))));
+            this.MonHocGridView.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(244)))), ((int)(((byte)(252)))));
             this.MonHocGridView.Appearance.HideSelectionRow.Options.UseBackColor = true;
-            this.MonHocGridView.Appearance.OddRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
+            this.MonHocGridView.Appearance.OddRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.MonHocGridView.Appearance.OddRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
             this.MonHocGridView.Appearance.OddRow.Options.UseBackColor = true;
+            this.MonHocGridView.Appearance.OddRow.Options.UseForeColor = true;
             this.MonHocGridView.Appearance.Preview.Font = new System.Drawing.Font("Baloo 2", 10.2F);
             this.MonHocGridView.Appearance.Preview.Options.UseFont = true;
-            this.MonHocGridView.Appearance.Row.Font = new System.Drawing.Font("Baloo 2", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MonHocGridView.Appearance.Row.Font = new System.Drawing.Font("Baloo 2", 12F);
             this.MonHocGridView.Appearance.Row.Options.UseFont = true;
-            this.MonHocGridView.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(164)))), ((int)(((byte)(236)))));
-            this.MonHocGridView.Appearance.SelectedRow.Font = new System.Drawing.Font("Source Serif Pro", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MonHocGridView.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(244)))), ((int)(((byte)(252)))));
+            this.MonHocGridView.Appearance.SelectedRow.Font = new System.Drawing.Font("Baloo 2", 12F);
             this.MonHocGridView.Appearance.SelectedRow.Options.UseBackColor = true;
             this.MonHocGridView.Appearance.SelectedRow.Options.UseFont = true;
             this.MonHocGridView.Appearance.TopNewRow.Font = new System.Drawing.Font("Baloo 2", 10.2F);
             this.MonHocGridView.Appearance.TopNewRow.Options.UseFont = true;
+            this.MonHocGridView.AppearancePrint.OddRow.BackColor = System.Drawing.Color.DimGray;
+            this.MonHocGridView.AppearancePrint.OddRow.Options.UseBackColor = true;
             this.MonHocGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMAMH,
             this.colTENMH});
@@ -161,10 +173,14 @@ namespace TracNghiemCSDLPT.Views
             this.MonHocGridView.OptionsBehavior.ReadOnly = true;
             this.MonHocGridView.OptionsCustomization.AllowRowSizing = true;
             this.MonHocGridView.OptionsDetail.EnableMasterViewMode = false;
+            this.MonHocGridView.OptionsPrint.EnableAppearanceOddRow = true;
             this.MonHocGridView.OptionsScrollAnnotations.ShowFocusedRow = DevExpress.Utils.DefaultBoolean.True;
+            this.MonHocGridView.OptionsView.EnableAppearanceOddRow = true;
             // 
             // colMAMH
             // 
+            this.colMAMH.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(164)))), ((int)(((byte)(236)))));
+            this.colMAMH.AppearanceHeader.Options.UseBackColor = true;
             this.colMAMH.Caption = "Mã môn học";
             this.colMAMH.FieldName = "MAMH";
             this.colMAMH.MinWidth = 25;
@@ -175,6 +191,8 @@ namespace TracNghiemCSDLPT.Views
             // 
             // colTENMH
             // 
+            this.colTENMH.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(164)))), ((int)(((byte)(236)))));
+            this.colTENMH.AppearanceHeader.Options.UseBackColor = true;
             this.colTENMH.Caption = "Tên môn học";
             this.colTENMH.FieldName = "TENMH";
             this.colTENMH.MinWidth = 25;
@@ -273,10 +291,13 @@ namespace TracNghiemCSDLPT.Views
             this.TextTenMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MonHocBindingSouce, "TENMH", true));
             this.TextTenMH.Location = new System.Drawing.Point(365, 141);
             this.TextTenMH.Name = "TextTenMH";
+            this.TextTenMH.Properties.Appearance.BorderColor = System.Drawing.Color.Silver;
             this.TextTenMH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
             this.TextTenMH.Properties.Appearance.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TextTenMH.Properties.Appearance.Options.UseBorderColor = true;
             this.TextTenMH.Properties.Appearance.Options.UseFont = true;
             this.TextTenMH.Properties.Appearance.Options.UseForeColor = true;
+            this.TextTenMH.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.TextTenMH.Size = new System.Drawing.Size(252, 34);
             this.TextTenMH.TabIndex = 6;
             // 
@@ -285,15 +306,15 @@ namespace TracNghiemCSDLPT.Views
             this.TextMaMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MonHocBindingSouce, "MAMH", true));
             this.TextMaMH.Location = new System.Drawing.Point(365, 78);
             this.TextMaMH.Name = "TextMaMH";
+            this.TextMaMH.Properties.Appearance.BorderColor = System.Drawing.Color.Silver;
             this.TextMaMH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
             this.TextMaMH.Properties.Appearance.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TextMaMH.Properties.Appearance.Options.UseBorderColor = true;
             this.TextMaMH.Properties.Appearance.Options.UseFont = true;
             this.TextMaMH.Properties.Appearance.Options.UseForeColor = true;
+            this.TextMaMH.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.TextMaMH.Size = new System.Drawing.Size(252, 34);
             this.TextMaMH.TabIndex = 5;
-            this.TextMaMH.EditValueChanged += new System.EventHandler(this.TextMaMH_EditValueChanged);
-            this.TextMaMH.TextChanged += new System.EventHandler(this.TextMaMH_TextChanged);
-            this.TextMaMH.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextMaMH_KeyDown);
             // 
             // buttonHuy
             // 
@@ -509,6 +530,16 @@ namespace TracNghiemCSDLPT.Views
             this.buttonSua.Text = "Sửa";
             this.buttonSua.Click += new System.EventHandler(this.buttonSua_Click);
             // 
+            // MaMHEP
+            // 
+            this.MaMHEP.ContainerControl = this;
+            this.MaMHEP.Icon = ((System.Drawing.Icon)(resources.GetObject("MaMHEP.Icon")));
+            // 
+            // TenMHEP
+            // 
+            this.TenMHEP.ContainerControl = this;
+            this.TenMHEP.Icon = ((System.Drawing.Icon)(resources.GetObject("TenMHEP.Icon")));
+            // 
             // MonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -537,6 +568,8 @@ namespace TracNghiemCSDLPT.Views
             ((System.ComponentModel.ISupportInitialize)(this.BoDeBindingSouce)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BangDiemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GV_DKBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaMHEP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TenMHEP)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -573,5 +606,7 @@ namespace TracNghiemCSDLPT.Views
         private Guna.UI2.WinForms.Guna2Button buttonLamMoi;
         private Guna.UI2.WinForms.Guna2Button buttonThem;
         private Guna.UI2.WinForms.Guna2Button buttonSua;
+        private System.Windows.Forms.ErrorProvider MaMHEP;
+        private System.Windows.Forms.ErrorProvider TenMHEP;
     }
 }

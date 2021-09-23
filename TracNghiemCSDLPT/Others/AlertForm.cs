@@ -140,7 +140,6 @@ namespace TracNghiemCSDLPT.Others
                     
                     this.Name = fname;
                     this.x = Screen.PrimaryScreen.WorkingArea.Width - this.Width + 15;
-                    Console.WriteLine("Noti: " + NotiNum + " i: " + i);
                     if (NotiNum > i + 1)
                     {
                         this.y = Screen.PrimaryScreen.WorkingArea.Height - manualLifting - (lineNum - 1) * lineHeight;

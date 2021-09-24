@@ -11,14 +11,13 @@ using System.Windows.Forms;
 using TracNghiemCSDLPT.SQL_Connection;
 namespace TracNghiemCSDLPT.Views
 {
-    public partial class MonHoc : DevExpress.XtraEditors.XtraForm
+    public partial class FormMonHoc : DevExpress.XtraEditors.XtraForm
     {
         int selectedRow = 0;
 
-        public MonHoc()
+        public FormMonHoc()
         {
             InitializeComponent();
-
             //if (MonHocBindingSouce.Count == 0)
             //    buttonXoa.Enabled = false;
         }
@@ -33,7 +32,6 @@ namespace TracNghiemCSDLPT.Views
         }
         private void MonHoc_Load(object sender, EventArgs e)
         {
-            //TN_CSDLPTDataSet.EnforceConstraints = false;
             this.TN_CSDLPTDataSet.EnforceConstraints = false;//phải có dòng này, nếu không khi refresh sẽ ko cho, do môn học là khóa chính, đã trỏ ra các bảng khác
             this.MonHocTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.BoDeTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
@@ -51,12 +49,13 @@ namespace TracNghiemCSDLPT.Views
             buttonThem.Enabled = buttonLamMoi.Enabled = buttonXoa.Enabled =
                  buttonSua.Enabled = state;
         }
-
         private void SetInputButtonEnabled(bool state)
         {
             buttonUndo.Visible = buttonRedo.Visible =
                 buttonHuy.Visible = buttonXacNhan.Visible = state;
         }
+
+
         private void buttonThem_Click(object sender, EventArgs e)
         {
             selectedRow = MonHocBindingSouce.Position;
@@ -77,6 +76,8 @@ namespace TracNghiemCSDLPT.Views
         private void buttonHuy_Click(object sender, EventArgs e)
         {
             InfoPanel.Enabled = false;
+            InfoPanel.ForeColor = TextMaMH.ForeColor =
+                TextTenMH.ForeColor = DisabledForeColor;
             MonHocGridControl.Enabled = true;
             MonHocBindingSouce.CancelEdit();
             InfoPanel.Text = "Thông tin môn học";
@@ -86,10 +87,9 @@ namespace TracNghiemCSDLPT.Views
             SetInputButtonEnabled(false);
 
             InfoPanel.Text = "Thông tin môn học";
-            TenMHEP.SetError(TextTenMH, null);
-            this.TextTenMH.Properties.Appearance.BorderColor = Color.Silver;
-            MaMHEP.SetError(TextMaMH, null);
-            this.TextMaMH.Properties.Appearance.BorderColor = Color.Silver;
+            Utils.SetTextEditError(TenMHEP, TextTenMH, null);
+            Utils.SetTextEditError(MaMHEP, TextMaMH, null);
+
         }
 
         private void buttonSua_Click(object sender, EventArgs e)
@@ -165,6 +165,24 @@ namespace TracNghiemCSDLPT.Views
                 buttonXoa.Enabled = false;
         }
 
+        private bool AlreadyExists(string testName, string columnName)
+        {
+            int index = MonHocBindingSouce.Find(columnName, testName);
+            if (index != -1)
+            {
+                if (state == State.add || (state == State.edit && index != MonHocBindingSouce.Position))
+                    return true;
+                else
+                {
+                    Utils.ShowErrorMessage("Tìm ra index nhưng không thuộc xóa hoặc sửa","Lỗi không xác định");
+                    Console.WriteLine(System.Environment.StackTrace);
+                    return false;
+                }
+            }
+            else
+                return false;
+
+        }
         private void buttonXacNhan_Click(object sender, EventArgs e)
         {
             TextMaMH.Text = Utils.CapitalizeString
@@ -176,16 +194,13 @@ namespace TracNghiemCSDLPT.Views
             if (test1 || test2)
             {
                 if (test1)
-                {
-                    MaMHEP.SetError(TextMaMH, "Vui lòng nhập mã môn học");
-                    this.TextMaMH.Properties.Appearance.BorderColor = Color.Red;
-                }
-
+                    Utils.SetTextEditError(MaMHEP, TextMaMH, "Vui lòng nhập mã môn học");
+                else
+                    Utils.SetTextEditError(MaMHEP, TextMaMH, null);
                 if (test2)
-                {
-                    TenMHEP.SetError(TextTenMH, "Vui lòng nhập tên môn học");
-                    this.TextTenMH.Properties.Appearance.BorderColor = Color.Red;
-                }
+                    Utils.SetTextEditError(TenMHEP, TextTenMH, "Vui lòng nhập tên môn học");
+                else
+                    Utils.SetTextEditError(TenMHEP, TextTenMH, null);
 
 
                 Utils.ShowMessage("Vui lòng điền đầy đủ thông tin cần thiết", Others.NotiForm.FormType.Error, 2);
@@ -193,22 +208,31 @@ namespace TracNghiemCSDLPT.Views
             }
             if (TextMaMH.Text.Length > 5)
             {
-                Utils.ShowMessage("Mã môn học không được quá 5 ký tự", Others.NotiForm.FormType.Warning, 1);
-                MaMHEP.SetError(TextMaMH, "Mã môn học không được quá 5 ký tự");
+                Utils.ShowMessage("Mã môn học không được quá 5 ký tự", Others.NotiForm.FormType.Warning, 2);
+                Utils.SetTextEditError(MaMHEP, TextMaMH, "Mã môn học không được quá 5 ký tự");
                 return;
             }
-            string MaMH = ((DataRowView)MonHocBindingSouce[selectedRow])["MAMH"].ToString();
-            int index = MonHocBindingSouce.Find("MaMH", MaMH);
-            if (index != -1)
-            {
-                if (state == State.add || (state == State.edit && index != MonHocBindingSouce.Position))
-                {
-                    Utils.ShowMessage("Mã môn học đã tồn tại", Others.NotiForm.FormType.Warning, 1);
-                    MaMHEP.SetError(TextMaMH, "Mã môn học đã tồn tại");
-                    return;
-                }
+            Console.WriteLine("selected row: " + selectedRow);
 
+            test1 = AlreadyExists(TextMaMH.Text, "MaMH");
+            test2 = AlreadyExists(TextTenMH.Text, "TenMH");
+
+            if(test1 || test2)
+            {
+                if (test1)
+                    Utils.SetTextEditError(MaMHEP, TextMaMH, "Mã môn học đã tồn tại");
+                else
+                    Utils.SetTextEditError(MaMHEP, TextMaMH, null);
+                if (test2)
+                    Utils.SetTextEditError(TenMHEP, TextTenMH, "Tên môn học đã tồn tại");
+                else
+                    Utils.SetTextEditError(TenMHEP, TextTenMH, null);
+
+                Utils.ShowMessage("Thông tin vừa nhập đã tồn tại", Others.NotiForm.FormType.Error, 2);
+                return;
             }
+
+
             try
             {
                 MonHocBindingSouce.EndEdit();
@@ -221,10 +245,8 @@ namespace TracNghiemCSDLPT.Views
                 state = State.idle;
 
                 InfoPanel.Text = "Thông tin môn học";
-                TenMHEP.SetError(TextTenMH, null);
-                this.TextTenMH.Properties.Appearance.BorderColor = Color.Silver;
-                MaMHEP.SetError(TextMaMH, null);
-                this.TextMaMH.Properties.Appearance.BorderColor = Color.Silver;
+                Utils.SetTextEditError(MaMHEP, TextMaMH, null);
+                Utils.SetTextEditError(TenMHEP, TextTenMH, null);
 
             }
             catch (Exception ex)
@@ -234,10 +256,10 @@ namespace TracNghiemCSDLPT.Views
             }
             MonHocGridControl.Enabled = true;
             InfoPanel.Enabled = false;
+            InfoPanel.ForeColor = TextMaMH.ForeColor =
+                TextTenMH.ForeColor = DisabledForeColor;
             SetIdleButtonEnabled(true);
             SetInputButtonEnabled(false);
-
-
         }
     }
 }

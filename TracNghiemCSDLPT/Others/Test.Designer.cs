@@ -34,6 +34,7 @@ namespace TracNghiemCSDLPT.Others
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.showTime = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -86,11 +87,19 @@ namespace TracNghiemCSDLPT.Others
             this.showTime.UseVisualStyleBackColor = true;
             this.showTime.Click += new System.EventHandler(this.showTime_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(240, 371);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(175, 22);
+            this.textBox1.TabIndex = 4;
+            // 
             // Test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.showTime);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -99,6 +108,7 @@ namespace TracNghiemCSDLPT.Others
             this.Name = "Test";
             this.Text = "Test";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -109,5 +119,6 @@ namespace TracNghiemCSDLPT.Others
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button showTime;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

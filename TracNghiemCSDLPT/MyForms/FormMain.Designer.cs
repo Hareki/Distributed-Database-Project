@@ -51,7 +51,6 @@ namespace TracNghiemCSDLPT
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -91,7 +90,7 @@ namespace TracNghiemCSDLPT
             this.buttonThamGiaThi});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbon.MaxItemId = 22;
+            this.ribbon.MaxItemId = 23;
             this.ribbon.Name = "ribbon";
             this.ribbon.OptionsTouch.ShowTouchUISelectorInSearchMenu = false;
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -101,13 +100,19 @@ namespace TracNghiemCSDLPT
             this.ribbonPage3});
             this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.ShowToolbarCustomizeItem = false;
-            this.ribbon.Size = new System.Drawing.Size(801, 206);
+            this.ribbon.Size = new System.Drawing.Size(801, 236);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             this.ribbon.Toolbar.ShowCustomizeItem = false;
             // 
             // barAndDockingController1
             // 
-            this.barAndDockingController1.AppearancesRibbon.PageGroupCaption.Font = new System.Drawing.Font("Baloo 2", 7.8F, System.Drawing.FontStyle.Italic);
+            this.barAndDockingController1.AppearancesRibbon.Item.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barAndDockingController1.AppearancesRibbon.Item.Options.UseFont = true;
+            this.barAndDockingController1.AppearancesRibbon.ItemHovered.Font = new System.Drawing.Font("Baloo 2", 10.8F);
+            this.barAndDockingController1.AppearancesRibbon.ItemHovered.Options.UseFont = true;
+            this.barAndDockingController1.AppearancesRibbon.ItemPressed.Font = new System.Drawing.Font("Baloo 2", 10.8F);
+            this.barAndDockingController1.AppearancesRibbon.ItemPressed.Options.UseFont = true;
+            this.barAndDockingController1.AppearancesRibbon.PageGroupCaption.Font = new System.Drawing.Font("Baloo 2", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.barAndDockingController1.AppearancesRibbon.PageGroupCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
             this.barAndDockingController1.AppearancesRibbon.PageGroupCaption.Options.UseFont = true;
             this.barAndDockingController1.AppearancesRibbon.PageGroupCaption.Options.UseForeColor = true;
@@ -118,14 +123,9 @@ namespace TracNghiemCSDLPT
             this.buttonMonHoc.Id = 6;
             this.buttonMonHoc.ImageOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.choice_480px;
             this.buttonMonHoc.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.book_480px;
-            this.buttonMonHoc.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonMonHoc.ItemAppearance.Hovered.Options.UseFont = true;
-            this.buttonMonHoc.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonMonHoc.ItemAppearance.Normal.Options.UseFont = true;
-            this.buttonMonHoc.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonMonHoc.ItemAppearance.Pressed.Options.UseFont = true;
             this.buttonMonHoc.LargeWidth = 80;
             this.buttonMonHoc.Name = "buttonMonHoc";
+            this.buttonMonHoc.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.buttonMonHoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonMonHoc_ItemClick);
             // 
             // buttonDeThi
@@ -133,26 +133,14 @@ namespace TracNghiemCSDLPT
             this.buttonDeThi.Caption = "Đề thi";
             this.buttonDeThi.Id = 7;
             this.buttonDeThi.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.choice_480px;
-            this.buttonDeThi.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonDeThi.ItemAppearance.Hovered.Options.UseFont = true;
-            this.buttonDeThi.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonDeThi.ItemAppearance.Normal.Options.UseFont = true;
-            this.buttonDeThi.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonDeThi.ItemAppearance.Pressed.Options.UseFont = true;
             this.buttonDeThi.LargeWidth = 80;
             this.buttonDeThi.Name = "buttonDeThi";
             // 
             // buttonSinhVien
             // 
-            this.buttonSinhVien.Caption = "Sinh viên";
+            this.buttonSinhVien.Caption = "Sinh viên và lớp";
             this.buttonSinhVien.Id = 8;
-            this.buttonSinhVien.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.student_male_480px;
-            this.buttonSinhVien.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonSinhVien.ItemAppearance.Hovered.Options.UseFont = true;
-            this.buttonSinhVien.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonSinhVien.ItemAppearance.Normal.Options.UseFont = true;
-            this.buttonSinhVien.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonSinhVien.ItemAppearance.Pressed.Options.UseFont = true;
+            this.buttonSinhVien.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.classroom_480px;
             this.buttonSinhVien.LargeWidth = 80;
             this.buttonSinhVien.Name = "buttonSinhVien";
             // 
@@ -161,26 +149,14 @@ namespace TracNghiemCSDLPT
             this.butonGiaoVien.Caption = "Giáo viên";
             this.butonGiaoVien.Id = 9;
             this.butonGiaoVien.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.teacher_500px;
-            this.butonGiaoVien.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.butonGiaoVien.ItemAppearance.Hovered.Options.UseFont = true;
-            this.butonGiaoVien.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.butonGiaoVien.ItemAppearance.Normal.Options.UseFont = true;
-            this.butonGiaoVien.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.butonGiaoVien.ItemAppearance.Pressed.Options.UseFont = true;
             this.butonGiaoVien.LargeWidth = 80;
             this.butonGiaoVien.Name = "butonGiaoVien";
             // 
             // buttonKhoaLop
             // 
-            this.buttonKhoaLop.Caption = "Khoa và lớp";
+            this.buttonKhoaLop.Caption = "Khoa";
             this.buttonKhoaLop.Id = 10;
-            this.buttonKhoaLop.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.class_208px;
-            this.buttonKhoaLop.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonKhoaLop.ItemAppearance.Hovered.Options.UseFont = true;
-            this.buttonKhoaLop.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonKhoaLop.ItemAppearance.Normal.Options.UseFont = true;
-            this.buttonKhoaLop.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonKhoaLop.ItemAppearance.Pressed.Options.UseFont = true;
+            this.buttonKhoaLop.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.school_480px;
             this.buttonKhoaLop.LargeWidth = 80;
             this.buttonKhoaLop.Name = "buttonKhoaLop";
             // 
@@ -188,13 +164,7 @@ namespace TracNghiemCSDLPT
             // 
             this.buttonDKTN.Caption = "Đăng ký thi TN";
             this.buttonDKTN.Id = 11;
-            this.buttonDKTN.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.logbook_500px;
-            this.buttonDKTN.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonDKTN.ItemAppearance.Hovered.Options.UseFont = true;
-            this.buttonDKTN.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonDKTN.ItemAppearance.Normal.Options.UseFont = true;
-            this.buttonDKTN.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonDKTN.ItemAppearance.Pressed.Options.UseFont = true;
+            this.buttonDKTN.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.scorecard_480px;
             this.buttonDKTN.LargeWidth = 80;
             this.buttonDKTN.Name = "buttonDKTN";
             // 
@@ -203,12 +173,6 @@ namespace TracNghiemCSDLPT
             this.buttonTaoTK.Caption = "Tạo tài khoản";
             this.buttonTaoTK.Id = 12;
             this.buttonTaoTK.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.add_user_male_480px;
-            this.buttonTaoTK.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonTaoTK.ItemAppearance.Hovered.Options.UseFont = true;
-            this.buttonTaoTK.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonTaoTK.ItemAppearance.Normal.Options.UseFont = true;
-            this.buttonTaoTK.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonTaoTK.ItemAppearance.Pressed.Options.UseFont = true;
             this.buttonTaoTK.LargeWidth = 80;
             this.buttonTaoTK.Name = "buttonTaoTK";
             // 
@@ -217,12 +181,6 @@ namespace TracNghiemCSDLPT
             this.buttonDangXuat.Caption = "Đăng xuất";
             this.buttonDangXuat.Id = 13;
             this.buttonDangXuat.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.export_480px;
-            this.buttonDangXuat.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonDangXuat.ItemAppearance.Hovered.Options.UseFont = true;
-            this.buttonDangXuat.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonDangXuat.ItemAppearance.Normal.Options.UseFont = true;
-            this.buttonDangXuat.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonDangXuat.ItemAppearance.Pressed.Options.UseFont = true;
             this.buttonDangXuat.LargeWidth = 80;
             this.buttonDangXuat.Name = "buttonDangXuat";
             // 
@@ -266,27 +224,17 @@ namespace TracNghiemCSDLPT
             // 
             this.buttonBangDiem.Caption = "Bảng điểm";
             this.buttonBangDiem.Id = 18;
-            this.buttonBangDiem.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.scorecard_480px;
-            this.buttonBangDiem.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonBangDiem.ItemAppearance.Hovered.Options.UseFont = true;
-            this.buttonBangDiem.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonBangDiem.ItemAppearance.Normal.Options.UseFont = true;
-            this.buttonBangDiem.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonBangDiem.ItemAppearance.Pressed.Options.UseFont = true;
+            this.buttonBangDiem.ImageOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.logbook_500px;
+            this.buttonBangDiem.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.logbook_500px;
             this.buttonBangDiem.LargeWidth = 80;
             this.buttonBangDiem.Name = "buttonBangDiem";
+            this.buttonBangDiem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonBangDiem_ItemClick);
             // 
             // buttonKQThi
             // 
             this.buttonKQThi.Caption = "Kết quả thi";
             this.buttonKQThi.Id = 19;
             this.buttonKQThi.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.leaderboard_500px;
-            this.buttonKQThi.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonKQThi.ItemAppearance.Hovered.Options.UseFont = true;
-            this.buttonKQThi.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonKQThi.ItemAppearance.Normal.Options.UseFont = true;
-            this.buttonKQThi.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonKQThi.ItemAppearance.Pressed.Options.UseFont = true;
             this.buttonKQThi.LargeWidth = 80;
             this.buttonKQThi.Name = "buttonKQThi";
             // 
@@ -295,12 +243,6 @@ namespace TracNghiemCSDLPT
             this.buttonToChucThi.Caption = "Tổ chức thi";
             this.buttonToChucThi.Id = 20;
             this.buttonToChucThi.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.box_settings_500px;
-            this.buttonToChucThi.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonToChucThi.ItemAppearance.Hovered.Options.UseFont = true;
-            this.buttonToChucThi.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonToChucThi.ItemAppearance.Normal.Options.UseFont = true;
-            this.buttonToChucThi.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonToChucThi.ItemAppearance.Pressed.Options.UseFont = true;
             this.buttonToChucThi.LargeWidth = 80;
             this.buttonToChucThi.Name = "buttonToChucThi";
             // 
@@ -309,12 +251,6 @@ namespace TracNghiemCSDLPT
             this.buttonThamGiaThi.Caption = "Tham gia thi";
             this.buttonThamGiaThi.Id = 21;
             this.buttonThamGiaThi.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.time_500px;
-            this.buttonThamGiaThi.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonThamGiaThi.ItemAppearance.Hovered.Options.UseFont = true;
-            this.buttonThamGiaThi.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonThamGiaThi.ItemAppearance.Normal.Options.UseFont = true;
-            this.buttonThamGiaThi.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
-            this.buttonThamGiaThi.ItemAppearance.Pressed.Options.UseFont = true;
             this.buttonThamGiaThi.LargeWidth = 80;
             this.buttonThamGiaThi.Name = "buttonThamGiaThi";
             // 
@@ -328,8 +264,7 @@ namespace TracNghiemCSDLPT
             this.ribbonPage1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
-            this.ribbonPageGroup2,
-            this.ribbonPageGroup3});
+            this.ribbonPageGroup2});
             this.ribbonPage1.ImageOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.database_administrator_25px;
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "  Quản lý  ";
@@ -339,20 +274,16 @@ namespace TracNghiemCSDLPT
             this.ribbonPageGroup1.ItemLinks.Add(this.buttonMonHoc);
             this.ribbonPageGroup1.ItemLinks.Add(this.buttonDeThi);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             this.ribbonPageGroup1.Text = "Môn học";
             // 
             // ribbonPageGroup2
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.buttonSinhVien);
+            this.ribbonPageGroup2.ItemLinks.Add(this.buttonKhoaLop);
             this.ribbonPageGroup2.ItemLinks.Add(this.butonGiaoVien);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "Nhân sự";
-            // 
-            // ribbonPageGroup3
-            // 
-            this.ribbonPageGroup3.ItemLinks.Add(this.buttonKhoaLop);
-            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.Text = "Khoa và lớp";
+            this.ribbonPageGroup2.Text = "Phòng ban và nhân sự";
             // 
             // ribbonPage2
             // 
@@ -417,11 +348,11 @@ namespace TracNghiemCSDLPT
             this.ribbonStatusBar.ItemLinks.Add(this.statusMa, true);
             this.ribbonStatusBar.ItemLinks.Add(this.statusTen, true);
             this.ribbonStatusBar.ItemLinks.Add(this.statusQuyen, true);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 579);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 571);
             this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(801, 28);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(801, 36);
             // 
             // documentManager1
             // 
@@ -431,6 +362,15 @@ namespace TracNghiemCSDLPT
             this.documentManager1.View = this.tabbedView1;
             this.documentManager1.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
             this.tabbedView1});
+            // 
+            // tabbedView1
+            // 
+            this.tabbedView1.Appearance.Font = new System.Drawing.Font("Baloo 2 SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabbedView1.Appearance.Options.UseFont = true;
+            this.tabbedView1.AppearancePage.Header.Font = new System.Drawing.Font("Baloo 2 SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.tabbedView1.AppearancePage.Header.Options.UseFont = true;
+            this.tabbedView1.AppearancePage.HeaderSelected.Font = new System.Drawing.Font("Baloo 2 SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.tabbedView1.AppearancePage.HeaderSelected.Options.UseFont = true;
             // 
             // MainView
             // 
@@ -469,7 +409,6 @@ namespace TracNghiemCSDLPT
         private DevExpress.XtraBars.BarButtonItem butonGiaoVien;
         private DevExpress.XtraBars.BarButtonItem buttonKhoaLop;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem buttonDKTN;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;

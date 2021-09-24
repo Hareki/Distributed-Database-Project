@@ -12,11 +12,11 @@ namespace TracNghiemCSDLPT.Others
 {
     public partial class Test : Form
     {
-        string test = "";
+        private string stringTest;
         public Test()
         {
             InitializeComponent();
-            Console.WriteLine(Utils.CapitalizeString(test, Utils.CapitalMode.EveryWord));
+          //  Console.WriteLine(Utils.CapitalizeString(test, Utils.CapitalMode.EveryWord));
          //   Console.WriteLine(test);
         }
         public static int time;
@@ -44,7 +44,7 @@ namespace TracNghiemCSDLPT.Others
 
         private void showTime_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("time: " + time);
+            
         }
     }
 }

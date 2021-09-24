@@ -170,6 +170,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyForms\TabbedForms\FormSVL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForms\TabbedForms\FormSVL.Designer.cs">
+      <DependentUpon>FormSVL.cs</DependentUpon>
+    </Compile>
     <Compile Include="Others\AlertForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForms\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForms\TabbedForms\FormSVL.resx">
+      <DependentUpon>FormSVL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Others\AlertForm.resx">
       <DependentUpon>AlertForm.cs</DependentUpon>
@@ -457,6 +466,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cancel_35px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\student_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\students_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\student_male_480px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\student_male_480px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\classroom_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\school_480px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

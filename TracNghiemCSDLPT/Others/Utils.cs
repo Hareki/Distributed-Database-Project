@@ -1,5 +1,9 @@
-﻿using System;
+﻿using DevExpress.Utils;
+using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -19,7 +23,7 @@ namespace TracNghiemCSDLPT
         public static bool ShowConfirmMessage(string text, string title)
         {
 
-            DialogResult result = MessageBox.Show(text, title, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show(text, title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes) return true;
             else return false;
         }
@@ -65,20 +69,19 @@ namespace TracNghiemCSDLPT
                 result += word.Substring(0, 1).ToUpper() + word.Substring(1).ToLower() + " ";
             return result.Trim();
         }
-
-        public static string CapitalizeString2(string name, CapitalMode mode)
+        public static void SetTextEditError(ErrorProvider EP, TextEdit textEdit, string errorMessage)
         {
-            name = "hahaha";
-            string temp = Regex.Replace(name.Trim(), @"\s+", " ");
-            if (mode == CapitalMode.FirstWordOnly)
-                return temp.Substring(0, 1).ToUpper() + temp.Substring(1);
-            else temp = temp.ToLower();
-
-            string[] words = temp.Split(' ');
-            string result = "";
-            foreach (string word in words)
-                result += word.Substring(0, 1).ToUpper() + word.Substring(1).ToLower() + " ";
-            return result.Trim();
+            if (!(errorMessage is null))
+            {
+                textEdit.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(236, 65, 52);
+                EP.SetError(textEdit, errorMessage);
+            }
+            else
+            {
+                textEdit.Properties.Appearance.BorderColor = System.Drawing.Color.Silver;
+                EP.SetError(textEdit, null);
+            }
         }
+
     }
 }

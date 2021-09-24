@@ -44,13 +44,18 @@ namespace TracNghiemCSDLPT
 
         private void buttonMonHoc_ItemClick(object sender, ItemClickEventArgs e)
         {
-            showForm(typeof(MonHoc));
+            showForm(typeof(FormMonHoc));
         }
 
         private void MainView_FormClosed(object sender, FormClosedEventArgs e)
         {
             //Program.FormLogin.Close();
             Application.Exit();
+        }
+
+        private void buttonBangDiem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
         }
     }
 

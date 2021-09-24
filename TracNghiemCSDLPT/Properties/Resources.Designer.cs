@@ -223,6 +223,16 @@ namespace TracNghiemCSDLPT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap classroom_480px {
+            get {
+                object obj = ResourceManager.GetObject("classroom_480px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap database_administrator_16px {
             get {
                 object obj = ResourceManager.GetObject("database_administrator_16px", resourceCulture);
@@ -533,6 +543,16 @@ namespace TracNghiemCSDLPT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap school_480px {
+            get {
+                object obj = ResourceManager.GetObject("school_480px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap scorecard_480px {
             get {
                 object obj = ResourceManager.GetObject("scorecard_480px", resourceCulture);
@@ -543,9 +563,49 @@ namespace TracNghiemCSDLPT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap student_480px {
+            get {
+                object obj = ResourceManager.GetObject("student_480px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap student_male_480px {
             get {
                 object obj = ResourceManager.GetObject("student_male_480px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap student_male_480px1 {
+            get {
+                object obj = ResourceManager.GetObject("student_male_480px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap student_male_480px2 {
+            get {
+                object obj = ResourceManager.GetObject("student_male_480px2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap students_480px {
+            get {
+                object obj = ResourceManager.GetObject("students_480px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

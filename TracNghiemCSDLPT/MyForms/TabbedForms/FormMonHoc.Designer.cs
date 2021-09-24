@@ -1,7 +1,7 @@
 ﻿
 namespace TracNghiemCSDLPT.Views
 {
-    partial class MonHoc
+    partial class FormMonHoc
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@ namespace TracNghiemCSDLPT.Views
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label LabelMaMH;
             System.Windows.Forms.Label LabelTenMH;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MonHoc));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMonHoc));
             this.MonHocGridControl = new DevExpress.XtraGrid.GridControl();
             this.MonHocBindingSouce = new System.Windows.Forms.BindingSource(this.components);
             this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TN_CSDLPTDataSet();
@@ -89,17 +89,18 @@ namespace TracNghiemCSDLPT.Views
             // 
             LabelMaMH.AutoSize = true;
             LabelMaMH.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            LabelMaMH.Location = new System.Drawing.Point(234, 84);
+            LabelMaMH.Location = new System.Drawing.Point(205, 82);
             LabelMaMH.Name = "LabelMaMH";
             LabelMaMH.Size = new System.Drawing.Size(115, 30);
             LabelMaMH.TabIndex = 4;
             LabelMaMH.Text = "Mã môn học";
+            LabelMaMH.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // LabelTenMH
             // 
             LabelTenMH.AutoSize = true;
             LabelTenMH.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            LabelTenMH.Location = new System.Drawing.Point(234, 144);
+            LabelTenMH.Location = new System.Drawing.Point(205, 144);
             LabelTenMH.Name = "LabelTenMH";
             LabelTenMH.Size = new System.Drawing.Size(120, 30);
             LabelTenMH.TabIndex = 5;
@@ -289,7 +290,7 @@ namespace TracNghiemCSDLPT.Views
             // TextTenMH
             // 
             this.TextTenMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MonHocBindingSouce, "TENMH", true));
-            this.TextTenMH.Location = new System.Drawing.Point(365, 141);
+            this.TextTenMH.Location = new System.Drawing.Point(336, 141);
             this.TextTenMH.Name = "TextTenMH";
             this.TextTenMH.Properties.Appearance.BorderColor = System.Drawing.Color.Silver;
             this.TextTenMH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
@@ -304,7 +305,7 @@ namespace TracNghiemCSDLPT.Views
             // TextMaMH
             // 
             this.TextMaMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MonHocBindingSouce, "MAMH", true));
-            this.TextMaMH.Location = new System.Drawing.Point(365, 78);
+            this.TextMaMH.Location = new System.Drawing.Point(336, 78);
             this.TextMaMH.Name = "TextMaMH";
             this.TextMaMH.Properties.Appearance.BorderColor = System.Drawing.Color.Silver;
             this.TextMaMH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
@@ -451,7 +452,7 @@ namespace TracNghiemCSDLPT.Views
             this.buttonXoa.HoverState.Parent = this.buttonXoa;
             this.buttonXoa.Image = global::TracNghiemCSDLPT.Properties.Resources.minus_sign_480px;
             this.buttonXoa.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonXoa.Location = new System.Drawing.Point(412, 289);
+            this.buttonXoa.Location = new System.Drawing.Point(416, 289);
             this.buttonXoa.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonXoa.Name = "buttonXoa";
             this.buttonXoa.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -474,7 +475,7 @@ namespace TracNghiemCSDLPT.Views
             this.buttonLamMoi.HoverState.Parent = this.buttonLamMoi;
             this.buttonLamMoi.Image = global::TracNghiemCSDLPT.Properties.Resources.reset_480px;
             this.buttonLamMoi.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonLamMoi.Location = new System.Drawing.Point(854, 288);
+            this.buttonLamMoi.Location = new System.Drawing.Point(858, 288);
             this.buttonLamMoi.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonLamMoi.Name = "buttonLamMoi";
             this.buttonLamMoi.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -497,7 +498,7 @@ namespace TracNghiemCSDLPT.Views
             this.buttonThem.HoverState.Parent = this.buttonThem;
             this.buttonThem.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
             this.buttonThem.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonThem.Location = new System.Drawing.Point(191, 288);
+            this.buttonThem.Location = new System.Drawing.Point(195, 288);
             this.buttonThem.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonThem.Name = "buttonThem";
             this.buttonThem.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -520,7 +521,7 @@ namespace TracNghiemCSDLPT.Views
             this.buttonSua.HoverState.Parent = this.buttonSua;
             this.buttonSua.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_480px;
             this.buttonSua.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonSua.Location = new System.Drawing.Point(633, 288);
+            this.buttonSua.Location = new System.Drawing.Point(637, 288);
             this.buttonSua.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonSua.Name = "buttonSua";
             this.buttonSua.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -540,7 +541,7 @@ namespace TracNghiemCSDLPT.Views
             this.TenMHEP.ContainerControl = this;
             this.TenMHEP.Icon = ((System.Drawing.Icon)(resources.GetObject("TenMHEP.Icon")));
             // 
-            // MonHoc
+            // FormMonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -551,7 +552,7 @@ namespace TracNghiemCSDLPT.Views
             this.Controls.Add(this.bunifuPanel1);
             this.Controls.Add(this.buttonLamMoi);
             this.Controls.Add(this.buttonXoa);
-            this.Name = "MonHoc";
+            this.Name = "FormMonHoc";
             this.Text = "Môn học";
             this.Load += new System.EventHandler(this.MonHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MonHocGridControl)).EndInit();

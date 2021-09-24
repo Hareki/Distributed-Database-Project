@@ -223,3 +223,4 @@ D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSD
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.Others.Test.resources
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.csproj.AssemblyReference.cache
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.Views.FormMonHoc.resources
+D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.MyForms.TabbedForms.FormSVL.resources

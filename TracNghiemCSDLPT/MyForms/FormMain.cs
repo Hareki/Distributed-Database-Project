@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TracNghiemCSDLPT.MyForms.TabbedForms;
 using TracNghiemCSDLPT.Views;
 
 namespace TracNghiemCSDLPT
@@ -56,6 +57,11 @@ namespace TracNghiemCSDLPT
         private void buttonBangDiem_ItemClick(object sender, ItemClickEventArgs e)
         {
 
+        }
+
+        private void buttonSinhVien_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            showForm(typeof(FormSVL));
         }
     }
 

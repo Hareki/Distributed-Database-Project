@@ -143,6 +143,7 @@ namespace TracNghiemCSDLPT
             this.buttonSinhVien.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.classroom_480px;
             this.buttonSinhVien.LargeWidth = 80;
             this.buttonSinhVien.Name = "buttonSinhVien";
+            this.buttonSinhVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonSinhVien_ItemClick);
             // 
             // butonGiaoVien
             // 
@@ -369,6 +370,10 @@ namespace TracNghiemCSDLPT
             this.tabbedView1.Appearance.Options.UseFont = true;
             this.tabbedView1.AppearancePage.Header.Font = new System.Drawing.Font("Baloo 2 SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
             this.tabbedView1.AppearancePage.Header.Options.UseFont = true;
+            this.tabbedView1.AppearancePage.HeaderActive.Font = new System.Drawing.Font("Baloo 2 SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.tabbedView1.AppearancePage.HeaderActive.Options.UseFont = true;
+            this.tabbedView1.AppearancePage.HeaderHotTracked.Font = new System.Drawing.Font("Baloo 2 SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.tabbedView1.AppearancePage.HeaderHotTracked.Options.UseFont = true;
             this.tabbedView1.AppearancePage.HeaderSelected.Font = new System.Drawing.Font("Baloo 2 SemiBold", 10.2F, System.Drawing.FontStyle.Bold);
             this.tabbedView1.AppearancePage.HeaderSelected.Options.UseFont = true;
             // 

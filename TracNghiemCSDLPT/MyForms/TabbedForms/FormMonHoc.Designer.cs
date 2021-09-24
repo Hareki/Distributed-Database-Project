@@ -34,7 +34,7 @@ namespace TracNghiemCSDLPT.Views
             System.Windows.Forms.Label LabelTenMH;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMonHoc));
             this.MonHocGridControl = new DevExpress.XtraGrid.GridControl();
-            this.MonHocBindingSouce = new System.Windows.Forms.BindingSource(this.components);
+            this.MonHocBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TN_CSDLPTDataSet();
             this.MonHocGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -54,7 +54,7 @@ namespace TracNghiemCSDLPT.Views
             this.buttonXacNhan = new Guna.UI2.WinForms.Guna2CircleButton();
             this.MonHocTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.MONHOCTableAdapter();
             this.tableAdapterManager = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
-            this.BoDeBindingSouce = new System.Windows.Forms.BindingSource(this.components);
+            this.BoDeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BoDeTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.BODETableAdapter();
             this.BangDiemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BangDiemTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.BANGDIEMTableAdapter();
@@ -69,7 +69,7 @@ namespace TracNghiemCSDLPT.Views
             LabelMaMH = new System.Windows.Forms.Label();
             LabelTenMH = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MonHocGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MonHocBindingSouce)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MonHocBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MonHocGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardView1)).BeginInit();
@@ -78,7 +78,7 @@ namespace TracNghiemCSDLPT.Views
             this.InfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TextTenMH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextMaMH.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BoDeBindingSouce)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BoDeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BangDiemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GV_DKBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaMHEP)).BeginInit();
@@ -111,7 +111,7 @@ namespace TracNghiemCSDLPT.Views
             this.MonHocGridControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.MonHocGridControl.DataSource = this.MonHocBindingSouce;
+            this.MonHocGridControl.DataSource = this.MonHocBindingSource;
             this.MonHocGridControl.Font = new System.Drawing.Font("Teko SemiBold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MonHocGridControl.Location = new System.Drawing.Point(0, 343);
             this.MonHocGridControl.MainView = this.MonHocGridView;
@@ -122,10 +122,10 @@ namespace TracNghiemCSDLPT.Views
             this.MonHocGridView,
             this.cardView1});
             // 
-            // MonHocBindingSouce
+            // MonHocBindingSource
             // 
-            this.MonHocBindingSouce.DataMember = "MONHOC";
-            this.MonHocBindingSouce.DataSource = this.TN_CSDLPTDataSet;
+            this.MonHocBindingSource.DataMember = "MONHOC";
+            this.MonHocBindingSource.DataSource = this.TN_CSDLPTDataSet;
             // 
             // TN_CSDLPTDataSet
             // 
@@ -162,6 +162,8 @@ namespace TracNghiemCSDLPT.Views
             this.MonHocGridView.Appearance.SelectedRow.Options.UseFont = true;
             this.MonHocGridView.Appearance.TopNewRow.Font = new System.Drawing.Font("Baloo 2", 10.2F);
             this.MonHocGridView.Appearance.TopNewRow.Options.UseFont = true;
+            this.MonHocGridView.Appearance.ViewCaption.Font = new System.Drawing.Font("Baloo 2", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MonHocGridView.Appearance.ViewCaption.Options.UseFont = true;
             this.MonHocGridView.AppearancePrint.OddRow.BackColor = System.Drawing.Color.DimGray;
             this.MonHocGridView.AppearancePrint.OddRow.Options.UseBackColor = true;
             this.MonHocGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -177,6 +179,10 @@ namespace TracNghiemCSDLPT.Views
             this.MonHocGridView.OptionsPrint.EnableAppearanceOddRow = true;
             this.MonHocGridView.OptionsScrollAnnotations.ShowFocusedRow = DevExpress.Utils.DefaultBoolean.True;
             this.MonHocGridView.OptionsView.EnableAppearanceOddRow = true;
+            this.MonHocGridView.OptionsView.ShowGroupPanel = false;
+            this.MonHocGridView.OptionsView.ShowIndicator = false;
+            this.MonHocGridView.OptionsView.ShowViewCaption = true;
+            this.MonHocGridView.ViewCaption = "Danh sách môn học";
             // 
             // colMAMH
             // 
@@ -289,8 +295,8 @@ namespace TracNghiemCSDLPT.Views
             // 
             // TextTenMH
             // 
-            this.TextTenMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MonHocBindingSouce, "TENMH", true));
-            this.TextTenMH.Location = new System.Drawing.Point(336, 141);
+            this.TextTenMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MonHocBindingSource, "TENMH", true));
+            this.TextTenMH.Location = new System.Drawing.Point(326, 141);
             this.TextTenMH.Name = "TextTenMH";
             this.TextTenMH.Properties.Appearance.BorderColor = System.Drawing.Color.Silver;
             this.TextTenMH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
@@ -304,8 +310,8 @@ namespace TracNghiemCSDLPT.Views
             // 
             // TextMaMH
             // 
-            this.TextMaMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MonHocBindingSouce, "MAMH", true));
-            this.TextMaMH.Location = new System.Drawing.Point(336, 78);
+            this.TextMaMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MonHocBindingSource, "MAMH", true));
+            this.TextMaMH.Location = new System.Drawing.Point(326, 78);
             this.TextMaMH.Name = "TextMaMH";
             this.TextMaMH.Properties.Appearance.BorderColor = System.Drawing.Color.Silver;
             this.TextMaMH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
@@ -408,14 +414,18 @@ namespace TracNghiemCSDLPT.Views
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.BANGDIEMTableAdapter = null;
             this.tableAdapterManager.BODETableAdapter = null;
+            this.tableAdapterManager.COSOTableAdapter = null;
             this.tableAdapterManager.GIAOVIEN_DANGKYTableAdapter = null;
+            this.tableAdapterManager.KHOATableAdapter = null;
+            this.tableAdapterManager.LOPTableAdapter = null;
             this.tableAdapterManager.MONHOCTableAdapter = this.MonHocTableAdapter;
+            this.tableAdapterManager.SINHVIENTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // BoDeBindingSouce
+            // BoDeBindingSource
             // 
-            this.BoDeBindingSouce.DataMember = "FK_BODE_MONHOC";
-            this.BoDeBindingSouce.DataSource = this.MonHocBindingSouce;
+            this.BoDeBindingSource.DataMember = "FK_BODE_MONHOC";
+            this.BoDeBindingSource.DataSource = this.MonHocBindingSource;
             // 
             // BoDeTableAdapter
             // 
@@ -424,7 +434,7 @@ namespace TracNghiemCSDLPT.Views
             // BangDiemBindingSource
             // 
             this.BangDiemBindingSource.DataMember = "FK_BANGDIEM_MONHOC";
-            this.BangDiemBindingSource.DataSource = this.MonHocBindingSouce;
+            this.BangDiemBindingSource.DataSource = this.MonHocBindingSource;
             // 
             // BangDiemTableAdapter
             // 
@@ -433,7 +443,7 @@ namespace TracNghiemCSDLPT.Views
             // GV_DKBindingSource
             // 
             this.GV_DKBindingSource.DataMember = "FK_GIAOVIEN_DANGKY_MONHOC1";
-            this.GV_DKBindingSource.DataSource = this.MonHocBindingSouce;
+            this.GV_DKBindingSource.DataSource = this.MonHocBindingSource;
             // 
             // GV_DKTableAdapter
             // 
@@ -443,11 +453,12 @@ namespace TracNghiemCSDLPT.Views
             // 
             this.buttonXoa.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonXoa.Animated = true;
+            this.buttonXoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
             this.buttonXoa.CheckedState.Parent = this.buttonXoa;
             this.buttonXoa.CustomImages.Parent = this.buttonXoa;
-            this.buttonXoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.buttonXoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
             this.buttonXoa.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonXoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
+            this.buttonXoa.ForeColor = System.Drawing.Color.Black;
             this.buttonXoa.HoverState.FillColor = System.Drawing.Color.Gainsboro;
             this.buttonXoa.HoverState.Parent = this.buttonXoa;
             this.buttonXoa.Image = global::TracNghiemCSDLPT.Properties.Resources.minus_sign_480px;
@@ -466,11 +477,12 @@ namespace TracNghiemCSDLPT.Views
             // 
             this.buttonLamMoi.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonLamMoi.Animated = true;
+            this.buttonLamMoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
             this.buttonLamMoi.CheckedState.Parent = this.buttonLamMoi;
             this.buttonLamMoi.CustomImages.Parent = this.buttonLamMoi;
-            this.buttonLamMoi.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.buttonLamMoi.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
             this.buttonLamMoi.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLamMoi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
+            this.buttonLamMoi.ForeColor = System.Drawing.Color.Black;
             this.buttonLamMoi.HoverState.FillColor = System.Drawing.Color.Gainsboro;
             this.buttonLamMoi.HoverState.Parent = this.buttonLamMoi;
             this.buttonLamMoi.Image = global::TracNghiemCSDLPT.Properties.Resources.reset_480px;
@@ -489,11 +501,12 @@ namespace TracNghiemCSDLPT.Views
             // 
             this.buttonThem.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonThem.Animated = true;
+            this.buttonThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
             this.buttonThem.CheckedState.Parent = this.buttonThem;
             this.buttonThem.CustomImages.Parent = this.buttonThem;
-            this.buttonThem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.buttonThem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
             this.buttonThem.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonThem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
+            this.buttonThem.ForeColor = System.Drawing.Color.Black;
             this.buttonThem.HoverState.FillColor = System.Drawing.Color.Gainsboro;
             this.buttonThem.HoverState.Parent = this.buttonThem;
             this.buttonThem.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
@@ -512,11 +525,12 @@ namespace TracNghiemCSDLPT.Views
             // 
             this.buttonSua.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonSua.Animated = true;
+            this.buttonSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
             this.buttonSua.CheckedState.Parent = this.buttonSua;
             this.buttonSua.CustomImages.Parent = this.buttonSua;
-            this.buttonSua.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.buttonSua.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
             this.buttonSua.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
+            this.buttonSua.ForeColor = System.Drawing.Color.Black;
             this.buttonSua.HoverState.FillColor = System.Drawing.Color.Gainsboro;
             this.buttonSua.HoverState.Parent = this.buttonSua;
             this.buttonSua.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_480px;
@@ -552,11 +566,12 @@ namespace TracNghiemCSDLPT.Views
             this.Controls.Add(this.bunifuPanel1);
             this.Controls.Add(this.buttonLamMoi);
             this.Controls.Add(this.buttonXoa);
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("FormMonHoc.IconOptions.Icon")));
             this.Name = "FormMonHoc";
             this.Text = "Môn học";
             this.Load += new System.EventHandler(this.MonHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MonHocGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MonHocBindingSouce)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MonHocBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MonHocGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardView1)).EndInit();
@@ -566,7 +581,7 @@ namespace TracNghiemCSDLPT.Views
             this.InfoPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TextTenMH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextMaMH.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BoDeBindingSouce)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BoDeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BangDiemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GV_DKBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaMHEP)).EndInit();
@@ -587,7 +602,7 @@ namespace TracNghiemCSDLPT.Views
         private Guna.UI2.WinForms.Guna2CircleButton buttonUndo;
         private Bunifu.UI.WinForms.BunifuGroupBox InfoPanel;
         private TN_CSDLPTDataSet TN_CSDLPTDataSet;
-        private System.Windows.Forms.BindingSource MonHocBindingSouce;
+        private System.Windows.Forms.BindingSource MonHocBindingSource;
         private TN_CSDLPTDataSetTableAdapters.MONHOCTableAdapter MonHocTableAdapter;
         private TN_CSDLPTDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraGrid.GridControl MonHocGridControl;
@@ -597,7 +612,7 @@ namespace TracNghiemCSDLPT.Views
         private DevExpress.XtraGrid.Columns.GridColumn colMAMH;
         private DevExpress.XtraGrid.Columns.GridColumn colTENMH;
         private DevExpress.XtraGrid.Views.Card.CardView cardView1;
-        private System.Windows.Forms.BindingSource BoDeBindingSouce;
+        private System.Windows.Forms.BindingSource BoDeBindingSource;
         private TN_CSDLPTDataSetTableAdapters.BODETableAdapter BoDeTableAdapter;
         private System.Windows.Forms.BindingSource BangDiemBindingSource;
         private TN_CSDLPTDataSetTableAdapters.BANGDIEMTableAdapter BangDiemTableAdapter;

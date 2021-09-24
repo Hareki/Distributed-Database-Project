@@ -58,7 +58,7 @@ namespace TracNghiemCSDLPT.Views
 
         private void buttonThem_Click(object sender, EventArgs e)
         {
-            selectedRow = MonHocBindingSouce.Position;
+            selectedRow = MonHocBindingSource.Position;
             InfoPanel.Enabled = true;
             InfoPanel.ForeColor = TextMaMH.ForeColor =
                 TextTenMH.ForeColor = ActiveForeColor;
@@ -70,7 +70,7 @@ namespace TracNghiemCSDLPT.Views
 
             MonHocGridControl.Enabled = false;
             state = State.add;
-            MonHocBindingSouce.AddNew();
+            MonHocBindingSource.AddNew();
         }
 
         private void buttonHuy_Click(object sender, EventArgs e)
@@ -79,10 +79,10 @@ namespace TracNghiemCSDLPT.Views
             InfoPanel.ForeColor = TextMaMH.ForeColor =
                 TextTenMH.ForeColor = DisabledForeColor;
             MonHocGridControl.Enabled = true;
-            MonHocBindingSouce.CancelEdit();
+            MonHocBindingSource.CancelEdit();
             InfoPanel.Text = "Thông tin môn học";
             if (state == State.add)
-                MonHocBindingSouce.Position = selectedRow;
+                MonHocBindingSource.Position = selectedRow;
             SetIdleButtonEnabled(true);
             SetInputButtonEnabled(false);
 
@@ -126,8 +126,8 @@ namespace TracNghiemCSDLPT.Views
         private void buttonXoa_Click(object sender, EventArgs e)
         {
             string RemovedMH = "";
-            selectedRow = MonHocBindingSouce.Position;
-            if (BoDeBindingSouce.Count > 0)
+            selectedRow = MonHocBindingSource.Position;
+            if (BoDeBindingSource.Count > 0)
             {
                 Utils.ShowMessage("Không thể xóa vì đã có câu hỏi thuộc môn học này", Others.NotiForm.FormType.Error, 2);
                 return;
@@ -146,8 +146,8 @@ namespace TracNghiemCSDLPT.Views
             {
                 try
                 {
-                    RemovedMH = ((DataRowView)MonHocBindingSouce[selectedRow])["MAMH"].ToString();
-                    MonHocBindingSouce.RemoveCurrent();
+                    RemovedMH = ((DataRowView)MonHocBindingSource[selectedRow])["MAMH"].ToString();
+                    MonHocBindingSource.RemoveCurrent();
                     MonHocTableAdapter.Update(TN_CSDLPTDataSet.MONHOC);
                     Utils.ShowMessage("Xóa môn học thành công!", Others.NotiForm.FormType.Success, 1);
                 }
@@ -156,21 +156,21 @@ namespace TracNghiemCSDLPT.Views
                     Utils.ShowErrorMessage("Không thể xóa nhân viên, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi xóa nhân viên");
                     Console.WriteLine(ex.StackTrace);
                     this.MonHocTableAdapter.Fill(TN_CSDLPTDataSet.MONHOC);
-                    MonHocBindingSouce.Position = MonHocBindingSouce.Find("MAMH", RemovedMH);
+                    MonHocBindingSource.Position = MonHocBindingSource.Find("MAMH", RemovedMH);
                     return;
                 }
             }
 
-            if (MonHocBindingSouce.Count == 0)
+            if (MonHocBindingSource.Count == 0)
                 buttonXoa.Enabled = false;
         }
 
         private bool AlreadyExists(string testName, string columnName)
         {
-            int index = MonHocBindingSouce.Find(columnName, testName);
+            int index = MonHocBindingSource.Find(columnName, testName);
             if (index != -1)
             {
-                if (state == State.add || (state == State.edit && index != MonHocBindingSouce.Position))
+                if (state == State.add || (state == State.edit && index != MonHocBindingSource.Position))
                     return true;
                 else
                 {
@@ -235,8 +235,8 @@ namespace TracNghiemCSDLPT.Views
 
             try
             {
-                MonHocBindingSouce.EndEdit();
-                MonHocBindingSouce.ResetCurrentItem();
+                MonHocBindingSource.EndEdit();
+                MonHocBindingSource.ResetCurrentItem();
                 this.MonHocTableAdapter.Update(this.TN_CSDLPTDataSet.MONHOC);
                 if (state == State.edit)
                     Utils.ShowMessage("Sửa môn học thành công", Others.NotiForm.FormType.Success, 1);

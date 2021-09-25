@@ -12,7 +12,7 @@ namespace TracNghiemCSDLPT.Others
 {
     public partial class NotiForm : Form
     {
-        private readonly int waitingTime = 5000;
+        private readonly int waitingTime = 3000;
         private FormAction action;
         private int x, y;
         private FormType type;
@@ -108,7 +108,7 @@ namespace TracNghiemCSDLPT.Others
         {
             if (!inForm() && forceClose == false)
             {
-                this.timer1.Interval = 5000;
+                this.timer1.Interval = waitingTime;
                 this.timer1.Start();
                 action = FormAction.close;
             }

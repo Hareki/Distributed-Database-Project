@@ -85,8 +85,6 @@ namespace TracNghiemCSDLPT.Views
                 MonHocBindingSource.Position = selectedRow;
             SetIdleButtonEnabled(true);
             SetInputButtonEnabled(false);
-
-            InfoPanel.Text = "Thông tin môn học";
             Utils.SetTextEditError(TenMHEP, TextTenMH, null);
             Utils.SetTextEditError(MaMHEP, TextMaMH, null);
 

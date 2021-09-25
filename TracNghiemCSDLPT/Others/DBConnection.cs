@@ -34,15 +34,17 @@ namespace TracNghiemCSDLPT.SQL_Connection
         public static string Password;
         public static string SubcriberConnectionString;
 
+
         public static BindingSource BS_Subcribers = new BindingSource();
         public static string UserName; // aka MaGV
         public static string HoTen; // Ten GV
         public static string NhomQuyen;
-
+        public static int IndexCS = -1;
 
         //HTKN Connection
-        private static string RemoteLogin = "HTKN";
-        private static string RemotePassword = "123456";
+        public static string RemoteLogin = "HTKN";
+        public static string RemotePassword = "123456";
+        
 
         public static bool ConnectToPublisher()
         {

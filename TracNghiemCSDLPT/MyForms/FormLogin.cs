@@ -113,6 +113,7 @@ namespace TracNghiemCSDLPT
                 DBConnection.UserName = myReader.GetString(0); // Lấy Mã GV, chính là Username ở cột 1.
                 DBConnection.HoTen = myReader.GetString(1);
                 DBConnection.NhomQuyen = myReader.GetString(2);
+                DBConnection.IndexCS = ComboBoxCoSo.SelectedIndex;
                 myReader.Close();
                 Program.MainInstance = new MainView();
                 Program.MainInstance.statusMa.Caption = "Mã GV: " + DBConnection.UserName;

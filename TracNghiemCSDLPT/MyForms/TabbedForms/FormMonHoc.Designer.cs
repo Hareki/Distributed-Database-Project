@@ -396,7 +396,7 @@ namespace TracNghiemCSDLPT.Views
             this.buttonXacNhan.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
             this.buttonXacNhan.ImageSize = new System.Drawing.Size(31, 31);
             this.buttonXacNhan.Location = new System.Drawing.Point(933, 30);
-            this.buttonXacNhan.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.buttonXacNhan.Margin = new System.Windows.Forms.Padding(10, 9, 7, 8);
             this.buttonXacNhan.Name = "buttonXacNhan";
             this.buttonXacNhan.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.buttonXacNhan.ShadowDecoration.Parent = this.buttonXacNhan;

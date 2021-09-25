@@ -136,6 +136,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.LopGridView.OptionsDetail.EnableMasterViewMode = false;
             this.LopGridView.OptionsPrint.EnableAppearanceOddRow = true;
             this.LopGridView.OptionsScrollAnnotations.ShowFocusedRow = DevExpress.Utils.DefaultBoolean.True;
+            this.LopGridView.OptionsView.AnimationType = DevExpress.XtraGrid.Views.Base.GridAnimationType.AnimateAllContent;
             this.LopGridView.OptionsView.EnableAppearanceEvenRow = true;
             this.LopGridView.OptionsView.EnableAppearanceOddRow = true;
             this.LopGridView.OptionsView.ShowGroupPanel = false;
@@ -144,6 +145,9 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // 
             // colMALOP1
             // 
+            this.colMALOP1.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(230)))), ((int)(((byte)(203)))));
+            this.colMALOP1.AppearanceHeader.Options.UseBackColor = true;
+            this.colMALOP1.Caption = "Mã lớp";
             this.colMALOP1.FieldName = "MALOP";
             this.colMALOP1.MinWidth = 25;
             this.colMALOP1.Name = "colMALOP1";
@@ -153,6 +157,9 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // 
             // colTENLOP
             // 
+            this.colTENLOP.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(230)))), ((int)(((byte)(203)))));
+            this.colTENLOP.AppearanceHeader.Options.UseBackColor = true;
+            this.colTENLOP.Caption = "Tên lớp";
             this.colTENLOP.FieldName = "TENLOP";
             this.colTENLOP.MinWidth = 25;
             this.colTENLOP.Name = "colTENLOP";
@@ -162,6 +169,9 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // 
             // colMAKH1
             // 
+            this.colMAKH1.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(230)))), ((int)(((byte)(203)))));
+            this.colMAKH1.AppearanceHeader.Options.UseBackColor = true;
+            this.colMAKH1.Caption = "Mã khoa";
             this.colMAKH1.FieldName = "MAKH";
             this.colMAKH1.MinWidth = 25;
             this.colMAKH1.Name = "colMAKH1";
@@ -247,11 +257,13 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.KhoaGridView.OptionsDetail.AllowExpandEmptyDetails = true;
             this.KhoaGridView.OptionsPrint.EnableAppearanceOddRow = true;
             this.KhoaGridView.OptionsScrollAnnotations.ShowFocusedRow = DevExpress.Utils.DefaultBoolean.True;
+            this.KhoaGridView.OptionsView.AnimationType = DevExpress.XtraGrid.Views.Base.GridAnimationType.AnimateAllContent;
             this.KhoaGridView.OptionsView.EnableAppearanceOddRow = true;
             this.KhoaGridView.OptionsView.ShowGroupPanel = false;
             this.KhoaGridView.OptionsView.ShowIndicator = false;
             this.KhoaGridView.OptionsView.ShowViewCaption = true;
             this.KhoaGridView.ViewCaption = "Danh sách lớp theo khoa";
+            this.KhoaGridView.MasterRowGetRelationDisplayCaption += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationNameEventHandler(this.KhoaGridView_MasterRowGetRelationDisplayCaption);
             // 
             // colMAKH
             // 

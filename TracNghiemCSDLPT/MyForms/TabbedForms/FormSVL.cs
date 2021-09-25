@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.BandedGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.LopTableAdapter.Fill(this.TN_CSDLPTDataSet.LOP);
             this.SinhVienTableAdapter.Fill(this.TN_CSDLPTDataSet.SINHVIEN);
 
-            KhoaGridView.ExpandMasterRow(0);
+           // KhoaGridView.ExpandMasterRow(0);
         }
 
         private void LopGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -46,13 +47,20 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             Object test = (detailView as GridView).GetFocusedRowCellValue(colMALOP1);
             string MaLop;
             if (test != null)
-            {
                 MaLop = test.ToString();
-             //   Console.WriteLine(MaLop);
-            }
             else return;
             LopBindingSource.Position = LopBindingSource.Find("MALOP", MaLop);
 
         }
+
+        private void KhoaGridView_MasterRowGetRelationDisplayCaption(object sender, MasterRowGetRelationNameEventArgs e)
+        {
+            GridView view = sender as GridView;
+            if (view is null) return;
+            string tenKhoa = (string)view.GetRowCellValue(e.RowHandle, colTENKH); ;
+            if (e.RelationIndex == 0)
+                e.RelationName = $"Lớp thuộc khoa {tenKhoa}";
+        }
+
     }
 }

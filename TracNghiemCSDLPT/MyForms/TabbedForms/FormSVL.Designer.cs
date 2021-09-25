@@ -101,27 +101,27 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // 
             this.LopGridView.Appearance.EvenRow.BackColor = System.Drawing.Color.White;
             this.LopGridView.Appearance.EvenRow.Options.UseBackColor = true;
-            this.LopGridView.Appearance.FixedLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(230)))), ((int)(((byte)(203)))));
+            this.LopGridView.Appearance.FixedLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(198)))), ((int)(((byte)(203)))));
             this.LopGridView.Appearance.FixedLine.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold);
             this.LopGridView.Appearance.FixedLine.Options.UseBackColor = true;
             this.LopGridView.Appearance.FixedLine.Options.UseFont = true;
-            this.LopGridView.Appearance.FocusedCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(186)))));
+            this.LopGridView.Appearance.FocusedCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(211)))));
             this.LopGridView.Appearance.FocusedCell.Options.UseBackColor = true;
-            this.LopGridView.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(186)))));
+            this.LopGridView.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(211)))));
             this.LopGridView.Appearance.FocusedRow.Options.UseBackColor = true;
             this.LopGridView.Appearance.GroupPanel.Font = new System.Drawing.Font("Baloo 2", 13.8F, System.Drawing.FontStyle.Bold);
             this.LopGridView.Appearance.GroupPanel.Options.UseFont = true;
-            this.LopGridView.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(230)))), ((int)(((byte)(203)))));
+            this.LopGridView.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(198)))), ((int)(((byte)(203)))));
             this.LopGridView.Appearance.HeaderPanel.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold);
             this.LopGridView.Appearance.HeaderPanel.Options.UseBackColor = true;
             this.LopGridView.Appearance.HeaderPanel.Options.UseFont = true;
-            this.LopGridView.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(186)))));
+            this.LopGridView.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(211)))));
             this.LopGridView.Appearance.HideSelectionRow.Options.UseBackColor = true;
             this.LopGridView.Appearance.OddRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.LopGridView.Appearance.OddRow.Options.UseBackColor = true;
             this.LopGridView.Appearance.Row.Font = new System.Drawing.Font("Baloo 2", 12F);
             this.LopGridView.Appearance.Row.Options.UseFont = true;
-            this.LopGridView.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(186)))));
+            this.LopGridView.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(211)))));
             this.LopGridView.Appearance.SelectedRow.Options.UseBackColor = true;
             this.LopGridView.Appearance.ViewCaption.Font = new System.Drawing.Font("Baloo 2", 13.8F, System.Drawing.FontStyle.Bold);
             this.LopGridView.Appearance.ViewCaption.Options.UseFont = true;
@@ -145,7 +145,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // 
             // colMALOP1
             // 
-            this.colMALOP1.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(230)))), ((int)(((byte)(203)))));
+            this.colMALOP1.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(198)))), ((int)(((byte)(203)))));
             this.colMALOP1.AppearanceHeader.Options.UseBackColor = true;
             this.colMALOP1.Caption = "Mã lớp";
             this.colMALOP1.FieldName = "MALOP";
@@ -157,7 +157,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // 
             // colTENLOP
             // 
-            this.colTENLOP.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(230)))), ((int)(((byte)(203)))));
+            this.colTENLOP.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(198)))), ((int)(((byte)(203)))));
             this.colTENLOP.AppearanceHeader.Options.UseBackColor = true;
             this.colTENLOP.Caption = "Tên lớp";
             this.colTENLOP.FieldName = "TENLOP";
@@ -169,7 +169,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // 
             // colMAKH1
             // 
-            this.colMAKH1.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(230)))), ((int)(((byte)(203)))));
+            this.colMAKH1.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(198)))), ((int)(((byte)(203)))));
             this.colMAKH1.AppearanceHeader.Options.UseBackColor = true;
             this.colMAKH1.Caption = "Mã khoa";
             this.colMAKH1.FieldName = "MAKH";
@@ -192,7 +192,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.KhoaGridControl.Location = new System.Drawing.Point(7, 67);
             this.KhoaGridControl.MainView = this.KhoaGridView;
             this.KhoaGridControl.Name = "KhoaGridControl";
-            this.KhoaGridControl.Size = new System.Drawing.Size(931, 298);
+            this.KhoaGridControl.Size = new System.Drawing.Size(931, 351);
             this.KhoaGridControl.TabIndex = 13;
             this.KhoaGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.KhoaGridView,
@@ -214,15 +214,15 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.KhoaGridView.Appearance.EvenRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
             this.KhoaGridView.Appearance.EvenRow.Options.UseBackColor = true;
             this.KhoaGridView.Appearance.EvenRow.Options.UseForeColor = true;
-            this.KhoaGridView.Appearance.FocusedCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(244)))), ((int)(((byte)(252)))));
+            this.KhoaGridView.Appearance.FocusedCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(255)))), ((int)(((byte)(215)))));
             this.KhoaGridView.Appearance.FocusedCell.Options.UseBackColor = true;
-            this.KhoaGridView.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(244)))), ((int)(((byte)(252)))));
+            this.KhoaGridView.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(255)))), ((int)(((byte)(215)))));
             this.KhoaGridView.Appearance.FocusedRow.Options.UseBackColor = true;
             this.KhoaGridView.Appearance.GroupRow.Font = new System.Drawing.Font("Baloo 2", 10.2F);
             this.KhoaGridView.Appearance.GroupRow.Options.UseFont = true;
             this.KhoaGridView.Appearance.HeaderPanel.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KhoaGridView.Appearance.HeaderPanel.Options.UseFont = true;
-            this.KhoaGridView.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(244)))), ((int)(((byte)(252)))));
+            this.KhoaGridView.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(255)))), ((int)(((byte)(215)))));
             this.KhoaGridView.Appearance.HideSelectionRow.Options.UseBackColor = true;
             this.KhoaGridView.Appearance.OddRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.KhoaGridView.Appearance.OddRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
@@ -230,9 +230,9 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.KhoaGridView.Appearance.OddRow.Options.UseForeColor = true;
             this.KhoaGridView.Appearance.Preview.Font = new System.Drawing.Font("Baloo 2", 10.2F);
             this.KhoaGridView.Appearance.Preview.Options.UseFont = true;
-            this.KhoaGridView.Appearance.Row.Font = new System.Drawing.Font("Baloo 2", 12F);
+            this.KhoaGridView.Appearance.Row.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KhoaGridView.Appearance.Row.Options.UseFont = true;
-            this.KhoaGridView.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(244)))), ((int)(((byte)(252)))));
+            this.KhoaGridView.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(255)))), ((int)(((byte)(215)))));
             this.KhoaGridView.Appearance.SelectedRow.Font = new System.Drawing.Font("Baloo 2", 12F);
             this.KhoaGridView.Appearance.SelectedRow.Options.UseBackColor = true;
             this.KhoaGridView.Appearance.SelectedRow.Options.UseFont = true;
@@ -250,6 +250,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.KhoaGridView.GridControl = this.KhoaGridControl;
             this.KhoaGridView.Name = "KhoaGridView";
             this.KhoaGridView.OptionsBehavior.AllowGroupExpandAnimation = DevExpress.Utils.DefaultBoolean.True;
+            this.KhoaGridView.OptionsBehavior.AllowSortAnimation = DevExpress.Utils.DefaultBoolean.True;
             this.KhoaGridView.OptionsBehavior.AutoExpandAllGroups = true;
             this.KhoaGridView.OptionsBehavior.Editable = false;
             this.KhoaGridView.OptionsBehavior.ReadOnly = true;
@@ -264,6 +265,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.KhoaGridView.OptionsView.ShowViewCaption = true;
             this.KhoaGridView.ViewCaption = "Danh sách lớp theo khoa";
             this.KhoaGridView.MasterRowGetRelationDisplayCaption += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationNameEventHandler(this.KhoaGridView_MasterRowGetRelationDisplayCaption);
+            this.KhoaGridView.DetailTabStyle += new System.EventHandler<DevExpress.XtraGrid.Views.Grid.DetailTabStyleEventArgs>(this.KhoaGridView_DetailTabStyle);
             // 
             // colMAKH
             // 
@@ -305,7 +307,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // 
             mALOPLabel.AutoSize = true;
             mALOPLabel.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            mALOPLabel.Location = new System.Drawing.Point(6, 55);
+            mALOPLabel.Location = new System.Drawing.Point(6, 67);
             mALOPLabel.Name = "mALOPLabel";
             mALOPLabel.Size = new System.Drawing.Size(70, 30);
             mALOPLabel.TabIndex = 0;
@@ -315,7 +317,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // 
             tENLOPLabel.AutoSize = true;
             tENLOPLabel.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            tENLOPLabel.Location = new System.Drawing.Point(6, 137);
+            tENLOPLabel.Location = new System.Drawing.Point(6, 149);
             tENLOPLabel.Name = "tENLOPLabel";
             tENLOPLabel.Size = new System.Drawing.Size(75, 30);
             tENLOPLabel.TabIndex = 2;
@@ -325,7 +327,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // 
             mAKHLabel.AutoSize = true;
             mAKHLabel.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            mAKHLabel.Location = new System.Drawing.Point(6, 219);
+            mAKHLabel.Location = new System.Drawing.Point(6, 231);
             mAKHLabel.Name = "mAKHLabel";
             mAKHLabel.Size = new System.Drawing.Size(84, 30);
             mAKHLabel.TabIndex = 4;
@@ -363,10 +365,10 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.groupBox1.Controls.Add(this.mALOPTextEdit);
             this.groupBox1.Font = new System.Drawing.Font("Baloo 2", 13.8F, System.Drawing.FontStyle.Bold);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.groupBox1.Location = new System.Drawing.Point(956, 67);
+            this.groupBox1.Location = new System.Drawing.Point(956, 49);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(15, 3, 3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(411, 461);
+            this.groupBox1.Size = new System.Drawing.Size(411, 369);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin lớp";
@@ -384,7 +386,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonLamMoi.HoverState.Parent = this.buttonLamMoi;
             this.buttonLamMoi.Image = global::TracNghiemCSDLPT.Properties.Resources.reset_480px;
             this.buttonLamMoi.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonLamMoi.Location = new System.Drawing.Point(269, 241);
+            this.buttonLamMoi.Location = new System.Drawing.Point(269, 253);
             this.buttonLamMoi.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonLamMoi.Name = "buttonLamMoi";
             this.buttonLamMoi.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -406,7 +408,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonSua.HoverState.Parent = this.buttonSua;
             this.buttonSua.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_480px;
             this.buttonSua.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonSua.Location = new System.Drawing.Point(269, 173);
+            this.buttonSua.Location = new System.Drawing.Point(269, 185);
             this.buttonSua.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonSua.Name = "buttonSua";
             this.buttonSua.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -428,7 +430,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonThem.HoverState.Parent = this.buttonThem;
             this.buttonThem.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
             this.buttonThem.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonThem.Location = new System.Drawing.Point(269, 40);
+            this.buttonThem.Location = new System.Drawing.Point(269, 52);
             this.buttonThem.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonThem.Name = "buttonThem";
             this.buttonThem.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -450,7 +452,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonXoa.HoverState.Parent = this.buttonXoa;
             this.buttonXoa.Image = global::TracNghiemCSDLPT.Properties.Resources.minus_sign_480px;
             this.buttonXoa.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonXoa.Location = new System.Drawing.Point(269, 114);
+            this.buttonXoa.Location = new System.Drawing.Point(269, 126);
             this.buttonXoa.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonXoa.Name = "buttonXoa";
             this.buttonXoa.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -462,7 +464,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // mAKHTextEdit
             // 
             this.mAKHTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LopBindingSource, "MAKH", true));
-            this.mAKHTextEdit.Location = new System.Drawing.Point(11, 252);
+            this.mAKHTextEdit.Location = new System.Drawing.Point(11, 264);
             this.mAKHTextEdit.Name = "mAKHTextEdit";
             this.mAKHTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
             this.mAKHTextEdit.Properties.Appearance.Options.UseFont = true;
@@ -478,7 +480,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // tENLOPTextEdit
             // 
             this.tENLOPTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LopBindingSource, "TENLOP", true));
-            this.tENLOPTextEdit.Location = new System.Drawing.Point(11, 170);
+            this.tENLOPTextEdit.Location = new System.Drawing.Point(11, 182);
             this.tENLOPTextEdit.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
             this.tENLOPTextEdit.Name = "tENLOPTextEdit";
             this.tENLOPTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
@@ -489,7 +491,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // mALOPTextEdit
             // 
             this.mALOPTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LopBindingSource, "MALOP", true));
-            this.mALOPTextEdit.Location = new System.Drawing.Point(11, 88);
+            this.mALOPTextEdit.Location = new System.Drawing.Point(11, 100);
             this.mALOPTextEdit.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
             this.mALOPTextEdit.Name = "mALOPTextEdit";
             this.mALOPTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
@@ -504,10 +506,10 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SinhVienGridControl.DataSource = this.SinhVienBindingSource;
             this.SinhVienGridControl.Font = new System.Drawing.Font("Teko SemiBold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SinhVienGridControl.Location = new System.Drawing.Point(150, 392);
+            this.SinhVienGridControl.Location = new System.Drawing.Point(150, 445);
             this.SinhVienGridControl.MainView = this.SinhVienGridView;
             this.SinhVienGridControl.Name = "SinhVienGridControl";
-            this.SinhVienGridControl.Size = new System.Drawing.Size(1217, 376);
+            this.SinhVienGridControl.Size = new System.Drawing.Size(1217, 323);
             this.SinhVienGridControl.TabIndex = 15;
             this.SinhVienGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.SinhVienGridView,
@@ -524,15 +526,15 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.SinhVienGridView.Appearance.EvenRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
             this.SinhVienGridView.Appearance.EvenRow.Options.UseBackColor = true;
             this.SinhVienGridView.Appearance.EvenRow.Options.UseForeColor = true;
-            this.SinhVienGridView.Appearance.FocusedCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(244)))), ((int)(((byte)(252)))));
+            this.SinhVienGridView.Appearance.FocusedCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(230)))), ((int)(((byte)(203)))));
             this.SinhVienGridView.Appearance.FocusedCell.Options.UseBackColor = true;
-            this.SinhVienGridView.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(244)))), ((int)(((byte)(252)))));
+            this.SinhVienGridView.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(230)))), ((int)(((byte)(203)))));
             this.SinhVienGridView.Appearance.FocusedRow.Options.UseBackColor = true;
             this.SinhVienGridView.Appearance.GroupRow.Font = new System.Drawing.Font("Baloo 2", 10.2F);
             this.SinhVienGridView.Appearance.GroupRow.Options.UseFont = true;
             this.SinhVienGridView.Appearance.HeaderPanel.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SinhVienGridView.Appearance.HeaderPanel.Options.UseFont = true;
-            this.SinhVienGridView.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(244)))), ((int)(((byte)(252)))));
+            this.SinhVienGridView.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(230)))), ((int)(((byte)(203)))));
             this.SinhVienGridView.Appearance.HideSelectionRow.Options.UseBackColor = true;
             this.SinhVienGridView.Appearance.OddRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.SinhVienGridView.Appearance.OddRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
@@ -542,7 +544,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.SinhVienGridView.Appearance.Preview.Options.UseFont = true;
             this.SinhVienGridView.Appearance.Row.Font = new System.Drawing.Font("Baloo 2", 12F);
             this.SinhVienGridView.Appearance.Row.Options.UseFont = true;
-            this.SinhVienGridView.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(244)))), ((int)(((byte)(252)))));
+            this.SinhVienGridView.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(230)))), ((int)(((byte)(203)))));
             this.SinhVienGridView.Appearance.SelectedRow.Font = new System.Drawing.Font("Baloo 2", 12F);
             this.SinhVienGridView.Appearance.SelectedRow.Options.UseBackColor = true;
             this.SinhVienGridView.Appearance.SelectedRow.Options.UseFont = true;
@@ -662,9 +664,9 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.panel1.Controls.Add(this.guna2Button3);
             this.panel1.Controls.Add(this.guna2Button2);
             this.panel1.Controls.Add(this.guna2Button4);
-            this.panel1.Location = new System.Drawing.Point(7, 392);
+            this.panel1.Location = new System.Drawing.Point(7, 445);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(136, 376);
+            this.panel1.Size = new System.Drawing.Size(136, 323);
             this.panel1.TabIndex = 16;
             // 
             // guna2Button1
@@ -680,7 +682,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.guna2Button1.HoverState.Parent = this.guna2Button1;
             this.guna2Button1.Image = global::TracNghiemCSDLPT.Properties.Resources.reset_480px;
             this.guna2Button1.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2Button1.Location = new System.Drawing.Point(8, 278);
+            this.guna2Button1.Location = new System.Drawing.Point(8, 251);
             this.guna2Button1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -702,7 +704,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.guna2Button3.HoverState.Parent = this.guna2Button3;
             this.guna2Button3.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
             this.guna2Button3.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2Button3.Location = new System.Drawing.Point(8, 53);
+            this.guna2Button3.Location = new System.Drawing.Point(8, 26);
             this.guna2Button3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -724,7 +726,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.guna2Button2.HoverState.Parent = this.guna2Button2;
             this.guna2Button2.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_480px;
             this.guna2Button2.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2Button2.Location = new System.Drawing.Point(8, 203);
+            this.guna2Button2.Location = new System.Drawing.Point(8, 176);
             this.guna2Button2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -746,7 +748,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.guna2Button4.HoverState.Parent = this.guna2Button4;
             this.guna2Button4.Image = global::TracNghiemCSDLPT.Properties.Resources.minus_sign_480px;
             this.guna2Button4.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2Button4.Location = new System.Drawing.Point(8, 128);
+            this.guna2Button4.Location = new System.Drawing.Point(8, 101);
             this.guna2Button4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
             this.guna2Button4.Name = "guna2Button4";
             this.guna2Button4.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -790,7 +792,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(189)))), ((int)(((byte)(192)))));
             this.bunifuSeparator1.LineStyle = Bunifu.UI.WinForms.BunifuSeparator.LineStyles.Solid;
             this.bunifuSeparator1.LineThickness = 2;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(-1, 372);
+            this.bunifuSeparator1.Location = new System.Drawing.Point(-8, 425);
             this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
             this.bunifuSeparator1.Orientation = Bunifu.UI.WinForms.BunifuSeparator.LineOrientation.Horizontal;

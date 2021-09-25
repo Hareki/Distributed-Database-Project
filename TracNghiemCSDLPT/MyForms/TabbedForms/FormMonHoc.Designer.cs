@@ -138,15 +138,15 @@ namespace TracNghiemCSDLPT.Views
             this.MonHocGridView.Appearance.EvenRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
             this.MonHocGridView.Appearance.EvenRow.Options.UseBackColor = true;
             this.MonHocGridView.Appearance.EvenRow.Options.UseForeColor = true;
-            this.MonHocGridView.Appearance.FocusedCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(244)))), ((int)(((byte)(252)))));
+            this.MonHocGridView.Appearance.FocusedCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(255)))), ((int)(((byte)(215)))));
             this.MonHocGridView.Appearance.FocusedCell.Options.UseBackColor = true;
-            this.MonHocGridView.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(244)))), ((int)(((byte)(252)))));
+            this.MonHocGridView.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(255)))), ((int)(((byte)(215)))));
             this.MonHocGridView.Appearance.FocusedRow.Options.UseBackColor = true;
             this.MonHocGridView.Appearance.GroupRow.Font = new System.Drawing.Font("Baloo 2", 10.2F);
             this.MonHocGridView.Appearance.GroupRow.Options.UseFont = true;
             this.MonHocGridView.Appearance.HeaderPanel.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MonHocGridView.Appearance.HeaderPanel.Options.UseFont = true;
-            this.MonHocGridView.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(244)))), ((int)(((byte)(252)))));
+            this.MonHocGridView.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(255)))), ((int)(((byte)(215)))));
             this.MonHocGridView.Appearance.HideSelectionRow.Options.UseBackColor = true;
             this.MonHocGridView.Appearance.OddRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.MonHocGridView.Appearance.OddRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
@@ -156,7 +156,7 @@ namespace TracNghiemCSDLPT.Views
             this.MonHocGridView.Appearance.Preview.Options.UseFont = true;
             this.MonHocGridView.Appearance.Row.Font = new System.Drawing.Font("Baloo 2", 12F);
             this.MonHocGridView.Appearance.Row.Options.UseFont = true;
-            this.MonHocGridView.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(244)))), ((int)(((byte)(252)))));
+            this.MonHocGridView.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(255)))), ((int)(((byte)(215)))));
             this.MonHocGridView.Appearance.SelectedRow.Font = new System.Drawing.Font("Baloo 2", 12F);
             this.MonHocGridView.Appearance.SelectedRow.Options.UseBackColor = true;
             this.MonHocGridView.Appearance.SelectedRow.Options.UseFont = true;

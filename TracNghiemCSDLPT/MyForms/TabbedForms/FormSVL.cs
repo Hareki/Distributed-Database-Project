@@ -37,7 +37,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.LopTableAdapter.Fill(this.TN_CSDLPTDataSet.LOP);
             this.SinhVienTableAdapter.Fill(this.TN_CSDLPTDataSet.SINHVIEN);
 
-           // KhoaGridView.ExpandMasterRow(0);
+            KhoaGridView.ExpandMasterRow(0);
         }
 
         private void LopGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -62,5 +62,9 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                 e.RelationName = $"Lớp thuộc khoa {tenKhoa}";
         }
 
+        private void KhoaGridView_DetailTabStyle(object sender, DetailTabStyleEventArgs e)
+        {
+            e.Appearance.Header.Font = new Font("Baloo 2", 10.0F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+        }
     }
 }

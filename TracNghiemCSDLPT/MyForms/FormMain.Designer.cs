@@ -89,7 +89,7 @@ namespace TracNghiemCSDLPT
             this.buttonToChucThi,
             this.buttonThamGiaThi});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.Margin = new System.Windows.Forms.Padding(4);
+            this.ribbon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbon.MaxItemId = 23;
             this.ribbon.Name = "ribbon";
             this.ribbon.OptionsTouch.ShowTouchUISelectorInSearchMenu = false;
@@ -100,7 +100,7 @@ namespace TracNghiemCSDLPT
             this.ribbonPage3});
             this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.ShowToolbarCustomizeItem = false;
-            this.ribbon.Size = new System.Drawing.Size(801, 236);
+            this.ribbon.Size = new System.Drawing.Size(956, 237);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             this.ribbon.Toolbar.ShowCustomizeItem = false;
             // 
@@ -349,11 +349,11 @@ namespace TracNghiemCSDLPT
             this.ribbonStatusBar.ItemLinks.Add(this.statusMa, true);
             this.ribbonStatusBar.ItemLinks.Add(this.statusTen, true);
             this.ribbonStatusBar.ItemLinks.Add(this.statusQuyen, true);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 571);
-            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 678);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(801, 36);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(956, 36);
             // 
             // documentManager1
             // 
@@ -379,9 +379,11 @@ namespace TracNghiemCSDLPT
             // 
             // MainView
             // 
+            this.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
+            this.Appearance.Options.UseForeColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 607);
+            this.ClientSize = new System.Drawing.Size(956, 714);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("MainView.IconOptions.Icon")));

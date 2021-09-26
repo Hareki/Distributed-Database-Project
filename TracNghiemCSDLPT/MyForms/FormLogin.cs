@@ -55,7 +55,7 @@ namespace TracNghiemCSDLPT
             }
 
 
-            string query = "SELECT * FROM V_GET_SUBSCRIBER";
+            string query = "SELECT * FROM view_GetSubcribers";
             DataTable dataTable = new DataTable();
             SqlDataAdapter dataAdapter = new SqlDataAdapter(query, DBConnection.PublisherConnection);
             dataAdapter.Fill(dataTable);
@@ -101,7 +101,7 @@ namespace TracNghiemCSDLPT
                 }
 
 
-                string query = "EXEC SP_GET_GV_INFO_FROM_LOGIN_NAME '" + loginName + "'";
+                string query = "EXEC usp_LoginGV_GetInfoByLogin '" + loginName + "'";
                 SqlDataReader myReader = DBConnection.ExecuteSqlDataReader(query);
                 if (myReader == null)
                 {
@@ -131,7 +131,7 @@ namespace TracNghiemCSDLPT
                     return;
                 }
                 
-                string query = "EXEC SP_GET_SV_INFO_FROM_LOGIN_NAME '" + loginName + "', '"
+                string query = "EXEC usp_LoginSV_GetInfoByLogin '" + loginName + "', '"
                     + password + "'";
                 SqlDataReader myReader = DBConnection.ExecuteSqlDataReader(query);
                 if (myReader == null)

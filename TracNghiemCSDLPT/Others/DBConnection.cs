@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -119,6 +120,8 @@ namespace TracNghiemCSDLPT.SQL_Connection
             }
         }
 
+
+
         public static SqlDataReader ExecuteSqlDataReader(string query)
         {
             SqlDataReader result;
@@ -138,7 +141,6 @@ namespace TracNghiemCSDLPT.SQL_Connection
                 Console.WriteLine(ex.ToString());
                 return null;
             }
-
         }
 
         public static DataTable ExecuteSqlDataTable(string query)

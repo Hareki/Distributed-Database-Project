@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,10 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         private bool opened = false;
         private int selectedRowLop;
         private int selectedRowSV;
+        private int saveKHIndex;
+
+        private string origMaLop;
+        private string origTenLop;
 
         Color ActiveForeColor = Color.FromArgb(72, 70, 68);
         Color DisabledForeColor = SystemColors.AppWorkspace;
@@ -38,10 +43,12 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.KhoaTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.LopTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.SinhVienTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.GV_DKTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
 
             this.KhoaTableAdapter.Fill(this.TN_CSDLPTDataSet.KHOA);
             this.LopTableAdapter.Fill(this.TN_CSDLPTDataSet.LOP);
             this.SinhVienTableAdapter.Fill(this.TN_CSDLPTDataSet.SINHVIEN);
+            this.GV_DKTableAdapter.Fill(this.TN_CSDLPTDataSet.GIAOVIEN_DANGKY);
         }
         private GridView getCorrTextBoxData(bool getFirstRow)
         {
@@ -65,6 +72,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         }
         private void FormSVL_Load(object sender, EventArgs e)
         {
+            
+            
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
 
             LoadAllData();
@@ -75,11 +84,17 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
             this.PreviousIndexCS = this.CoSoComboBox.SelectedIndex;
 
+            //  this.ComboMaKH.DataSource = KhoaBindingSource;
+            this.ComboMaKH.DisplayMember = "TENKH";
+            this.ComboMaKH.ValueMember = "MAKH";
+
             KhoaGridView.ExpandMasterRow(0); // dùng để trigger LopGridView FocusedRochanged
             GridView view = getCorrTextBoxData(true);
             if (view != null)
                 view.Focus();
 
+            if (LopBindingSource.Count == 0)
+                buttonXoaLop.Enabled = false;
         }
 
         private void LopGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -150,17 +165,21 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         private void buttonThemLop_Click(object sender, EventArgs e)
         {
             selectedRowLop = LopBindingSource.Position;
-          //  InfoPanel.Enabled = true;
-            TextMaKH.Enabled = TextTenLop.Enabled = TextMaLop.Enabled = true;
+            //  InfoPanel.Enabled = true;
+            ComboMaKH.Enabled = TextTenLop.Enabled = TextMaLop.Enabled = true;
             InfoPanel.ForeColor = TextMaLop.ForeColor =
-                TextTenLop.ForeColor = TextMaKH.ForeColor = ActiveForeColor;
+                TextTenLop.ForeColor = ComboMaKH.ForeColor = ActiveForeColor;
 
             InfoPanel.Text = "Thêm mới thông tin lớp";
 
             SetIdleButtonEnabledLop(false);
             SetInputButtonEnabledLop(true);
 
+            saveKHIndex = ComboMaKH.SelectedIndex;
             KhoaGridControl.Enabled = false;
+            KhoaBindingSource.SuspendBinding();
+            ComboMaKH.SelectedIndex = 0;
+
             state = State.add;
             LopBindingSource.AddNew();
         }
@@ -168,10 +187,14 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         private void buttonHuyLop_Click(object sender, EventArgs e)
         {
             //   InfoPanel.Enabled = false;
-            TextMaKH.Enabled = TextTenLop.Enabled = TextMaLop.Enabled = false;
+            ComboMaKH.Enabled = TextTenLop.Enabled = TextMaLop.Enabled = false;
             InfoPanel.ForeColor = TextMaLop.ForeColor =
-                TextTenLop.ForeColor = TextMaKH.ForeColor = DisabledForeColor;
+                TextTenLop.ForeColor = ComboMaKH.ForeColor = DisabledForeColor;
+
             KhoaGridControl.Enabled = true;
+            KhoaBindingSource.ResumeBinding();
+            ComboMaKH.SelectedIndex = saveKHIndex;
+
             LopBindingSource.CancelEdit();
             InfoPanel.Text = "Thông tin lớp";
             if (state == State.add)
@@ -182,7 +205,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
 
             Utils.SetTextEditError(MaLopEP, TextMaLop, null);
             Utils.SetTextEditError(TenLopEP, TextTenLop, null);
-            Utils.SetTextEditError(MaKhoaEP, TextMaKH, null);
         }
 
         private void buttonLamMoiLop_Click(object sender, EventArgs e)
@@ -205,7 +227,193 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
 
         private void buttonSuaLop_Click(object sender, EventArgs e)
         {
+            //InfoPanel.Enabled = true;InfoPanel.Enabled = true;
+            ComboMaKH.Enabled = TextTenLop.Enabled = TextMaLop.Enabled = true;
+            InfoPanel.ForeColor = TextMaLop.ForeColor =
+                TextTenLop.ForeColor = ComboMaKH.ForeColor = ActiveForeColor;
 
+            InfoPanel.Text = "Sửa thông tin lớp";
+
+            SetIdleButtonEnabledLop(false);
+            SetInputButtonEnabledLop(true);
+
+
+            origMaLop = TextMaLop.Text.Trim();
+            origTenLop = Utils.CapitalizeString(TextTenLop.Text, Utils.CapitalMode.FirstWordOnly);
+            KhoaGridControl.Enabled = false;
+            state = State.edit;
+        }
+
+        private bool AlreadyExists(string testName, bool isID)
+        {
+            string query = "EXEC usp_Lop_GetInfoByXXX '" + testName + "'";
+            if (isID)
+                query = query.Replace("XXX", "ID");
+            else query = query.Replace("XXX", "Name");
+            SqlDataReader myReader = DBConnection.ExecuteSqlDataReader(query);
+            if (myReader == null)
+            {
+                Utils.ShowMessage("Xảy ra lỗi không xác định", Others.NotiForm.FormType.Error, 1);
+                Console.WriteLine(System.Environment.StackTrace);
+                return true;
+            }
+            if (myReader.HasRows)
+            {
+                myReader.Close();
+                return true;
+
+            }
+            else
+            {
+                myReader.Close();
+                return false;
+            }
+        }
+
+        private void jumpToNewlyCreatedRow()
+        {
+            GridView detailView;
+            int row = KhoaGridView.LocateByDisplayText(0, colMAKH, ComboMaKH.SelectedValue.ToString());
+            Console.WriteLine("Row: " + row);
+
+            KhoaGridView.FocusedRowHandle = row;
+            KhoaGridView.Focus();
+            KhoaGridView.ExpandMasterRow(row);
+            detailView = KhoaGridView.GetDetailView(row, 0) as GridView;
+            if (detailView is null)
+            {
+                Utils.ShowErrorMessage("Lỗi không xác định", "Lỗi");
+                Console.WriteLine(System.Environment.StackTrace);
+                return;
+            }
+            detailView.Focus();
+            detailView.FocusedRowHandle = detailView.RowCount - 1;
+        }
+        private void buttonXacNhanLop_Click(object sender, EventArgs e)
+        {
+            TextMaLop.Text = TextMaLop.Text.Trim();
+            TextTenLop.Text = Utils.CapitalizeString
+                (TextTenLop.Text, Utils.CapitalMode.FirstWordOnly);
+            bool test1 = string.IsNullOrEmpty(TextTenLop.Text);
+            bool test2 = string.IsNullOrEmpty(TextMaLop.Text);
+
+            if (test1 || test2)
+            {
+                if (test1)
+                    Utils.SetTextEditError(MaLopEP, TextMaLop, "Vui lòng nhập mã lớp");
+                else
+                    Utils.SetTextEditError(MaLopEP, TextMaLop, null);
+                if (test2)
+                    Utils.SetTextEditError(TenLopEP, TextTenLop, "Vui lòng nhập tên lớp");
+                else
+                    Utils.SetTextEditError(TenLopEP, TextTenLop, null);
+
+                Utils.ShowMessage("Vui lòng điền đầy đủ thông tin cần thiết", Others.NotiForm.FormType.Error, 2);
+                return;
+            }
+            if (TextMaLop.Text.Length > 8)
+            {
+                Utils.ShowMessage("Mã lớp không được quá 8 ký tự", Others.NotiForm.FormType.Warning, 2);
+                Utils.SetTextEditError(MaLopEP, TextMaLop, "Mã lớp không được quá 8 ký tự");
+                return;
+            }
+            test1 = test2 = false;
+            if (!origMaLop.ToLower().Equals(TextMaLop.Text.ToLower()))
+                test1 = AlreadyExists(TextMaLop.Text, true);
+            if (!origTenLop.ToLower().Equals(TextTenLop.Text.ToLower()))
+                test2 = AlreadyExists(TextTenLop.Text, false);
+
+            if (test1 || test2)
+            {
+                if (test1)
+                    Utils.SetTextEditError(MaLopEP, TextMaLop, "Mã lớp đã tồn tại");
+                else
+                    Utils.SetTextEditError(MaLopEP, TextMaLop, null);
+                if (test2)
+                    Utils.SetTextEditError(TenLopEP, TextTenLop, "Tên lớp đã tồn tại");
+                else
+                    Utils.SetTextEditError(TenLopEP, TextTenLop, null);
+
+                Utils.ShowMessage("Thông tin vừa nhập đã tồn tại", Others.NotiForm.FormType.Error, 2);
+                return;
+            }
+            try
+            {
+                saveKHIndex = ComboMaKH.SelectedIndex; //giữ lại index trước khi bị reset, rồi gán lại cho combo
+                KhoaBindingSource.ResumeBinding();
+                ComboMaKH.SelectedIndex = saveKHIndex;
+                TextMaKH.Text = ComboMaKH.SelectedValue.ToString();//truyền giá trị vào để đủ dữ liệu trước khi end edit
+                LopBindingSource.EndEdit();
+                LopBindingSource.ResetCurrentItem();
+                this.LopTableAdapter.Update(this.TN_CSDLPTDataSet.LOP);
+
+                if (state == State.edit)
+                    Utils.ShowMessage("Sửa lớp thành công", Others.NotiForm.FormType.Success, 1);
+                else if (state == State.add)
+                    Utils.ShowMessage("Thêm lớp thành công", Others.NotiForm.FormType.Success, 1);
+                if (state == State.add)
+                    jumpToNewlyCreatedRow();
+                state = State.idle;
+
+                InfoPanel.Text = "Thông tin lớp";
+                Utils.SetTextEditError(MaLopEP, TextMaLop, null);
+                Utils.SetTextEditError(TenLopEP, TextTenLop, null);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Utils.ShowErrorMessage("Không thể lưu lớp, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi ghi nhân viên");
+                return;
+            }
+            KhoaGridControl.Enabled = true;
+
+
+            TextMaLop.Enabled = TextTenLop.Enabled = ComboMaKH.Enabled = false;
+            InfoPanel.ForeColor = TextTenLop.ForeColor = TextMaLop.ForeColor = ComboMaKH.ForeColor
+                        = DisabledForeColor;
+            SetIdleButtonEnabledLop(true);
+            SetInputButtonEnabledLop(false);
+
+        }
+
+        private void buttonXoaLop_Click(object sender, EventArgs e)
+        {
+            string RemovedLop = "";
+            selectedRowLop = LopBindingSource.Position;
+            if (SinhVienBindingSource.Count > 0)
+            {
+                Utils.ShowMessage("Không thể xóa vì đã có sinh viên thuộc lớp này", Others.NotiForm.FormType.Error, 2);
+                return;
+            }
+            if (GV_DKBindingSource.Count > 0)
+            {
+                Utils.ShowMessage("Không thể xóa vì đã có giảng viên đăng ký thi cho lớp này", Others.NotiForm.FormType.Error, 4);
+                return;
+            }
+
+            if (Utils.ShowConfirmMessage("Bạn có chắc muốn xóa lớp này?", "Xác nhận"))
+            {
+                try
+                {
+                    RemovedLop = ((DataRowView)LopBindingSource[selectedRowLop])["MALOP"].ToString();
+                    LopBindingSource.RemoveCurrent();
+                    LopTableAdapter.Update(TN_CSDLPTDataSet.LOP);
+                    Utils.ShowMessage("Xóa lớp thành công!", Others.NotiForm.FormType.Success, 1);
+                }
+                catch (Exception ex)
+                {
+                    Utils.ShowErrorMessage("Không thể xóa nhân viên, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi xóa nhân viên");
+                    Console.WriteLine(ex.StackTrace);
+                    this.LopTableAdapter.Fill(TN_CSDLPTDataSet.LOP);
+                    LopBindingSource.Position = LopBindingSource.Find("MALOP", RemovedLop);
+                    return;
+                }
+            }
+
+            if (LopBindingSource.Count == 0)
+                buttonXoaLop.Enabled = false;
         }
     }
 }

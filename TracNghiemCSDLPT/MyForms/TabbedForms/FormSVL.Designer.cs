@@ -49,13 +49,13 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.KhoaTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.KHOATableAdapter();
             this.tableAdapterManager = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
             this.InfoPanel = new System.Windows.Forms.GroupBox();
+            this.ComboMaKH = new Guna.UI2.WinForms.Guna2ComboBox();
             this.buttonLamMoiLop = new Guna.UI2.WinForms.Guna2Button();
             this.buttonSuaLop = new Guna.UI2.WinForms.Guna2Button();
             this.buttonThemLop = new Guna.UI2.WinForms.Guna2Button();
             this.buttonXoaLop = new Guna.UI2.WinForms.Guna2Button();
-            this.TextMaKH = new DevExpress.XtraEditors.TextEdit();
-            this.LopBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TextTenLop = new DevExpress.XtraEditors.TextEdit();
+            this.LopBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TextMaLop = new DevExpress.XtraEditors.TextEdit();
             this.SinhVienGridControl = new DevExpress.XtraGrid.GridControl();
             this.SinhVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -88,6 +88,9 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.MaLopEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.TenLopEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.MaKhoaEP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.TextMaKH = new DevExpress.XtraEditors.TextEdit();
+            this.GV_DKBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.GV_DKTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.GIAOVIEN_DANGKYTableAdapter();
             mALOPLabel = new System.Windows.Forms.Label();
             tENLOPLabel = new System.Windows.Forms.Label();
             mAKHLabel = new System.Windows.Forms.Label();
@@ -97,9 +100,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KhoaGridView)).BeginInit();
             this.InfoPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TextMaKH.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LopBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextTenLop.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LopBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextMaLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SinhVienGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SinhVienBindingSource)).BeginInit();
@@ -109,6 +111,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             ((System.ComponentModel.ISupportInitialize)(this.MaLopEP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TenLopEP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaKhoaEP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TextMaKH.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GV_DKBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // LopGridView
@@ -206,7 +210,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.KhoaGridControl.Location = new System.Drawing.Point(7, 67);
             this.KhoaGridControl.MainView = this.KhoaGridView;
             this.KhoaGridControl.Name = "KhoaGridControl";
-            this.KhoaGridControl.Size = new System.Drawing.Size(931, 351);
+            this.KhoaGridControl.Size = new System.Drawing.Size(934, 351);
             this.KhoaGridControl.TabIndex = 13;
             this.KhoaGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.KhoaGridView,
@@ -321,7 +325,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // 
             mALOPLabel.AutoSize = true;
             mALOPLabel.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            mALOPLabel.Location = new System.Drawing.Point(1, 60);
+            mALOPLabel.Location = new System.Drawing.Point(6, 59);
             mALOPLabel.Name = "mALOPLabel";
             mALOPLabel.Size = new System.Drawing.Size(70, 30);
             mALOPLabel.TabIndex = 0;
@@ -331,7 +335,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // 
             tENLOPLabel.AutoSize = true;
             tENLOPLabel.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            tENLOPLabel.Location = new System.Drawing.Point(1, 142);
+            tENLOPLabel.Location = new System.Drawing.Point(6, 141);
             tENLOPLabel.Name = "tENLOPLabel";
             tENLOPLabel.Size = new System.Drawing.Size(75, 30);
             tENLOPLabel.TabIndex = 2;
@@ -341,11 +345,11 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // 
             mAKHLabel.AutoSize = true;
             mAKHLabel.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            mAKHLabel.Location = new System.Drawing.Point(1, 224);
+            mAKHLabel.Location = new System.Drawing.Point(6, 223);
             mAKHLabel.Name = "mAKHLabel";
-            mAKHLabel.Size = new System.Drawing.Size(84, 30);
+            mAKHLabel.Size = new System.Drawing.Size(89, 30);
             mAKHLabel.TabIndex = 4;
-            mAKHLabel.Text = "Mã khoa";
+            mAKHLabel.Text = "Tên khoa";
             // 
             // KhoaTableAdapter
             // 
@@ -367,25 +371,47 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // InfoPanel
             // 
             this.InfoPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.InfoPanel.Controls.Add(this.ComboMaKH);
             this.InfoPanel.Controls.Add(this.buttonLamMoiLop);
             this.InfoPanel.Controls.Add(this.buttonSuaLop);
             this.InfoPanel.Controls.Add(mAKHLabel);
             this.InfoPanel.Controls.Add(this.buttonThemLop);
             this.InfoPanel.Controls.Add(this.buttonXoaLop);
-            this.InfoPanel.Controls.Add(this.TextMaKH);
             this.InfoPanel.Controls.Add(tENLOPLabel);
             this.InfoPanel.Controls.Add(this.TextTenLop);
             this.InfoPanel.Controls.Add(mALOPLabel);
             this.InfoPanel.Controls.Add(this.TextMaLop);
             this.InfoPanel.Font = new System.Drawing.Font("Baloo 2", 13.8F, System.Drawing.FontStyle.Bold);
             this.InfoPanel.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.InfoPanel.Location = new System.Drawing.Point(956, 67);
+            this.InfoPanel.Location = new System.Drawing.Point(959, 67);
             this.InfoPanel.Margin = new System.Windows.Forms.Padding(15, 3, 3, 3);
             this.InfoPanel.Name = "InfoPanel";
-            this.InfoPanel.Size = new System.Drawing.Size(411, 351);
+            this.InfoPanel.Size = new System.Drawing.Size(459, 351);
             this.InfoPanel.TabIndex = 14;
             this.InfoPanel.TabStop = false;
             this.InfoPanel.Text = "Thông tin lớp";
+            // 
+            // ComboMaKH
+            // 
+            this.ComboMaKH.BackColor = System.Drawing.Color.Transparent;
+            this.ComboMaKH.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
+            this.ComboMaKH.DataSource = this.KhoaBindingSource;
+            this.ComboMaKH.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ComboMaKH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboMaKH.Enabled = false;
+            this.ComboMaKH.FocusedColor = System.Drawing.Color.Empty;
+            this.ComboMaKH.FocusedState.Parent = this.ComboMaKH;
+            this.ComboMaKH.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
+            this.ComboMaKH.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.ComboMaKH.FormattingEnabled = true;
+            this.ComboMaKH.HoverState.Parent = this.ComboMaKH;
+            this.ComboMaKH.ItemHeight = 30;
+            this.ComboMaKH.ItemsAppearance.Parent = this.ComboMaKH;
+            this.ComboMaKH.Location = new System.Drawing.Point(6, 256);
+            this.ComboMaKH.Name = "ComboMaKH";
+            this.ComboMaKH.ShadowDecoration.Parent = this.ComboMaKH;
+            this.ComboMaKH.Size = new System.Drawing.Size(292, 36);
+            this.ComboMaKH.TabIndex = 20;
             // 
             // buttonLamMoiLop
             // 
@@ -400,7 +426,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonLamMoiLop.HoverState.Parent = this.buttonLamMoiLop;
             this.buttonLamMoiLop.Image = global::TracNghiemCSDLPT.Properties.Resources.reset_480px;
             this.buttonLamMoiLop.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonLamMoiLop.Location = new System.Drawing.Point(282, 259);
+            this.buttonLamMoiLop.Location = new System.Drawing.Point(339, 256);
             this.buttonLamMoiLop.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonLamMoiLop.Name = "buttonLamMoiLop";
             this.buttonLamMoiLop.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -423,7 +449,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonSuaLop.HoverState.Parent = this.buttonSuaLop;
             this.buttonSuaLop.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_480px;
             this.buttonSuaLop.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonSuaLop.Location = new System.Drawing.Point(282, 188);
+            this.buttonSuaLop.Location = new System.Drawing.Point(339, 191);
             this.buttonSuaLop.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonSuaLop.Name = "buttonSuaLop";
             this.buttonSuaLop.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -446,7 +472,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonThemLop.HoverState.Parent = this.buttonThemLop;
             this.buttonThemLop.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
             this.buttonThemLop.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonThemLop.Location = new System.Drawing.Point(282, 46);
+            this.buttonThemLop.Location = new System.Drawing.Point(339, 44);
             this.buttonThemLop.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonThemLop.Name = "buttonThemLop";
             this.buttonThemLop.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -469,7 +495,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonXoaLop.HoverState.Parent = this.buttonXoaLop;
             this.buttonXoaLop.Image = global::TracNghiemCSDLPT.Properties.Resources.minus_sign_480px;
             this.buttonXoaLop.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonXoaLop.Location = new System.Drawing.Point(282, 117);
+            this.buttonXoaLop.Location = new System.Drawing.Point(339, 116);
             this.buttonXoaLop.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonXoaLop.Name = "buttonXoaLop";
             this.buttonXoaLop.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -477,18 +503,21 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonXoaLop.Size = new System.Drawing.Size(120, 45);
             this.buttonXoaLop.TabIndex = 19;
             this.buttonXoaLop.Text = "Xóa";
+            this.buttonXoaLop.Click += new System.EventHandler(this.buttonXoaLop_Click);
             // 
-            // TextMaKH
+            // TextTenLop
             // 
-            this.TextMaKH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LopBindingSource, "MAKH", true));
-            this.TextMaKH.Location = new System.Drawing.Point(6, 257);
-            this.TextMaKH.Name = "TextMaKH";
-            this.TextMaKH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.TextMaKH.Properties.Appearance.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.TextMaKH.Properties.Appearance.Options.UseFont = true;
-            this.TextMaKH.Properties.Appearance.Options.UseForeColor = true;
-            this.TextMaKH.Size = new System.Drawing.Size(226, 34);
-            this.TextMaKH.TabIndex = 5;
+            this.TextTenLop.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LopBindingSource, "TENLOP", true));
+            this.TextTenLop.Enabled = false;
+            this.TextTenLop.Location = new System.Drawing.Point(6, 174);
+            this.TextTenLop.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
+            this.TextTenLop.Name = "TextTenLop";
+            this.TextTenLop.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
+            this.TextTenLop.Properties.Appearance.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TextTenLop.Properties.Appearance.Options.UseFont = true;
+            this.TextTenLop.Properties.Appearance.Options.UseForeColor = true;
+            this.TextTenLop.Size = new System.Drawing.Size(292, 34);
+            this.TextTenLop.TabIndex = 3;
             // 
             // LopBindingSource
             // 
@@ -496,30 +525,18 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.LopBindingSource.DataMember = "LOP";
             this.LopBindingSource.DataSource = this.TN_CSDLPTDataSet;
             // 
-            // TextTenLop
-            // 
-            this.TextTenLop.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LopBindingSource, "TENLOP", true));
-            this.TextTenLop.Location = new System.Drawing.Point(6, 175);
-            this.TextTenLop.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
-            this.TextTenLop.Name = "TextTenLop";
-            this.TextTenLop.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.TextTenLop.Properties.Appearance.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.TextTenLop.Properties.Appearance.Options.UseFont = true;
-            this.TextTenLop.Properties.Appearance.Options.UseForeColor = true;
-            this.TextTenLop.Size = new System.Drawing.Size(226, 34);
-            this.TextTenLop.TabIndex = 3;
-            // 
             // TextMaLop
             // 
             this.TextMaLop.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LopBindingSource, "MALOP", true));
-            this.TextMaLop.Location = new System.Drawing.Point(6, 93);
+            this.TextMaLop.Enabled = false;
+            this.TextMaLop.Location = new System.Drawing.Point(7, 92);
             this.TextMaLop.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
             this.TextMaLop.Name = "TextMaLop";
             this.TextMaLop.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
             this.TextMaLop.Properties.Appearance.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.TextMaLop.Properties.Appearance.Options.UseFont = true;
             this.TextMaLop.Properties.Appearance.Options.UseForeColor = true;
-            this.TextMaLop.Size = new System.Drawing.Size(226, 34);
+            this.TextMaLop.Size = new System.Drawing.Size(291, 34);
             this.TextMaLop.TabIndex = 1;
             // 
             // SinhVienGridControl
@@ -532,7 +549,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.SinhVienGridControl.Location = new System.Drawing.Point(150, 445);
             this.SinhVienGridControl.MainView = this.SinhVienGridView;
             this.SinhVienGridControl.Name = "SinhVienGridControl";
-            this.SinhVienGridControl.Size = new System.Drawing.Size(1217, 323);
+            this.SinhVienGridControl.Size = new System.Drawing.Size(1268, 357);
             this.SinhVienGridControl.TabIndex = 15;
             this.SinhVienGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.SinhVienGridView,
@@ -689,7 +706,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.panel1.Controls.Add(this.buttonXoaSV);
             this.panel1.Location = new System.Drawing.Point(7, 445);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(136, 323);
+            this.panel1.Size = new System.Drawing.Size(136, 357);
             this.panel1.TabIndex = 16;
             // 
             // buttonLamMoiSV
@@ -705,7 +722,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonLamMoiSV.HoverState.Parent = this.buttonLamMoiSV;
             this.buttonLamMoiSV.Image = global::TracNghiemCSDLPT.Properties.Resources.reset_480px;
             this.buttonLamMoiSV.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonLamMoiSV.Location = new System.Drawing.Point(8, 251);
+            this.buttonLamMoiSV.Location = new System.Drawing.Point(8, 268);
             this.buttonLamMoiSV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
             this.buttonLamMoiSV.Name = "buttonLamMoiSV";
             this.buttonLamMoiSV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -727,7 +744,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonThemSV.HoverState.Parent = this.buttonThemSV;
             this.buttonThemSV.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
             this.buttonThemSV.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonThemSV.Location = new System.Drawing.Point(8, 26);
+            this.buttonThemSV.Location = new System.Drawing.Point(8, 43);
             this.buttonThemSV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
             this.buttonThemSV.Name = "buttonThemSV";
             this.buttonThemSV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -749,7 +766,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonSuaSV.HoverState.Parent = this.buttonSuaSV;
             this.buttonSuaSV.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_480px;
             this.buttonSuaSV.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonSuaSV.Location = new System.Drawing.Point(8, 176);
+            this.buttonSuaSV.Location = new System.Drawing.Point(8, 193);
             this.buttonSuaSV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
             this.buttonSuaSV.Name = "buttonSuaSV";
             this.buttonSuaSV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -771,7 +788,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonXoaSV.HoverState.Parent = this.buttonXoaSV;
             this.buttonXoaSV.Image = global::TracNghiemCSDLPT.Properties.Resources.minus_sign_480px;
             this.buttonXoaSV.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonXoaSV.Location = new System.Drawing.Point(8, 101);
+            this.buttonXoaSV.Location = new System.Drawing.Point(8, 118);
             this.buttonXoaSV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
             this.buttonXoaSV.Name = "buttonXoaSV";
             this.buttonXoaSV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -806,7 +823,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
             this.bunifuSeparator1.Orientation = Bunifu.UI.WinForms.BunifuSeparator.LineOrientation.Horizontal;
-            this.bunifuSeparator1.Size = new System.Drawing.Size(1368, 13);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(1419, 13);
             this.bunifuSeparator1.TabIndex = 19;
             // 
             // LopTableAdapter
@@ -855,7 +872,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonHuyLop.HoverState.Parent = this.buttonHuyLop;
             this.buttonHuyLop.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
             this.buttonHuyLop.ImageSize = new System.Drawing.Size(31, 31);
-            this.buttonHuyLop.Location = new System.Drawing.Point(1015, 31);
+            this.buttonHuyLop.Location = new System.Drawing.Point(1066, 31);
             this.buttonHuyLop.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.buttonHuyLop.Name = "buttonHuyLop";
             this.buttonHuyLop.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -876,7 +893,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonRedoLop.HoverState.Parent = this.buttonRedoLop;
             this.buttonRedoLop.Image = global::TracNghiemCSDLPT.Properties.Resources.redo_480px;
             this.buttonRedoLop.ImageSize = new System.Drawing.Size(28, 28);
-            this.buttonRedoLop.Location = new System.Drawing.Point(1315, 31);
+            this.buttonRedoLop.Location = new System.Drawing.Point(1366, 31);
             this.buttonRedoLop.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.buttonRedoLop.Name = "buttonRedoLop";
             this.buttonRedoLop.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -896,7 +913,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonUndoLop.HoverState.Parent = this.buttonUndoLop;
             this.buttonUndoLop.Image = global::TracNghiemCSDLPT.Properties.Resources.undo_480px1;
             this.buttonUndoLop.ImageSize = new System.Drawing.Size(28, 28);
-            this.buttonUndoLop.Location = new System.Drawing.Point(1262, 31);
+            this.buttonUndoLop.Location = new System.Drawing.Point(1313, 31);
             this.buttonUndoLop.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.buttonUndoLop.Name = "buttonUndoLop";
             this.buttonUndoLop.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -916,7 +933,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonXacNhanLop.HoverState.Parent = this.buttonXacNhanLop;
             this.buttonXacNhanLop.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
             this.buttonXacNhanLop.ImageSize = new System.Drawing.Size(31, 31);
-            this.buttonXacNhanLop.Location = new System.Drawing.Point(962, 31);
+            this.buttonXacNhanLop.Location = new System.Drawing.Point(1013, 31);
             this.buttonXacNhanLop.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.buttonXacNhanLop.Name = "buttonXacNhanLop";
             this.buttonXacNhanLop.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -924,6 +941,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonXacNhanLop.Size = new System.Drawing.Size(30, 30);
             this.buttonXacNhanLop.TabIndex = 24;
             this.buttonXacNhanLop.Visible = false;
+            this.buttonXacNhanLop.Click += new System.EventHandler(this.buttonXacNhanLop_Click);
             // 
             // buttonHuySV
             // 
@@ -939,12 +957,12 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonHuySV.HoverState.Parent = this.buttonHuySV;
             this.buttonHuySV.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
             this.buttonHuySV.ImageSize = new System.Drawing.Size(31, 31);
-            this.buttonHuySV.Location = new System.Drawing.Point(520, 457);
+            this.buttonHuySV.Location = new System.Drawing.Point(546, 455);
             this.buttonHuySV.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.buttonHuySV.Name = "buttonHuySV";
             this.buttonHuySV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.buttonHuySV.ShadowDecoration.Parent = this.buttonHuySV;
-            this.buttonHuySV.Size = new System.Drawing.Size(30, 30);
+            this.buttonHuySV.Size = new System.Drawing.Size(49, 49);
             this.buttonHuySV.TabIndex = 25;
             this.buttonHuySV.Visible = false;
             // 
@@ -962,12 +980,12 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonRedoSV.HoverState.Parent = this.buttonRedoSV;
             this.buttonRedoSV.Image = global::TracNghiemCSDLPT.Properties.Resources.redo_480px;
             this.buttonRedoSV.ImageSize = new System.Drawing.Size(28, 28);
-            this.buttonRedoSV.Location = new System.Drawing.Point(1025, 457);
+            this.buttonRedoSV.Location = new System.Drawing.Point(1038, 455);
             this.buttonRedoSV.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.buttonRedoSV.Name = "buttonRedoSV";
             this.buttonRedoSV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.buttonRedoSV.ShadowDecoration.Parent = this.buttonRedoSV;
-            this.buttonRedoSV.Size = new System.Drawing.Size(30, 30);
+            this.buttonRedoSV.Size = new System.Drawing.Size(49, 49);
             this.buttonRedoSV.TabIndex = 26;
             this.buttonRedoSV.Visible = false;
             // 
@@ -985,12 +1003,12 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonUndoSV.HoverState.Parent = this.buttonUndoSV;
             this.buttonUndoSV.Image = global::TracNghiemCSDLPT.Properties.Resources.undo_480px1;
             this.buttonUndoSV.ImageSize = new System.Drawing.Size(28, 28);
-            this.buttonUndoSV.Location = new System.Drawing.Point(972, 457);
+            this.buttonUndoSV.Location = new System.Drawing.Point(983, 455);
             this.buttonUndoSV.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.buttonUndoSV.Name = "buttonUndoSV";
             this.buttonUndoSV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.buttonUndoSV.ShadowDecoration.Parent = this.buttonUndoSV;
-            this.buttonUndoSV.Size = new System.Drawing.Size(30, 30);
+            this.buttonUndoSV.Size = new System.Drawing.Size(49, 49);
             this.buttonUndoSV.TabIndex = 27;
             this.buttonUndoSV.Visible = false;
             // 
@@ -1008,12 +1026,12 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonXacNhanSV.HoverState.Parent = this.buttonXacNhanSV;
             this.buttonXacNhanSV.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
             this.buttonXacNhanSV.ImageSize = new System.Drawing.Size(31, 31);
-            this.buttonXacNhanSV.Location = new System.Drawing.Point(467, 457);
+            this.buttonXacNhanSV.Location = new System.Drawing.Point(491, 455);
             this.buttonXacNhanSV.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.buttonXacNhanSV.Name = "buttonXacNhanSV";
             this.buttonXacNhanSV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.buttonXacNhanSV.ShadowDecoration.Parent = this.buttonXacNhanSV;
-            this.buttonXacNhanSV.Size = new System.Drawing.Size(30, 30);
+            this.buttonXacNhanSV.Size = new System.Drawing.Size(49, 49);
             this.buttonXacNhanSV.TabIndex = 28;
             this.buttonXacNhanSV.Visible = false;
             // 
@@ -1029,11 +1047,29 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // 
             this.MaKhoaEP.ContainerControl = this;
             // 
+            // TextMaKH
+            // 
+            this.TextMaKH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LopBindingSource, "MAKH", true));
+            this.TextMaKH.Location = new System.Drawing.Point(546, 19);
+            this.TextMaKH.Name = "TextMaKH";
+            this.TextMaKH.Size = new System.Drawing.Size(211, 22);
+            this.TextMaKH.TabIndex = 29;
+            // 
+            // GV_DKBindingSource
+            // 
+            this.GV_DKBindingSource.DataMember = "FK_GIAOVIEN_DANGKY_LOP";
+            this.GV_DKBindingSource.DataSource = this.LopBindingSource;
+            // 
+            // GV_DKTableAdapter
+            // 
+            this.GV_DKTableAdapter.ClearBeforeFill = true;
+            // 
             // FormSVL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 771);
+            this.ClientSize = new System.Drawing.Size(1421, 805);
+            this.Controls.Add(this.TextMaKH);
             this.Controls.Add(this.buttonHuySV);
             this.Controls.Add(this.buttonRedoSV);
             this.Controls.Add(this.buttonUndoSV);
@@ -1060,9 +1096,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             ((System.ComponentModel.ISupportInitialize)(this.KhoaGridView)).EndInit();
             this.InfoPanel.ResumeLayout(false);
             this.InfoPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TextMaKH.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LopBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextTenLop.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LopBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextMaLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SinhVienGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SinhVienBindingSource)).EndInit();
@@ -1072,6 +1107,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             ((System.ComponentModel.ISupportInitialize)(this.MaLopEP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TenLopEP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaKhoaEP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TextMaKH.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GV_DKBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1090,7 +1127,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         private DevExpress.XtraGrid.Columns.GridColumn colMACS;
         private DevExpress.XtraGrid.Views.Grid.GridView LopGridView;
         private System.Windows.Forms.GroupBox InfoPanel;
-        private DevExpress.XtraEditors.TextEdit TextMaKH;
         private DevExpress.XtraEditors.TextEdit TextTenLop;
         private DevExpress.XtraEditors.TextEdit TextMaLop;
         private DevExpress.XtraGrid.GridControl SinhVienGridControl;
@@ -1132,5 +1168,9 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         private System.Windows.Forms.ErrorProvider MaLopEP;
         private System.Windows.Forms.ErrorProvider TenLopEP;
         private System.Windows.Forms.ErrorProvider MaKhoaEP;
+        private DevExpress.XtraEditors.TextEdit TextMaKH;
+        private Guna.UI2.WinForms.Guna2ComboBox ComboMaKH;
+        private System.Windows.Forms.BindingSource GV_DKBindingSource;
+        private TN_CSDLPTDataSetTableAdapters.GIAOVIEN_DANGKYTableAdapter GV_DKTableAdapter;
     }
 }

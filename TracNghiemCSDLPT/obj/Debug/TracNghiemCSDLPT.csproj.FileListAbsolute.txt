@@ -52,7 +52,6 @@ C:\Users\MINH TU\source\repos\TracNghiemCSDLPT\TracNghiemCSDLPT\obj\Debug\TracNg
 C:\Users\MINH TU\source\repos\TracNghiemCSDLPT\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.csproj.CopyComplete
 C:\Users\MINH TU\source\repos\TracNghiemCSDLPT\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.exe
 C:\Users\MINH TU\source\repos\TracNghiemCSDLPT\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.pdb
-D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.csproj.AssemblyReference.cache
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.FormLogin.resources
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.MainView.resources
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.MyForms.TabbedForms.FormSVL.resources
@@ -227,3 +226,4 @@ D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSD
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.csproj.CopyComplete
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.exe
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.pdb
+D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.csproj.AssemblyReference.cache

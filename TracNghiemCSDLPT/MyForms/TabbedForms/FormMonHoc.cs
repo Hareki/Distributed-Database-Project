@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,12 +21,16 @@ namespace TracNghiemCSDLPT.Views
             InitializeComponent();
             //if (MonHocBindingSouce.Count == 0)
             //    buttonXoa.Enabled = false;
+            if (MonHocBindingSource.Count == 0)
+                buttonXoa.Enabled = false;
         }
 
 
         Color ActiveForeColor = Color.FromArgb(72, 70, 68);
         Color DisabledForeColor = SystemColors.AppWorkspace;
         State state = State.idle;
+        string origMaMH;
+        string origTenMH;
         enum State
         {
             add, edit, idle
@@ -101,6 +106,8 @@ namespace TracNghiemCSDLPT.Views
             SetIdleButtonEnabled(false);
             SetInputButtonEnabled(true);
 
+            origMaMH = TextMaMH.Text.Trim();
+            origTenMH = Utils.CapitalizeString(TextTenMH.Text, Utils.CapitalMode.FirstWordOnly);
             MonHocGridControl.Enabled = false;
             state = State.edit;
         }
@@ -135,7 +142,7 @@ namespace TracNghiemCSDLPT.Views
                 Utils.ShowMessage("Không thể xóa vì đã có giảng viên đăng ký thi môn học này", Others.NotiForm.FormType.Error, 4);
                 return;
             }
-            if (GV_DKBindingSource.Count > 0)
+            if (BangDiemBindingSource.Count > 0)
             {
                 Utils.ShowMessage("Không thể xóa vì đã có sinh viên thi môn học này", Others.NotiForm.FormType.Error, 4);
                 return;
@@ -163,28 +170,34 @@ namespace TracNghiemCSDLPT.Views
                 buttonXoa.Enabled = false;
         }
 
-        private bool AlreadyExists(string testName, string columnName)
+        private bool AlreadyExists(string testName, bool isID)
         {
-            int index = MonHocBindingSource.Find(columnName, testName);
-            if (index != -1)
+            string query = "EXEC usp_MonHoc_GetInfoByXXX '" + testName + "'";
+            if (isID)
+                query = query.Replace("XXX", "ID");
+            else query = query.Replace("XXX", "Name");
+            SqlDataReader myReader = DBConnection.ExecuteSqlDataReader(query);
+            if (myReader == null)
             {
-                if (state == State.add || (state == State.edit && index != MonHocBindingSource.Position))
-                    return true;
-                else
-                {
-                    Utils.ShowErrorMessage("Tìm ra index nhưng không thuộc xóa hoặc sửa","Lỗi không xác định");
-                    Console.WriteLine(System.Environment.StackTrace);
-                    return false;
-                }
+                Utils.ShowMessage("Xảy ra lỗi không xác định", Others.NotiForm.FormType.Error, 1);
+                Console.WriteLine(System.Environment.StackTrace);
+                return true;
+            }
+            if (myReader.HasRows)
+            {
+                myReader.Close();
+                return true;
+
             }
             else
+            {
+                myReader.Close();
                 return false;
-
+            }
         }
         private void buttonXacNhan_Click(object sender, EventArgs e)
         {
-            TextMaMH.Text = Utils.CapitalizeString
-                (TextMaMH.Text, Utils.CapitalMode.FirstWordOnly);
+            TextMaMH.Text = TextMaMH.Text.Trim();
             TextTenMH.Text = Utils.CapitalizeString
                 (TextTenMH.Text, Utils.CapitalMode.FirstWordOnly);
             bool test1 = string.IsNullOrEmpty(TextMaMH.Text);
@@ -210,12 +223,15 @@ namespace TracNghiemCSDLPT.Views
                 Utils.SetTextEditError(MaMHEP, TextMaMH, "Mã môn học không được quá 5 ký tự");
                 return;
             }
-            Console.WriteLine("selected row: " + selectedRow);
+            test1 = test2 = false;
+            if (!origMaMH.ToLower().Equals(TextMaMH.Text.ToLower()))
+                test1 = AlreadyExists(TextMaMH.Text, true);
 
-            test1 = AlreadyExists(TextMaMH.Text, "MaMH");
-            test2 = AlreadyExists(TextTenMH.Text, "TenMH");
+            if (!origTenMH.ToLower().Equals(TextTenMH.Text.ToLower()))
+                test2 = AlreadyExists(TextTenMH.Text, false);
 
-            if(test1 || test2)
+
+            if (test1 || test2)
             {
                 if (test1)
                     Utils.SetTextEditError(MaMHEP, TextMaMH, "Mã môn học đã tồn tại");
@@ -249,7 +265,7 @@ namespace TracNghiemCSDLPT.Views
             }
             catch (Exception ex)
             {
-                Utils.ShowErrorMessage("Không thể ghi nhân viên, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi xóa nhân viên");
+                Utils.ShowErrorMessage("Không thể lưu môn học, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi ghi nhân viên");
                 return;
             }
             MonHocGridControl.Enabled = true;

@@ -150,10 +150,10 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="bunifuSeparator1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAABVgAAAANCAYAAABcgQUyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAB2SURBVHhe7dqxDQAgDANB7z8RDVI2g4aOitDeSb+E5QAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwGXMWpIkSZIkSZKk9wyskiRJkiRJktTs/FgBAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAgE/JBo3pPb9/UHTGAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAABYsAAAANCAYAAADopzF4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAB2SURBVHhe7dpRCQAwDEPB+Fe0n0GddTDqonfwTIQEAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvnOrJUmSJEmSJEm7MxZLkiRJkiRJknr+xQAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAwHLJAzoMhIao68m9AAAAAElFTkSuQmCC
 </value>
   </data>
   <metadata name="LopTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -246,5 +246,11 @@
   </metadata>
   <metadata name="MaKhoaEP.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>758, 33</value>
+  </metadata>
+  <metadata name="GV_DKBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>887, 11</value>
+  </metadata>
+  <metadata name="GV_DKTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 76</value>
   </metadata>
 </root>

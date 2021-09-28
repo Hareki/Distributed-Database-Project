@@ -978,7 +978,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonHuySV.HoverState.Parent = this.buttonHuySV;
             this.buttonHuySV.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
             this.buttonHuySV.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonHuySV.Location = new System.Drawing.Point(346, 18);
+            this.buttonHuySV.Location = new System.Drawing.Point(346, 8);
             this.buttonHuySV.Margin = new System.Windows.Forms.Padding(3, 3, 50, 3);
             this.buttonHuySV.Name = "buttonHuySV";
             this.buttonHuySV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -1000,7 +1000,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonRedoSV.HoverState.Parent = this.buttonRedoSV;
             this.buttonRedoSV.Image = global::TracNghiemCSDLPT.Properties.Resources.redo_480px;
             this.buttonRedoSV.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonRedoSV.Location = new System.Drawing.Point(943, 18);
+            this.buttonRedoSV.Location = new System.Drawing.Point(943, 8);
             this.buttonRedoSV.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.buttonRedoSV.Name = "buttonRedoSV";
             this.buttonRedoSV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -1021,7 +1021,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonUndoSV.HoverState.Parent = this.buttonUndoSV;
             this.buttonUndoSV.Image = global::TracNghiemCSDLPT.Properties.Resources.undo_480px1;
             this.buttonUndoSV.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonUndoSV.Location = new System.Drawing.Point(888, 18);
+            this.buttonUndoSV.Location = new System.Drawing.Point(888, 8);
             this.buttonUndoSV.Margin = new System.Windows.Forms.Padding(50, 3, 20, 3);
             this.buttonUndoSV.Name = "buttonUndoSV";
             this.buttonUndoSV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -1042,7 +1042,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonXacNhanSV.HoverState.Parent = this.buttonXacNhanSV;
             this.buttonXacNhanSV.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
             this.buttonXacNhanSV.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonXacNhanSV.Location = new System.Drawing.Point(291, 18);
+            this.buttonXacNhanSV.Location = new System.Drawing.Point(291, 8);
             this.buttonXacNhanSV.Margin = new System.Windows.Forms.Padding(3, 0, 20, 3);
             this.buttonXacNhanSV.Name = "buttonXacNhanSV";
             this.buttonXacNhanSV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -1088,7 +1088,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.ViewCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.ViewCaption.Font = new System.Drawing.Font("Baloo 2", 13.8F, System.Drawing.FontStyle.Bold);
             this.ViewCaption.ForeColor = System.Drawing.Color.Black;
-            this.ViewCaption.Location = new System.Drawing.Point(430, 18);
+            this.ViewCaption.Location = new System.Drawing.Point(430, 8);
             this.ViewCaption.Name = "ViewCaption";
             this.ViewCaption.Size = new System.Drawing.Size(405, 39);
             this.ViewCaption.TabIndex = 29;
@@ -1112,7 +1112,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.bunifuPanel1.Location = new System.Drawing.Point(149, 445);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(1267, 68);
+            this.bunifuPanel1.Size = new System.Drawing.Size(1267, 48);
             this.bunifuPanel1.TabIndex = 31;
             // 
             // errorProvider1

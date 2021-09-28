@@ -1,6 +1,12 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Utils;
+using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraEditors.ViewInfo;
+using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.BandedGrid;
+using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,15 +34,22 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         private int selectedRowSV;
         private int saveKHIndex;
 
-        private string origMaLop;
-        private string origTenLop;
+        private string origMaLop = "~!@#$%";
+        private string origTenLop = "~!@#$%";
+
+        private string origMaSV = "~!@#$%";
+        private int editingSVIndex;
+
+        private bool canSaveSV = true;
+        private string saveMaKHForReset;
+        private string saveMaLopForReset;
 
         Color ActiveForeColor = Color.FromArgb(72, 70, 68);
         Color DisabledForeColor = SystemColors.AppWorkspace;
         State state = State.idle;
         enum State
         {
-            add, edit, idle
+            addLop, editLop, idle, addSV, editSV
         }
         private void LoadAllData()
         {
@@ -44,12 +57,33 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.LopTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.SinhVienTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.GV_DKTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.BangDiemTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
 
             this.KhoaTableAdapter.Fill(this.TN_CSDLPTDataSet.KHOA);
             this.LopTableAdapter.Fill(this.TN_CSDLPTDataSet.LOP);
             this.SinhVienTableAdapter.Fill(this.TN_CSDLPTDataSet.SINHVIEN);
             this.GV_DKTableAdapter.Fill(this.TN_CSDLPTDataSet.GIAOVIEN_DANGKY);
+            this.BangDiemTableAdapter.Fill(this.TN_CSDLPTDataSet.BANGDIEM);
+
+            checkButtonStateLop();
+            //    checkButtonStateSV(); lúc nãy chưa có mã lớp, để ở đây sẽ không có dữ liệu
+
         }
+
+        private void checkButtonStateLop()
+        {
+            if (LopBindingSource.Count == 0)
+                buttonXoaLop.Enabled = buttonSuaLop.Enabled = false;
+            else buttonXoaLop.Enabled = buttonSuaLop.Enabled = true;
+        }
+
+        private void checkButtonStateSV()
+        {
+            if (SinhVienBindingSource.Count == 0)
+                buttonXoaSV.Enabled = buttonSuaSV.Enabled = false;
+            else buttonXoaSV.Enabled = buttonSuaSV.Enabled = true;
+        }
+
         private GridView getCorrTextBoxData(bool getFirstRow)
         {
             GridView detailView;
@@ -67,13 +101,14 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                 MaLop = test.ToString();
             else return null;
             LopBindingSource.Position = LopBindingSource.Find("MALOP", MaLop);
+            string maLop = ((DataRowView)LopBindingSource[LopBindingSource.Position])["MALOP"].ToString();
+            this.ViewCaption.Text = "Danh sách sinh viên thuộc lớp " + maLop;
             return detailView;
 
         }
         private void FormSVL_Load(object sender, EventArgs e)
         {
-            
-            
+
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
 
             LoadAllData();
@@ -92,9 +127,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             GridView view = getCorrTextBoxData(true);
             if (view != null)
                 view.Focus();
+            checkButtonStateSV();
 
-            if (LopBindingSource.Count == 0)
-                buttonXoaLop.Enabled = false;
         }
 
         private void LopGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -162,6 +196,18 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             buttonUndoLop.Visible = buttonRedoLop.Visible =
                 buttonHuyLop.Visible = buttonXacNhanLop.Visible = state;
         }
+
+        private void SetIdleButtonEnabledSV(bool state)
+        {
+            buttonThemSV.Enabled = buttonSuaSV.Enabled =
+                buttonXoaSV.Enabled = buttonLamMoiSV.Enabled = state;
+        }
+        private void SetInputButtonEnabledSV(bool state)
+        {
+            buttonUndoSV.Visible = buttonRedoSV.Visible =
+                buttonHuySV.Visible = buttonXacNhanSV.Visible = state;
+        }
+
         private void buttonThemLop_Click(object sender, EventArgs e)
         {
             selectedRowLop = LopBindingSource.Position;
@@ -180,7 +226,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             KhoaBindingSource.SuspendBinding();
             ComboMaKH.SelectedIndex = 0;
 
-            state = State.add;
+            state = State.addLop;
             LopBindingSource.AddNew();
         }
 
@@ -197,7 +243,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
 
             LopBindingSource.CancelEdit();
             InfoPanel.Text = "Thông tin lớp";
-            if (state == State.add)
+            if (state == State.addLop)
                 LopBindingSource.Position = selectedRowLop;
 
             SetIdleButtonEnabledLop(true);
@@ -216,6 +262,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                 this.LopTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
                 this.LopTableAdapter.Fill(this.TN_CSDLPTDataSet.LOP);
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
+
+                checkButtonStateLop();
             }
             catch (Exception ex)
             {
@@ -241,10 +289,10 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             origMaLop = TextMaLop.Text.Trim();
             origTenLop = Utils.CapitalizeString(TextTenLop.Text, Utils.CapitalMode.FirstWordOnly);
             KhoaGridControl.Enabled = false;
-            state = State.edit;
+            state = State.editLop;
         }
 
-        private bool AlreadyExists(string testName, bool isID)
+        private bool AlreadyExistsLop(string testName, bool isID)
         {
             string query = "EXEC usp_Lop_GetInfoByXXX '" + testName + "'";
             if (isID)
@@ -270,7 +318,29 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             }
         }
 
-        private void jumpToNewlyCreatedRow()
+        private bool AlreadyExistsSV(string testName)
+        {
+            string query = "EXEC usp_SinhVien_GetInfoByID'" + testName + "'";
+            SqlDataReader myReader = DBConnection.ExecuteSqlDataReader(query);
+            if (myReader == null)
+            {
+                Utils.ShowMessage("Xảy ra lỗi không xác định", Others.NotiForm.FormType.Error, 1);
+                Console.WriteLine(System.Environment.StackTrace);
+                return true;
+            }
+            if (myReader.HasRows)
+            {
+                myReader.Close();
+                return true;
+
+            }
+            else
+            {
+                myReader.Close();
+                return false;
+            }
+        }
+        private void GoToNewlyCreatedRowLop()
         {
             GridView detailView;
             int row = KhoaGridView.LocateByDisplayText(0, colMAKH, ComboMaKH.SelectedValue.ToString());
@@ -288,6 +358,29 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             }
             detailView.Focus();
             detailView.FocusedRowHandle = detailView.RowCount - 1;
+        }
+
+        private void GobackAfterReset()
+        {//lỗi dòng cuối, chưa chạy dc
+            GridView detailView;
+            int row = KhoaGridView.LocateByDisplayText(0, colMAKH, saveMaKHForReset);
+            Console.WriteLine("Row: " + row);
+
+            KhoaGridView.FocusedRowHandle = row;
+            KhoaGridView.Focus();
+            KhoaGridView.ExpandMasterRow(row);
+            detailView = KhoaGridView.GetDetailView(row, 0) as GridView;
+            if (detailView is null)
+            {
+                Utils.ShowErrorMessage("Lỗi không xác định", "Lỗi");
+                Console.WriteLine(System.Environment.StackTrace);
+                return;
+            }
+            detailView.Focus();
+
+            //  detailView.FocusedRowHandle = LopBindingSource.Find("MALOP", TextMaLop.Text);
+            detailView.FocusedRowHandle = lOPBindingSource1.Find("MALOP", saveMaLopForReset);
+            
         }
         private void buttonXacNhanLop_Click(object sender, EventArgs e)
         {
@@ -319,9 +412,9 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             }
             test1 = test2 = false;
             if (!origMaLop.ToLower().Equals(TextMaLop.Text.ToLower()))
-                test1 = AlreadyExists(TextMaLop.Text, true);
+                test1 = AlreadyExistsLop(TextMaLop.Text, true);
             if (!origTenLop.ToLower().Equals(TextTenLop.Text.ToLower()))
-                test2 = AlreadyExists(TextTenLop.Text, false);
+                test2 = AlreadyExistsLop(TextTenLop.Text, false);
 
             if (test1 || test2)
             {
@@ -347,19 +440,23 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                 LopBindingSource.ResetCurrentItem();
                 this.LopTableAdapter.Update(this.TN_CSDLPTDataSet.LOP);
 
-                if (state == State.edit)
+                if (state == State.editLop)
                     Utils.ShowMessage("Sửa lớp thành công", Others.NotiForm.FormType.Success, 1);
-                else if (state == State.add)
+                else if (state == State.addLop)
+                {
+                    GoToNewlyCreatedRowLop();
                     Utils.ShowMessage("Thêm lớp thành công", Others.NotiForm.FormType.Success, 1);
-                if (state == State.add)
-                    jumpToNewlyCreatedRow();
+                }
+
+
                 state = State.idle;
 
                 InfoPanel.Text = "Thông tin lớp";
                 Utils.SetTextEditError(MaLopEP, TextMaLop, null);
                 Utils.SetTextEditError(TenLopEP, TextTenLop, null);
 
-
+                checkButtonStateLop();
+                origMaLop = origTenLop = "~!@#$%";
 
             }
             catch (Exception ex)
@@ -411,9 +508,275 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                     return;
                 }
             }
-
-            if (LopBindingSource.Count == 0)
-                buttonXoaLop.Enabled = false;
+            checkButtonStateLop();
         }
+
+        private void buttonThemSV_Click(object sender, EventArgs e)
+        {
+            selectedRowSV = SinhVienBindingSource.Position;
+
+            SetLopState(false);
+
+            SetIdleButtonEnabledSV(false);
+            SetInputButtonEnabledSV(true);
+            state = State.addSV;
+            SinhVienGridView.OptionsBehavior.Editable = true;
+            SinhVienBindingSource.AddNew();
+
+        }
+
+
+        private string getCellAtFRowSV(GridColumn column)
+        {
+            return SinhVienGridView.GetRowCellValue(SinhVienGridView.FocusedRowHandle, column).ToString();
+        }
+
+        private void SinhVienGridView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+
+            String maSV = getCellAtFRowSV(colMASV);
+            String ho = getCellAtFRowSV(colHO);
+            String ten = getCellAtFRowSV(colTEN);
+            bool maError = false, hoError = false, tenError = false;
+            ho = Utils.CapitalizeString(ho, Utils.CapitalMode.EveryWord);
+            ten = Utils.CapitalizeString(ten, Utils.CapitalMode.EveryWord);
+            if (string.IsNullOrEmpty(maSV))
+            {
+                SinhVienGridView.SetColumnError(colMASV, "Vui lòng nhập mã sinh viên");
+                e.Valid = canSaveSV = false;
+                maError = true;
+
+            }
+            if (maSV.Length > 8)
+            {
+                SinhVienGridView.SetColumnError(colMASV, "Mã sinh viên không vượt quá 8 ký tự");
+                e.Valid = canSaveSV = false;
+                maError = true;
+
+            }
+
+
+            bool test1 = false;
+            if (!origMaSV.ToLower().Trim().Equals(maSV.Trim()))
+                test1 = AlreadyExistsSV(maSV);
+
+            if (test1)
+            {
+                SinhVienGridView.SetColumnError(colMASV, "Mã sinh viên đã tồn tại");
+                e.Valid  = false;
+                maError = true;
+            }
+            if(!maError)
+                SinhVienGridView.SetColumnError(colMASV, null);
+
+
+            if (string.IsNullOrEmpty(ho))
+            {
+                SinhVienGridView.SetColumnError(colHO, "Vui lòng nhập họ và tên đệm sinh viên");
+                e.Valid  = false;
+                hoError = true;
+            }
+            if (!Utils.IsMathRegex(ho, Utils.RegexType.LetterOnly))
+            {
+                SinhVienGridView.SetColumnError(colHO, "Họ, tên đệm của SV chỉ được chứa chữ");
+                e.Valid  = false;
+                hoError = true;
+            }
+
+            if (!hoError)
+                SinhVienGridView.SetColumnError(colHO, null);
+
+
+            if (string.IsNullOrEmpty(ten))
+            {
+
+                SinhVienGridView.SetColumnError(colTEN, "Vui lòng nhập tên sinh viên");
+                e.Valid  = false;
+                tenError = true;
+            }
+            if (!Utils.IsMathRegex(ten, Utils.RegexType.LetterOnly))
+            {
+                SinhVienGridView.SetColumnError(colTEN, "Tên của SV chỉ được chứa chữ");
+                e.Valid  = false;
+                tenError = true;
+            }
+            if (!tenError)
+                SinhVienGridView.SetColumnError(colTEN, null);
+
+
+            canSaveSV = e.Valid;
+
+        }
+
+        private void SinhVienGridView_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
+        {
+            e.ExceptionMode = ExceptionMode.NoAction;
+        }
+
+
+
+        private void buttonXacNhanSV_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (canSaveSV)
+            {
+                try
+                {
+                    SinhVienBindingSource.EndEdit();
+                    SinhVienBindingSource.ResetCurrentItem();
+                    this.SinhVienTableAdapter.Update(this.TN_CSDLPTDataSet.SINHVIEN);
+                    if (state == State.editSV)
+                        Utils.ShowMessage("Sửa thông tin sinh viên thành công", Others.NotiForm.FormType.Success, 2);
+                    else if (state == State.addSV)
+                        Utils.ShowMessage("Thêm thông tin sinh viên thành công", Others.NotiForm.FormType.Success, 2);
+                    state = State.idle;
+
+                    checkButtonStateSV();
+                    origMaSV = "~!@#$%";
+
+                }
+                catch (Exception ex)
+                {
+                    Utils.ShowErrorMessage("Không thể lưu thông tin sinh viên, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi ghi nhân viên");
+                    return;
+                }
+                SetLopState(true);
+                SetIdleButtonEnabledSV(true);
+                SetInputButtonEnabledSV(false);
+            }
+            else
+            {
+                Utils.ShowMessage("Vui lòng xem lại thông tin đã nhập", Others.NotiForm.FormType.Error, 1);
+            }
+
+        }
+
+
+
+        private void buttonHuySV_MouseUp(object sender, MouseEventArgs e)
+        {
+
+            if (Utils.inControl(buttonHuySV))
+            {
+                SinhVienGridView.OptionsBehavior.Editable = false;
+                SinhVienBindingSource.CancelEdit();
+                if (state == State.addSV)
+                    SinhVienBindingSource.Position = selectedRowSV;
+                state = State.idle;
+                SetIdleButtonEnabledSV(true);
+                SetInputButtonEnabledSV(false);
+                SetLopState(true);
+            }
+        }
+
+        private void SetLopState(bool state)
+        {
+            KhoaGridControl.Enabled = InfoPanel.Enabled = state;
+            this.TextMaLop.ForeColor = this.ComboMaKH.ForeColor =
+                this.TextTenLop.ForeColor = state == true ? ActiveForeColor : DisabledForeColor;
+        }
+
+        private void SinhVienGridView_CustomDrawCell(object sender, RowCellCustomDrawEventArgs e)
+        {
+            if (e.RowHandle == SinhVienGridView.FocusedRowHandle) return;
+            if (state == State.addSV)
+            {
+                if (e.RowHandle == SinhVienGridView.RowCount - 1)
+                    e.Appearance.BackColor = Color.FromArgb(255, 237, 211);
+            }
+            if(state == State.editSV)
+            {
+                if (e.RowHandle == editingSVIndex)
+                    e.Appearance.BackColor = Color.FromArgb(255, 237, 211);
+            }
+
+        }
+
+        private void SinhVienGridView_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
+        {
+            bool test1 = state == State.addSV && (e.FocusedRowHandle == SinhVienGridView.RowCount - 1
+                || e.FocusedRowHandle == -2147483647);
+            bool test2 = state == State.editSV && e.FocusedRowHandle == editingSVIndex;
+
+            if (test1 || test2)
+                SinhVienGridView.OptionsBehavior.Editable = true;
+            else
+                SinhVienGridView.OptionsBehavior.Editable = false;
+        }
+
+        private void buttonSuaSV_Click(object sender, EventArgs e)
+        {
+            SetLopState(false);
+            SetIdleButtonEnabledSV(false);
+            SetInputButtonEnabledSV(true);
+
+            editingSVIndex = SinhVienGridView.FocusedRowHandle;
+            SinhVienGridView.OptionsBehavior.Editable = true;
+            origMaSV = getCellAtFRowSV(colMASV).Trim();
+            state = State.editSV;
+        }
+
+        private void buttonXoaSV_Click(object sender, EventArgs e)
+        {
+            string RemovedSV = "";
+            selectedRowSV = SinhVienBindingSource.Position;
+            if (BangDiemBindingSource.Count > 0)
+            {
+                Utils.ShowMessage("Sinh viên này đã dự thi, không thể xóa", Others.NotiForm.FormType.Error, 2);
+                return;
+            }
+
+            if (Utils.ShowConfirmMessage("Bạn có chắc muốn xóa sinh viên này?", "Xác nhận"))
+            {
+                try
+                {
+                    RemovedSV = ((DataRowView)SinhVienBindingSource[selectedRowSV])["MASV"].ToString();
+                    SinhVienBindingSource.RemoveCurrent();
+                    SinhVienTableAdapter.Update(TN_CSDLPTDataSet.SINHVIEN);
+                    Utils.ShowMessage("Xóa thông tin sinh viên thành công!", Others.NotiForm.FormType.Success, 2);
+                }
+                catch (Exception ex)
+                {
+                    Utils.ShowErrorMessage("Không thể xóa sinh viên này, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi xóa nhân viên");
+                    Console.WriteLine(ex.StackTrace);
+                    this.SinhVienTableAdapter.Fill(TN_CSDLPTDataSet.SINHVIEN);
+                    SinhVienBindingSource.Position = SinhVienBindingSource.Find("MASV", RemovedSV);
+                    return;
+                }
+            }
+
+            checkButtonStateSV();
+        }
+
+        private void buttonLamMoiSV_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                saveMaKHForReset = ComboMaKH.SelectedValue.ToString();
+                saveMaLopForReset = TextMaLop.Text;
+                this.KhoaTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+                this.KhoaTableAdapter.Fill(this.TN_CSDLPTDataSet.KHOA);
+                this.LopTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+                this.LopTableAdapter.Fill(this.TN_CSDLPTDataSet.LOP);
+                this.SinhVienTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+                this.SinhVienTableAdapter.Fill(this.TN_CSDLPTDataSet.SINHVIEN);
+                Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
+              //  GobackAfterReset();
+                checkButtonStateLop();
+            }
+            catch (Exception ex)
+            {
+                Utils.ShowMessage("Lỗi khi tải lại dữ liệu", Others.NotiForm.FormType.Error, 1);
+                Console.WriteLine(ex.StackTrace);
+                return;
+            }
+
+
+        }
+
+
+        private void SinhVienBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+            checkButtonStateSV();
+    }
     }
 }

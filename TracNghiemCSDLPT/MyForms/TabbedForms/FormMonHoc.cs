@@ -19,10 +19,7 @@ namespace TracNghiemCSDLPT.Views
         public FormMonHoc()
         {
             InitializeComponent();
-            //if (MonHocBindingSouce.Count == 0)
-            //    buttonXoa.Enabled = false;
-            if (MonHocBindingSource.Count == 0)
-                buttonXoa.Enabled = false;
+
         }
 
 
@@ -34,6 +31,13 @@ namespace TracNghiemCSDLPT.Views
         enum State
         {
             add, edit, idle
+        }
+
+        private void checkButtonState()
+        {
+            if (MonHocBindingSource.Count == 0)
+                buttonXoa.Enabled = buttonSua.Enabled = false;
+            else buttonXoa.Enabled = buttonSua.Enabled = true;
         }
         private void MonHoc_Load(object sender, EventArgs e)
         {
@@ -47,6 +51,8 @@ namespace TracNghiemCSDLPT.Views
             this.BoDeTableAdapter.Fill(this.TN_CSDLPTDataSet.BODE);
             this.GV_DKTableAdapter.Fill(this.TN_CSDLPTDataSet.GIAOVIEN_DANGKY);
             this.BangDiemTableAdapter.Fill(this.TN_CSDLPTDataSet.BANGDIEM);
+
+            checkButtonState();
         }
 
         private void SetIdleButtonEnabled(bool state)
@@ -119,6 +125,8 @@ namespace TracNghiemCSDLPT.Views
                 this.MonHocTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
                 this.MonHocTableAdapter.Fill(this.TN_CSDLPTDataSet.MONHOC);
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
+
+                checkButtonState();
             }
             catch (Exception ex)
             {
@@ -158,7 +166,7 @@ namespace TracNghiemCSDLPT.Views
                 }
                 catch (Exception ex)
                 {
-                    Utils.ShowErrorMessage("Không thể xóa nhân viên, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi xóa nhân viên");
+                    Utils.ShowErrorMessage("Không thể xóa sinh viên này, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi xóa nhân viên");
                     Console.WriteLine(ex.StackTrace);
                     this.MonHocTableAdapter.Fill(TN_CSDLPTDataSet.MONHOC);
                     MonHocBindingSource.Position = MonHocBindingSource.Find("MAMH", RemovedMH);
@@ -166,8 +174,7 @@ namespace TracNghiemCSDLPT.Views
                 }
             }
 
-            if (MonHocBindingSource.Count == 0)
-                buttonXoa.Enabled = false;
+            checkButtonState();
         }
 
         private bool AlreadyExists(string testName, bool isID)
@@ -274,6 +281,8 @@ namespace TracNghiemCSDLPT.Views
                 TextTenMH.ForeColor = DisabledForeColor;
             SetIdleButtonEnabled(true);
             SetInputButtonEnabled(false);
+
+            checkButtonState();
         }
     }
 }

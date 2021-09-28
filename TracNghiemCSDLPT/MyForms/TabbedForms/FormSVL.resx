@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="KhoaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>203, 17</value>
+    <value>462, 17</value>
   </metadata>
   <metadata name="TN_CSDLPTDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>219, 60</value>
   </metadata>
-  <metadata name="TN_CSDLPTDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+  <metadata name="toolTipController1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>188, 146</value>
   </metadata>
   <metadata name="mALOPLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
@@ -136,16 +136,16 @@
     <value>False</value>
   </metadata>
   <metadata name="KhoaTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>398, 17</value>
+    <value>779, 60</value>
   </metadata>
   <metadata name="tableAdapterManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>586, 17</value>
+    <value>592, 103</value>
   </metadata>
   <metadata name="LopBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>792, 17</value>
+    <value>652, 17</value>
   </metadata>
   <metadata name="SinhVienBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>13, 56</value>
+    <value>833, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="bunifuSeparator1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -157,14 +157,34 @@
 </value>
   </data>
   <metadata name="LopTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>958, 17</value>
+    <value>17, 103</value>
   </metadata>
   <metadata name="SinhVienTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>240, 53</value>
+    <value>190, 103</value>
   </metadata>
   <metadata name="MaLopEP.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>452, 53</value>
+    <value>536, 60</value>
   </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>48</value>
+  </metadata>
+  <data name="bunifuPanel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAABPMAAABECAYAAADk4HBwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAJ8SURBVHhe7dqxTcNgFEZRj8IoTMCaKVDyOwUtK6RLGaVL
+        QRMmCBi5QaLHVzqfdLo3wdWbzMzMzMzMzMzMLLTdbvc0xnj93gMAAAAA2I55nt+WfremvGk6Ho/vp9Pp
+        cb/fAQAAAIANOZ/PjzHGZU1507QUvr8OAQAAAID/t/S7NeWJeQAAAACwZWIeAAAAAESIeQAAAAAQIeYB
+        AAAAQISYBwAAAAARYh4AAAAARIh5AAAAABAh5gEAAABAhJgHAAAAABFiHgAAAABEiHkAAAAAECHmAQAA
+        AECEmAcAAAAAEWIeAAAAAESIeQAAAAAQIeYBAAAAQISYBwAAAAARYh4AAAAARIh5AAAAABAh5gEAAABA
+        hJgHAAAAABFiHgAAAABEiHkAAAAAECHmAQAAAECEmAcAAAAAEWIeAAAAAESIeQAAAAAQIeYBAAAAQISY
+        BwAAAAARYh4AAAAARIh5AAAAABAh5gEAAABAhJgHAAAAABFiHgAAAABEiHkAAAAAECHmAQAAAECEmAcA
+        AAAAEWIeAAAAAESIeQAAAAAQIeYBAAAAQISYBwAAAAARYh4AAAAARIh5AAAAABAh5gEAAABAhJgHAAAA
+        ABFiHgAAAABEiHkAAAAAECHmAQAAAECEmAcAAAAAEWIeAAAAAESIeQAAAAAQIeYBAAAAQISYBwAAAAAR
+        Yh4AAAAARIh5AAAAABAh5gEAAABAhJgHAAAAABFiHgAAAABEiHkAAAAAECHmAQAAAECEmAcAAAAAEb9i
+        3hjjcr1e/zwEAAAAAP7P7XZ77Pf7zzXl/XzmPR8Oh4+l8AEAAAAA27GEvHmeX9aUZ2ZmZmZmZmZmZtvf
+        NH0BiID5VtnoTaYAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="FormSVL.IconOptions.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA
@@ -242,15 +262,30 @@
 </value>
   </data>
   <metadata name="TenLopEP.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>606, 45</value>
+    <value>656, 60</value>
   </metadata>
   <metadata name="MaKhoaEP.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>758, 33</value>
+    <value>407, 60</value>
   </metadata>
   <metadata name="GV_DKBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>887, 11</value>
+    <value>17, 60</value>
   </metadata>
   <metadata name="GV_DKTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 76</value>
+    <value>398, 103</value>
+  </metadata>
+  <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>798, 103</value>
+  </metadata>
+  <metadata name="dxErrorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 146</value>
+  </metadata>
+  <metadata name="BangDiemBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>236, 17</value>
+  </metadata>
+  <metadata name="BangDiemTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="lOPBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>369, 146</value>
   </metadata>
 </root>

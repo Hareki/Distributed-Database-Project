@@ -83,5 +83,11 @@ namespace TracNghiemCSDLPT
             }
         }
 
+        public static bool inControl(Control control)
+        {
+            Console.WriteLine(control.ClientRectangle.Contains(control.PointToClient(Control.MousePosition)));
+            return control.ClientRectangle.Contains(control.PointToClient(Control.MousePosition));
+        }
+
     }
 }

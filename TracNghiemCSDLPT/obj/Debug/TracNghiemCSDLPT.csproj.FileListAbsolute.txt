@@ -227,3 +227,10 @@ D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSD
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.exe
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.pdb
 D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.csproj.AssemblyReference.cache
+D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\bin\Debug\DevExpress.Xpo.v21.1.dll
+D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\bin\Debug\DevExpress.Xpo.v21.1.xml
+D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\bin\Debug\de\DevExpress.Xpo.v21.1.resources.dll
+D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\bin\Debug\es\DevExpress.Xpo.v21.1.resources.dll
+D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\bin\Debug\ja\DevExpress.Xpo.v21.1.resources.dll
+D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\bin\Debug\ru\DevExpress.Xpo.v21.1.resources.dll
+D:\CNTT\2021\HK1N4\CSDL PT\Repository\Distributed-Database-Project\TracNghiemCSDLPT\obj\Debug\TracNghiemCSDLPT.MyForms.TabbedForms.FormTaoLogin.resources

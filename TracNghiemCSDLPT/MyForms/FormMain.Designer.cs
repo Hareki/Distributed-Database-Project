@@ -176,6 +176,7 @@ namespace TracNghiemCSDLPT
             this.buttonTaoTK.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.add_user_male_480px;
             this.buttonTaoTK.LargeWidth = 80;
             this.buttonTaoTK.Name = "buttonTaoTK";
+            this.buttonTaoTK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonTaoTK_ItemClick);
             // 
             // buttonDangXuat
             // 

@@ -635,6 +635,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.SinhVienGridView.OptionsView.ShowIndicator = false;
             this.SinhVienGridView.ViewCaption = "Danh sách sinh viên thuộc lớp";
             this.SinhVienGridView.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.SinhVienGridView_CustomDrawCell);
+            this.SinhVienGridView.ShownEditor += new System.EventHandler(this.SinhVienGridView_ShownEditor);
             this.SinhVienGridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.SinhVienGridView_FocusedRowChanged);
             this.SinhVienGridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.SinhVienGridView_InvalidRowException);
             this.SinhVienGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.SinhVienGridView_ValidateRow);
@@ -986,7 +987,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonHuySV.Size = new System.Drawing.Size(30, 30);
             this.buttonHuySV.TabIndex = 25;
             this.buttonHuySV.Visible = false;
-            this.buttonHuySV.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonHuySV_MouseUp);
+            this.buttonHuySV.Click += new System.EventHandler(this.buttonHuySV_Click);
             // 
             // buttonRedoSV
             // 
@@ -1050,7 +1051,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonXacNhanSV.Size = new System.Drawing.Size(30, 30);
             this.buttonXacNhanSV.TabIndex = 28;
             this.buttonXacNhanSV.Visible = false;
-            this.buttonXacNhanSV.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonXacNhanSV_MouseUp);
+            this.buttonXacNhanSV.Click += new System.EventHandler(this.buttonXacNhanSV_Click);
             // 
             // MaLopEP
             // 

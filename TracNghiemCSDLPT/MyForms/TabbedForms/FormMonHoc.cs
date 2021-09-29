@@ -108,6 +108,7 @@ namespace TracNghiemCSDLPT.Views
                 TextTenMH.ForeColor = ActiveForeColor;
 
             InfoPanel.Text = "Sửa thông tin môn học";
+            TextMaMH.Text = TextMaMH.Text.Trim();
 
             SetIdleButtonEnabled(false);
             SetInputButtonEnabled(true);

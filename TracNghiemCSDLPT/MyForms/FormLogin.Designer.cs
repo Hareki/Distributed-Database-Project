@@ -89,6 +89,7 @@ namespace TracNghiemCSDLPT
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Baloo 2", 10.8F);
+            this.label2.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.label2.Location = new System.Drawing.Point(109, 206);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 10, 5);
             this.label2.Name = "label2";
@@ -263,6 +264,7 @@ namespace TracNghiemCSDLPT
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Baloo 2", 10.8F);
+            this.label1.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.label1.Location = new System.Drawing.Point(109, 125);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 0, 10, 5);
             this.label1.Name = "label1";

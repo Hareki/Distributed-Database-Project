@@ -307,14 +307,6 @@ namespace TracNghiemCSDLPT
             ValidateLoginName();
         }
 
-        private void TextPassword_TextChange(object sender, EventArgs e)
-        {
-            if (TextPassword.Text.Equals(""))
-                TextPassword.UseSystemPasswordChar = false;
-            else if (ShowPassword == true)
-                TextPassword.UseSystemPasswordChar = true;
-        }
-
 
         private void TextLogin_KeyDown(object sender, KeyEventArgs e)
         {

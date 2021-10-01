@@ -201,6 +201,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyForms\TabbedForms\FormKhoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForms\TabbedForms\FormKhoa.designer.cs">
+      <DependentUpon>FormKhoa.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForms\TabbedForms\FormTaoLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForms\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForms\TabbedForms\FormKhoa.resx">
+      <DependentUpon>FormKhoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForms\TabbedForms\FormTaoLogin.resx">
       <DependentUpon>FormTaoLogin.cs</DependentUpon>

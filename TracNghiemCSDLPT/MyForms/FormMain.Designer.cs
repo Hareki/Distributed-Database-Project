@@ -160,6 +160,7 @@ namespace TracNghiemCSDLPT
             this.buttonKhoaLop.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.school_480px;
             this.buttonKhoaLop.LargeWidth = 80;
             this.buttonKhoaLop.Name = "buttonKhoaLop";
+            this.buttonKhoaLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonKhoaLop_ItemClick);
             // 
             // buttonDKTN
             // 

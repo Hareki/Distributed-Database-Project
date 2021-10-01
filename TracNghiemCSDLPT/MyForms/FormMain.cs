@@ -68,6 +68,11 @@ namespace TracNghiemCSDLPT
         {
             showForm(typeof(FormTaoLogin));
         }
+
+        private void buttonKhoaLop_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            showForm(typeof(FormKhoa));
+        }
     }
 
 }

@@ -34,10 +34,11 @@ namespace TracNghiemCSDLPT
 
         public enum RegexType
         {
-            LetterDigits, LetterOnly
+            LetterDigits, LetterOnly, LetterDigitsNoSpace
         }
         private static Regex LetterDigitsRegex = new Regex(@"^[\p{L}\s0-9]*$");
         private static Regex LetterOnlyRegex = new Regex(@"^[\p{L}\s]*$");
+        private static Regex LetterDigitsNoSpace = new Regex(@"^[A-Za-z0-9]$");
         public static bool IsMathRegex(string testString, RegexType type)
         {
             switch (type)
@@ -46,6 +47,8 @@ namespace TracNghiemCSDLPT
                     return LetterDigitsRegex.IsMatch(testString);
                 case RegexType.LetterOnly:
                     return LetterOnlyRegex.IsMatch(testString);
+                case RegexType.LetterDigitsNoSpace:
+                    return LetterDigitsNoSpace.IsMatch(testString);
                 default:
                     return false;
             }

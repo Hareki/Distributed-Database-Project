@@ -37,7 +37,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             bool test2 = (!rdoCS.Checked && !rdoGV.Checked && panelCSGV.Visible == true);
             bool test3 = string.IsNullOrEmpty(TextTenDangNhap.Text);
             bool test4 = !TextMatKhau.Text.Equals(TextXacNhan.Text) || string.IsNullOrEmpty(TextMatKhau.Text);
-
+            bool test5 = Utils.IsMathRegex(TextTenDangNhap.Text, Utils.RegexType.LetterDigitsNoSpace);
             if (test1 || test2 || test3 || test4)
             {
                 Utils.ShowMessage("Vui lòng xem lại thông tin đã nhập", Others.NotiForm.FormType.Error, 2);
@@ -59,6 +59,10 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                 {
                     XacNhanEP.SetError(TextXacNhan, null);
                     MatKhauEP.SetError(TextMatKhau, null);
+                }
+                if(test5 && !test3)
+                {
+
                 }
                 return;
             }

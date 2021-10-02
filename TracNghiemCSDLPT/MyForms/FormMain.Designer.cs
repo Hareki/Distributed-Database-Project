@@ -152,6 +152,7 @@ namespace TracNghiemCSDLPT
             this.butonGiaoVien.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.teacher_500px;
             this.butonGiaoVien.LargeWidth = 80;
             this.butonGiaoVien.Name = "butonGiaoVien";
+            this.butonGiaoVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.butonGiaoVien_ItemClick);
             // 
             // buttonKhoaLop
             // 

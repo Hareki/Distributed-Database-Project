@@ -73,6 +73,11 @@ namespace TracNghiemCSDLPT
         {
             showForm(typeof(FormKhoa));
         }
+
+        private void butonGiaoVien_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            showForm(typeof(FormGV));
+        }
     }
 
 }

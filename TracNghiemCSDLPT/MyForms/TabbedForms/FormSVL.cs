@@ -119,7 +119,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             else return null;
             LopBindingSource.Position = LopBindingSource.Find("MALOP", MaLop);
             string maLop = ((DataRowView)LopBindingSource[LopBindingSource.Position])["MALOP"].ToString();
-            this.ViewCaption.Text = "Danh sách sinh viên thuộc lớp " + maLop;
+            this.ViewCaption.Text = "Danh sách sinh viên thuộc lớp " + maLop.Trim();
             return detailView;
 
         }
@@ -729,12 +729,15 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             else
                 SinhVienGridView.OptionsBehavior.Editable = false;
         }
-
         private void buttonSuaSV_Click(object sender, EventArgs e)
         {
             SetLopState(false);
             SetIdleButtonEnabledSV(false);
             SetInputButtonEnabledSV(true);
+
+
+            string maSV = getCellAtFRowSV(colMASV).Trim();
+            SinhVienGridView.SetRowCellValue(SinhVienGridView.FocusedRowHandle, colMASV, maSV);
 
             editingSVIndex = SinhVienGridView.FocusedRowHandle;
             SinhVienGridView.OptionsBehavior.Editable = true;
@@ -895,7 +898,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             }
             else
             {
-                Utils.ShowMessage("Vui lòng xem lại thông tin đã nhập", Others.NotiForm.FormType.Error, 1);
+                Utils.ShowMessage("Vui lòng xem lại thông tin đã nhập", Others.NotiForm.FormType.Error, 2);
             }
         }
 

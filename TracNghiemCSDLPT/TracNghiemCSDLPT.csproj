@@ -570,5 +570,14 @@
   <ItemGroup>
     <None Include="Resources\disableasd.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info_480px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

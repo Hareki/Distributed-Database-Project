@@ -108,8 +108,10 @@ namespace TracNghiemCSDLPT.Views
             // 
             // MonHocGridControl
             // 
+            this.MonHocGridControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.MonHocGridControl.DataSource = this.MonHocBindingSource;
-            this.MonHocGridControl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.MonHocGridControl.Font = new System.Drawing.Font("Teko SemiBold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MonHocGridControl.Location = new System.Drawing.Point(0, 342);
             this.MonHocGridControl.MainView = this.MonHocGridView;

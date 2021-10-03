@@ -44,15 +44,15 @@ namespace TracNghiemCSDLPT {
         
         private GIAOVIENDataTable tableGIAOVIEN;
         
-        private global::System.Data.DataRelation relationFK_BANGDIEM_MONHOC;
-        
         private global::System.Data.DataRelation relationFK_BANGDIEM_SINHVIEN;
+        
+        private global::System.Data.DataRelation relationFK_BANGDIEM_MONHOC;
         
         private global::System.Data.DataRelation relationFK_BODE_MONHOC;
         
-        private global::System.Data.DataRelation relationFK_GIAOVIEN_DANGKY_MONHOC1;
-        
         private global::System.Data.DataRelation relationFK_GIAOVIEN_DANGKY_LOP;
+        
+        private global::System.Data.DataRelation relationFK_GIAOVIEN_DANGKY_MONHOC1;
         
         private global::System.Data.DataRelation relationFK_LOP_KHOA;
         
@@ -432,11 +432,11 @@ namespace TracNghiemCSDLPT {
                     this.tableGIAOVIEN.InitVars();
                 }
             }
-            this.relationFK_BANGDIEM_MONHOC = this.Relations["FK_BANGDIEM_MONHOC"];
             this.relationFK_BANGDIEM_SINHVIEN = this.Relations["FK_BANGDIEM_SINHVIEN"];
+            this.relationFK_BANGDIEM_MONHOC = this.Relations["FK_BANGDIEM_MONHOC"];
             this.relationFK_BODE_MONHOC = this.Relations["FK_BODE_MONHOC"];
-            this.relationFK_GIAOVIEN_DANGKY_MONHOC1 = this.Relations["FK_GIAOVIEN_DANGKY_MONHOC1"];
             this.relationFK_GIAOVIEN_DANGKY_LOP = this.Relations["FK_GIAOVIEN_DANGKY_LOP"];
+            this.relationFK_GIAOVIEN_DANGKY_MONHOC1 = this.Relations["FK_GIAOVIEN_DANGKY_MONHOC1"];
             this.relationFK_LOP_KHOA = this.Relations["FK_LOP_KHOA"];
             this.relationFK_SINHVIEN_LOP = this.Relations["FK_SINHVIEN_LOP"];
             this.relationFK_KHOA_COSO = this.Relations["FK_KHOA_COSO"];
@@ -474,16 +474,16 @@ namespace TracNghiemCSDLPT {
             this.tableGIAOVIEN = new GIAOVIENDataTable();
             base.Tables.Add(this.tableGIAOVIEN);
             global::System.Data.ForeignKeyConstraint fkc;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_BANGDIEM_MONHOC", new global::System.Data.DataColumn[] {
-                        this.tableMONHOC.MAMHColumn}, new global::System.Data.DataColumn[] {
-                        this.tableBANGDIEM.MAMHColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_BANGDIEM_SINHVIEN", new global::System.Data.DataColumn[] {
+                        this.tableSINHVIEN.MASVColumn}, new global::System.Data.DataColumn[] {
+                        this.tableBANGDIEM.MASVColumn});
             this.tableBANGDIEM.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_BANGDIEM_SINHVIEN", new global::System.Data.DataColumn[] {
-                        this.tableSINHVIEN.MASVColumn}, new global::System.Data.DataColumn[] {
-                        this.tableBANGDIEM.MASVColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_BANGDIEM_MONHOC", new global::System.Data.DataColumn[] {
+                        this.tableMONHOC.MAMHColumn}, new global::System.Data.DataColumn[] {
+                        this.tableBANGDIEM.MAMHColumn});
             this.tableBANGDIEM.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
@@ -495,16 +495,16 @@ namespace TracNghiemCSDLPT {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_GIAOVIEN_DANGKY_MONHOC1", new global::System.Data.DataColumn[] {
-                        this.tableMONHOC.MAMHColumn}, new global::System.Data.DataColumn[] {
-                        this.tableGIAOVIEN_DANGKY.MAMHColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_GIAOVIEN_DANGKY_LOP", new global::System.Data.DataColumn[] {
+                        this.tableLOP.MALOPColumn}, new global::System.Data.DataColumn[] {
+                        this.tableGIAOVIEN_DANGKY.MALOPColumn});
             this.tableGIAOVIEN_DANGKY.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_GIAOVIEN_DANGKY_LOP", new global::System.Data.DataColumn[] {
-                        this.tableLOP.MALOPColumn}, new global::System.Data.DataColumn[] {
-                        this.tableGIAOVIEN_DANGKY.MALOPColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_GIAOVIEN_DANGKY_MONHOC1", new global::System.Data.DataColumn[] {
+                        this.tableMONHOC.MAMHColumn}, new global::System.Data.DataColumn[] {
+                        this.tableGIAOVIEN_DANGKY.MAMHColumn});
             this.tableGIAOVIEN_DANGKY.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
@@ -523,26 +523,26 @@ namespace TracNghiemCSDLPT {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            this.relationFK_BANGDIEM_MONHOC = new global::System.Data.DataRelation("FK_BANGDIEM_MONHOC", new global::System.Data.DataColumn[] {
-                        this.tableMONHOC.MAMHColumn}, new global::System.Data.DataColumn[] {
-                        this.tableBANGDIEM.MAMHColumn}, false);
-            this.Relations.Add(this.relationFK_BANGDIEM_MONHOC);
             this.relationFK_BANGDIEM_SINHVIEN = new global::System.Data.DataRelation("FK_BANGDIEM_SINHVIEN", new global::System.Data.DataColumn[] {
                         this.tableSINHVIEN.MASVColumn}, new global::System.Data.DataColumn[] {
                         this.tableBANGDIEM.MASVColumn}, false);
             this.Relations.Add(this.relationFK_BANGDIEM_SINHVIEN);
+            this.relationFK_BANGDIEM_MONHOC = new global::System.Data.DataRelation("FK_BANGDIEM_MONHOC", new global::System.Data.DataColumn[] {
+                        this.tableMONHOC.MAMHColumn}, new global::System.Data.DataColumn[] {
+                        this.tableBANGDIEM.MAMHColumn}, false);
+            this.Relations.Add(this.relationFK_BANGDIEM_MONHOC);
             this.relationFK_BODE_MONHOC = new global::System.Data.DataRelation("FK_BODE_MONHOC", new global::System.Data.DataColumn[] {
                         this.tableMONHOC.MAMHColumn}, new global::System.Data.DataColumn[] {
                         this.tableBODE.MAMHColumn}, false);
             this.Relations.Add(this.relationFK_BODE_MONHOC);
-            this.relationFK_GIAOVIEN_DANGKY_MONHOC1 = new global::System.Data.DataRelation("FK_GIAOVIEN_DANGKY_MONHOC1", new global::System.Data.DataColumn[] {
-                        this.tableMONHOC.MAMHColumn}, new global::System.Data.DataColumn[] {
-                        this.tableGIAOVIEN_DANGKY.MAMHColumn}, false);
-            this.Relations.Add(this.relationFK_GIAOVIEN_DANGKY_MONHOC1);
             this.relationFK_GIAOVIEN_DANGKY_LOP = new global::System.Data.DataRelation("FK_GIAOVIEN_DANGKY_LOP", new global::System.Data.DataColumn[] {
                         this.tableLOP.MALOPColumn}, new global::System.Data.DataColumn[] {
                         this.tableGIAOVIEN_DANGKY.MALOPColumn}, false);
             this.Relations.Add(this.relationFK_GIAOVIEN_DANGKY_LOP);
+            this.relationFK_GIAOVIEN_DANGKY_MONHOC1 = new global::System.Data.DataRelation("FK_GIAOVIEN_DANGKY_MONHOC1", new global::System.Data.DataColumn[] {
+                        this.tableMONHOC.MAMHColumn}, new global::System.Data.DataColumn[] {
+                        this.tableGIAOVIEN_DANGKY.MAMHColumn}, false);
+            this.Relations.Add(this.relationFK_GIAOVIEN_DANGKY_MONHOC1);
             this.relationFK_LOP_KHOA = new global::System.Data.DataRelation("FK_LOP_KHOA", new global::System.Data.DataColumn[] {
                         this.tableKHOA.MAKHColumn}, new global::System.Data.DataColumn[] {
                         this.tableLOP.MAKHColumn}, false);
@@ -4030,23 +4030,23 @@ namespace TracNghiemCSDLPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public MONHOCRow MONHOCRow {
-                get {
-                    return ((MONHOCRow)(this.GetParentRow(this.Table.ParentRelations["FK_BANGDIEM_MONHOC"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_BANGDIEM_MONHOC"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public SINHVIENRow SINHVIENRow {
                 get {
                     return ((SINHVIENRow)(this.GetParentRow(this.Table.ParentRelations["FK_BANGDIEM_SINHVIEN"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_BANGDIEM_SINHVIEN"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public MONHOCRow MONHOCRow {
+                get {
+                    return ((MONHOCRow)(this.GetParentRow(this.Table.ParentRelations["FK_BANGDIEM_MONHOC"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_BANGDIEM_MONHOC"]);
                 }
             }
         }
@@ -4302,23 +4302,23 @@ namespace TracNghiemCSDLPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public MONHOCRow MONHOCRow {
-                get {
-                    return ((MONHOCRow)(this.GetParentRow(this.Table.ParentRelations["FK_GIAOVIEN_DANGKY_MONHOC1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_GIAOVIEN_DANGKY_MONHOC1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public LOPRow LOPRow {
                 get {
                     return ((LOPRow)(this.GetParentRow(this.Table.ParentRelations["FK_GIAOVIEN_DANGKY_LOP"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_GIAOVIEN_DANGKY_LOP"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public MONHOCRow MONHOCRow {
+                get {
+                    return ((MONHOCRow)(this.GetParentRow(this.Table.ParentRelations["FK_GIAOVIEN_DANGKY_MONHOC1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_GIAOVIEN_DANGKY_MONHOC1"]);
                 }
             }
             
@@ -5865,9 +5865,10 @@ SELECT MABANGDIEM, MASV, MAMH, LAN, NGAYTHI, DIEM FROM BANGDIEM WHERE (MABANGDIE
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MAGV", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MAGV", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[BODE] ([MAMH], [TRINHDO], [NOIDUNG], [A], [B], [C], [D], [DAP_AN], [MAGV]) VALUES (@MAMH, @TRINHDO, @NOIDUNG, @A, @B, @C, @D, @DAP_AN, @MAGV);
-SELECT CAUHOI, MAMH, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, MAGV FROM BODE WHERE (CAUHOI = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[BODE] ([CAUHOI], [MAMH], [TRINHDO], [NOIDUNG], [A], [B], [C], [D], [DAP_AN], [MAGV]) VALUES (@CAUHOI, @MAMH, @TRINHDO, @NOIDUNG, @A, @B, @C, @D, @DAP_AN, @MAGV);
+SELECT CAUHOI, MAMH, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, MAGV FROM BODE WHERE (CAUHOI = @CAUHOI) ORDER BY TRINHDO";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CAUHOI", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CAUHOI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MAMH", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MAMH", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TRINHDO", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TRINHDO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOIDUNG", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOIDUNG", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5879,9 +5880,10 @@ SELECT CAUHOI, MAMH, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, MAGV FROM BODE WHERE 
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MAGV", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MAGV", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[BODE] SET [MAMH] = @MAMH, [TRINHDO] = @TRINHDO, [NOIDUNG] = @NOIDUNG, [A] = @A, [B] = @B, [C] = @C, [D] = @D, [DAP_AN] = @DAP_AN, [MAGV] = @MAGV WHERE (([CAUHOI] = @Original_CAUHOI) AND ([MAMH] = @Original_MAMH) AND ([TRINHDO] = @Original_TRINHDO) AND ([NOIDUNG] = @Original_NOIDUNG) AND ([A] = @Original_A) AND ([B] = @Original_B) AND ([C] = @Original_C) AND ([D] = @Original_D) AND ([DAP_AN] = @Original_DAP_AN) AND ([MAGV] = @Original_MAGV));
-SELECT CAUHOI, MAMH, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, MAGV FROM BODE WHERE (CAUHOI = @CAUHOI)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[BODE] SET [CAUHOI] = @CAUHOI, [MAMH] = @MAMH, [TRINHDO] = @TRINHDO, [NOIDUNG] = @NOIDUNG, [A] = @A, [B] = @B, [C] = @C, [D] = @D, [DAP_AN] = @DAP_AN, [MAGV] = @MAGV WHERE (([CAUHOI] = @Original_CAUHOI) AND ([MAMH] = @Original_MAMH) AND ([TRINHDO] = @Original_TRINHDO) AND ([NOIDUNG] = @Original_NOIDUNG) AND ([A] = @Original_A) AND ([B] = @Original_B) AND ([C] = @Original_C) AND ([D] = @Original_D) AND ([DAP_AN] = @Original_DAP_AN) AND ([MAGV] = @Original_MAGV));
+SELECT CAUHOI, MAMH, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, MAGV FROM BODE WHERE (CAUHOI = @CAUHOI) ORDER BY TRINHDO";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CAUHOI", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CAUHOI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MAMH", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MAMH", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TRINHDO", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TRINHDO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOIDUNG", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOIDUNG", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5901,7 +5903,6 @@ SELECT CAUHOI, MAMH, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, MAGV FROM BODE WHERE 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_D", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "D", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DAP_AN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DAP_AN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MAGV", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MAGV", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CAUHOI", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CAUHOI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5917,7 +5918,8 @@ SELECT CAUHOI, MAMH, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, MAGV FROM BODE WHERE 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT CAUHOI, MAMH, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, MAGV FROM dbo.BODE";
+            this._commandCollection[0].CommandText = "SELECT CAUHOI, MAMH, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, MAGV FROM dbo.BODE ORD" +
+                "ER BY TRINHDO";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6054,60 +6056,61 @@ SELECT CAUHOI, MAMH, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, MAGV FROM BODE WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string MAMH, string TRINHDO, string NOIDUNG, string A, string B, string C, string D, string DAP_AN, string MAGV) {
+        public virtual int Insert(int CAUHOI, string MAMH, string TRINHDO, string NOIDUNG, string A, string B, string C, string D, string DAP_AN, string MAGV) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(CAUHOI));
             if ((MAMH == null)) {
                 throw new global::System.ArgumentNullException("MAMH");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(MAMH));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(MAMH));
             }
             if ((TRINHDO == null)) {
                 throw new global::System.ArgumentNullException("TRINHDO");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(TRINHDO));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(TRINHDO));
             }
             if ((NOIDUNG == null)) {
                 throw new global::System.ArgumentNullException("NOIDUNG");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(NOIDUNG));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(NOIDUNG));
             }
             if ((A == null)) {
                 throw new global::System.ArgumentNullException("A");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(A));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(A));
             }
             if ((B == null)) {
                 throw new global::System.ArgumentNullException("B");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(B));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(B));
             }
             if ((C == null)) {
                 throw new global::System.ArgumentNullException("C");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(C));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(C));
             }
             if ((D == null)) {
                 throw new global::System.ArgumentNullException("D");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(D));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(D));
             }
             if ((DAP_AN == null)) {
                 throw new global::System.ArgumentNullException("DAP_AN");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(DAP_AN));
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(DAP_AN));
             }
             if ((MAGV == null)) {
                 throw new global::System.ArgumentNullException("MAGV");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(MAGV));
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(MAGV));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6130,6 +6133,7 @@ SELECT CAUHOI, MAMH, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, MAGV FROM BODE WHERE 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
+                    int CAUHOI, 
                     string MAMH, 
                     string TRINHDO, 
                     string NOIDUNG, 
@@ -6148,118 +6152,117 @@ SELECT CAUHOI, MAMH, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, MAGV FROM BODE WHERE 
                     string Original_C, 
                     string Original_D, 
                     string Original_DAP_AN, 
-                    string Original_MAGV, 
-                    int CAUHOI) {
+                    string Original_MAGV) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(CAUHOI));
             if ((MAMH == null)) {
                 throw new global::System.ArgumentNullException("MAMH");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(MAMH));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(MAMH));
             }
             if ((TRINHDO == null)) {
                 throw new global::System.ArgumentNullException("TRINHDO");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(TRINHDO));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(TRINHDO));
             }
             if ((NOIDUNG == null)) {
                 throw new global::System.ArgumentNullException("NOIDUNG");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(NOIDUNG));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(NOIDUNG));
             }
             if ((A == null)) {
                 throw new global::System.ArgumentNullException("A");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(A));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(A));
             }
             if ((B == null)) {
                 throw new global::System.ArgumentNullException("B");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(B));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(B));
             }
             if ((C == null)) {
                 throw new global::System.ArgumentNullException("C");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(C));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(C));
             }
             if ((D == null)) {
                 throw new global::System.ArgumentNullException("D");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(D));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(D));
             }
             if ((DAP_AN == null)) {
                 throw new global::System.ArgumentNullException("DAP_AN");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(DAP_AN));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(DAP_AN));
             }
             if ((MAGV == null)) {
                 throw new global::System.ArgumentNullException("MAGV");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(MAGV));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(MAGV));
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_CAUHOI));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_CAUHOI));
             if ((Original_MAMH == null)) {
                 throw new global::System.ArgumentNullException("Original_MAMH");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_MAMH));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_MAMH));
             }
             if ((Original_TRINHDO == null)) {
                 throw new global::System.ArgumentNullException("Original_TRINHDO");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_TRINHDO));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_TRINHDO));
             }
             if ((Original_NOIDUNG == null)) {
                 throw new global::System.ArgumentNullException("Original_NOIDUNG");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_NOIDUNG));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_NOIDUNG));
             }
             if ((Original_A == null)) {
                 throw new global::System.ArgumentNullException("Original_A");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_A));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_A));
             }
             if ((Original_B == null)) {
                 throw new global::System.ArgumentNullException("Original_B");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_B));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_B));
             }
             if ((Original_C == null)) {
                 throw new global::System.ArgumentNullException("Original_C");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_C));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_C));
             }
             if ((Original_D == null)) {
                 throw new global::System.ArgumentNullException("Original_D");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_D));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_D));
             }
             if ((Original_DAP_AN == null)) {
                 throw new global::System.ArgumentNullException("Original_DAP_AN");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_DAP_AN));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_DAP_AN));
             }
             if ((Original_MAGV == null)) {
                 throw new global::System.ArgumentNullException("Original_MAGV");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_MAGV));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_MAGV));
             }
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(CAUHOI));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6300,7 +6303,7 @@ SELECT CAUHOI, MAMH, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, MAGV FROM BODE WHERE 
                     string Original_D, 
                     string Original_DAP_AN, 
                     string Original_MAGV) {
-            return this.Update(MAMH, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, MAGV, Original_CAUHOI, Original_MAMH, Original_TRINHDO, Original_NOIDUNG, Original_A, Original_B, Original_C, Original_D, Original_DAP_AN, Original_MAGV, Original_CAUHOI);
+            return this.Update(Original_CAUHOI, MAMH, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, MAGV, Original_CAUHOI, Original_MAMH, Original_TRINHDO, Original_NOIDUNG, Original_A, Original_B, Original_C, Original_D, Original_DAP_AN, Original_MAGV);
         }
     }
     

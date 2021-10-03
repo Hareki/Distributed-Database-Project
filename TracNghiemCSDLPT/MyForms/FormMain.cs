@@ -78,6 +78,11 @@ namespace TracNghiemCSDLPT
         {
             showForm(typeof(FormGV));
         }
+
+        private void buttonDeThi_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            showForm(typeof(FormCauHoi));
+        }
     }
 
 }

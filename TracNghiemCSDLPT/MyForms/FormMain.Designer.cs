@@ -135,6 +135,7 @@ namespace TracNghiemCSDLPT
             this.buttonDeThi.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.choice_480px;
             this.buttonDeThi.LargeWidth = 80;
             this.buttonDeThi.Name = "buttonDeThi";
+            this.buttonDeThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonDeThi_ItemClick);
             // 
             // buttonSinhVien
             // 

@@ -289,7 +289,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.KhoaGridView.OptionsBehavior.Editable = false;
             this.KhoaGridView.OptionsBehavior.ReadOnly = true;
             this.KhoaGridView.OptionsCustomization.AllowRowSizing = true;
-            this.KhoaGridView.OptionsDetail.AllowExpandEmptyDetails = true;
             this.KhoaGridView.OptionsPrint.EnableAppearanceOddRow = true;
             this.KhoaGridView.OptionsScrollAnnotations.ShowFocusedRow = DevExpress.Utils.DefaultBoolean.True;
             this.KhoaGridView.OptionsView.AnimationType = DevExpress.XtraGrid.Views.Base.GridAnimationType.AnimateAllContent;
@@ -378,6 +377,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.tableAdapterManager.BODETableAdapter = null;
             this.tableAdapterManager.COSOTableAdapter = null;
             this.tableAdapterManager.GIAOVIEN_DANGKYTableAdapter = null;
+            this.tableAdapterManager.GIAOVIENTableAdapter = null;
             this.tableAdapterManager.KHOATableAdapter = this.KhoaTableAdapter;
             this.tableAdapterManager.LOPTableAdapter = null;
             this.tableAdapterManager.MONHOCTableAdapter = null;

@@ -201,6 +201,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyForms\TabbedForms\FormCauHoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForms\TabbedForms\FormCauHoi.Designer.cs">
+      <DependentUpon>FormCauHoi.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForms\TabbedForms\FormGV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,6 +278,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForms\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForms\TabbedForms\FormCauHoi.resx">
+      <DependentUpon>FormCauHoi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForms\TabbedForms\FormGV.resx">
       <DependentUpon>FormGV.cs</DependentUpon>

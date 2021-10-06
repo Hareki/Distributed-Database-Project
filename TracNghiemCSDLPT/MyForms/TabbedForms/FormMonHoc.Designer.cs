@@ -113,7 +113,7 @@ namespace TracNghiemCSDLPT.Views
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MonHocGridControl.DataSource = this.MonHocBindingSource;
             this.MonHocGridControl.Font = new System.Drawing.Font("Teko SemiBold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MonHocGridControl.Location = new System.Drawing.Point(0, 343);
+            this.MonHocGridControl.Location = new System.Drawing.Point(0, 342);
             this.MonHocGridControl.MainView = this.MonHocGridView;
             this.MonHocGridControl.Name = "MonHocGridControl";
             this.MonHocGridControl.Size = new System.Drawing.Size(1192, 312);
@@ -416,6 +416,7 @@ namespace TracNghiemCSDLPT.Views
             this.tableAdapterManager.BODETableAdapter = null;
             this.tableAdapterManager.COSOTableAdapter = null;
             this.tableAdapterManager.GIAOVIEN_DANGKYTableAdapter = null;
+            this.tableAdapterManager.GIAOVIENTableAdapter = null;
             this.tableAdapterManager.KHOATableAdapter = null;
             this.tableAdapterManager.LOPTableAdapter = null;
             this.tableAdapterManager.MONHOCTableAdapter = this.MonHocTableAdapter;

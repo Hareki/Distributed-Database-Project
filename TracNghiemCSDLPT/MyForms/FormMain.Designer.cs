@@ -135,6 +135,7 @@ namespace TracNghiemCSDLPT
             this.buttonDeThi.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.choice_480px;
             this.buttonDeThi.LargeWidth = 80;
             this.buttonDeThi.Name = "buttonDeThi";
+            this.buttonDeThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonDeThi_ItemClick);
             // 
             // buttonSinhVien
             // 
@@ -152,6 +153,7 @@ namespace TracNghiemCSDLPT
             this.butonGiaoVien.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.teacher_500px;
             this.butonGiaoVien.LargeWidth = 80;
             this.butonGiaoVien.Name = "butonGiaoVien";
+            this.butonGiaoVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.butonGiaoVien_ItemClick);
             // 
             // buttonKhoaLop
             // 
@@ -169,6 +171,7 @@ namespace TracNghiemCSDLPT
             this.buttonDKTN.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.scorecard_480px;
             this.buttonDKTN.LargeWidth = 80;
             this.buttonDKTN.Name = "buttonDKTN";
+            this.buttonDKTN.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonDKTN_ItemClick);
             // 
             // buttonTaoTK
             // 

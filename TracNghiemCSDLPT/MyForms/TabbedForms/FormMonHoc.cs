@@ -26,8 +26,8 @@ namespace TracNghiemCSDLPT.Views
         Color ActiveForeColor = Color.FromArgb(72, 70, 68);
         Color DisabledForeColor = SystemColors.AppWorkspace;
         State state = State.idle;
-        string origMaMH;
-        string origTenMH;
+        string origMaMH = "~!@#$%";
+        string origTenMH = "~!@#$%";
         enum State
         {
             add, edit, idle
@@ -76,10 +76,10 @@ namespace TracNghiemCSDLPT.Views
 
             InfoPanel.Text = "Thêm mới thông tin môn học";
 
-            SetIdleButtonEnabled(false);
+         //   SetIdleButtonEnabled(false);
             SetInputButtonEnabled(true);
 
-            MonHocGridControl.Enabled = false;
+      //      MonHocGridControl.Enabled = false;
             state = State.add;
             MonHocBindingSource.AddNew();
         }
@@ -180,11 +180,21 @@ namespace TracNghiemCSDLPT.Views
 
         private bool AlreadyExists(string testName, bool isID)
         {
-            string query = "EXEC usp_MonHoc_GetInfoByXXX '" + testName + "'";
+            List<Para> paraList = new List<Para>();
+            string SPName = "usp_MonHoc_GetInfoByXXX";
             if (isID)
-                query = query.Replace("XXX", "ID");
-            else query = query.Replace("XXX", "Name");
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReader(query);
+            {
+                SPName = SPName.Replace("XXX", "ID");
+                paraList.Add(new Para("@ID", testName));
+            }
+
+            else
+            {
+                SPName = SPName.Replace("XXX", "Name");
+                paraList.Add(new Para("@Name", testName));
+            }
+
+            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
             if (myReader == null)
             {
                 Utils.ShowMessage("Xảy ra lỗi không xác định", Others.NotiForm.FormType.Error, 1);
@@ -258,6 +268,7 @@ namespace TracNghiemCSDLPT.Views
             try
             {
                 MonHocBindingSource.EndEdit();
+
                 MonHocBindingSource.ResetCurrentItem();
                 this.MonHocTableAdapter.Update(this.TN_CSDLPTDataSet.MONHOC);
                 if (state == State.edit)
@@ -282,7 +293,8 @@ namespace TracNghiemCSDLPT.Views
                 TextTenMH.ForeColor = DisabledForeColor;
             SetIdleButtonEnabled(true);
             SetInputButtonEnabled(false);
-
+            origMaMH = "~!@#$%";
+            origTenMH = "~!@#$%";
             checkButtonState();
         }
     }

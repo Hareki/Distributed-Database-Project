@@ -17,6 +17,7 @@ using System.Data.SqlTypes;
 using Bunifu.UI.WinForms;
 using static Bunifu.UI.WinForms.BunifuTextBox;
 using Guna.UI2.WinForms;
+using System.Collections;
 
 namespace TracNghiemCSDLPT
 {
@@ -101,8 +102,10 @@ namespace TracNghiemCSDLPT
                 }
 
 
-                string query = "EXEC usp_LoginGV_GetInfoByLogin '" + loginName + "'";
-                SqlDataReader myReader = DBConnection.ExecuteSqlDataReader(query);
+                List<Para> paraList = new List<Para>();
+                paraList.Add(new Para("@LoginName", loginName));
+                string SPName = "usp_LoginGV_GetInfoByLogin";
+                SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
                 if (myReader == null)
                 {
                     Utils.ShowMessage("Xảy ra lỗi không xác định", Others.NotiForm.FormType.Error, 1);
@@ -130,10 +133,13 @@ namespace TracNghiemCSDLPT
                         "Login hoặc password của sinh viên trong chuỗi kết nối không chính xác", Others.NotiForm.FormType.Error, 3);
                     return;
                 }
-                
-                string query = "EXEC usp_LoginSV_GetInfoByLogin '" + loginName + "', '"
-                    + password + "'";
-                SqlDataReader myReader = DBConnection.ExecuteSqlDataReader(query);
+
+                string SPName = "usp_LoginSV_GetInfoByLogin";
+
+                List<Para> paraList = new List<Para>();
+                paraList.Add(new Para("@LoginName", loginName));
+                paraList.Add(new Para("@Password", password));
+                SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
                 if (myReader == null)
                 {
                     Utils.ShowMessage("Xảy ra lỗi không xác định", Others.NotiForm.FormType.Error, 1);
@@ -157,7 +163,7 @@ namespace TracNghiemCSDLPT
                 DBConnection.NhomQuyen = myReader.GetString(2);
                 myReader.Close();
                 Program.MainInstance = new MainView();
-                Program.MainInstance.statusMa.Caption = "Mã SV: " + DBConnection.UserName;
+                Program.MainInstance.statusMa.Caption = "Mã SV: " + loginName;
                 Program.MainInstance.statusTen.Caption = "Họ tên: " + DBConnection.HoTen;
                 Program.MainInstance.statusQuyen.Caption = "Nhóm: " + DBConnection.NhomQuyen;
                 Program.MainInstance.Show();

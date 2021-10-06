@@ -119,7 +119,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             else return null;
             LopBindingSource.Position = LopBindingSource.Find("MALOP", MaLop);
             string maLop = ((DataRowView)LopBindingSource[LopBindingSource.Position])["MALOP"].ToString();
-            this.ViewCaption.Text = "Danh sách sinh viên thuộc lớp " + maLop;
+            this.ViewCaption.Text = "Danh sách sinh viên thuộc lớp " + maLop.Trim();
             return detailView;
 
         }
@@ -313,11 +313,20 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
 
         private bool AlreadyExistsLop(string testName, bool isID)
         {
-            string query = "EXEC usp_Lop_GetInfoByXXX '" + testName + "'";
+            List<Para> paraList = new List<Para>();
+            string SPName = "usp_Lop_GetInfoByXXX";
             if (isID)
-                query = query.Replace("XXX", "ID");
-            else query = query.Replace("XXX", "Name");
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReader(query);
+            {
+                SPName = SPName.Replace("XXX", "ID");
+                paraList.Add(new Para("@ID", testName));
+            }
+
+            else
+            {
+                SPName = SPName.Replace("XXX", "Name");
+                paraList.Add(new Para("@Name", testName));
+            }
+            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
             if (myReader == null)
             {
                 Utils.ShowMessage("Xảy ra lỗi không xác định", Others.NotiForm.FormType.Error, 1);
@@ -339,8 +348,11 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
 
         private bool AlreadyExistsSV(string testName)
         {
-            string query = "EXEC usp_SinhVien_GetInfoByID'" + testName + "'";
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReader(query);
+            List<Para> paraList = new List<Para>();
+            paraList.Add(new Para("@ID", testName));
+
+            string SPName = "usp_SinhVien_GetInfoByID";
+            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
             if (myReader == null)
             {
                 Utils.ShowMessage("Xảy ra lỗi không xác định", Others.NotiForm.FormType.Error, 1);
@@ -729,12 +741,15 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             else
                 SinhVienGridView.OptionsBehavior.Editable = false;
         }
-
         private void buttonSuaSV_Click(object sender, EventArgs e)
         {
             SetLopState(false);
             SetIdleButtonEnabledSV(false);
             SetInputButtonEnabledSV(true);
+
+
+            string maSV = getCellAtFRowSV(colMASV).Trim();
+            SinhVienGridView.SetRowCellValue(SinhVienGridView.FocusedRowHandle, colMASV, maSV);
 
             editingSVIndex = SinhVienGridView.FocusedRowHandle;
             SinhVienGridView.OptionsBehavior.Editable = true;
@@ -895,7 +910,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             }
             else
             {
-                Utils.ShowMessage("Vui lòng xem lại thông tin đã nhập", Others.NotiForm.FormType.Error, 1);
+                Utils.ShowMessage("Vui lòng xem lại thông tin đã nhập", Others.NotiForm.FormType.Error, 2);
             }
         }
 

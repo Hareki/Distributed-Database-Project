@@ -71,13 +71,17 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             if (panelCSGV.Visible)
                 AccType = rdoCS.Checked ? "COSO" : "GIAOVIEN";
             else AccType = "TRUONG";
-            string query = "EXEC usp_Login_AddLoginUser 'AAA', 'BBB', 'CCC', 'DDD'";
-            query = query.Replace("AAA", LoginName);
-            query = query.Replace("BBB", Password);
-            query = query.Replace("CCC", MaGV);
-            query = query.Replace("DDD", AccType);
 
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReader(query);
+            List<Para> paraList = new List<Para>();
+            paraList.Add(new Para("@LoginName", LoginName));
+            paraList.Add(new Para("@Password", Password));
+            paraList.Add(new Para("@Username", MaGV));
+            paraList.Add(new Para("@Role", AccType));
+
+            string SPName = "usp_Login_AddLoginUser";
+
+
+            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
             if (myReader == null)
             {
                 Utils.ShowMessage("Xảy ra lỗi không xác định", Others.NotiForm.FormType.Error, 1);

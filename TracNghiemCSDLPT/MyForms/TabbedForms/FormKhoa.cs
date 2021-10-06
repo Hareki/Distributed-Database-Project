@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TracNghiemCSDLPT.Models;
 using TracNghiemCSDLPT.SQL_Connection;
 
 namespace TracNghiemCSDLPT.MyForms.TabbedForms
@@ -21,20 +22,28 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             InitializeComponent();
         }
 
-        private int PreviousIndexCS;
-        private int SelectedRow;
-        private string origMaKH = "~!@#$%";
-        private string origTenKH = "~!@#$%";
-        private string MaCS;
-
-        Color ActiveForeColor = Color.FromArgb(72, 70, 68);
-        Color DisabledForeColor = SystemColors.AppWorkspace;
-        State state = State.idle;
-
         enum State
         {
-            add, edit, idle
+            Add, Edit, Idle
         }
+
+        private int _previousIndexCS;
+        private int _oldPositionRow;
+        private string _origMaKH = "~!@#$%";
+        private string _origTenKH = "~!@#$%";
+        private string _maCS;
+
+        private readonly Stack<Khoa> _undoStack = new Stack<Khoa>();
+        private readonly Stack<Khoa> _redoStack = new Stack<Khoa>();
+        private Khoa _beforeEditKhoa = null;
+
+        private readonly Color _activeForeColor = Color.FromArgb(72, 70, 68);
+        private readonly Color _disabledForeColor = SystemColors.AppWorkspace;
+        private State _state = State.Idle;
+
+        private const string ColMaKhoa = "MAKH";
+        private const string ColTenKhoa = "TENKH";
+        private const string ColMaCoSo = "MACS";
 
         private void FormKhoa_Load(object sender, EventArgs e)
         {
@@ -42,6 +51,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             LoadCombobox();
             LoadAllData();
             CheckButtonState();
+            buttonUndo.Enabled = buttonRedo.Enabled = false;
         }
 
         private void LoadCombobox()
@@ -50,7 +60,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.CoSoComboBox.DisplayMember = "TENCS";
             this.CoSoComboBox.ValueMember = "TENSERVER";
             this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
-            this.PreviousIndexCS = this.CoSoComboBox.SelectedIndex;
+            this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
         }
 
         private void LoadAllData()
@@ -62,7 +72,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.KhoaTableAdapter.Fill(this.TN_CSDLPTDataSet.KHOA);
             this.GiaoVienTableAdapter.Fill(this.TN_CSDLPTDataSet.GIAOVIEN);
             this.LopTableAdapter.Fill(this.TN_CSDLPTDataSet.LOP);
-            this.MaCS = ((DataRowView)DBConnection.BS_Subcribers[CoSoComboBox.SelectedIndex])["MACS"].ToString();
+            this._maCS = ((DataRowView)DBConnection.BS_Subcribers[CoSoComboBox.SelectedIndex])[ColMaCoSo].ToString();
         }
 
         private void CoSoComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -86,14 +96,14 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             bool success = DBConnection.ConnectToSubcriber(login, pass, serverName);
             if (!success)
             {
-                Utils.ShowMessage("Tạm thời không thể kết nối đến cơ sở này", Others.NotiForm.FormType.Error, 2);
-                this.CoSoComboBox.SelectedIndex = this.PreviousIndexCS;
-                return;
+                LoadAllData();
+                this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
+                
             }
             else
             {
-                LoadAllData();
-                this.PreviousIndexCS = this.CoSoComboBox.SelectedIndex;
+                Utils.ShowMessage("Tạm thời không thể kết nối đến cơ sở này", Others.NotiForm.FormType.Error, 2);
+                this.CoSoComboBox.SelectedIndex = this._previousIndexCS;
             }
         }
 
@@ -111,6 +121,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             myReader.Close();
             return isExist;
         }
+
+
 
         private bool TenKhoaAlreadyExists(string tenKhoa)
         {
@@ -149,8 +161,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
 
         private void SetInputButtonEnabled(bool state)
         {
-            buttonUndo.Visible = 
-            buttonRedo.Visible =
+            // buttonUndo.Visible = 
+            // buttonRedo.Visible =
             buttonHuy.Visible = 
             buttonXacNhan.Visible = state;
         }
@@ -164,80 +176,125 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             InfoPanel.Text = message;
         }
 
-        private void buttonThem_Click(object sender, EventArgs e)
+        private void ButtonThem_Click(object sender, EventArgs e)
         {
-            SelectedRow = KhoaBindingSource.Position;
-            SetInfoPanel(true, ActiveForeColor, "Thêm mới thông tin môn học");
+            _oldPositionRow = KhoaBindingSource.Position;
+            SetInfoPanel(true, _activeForeColor, "Thêm mới thông tin khoa");
             SetIdleButtonEnabled(false);
             SetInputButtonEnabled(true);
             KhoaGridControl.Enabled = false;
-            state = State.add;
+            _state = State.Add;
             KhoaBindingSource.AddNew();
-            TextMaCS.Text = MaCS;
+            TextMaCS.Text = _maCS;
         }
 
-        private void buttonHuy_Click(object sender, EventArgs e)
+        private void  ResetTextEditErrors()
         {
-            SetInfoPanel(false, DisabledForeColor, "Thông tin môn học");
+            Utils.SetTextEditError(TenKHEP, TextTenKhoa, null);
+            Utils.SetTextEditError(MaKHEP, TextMaKhoa, null);
+        }
+        private void ButtonHuy_Click(object sender, EventArgs e)
+        {
+            SetInfoPanel(false, _disabledForeColor, "Thông tin khoa");
             SetIdleButtonEnabled(true);
             SetInputButtonEnabled(false);
             KhoaGridControl.Enabled = true;
-            state = State.add;
             KhoaBindingSource.CancelEdit();
-            Utils.SetTextEditError(TenKHEP, TextTenKhoa, null);
-            Utils.SetTextEditError(MaKHEP, TextMaKhoa, null);
-            if (state.Equals(State.add))
+            ResetTextEditErrors();
+            Debug.WriteLine(KhoaBindingSource.Position);
+            if (_state.Equals(State.Add))
             {
-                KhoaBindingSource.Position = SelectedRow;
+                KhoaBindingSource.Position = _oldPositionRow;
             }
         }
 
-        private void buttonXoa_Click(object sender, EventArgs e)
+        private bool CheckDeleteCondition()
         {
-            string RemovedMaKhoa = string.Empty;
-
-            SelectedRow = KhoaBindingSource.Position;
             if (LopBindingSource.Count > 0)
             {
                 Utils.ShowMessage("Không thể xóa vì khoa đã có lớp học", Others.NotiForm.FormType.Error, 2);
-                return;
+                return false;
             }
             if (GiaoVienBindingSource.Count > 0)
             {
                 Utils.ShowMessage("Không thể xóa vì khoa đã có giảng viên", Others.NotiForm.FormType.Error, 4);
-                return;
+                return false;
             }
-            if (Utils.ShowConfirmMessage("Bạn có chắc muốn xóa khoa này?", "Xác nhận"))
+            return true;
+        }
+
+        private Khoa DeleteKhoa()
+        {
+            Khoa deletedKhoa = new Khoa();
+            int selectedRow = KhoaBindingSource.Position;
+            DataRowView rowView = ((DataRowView)KhoaBindingSource[selectedRow]);
+            string removedMaKhoa = rowView[ColMaKhoa].ToString();
+            string removedTenKhoa = rowView[ColTenKhoa].ToString();
+
+            if (CheckDeleteCondition() == false)
+            {
+                deletedKhoa.ActionType = ActionType.NotValid;
+            }
+            
+            if (Utils.ShowConfirmMessage($"Bạn có chắc muốn xóa khoa {removedTenKhoa}?", "Xác nhận"))
             {
                 try
                 {
-                    RemovedMaKhoa = ((DataRowView)KhoaBindingSource[SelectedRow])["MAKH"].ToString();
-                    string RemovedTenKhoa = ((DataRowView)KhoaBindingSource[SelectedRow])["TENKH"].ToString();
+                    
+                    removedMaKhoa = rowView[ColMaKhoa].ToString();
                     KhoaBindingSource.RemoveCurrent();
                     KhoaTableAdapter.Update(TN_CSDLPTDataSet.KHOA);
-                    Utils.ShowMessage($"Xóa khoa {RemovedTenKhoa} thành công!", Others.NotiForm.FormType.Success, 1);
+                    deletedKhoa.Update(removedMaKhoa, removedTenKhoa, this._maCS, ActionType.Insert);
+                    Utils.ShowMessage($"Xóa khoa {deletedKhoa.TenKhoa} thành công!", Others.NotiForm.FormType.Success, 1);
+                    CheckButtonState();
                 }
                 catch (Exception ex)
                 {
-                    Utils.ShowErrorMessage("Không thể xóa khoa này, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi xóa khoa!");
+                    Utils.ShowErrorMessage($"Không thể xóa khoa {removedTenKhoa}, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi xóa khoa!");
                     Console.WriteLine(ex.StackTrace);
                     this.KhoaTableAdapter.Fill(TN_CSDLPTDataSet.KHOA);
-                    KhoaBindingSource.Position = KhoaBindingSource.Find("MAMH", RemovedMaKhoa);
-                    return;
+                    KhoaBindingSource.Position = KhoaBindingSource.Find(ColMaKhoa, removedMaKhoa);
+                    deletedKhoa.ActionType = ActionType.NotValid;
                 }
             }
-
-            CheckButtonState();
+            else
+            {
+                deletedKhoa.ActionType = ActionType.NotValid;
+            }
+            return deletedKhoa;
         }
 
-        private void buttonLamMoi_Click(object sender, EventArgs e)
+        private void CreateUndo(Khoa khoa)
+        {
+            switch (khoa.ActionType)
+            {
+                case ActionType.Insert:
+                case ActionType.Update:
+                case ActionType.Delete:
+                    _undoStack.Push(khoa);
+                    buttonUndo.Enabled = true;
+                    break;
+                case ActionType.NotValid:
+                    if (_undoStack.Count > 0) _undoStack.Pop();
+                    break;
+            }
+        }
+
+        private void ButtonXoa_Click(object sender, EventArgs e)
+        {
+            Khoa undoKhoa = DeleteKhoa();
+            CreateUndo(undoKhoa);
+            this._redoStack.Clear();
+            this.buttonRedo.Enabled = false;
+        }
+
+        private void ButtonLamMoi_Click(object sender, EventArgs e)
         {
             try
             {
                 this.KhoaTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
                 this.KhoaTableAdapter.Fill(this.TN_CSDLPTDataSet.KHOA);
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
-
                 CheckButtonState();
             }
             catch (Exception ex)
@@ -258,7 +315,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                 return false;
             }
 
-            if (!origMaKH.Equals(maKhoa.ToLower()) && MaKhoaAlreadyExists(maKhoa))
+            if (!_origMaKH.Equals(maKhoa.ToLower()) && MaKhoaAlreadyExists(maKhoa))
             {
                 Utils.SetTextEditError(MaKHEP, TextMaKhoa, "Mã khoa đã tồn tại");
                 Utils.ShowMessage("Thông tin vừa nhập đã tồn tại", Others.NotiForm.FormType.Error, 2);
@@ -279,7 +336,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             }
 
 
-            if (!origTenKH.Equals(tenKhoa.ToLower()) && TenKhoaAlreadyExists(tenKhoa))
+            if (!_origTenKH.Equals(tenKhoa.ToLower()) && TenKhoaAlreadyExists(tenKhoa))
             {
                 Utils.SetTextEditError(MaKHEP, TextTenKhoa, "Tên khoa đã tồn tại");
                 Utils.ShowMessage("Thông tin vừa nhập đã tồn tại", Others.NotiForm.FormType.Error, 2);
@@ -289,14 +346,29 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             return true;
         }
 
-        private void buttonXacNhan_Click(object sender, EventArgs e)
+        private Khoa ApplyInsertUpdate()
         {
+            Khoa changedKhoa = new Khoa();
             TextMaKhoa.Text = TextMaKhoa.Text.Trim();
             TextTenKhoa.Text = Utils.CapitalizeString(TextTenKhoa.Text.Trim(), Utils.CapitalMode.FirstWordOnly);
-
             if (!IsMaKhoaValid() || !IsTenKhoaValid())
             {
-                return;
+                changedKhoa.ActionType = ActionType.NotValid;
+                return changedKhoa;
+            }
+
+            string message = string.Empty;
+
+            if (_state == State.Add)
+            {
+                changedKhoa.Update(TextMaKhoa.Text, TextTenKhoa.Text, this._maCS, ActionType.Delete);
+                message = $"Thêm khoa {changedKhoa.TenKhoa} thành công!";
+            }
+            else if (_state == State.Edit)
+            {
+                changedKhoa = _beforeEditKhoa;
+                changedKhoa.ActionType = ActionType.Update;
+                message = $"Sửa khoa {TextTenKhoa.Text.Trim()} thành công!";
             }
 
             try
@@ -304,42 +376,153 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                 KhoaBindingSource.EndEdit();
                 KhoaBindingSource.ResetCurrentItem();
                 KhoaTableAdapter.Update(TN_CSDLPTDataSet.KHOA);
-                String message = string.Empty;
-                if (state == State.edit)
-                {
-                    message = "Sửa khoa thành công!";
-                }
-                else if (state == State.add)
-                {
-                    message = "Thêm môn học thành công!";
-                }
                 Utils.ShowMessage(message, Others.NotiForm.FormType.Success, 1);
-                state = State.idle;
-                Utils.SetTextEditError(TenKHEP, TextTenKhoa, null);
-                Utils.SetTextEditError(MaKHEP, TextMaKhoa, null);
+                _state = State.Idle;
+                ResetTextEditErrors();
                 KhoaGridControl.Enabled = true;
-                SetInfoPanel(false, DisabledForeColor, "Thông tin môn học");
+                SetInfoPanel(false, _disabledForeColor, "Thông tin khoa");
                 SetIdleButtonEnabled(true);
                 SetInputButtonEnabled(false);
                 CheckButtonState();
-                origMaKH = origTenKH = "~!@#$%";
+                _origMaKH = _origTenKH = "~!@#$%";
             }
             catch (Exception ex)
             {
-                Utils.ShowErrorMessage($"Không thể lưu môn học, xin vui lòng thử lại sau\n{ex.Message}", "Lỗi ghi nhân viên");
-                return;
+                Utils.ShowErrorMessage($"Không thể lưu khoa, xin vui lòng thử lại sau\n{ex.Message}", "Lỗi ghi nhân viên");
+                changedKhoa.ActionType = ActionType.NotValid;
             }
+            return changedKhoa;
+        } 
+
+        private void ButtonXacNhan_Click(object sender, EventArgs e)
+        {
+            Khoa undoKhoa = ApplyInsertUpdate();
+            CreateUndo(undoKhoa);
+            this._redoStack.Clear();
+            this.buttonRedo.Enabled = false;
         }
 
-        private void buttonSua_Click(object sender, EventArgs e)
+        private Khoa GetKhoaAtPosition(int selectedRow)
         {
-            SetInfoPanel(true, ActiveForeColor, "Sửa thông tin môn học");
+            Khoa khoa = new Khoa();
+            DataRowView rowView = ((DataRowView)KhoaBindingSource[selectedRow]);
+            khoa.MaKhoa = rowView[ColMaKhoa].ToString().Trim().ToUpper();
+            khoa.TenKhoa = Utils.CapitalizeString(rowView[ColTenKhoa].ToString(), Utils.CapitalMode.FirstWordOnly);
+            khoa.MaCoSo = this._maCS;
+            return khoa;
+        }
+
+        private void ButtonSua_Click(object sender, EventArgs e)
+        {
+            _beforeEditKhoa = GetKhoaAtPosition(KhoaBindingSource.Position);
+            SetInfoPanel(true, _activeForeColor, "Sửa thông tin khoa");
             SetIdleButtonEnabled(false);
             SetInputButtonEnabled(true);
             KhoaGridControl.Enabled = false;
-            state = State.edit;
-            origMaKH = TextMaKhoa.Text.Trim().ToLower();
-            origTenKH = TextTenKhoa.Text.Trim().ToLower();
+            _state = State.Edit;
+            _origMaKH = TextMaKhoa.Text.Trim().ToLower();
+            _origTenKH = TextTenKhoa.Text.Trim().ToLower();
+        }
+
+
+        private void CreateRedo(Khoa khoa)
+        {
+            switch (khoa.ActionType)
+            {
+                case ActionType.Insert:
+                case ActionType.Update:
+                case ActionType.Delete:
+                    _redoStack.Push(khoa);
+                    buttonRedo.Enabled = true;
+                    break;
+                case ActionType.NotValid:
+                    break;
+            }
+        }
+
+        private Khoa DoInsertUndoRedo(Khoa undoRedoKhoa)
+        {
+            _state = State.Add;
+            KhoaBindingSource.AddNew();
+            return ApplyInsertUpdateUndoRedo(undoRedoKhoa);
+        }
+
+        private Khoa DoUpdateUndoRedo(Khoa undoRedoKhoa)
+        {
+            _state = State.Edit;
+            int selectedRow = KhoaBindingSource.Find(ColMaKhoa, undoRedoKhoa.MaKhoa);
+            _beforeEditKhoa = GetKhoaAtPosition(selectedRow);
+            _origMaKH = _beforeEditKhoa.MaKhoa.ToLower();
+            _origTenKH = _beforeEditKhoa.TenKhoa.ToLower();
+            return ApplyInsertUpdateUndoRedo(undoRedoKhoa);
+        }
+
+        private Khoa DoDeleteUndoRedo(Khoa undoRedoKhoa)
+        {
+            KhoaBindingSource.Position = KhoaBindingSource.Find(ColMaKhoa, undoRedoKhoa.MaKhoa);
+            return DeleteKhoa();
+        }
+
+        private Khoa ApplyInsertUpdateUndoRedo(Khoa undoKhoa)
+        {
+            TextMaKhoa.Text = undoKhoa.MaKhoa;
+            TextTenKhoa.Text = undoKhoa.TenKhoa;
+            TextMaCS.Text = undoKhoa.MaCoSo;
+            Khoa changedKhoa = ApplyInsertUpdate();
+            return changedKhoa;
+        }
+
+        private void ButtonUndo_Click(object sender, EventArgs e)
+        {
+            if (_undoStack.Count == 0) return;
+            this.buttonUndo.Enabled = _redoStack.Count != 0;
+
+            Khoa undoKhoa = _undoStack.Pop();
+            Khoa redoKhoa;
+            switch (undoKhoa.ActionType)
+            {
+                case ActionType.Insert:
+                    redoKhoa = DoInsertUndoRedo(undoKhoa);
+                    CreateRedo(redoKhoa);
+                    break;
+                case ActionType.Update:
+                    redoKhoa = DoUpdateUndoRedo(undoKhoa);
+                    CreateRedo(redoKhoa);
+                    break;
+                case ActionType.Delete:
+                    redoKhoa = DoDeleteUndoRedo(undoKhoa);
+                    CreateRedo(redoKhoa);
+                    break;
+                case ActionType.NotValid:
+                    break;
+            }
+        }
+
+        private void ButtonRedo_Click(object sender, EventArgs e)
+        {
+            if (_redoStack.Count == 0) return;
+
+            Khoa redoKhoa = _redoStack.Pop();
+            this.buttonRedo.Enabled = _redoStack.Count != 0;
+            Khoa undoKhoa;
+
+            switch (redoKhoa.ActionType)
+            {
+                case ActionType.Insert:
+                    undoKhoa = DoInsertUndoRedo(redoKhoa);
+                    CreateUndo(undoKhoa);
+                    break;
+                case ActionType.Update:
+                    undoKhoa = DoUpdateUndoRedo(redoKhoa);
+                    CreateUndo(undoKhoa);
+                    break;
+                case ActionType.Delete:
+                    undoKhoa = DoDeleteUndoRedo(redoKhoa);
+                    CreateUndo(undoKhoa);
+                    break;
+                case ActionType.NotValid:
+                    break;
+            }
         }
     }
 }

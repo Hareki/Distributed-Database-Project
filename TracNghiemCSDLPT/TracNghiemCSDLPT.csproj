@@ -201,6 +201,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\ActionType.cs" />
+    <Compile Include="Models\Khoa.cs" />
     <Compile Include="MyForms\TabbedForms\FormKhoa.cs">
       <SubType>Form</SubType>
     </Compile>

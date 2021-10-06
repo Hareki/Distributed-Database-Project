@@ -156,7 +156,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonHuy.Size = new System.Drawing.Size(30, 30);
             this.buttonHuy.TabIndex = 31;
             this.buttonHuy.Visible = false;
-            this.buttonHuy.Click += new System.EventHandler(this.buttonHuy_Click);
+            this.buttonHuy.Click += new System.EventHandler(this.ButtonHuy_Click);
             // 
             // buttonXacNhan
             // 
@@ -177,7 +177,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonXacNhan.Size = new System.Drawing.Size(30, 30);
             this.buttonXacNhan.TabIndex = 32;
             this.buttonXacNhan.Visible = false;
-            this.buttonXacNhan.Click += new System.EventHandler(this.buttonXacNhan_Click);
+            this.buttonXacNhan.Click += new System.EventHandler(this.ButtonXacNhan_Click);
             // 
             // buttonRedo
             // 
@@ -197,7 +197,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonRedo.ShadowDecoration.Parent = this.buttonRedo;
             this.buttonRedo.Size = new System.Drawing.Size(30, 30);
             this.buttonRedo.TabIndex = 29;
-            this.buttonRedo.Visible = false;
+            this.buttonRedo.Click += new System.EventHandler(this.ButtonRedo_Click);
             // 
             // buttonUndo
             // 
@@ -217,7 +217,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonUndo.ShadowDecoration.Parent = this.buttonUndo;
             this.buttonUndo.Size = new System.Drawing.Size(30, 30);
             this.buttonUndo.TabIndex = 30;
-            this.buttonUndo.Visible = false;
+            this.buttonUndo.Click += new System.EventHandler(this.ButtonUndo_Click);
             // 
             // buttonSua
             // 
@@ -241,7 +241,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonSua.Size = new System.Drawing.Size(147, 45);
             this.buttonSua.TabIndex = 25;
             this.buttonSua.Text = "Sửa";
-            this.buttonSua.Click += new System.EventHandler(this.buttonSua_Click);
+            this.buttonSua.Click += new System.EventHandler(this.ButtonSua_Click);
             // 
             // buttonThem
             // 
@@ -265,7 +265,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonThem.Size = new System.Drawing.Size(147, 45);
             this.buttonThem.TabIndex = 26;
             this.buttonThem.Text = "Thêm";
-            this.buttonThem.Click += new System.EventHandler(this.buttonThem_Click);
+            this.buttonThem.Click += new System.EventHandler(this.ButtonThem_Click);
             // 
             // buttonLamMoi
             // 
@@ -289,7 +289,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonLamMoi.Size = new System.Drawing.Size(147, 45);
             this.buttonLamMoi.TabIndex = 27;
             this.buttonLamMoi.Text = "Làm mới";
-            this.buttonLamMoi.Click += new System.EventHandler(this.buttonLamMoi_Click);
+            this.buttonLamMoi.Click += new System.EventHandler(this.ButtonLamMoi_Click);
             // 
             // buttonXoa
             // 
@@ -313,7 +313,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonXoa.Size = new System.Drawing.Size(147, 45);
             this.buttonXoa.TabIndex = 28;
             this.buttonXoa.Text = "Xóa";
-            this.buttonXoa.Click += new System.EventHandler(this.buttonXoa_Click);
+            this.buttonXoa.Click += new System.EventHandler(this.ButtonXoa_Click);
             // 
             // CoSoComboBox
             // 

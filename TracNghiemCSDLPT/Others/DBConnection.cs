@@ -11,6 +11,16 @@ using System.Windows.Forms;
 
 namespace TracNghiemCSDLPT.SQL_Connection
 {
+    public struct Para
+    {
+        public string ValueName;
+        public string RealValue;
+        public Para(string valueName, string realValue)
+        {
+            this.ValueName = valueName;
+            this.RealValue = realValue;
+        }
+    }
     class DBConnection
     {
         private static string DatabaseName = "TN_CSDLPT";
@@ -142,6 +152,34 @@ namespace TracNghiemCSDLPT.SQL_Connection
                 return null;
             }
         }
+
+
+        public static SqlDataReader ExecuteSqlDataReaderSP(string SPName, List<Para> paraList)
+        {
+            SqlDataReader result;
+            SqlCommand sqlCmd = new SqlCommand(SPName, SubcriberConnection);
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            foreach(Para element in paraList)
+            {
+                sqlCmd.Parameters.Add(new SqlParameter(element.ValueName, element.RealValue));
+            }
+            
+            if (SubcriberConnection.State == ConnectionState.Closed)
+                SubcriberConnection.Open();
+            try
+            {
+                result = sqlCmd.ExecuteReader();
+                return result;
+            }
+            catch (SqlException ex)
+            {
+                SubcriberConnection.Close();
+                Utils.ShowErrorMessage("Lỗi không xác định (ExecuteSqlDataReader)", "Lỗi kết nối");
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+        }
+
 
         public static DataTable ExecuteSqlDataTable(string query)
         {

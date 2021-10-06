@@ -99,8 +99,10 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
 
         private bool MaKhoaAlreadyExists(string maKhoa)
         {
-            string query = $"EXEC usp_Khoa_GetInfoById '{maKhoa}'";
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReader(query);
+            string SPName = "usp_Khoa_GetInfoById";
+            List<Para> paraList = new List<Para>();
+            paraList.Add(new Para("@ID", maKhoa));
+            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName,paraList);
             if (myReader == null)
             {
                 Utils.ShowMessage("Xảy ra lỗi không xác định", Others.NotiForm.FormType.Error, 1);
@@ -114,8 +116,10 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
 
         private bool TenKhoaAlreadyExists(string tenKhoa)
         {
-            string query = $"EXEC usp_Khoa_GetInfoByName N'{tenKhoa}'";
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReader(query);
+            string SPName = "usp_Khoa_GetInfoByName";
+            List<Para> paraList = new List<Para>();
+            paraList.Add(new Para("@Name", tenKhoa));
+            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName,paraList);
             if (myReader == null)
             {
                 Utils.ShowMessage("Xảy ra lỗi không xác định", Others.NotiForm.FormType.Error, 1);

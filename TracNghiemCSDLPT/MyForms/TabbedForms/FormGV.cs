@@ -59,8 +59,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         }
         private void FormGV_Load(object sender, EventArgs e)
         {
-           
-            
+
+
             LoadAllData();
 
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
@@ -100,8 +100,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         private void buttonThemGV_Click(object sender, EventArgs e)
         {
             selectedRowGV = GVBindingSource.Position;
-         //   SetKhoaState(false);
-        //    SetIdleButtonEnabledGV(false);
+            //   SetKhoaState(false);
+            //    SetIdleButtonEnabledGV(false);
             SetInputButtonEnabledGV(true);
             state = State.add;
             GVGridView.OptionsBehavior.Editable = true;
@@ -279,8 +279,10 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
 
         private bool AlreadyExistsGV(string testName)
         {
-            string query = "EXEC usp_GiaoVien_GetInfoByID'" + testName + "'";
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReader(query);
+            List<Para> paraList = new List<Para>();
+            paraList.Add(new Para("@ID", testName));
+            string SPName = "usp_GiaoVien_GetInfoByID";
+            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
             if (myReader == null)
             {
                 Utils.ShowMessage("Xảy ra lỗi không xác định", Others.NotiForm.FormType.Error, 1);
@@ -408,12 +410,12 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
 
         private void KhoaGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            if(KhoaBindingSource.Position >= 0)
+            if (KhoaBindingSource.Position >= 0)
             {
                 string MaKhoa = (KhoaBindingSource[KhoaBindingSource.Position] as DataRowView)["MAKH"].ToString();
                 ViewCaption.Text = "Danh sách giảng viên thuộc khoa " + MaKhoa.Trim();
             }
-            
+
         }
 
         private void buttonXoaGV_Click(object sender, EventArgs e)

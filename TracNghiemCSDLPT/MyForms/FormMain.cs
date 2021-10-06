@@ -83,6 +83,11 @@ namespace TracNghiemCSDLPT
         {
             showForm(typeof(FormCauHoi));
         }
+
+        private void buttonDKTN_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            showForm(typeof(FormDSDKTTN));
+        }
     }
 
 }

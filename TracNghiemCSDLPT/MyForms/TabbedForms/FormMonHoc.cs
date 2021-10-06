@@ -76,10 +76,10 @@ namespace TracNghiemCSDLPT.Views
 
             InfoPanel.Text = "Thêm mới thông tin môn học";
 
-            SetIdleButtonEnabled(false);
+         //   SetIdleButtonEnabled(false);
             SetInputButtonEnabled(true);
 
-            MonHocGridControl.Enabled = false;
+      //      MonHocGridControl.Enabled = false;
             state = State.add;
             MonHocBindingSource.AddNew();
         }
@@ -258,6 +258,7 @@ namespace TracNghiemCSDLPT.Views
             try
             {
                 MonHocBindingSource.EndEdit();
+
                 MonHocBindingSource.ResetCurrentItem();
                 this.MonHocTableAdapter.Update(this.TN_CSDLPTDataSet.MONHOC);
                 if (state == State.edit)

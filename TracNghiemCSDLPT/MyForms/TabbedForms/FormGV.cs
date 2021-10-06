@@ -100,8 +100,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         private void buttonThemGV_Click(object sender, EventArgs e)
         {
             selectedRowGV = GVBindingSource.Position;
-            SetKhoaState(false);
-            SetIdleButtonEnabledGV(false);
+         //   SetKhoaState(false);
+        //    SetIdleButtonEnabledGV(false);
             SetInputButtonEnabledGV(true);
             state = State.add;
             GVGridView.OptionsBehavior.Editable = true;

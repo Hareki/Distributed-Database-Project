@@ -171,6 +171,7 @@ namespace TracNghiemCSDLPT
             this.buttonDKTN.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.scorecard_480px;
             this.buttonDKTN.LargeWidth = 80;
             this.buttonDKTN.Name = "buttonDKTN";
+            this.buttonDKTN.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonDKTN_ItemClick);
             // 
             // buttonTaoTK
             // 

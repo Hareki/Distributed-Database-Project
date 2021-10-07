@@ -18,26 +18,37 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         public FormCauHoi()
         {
             InitializeComponent();
+
         }
 
-        private void mONHOCBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void SetIdleButtonEnabled(bool state)
         {
-            this.Validate();
-            this.MonHocBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.TN_CSDLPTDataSet);
+            buttonThem.Enabled = buttonXoa.Enabled =
+                 buttonSua.Enabled = state;
+            if (Utils.IsTruong()) buttonLamMoi.Enabled = true;
+            else buttonLamMoi.Enabled = state;
+        }
+
+        private void PhanQuyen()
+        {
+            switch (DBConnection.NhomQuyen)
+            {
+                case "TRUONG":
+                    SetIdleButtonEnabled(false);
+                    break;
+            }
 
         }
 
         private void FormCauHoi_Load(object sender, EventArgs e)
         {
+
             this.MonHocTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.BoDeTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
 
             this.MonHocTableAdapter.Fill(this.TN_CSDLPTDataSet.MONHOC);
             this.BoDeTableAdapter.Fill(this.TN_CSDLPTDataSet.BODE);
-            
-            
-
+            PhanQuyen();
         }
 
         private void MonHocGridView_MasterRowGetRelationDisplayCaption(object sender, MasterRowGetRelationNameEventArgs e)

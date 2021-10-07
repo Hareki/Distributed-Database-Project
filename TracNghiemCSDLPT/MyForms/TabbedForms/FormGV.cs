@@ -50,12 +50,30 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
 
         }
 
-        private void checkButtonStateGV()
+        private void PhanQuyen()
         {
-            if (KhoaBindingSource.Count == 0)
-                buttonXoaGV.Enabled = buttonSuaGV.Enabled = false;
-            else if (state != State.add && state != State.edit)
-                buttonXoaGV.Enabled = buttonSuaGV.Enabled = true;
+            switch (DBConnection.NhomQuyen)
+            {
+                case "TRUONG":
+                    SetIdleButtonEnabledGV(false);
+                    break;
+                case "COSO":
+                    CoSoComboBox.Enabled = false;
+                    break;
+            }
+
+        }
+
+        private void CheckButtonStateGV()
+        {
+            if (DBConnection.NhomQuyen.Equals("COSO"))
+            {
+                if (KhoaBindingSource.Count == 0)
+                    buttonXoaGV.Enabled = buttonSuaGV.Enabled = false;
+                else if (state != State.add && state != State.edit)
+                    buttonXoaGV.Enabled = buttonSuaGV.Enabled = true;
+            }
+
         }
         private void FormGV_Load(object sender, EventArgs e)
         {
@@ -70,8 +88,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.CoSoComboBox.ValueMember = "TENSERVER";
             this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
             this.PreviousIndexCS = this.CoSoComboBox.SelectedIndex;
-            checkButtonStateGV();
-
+            CheckButtonStateGV();
+            PhanQuyen();
         }
 
 
@@ -81,7 +99,9 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         private void SetIdleButtonEnabledGV(bool state)
         {
             buttonThemGV.Enabled = buttonSuaGV.Enabled =
-                buttonXoaGV.Enabled = buttonLamMoiGV.Enabled = state;
+                buttonXoaGV.Enabled = state;
+            if (Utils.IsTruong()) buttonLamMoiGV.Enabled = true;
+            else buttonLamMoiGV.Enabled = state;
         }
 
         private void SetInputButtonEnabledGV(bool state)
@@ -182,7 +202,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                         Utils.ShowMessage("Thêm thông tin giảng viên thành công", Others.NotiForm.FormType.Success, 2);
                     state = State.idle;
                     GVGridView.ClearColumnErrors();
-                    checkButtonStateGV();
+                    CheckButtonStateGV();
                     origMaGV = "~!@#$%";
 
                 }
@@ -349,7 +369,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                 LoadAllData();
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
                 //  GobackAfterReset();
-                checkButtonStateGV();
+                CheckButtonStateGV();
             }
             catch (Exception ex)
             {
@@ -452,7 +472,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                     return;
                 }
             }
-            checkButtonStateGV();
+            CheckButtonStateGV();
         }
     }
 }

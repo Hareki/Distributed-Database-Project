@@ -90,24 +90,24 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
+            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
             this.InfoPanel = new System.Windows.Forms.Panel();
             this.TableLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.PanelAC = new System.Windows.Forms.Panel();
             this.PanelBD = new System.Windows.Forms.Panel();
+            this.PanelAC = new System.Windows.Forms.Panel();
             this.bunifuTextBox2 = new Bunifu.UI.WinForms.BunifuTextBox();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.buttonLamMoiSV = new Guna.UI2.WinForms.Guna2Button();
-            this.buttonThemSV = new Guna.UI2.WinForms.Guna2Button();
-            this.buttonSuaSV = new Guna.UI2.WinForms.Guna2Button();
-            this.buttonXoaSV = new Guna.UI2.WinForms.Guna2Button();
+            this.buttonLamMoi = new Guna.UI2.WinForms.Guna2Button();
+            this.buttonThem = new Guna.UI2.WinForms.Guna2Button();
+            this.buttonSua = new Guna.UI2.WinForms.Guna2Button();
+            this.buttonXoa = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
-            this.label10 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.BoDeGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MonHocGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MonHocBindingSource)).BeginInit();
@@ -116,16 +116,16 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             ((System.ComponentModel.ISupportInitialize)(this.BoDeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bunifuPanel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
             this.bunifuPanel2.SuspendLayout();
             this.InfoPanel.SuspendLayout();
             this.TableLayout.SuspendLayout();
-            this.PanelAC.SuspendLayout();
             this.PanelBD.SuspendLayout();
+            this.PanelAC.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // BoDeGridView
@@ -801,7 +801,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.label2.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(155, 4);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(23, 28);
+            this.label2.Size = new System.Drawing.Size(24, 30);
             this.label2.TabIndex = 19;
             this.label2.Text = "A";
             // 
@@ -863,7 +863,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.label4.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(121, 14);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(212, 28);
+            this.label4.Size = new System.Drawing.Size(217, 30);
             this.label4.TabIndex = 19;
             this.label4.Text = "Đại học, chuyên ngành (A)";
             // 
@@ -874,7 +874,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.label5.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(121, 42);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(265, 28);
+            this.label5.Size = new System.Drawing.Size(271, 30);
             this.label5.TabIndex = 19;
             this.label5.Text = "Đại học, không chuyên ngành (B)";
             // 
@@ -885,7 +885,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.label6.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(121, 74);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(110, 28);
+            this.label6.Size = new System.Drawing.Size(112, 30);
             this.label6.TabIndex = 19;
             this.label6.Text = "Cao đẳng (C)";
             // 
@@ -927,7 +927,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.label8.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(155, 32);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(175, 28);
+            this.label8.Size = new System.Drawing.Size(181, 30);
             this.label8.TabIndex = 19;
             this.label8.Text = "Phan Văn Hải - TH139";
             // 
@@ -961,6 +961,118 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.bunifuPanel1.TabIndex = 22;
             this.bunifuPanel1.Click += new System.EventHandler(this.bunifuPanel1_Click);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.Controls.Add(this.panel3, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(589, 106);
+            this.tableLayoutPanel1.TabIndex = 23;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.panel3.Controls.Add(this.guna2ComboBox1);
+            this.panel3.Controls.Add(this.label10);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(356, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(230, 100);
+            this.panel3.TabIndex = 27;
+            // 
+            // guna2ComboBox1
+            // 
+            this.guna2ComboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.Empty;
+            this.guna2ComboBox1.FocusedState.Parent = this.guna2ComboBox1;
+            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.guna2ComboBox1.FormattingEnabled = true;
+            this.guna2ComboBox1.HoverState.Parent = this.guna2ComboBox1;
+            this.guna2ComboBox1.ItemHeight = 30;
+            this.guna2ComboBox1.ItemsAppearance.Parent = this.guna2ComboBox1;
+            this.guna2ComboBox1.Location = new System.Drawing.Point(6, 47);
+            this.guna2ComboBox1.Name = "guna2ComboBox1";
+            this.guna2ComboBox1.ShadowDecoration.Parent = this.guna2ComboBox1;
+            this.guna2ComboBox1.Size = new System.Drawing.Size(210, 36);
+            this.guna2ComboBox1.TabIndex = 18;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label10.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
+            this.label10.Location = new System.Drawing.Point(3, 17);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(90, 30);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "Môn học:";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.panel2.Controls.Add(this.separatorControl1);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.guna2TextBox1);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(347, 100);
+            this.panel2.TabIndex = 26;
+            // 
+            // separatorControl1
+            // 
+            this.separatorControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.separatorControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.separatorControl1.LineOrientation = System.Windows.Forms.Orientation.Vertical;
+            this.separatorControl1.Location = new System.Drawing.Point(323, 4);
+            this.separatorControl1.Name = "separatorControl1";
+            this.separatorControl1.Size = new System.Drawing.Size(22, 93);
+            this.separatorControl1.TabIndex = 21;
+            // 
+            // guna2TextBox1
+            // 
+            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox1.DefaultText = "";
+            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
+            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
+            this.guna2TextBox1.Font = new System.Drawing.Font("Baloo 2", 10.8F);
+            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
+            this.guna2TextBox1.Location = new System.Drawing.Point(156, 60);
+            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2TextBox1.Name = "guna2TextBox1";
+            this.guna2TextBox1.PasswordChar = '\0';
+            this.guna2TextBox1.PlaceholderText = "";
+            this.guna2TextBox1.SelectedText = "";
+            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
+            this.guna2TextBox1.Size = new System.Drawing.Size(105, 34);
+            this.guna2TextBox1.TabIndex = 20;
+            // 
             // bunifuPanel2
             // 
             this.bunifuPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -991,6 +1103,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.InfoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.InfoPanel.Controls.Add(this.TableLayout);
             this.InfoPanel.Controls.Add(this.bunifuTextBox1);
+            this.InfoPanel.Enabled = false;
             this.InfoPanel.Location = new System.Drawing.Point(0, 2);
             this.InfoPanel.Name = "InfoPanel";
             this.InfoPanel.Size = new System.Drawing.Size(1393, 391);
@@ -1012,6 +1125,19 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.TableLayout.Size = new System.Drawing.Size(1369, 299);
             this.TableLayout.TabIndex = 24;
             // 
+            // PanelBD
+            // 
+            this.PanelBD.Controls.Add(this.guna2CustomRadioButton3);
+            this.PanelBD.Controls.Add(this.guna2CustomRadioButton4);
+            this.PanelBD.Controls.Add(this.bunifuTextBox4);
+            this.PanelBD.Controls.Add(this.bunifuPanel2);
+            this.PanelBD.Controls.Add(this.bunifuTextBox3);
+            this.PanelBD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelBD.Location = new System.Drawing.Point(687, 3);
+            this.PanelBD.Name = "PanelBD";
+            this.PanelBD.Size = new System.Drawing.Size(679, 293);
+            this.PanelBD.TabIndex = 25;
+            // 
             // PanelAC
             // 
             this.PanelAC.Controls.Add(this.guna2CustomRadioButton2);
@@ -1025,19 +1151,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.PanelAC.Name = "PanelAC";
             this.PanelAC.Size = new System.Drawing.Size(678, 293);
             this.PanelAC.TabIndex = 25;
-            // 
-            // PanelBD
-            // 
-            this.PanelBD.Controls.Add(this.guna2CustomRadioButton3);
-            this.PanelBD.Controls.Add(this.guna2CustomRadioButton4);
-            this.PanelBD.Controls.Add(this.bunifuTextBox4);
-            this.PanelBD.Controls.Add(this.bunifuPanel2);
-            this.PanelBD.Controls.Add(this.bunifuTextBox3);
-            this.PanelBD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelBD.Location = new System.Drawing.Point(687, 3);
-            this.PanelBD.Name = "PanelBD";
-            this.PanelBD.Size = new System.Drawing.Size(679, 293);
-            this.PanelBD.TabIndex = 25;
             // 
             // bunifuTextBox2
             // 
@@ -1117,218 +1230,106 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.bunifuTextBox2.UseSystemPasswordChar = false;
             this.bunifuTextBox2.WordWrap = true;
             // 
-            // guna2TextBox1
+            // buttonLamMoi
             // 
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Font = new System.Drawing.Font("Baloo 2", 10.8F);
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Location = new System.Drawing.Point(156, 60);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(105, 34);
-            this.guna2TextBox1.TabIndex = 20;
+            this.buttonLamMoi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonLamMoi.Animated = true;
+            this.buttonLamMoi.CheckedState.Parent = this.buttonLamMoi;
+            this.buttonLamMoi.CustomImages.Parent = this.buttonLamMoi;
+            this.buttonLamMoi.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonLamMoi.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLamMoi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
+            this.buttonLamMoi.HoverState.FillColor = System.Drawing.Color.Gainsboro;
+            this.buttonLamMoi.HoverState.Parent = this.buttonLamMoi;
+            this.buttonLamMoi.Image = global::TracNghiemCSDLPT.Properties.Resources.reset_480px;
+            this.buttonLamMoi.ImageSize = new System.Drawing.Size(40, 40);
+            this.buttonLamMoi.Location = new System.Drawing.Point(3, 201);
+            this.buttonLamMoi.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+            this.buttonLamMoi.Name = "buttonLamMoi";
+            this.buttonLamMoi.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
+            this.buttonLamMoi.ShadowDecoration.Parent = this.buttonLamMoi;
+            this.buttonLamMoi.Size = new System.Drawing.Size(120, 45);
+            this.buttonLamMoi.TabIndex = 22;
+            this.buttonLamMoi.Text = "Làm mới";
             // 
-            // buttonLamMoiSV
+            // buttonThem
             // 
-            this.buttonLamMoiSV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonLamMoiSV.Animated = true;
-            this.buttonLamMoiSV.CheckedState.Parent = this.buttonLamMoiSV;
-            this.buttonLamMoiSV.CustomImages.Parent = this.buttonLamMoiSV;
-            this.buttonLamMoiSV.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
-            this.buttonLamMoiSV.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLamMoiSV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.buttonLamMoiSV.HoverState.FillColor = System.Drawing.Color.Gainsboro;
-            this.buttonLamMoiSV.HoverState.Parent = this.buttonLamMoiSV;
-            this.buttonLamMoiSV.Image = global::TracNghiemCSDLPT.Properties.Resources.reset_480px;
-            this.buttonLamMoiSV.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonLamMoiSV.Location = new System.Drawing.Point(3, 201);
-            this.buttonLamMoiSV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
-            this.buttonLamMoiSV.Name = "buttonLamMoiSV";
-            this.buttonLamMoiSV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
-            this.buttonLamMoiSV.ShadowDecoration.Parent = this.buttonLamMoiSV;
-            this.buttonLamMoiSV.Size = new System.Drawing.Size(120, 45);
-            this.buttonLamMoiSV.TabIndex = 22;
-            this.buttonLamMoiSV.Text = "Làm mới";
+            this.buttonThem.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonThem.Animated = true;
+            this.buttonThem.CheckedState.Parent = this.buttonThem;
+            this.buttonThem.CustomImages.Parent = this.buttonThem;
+            this.buttonThem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonThem.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonThem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
+            this.buttonThem.HoverState.FillColor = System.Drawing.Color.Gainsboro;
+            this.buttonThem.HoverState.Parent = this.buttonThem;
+            this.buttonThem.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
+            this.buttonThem.ImageSize = new System.Drawing.Size(40, 40);
+            this.buttonThem.Location = new System.Drawing.Point(3, 3);
+            this.buttonThem.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+            this.buttonThem.Name = "buttonThem";
+            this.buttonThem.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
+            this.buttonThem.ShadowDecoration.Parent = this.buttonThem;
+            this.buttonThem.Size = new System.Drawing.Size(120, 45);
+            this.buttonThem.TabIndex = 21;
+            this.buttonThem.Text = "Thêm";
             // 
-            // buttonThemSV
+            // buttonSua
             // 
-            this.buttonThemSV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonThemSV.Animated = true;
-            this.buttonThemSV.CheckedState.Parent = this.buttonThemSV;
-            this.buttonThemSV.CustomImages.Parent = this.buttonThemSV;
-            this.buttonThemSV.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
-            this.buttonThemSV.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonThemSV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.buttonThemSV.HoverState.FillColor = System.Drawing.Color.Gainsboro;
-            this.buttonThemSV.HoverState.Parent = this.buttonThemSV;
-            this.buttonThemSV.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
-            this.buttonThemSV.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonThemSV.Location = new System.Drawing.Point(3, 3);
-            this.buttonThemSV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
-            this.buttonThemSV.Name = "buttonThemSV";
-            this.buttonThemSV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
-            this.buttonThemSV.ShadowDecoration.Parent = this.buttonThemSV;
-            this.buttonThemSV.Size = new System.Drawing.Size(120, 45);
-            this.buttonThemSV.TabIndex = 21;
-            this.buttonThemSV.Text = "Thêm";
+            this.buttonSua.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonSua.Animated = true;
+            this.buttonSua.CheckedState.Parent = this.buttonSua;
+            this.buttonSua.CustomImages.Parent = this.buttonSua;
+            this.buttonSua.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonSua.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
+            this.buttonSua.HoverState.FillColor = System.Drawing.Color.Gainsboro;
+            this.buttonSua.HoverState.Parent = this.buttonSua;
+            this.buttonSua.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_480px;
+            this.buttonSua.ImageSize = new System.Drawing.Size(40, 40);
+            this.buttonSua.Location = new System.Drawing.Point(3, 135);
+            this.buttonSua.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+            this.buttonSua.Name = "buttonSua";
+            this.buttonSua.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
+            this.buttonSua.ShadowDecoration.Parent = this.buttonSua;
+            this.buttonSua.Size = new System.Drawing.Size(120, 45);
+            this.buttonSua.TabIndex = 20;
+            this.buttonSua.Text = "Sửa";
             // 
-            // buttonSuaSV
+            // buttonXoa
             // 
-            this.buttonSuaSV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonSuaSV.Animated = true;
-            this.buttonSuaSV.CheckedState.Parent = this.buttonSuaSV;
-            this.buttonSuaSV.CustomImages.Parent = this.buttonSuaSV;
-            this.buttonSuaSV.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
-            this.buttonSuaSV.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSuaSV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.buttonSuaSV.HoverState.FillColor = System.Drawing.Color.Gainsboro;
-            this.buttonSuaSV.HoverState.Parent = this.buttonSuaSV;
-            this.buttonSuaSV.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_480px;
-            this.buttonSuaSV.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonSuaSV.Location = new System.Drawing.Point(3, 135);
-            this.buttonSuaSV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
-            this.buttonSuaSV.Name = "buttonSuaSV";
-            this.buttonSuaSV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
-            this.buttonSuaSV.ShadowDecoration.Parent = this.buttonSuaSV;
-            this.buttonSuaSV.Size = new System.Drawing.Size(120, 45);
-            this.buttonSuaSV.TabIndex = 20;
-            this.buttonSuaSV.Text = "Sửa";
-            // 
-            // buttonXoaSV
-            // 
-            this.buttonXoaSV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonXoaSV.Animated = true;
-            this.buttonXoaSV.CheckedState.Parent = this.buttonXoaSV;
-            this.buttonXoaSV.CustomImages.Parent = this.buttonXoaSV;
-            this.buttonXoaSV.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
-            this.buttonXoaSV.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonXoaSV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.buttonXoaSV.HoverState.FillColor = System.Drawing.Color.Gainsboro;
-            this.buttonXoaSV.HoverState.Parent = this.buttonXoaSV;
-            this.buttonXoaSV.Image = global::TracNghiemCSDLPT.Properties.Resources.minus_sign_480px;
-            this.buttonXoaSV.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonXoaSV.Location = new System.Drawing.Point(3, 69);
-            this.buttonXoaSV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
-            this.buttonXoaSV.Name = "buttonXoaSV";
-            this.buttonXoaSV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
-            this.buttonXoaSV.ShadowDecoration.Parent = this.buttonXoaSV;
-            this.buttonXoaSV.Size = new System.Drawing.Size(120, 45);
-            this.buttonXoaSV.TabIndex = 23;
-            this.buttonXoaSV.Text = "Xóa";
+            this.buttonXoa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonXoa.Animated = true;
+            this.buttonXoa.CheckedState.Parent = this.buttonXoa;
+            this.buttonXoa.CustomImages.Parent = this.buttonXoa;
+            this.buttonXoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonXoa.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonXoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
+            this.buttonXoa.HoverState.FillColor = System.Drawing.Color.Gainsboro;
+            this.buttonXoa.HoverState.Parent = this.buttonXoa;
+            this.buttonXoa.Image = global::TracNghiemCSDLPT.Properties.Resources.minus_sign_480px;
+            this.buttonXoa.ImageSize = new System.Drawing.Size(40, 40);
+            this.buttonXoa.Location = new System.Drawing.Point(3, 69);
+            this.buttonXoa.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+            this.buttonXoa.Name = "buttonXoa";
+            this.buttonXoa.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
+            this.buttonXoa.ShadowDecoration.Parent = this.buttonXoa;
+            this.buttonXoa.Size = new System.Drawing.Size(120, 45);
+            this.buttonXoa.TabIndex = 23;
+            this.buttonXoa.Text = "Xóa";
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.Controls.Add(this.buttonThemSV);
-            this.panel1.Controls.Add(this.buttonLamMoiSV);
-            this.panel1.Controls.Add(this.buttonXoaSV);
-            this.panel1.Controls.Add(this.buttonSuaSV);
+            this.panel1.Controls.Add(this.buttonThem);
+            this.panel1.Controls.Add(this.buttonLamMoi);
+            this.panel1.Controls.Add(this.buttonXoa);
+            this.panel1.Controls.Add(this.buttonSua);
             this.panel1.Location = new System.Drawing.Point(12, 399);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(133, 255);
             this.panel1.TabIndex = 25;
-            // 
-            // separatorControl1
-            // 
-            this.separatorControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.separatorControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.separatorControl1.LineOrientation = System.Windows.Forms.Orientation.Vertical;
-            this.separatorControl1.Location = new System.Drawing.Point(323, 4);
-            this.separatorControl1.Name = "separatorControl1";
-            this.separatorControl1.Size = new System.Drawing.Size(22, 93);
-            this.separatorControl1.TabIndex = 21;
-            // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.label10.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(3, 17);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(90, 30);
-            this.label10.TabIndex = 17;
-            this.label10.Text = "Môn học:";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.panel2.Controls.Add(this.separatorControl1);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.guna2TextBox1);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(347, 100);
-            this.panel2.TabIndex = 26;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.panel3.Controls.Add(this.guna2ComboBox1);
-            this.panel3.Controls.Add(this.label10);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(356, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(230, 100);
-            this.panel3.TabIndex = 27;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.Controls.Add(this.panel3, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(589, 106);
-            this.tableLayoutPanel1.TabIndex = 23;
-            // 
-            // guna2ComboBox1
-            // 
-            this.guna2ComboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.Empty;
-            this.guna2ComboBox1.FocusedState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.FormattingEnabled = true;
-            this.guna2ComboBox1.HoverState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.ItemsAppearance.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(6, 47);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.ShadowDecoration.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Size = new System.Drawing.Size(210, 36);
-            this.guna2ComboBox1.TabIndex = 18;
             // 
             // FormCauHoi
             // 
@@ -1350,19 +1351,19 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             ((System.ComponentModel.ISupportInitialize)(this.BoDeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.bunifuPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
             this.bunifuPanel2.ResumeLayout(false);
             this.bunifuPanel2.PerformLayout();
             this.InfoPanel.ResumeLayout(false);
             this.TableLayout.ResumeLayout(false);
-            this.PanelAC.ResumeLayout(false);
             this.PanelBD.ResumeLayout(false);
+            this.PanelAC.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1414,10 +1415,10 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         private System.Windows.Forms.Panel PanelAC;
         private Bunifu.UI.WinForms.BunifuTextBox bunifuTextBox2;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private Guna.UI2.WinForms.Guna2Button buttonLamMoiSV;
-        private Guna.UI2.WinForms.Guna2Button buttonThemSV;
-        private Guna.UI2.WinForms.Guna2Button buttonSuaSV;
-        private Guna.UI2.WinForms.Guna2Button buttonXoaSV;
+        private Guna.UI2.WinForms.Guna2Button buttonLamMoi;
+        private Guna.UI2.WinForms.Guna2Button buttonThem;
+        private Guna.UI2.WinForms.Guna2Button buttonSua;
+        private Guna.UI2.WinForms.Guna2Button buttonXoa;
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraEditors.SeparatorControl separatorControl1;
         private System.Windows.Forms.Label label10;

@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TracNghiemCSDLPT.Others;
+using TracNghiemCSDLPT.SQL_Connection;
 
 namespace TracNghiemCSDLPT
 {
@@ -90,6 +91,11 @@ namespace TracNghiemCSDLPT
         {
             Console.WriteLine(control.ClientRectangle.Contains(control.PointToClient(Control.MousePosition)));
             return control.ClientRectangle.Contains(control.PointToClient(Control.MousePosition));
+        }
+
+        public static bool IsTruong()
+        {
+            return DBConnection.NhomQuyen.Equals("TRUONG");
         }
 
     }

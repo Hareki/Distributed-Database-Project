@@ -19,6 +19,24 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         public FormTaoLogin()
         {
             InitializeComponent();
+           // PhanQuyen();
+        }
+
+        private void PhanQuyen()
+        {
+            switch (DBConnection.NhomQuyen)
+            {
+                case "TRUONG":
+                    panelCSGV.SendToBack();
+                    panelCSGV.Visible = false;
+                    rdoCS.Checked = rdoGV.Checked = false;
+                    rdoTruong.Checked = true;
+                    break;
+                case "COSO":
+                    rdoTruong.Checked = false;
+                    panelCSGV.BringToFront();
+                    break;
+            }
         }
 
         private void FormTaoLogin_Load(object sender, EventArgs e)
@@ -34,7 +52,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         private void buttonDangKy_Click(object sender, EventArgs e)
         {
             bool test1 = LookUpGV.EditValue is null;
-            bool test2 = (!rdoCS.Checked && !rdoGV.Checked && panelCSGV.Visible == true);
+            bool test2 = (!rdoCS.Checked && !rdoGV.Checked && panelCSGV.Visible == true) || (!rdoTruong.Checked && panelTruong.Visible == true);
             bool test3 = string.IsNullOrEmpty(TextTenDangNhap.Text);
             bool test4 = !TextMatKhau.Text.Equals(TextXacNhan.Text) || string.IsNullOrEmpty(TextMatKhau.Text);
             bool test5 = !Utils.IsMathRegex(TextTenDangNhap.Text, Utils.RegexType.LoginNameRegex);
@@ -60,7 +78,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                     XacNhanEP.SetError(TextXacNhan, null);
                     MatKhauEP.SetError(TextMatKhau, null);
                 }
-                if(test5 && !test3)
+                if (test5 && !test3)
                     TenDangNhapEP.SetError(TextTenDangNhap, "Tên tài khoản chỉ được chứa ký tự '/', '.' chữ và số");
                 return;
             }
@@ -108,7 +126,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                     }
                 case 0:
                     {
-                        TextTenDangNhap.Text =   TextMatKhau.Text =
+                        TextTenDangNhap.Text = TextMatKhau.Text =
                         TextXacNhan.Text = string.Empty;
                         rdoCS.Checked = rdoGV.Checked = false;
                         break;
@@ -139,7 +157,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
 
         private void buttonHuy_Click(object sender, EventArgs e)
         {
-            if(Utils.ShowConfirmMessage("Hủy thao tác đăng ký tài khoản? Mọi dữ liệu đang nhập sẽ bị xóa.", "Xác nhận"))
+            if (Utils.ShowConfirmMessage("Hủy thao tác đăng ký tài khoản? Mọi dữ liệu đang nhập sẽ bị xóa.", "Xác nhận"))
             {
                 this.Close();
             }

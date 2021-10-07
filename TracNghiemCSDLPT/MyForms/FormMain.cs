@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TracNghiemCSDLPT.MyForms.TabbedForms;
 using TracNghiemCSDLPT.Views;
+using TracNghiemCSDLPT.SQL_Connection;
 
 namespace TracNghiemCSDLPT
 {
@@ -18,6 +19,34 @@ namespace TracNghiemCSDLPT
         public MainView()
         {
             InitializeComponent();
+            PhanQuyen();
+        }
+
+        private void PhanQuyen()
+        {
+            switch (DBConnection.NhomQuyen)
+            {
+                case "TRUONG":
+                    buttonToChucThi.Enabled = buttonThamGiaThi.Enabled = false;
+                    break;
+                case "COSO":
+                    buttonThamGiaThi.Caption = "Thi thử";
+                    break;
+                case "GIAOVIEN":
+                    buttonMonHoc.Enabled = buttonSVL.Enabled = buttonKhoa.Enabled
+                        = buttonGV.Enabled = false;
+
+                    buttonDKTN.Enabled  = false;
+                    buttonToChucThi.Enabled = false;
+                    buttonThamGiaThi.Caption = "Thi thử";
+                    buttonTaoTK.Enabled = false;
+                    break;
+                case "SINHVIEN":
+                    buttonToChucThi.Visibility = BarItemVisibility.Never;
+                    pageQuanLy.Visible = pageBaoCao.Visible = false;
+                    buttonTaoTK.Visibility = BarItemVisibility.Never;
+                    break;
+            }
         }
 
         private Form GetFormIfExists(Type type)

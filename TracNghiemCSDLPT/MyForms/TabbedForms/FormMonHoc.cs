@@ -19,9 +19,19 @@ namespace TracNghiemCSDLPT.Views
         public FormMonHoc()
         {
             InitializeComponent();
+            
+        }
+        private void PhanQuyen()
+        {
+            switch (DBConnection.NhomQuyen)
+            {
+                case "TRUONG":
+                    SetIdleButtonEnabled(false);
+                    break;
+
+            }
 
         }
-
 
         Color ActiveForeColor = Color.FromArgb(72, 70, 68);
         Color DisabledForeColor = SystemColors.AppWorkspace;
@@ -53,12 +63,15 @@ namespace TracNghiemCSDLPT.Views
             this.BangDiemTableAdapter.Fill(this.TN_CSDLPTDataSet.BANGDIEM);
 
             checkButtonState();
+            PhanQuyen();
         }
 
         private void SetIdleButtonEnabled(bool state)
         {
-            buttonThem.Enabled = buttonLamMoi.Enabled = buttonXoa.Enabled =
+            buttonThem.Enabled = buttonXoa.Enabled =
                  buttonSua.Enabled = state;
+            if (Utils.IsTruong()) buttonLamMoi.Enabled = true;
+            else buttonLamMoi.Enabled = state;
         }
         private void SetInputButtonEnabled(bool state)
         {

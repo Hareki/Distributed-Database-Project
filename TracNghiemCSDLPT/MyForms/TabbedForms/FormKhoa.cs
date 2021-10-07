@@ -20,11 +20,26 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         public FormKhoa()
         {
             InitializeComponent();
+            
         }
 
         enum State
         {
             Add, Edit, Idle
+        }
+
+        private void PhanQuyen()
+        {
+            switch (DBConnection.NhomQuyen)
+            {
+                case "TRUONG":
+                    SetIdleButtonEnabled(false);
+                    break;
+                case "COSO":
+                    CoSoComboBox.Enabled = false;
+                    break;
+            }
+
         }
 
         private int _previousIndexCS;
@@ -52,6 +67,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             LoadAllData();
             CheckButtonState();
             buttonUndo.Enabled = buttonRedo.Enabled = false;
+            PhanQuyen();
         }
 
         private void LoadCombobox()
@@ -158,9 +174,11 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         private void SetIdleButtonEnabled(bool state)
         {
             buttonThem.Enabled = 
-            buttonLamMoi.Enabled = 
             buttonXoa.Enabled =
             buttonSua.Enabled = state;
+
+            if (Utils.IsTruong()) buttonLamMoi.Enabled = true;
+            else buttonLamMoi.Enabled = state;
         }
 
         private void SetInputButtonEnabled(bool state)

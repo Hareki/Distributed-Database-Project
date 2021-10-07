@@ -35,9 +35,9 @@ namespace TracNghiemCSDLPT
             this.barAndDockingController1 = new DevExpress.XtraBars.BarAndDockingController(this.components);
             this.buttonMonHoc = new DevExpress.XtraBars.BarButtonItem();
             this.buttonDeThi = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonSinhVien = new DevExpress.XtraBars.BarButtonItem();
-            this.butonGiaoVien = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonKhoaLop = new DevExpress.XtraBars.BarButtonItem();
+            this.buttonSVL = new DevExpress.XtraBars.BarButtonItem();
+            this.buttonGV = new DevExpress.XtraBars.BarButtonItem();
+            this.buttonKhoa = new DevExpress.XtraBars.BarButtonItem();
             this.buttonDKTN = new DevExpress.XtraBars.BarButtonItem();
             this.buttonTaoTK = new DevExpress.XtraBars.BarButtonItem();
             this.buttonDangXuat = new DevExpress.XtraBars.BarButtonItem();
@@ -48,14 +48,14 @@ namespace TracNghiemCSDLPT
             this.buttonKQThi = new DevExpress.XtraBars.BarButtonItem();
             this.buttonToChucThi = new DevExpress.XtraBars.BarButtonItem();
             this.buttonThamGiaThi = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.pageQuanLy = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.pageBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.pageThi = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.pageTaiKhoan = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
@@ -75,9 +75,9 @@ namespace TracNghiemCSDLPT
             this.ribbon.SearchEditItem,
             this.buttonMonHoc,
             this.buttonDeThi,
-            this.buttonSinhVien,
-            this.butonGiaoVien,
-            this.buttonKhoaLop,
+            this.buttonSVL,
+            this.buttonGV,
+            this.buttonKhoa,
             this.buttonDKTN,
             this.buttonTaoTK,
             this.buttonDangXuat,
@@ -94,10 +94,10 @@ namespace TracNghiemCSDLPT
             this.ribbon.Name = "ribbon";
             this.ribbon.OptionsTouch.ShowTouchUISelectorInSearchMenu = false;
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1,
-            this.ribbonPage2,
-            this.ribbonPage4,
-            this.ribbonPage3});
+            this.pageQuanLy,
+            this.pageBaoCao,
+            this.pageThi,
+            this.pageTaiKhoan});
             this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.ShowToolbarCustomizeItem = false;
             this.ribbon.Size = new System.Drawing.Size(956, 237);
@@ -108,6 +108,8 @@ namespace TracNghiemCSDLPT
             // 
             this.barAndDockingController1.AppearancesRibbon.Item.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.barAndDockingController1.AppearancesRibbon.Item.Options.UseFont = true;
+            this.barAndDockingController1.AppearancesRibbon.ItemDisabled.Font = new System.Drawing.Font("Baloo 2", 10.8F);
+            this.barAndDockingController1.AppearancesRibbon.ItemDisabled.Options.UseFont = true;
             this.barAndDockingController1.AppearancesRibbon.ItemHovered.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.barAndDockingController1.AppearancesRibbon.ItemHovered.Options.UseFont = true;
             this.barAndDockingController1.AppearancesRibbon.ItemPressed.Font = new System.Drawing.Font("Baloo 2", 10.8F);
@@ -137,32 +139,32 @@ namespace TracNghiemCSDLPT
             this.buttonDeThi.Name = "buttonDeThi";
             this.buttonDeThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonDeThi_ItemClick);
             // 
-            // buttonSinhVien
+            // buttonSVL
             // 
-            this.buttonSinhVien.Caption = "Sinh viên và lớp";
-            this.buttonSinhVien.Id = 8;
-            this.buttonSinhVien.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.classroom_480px;
-            this.buttonSinhVien.LargeWidth = 80;
-            this.buttonSinhVien.Name = "buttonSinhVien";
-            this.buttonSinhVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonSinhVien_ItemClick);
+            this.buttonSVL.Caption = "Sinh viên và lớp";
+            this.buttonSVL.Id = 8;
+            this.buttonSVL.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.classroom_480px;
+            this.buttonSVL.LargeWidth = 80;
+            this.buttonSVL.Name = "buttonSVL";
+            this.buttonSVL.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonSinhVien_ItemClick);
             // 
-            // butonGiaoVien
+            // buttonGV
             // 
-            this.butonGiaoVien.Caption = "Giáo viên";
-            this.butonGiaoVien.Id = 9;
-            this.butonGiaoVien.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.teacher_500px;
-            this.butonGiaoVien.LargeWidth = 80;
-            this.butonGiaoVien.Name = "butonGiaoVien";
-            this.butonGiaoVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.butonGiaoVien_ItemClick);
+            this.buttonGV.Caption = "Giáo viên";
+            this.buttonGV.Id = 9;
+            this.buttonGV.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.teacher_500px;
+            this.buttonGV.LargeWidth = 80;
+            this.buttonGV.Name = "buttonGV";
+            this.buttonGV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.butonGiaoVien_ItemClick);
             // 
-            // buttonKhoaLop
+            // buttonKhoa
             // 
-            this.buttonKhoaLop.Caption = "Khoa";
-            this.buttonKhoaLop.Id = 10;
-            this.buttonKhoaLop.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.school_480px;
-            this.buttonKhoaLop.LargeWidth = 80;
-            this.buttonKhoaLop.Name = "buttonKhoaLop";
-            this.buttonKhoaLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonKhoaLop_ItemClick);
+            this.buttonKhoa.Caption = "Khoa";
+            this.buttonKhoa.Id = 10;
+            this.buttonKhoa.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.school_480px;
+            this.buttonKhoa.LargeWidth = 80;
+            this.buttonKhoa.Name = "buttonKhoa";
+            this.buttonKhoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonKhoaLop_ItemClick);
             // 
             // buttonDKTN
             // 
@@ -260,20 +262,20 @@ namespace TracNghiemCSDLPT
             this.buttonThamGiaThi.LargeWidth = 80;
             this.buttonThamGiaThi.Name = "buttonThamGiaThi";
             // 
-            // ribbonPage1
+            // pageQuanLy
             // 
-            this.ribbonPage1.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ribbonPage1.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            this.ribbonPage1.Appearance.Options.UseFont = true;
-            this.ribbonPage1.Appearance.Options.UseForeColor = true;
-            this.ribbonPage1.Appearance.Options.UseTextOptions = true;
-            this.ribbonPage1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.pageQuanLy.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pageQuanLy.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
+            this.pageQuanLy.Appearance.Options.UseFont = true;
+            this.pageQuanLy.Appearance.Options.UseForeColor = true;
+            this.pageQuanLy.Appearance.Options.UseTextOptions = true;
+            this.pageQuanLy.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.pageQuanLy.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
             this.ribbonPageGroup2});
-            this.ribbonPage1.ImageOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.database_administrator_25px;
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "  Quản lý  ";
+            this.pageQuanLy.ImageOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.database_administrator_25px;
+            this.pageQuanLy.Name = "pageQuanLy";
+            this.pageQuanLy.Text = "  Quản lý  ";
             // 
             // ribbonPageGroup1
             // 
@@ -285,23 +287,23 @@ namespace TracNghiemCSDLPT
             // 
             // ribbonPageGroup2
             // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.buttonSinhVien);
-            this.ribbonPageGroup2.ItemLinks.Add(this.buttonKhoaLop);
-            this.ribbonPageGroup2.ItemLinks.Add(this.butonGiaoVien);
+            this.ribbonPageGroup2.ItemLinks.Add(this.buttonSVL);
+            this.ribbonPageGroup2.ItemLinks.Add(this.buttonKhoa);
+            this.ribbonPageGroup2.ItemLinks.Add(this.buttonGV);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Phòng ban và nhân sự";
             // 
-            // ribbonPage2
+            // pageBaoCao
             // 
-            this.ribbonPage2.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.ribbonPage2.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            this.ribbonPage2.Appearance.Options.UseFont = true;
-            this.ribbonPage2.Appearance.Options.UseForeColor = true;
-            this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.pageBaoCao.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
+            this.pageBaoCao.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
+            this.pageBaoCao.Appearance.Options.UseFont = true;
+            this.pageBaoCao.Appearance.Options.UseForeColor = true;
+            this.pageBaoCao.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup4});
-            this.ribbonPage2.ImageOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_graph_report_25px;
-            this.ribbonPage2.Name = "ribbonPage2";
-            this.ribbonPage2.Text = "  Báo cáo  ";
+            this.pageBaoCao.ImageOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_graph_report_25px;
+            this.pageBaoCao.Name = "pageBaoCao";
+            this.pageBaoCao.Text = "  Báo cáo  ";
             // 
             // ribbonPageGroup4
             // 
@@ -310,17 +312,17 @@ namespace TracNghiemCSDLPT
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "Danh sách";
             // 
-            // ribbonPage4
+            // pageThi
             // 
-            this.ribbonPage4.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.ribbonPage4.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            this.ribbonPage4.Appearance.Options.UseFont = true;
-            this.ribbonPage4.Appearance.Options.UseForeColor = true;
-            this.ribbonPage4.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.pageThi.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
+            this.pageThi.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
+            this.pageThi.Appearance.Options.UseFont = true;
+            this.pageThi.Appearance.Options.UseForeColor = true;
+            this.pageThi.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup6});
-            this.ribbonPage4.ImageOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.test_passed_25px;
-            this.ribbonPage4.Name = "ribbonPage4";
-            this.ribbonPage4.Text = "  Thi  ";
+            this.pageThi.ImageOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.test_passed_25px;
+            this.pageThi.Name = "pageThi";
+            this.pageThi.Text = "  Thi  ";
             // 
             // ribbonPageGroup6
             // 
@@ -330,17 +332,17 @@ namespace TracNghiemCSDLPT
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.Text = "Thi cử";
             // 
-            // ribbonPage3
+            // pageTaiKhoan
             // 
-            this.ribbonPage3.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.ribbonPage3.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            this.ribbonPage3.Appearance.Options.UseFont = true;
-            this.ribbonPage3.Appearance.Options.UseForeColor = true;
-            this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.pageTaiKhoan.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
+            this.pageTaiKhoan.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
+            this.pageTaiKhoan.Appearance.Options.UseFont = true;
+            this.pageTaiKhoan.Appearance.Options.UseForeColor = true;
+            this.pageTaiKhoan.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup5});
-            this.ribbonPage3.ImageOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.account2_25px;
-            this.ribbonPage3.Name = "ribbonPage3";
-            this.ribbonPage3.Text = "  Tài khoản  ";
+            this.pageTaiKhoan.ImageOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.account2_25px;
+            this.pageTaiKhoan.Name = "pageTaiKhoan";
+            this.pageTaiKhoan.Text = "  Tài khoản  ";
             // 
             // ribbonPageGroup5
             // 
@@ -412,27 +414,27 @@ namespace TracNghiemCSDLPT
         #endregion
 
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+        private DevExpress.XtraBars.Ribbon.RibbonPage pageQuanLy;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraBars.BarButtonItem buttonMonHoc;
         private DevExpress.XtraBars.BarButtonItem buttonDeThi;
-        private DevExpress.XtraBars.BarButtonItem buttonSinhVien;
-        private DevExpress.XtraBars.BarButtonItem butonGiaoVien;
-        private DevExpress.XtraBars.BarButtonItem buttonKhoaLop;
+        private DevExpress.XtraBars.BarButtonItem buttonSVL;
+        private DevExpress.XtraBars.BarButtonItem buttonGV;
+        private DevExpress.XtraBars.BarButtonItem buttonKhoa;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.BarButtonItem buttonDKTN;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
+        private DevExpress.XtraBars.Ribbon.RibbonPage pageBaoCao;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.BarButtonItem buttonTaoTK;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
+        private DevExpress.XtraBars.Ribbon.RibbonPage pageTaiKhoan;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.BarButtonItem buttonDangXuat;
         private DevExpress.XtraBars.BarButtonItem buttonBangDiem;
         private DevExpress.XtraBars.BarButtonItem buttonKQThi;
         private DevExpress.XtraBars.BarButtonItem buttonToChucThi;
         private DevExpress.XtraBars.BarButtonItem buttonThamGiaThi;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
+        private DevExpress.XtraBars.Ribbon.RibbonPage pageThi;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
         private DevExpress.XtraBars.BarAndDockingController barAndDockingController1;
         private DevExpress.XtraBars.Docking2010.DocumentManager documentManager1;

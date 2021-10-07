@@ -27,6 +27,22 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         public FormSVL()
         {
             InitializeComponent();
+            PhanQuyen();
+        }
+
+        private void PhanQuyen()
+        {
+            switch (DBConnection.NhomQuyen)
+            {
+                case "TRUONG":
+                    SetIdleButtonEnabledSV(false);
+                    SetIdleButtonEnabledLop(false);
+                    break;
+                case "COSO":
+                    CoSoComboBox.Enabled = false;
+                    break;
+            }
+
         }
 
         private int PreviousIndexCS;
@@ -69,6 +85,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
 
             checkButtonStateLop();
             //    checkButtonStateSV(); lúc nãy chưa có mã lớp, để ở đây sẽ không có dữ liệu
+            PhanQuyen();
 
         }
         private bool checkTheRow(int rowHandle)
@@ -88,17 +105,25 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
 
         private void checkButtonStateLop()
         {
-            if (LopBindingSource.Count == 0)
-                buttonXoaLop.Enabled = buttonSuaLop.Enabled = false;
-            else buttonXoaLop.Enabled = buttonSuaLop.Enabled = true;
+            if (DBConnection.NhomQuyen.Equals("COSO"))
+            {
+                if (LopBindingSource.Count == 0)
+                    buttonXoaLop.Enabled = buttonSuaLop.Enabled = false;
+                else buttonXoaLop.Enabled = buttonSuaLop.Enabled = true;
+            }
+
         }
 
         private void checkButtonStateSV()
         {
-            if (SinhVienBindingSource.Count == 0)
-                buttonXoaSV.Enabled = buttonSuaSV.Enabled = false;
-            else if (state != State.addSV && state != State.editSV)
-                buttonXoaSV.Enabled = buttonSuaSV.Enabled = true;
+            if (DBConnection.NhomQuyen.Equals("COSO"))
+            {
+                if (SinhVienBindingSource.Count == 0)
+                    buttonXoaSV.Enabled = buttonSuaSV.Enabled = false;
+                else if (state != State.addSV && state != State.editSV)
+                    buttonXoaSV.Enabled = buttonSuaSV.Enabled = true;
+            }
+
         }
 
         private GridView getCorrTextBoxData(bool getFirstRow)
@@ -206,7 +231,9 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         private void SetIdleButtonEnabledLop(bool state)
         {
             buttonThemLop.Enabled = buttonSuaLop.Enabled =
-                buttonXoaLop.Enabled = buttonLamMoiLop.Enabled = state;
+                buttonXoaLop.Enabled = state;
+            if (Utils.IsTruong()) buttonLamMoiLop.Enabled = true;
+            else buttonLamMoiLop.Enabled = state;
         }
         private void SetInputButtonEnabledLop(bool state)
         {
@@ -217,7 +244,9 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         private void SetIdleButtonEnabledSV(bool state)
         {
             buttonThemSV.Enabled = buttonSuaSV.Enabled =
-                buttonXoaSV.Enabled = buttonLamMoiSV.Enabled = state;
+                buttonXoaSV.Enabled = state;
+            if (Utils.IsTruong()) buttonLamMoiSV.Enabled = true;
+            else buttonLamMoiSV.Enabled = state;
         }
         private void SetInputButtonEnabledSV(bool state)
         {

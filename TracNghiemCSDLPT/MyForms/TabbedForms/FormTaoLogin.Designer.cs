@@ -50,6 +50,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.DSGVBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TN_CSDLPTDataSet();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHoTen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TextTenDangNhap = new Bunifu.UI.WinForms.BunifuTextBox();
             this.TextXacNhan = new Bunifu.UI.WinForms.BunifuTextBox();
             this.ToggleHienMK = new Guna.UI2.WinForms.Guna2ToggleSwitch();
@@ -63,7 +65,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panelTruong = new System.Windows.Forms.Panel();
             this.panelCSGV = new System.Windows.Forms.Panel();
             this.PanelGV = new Bunifu.UI.WinForms.BunifuPanel();
             this.rdoGV = new Guna.UI2.WinForms.Guna2CustomRadioButton();
@@ -71,8 +72,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.PanelCS = new Bunifu.UI.WinForms.BunifuPanel();
             this.rdoCS = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.LabelCoSo = new System.Windows.Forms.Label();
-            this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.guna2CustomRadioButton1 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
+            this.panelTruong = new Bunifu.UI.WinForms.BunifuPanel();
+            this.rdoTruong = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.DSGVTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.DSGIAOVIENTableAdapter();
@@ -82,8 +83,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.TenDangNhapEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.XacNhanEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.MatKhauEP = new System.Windows.Forms.ErrorProvider(this.components);
-            this.colHoTen = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bunifuPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpGV.Properties)).BeginInit();
@@ -91,11 +90,10 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panelTruong.SuspendLayout();
             this.panelCSGV.SuspendLayout();
             this.PanelGV.SuspendLayout();
             this.PanelCS.SuspendLayout();
-            this.bunifuPanel3.SuspendLayout();
+            this.panelTruong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpEP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AccTypeEP)).BeginInit();
@@ -127,6 +125,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.panelTruong);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.LookUpGV);
             this.panel1.Controls.Add(this.TextTenDangNhap);
@@ -142,7 +141,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.panelTruong);
+            this.panel1.Controls.Add(this.panelCSGV);
             this.panel1.Location = new System.Drawing.Point(9, 25);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(468, 658);
@@ -206,6 +205,32 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.gridLookUpEdit1View.OptionsView.ShowIndicator = false;
             this.gridLookUpEdit1View.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colHoTen, DevExpress.Data.ColumnSortOrder.Ascending)});
+            // 
+            // colMAGV
+            // 
+            this.colMAGV.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
+            this.colMAGV.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.colMAGV.AppearanceHeader.Options.UseBackColor = true;
+            this.colMAGV.AppearanceHeader.Options.UseForeColor = true;
+            this.colMAGV.Caption = "Mã GV";
+            this.colMAGV.FieldName = "MAGV";
+            this.colMAGV.Name = "colMAGV";
+            this.colMAGV.Visible = true;
+            this.colMAGV.VisibleIndex = 0;
+            this.colMAGV.Width = 90;
+            // 
+            // colHoTen
+            // 
+            this.colHoTen.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
+            this.colHoTen.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.colHoTen.AppearanceHeader.Options.UseBackColor = true;
+            this.colHoTen.AppearanceHeader.Options.UseForeColor = true;
+            this.colHoTen.Caption = "Họ và tên";
+            this.colHoTen.FieldName = "HoTen";
+            this.colHoTen.Name = "colHoTen";
+            this.colHoTen.Visible = true;
+            this.colHoTen.VisibleIndex = 1;
+            this.colHoTen.Width = 310;
             // 
             // TextTenDangNhap
             // 
@@ -583,24 +608,14 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.label1.TabIndex = 14;
             this.label1.Text = "Mật khẩu";
             // 
-            // panelTruong
-            // 
-            this.panelTruong.BackColor = System.Drawing.Color.White;
-            this.panelTruong.Controls.Add(this.panelCSGV);
-            this.panelTruong.Controls.Add(this.bunifuPanel3);
-            this.panelTruong.Location = new System.Drawing.Point(30, 224);
-            this.panelTruong.Name = "panelTruong";
-            this.panelTruong.Size = new System.Drawing.Size(427, 67);
-            this.panelTruong.TabIndex = 19;
-            // 
             // panelCSGV
             // 
             this.panelCSGV.BackColor = System.Drawing.Color.White;
             this.panelCSGV.Controls.Add(this.PanelGV);
             this.panelCSGV.Controls.Add(this.PanelCS);
-            this.panelCSGV.Location = new System.Drawing.Point(0, 0);
+            this.panelCSGV.Location = new System.Drawing.Point(30, 210);
             this.panelCSGV.Name = "panelCSGV";
-            this.panelCSGV.Size = new System.Drawing.Size(427, 67);
+            this.panelCSGV.Size = new System.Drawing.Size(388, 67);
             this.panelCSGV.TabIndex = 19;
             // 
             // PanelGV
@@ -614,7 +629,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.PanelGV.BorderThickness = 2;
             this.PanelGV.Controls.Add(this.rdoGV);
             this.PanelGV.Controls.Add(this.LabelGiangVien);
-            this.PanelGV.Location = new System.Drawing.Point(213, 2);
+            this.PanelGV.Location = new System.Drawing.Point(212, 11);
             this.PanelGV.Margin = new System.Windows.Forms.Padding(3, 0, 10, 15);
             this.PanelGV.Name = "PanelGV";
             this.PanelGV.ShowBorders = true;
@@ -666,7 +681,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.PanelCS.BorderThickness = 2;
             this.PanelCS.Controls.Add(this.rdoCS);
             this.PanelCS.Controls.Add(this.LabelCoSo);
-            this.PanelCS.Location = new System.Drawing.Point(2, 2);
+            this.PanelCS.Location = new System.Drawing.Point(3, 11);
             this.PanelCS.Margin = new System.Windows.Forms.Padding(3, 0, 10, 15);
             this.PanelCS.Name = "PanelCS";
             this.PanelCS.ShowBorders = true;
@@ -707,44 +722,44 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.LabelCoSo.Text = "Cơ sở";
             this.LabelCoSo.Click += new System.EventHandler(this.LabelCoSo_Click);
             // 
-            // bunifuPanel3
+            // panelTruong
             // 
-            this.bunifuPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bunifuPanel3.BackgroundColor = System.Drawing.Color.White;
-            this.bunifuPanel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel3.BackgroundImage")));
-            this.bunifuPanel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(208)))), ((int)(((byte)(213)))));
-            this.bunifuPanel3.BorderRadius = 10;
-            this.bunifuPanel3.BorderThickness = 2;
-            this.bunifuPanel3.Controls.Add(this.guna2CustomRadioButton1);
-            this.bunifuPanel3.Controls.Add(this.label9);
-            this.bunifuPanel3.Location = new System.Drawing.Point(123, 8);
-            this.bunifuPanel3.Margin = new System.Windows.Forms.Padding(3, 0, 10, 15);
-            this.bunifuPanel3.Name = "bunifuPanel3";
-            this.bunifuPanel3.ShowBorders = true;
-            this.bunifuPanel3.Size = new System.Drawing.Size(181, 50);
-            this.bunifuPanel3.TabIndex = 18;
+            this.panelTruong.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelTruong.BackgroundColor = System.Drawing.Color.White;
+            this.panelTruong.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelTruong.BackgroundImage")));
+            this.panelTruong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelTruong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(208)))), ((int)(((byte)(213)))));
+            this.panelTruong.BorderRadius = 10;
+            this.panelTruong.BorderThickness = 2;
+            this.panelTruong.Controls.Add(this.rdoTruong);
+            this.panelTruong.Controls.Add(this.label9);
+            this.panelTruong.Location = new System.Drawing.Point(144, 221);
+            this.panelTruong.Margin = new System.Windows.Forms.Padding(3, 0, 10, 15);
+            this.panelTruong.Name = "panelTruong";
+            this.panelTruong.ShowBorders = true;
+            this.panelTruong.Size = new System.Drawing.Size(181, 50);
+            this.panelTruong.TabIndex = 18;
             // 
-            // guna2CustomRadioButton1
+            // rdoTruong
             // 
-            this.guna2CustomRadioButton1.Animated = true;
-            this.guna2CustomRadioButton1.Checked = true;
-            this.guna2CustomRadioButton1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2CustomRadioButton1.CheckedState.BorderThickness = 0;
-            this.guna2CustomRadioButton1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2CustomRadioButton1.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.guna2CustomRadioButton1.CheckedState.Parent = this.guna2CustomRadioButton1;
-            this.guna2CustomRadioButton1.Location = new System.Drawing.Point(42, 14);
-            this.guna2CustomRadioButton1.Margin = new System.Windows.Forms.Padding(5, 3, 0, 15);
-            this.guna2CustomRadioButton1.Name = "guna2CustomRadioButton1";
-            this.guna2CustomRadioButton1.ShadowDecoration.Parent = this.guna2CustomRadioButton1;
-            this.guna2CustomRadioButton1.Size = new System.Drawing.Size(22, 22);
-            this.guna2CustomRadioButton1.TabIndex = 2;
-            this.guna2CustomRadioButton1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2CustomRadioButton1.UncheckedState.BorderThickness = 2;
-            this.guna2CustomRadioButton1.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.guna2CustomRadioButton1.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.guna2CustomRadioButton1.UncheckedState.Parent = this.guna2CustomRadioButton1;
+            this.rdoTruong.Animated = true;
+            this.rdoTruong.Checked = true;
+            this.rdoTruong.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdoTruong.CheckedState.BorderThickness = 0;
+            this.rdoTruong.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdoTruong.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rdoTruong.CheckedState.Parent = this.rdoTruong;
+            this.rdoTruong.Location = new System.Drawing.Point(42, 14);
+            this.rdoTruong.Margin = new System.Windows.Forms.Padding(5, 3, 0, 15);
+            this.rdoTruong.Name = "rdoTruong";
+            this.rdoTruong.ShadowDecoration.Parent = this.rdoTruong;
+            this.rdoTruong.Size = new System.Drawing.Size(22, 22);
+            this.rdoTruong.TabIndex = 2;
+            this.rdoTruong.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rdoTruong.UncheckedState.BorderThickness = 2;
+            this.rdoTruong.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rdoTruong.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rdoTruong.UncheckedState.Parent = this.rdoTruong;
             // 
             // label9
             // 
@@ -783,6 +798,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.COSOTableAdapter = null;
             this.tableAdapterManager.GIAOVIEN_DANGKYTableAdapter = null;
+            this.tableAdapterManager.GIAOVIENTableAdapter = null;
             this.tableAdapterManager.KHOATableAdapter = null;
             this.tableAdapterManager.LOPTableAdapter = null;
             this.tableAdapterManager.MONHOCTableAdapter = null;
@@ -814,32 +830,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.MatKhauEP.ContainerControl = this;
             this.MatKhauEP.Icon = ((System.Drawing.Icon)(resources.GetObject("MatKhauEP.Icon")));
             // 
-            // colHoTen
-            // 
-            this.colHoTen.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
-            this.colHoTen.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.colHoTen.AppearanceHeader.Options.UseBackColor = true;
-            this.colHoTen.AppearanceHeader.Options.UseForeColor = true;
-            this.colHoTen.Caption = "Họ và tên";
-            this.colHoTen.FieldName = "HoTen";
-            this.colHoTen.Name = "colHoTen";
-            this.colHoTen.Visible = true;
-            this.colHoTen.VisibleIndex = 1;
-            this.colHoTen.Width = 310;
-            // 
-            // colMAGV
-            // 
-            this.colMAGV.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
-            this.colMAGV.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.colMAGV.AppearanceHeader.Options.UseBackColor = true;
-            this.colMAGV.AppearanceHeader.Options.UseForeColor = true;
-            this.colMAGV.Caption = "Mã GV";
-            this.colMAGV.FieldName = "MAGV";
-            this.colMAGV.Name = "colMAGV";
-            this.colMAGV.Visible = true;
-            this.colMAGV.VisibleIndex = 0;
-            this.colMAGV.Width = 90;
-            // 
             // FormTaoLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -858,14 +848,13 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panelTruong.ResumeLayout(false);
             this.panelCSGV.ResumeLayout(false);
             this.PanelGV.ResumeLayout(false);
             this.PanelGV.PerformLayout();
             this.PanelCS.ResumeLayout(false);
             this.PanelCS.PerformLayout();
-            this.bunifuPanel3.ResumeLayout(false);
-            this.bunifuPanel3.PerformLayout();
+            this.panelTruong.ResumeLayout(false);
+            this.panelTruong.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpEP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AccTypeEP)).EndInit();
@@ -901,9 +890,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         private System.Windows.Forms.Button buttonHuy;
         private Guna.UI2.WinForms.Guna2ToggleSwitch ToggleHienMK;
         private System.Windows.Forms.Panel panelCSGV;
-        private System.Windows.Forms.Panel panelTruong;
-        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel3;
-        private Guna.UI2.WinForms.Guna2CustomRadioButton guna2CustomRadioButton1;
+        private Bunifu.UI.WinForms.BunifuPanel panelTruong;
+        private Guna.UI2.WinForms.Guna2CustomRadioButton rdoTruong;
         private System.Windows.Forms.Label label9;
         private DevExpress.XtraEditors.GridLookUpEdit LookUpGV;
         private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;

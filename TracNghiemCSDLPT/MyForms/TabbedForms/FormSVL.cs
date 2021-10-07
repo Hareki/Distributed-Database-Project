@@ -954,5 +954,12 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             SetInputButtonEnabledSV(false);
             SetLopState(true);
         }
+
+        private void FormSVL_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (state != State.idle)
+                if (!Utils.ShowConfirmMessage("Hủy những thay đổi đang thực hiện và đóng cửa sổ này?", "Xác nhận"))
+                    e.Cancel = true;
+        }
     }
 }

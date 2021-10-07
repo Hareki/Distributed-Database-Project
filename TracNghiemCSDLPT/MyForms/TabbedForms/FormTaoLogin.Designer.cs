@@ -45,10 +45,11 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panelTruong = new Bunifu.UI.WinForms.BunifuPanel();
+            this.rdoTruong = new Guna.UI2.WinForms.Guna2CustomRadioButton();
+            this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.LookUpGV = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.DSGVBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TN_CSDLPTDataSet();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHoTen = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -72,10 +73,9 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.PanelCS = new Bunifu.UI.WinForms.BunifuPanel();
             this.rdoCS = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.LabelCoSo = new System.Windows.Forms.Label();
-            this.panelTruong = new Bunifu.UI.WinForms.BunifuPanel();
-            this.rdoTruong = new Guna.UI2.WinForms.Guna2CustomRadioButton();
-            this.label9 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.DSGVBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TN_CSDLPTDataSet();
             this.DSGVTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.DSGIAOVIENTableAdapter();
             this.tableAdapterManager = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
             this.LookUpEP = new System.Windows.Forms.ErrorProvider(this.components);
@@ -83,23 +83,26 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.TenDangNhapEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.XacNhanEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.MatKhauEP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.DSGVTCSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DSGVTCSTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.DSGIAOVIENTCSTableAdapter();
             this.bunifuPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panelTruong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpGV.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DSGVBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelCSGV.SuspendLayout();
             this.PanelGV.SuspendLayout();
             this.PanelCS.SuspendLayout();
-            this.panelTruong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSGVBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpEP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AccTypeEP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TenDangNhapEP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.XacNhanEP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MatKhauEP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSGVTCSBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuPanel1
@@ -147,6 +150,56 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.panel1.Size = new System.Drawing.Size(468, 658);
             this.panel1.TabIndex = 1;
             // 
+            // panelTruong
+            // 
+            this.panelTruong.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelTruong.BackgroundColor = System.Drawing.Color.White;
+            this.panelTruong.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelTruong.BackgroundImage")));
+            this.panelTruong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelTruong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(208)))), ((int)(((byte)(213)))));
+            this.panelTruong.BorderRadius = 10;
+            this.panelTruong.BorderThickness = 2;
+            this.panelTruong.Controls.Add(this.rdoTruong);
+            this.panelTruong.Controls.Add(this.label9);
+            this.panelTruong.Location = new System.Drawing.Point(144, 221);
+            this.panelTruong.Margin = new System.Windows.Forms.Padding(3, 0, 10, 15);
+            this.panelTruong.Name = "panelTruong";
+            this.panelTruong.ShowBorders = true;
+            this.panelTruong.Size = new System.Drawing.Size(181, 50);
+            this.panelTruong.TabIndex = 18;
+            // 
+            // rdoTruong
+            // 
+            this.rdoTruong.Animated = true;
+            this.rdoTruong.Checked = true;
+            this.rdoTruong.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdoTruong.CheckedState.BorderThickness = 0;
+            this.rdoTruong.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdoTruong.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rdoTruong.CheckedState.Parent = this.rdoTruong;
+            this.rdoTruong.Location = new System.Drawing.Point(42, 14);
+            this.rdoTruong.Margin = new System.Windows.Forms.Padding(5, 3, 0, 15);
+            this.rdoTruong.Name = "rdoTruong";
+            this.rdoTruong.ShadowDecoration.Parent = this.rdoTruong;
+            this.rdoTruong.Size = new System.Drawing.Size(22, 22);
+            this.rdoTruong.TabIndex = 2;
+            this.rdoTruong.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rdoTruong.UncheckedState.BorderThickness = 2;
+            this.rdoTruong.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rdoTruong.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rdoTruong.UncheckedState.Parent = this.rdoTruong;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.Font = new System.Drawing.Font("Baloo 2", 10.8F);
+            this.label9.Location = new System.Drawing.Point(67, 10);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(71, 30);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Trường";
+            // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -169,24 +222,11 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.LookUpGV.Properties.Appearance.Options.UseFont = true;
             this.LookUpGV.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.LookUpGV.Properties.DataSource = this.DSGVBindingSource;
-            this.LookUpGV.Properties.DisplayMember = "FullInfo";
             this.LookUpGV.Properties.NullText = "Chọn giảng viên để cấp tài khoản";
             this.LookUpGV.Properties.PopupView = this.gridLookUpEdit1View;
             this.LookUpGV.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
-            this.LookUpGV.Properties.ValueMember = "MAGV";
             this.LookUpGV.Size = new System.Drawing.Size(389, 38);
             this.LookUpGV.TabIndex = 29;
-            // 
-            // DSGVBindingSource
-            // 
-            this.DSGVBindingSource.DataMember = "DSGIAOVIEN";
-            this.DSGVBindingSource.DataSource = this.TN_CSDLPTDataSet;
-            // 
-            // TN_CSDLPTDataSet
-            // 
-            this.TN_CSDLPTDataSet.DataSetName = "TN_CSDLPTDataSet";
-            this.TN_CSDLPTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridLookUpEdit1View
             // 
@@ -722,56 +762,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.LabelCoSo.Text = "Cơ sở";
             this.LabelCoSo.Click += new System.EventHandler(this.LabelCoSo_Click);
             // 
-            // panelTruong
-            // 
-            this.panelTruong.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panelTruong.BackgroundColor = System.Drawing.Color.White;
-            this.panelTruong.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelTruong.BackgroundImage")));
-            this.panelTruong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelTruong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(208)))), ((int)(((byte)(213)))));
-            this.panelTruong.BorderRadius = 10;
-            this.panelTruong.BorderThickness = 2;
-            this.panelTruong.Controls.Add(this.rdoTruong);
-            this.panelTruong.Controls.Add(this.label9);
-            this.panelTruong.Location = new System.Drawing.Point(144, 221);
-            this.panelTruong.Margin = new System.Windows.Forms.Padding(3, 0, 10, 15);
-            this.panelTruong.Name = "panelTruong";
-            this.panelTruong.ShowBorders = true;
-            this.panelTruong.Size = new System.Drawing.Size(181, 50);
-            this.panelTruong.TabIndex = 18;
-            // 
-            // rdoTruong
-            // 
-            this.rdoTruong.Animated = true;
-            this.rdoTruong.Checked = true;
-            this.rdoTruong.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rdoTruong.CheckedState.BorderThickness = 0;
-            this.rdoTruong.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rdoTruong.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.rdoTruong.CheckedState.Parent = this.rdoTruong;
-            this.rdoTruong.Location = new System.Drawing.Point(42, 14);
-            this.rdoTruong.Margin = new System.Windows.Forms.Padding(5, 3, 0, 15);
-            this.rdoTruong.Name = "rdoTruong";
-            this.rdoTruong.ShadowDecoration.Parent = this.rdoTruong;
-            this.rdoTruong.Size = new System.Drawing.Size(22, 22);
-            this.rdoTruong.TabIndex = 2;
-            this.rdoTruong.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.rdoTruong.UncheckedState.BorderThickness = 2;
-            this.rdoTruong.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.rdoTruong.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.rdoTruong.UncheckedState.Parent = this.rdoTruong;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.White;
-            this.label9.Font = new System.Drawing.Font("Baloo 2", 10.8F);
-            this.label9.Location = new System.Drawing.Point(67, 10);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 30);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Trường";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -785,6 +775,16 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // DSGVBindingSource
+            // 
+            this.DSGVBindingSource.DataMember = "DSGIAOVIEN";
+            this.DSGVBindingSource.DataSource = this.TN_CSDLPTDataSet;
+            // 
+            // TN_CSDLPTDataSet
+            // 
+            this.TN_CSDLPTDataSet.DataSetName = "TN_CSDLPTDataSet";
+            this.TN_CSDLPTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // DSGVTableAdapter
             // 
@@ -830,6 +830,15 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.MatKhauEP.ContainerControl = this;
             this.MatKhauEP.Icon = ((System.Drawing.Icon)(resources.GetObject("MatKhauEP.Icon")));
             // 
+            // DSGVTCSBindingSource
+            // 
+            this.DSGVTCSBindingSource.DataMember = "DSGIAOVIENTCS";
+            this.DSGVTCSBindingSource.DataSource = this.TN_CSDLPTDataSet;
+            // 
+            // DSGVTCSTableAdapter
+            // 
+            this.DSGVTCSTableAdapter.ClearBeforeFill = true;
+            // 
             // FormTaoLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -843,9 +852,9 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.bunifuPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panelTruong.ResumeLayout(false);
+            this.panelTruong.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpGV.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DSGVBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelCSGV.ResumeLayout(false);
@@ -853,14 +862,15 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.PanelGV.PerformLayout();
             this.PanelCS.ResumeLayout(false);
             this.PanelCS.PerformLayout();
-            this.panelTruong.ResumeLayout(false);
-            this.panelTruong.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSGVBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpEP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AccTypeEP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TenDangNhapEP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.XacNhanEP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MatKhauEP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSGVTCSBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -907,5 +917,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         private System.Windows.Forms.ErrorProvider MatKhauEP;
         private DevExpress.XtraGrid.Columns.GridColumn colHoTen;
         private DevExpress.XtraGrid.Columns.GridColumn colMAGV;
+        private System.Windows.Forms.BindingSource DSGVTCSBindingSource;
+        private TN_CSDLPTDataSetTableAdapters.DSGIAOVIENTCSTableAdapter DSGVTCSTableAdapter;
     }
 }

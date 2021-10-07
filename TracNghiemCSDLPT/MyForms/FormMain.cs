@@ -117,6 +117,15 @@ namespace TracNghiemCSDLPT
         {
             showForm(typeof(FormDSDKTTN));
         }
+
+        private void buttonDangXuat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if(Utils.ShowConfirmMessage("Bạn có chắc muốn đăng xuất khỏi hệ thống?", "Xác nhận")){
+                Program.LoginInstance = new FormLogin();
+                Program.LoginInstance.Show();
+                this.Hide();
+            }
+        }
     }
 
 }

@@ -191,6 +191,7 @@ namespace TracNghiemCSDLPT
             this.buttonDangXuat.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.export_480px;
             this.buttonDangXuat.LargeWidth = 80;
             this.buttonDangXuat.Name = "buttonDangXuat";
+            this.buttonDangXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonDangXuat_ItemClick);
             // 
             // statusMa
             // 

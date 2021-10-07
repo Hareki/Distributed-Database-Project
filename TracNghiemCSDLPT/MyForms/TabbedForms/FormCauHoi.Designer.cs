@@ -1342,6 +1342,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("FormCauHoi.IconOptions.Icon")));
             this.Name = "FormCauHoi";
             this.Text = "Câu hỏi";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCauHoi_FormClosing);
             this.Load += new System.EventHandler(this.FormCauHoi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BoDeGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MonHocGridControl)).EndInit();

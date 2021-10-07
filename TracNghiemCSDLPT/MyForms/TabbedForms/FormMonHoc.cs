@@ -310,5 +310,12 @@ namespace TracNghiemCSDLPT.Views
             origTenMH = "~!@#$%";
             checkButtonState();
         }
+
+        private void FormMonHoc_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (state != State.idle)
+                if (!Utils.ShowConfirmMessage("Hủy những thay đổi đang thực hiện và đóng cửa sổ này?", "Xác nhận"))
+                    e.Cancel = true;
+        }
     }
 }

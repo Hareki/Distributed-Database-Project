@@ -546,5 +546,12 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                     break;
             }
         }
+
+        private void FormKhoa_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_state != State.Idle)
+                if (!Utils.ShowConfirmMessage("Hủy những thay đổi đang thực hiện và đóng cửa sổ này?", "Xác nhận"))
+                    e.Cancel = true;
+        }
     }
 }

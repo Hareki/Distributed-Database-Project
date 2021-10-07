@@ -452,7 +452,11 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                 Utils.ShowMessage("Giảng viên này đã soạn đề, không thể xóa", Others.NotiForm.FormType.Error, 2);
                 return;
             }
-
+            if (getCellAtFRowGV(colMAGV).Equals(DBConnection.UserName))
+            {
+                Utils.ShowMessage("Không thể tự xóa chính bản thân mình", Others.NotiForm.FormType.Error, 2);
+                return;
+            }
 
             if (Utils.ShowConfirmMessage("Bạn có chắc muốn xóa giảng viên này?", "Xác nhận"))
             {
@@ -461,6 +465,25 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                     RemovedGV = ((DataRowView)GVBindingSource[selectedRowGV])["MAGV"].ToString();
                     GVBindingSource.RemoveCurrent();
                     GVTableAdapter.Update(TN_CSDLPTDataSet.GIAOVIEN);
+
+                    //Xóa user và login tương ứng (nếu có)
+                    List<Para> paraList = new List<Para>();
+                    paraList.Add(new Para("@UserName", RemovedGV.Trim()));
+                    string SPName = "usp_Login_RemoveLoginUser";
+                    SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
+
+                    if (myReader == null)
+                    {
+                        Utils.ShowMessage("Xảy ra lỗi khi xóa login và user của giáo viên tương ứng", Others.NotiForm.FormType.Error, 2);
+                        Console.WriteLine(System.Environment.StackTrace);
+                        return;
+                    }
+                    else
+                    {
+                        myReader.Read();
+                        Utils.ShowMessage("Mã của task xóa login: " + myReader.GetValue(0), Others.NotiForm.FormType.Error, 2);
+                    }
+
                     Utils.ShowMessage("Xóa thông tin giảng viên thành công!", Others.NotiForm.FormType.Success, 2);
                 }
                 catch (Exception ex)
@@ -473,6 +496,13 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                 }
             }
             CheckButtonStateGV();
+        }
+
+        private void FormGV_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (state != State.idle)
+                if (!Utils.ShowConfirmMessage("Hủy những thay đổi đang thực hiện và đóng cửa sổ này?", "Xác nhận"))
+                    e.Cancel = true;
         }
     }
 }

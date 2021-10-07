@@ -1159,6 +1159,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("FormSVL.IconOptions.Icon")));
             this.Name = "FormSVL";
             this.Text = "Sinh viên và lớp";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormSVL_FormClosing);
             this.Load += new System.EventHandler(this.FormSVL_Load);
             ((System.ComponentModel.ISupportInitialize)(this.LopGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KhoaGridControl)).EndInit();

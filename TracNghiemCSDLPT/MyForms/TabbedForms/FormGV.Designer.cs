@@ -771,6 +771,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1495, 829);
+            this.Controls.Add(this.KhoaGridControl);
             this.Controls.Add(this.GVGridControl);
             this.Controls.Add(this.bunifuPanel1);
             this.Controls.Add(this.panel1);
@@ -778,10 +779,10 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.Controls.Add(this.CoSoComboBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.KhoaGridControl);
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("FormGV.IconOptions.Icon")));
             this.Name = "FormGV";
             this.Text = "Giáo viên";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormGV_FormClosing);
             this.Load += new System.EventHandler(this.FormGV_Load);
             ((System.ComponentModel.ISupportInitialize)(this.LopGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KhoaGridControl)).EndInit();

@@ -26,26 +26,42 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             switch (DBConnection.NhomQuyen)
             {
                 case "TRUONG":
+                    loadGVData();
+                    LookUpGV.Properties.DataSource = DSGVBindingSource;
+                    LookUpGV.Properties.DisplayMember = "FullInfo";
+                    LookUpGV.Properties.ValueMember = "MaGV";
                     panelCSGV.SendToBack();
                     panelCSGV.Visible = false;
                     rdoCS.Checked = rdoGV.Checked = false;
                     rdoTruong.Checked = true;
                     break;
                 case "COSO":
+                    loadGVTCSData();
+                    LookUpGV.Properties.DataSource = DSGVTCSBindingSource;
+                    LookUpGV.Properties.DisplayMember = "FullInfo";
+                    LookUpGV.Properties.ValueMember = "MaGV";
                     rdoTruong.Checked = false;
+                    panelTruong.Visible = false;
                     panelCSGV.BringToFront();
                     break;
             }
         }
 
+        private void loadGVData()
+        {
+            this.DSGVTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.DSGVTableAdapter.Fill(this.TN_CSDLPTDataSet.DSGIAOVIEN);
+        }
+        private void loadGVTCSData()
+        {
+            this.DSGVTCSTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.DSGVTCSTableAdapter.Fill(this.TN_CSDLPTDataSet.DSGIAOVIENTCS);
+        }
+
         private void FormTaoLogin_Load(object sender, EventArgs e)
         {
             TextMatKhau.UseSystemPasswordChar = TextXacNhan.UseSystemPasswordChar = true;
-            this.DSGVTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.DSGVTableAdapter.Fill(this.TN_CSDLPTDataSet.DSGIAOVIEN);
             PhanQuyen();
-
-
         }
 
         private void buttonDangKy_Click(object sender, EventArgs e)
@@ -62,8 +78,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                     LookUpEP.SetError(LookUpGV, "Vui lòng chọn giáo viên để cấp tài khoản");
                 else LookUpEP.SetError(LookUpGV, null);
                 if (test2)
-                    AccTypeEP.SetError(PanelGV, "Vui lòng chọn loại tài khoản");
-                else AccTypeEP.SetError(PanelGV, null);
+                    AccTypeEP.SetError(panelCSGV, "Vui lòng chọn loại tài khoản");
+                else AccTypeEP.SetError(panelCSGV, null);
                 if (test3)
                     TenDangNhapEP.SetError(TextTenDangNhap, "Vui lòng nhập tên tài khoản");
                 else TenDangNhapEP.SetError(TextTenDangNhap, null);
@@ -83,7 +99,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             }
             string LoginName = TextTenDangNhap.Text.Trim();
             string Password = TextMatKhau.Text;
-            string MaGV = LookUpGV.EditValue as string;
+            string MaGV = (LookUpGV.GetSelectedDataRow() as DataRowView)["MaGV"].ToString();
             string AccType;
             if (panelCSGV.Visible)
                 AccType = rdoCS.Checked ? "COSO" : "GIAOVIEN";

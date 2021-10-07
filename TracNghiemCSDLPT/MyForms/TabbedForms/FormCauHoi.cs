@@ -20,7 +20,11 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             InitializeComponent();
 
         }
-
+        enum State
+        {
+            add,edit,idle
+        }
+        State state = State.idle;
         private void SetIdleButtonEnabled(bool state)
         {
             buttonThem.Enabled = buttonXoa.Enabled =
@@ -73,6 +77,13 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         private void bunifuPanel1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FormCauHoi_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (state != State.idle)
+                if (!Utils.ShowConfirmMessage("Hủy những thay đổi đang thực hiện và đóng cửa sổ này?", "Xác nhận"))
+                    e.Cancel = true;
         }
     }
 }

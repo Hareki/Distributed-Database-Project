@@ -75,7 +75,7 @@ namespace TracNghiemCSDLPT
             rdoGV.Checked = true;
             TextLogin.Text = "PVH";
             TextPassword.Text = "123456";
-            
+
         }
         private void RequestLogin()
         {
@@ -158,7 +158,7 @@ namespace TracNghiemCSDLPT
                     return;
                 }
 
-                DBConnection.UserName = DBConnection.UserNameSV; 
+                DBConnection.UserName = DBConnection.UserNameSV;
                 DBConnection.HoTen = myReader.GetString(1);
                 DBConnection.NhomQuyen = myReader.GetString(2);
                 myReader.Close();
@@ -321,7 +321,7 @@ namespace TracNghiemCSDLPT
                 e.SuppressKeyPress = true;
                 RequestLogin();
             }
-            
+
         }
 
         private void guna2TextBox1_IconRightClick(object sender, EventArgs e)

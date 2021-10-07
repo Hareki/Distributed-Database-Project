@@ -588,6 +588,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.IconOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.logo2;
             this.Name = "FormKhoa";
             this.Text = "Khoa";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormKhoa_FormClosing);
             this.Load += new System.EventHandler(this.FormKhoa_Load);
             this.bunifuPanel2.ResumeLayout(false);
             this.bunifuPanel2.PerformLayout();

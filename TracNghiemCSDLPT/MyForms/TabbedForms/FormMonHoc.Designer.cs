@@ -570,6 +570,7 @@ namespace TracNghiemCSDLPT.Views
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("FormMonHoc.IconOptions.Icon")));
             this.Name = "FormMonHoc";
             this.Text = "Môn học";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMonHoc_FormClosing);
             this.Load += new System.EventHandler(this.MonHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MonHocGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MonHocBindingSource)).EndInit();

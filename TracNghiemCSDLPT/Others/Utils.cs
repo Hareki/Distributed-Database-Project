@@ -39,7 +39,7 @@ namespace TracNghiemCSDLPT
         }
         private static Regex LetterDigitsRegex = new Regex(@"^[\p{L}\s0-9]*$");
         private static Regex LetterOnlyRegex = new Regex(@"^[\p{L}\s]*$");
-        private static Regex LoginNameRegex = new Regex(@"^[._A-Za-z0-9]$");
+        private static Regex LoginNameRegex = new Regex(@"^[._A-Za-z0-9]*$");
         public static bool IsMathRegex(string testString, RegexType type)
         {
             switch (type)

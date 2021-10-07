@@ -19,7 +19,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         public FormTaoLogin()
         {
             InitializeComponent();
-           // PhanQuyen();
         }
 
         private void PhanQuyen()
@@ -44,7 +43,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             TextMatKhau.UseSystemPasswordChar = TextXacNhan.UseSystemPasswordChar = true;
             this.DSGVTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.DSGVTableAdapter.Fill(this.TN_CSDLPTDataSet.DSGIAOVIEN);
-
+            PhanQuyen();
 
 
         }

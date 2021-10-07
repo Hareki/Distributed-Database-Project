@@ -256,7 +256,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.ClientSize = new System.Drawing.Size(1421, 813);
             this.Controls.Add(this.bunifuPanel1);
             this.Name = "FormDSDKTTN";
-            this.Text = "FormDSDKTTN";
+            this.Text = "Danh sách đăng ký thi TN";
             this.bunifuPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

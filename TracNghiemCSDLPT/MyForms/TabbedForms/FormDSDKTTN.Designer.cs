@@ -88,12 +88,14 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // CoSoComboBox
             // 
             this.CoSoComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.CoSoComboBox.BorderRadius = 3;
             this.CoSoComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.CoSoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CoSoComboBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
             this.CoSoComboBox.FocusedColor = System.Drawing.Color.Empty;
             this.CoSoComboBox.FocusedState.Parent = this.CoSoComboBox;
-            this.CoSoComboBox.Font = new System.Drawing.Font("Baloo 2", 13.8F);
-            this.CoSoComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.CoSoComboBox.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold);
+            this.CoSoComboBox.ForeColor = System.Drawing.Color.White;
             this.CoSoComboBox.FormattingEnabled = true;
             this.CoSoComboBox.HoverState.Parent = this.CoSoComboBox;
             this.CoSoComboBox.ItemHeight = 30;
@@ -223,7 +225,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // buttonPrint
             // 
             this.buttonPrint.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(110)))), ((int)(((byte)(190)))));
+            this.buttonPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
             this.buttonPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPrint.Font = new System.Drawing.Font("Baloo 2 SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPrint.ForeColor = System.Drawing.SystemColors.ButtonHighlight;

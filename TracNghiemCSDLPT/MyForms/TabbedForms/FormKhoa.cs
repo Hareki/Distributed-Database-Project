@@ -110,7 +110,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                 pass = DBConnection.Password;
             }
             bool success = DBConnection.ConnectToSubcriber(login, pass, serverName);
-            if (!success)
+            if (success)
             {
                 LoadAllData();
                 this._previousIndexCS = this.CoSoComboBox.SelectedIndex;

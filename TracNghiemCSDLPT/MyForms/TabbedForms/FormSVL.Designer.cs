@@ -99,6 +99,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.BangDiemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BangDiemTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.BANGDIEMTableAdapter();
             this.lOPBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.Khoa2BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Khoa2TableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.KHOA2TableAdapter();
             mALOPLabel = new System.Windows.Forms.Label();
             tENLOPLabel = new System.Windows.Forms.Label();
             mAKHLabel = new System.Windows.Forms.Label();
@@ -128,6 +130,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BangDiemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Khoa2BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // LopGridView
@@ -373,7 +376,9 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BAITHITableAdapter = null;
             this.tableAdapterManager.BANGDIEMTableAdapter = null;
+            this.tableAdapterManager.BODE_BKTableAdapter = null;
             this.tableAdapterManager.BODETableAdapter = null;
             this.tableAdapterManager.COSOTableAdapter = null;
             this.tableAdapterManager.GIAOVIEN_DANGKYTableAdapter = null;
@@ -411,7 +416,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // 
             this.ComboMaKH.BackColor = System.Drawing.Color.Transparent;
             this.ComboMaKH.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.ComboMaKH.DataSource = this.KhoaBindingSource;
+            this.ComboMaKH.DataSource = this.Khoa2BindingSource;
             this.ComboMaKH.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.ComboMaKH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboMaKH.Enabled = false;
@@ -1056,14 +1061,17 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // MaLopEP
             // 
             this.MaLopEP.ContainerControl = this;
+            this.MaLopEP.Icon = ((System.Drawing.Icon)(resources.GetObject("MaLopEP.Icon")));
             // 
             // TenLopEP
             // 
             this.TenLopEP.ContainerControl = this;
+            this.TenLopEP.Icon = ((System.Drawing.Icon)(resources.GetObject("TenLopEP.Icon")));
             // 
             // MaKhoaEP
             // 
             this.MaKhoaEP.ContainerControl = this;
+            this.MaKhoaEP.Icon = ((System.Drawing.Icon)(resources.GetObject("MaKhoaEP.Icon")));
             // 
             // TextMaKH
             // 
@@ -1138,6 +1146,15 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.lOPBindingSource1.DataMember = "FK_LOP_KHOA";
             this.lOPBindingSource1.DataSource = this.KhoaBindingSource;
             // 
+            // Khoa2BindingSource
+            // 
+            this.Khoa2BindingSource.DataMember = "KHOA2";
+            this.Khoa2BindingSource.DataSource = this.TN_CSDLPTDataSet;
+            // 
+            // Khoa2TableAdapter
+            // 
+            this.Khoa2TableAdapter.ClearBeforeFill = true;
+            // 
             // FormSVL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -1189,6 +1206,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BangDiemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Khoa2BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1260,5 +1278,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         private System.Windows.Forms.BindingSource BangDiemBindingSource;
         private TN_CSDLPTDataSetTableAdapters.BANGDIEMTableAdapter BangDiemTableAdapter;
         private System.Windows.Forms.BindingSource lOPBindingSource1;
+        private System.Windows.Forms.BindingSource Khoa2BindingSource;
+        private TN_CSDLPTDataSetTableAdapters.KHOA2TableAdapter Khoa2TableAdapter;
     }
 }

@@ -145,11 +145,16 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             LopBindingSource.Position = LopBindingSource.Find("MALOP", MaLop);
             string maLop = ((DataRowView)LopBindingSource[LopBindingSource.Position])["MALOP"].ToString();
             this.ViewCaption.Text = "Danh sách sinh viên thuộc lớp " + maLop.Trim();
+
+            string maKH = ((DataRowView)LopBindingSource[LopBindingSource.Position])["MAKH"].ToString();
+            Khoa2BindingSource.Position = Khoa2BindingSource.Find("MAKH", maKH);
             return detailView;
 
         }
         private void FormSVL_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'TN_CSDLPTDataSet.KHOA2' table. You can move, or remove it, as needed.
+            this.Khoa2TableAdapter.Fill(this.TN_CSDLPTDataSet.KHOA2);
 
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
 
@@ -269,7 +274,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
 
             saveKHIndex = ComboMaKH.SelectedIndex;
             KhoaGridControl.Enabled = false;
-            KhoaBindingSource.SuspendBinding();
+           // KhoaBindingSource.SuspendBinding();
             ComboMaKH.SelectedIndex = 0;
 
             state = State.addLop;
@@ -284,7 +289,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                 TextTenLop.ForeColor = ComboMaKH.ForeColor = DisabledForeColor;
 
             KhoaGridControl.Enabled = true;
-            KhoaBindingSource.ResumeBinding();
+           // KhoaBindingSource.ResumeBinding();
             ComboMaKH.SelectedIndex = saveKHIndex;
 
             LopBindingSource.CancelEdit();
@@ -492,9 +497,9 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             }
             try
             {
-                saveKHIndex = ComboMaKH.SelectedIndex; //giữ lại index trước khi bị reset, rồi gán lại cho combo
-                KhoaBindingSource.ResumeBinding();
-                ComboMaKH.SelectedIndex = saveKHIndex;
+            //    saveKHIndex = ComboMaKH.SelectedIndex; //giữ lại index trước khi bị reset, rồi gán lại cho combo
+              //  KhoaBindingSource.ResumeBinding();
+           //     ComboMaKH.SelectedIndex = saveKHIndex;
                 TextMaKH.Text = ComboMaKH.SelectedValue.ToString();//truyền giá trị vào để đủ dữ liệu trước khi end edit
                 LopBindingSource.EndEdit();
                 LopBindingSource.ResetCurrentItem();

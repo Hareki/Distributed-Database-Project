@@ -347,7 +347,6 @@ namespace TracNghiemCSDLPT
             else if (ShowPassword == true)
                 TextPassword.UseSystemPasswordChar = true;
         }
-
     }
 
     class MyFormPainter : FormPainter

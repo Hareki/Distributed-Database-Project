@@ -98,16 +98,15 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
 
         private void SetIdleButtonEnabledGV(bool state)
         {
-            buttonThemGV.Enabled = buttonSuaGV.Enabled =
-                buttonXoaGV.Enabled = state;
+            buttonThemGV.Enabled = buttonSuaGV.Enabled = buttonUndoGV.Enabled =
+              buttonRedoGV.Enabled = buttonXoaGV.Enabled = state;
             if (Utils.IsTruong()) buttonLamMoiGV.Enabled = true;
             else buttonLamMoiGV.Enabled = state;
         }
 
         private void SetInputButtonEnabledGV(bool state)
         {
-            buttonUndoGV.Visible = buttonRedoGV.Visible =
-                buttonHuyGV.Visible = buttonXacNhanGV.Visible = state;
+            buttonHuyGV.Visible = buttonXacNhanGV.Visible = state;
         }
         private void SetKhoaState(bool state)
         {
@@ -305,7 +304,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
             if (myReader == null)
             {
-                Utils.ShowMessage("Xảy ra lỗi không xác định", Others.NotiForm.FormType.Error, 1);
                 Console.WriteLine(System.Environment.StackTrace);
                 return true;
             }

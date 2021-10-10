@@ -583,6 +583,16 @@ namespace TracNghiemCSDLPT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap redo_white {
+            get {
+                object obj = ResourceManager.GetObject("redo white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap registration_600px {
             get {
                 object obj = ResourceManager.GetObject("registration_600px", resourceCulture);
@@ -756,6 +766,16 @@ namespace TracNghiemCSDLPT.Properties {
         internal static System.Drawing.Bitmap undo_480px1 {
             get {
                 object obj = ResourceManager.GetObject("undo_480px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap undo_white {
+            get {
+                object obj = ResourceManager.GetObject("undo white", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

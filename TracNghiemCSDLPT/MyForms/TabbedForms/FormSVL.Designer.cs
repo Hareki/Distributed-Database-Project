@@ -51,13 +51,16 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.tableAdapterManager = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
             this.InfoPanel = new System.Windows.Forms.GroupBox();
             this.ComboMaKH = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.Khoa2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonLamMoiLop = new Guna.UI2.WinForms.Guna2Button();
             this.buttonSuaLop = new Guna.UI2.WinForms.Guna2Button();
             this.buttonThemLop = new Guna.UI2.WinForms.Guna2Button();
             this.buttonXoaLop = new Guna.UI2.WinForms.Guna2Button();
+            this.buttonHuyLop = new Guna.UI2.WinForms.Guna2CircleButton();
             this.TextTenLop = new DevExpress.XtraEditors.TextEdit();
             this.LopBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TextMaLop = new DevExpress.XtraEditors.TextEdit();
+            this.buttonXacNhanLop = new Guna.UI2.WinForms.Guna2CircleButton();
             this.SinhVienGridControl = new DevExpress.XtraGrid.GridControl();
             this.SinhVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SinhVienGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -78,29 +81,25 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.LopTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.LOPTableAdapter();
             this.SinhVienTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.SINHVIENTableAdapter();
             this.CoSoComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.buttonHuyLop = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.buttonRedoLop = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.buttonUndoLop = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.buttonXacNhanLop = new Guna.UI2.WinForms.Guna2CircleButton();
             this.buttonHuySV = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.buttonRedoSV = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.buttonUndoSV = new Guna.UI2.WinForms.Guna2CircleButton();
             this.buttonXacNhanSV = new Guna.UI2.WinForms.Guna2CircleButton();
             this.MaLopEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.TenLopEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.MaKhoaEP = new System.Windows.Forms.ErrorProvider(this.components);
-            this.TextMaKH = new DevExpress.XtraEditors.TextEdit();
             this.GV_DKBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.GV_DKTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.GIAOVIEN_DANGKYTableAdapter();
             this.ViewCaption = new System.Windows.Forms.Label();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.buttonUndoSV = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.buttonRedoSV = new Guna.UI2.WinForms.Guna2CircleButton();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             this.BangDiemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BangDiemTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.BANGDIEMTableAdapter();
             this.lOPBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.Khoa2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Khoa2TableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.KHOA2TableAdapter();
+            this.buttonUndoLop = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.buttonRedoLop = new Guna.UI2.WinForms.Guna2CircleButton();
             mALOPLabel = new System.Windows.Forms.Label();
             tENLOPLabel = new System.Windows.Forms.Label();
             mAKHLabel = new System.Windows.Forms.Label();
@@ -110,6 +109,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KhoaGridView)).BeginInit();
             this.InfoPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Khoa2BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextTenLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LopBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextMaLop.Properties)).BeginInit();
@@ -123,14 +123,12 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             ((System.ComponentModel.ISupportInitialize)(this.MaLopEP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TenLopEP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaKhoaEP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TextMaKH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GV_DKBindingSource)).BeginInit();
             this.bunifuPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BangDiemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Khoa2BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // LopGridView
@@ -300,6 +298,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.KhoaGridView.OptionsView.ShowIndicator = false;
             this.KhoaGridView.OptionsView.ShowViewCaption = true;
             this.KhoaGridView.ViewCaption = "Danh sách lớp theo khoa";
+            this.KhoaGridView.ViewCaptionHeight = 50;
             this.KhoaGridView.MasterRowGetRelationDisplayCaption += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationNameEventHandler(this.KhoaGridView_MasterRowGetRelationDisplayCaption);
             this.KhoaGridView.DetailTabStyle += new System.EventHandler<DevExpress.XtraGrid.Views.Grid.DetailTabStyleEventArgs>(this.KhoaGridView_DetailTabStyle);
             // 
@@ -398,16 +397,18 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.InfoPanel.Controls.Add(mAKHLabel);
             this.InfoPanel.Controls.Add(this.buttonThemLop);
             this.InfoPanel.Controls.Add(this.buttonXoaLop);
+            this.InfoPanel.Controls.Add(this.buttonHuyLop);
             this.InfoPanel.Controls.Add(tENLOPLabel);
             this.InfoPanel.Controls.Add(this.TextTenLop);
             this.InfoPanel.Controls.Add(mALOPLabel);
             this.InfoPanel.Controls.Add(this.TextMaLop);
+            this.InfoPanel.Controls.Add(this.buttonXacNhanLop);
             this.InfoPanel.Font = new System.Drawing.Font("Baloo 2", 13.8F, System.Drawing.FontStyle.Bold);
             this.InfoPanel.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.InfoPanel.Location = new System.Drawing.Point(959, 67);
+            this.InfoPanel.Location = new System.Drawing.Point(959, 49);
             this.InfoPanel.Margin = new System.Windows.Forms.Padding(15, 3, 3, 3);
             this.InfoPanel.Name = "InfoPanel";
-            this.InfoPanel.Size = new System.Drawing.Size(459, 351);
+            this.InfoPanel.Size = new System.Drawing.Size(459, 369);
             this.InfoPanel.TabIndex = 14;
             this.InfoPanel.TabStop = false;
             this.InfoPanel.Text = "Thông tin lớp";
@@ -433,6 +434,11 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.ComboMaKH.ShadowDecoration.Parent = this.ComboMaKH;
             this.ComboMaKH.Size = new System.Drawing.Size(292, 36);
             this.ComboMaKH.TabIndex = 20;
+            // 
+            // Khoa2BindingSource
+            // 
+            this.Khoa2BindingSource.DataMember = "KHOA2";
+            this.Khoa2BindingSource.DataSource = this.TN_CSDLPTDataSet;
             // 
             // buttonLamMoiLop
             // 
@@ -526,6 +532,27 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonXoaLop.Text = "Xóa";
             this.buttonXoaLop.Click += new System.EventHandler(this.buttonXoaLop_Click);
             // 
+            // buttonHuyLop
+            // 
+            this.buttonHuyLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonHuyLop.CheckedState.Parent = this.buttonHuyLop;
+            this.buttonHuyLop.CustomImages.Parent = this.buttonHuyLop;
+            this.buttonHuyLop.FillColor = System.Drawing.Color.Transparent;
+            this.buttonHuyLop.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonHuyLop.ForeColor = System.Drawing.Color.White;
+            this.buttonHuyLop.HoverState.Parent = this.buttonHuyLop;
+            this.buttonHuyLop.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
+            this.buttonHuyLop.ImageSize = new System.Drawing.Size(30, 30);
+            this.buttonHuyLop.Location = new System.Drawing.Point(268, 27);
+            this.buttonHuyLop.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this.buttonHuyLop.Name = "buttonHuyLop";
+            this.buttonHuyLop.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.buttonHuyLop.ShadowDecoration.Parent = this.buttonHuyLop;
+            this.buttonHuyLop.Size = new System.Drawing.Size(30, 30);
+            this.buttonHuyLop.TabIndex = 21;
+            this.buttonHuyLop.Visible = false;
+            this.buttonHuyLop.Click += new System.EventHandler(this.buttonHuyLop_Click);
+            // 
             // TextTenLop
             // 
             this.TextTenLop.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LopBindingSource, "TENLOP", true));
@@ -559,6 +586,27 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.TextMaLop.Properties.Appearance.Options.UseForeColor = true;
             this.TextMaLop.Size = new System.Drawing.Size(291, 34);
             this.TextMaLop.TabIndex = 1;
+            // 
+            // buttonXacNhanLop
+            // 
+            this.buttonXacNhanLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonXacNhanLop.CheckedState.Parent = this.buttonXacNhanLop;
+            this.buttonXacNhanLop.CustomImages.Parent = this.buttonXacNhanLop;
+            this.buttonXacNhanLop.FillColor = System.Drawing.Color.Transparent;
+            this.buttonXacNhanLop.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonXacNhanLop.ForeColor = System.Drawing.Color.White;
+            this.buttonXacNhanLop.HoverState.Parent = this.buttonXacNhanLop;
+            this.buttonXacNhanLop.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
+            this.buttonXacNhanLop.ImageSize = new System.Drawing.Size(30, 30);
+            this.buttonXacNhanLop.Location = new System.Drawing.Point(215, 27);
+            this.buttonXacNhanLop.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this.buttonXacNhanLop.Name = "buttonXacNhanLop";
+            this.buttonXacNhanLop.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.buttonXacNhanLop.ShadowDecoration.Parent = this.buttonXacNhanLop;
+            this.buttonXacNhanLop.Size = new System.Drawing.Size(30, 30);
+            this.buttonXacNhanLop.TabIndex = 24;
+            this.buttonXacNhanLop.Visible = false;
+            this.buttonXacNhanLop.Click += new System.EventHandler(this.buttonXacNhanLop_Click);
             // 
             // SinhVienGridControl
             // 
@@ -890,88 +938,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.CoSoComboBox.TextOffset = new System.Drawing.Point(3, 3);
             this.CoSoComboBox.SelectedIndexChanged += new System.EventHandler(this.CoSoComboBox_SelectedIndexChanged);
             // 
-            // buttonHuyLop
-            // 
-            this.buttonHuyLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonHuyLop.CheckedState.Parent = this.buttonHuyLop;
-            this.buttonHuyLop.CustomImages.Parent = this.buttonHuyLop;
-            this.buttonHuyLop.FillColor = System.Drawing.Color.Transparent;
-            this.buttonHuyLop.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonHuyLop.ForeColor = System.Drawing.Color.White;
-            this.buttonHuyLop.HoverState.Parent = this.buttonHuyLop;
-            this.buttonHuyLop.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
-            this.buttonHuyLop.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonHuyLop.Location = new System.Drawing.Point(1066, 31);
-            this.buttonHuyLop.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
-            this.buttonHuyLop.Name = "buttonHuyLop";
-            this.buttonHuyLop.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.buttonHuyLop.ShadowDecoration.Parent = this.buttonHuyLop;
-            this.buttonHuyLop.Size = new System.Drawing.Size(30, 30);
-            this.buttonHuyLop.TabIndex = 21;
-            this.buttonHuyLop.Visible = false;
-            this.buttonHuyLop.Click += new System.EventHandler(this.buttonHuyLop_Click);
-            // 
-            // buttonRedoLop
-            // 
-            this.buttonRedoLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonRedoLop.CheckedState.Parent = this.buttonRedoLop;
-            this.buttonRedoLop.CustomImages.Parent = this.buttonRedoLop;
-            this.buttonRedoLop.FillColor = System.Drawing.Color.Transparent;
-            this.buttonRedoLop.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonRedoLop.ForeColor = System.Drawing.Color.White;
-            this.buttonRedoLop.HoverState.Parent = this.buttonRedoLop;
-            this.buttonRedoLop.Image = global::TracNghiemCSDLPT.Properties.Resources.redo_480px;
-            this.buttonRedoLop.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonRedoLop.Location = new System.Drawing.Point(1366, 31);
-            this.buttonRedoLop.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
-            this.buttonRedoLop.Name = "buttonRedoLop";
-            this.buttonRedoLop.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.buttonRedoLop.ShadowDecoration.Parent = this.buttonRedoLop;
-            this.buttonRedoLop.Size = new System.Drawing.Size(32, 32);
-            this.buttonRedoLop.TabIndex = 22;
-            this.buttonRedoLop.Visible = false;
-            // 
-            // buttonUndoLop
-            // 
-            this.buttonUndoLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUndoLop.CheckedState.Parent = this.buttonUndoLop;
-            this.buttonUndoLop.CustomImages.Parent = this.buttonUndoLop;
-            this.buttonUndoLop.FillColor = System.Drawing.Color.Transparent;
-            this.buttonUndoLop.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonUndoLop.ForeColor = System.Drawing.Color.White;
-            this.buttonUndoLop.HoverState.Parent = this.buttonUndoLop;
-            this.buttonUndoLop.Image = global::TracNghiemCSDLPT.Properties.Resources.undo_480px1;
-            this.buttonUndoLop.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonUndoLop.Location = new System.Drawing.Point(1313, 31);
-            this.buttonUndoLop.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
-            this.buttonUndoLop.Name = "buttonUndoLop";
-            this.buttonUndoLop.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.buttonUndoLop.ShadowDecoration.Parent = this.buttonUndoLop;
-            this.buttonUndoLop.Size = new System.Drawing.Size(32, 32);
-            this.buttonUndoLop.TabIndex = 23;
-            this.buttonUndoLop.Visible = false;
-            // 
-            // buttonXacNhanLop
-            // 
-            this.buttonXacNhanLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonXacNhanLop.CheckedState.Parent = this.buttonXacNhanLop;
-            this.buttonXacNhanLop.CustomImages.Parent = this.buttonXacNhanLop;
-            this.buttonXacNhanLop.FillColor = System.Drawing.Color.Transparent;
-            this.buttonXacNhanLop.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonXacNhanLop.ForeColor = System.Drawing.Color.White;
-            this.buttonXacNhanLop.HoverState.Parent = this.buttonXacNhanLop;
-            this.buttonXacNhanLop.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
-            this.buttonXacNhanLop.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonXacNhanLop.Location = new System.Drawing.Point(1013, 31);
-            this.buttonXacNhanLop.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
-            this.buttonXacNhanLop.Name = "buttonXacNhanLop";
-            this.buttonXacNhanLop.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.buttonXacNhanLop.ShadowDecoration.Parent = this.buttonXacNhanLop;
-            this.buttonXacNhanLop.Size = new System.Drawing.Size(30, 30);
-            this.buttonXacNhanLop.TabIndex = 24;
-            this.buttonXacNhanLop.Visible = false;
-            this.buttonXacNhanLop.Click += new System.EventHandler(this.buttonXacNhanLop_Click);
-            // 
             // buttonHuySV
             // 
             this.buttonHuySV.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -984,7 +950,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonHuySV.HoverState.Parent = this.buttonHuySV;
             this.buttonHuySV.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
             this.buttonHuySV.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonHuySV.Location = new System.Drawing.Point(346, 8);
+            this.buttonHuySV.Location = new System.Drawing.Point(68, 10);
             this.buttonHuySV.Margin = new System.Windows.Forms.Padding(3, 3, 50, 3);
             this.buttonHuySV.Name = "buttonHuySV";
             this.buttonHuySV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -993,48 +959,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonHuySV.TabIndex = 25;
             this.buttonHuySV.Visible = false;
             this.buttonHuySV.Click += new System.EventHandler(this.buttonHuySV_Click);
-            // 
-            // buttonRedoSV
-            // 
-            this.buttonRedoSV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonRedoSV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.buttonRedoSV.CheckedState.Parent = this.buttonRedoSV;
-            this.buttonRedoSV.CustomImages.Parent = this.buttonRedoSV;
-            this.buttonRedoSV.FillColor = System.Drawing.Color.Transparent;
-            this.buttonRedoSV.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonRedoSV.ForeColor = System.Drawing.Color.White;
-            this.buttonRedoSV.HoverState.Parent = this.buttonRedoSV;
-            this.buttonRedoSV.Image = global::TracNghiemCSDLPT.Properties.Resources.redo_480px;
-            this.buttonRedoSV.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonRedoSV.Location = new System.Drawing.Point(943, 8);
-            this.buttonRedoSV.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
-            this.buttonRedoSV.Name = "buttonRedoSV";
-            this.buttonRedoSV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.buttonRedoSV.ShadowDecoration.Parent = this.buttonRedoSV;
-            this.buttonRedoSV.Size = new System.Drawing.Size(32, 32);
-            this.buttonRedoSV.TabIndex = 26;
-            this.buttonRedoSV.Visible = false;
-            // 
-            // buttonUndoSV
-            // 
-            this.buttonUndoSV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonUndoSV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.buttonUndoSV.CheckedState.Parent = this.buttonUndoSV;
-            this.buttonUndoSV.CustomImages.Parent = this.buttonUndoSV;
-            this.buttonUndoSV.FillColor = System.Drawing.Color.Transparent;
-            this.buttonUndoSV.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonUndoSV.ForeColor = System.Drawing.Color.White;
-            this.buttonUndoSV.HoverState.Parent = this.buttonUndoSV;
-            this.buttonUndoSV.Image = global::TracNghiemCSDLPT.Properties.Resources.undo_480px1;
-            this.buttonUndoSV.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonUndoSV.Location = new System.Drawing.Point(888, 8);
-            this.buttonUndoSV.Margin = new System.Windows.Forms.Padding(50, 3, 20, 3);
-            this.buttonUndoSV.Name = "buttonUndoSV";
-            this.buttonUndoSV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.buttonUndoSV.ShadowDecoration.Parent = this.buttonUndoSV;
-            this.buttonUndoSV.Size = new System.Drawing.Size(32, 32);
-            this.buttonUndoSV.TabIndex = 27;
-            this.buttonUndoSV.Visible = false;
             // 
             // buttonXacNhanSV
             // 
@@ -1048,8 +972,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonXacNhanSV.HoverState.Parent = this.buttonXacNhanSV;
             this.buttonXacNhanSV.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
             this.buttonXacNhanSV.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonXacNhanSV.Location = new System.Drawing.Point(291, 8);
-            this.buttonXacNhanSV.Margin = new System.Windows.Forms.Padding(3, 0, 20, 3);
+            this.buttonXacNhanSV.Location = new System.Drawing.Point(15, 10);
+            this.buttonXacNhanSV.Margin = new System.Windows.Forms.Padding(15, 0, 20, 3);
             this.buttonXacNhanSV.Name = "buttonXacNhanSV";
             this.buttonXacNhanSV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.buttonXacNhanSV.ShadowDecoration.Parent = this.buttonXacNhanSV;
@@ -1072,14 +996,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // 
             this.MaKhoaEP.ContainerControl = this;
             this.MaKhoaEP.Icon = ((System.Drawing.Icon)(resources.GetObject("MaKhoaEP.Icon")));
-            // 
-            // TextMaKH
-            // 
-            this.TextMaKH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LopBindingSource, "MAKH", true));
-            this.TextMaKH.Location = new System.Drawing.Point(249, 25);
-            this.TextMaKH.Name = "TextMaKH";
-            this.TextMaKH.Size = new System.Drawing.Size(27, 22);
-            this.TextMaKH.TabIndex = 29;
             // 
             // GV_DKBindingSource
             // 
@@ -1113,16 +1029,58 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.bunifuPanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
             this.bunifuPanel1.BorderRadius = 3;
             this.bunifuPanel1.BorderThickness = 1;
-            this.bunifuPanel1.Controls.Add(this.ViewCaption);
-            this.bunifuPanel1.Controls.Add(this.buttonRedoSV);
-            this.bunifuPanel1.Controls.Add(this.buttonXacNhanSV);
             this.bunifuPanel1.Controls.Add(this.buttonUndoSV);
+            this.bunifuPanel1.Controls.Add(this.buttonRedoSV);
+            this.bunifuPanel1.Controls.Add(this.ViewCaption);
+            this.bunifuPanel1.Controls.Add(this.buttonXacNhanSV);
             this.bunifuPanel1.Controls.Add(this.buttonHuySV);
             this.bunifuPanel1.Location = new System.Drawing.Point(149, 445);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
             this.bunifuPanel1.Size = new System.Drawing.Size(1267, 48);
             this.bunifuPanel1.TabIndex = 31;
+            // 
+            // buttonUndoSV
+            // 
+            this.buttonUndoSV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonUndoSV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.buttonUndoSV.CheckedState.Parent = this.buttonUndoSV;
+            this.buttonUndoSV.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonUndoSV.CustomImages.Parent = this.buttonUndoSV;
+            this.buttonUndoSV.FillColor = System.Drawing.Color.Transparent;
+            this.buttonUndoSV.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonUndoSV.ForeColor = System.Drawing.Color.White;
+            this.buttonUndoSV.HoverState.Parent = this.buttonUndoSV;
+            this.buttonUndoSV.Image = global::TracNghiemCSDLPT.Properties.Resources.undo_480px1;
+            this.buttonUndoSV.ImageSize = new System.Drawing.Size(30, 30);
+            this.buttonUndoSV.Location = new System.Drawing.Point(1151, 10);
+            this.buttonUndoSV.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.buttonUndoSV.Name = "buttonUndoSV";
+            this.buttonUndoSV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.buttonUndoSV.ShadowDecoration.Parent = this.buttonUndoSV;
+            this.buttonUndoSV.Size = new System.Drawing.Size(32, 32);
+            this.buttonUndoSV.TabIndex = 32;
+            // 
+            // buttonRedoSV
+            // 
+            this.buttonRedoSV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonRedoSV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.buttonRedoSV.CheckedState.Parent = this.buttonRedoSV;
+            this.buttonRedoSV.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonRedoSV.CustomImages.Parent = this.buttonRedoSV;
+            this.buttonRedoSV.FillColor = System.Drawing.Color.Transparent;
+            this.buttonRedoSV.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonRedoSV.ForeColor = System.Drawing.Color.White;
+            this.buttonRedoSV.HoverState.Parent = this.buttonRedoSV;
+            this.buttonRedoSV.Image = global::TracNghiemCSDLPT.Properties.Resources.redo_480px;
+            this.buttonRedoSV.ImageSize = new System.Drawing.Size(30, 30);
+            this.buttonRedoSV.Location = new System.Drawing.Point(1216, 10);
+            this.buttonRedoSV.Margin = new System.Windows.Forms.Padding(20, 10, 15, 3);
+            this.buttonRedoSV.Name = "buttonRedoSV";
+            this.buttonRedoSV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.buttonRedoSV.ShadowDecoration.Parent = this.buttonRedoSV;
+            this.buttonRedoSV.Size = new System.Drawing.Size(32, 32);
+            this.buttonRedoSV.TabIndex = 33;
             // 
             // errorProvider1
             // 
@@ -1146,31 +1104,67 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.lOPBindingSource1.DataMember = "FK_LOP_KHOA";
             this.lOPBindingSource1.DataSource = this.KhoaBindingSource;
             // 
-            // Khoa2BindingSource
-            // 
-            this.Khoa2BindingSource.DataMember = "KHOA2";
-            this.Khoa2BindingSource.DataSource = this.TN_CSDLPTDataSet;
-            // 
             // Khoa2TableAdapter
             // 
             this.Khoa2TableAdapter.ClearBeforeFill = true;
+            // 
+            // buttonUndoLop
+            // 
+            this.buttonUndoLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonUndoLop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.buttonUndoLop.CheckedState.Parent = this.buttonUndoLop;
+            this.buttonUndoLop.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonUndoLop.CustomImages.Parent = this.buttonUndoLop;
+            this.buttonUndoLop.Enabled = false;
+            this.buttonUndoLop.FillColor = System.Drawing.Color.Transparent;
+            this.buttonUndoLop.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonUndoLop.ForeColor = System.Drawing.Color.White;
+            this.buttonUndoLop.HoverState.Parent = this.buttonUndoLop;
+            this.buttonUndoLop.Image = global::TracNghiemCSDLPT.Properties.Resources.undo_480px1;
+            this.buttonUndoLop.ImageSize = new System.Drawing.Size(30, 30);
+            this.buttonUndoLop.Location = new System.Drawing.Point(835, 76);
+            this.buttonUndoLop.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.buttonUndoLop.Name = "buttonUndoLop";
+            this.buttonUndoLop.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.buttonUndoLop.ShadowDecoration.Parent = this.buttonUndoLop;
+            this.buttonUndoLop.Size = new System.Drawing.Size(32, 32);
+            this.buttonUndoLop.TabIndex = 32;
+            // 
+            // buttonRedoLop
+            // 
+            this.buttonRedoLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonRedoLop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.buttonRedoLop.CheckedState.Parent = this.buttonRedoLop;
+            this.buttonRedoLop.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonRedoLop.CustomImages.Parent = this.buttonRedoLop;
+            this.buttonRedoLop.Enabled = false;
+            this.buttonRedoLop.FillColor = System.Drawing.Color.Transparent;
+            this.buttonRedoLop.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonRedoLop.ForeColor = System.Drawing.Color.White;
+            this.buttonRedoLop.HoverState.Parent = this.buttonRedoLop;
+            this.buttonRedoLop.Image = global::TracNghiemCSDLPT.Properties.Resources.redo_480px;
+            this.buttonRedoLop.ImageSize = new System.Drawing.Size(30, 30);
+            this.buttonRedoLop.Location = new System.Drawing.Point(897, 76);
+            this.buttonRedoLop.Margin = new System.Windows.Forms.Padding(20, 5, 15, 3);
+            this.buttonRedoLop.Name = "buttonRedoLop";
+            this.buttonRedoLop.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.buttonRedoLop.ShadowDecoration.Parent = this.buttonRedoLop;
+            this.buttonRedoLop.Size = new System.Drawing.Size(32, 32);
+            this.buttonRedoLop.TabIndex = 33;
             // 
             // FormSVL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1421, 805);
+            this.Controls.Add(this.buttonUndoLop);
+            this.Controls.Add(this.buttonRedoLop);
             this.Controls.Add(this.CoSoComboBox);
             this.Controls.Add(this.SinhVienGridControl);
             this.Controls.Add(this.bunifuPanel1);
-            this.Controls.Add(this.TextMaKH);
-            this.Controls.Add(this.buttonHuyLop);
-            this.Controls.Add(this.buttonRedoLop);
             this.Controls.Add(this.bunifuSeparator1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonUndoLop);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.buttonXacNhanLop);
             this.Controls.Add(this.InfoPanel);
             this.Controls.Add(this.KhoaGridControl);
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("FormSVL.IconOptions.Icon")));
@@ -1185,6 +1179,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             ((System.ComponentModel.ISupportInitialize)(this.KhoaGridView)).EndInit();
             this.InfoPanel.ResumeLayout(false);
             this.InfoPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Khoa2BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextTenLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LopBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextMaLop.Properties)).EndInit();
@@ -1198,7 +1193,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             ((System.ComponentModel.ISupportInitialize)(this.MaLopEP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TenLopEP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaKhoaEP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TextMaKH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GV_DKBindingSource)).EndInit();
             this.bunifuPanel1.ResumeLayout(false);
             this.bunifuPanel1.PerformLayout();
@@ -1206,7 +1200,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BangDiemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Khoa2BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1254,18 +1247,13 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         private DevExpress.XtraGrid.Columns.GridColumn colTENLOP;
         private DevExpress.XtraGrid.Columns.GridColumn colMAKH1;
         private Guna.UI2.WinForms.Guna2ComboBox CoSoComboBox;
-        private Guna.UI2.WinForms.Guna2CircleButton buttonRedoLop;
-        private Guna.UI2.WinForms.Guna2CircleButton buttonUndoLop;
         private Guna.UI2.WinForms.Guna2CircleButton buttonHuyLop;
         private Guna.UI2.WinForms.Guna2CircleButton buttonXacNhanLop;
         private Guna.UI2.WinForms.Guna2CircleButton buttonHuySV;
-        private Guna.UI2.WinForms.Guna2CircleButton buttonRedoSV;
-        private Guna.UI2.WinForms.Guna2CircleButton buttonUndoSV;
         private Guna.UI2.WinForms.Guna2CircleButton buttonXacNhanSV;
         private System.Windows.Forms.ErrorProvider MaLopEP;
         private System.Windows.Forms.ErrorProvider TenLopEP;
         private System.Windows.Forms.ErrorProvider MaKhoaEP;
-        private DevExpress.XtraEditors.TextEdit TextMaKH;
         private Guna.UI2.WinForms.Guna2ComboBox ComboMaKH;
         private System.Windows.Forms.BindingSource GV_DKBindingSource;
         private TN_CSDLPTDataSetTableAdapters.GIAOVIEN_DANGKYTableAdapter GV_DKTableAdapter;
@@ -1280,5 +1268,9 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         private System.Windows.Forms.BindingSource lOPBindingSource1;
         private System.Windows.Forms.BindingSource Khoa2BindingSource;
         private TN_CSDLPTDataSetTableAdapters.KHOA2TableAdapter Khoa2TableAdapter;
+        private Guna.UI2.WinForms.Guna2CircleButton buttonUndoLop;
+        private Guna.UI2.WinForms.Guna2CircleButton buttonRedoLop;
+        private Guna.UI2.WinForms.Guna2CircleButton buttonUndoSV;
+        private Guna.UI2.WinForms.Guna2CircleButton buttonRedoSV;
     }
 }

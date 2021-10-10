@@ -68,14 +68,23 @@ namespace TracNghiemCSDLPT.Views
 
         private void SetIdleButtonEnabled(bool state)
         {
-            buttonThem.Enabled = buttonXoa.Enabled =
+            buttonThem.Enabled = buttonXoa.Enabled = buttonUndo.Enabled = buttonRedo.Enabled = 
                  buttonSua.Enabled = state;
             if (Utils.IsTruong()) buttonLamMoi.Enabled = true;
             else buttonLamMoi.Enabled = state;
+
+            if (state == false)
+            {
+                buttonUndo.BackColor = buttonRedo.BackColor = Color.FromArgb(247, 247, 247);
+            }
+            else
+            {
+                buttonUndo.BackColor = buttonRedo.BackColor = Color.FromArgb(240, 240, 240);
+            }
         }
         private void SetInputButtonEnabled(bool state)
         {
-            buttonUndo.Visible = buttonRedo.Visible =
+
                 buttonHuy.Visible = buttonXacNhan.Visible = state;
         }
 
@@ -180,7 +189,7 @@ namespace TracNghiemCSDLPT.Views
                 }
                 catch (Exception ex)
                 {
-                    Utils.ShowErrorMessage("Không thể xóa sinh viên này, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi xóa nhân viên");
+                    Utils.ShowErrorMessage("Không thể xóa môn học này, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi xóa môn học");
                     Console.WriteLine(ex.StackTrace);
                     this.MonHocTableAdapter.Fill(TN_CSDLPTDataSet.MONHOC);
                     MonHocBindingSource.Position = MonHocBindingSource.Find("MAMH", RemovedMH);
@@ -210,7 +219,6 @@ namespace TracNghiemCSDLPT.Views
             SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
             if (myReader == null)
             {
-                Utils.ShowMessage("Xảy ra lỗi không xác định", Others.NotiForm.FormType.Error, 1);
                 Console.WriteLine(System.Environment.StackTrace);
                 return true;
             }
@@ -297,7 +305,7 @@ namespace TracNghiemCSDLPT.Views
             }
             catch (Exception ex)
             {
-                Utils.ShowErrorMessage("Không thể lưu môn học, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi ghi nhân viên");
+                Utils.ShowErrorMessage("Không thể lưu môn học, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi ghi môn học");
                 return;
             }
             MonHocGridControl.Enabled = true;

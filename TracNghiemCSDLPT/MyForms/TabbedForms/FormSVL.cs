@@ -27,7 +27,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         public FormSVL()
         {
             InitializeComponent();
-            PhanQuyen();
+
         }
 
         private void PhanQuyen()
@@ -85,8 +85,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
 
             checkButtonStateLop();
             //    checkButtonStateSV(); lúc nãy chưa có mã lớp, để ở đây sẽ không có dữ liệu
-            PhanQuyen();
-
         }
         private bool checkTheRow(int rowHandle)
         {
@@ -175,6 +173,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             if (view != null)
                 view.Focus();
             checkButtonStateSV();
+            PhanQuyen();
 
         }
 
@@ -235,28 +234,45 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
 
         private void SetIdleButtonEnabledLop(bool state)
         {
-            buttonThemLop.Enabled = buttonSuaLop.Enabled =
+            buttonThemLop.Enabled = buttonSuaLop.Enabled = buttonUndoLop.Enabled = buttonRedoLop.Enabled =
                 buttonXoaLop.Enabled = state;
             if (Utils.IsTruong()) buttonLamMoiLop.Enabled = true;
             else buttonLamMoiLop.Enabled = state;
+
+
+            if (state == false)
+            {
+                buttonUndoLop.BackColor = buttonRedoLop.BackColor = Color.FromArgb(247, 247, 247);
+            }
+            else
+            {
+                buttonUndoLop.BackColor = buttonRedoLop.BackColor = Color.FromArgb(240, 240, 240);
+            }
         }
         private void SetInputButtonEnabledLop(bool state)
         {
-            buttonUndoLop.Visible = buttonRedoLop.Visible =
-                buttonHuyLop.Visible = buttonXacNhanLop.Visible = state;
+            buttonHuyLop.Visible = buttonXacNhanLop.Visible = state;
         }
 
         private void SetIdleButtonEnabledSV(bool state)
         {
-            buttonThemSV.Enabled = buttonSuaSV.Enabled =
+            buttonThemSV.Enabled = buttonSuaSV.Enabled = buttonUndoSV.Enabled = buttonRedoSV.Enabled =
                 buttonXoaSV.Enabled = state;
             if (Utils.IsTruong()) buttonLamMoiSV.Enabled = true;
             else buttonLamMoiSV.Enabled = state;
+
+            if (state == false)
+            {
+                buttonUndoSV.BackColor = buttonRedoSV.BackColor = Color.FromArgb(247, 247, 247);
+            }
+            else
+            {
+                buttonUndoSV.BackColor = buttonRedoSV.BackColor = Color.FromArgb(240, 240, 240);
+            }
         }
         private void SetInputButtonEnabledSV(bool state)
         {
-            buttonUndoSV.Visible = buttonRedoSV.Visible =
-                buttonHuySV.Visible = buttonXacNhanSV.Visible = state;
+            buttonHuySV.Visible = buttonXacNhanSV.Visible = state;
         }
 
         private void buttonThemLop_Click(object sender, EventArgs e)
@@ -274,7 +290,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
 
             saveKHIndex = ComboMaKH.SelectedIndex;
             KhoaGridControl.Enabled = false;
-           // KhoaBindingSource.SuspendBinding();
+            // KhoaBindingSource.SuspendBinding();
             ComboMaKH.SelectedIndex = 0;
 
             state = State.addLop;
@@ -289,7 +305,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                 TextTenLop.ForeColor = ComboMaKH.ForeColor = DisabledForeColor;
 
             KhoaGridControl.Enabled = true;
-           // KhoaBindingSource.ResumeBinding();
+            // KhoaBindingSource.ResumeBinding();
             ComboMaKH.SelectedIndex = saveKHIndex;
 
             LopBindingSource.CancelEdit();
@@ -363,7 +379,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
             if (myReader == null)
             {
-                Utils.ShowMessage("Xảy ra lỗi không xác định", Others.NotiForm.FormType.Error, 1);
                 Console.WriteLine(System.Environment.StackTrace);
                 return true;
             }
@@ -389,7 +404,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
             if (myReader == null)
             {
-                Utils.ShowMessage("Xảy ra lỗi không xác định", Others.NotiForm.FormType.Error, 1);
                 Console.WriteLine(System.Environment.StackTrace);
                 return true;
             }
@@ -423,6 +437,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             }
             detailView.Focus();
             detailView.FocusedRowHandle = detailView.RowCount - 1;
+            detailView.MakeRowVisible(detailView.RowCount - 1);
         }
 
         private void GobackAfterReset()
@@ -497,10 +512,11 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             }
             try
             {
-            //    saveKHIndex = ComboMaKH.SelectedIndex; //giữ lại index trước khi bị reset, rồi gán lại cho combo
-              //  KhoaBindingSource.ResumeBinding();
-           //     ComboMaKH.SelectedIndex = saveKHIndex;
-                TextMaKH.Text = ComboMaKH.SelectedValue.ToString();//truyền giá trị vào để đủ dữ liệu trước khi end edit
+                //    saveKHIndex = ComboMaKH.SelectedIndex; //giữ lại index trước khi bị reset, rồi gán lại cho combo
+                //  KhoaBindingSource.ResumeBinding();
+                //     ComboMaKH.SelectedIndex = saveKHIndex;
+                // TextMaKH.Text = ComboMaKH.SelectedValue.ToString();//truyền giá trị vào để đủ dữ liệu trước khi end edit
+                ((DataRowView)LopBindingSource[LopBindingSource.Position])["MAKH"] = ComboMaKH.SelectedValue.ToString();
                 LopBindingSource.EndEdit();
                 LopBindingSource.ResetCurrentItem();
                 this.LopTableAdapter.Update(this.TN_CSDLPTDataSet.LOP);
@@ -526,7 +542,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             }
             catch (Exception ex)
             {
-                Utils.ShowErrorMessage("Không thể lưu lớp, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi ghi nhân viên");
+                Utils.ShowErrorMessage("Không thể lưu lớp, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi ghi lớp");
                 return;
             }
             KhoaGridControl.Enabled = true;
@@ -562,11 +578,11 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                     RemovedLop = ((DataRowView)LopBindingSource[selectedRowLop])["MALOP"].ToString();
                     LopBindingSource.RemoveCurrent();
                     LopTableAdapter.Update(TN_CSDLPTDataSet.LOP);
-                    Utils.ShowMessage("Xóa lớp thành công!", Others.NotiForm.FormType.Success, 1);
+                    Utils.ShowMessage("Xóa lớp " + RemovedLop.Trim() + " thành công!", Others.NotiForm.FormType.Success, 1);
                 }
                 catch (Exception ex)
                 {
-                    Utils.ShowErrorMessage("Không thể xóa nhân viên, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi xóa nhân viên");
+                    Utils.ShowErrorMessage("Không thể xóa lớp này, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi xóa lớp");
                     Console.WriteLine(ex.StackTrace);
                     this.LopTableAdapter.Fill(TN_CSDLPTDataSet.LOP);
                     LopBindingSource.Position = LopBindingSource.Find("MALOP", RemovedLop);
@@ -812,7 +828,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                 }
                 catch (Exception ex)
                 {
-                    Utils.ShowErrorMessage("Không thể xóa sinh viên này, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi xóa nhân viên");
+                    Utils.ShowErrorMessage("Không thể xóa sinh viên này, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi xóa sinh viên");
                     Console.WriteLine(ex.StackTrace);
                     this.SinhVienTableAdapter.Fill(TN_CSDLPTDataSet.SINHVIEN);
                     SinhVienBindingSource.Position = SinhVienBindingSource.Find("MASV", RemovedSV);
@@ -829,12 +845,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             {
                 saveMaKHForReset = ComboMaKH.SelectedValue.ToString();
                 saveMaLopForReset = TextMaLop.Text;
-                this.KhoaTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-                this.KhoaTableAdapter.Fill(this.TN_CSDLPTDataSet.KHOA);
-                this.LopTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-                this.LopTableAdapter.Fill(this.TN_CSDLPTDataSet.LOP);
-                this.SinhVienTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-                this.SinhVienTableAdapter.Fill(this.TN_CSDLPTDataSet.SINHVIEN);
+                LoadAllData();
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
                 //  GobackAfterReset();
                 checkButtonStateLop();
@@ -935,7 +946,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                 }
                 catch (Exception ex)
                 {
-                    Utils.ShowErrorMessage("Không thể lưu thông tin sinh viên, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi ghi nhân viên");
+                    Utils.ShowErrorMessage("Không thể lưu thông tin sinh viên, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi ghi sinh viên");
                     return;
                 }
                 SetLopState(true);

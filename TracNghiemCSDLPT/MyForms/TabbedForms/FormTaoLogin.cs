@@ -117,7 +117,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
             if (myReader == null)
             {
-                Utils.ShowMessage("Xảy ra lỗi không xác định", Others.NotiForm.FormType.Error, 1);
                 Console.WriteLine(System.Environment.StackTrace);
                 return;
             }

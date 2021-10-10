@@ -100,7 +100,8 @@ namespace TracNghiemCSDLPT.SQL_Connection
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
+                Console.WriteLine(ex.StackTrace);
                 return false;
             }
         }
@@ -147,8 +148,9 @@ namespace TracNghiemCSDLPT.SQL_Connection
             catch (SqlException ex)
             {
                 SubcriberConnection.Close();
-                Utils.ShowErrorMessage("Lỗi không xác định (ExecuteSqlDataReader)", "Lỗi kết nối");
-                Console.WriteLine(ex.ToString());
+                Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
+                Console.WriteLine(ex.StackTrace);
+                SubcriberConnection.Close();
                 return null;
             }
         }
@@ -174,8 +176,9 @@ namespace TracNghiemCSDLPT.SQL_Connection
             catch (SqlException ex)
             {
                 SubcriberConnection.Close();
-                Utils.ShowErrorMessage("Lỗi không xác định (ExecuteSqlDataReader)", "Lỗi kết nối");
-                Console.WriteLine(ex.ToString());
+                Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
+                SubcriberConnection.Close();
+                Console.WriteLine(ex.StackTrace);
                 return null;
             }
         }
@@ -196,8 +199,8 @@ namespace TracNghiemCSDLPT.SQL_Connection
             catch (SqlException ex)
             {
                 SubcriberConnection.Close();
-                Utils.ShowErrorMessage("Lỗi không xác định (ExecuteSqlDataTable)", "Lỗi kết nối");
-                Console.WriteLine(ex.ToString());
+                Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
+                Console.WriteLine(ex.StackTrace);
                 return null;
             }
 
@@ -218,8 +221,8 @@ namespace TracNghiemCSDLPT.SQL_Connection
             }
             catch (SqlException ex)
             {
-                Utils.ShowErrorMessage("Lỗi không xác định (ExecuteSqlNonQuery)", "Lỗi kết nối");
-                Console.WriteLine(ex.ToString());
+                Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
+                Console.WriteLine(ex.StackTrace);
                 SubcriberConnection.Close();
                 return false;
             }

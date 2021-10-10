@@ -64,10 +64,10 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonSuaGV = new Guna.UI2.WinForms.Guna2Button();
             this.buttonXoaGV = new Guna.UI2.WinForms.Guna2Button();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.ViewCaption = new System.Windows.Forms.Label();
-            this.buttonRedoGV = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.buttonXacNhanGV = new Guna.UI2.WinForms.Guna2CircleButton();
             this.buttonUndoGV = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.buttonRedoGV = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.ViewCaption = new System.Windows.Forms.Label();
+            this.buttonXacNhanGV = new Guna.UI2.WinForms.Guna2CircleButton();
             this.buttonHuyGV = new Guna.UI2.WinForms.Guna2CircleButton();
             this.BoDeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BoDeTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.BODETableAdapter();
@@ -366,7 +366,9 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BAITHITableAdapter = null;
             this.tableAdapterManager.BANGDIEMTableAdapter = null;
+            this.tableAdapterManager.BODE_BKTableAdapter = null;
             this.tableAdapterManager.BODETableAdapter = null;
             this.tableAdapterManager.COSOTableAdapter = null;
             this.tableAdapterManager.GIAOVIEN_DANGKYTableAdapter = null;
@@ -527,6 +529,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.Controls.Add(this.buttonLamMoiGV);
             this.panel1.Controls.Add(this.buttonThemGV);
             this.panel1.Controls.Add(this.buttonSuaGV);
@@ -638,16 +642,60 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.bunifuPanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
             this.bunifuPanel1.BorderRadius = 3;
             this.bunifuPanel1.BorderThickness = 1;
-            this.bunifuPanel1.Controls.Add(this.ViewCaption);
-            this.bunifuPanel1.Controls.Add(this.buttonRedoGV);
-            this.bunifuPanel1.Controls.Add(this.buttonXacNhanGV);
             this.bunifuPanel1.Controls.Add(this.buttonUndoGV);
+            this.bunifuPanel1.Controls.Add(this.buttonRedoGV);
+            this.bunifuPanel1.Controls.Add(this.ViewCaption);
+            this.bunifuPanel1.Controls.Add(this.buttonXacNhanGV);
             this.bunifuPanel1.Controls.Add(this.buttonHuyGV);
             this.bunifuPanel1.Location = new System.Drawing.Point(160, 436);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
             this.bunifuPanel1.Size = new System.Drawing.Size(1323, 51);
             this.bunifuPanel1.TabIndex = 32;
+            // 
+            // buttonUndoGV
+            // 
+            this.buttonUndoGV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonUndoGV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.buttonUndoGV.CheckedState.Parent = this.buttonUndoGV;
+            this.buttonUndoGV.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonUndoGV.CustomImages.Parent = this.buttonUndoGV;
+            this.buttonUndoGV.Enabled = false;
+            this.buttonUndoGV.FillColor = System.Drawing.Color.Transparent;
+            this.buttonUndoGV.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonUndoGV.ForeColor = System.Drawing.Color.White;
+            this.buttonUndoGV.HoverState.Parent = this.buttonUndoGV;
+            this.buttonUndoGV.Image = global::TracNghiemCSDLPT.Properties.Resources.undo_480px1;
+            this.buttonUndoGV.ImageSize = new System.Drawing.Size(30, 30);
+            this.buttonUndoGV.Location = new System.Drawing.Point(1211, 8);
+            this.buttonUndoGV.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.buttonUndoGV.Name = "buttonUndoGV";
+            this.buttonUndoGV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.buttonUndoGV.ShadowDecoration.Parent = this.buttonUndoGV;
+            this.buttonUndoGV.Size = new System.Drawing.Size(32, 32);
+            this.buttonUndoGV.TabIndex = 30;
+            // 
+            // buttonRedoGV
+            // 
+            this.buttonRedoGV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonRedoGV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.buttonRedoGV.CheckedState.Parent = this.buttonRedoGV;
+            this.buttonRedoGV.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonRedoGV.CustomImages.Parent = this.buttonRedoGV;
+            this.buttonRedoGV.Enabled = false;
+            this.buttonRedoGV.FillColor = System.Drawing.Color.Transparent;
+            this.buttonRedoGV.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonRedoGV.ForeColor = System.Drawing.Color.White;
+            this.buttonRedoGV.HoverState.Parent = this.buttonRedoGV;
+            this.buttonRedoGV.Image = global::TracNghiemCSDLPT.Properties.Resources.redo_480px;
+            this.buttonRedoGV.ImageSize = new System.Drawing.Size(30, 30);
+            this.buttonRedoGV.Location = new System.Drawing.Point(1276, 8);
+            this.buttonRedoGV.Margin = new System.Windows.Forms.Padding(20, 10, 15, 3);
+            this.buttonRedoGV.Name = "buttonRedoGV";
+            this.buttonRedoGV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.buttonRedoGV.ShadowDecoration.Parent = this.buttonRedoGV;
+            this.buttonRedoGV.Size = new System.Drawing.Size(32, 32);
+            this.buttonRedoGV.TabIndex = 31;
             // 
             // ViewCaption
             // 
@@ -662,27 +710,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.ViewCaption.TabIndex = 29;
             this.ViewCaption.Text = "Danh sách giảng viên thuộc khoa CNTT";
             // 
-            // buttonRedoGV
-            // 
-            this.buttonRedoGV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonRedoGV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.buttonRedoGV.CheckedState.Parent = this.buttonRedoGV;
-            this.buttonRedoGV.CustomImages.Parent = this.buttonRedoGV;
-            this.buttonRedoGV.FillColor = System.Drawing.Color.Transparent;
-            this.buttonRedoGV.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonRedoGV.ForeColor = System.Drawing.Color.White;
-            this.buttonRedoGV.HoverState.Parent = this.buttonRedoGV;
-            this.buttonRedoGV.Image = global::TracNghiemCSDLPT.Properties.Resources.redo_480px;
-            this.buttonRedoGV.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonRedoGV.Location = new System.Drawing.Point(971, 9);
-            this.buttonRedoGV.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
-            this.buttonRedoGV.Name = "buttonRedoGV";
-            this.buttonRedoGV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.buttonRedoGV.ShadowDecoration.Parent = this.buttonRedoGV;
-            this.buttonRedoGV.Size = new System.Drawing.Size(32, 32);
-            this.buttonRedoGV.TabIndex = 26;
-            this.buttonRedoGV.Visible = false;
-            // 
             // buttonXacNhanGV
             // 
             this.buttonXacNhanGV.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -695,8 +722,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonXacNhanGV.HoverState.Parent = this.buttonXacNhanGV;
             this.buttonXacNhanGV.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
             this.buttonXacNhanGV.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonXacNhanGV.Location = new System.Drawing.Point(319, 9);
-            this.buttonXacNhanGV.Margin = new System.Windows.Forms.Padding(3, 0, 20, 3);
+            this.buttonXacNhanGV.Location = new System.Drawing.Point(15, 8);
+            this.buttonXacNhanGV.Margin = new System.Windows.Forms.Padding(15, 0, 20, 3);
             this.buttonXacNhanGV.Name = "buttonXacNhanGV";
             this.buttonXacNhanGV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.buttonXacNhanGV.ShadowDecoration.Parent = this.buttonXacNhanGV;
@@ -704,27 +731,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonXacNhanGV.TabIndex = 28;
             this.buttonXacNhanGV.Visible = false;
             this.buttonXacNhanGV.Click += new System.EventHandler(this.buttonXacNhanGV_Click);
-            // 
-            // buttonUndoGV
-            // 
-            this.buttonUndoGV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonUndoGV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.buttonUndoGV.CheckedState.Parent = this.buttonUndoGV;
-            this.buttonUndoGV.CustomImages.Parent = this.buttonUndoGV;
-            this.buttonUndoGV.FillColor = System.Drawing.Color.Transparent;
-            this.buttonUndoGV.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonUndoGV.ForeColor = System.Drawing.Color.White;
-            this.buttonUndoGV.HoverState.Parent = this.buttonUndoGV;
-            this.buttonUndoGV.Image = global::TracNghiemCSDLPT.Properties.Resources.undo_480px1;
-            this.buttonUndoGV.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonUndoGV.Location = new System.Drawing.Point(916, 9);
-            this.buttonUndoGV.Margin = new System.Windows.Forms.Padding(50, 3, 20, 3);
-            this.buttonUndoGV.Name = "buttonUndoGV";
-            this.buttonUndoGV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.buttonUndoGV.ShadowDecoration.Parent = this.buttonUndoGV;
-            this.buttonUndoGV.Size = new System.Drawing.Size(32, 32);
-            this.buttonUndoGV.TabIndex = 27;
-            this.buttonUndoGV.Visible = false;
             // 
             // buttonHuyGV
             // 
@@ -738,7 +744,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonHuyGV.HoverState.Parent = this.buttonHuyGV;
             this.buttonHuyGV.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
             this.buttonHuyGV.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonHuyGV.Location = new System.Drawing.Point(374, 9);
+            this.buttonHuyGV.Location = new System.Drawing.Point(70, 8);
             this.buttonHuyGV.Margin = new System.Windows.Forms.Padding(3, 3, 50, 3);
             this.buttonHuyGV.Name = "buttonHuyGV";
             this.buttonHuyGV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -836,9 +842,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         private Guna.UI2.WinForms.Guna2Button buttonXoaGV;
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel1;
         private System.Windows.Forms.Label ViewCaption;
-        private Guna.UI2.WinForms.Guna2CircleButton buttonRedoGV;
         private Guna.UI2.WinForms.Guna2CircleButton buttonXacNhanGV;
-        private Guna.UI2.WinForms.Guna2CircleButton buttonUndoGV;
         private Guna.UI2.WinForms.Guna2CircleButton buttonHuyGV;
         private TN_CSDLPTDataSetTableAdapters.GIAOVIENTableAdapter GVTableAdapter;
         private System.Windows.Forms.BindingSource GVBindingSource;
@@ -850,5 +854,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         private TN_CSDLPTDataSetTableAdapters.BODETableAdapter BoDeTableAdapter;
         private System.Windows.Forms.BindingSource GVDKBindingSource;
         private TN_CSDLPTDataSetTableAdapters.GIAOVIEN_DANGKYTableAdapter GVDKTableAdapter;
+        private Guna.UI2.WinForms.Guna2CircleButton buttonUndoGV;
+        private Guna.UI2.WinForms.Guna2CircleButton buttonRedoGV;
     }
 }

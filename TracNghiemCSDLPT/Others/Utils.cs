@@ -75,6 +75,8 @@ namespace TracNghiemCSDLPT
         }
         public static void SetTextEditError(ErrorProvider EP, TextEdit textEdit, string errorMessage)
         {
+            textEdit.Properties.Appearance.Options.UseBorderColor = true;
+            textEdit.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             if (!(errorMessage is null))
             {
                 textEdit.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(236, 65, 52);

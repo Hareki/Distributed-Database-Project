@@ -20,7 +20,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         public FormKhoa()
         {
             InitializeComponent();
-            
+
         }
 
         enum State
@@ -114,7 +114,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             {
                 LoadAllData();
                 this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
-                
+
             }
             else
             {
@@ -128,10 +128,9 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             string SPName = "usp_Khoa_GetInfoById";
             List<Para> paraList = new List<Para>();
             paraList.Add(new Para("@ID", maKhoa));
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName,paraList);
+            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
             if (myReader == null)
             {
-                Utils.ShowMessage("Xảy ra lỗi không xác định", Others.NotiForm.FormType.Error, 1);
                 Console.WriteLine(System.Environment.StackTrace);
                 return true;
             }
@@ -147,10 +146,9 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             string SPName = "usp_Khoa_GetInfoByName";
             List<Para> paraList = new List<Para>();
             paraList.Add(new Para("@Name", tenKhoa));
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName,paraList);
+            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
             if (myReader == null)
             {
-                Utils.ShowMessage("Xảy ra lỗi không xác định", Others.NotiForm.FormType.Error, 1);
                 Console.WriteLine(System.Environment.StackTrace);
                 return true;
             }
@@ -173,19 +171,30 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
 
         private void SetIdleButtonEnabled(bool state)
         {
-            buttonThem.Enabled = 
+            buttonUndo.Enabled =
+            buttonRedo.Enabled =
+            buttonThem.Enabled =
             buttonXoa.Enabled =
             buttonSua.Enabled = state;
 
             if (Utils.IsTruong()) buttonLamMoi.Enabled = true;
             else buttonLamMoi.Enabled = state;
+
+            if (state == false)
+            {
+                buttonUndo.BackColor = buttonRedo.BackColor = Color.FromArgb(247, 247, 247);
+            }
+            else
+            {
+                buttonUndo.BackColor = buttonRedo.BackColor = Color.FromArgb(240, 240, 240);
+            }
         }
 
         private void SetInputButtonEnabled(bool state)
         {
             // buttonUndo.Visible = 
             // buttonRedo.Visible =
-            buttonHuy.Visible = 
+            buttonHuy.Visible =
             buttonXacNhan.Visible = state;
         }
 
@@ -210,7 +219,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             TextMaCS.Text = _maCS;
         }
 
-        private void  ResetTextEditErrors()
+        private void ResetTextEditErrors()
         {
             Utils.SetTextEditError(TenKHEP, TextTenKhoa, null);
             Utils.SetTextEditError(MaKHEP, TextMaKhoa, null);
@@ -257,12 +266,12 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             {
                 deletedKhoa.ActionType = ActionType.NotValid;
             }
-            
+
             if (Utils.ShowConfirmMessage($"Bạn có chắc muốn xóa khoa {removedTenKhoa}?", "Xác nhận"))
             {
                 try
                 {
-                    
+
                     removedMaKhoa = rowView[ColMaKhoa].ToString();
                     KhoaBindingSource.RemoveCurrent();
                     KhoaTableAdapter.Update(TN_CSDLPTDataSet.KHOA);
@@ -414,7 +423,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                 changedKhoa.ActionType = ActionType.NotValid;
             }
             return changedKhoa;
-        } 
+        }
 
         private void ButtonXacNhan_Click(object sender, EventArgs e)
         {

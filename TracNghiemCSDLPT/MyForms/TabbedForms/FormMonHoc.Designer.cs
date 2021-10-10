@@ -49,9 +49,9 @@ namespace TracNghiemCSDLPT.Views
             this.TextTenMH = new DevExpress.XtraEditors.TextEdit();
             this.TextMaMH = new DevExpress.XtraEditors.TextEdit();
             this.buttonHuy = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.buttonXacNhan = new Guna.UI2.WinForms.Guna2CircleButton();
             this.buttonRedo = new Guna.UI2.WinForms.Guna2CircleButton();
             this.buttonUndo = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.buttonXacNhan = new Guna.UI2.WinForms.Guna2CircleButton();
             this.MonHocTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.MONHOCTableAdapter();
             this.tableAdapterManager = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
             this.BoDeBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -66,6 +66,7 @@ namespace TracNghiemCSDLPT.Views
             this.buttonSua = new Guna.UI2.WinForms.Guna2Button();
             this.MaMHEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.TenMHEP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             LabelMaMH = new System.Windows.Forms.Label();
             LabelTenMH = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MonHocGridControl)).BeginInit();
@@ -260,8 +261,6 @@ namespace TracNghiemCSDLPT.Views
             this.bunifuPanel1.BorderThickness = 1;
             this.bunifuPanel1.Controls.Add(this.InfoPanel);
             this.bunifuPanel1.Controls.Add(this.buttonHuy);
-            this.bunifuPanel1.Controls.Add(this.buttonRedo);
-            this.bunifuPanel1.Controls.Add(this.buttonUndo);
             this.bunifuPanel1.Controls.Add(this.buttonXacNhan);
             this.bunifuPanel1.Location = new System.Drawing.Point(0, 12);
             this.bunifuPanel1.Name = "bunifuPanel1";
@@ -334,8 +333,8 @@ namespace TracNghiemCSDLPT.Views
             this.buttonHuy.HoverState.Parent = this.buttonHuy;
             this.buttonHuy.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
             this.buttonHuy.ImageSize = new System.Drawing.Size(31, 31);
-            this.buttonHuy.Location = new System.Drawing.Point(933, 137);
-            this.buttonHuy.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.buttonHuy.Location = new System.Drawing.Point(933, 143);
+            this.buttonHuy.Margin = new System.Windows.Forms.Padding(10, 0, 3, 3);
             this.buttonHuy.Name = "buttonHuy";
             this.buttonHuy.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.buttonHuy.ShadowDecoration.Parent = this.buttonHuy;
@@ -343,46 +342,6 @@ namespace TracNghiemCSDLPT.Views
             this.buttonHuy.TabIndex = 2;
             this.buttonHuy.Visible = false;
             this.buttonHuy.Click += new System.EventHandler(this.buttonHuy_Click);
-            // 
-            // buttonRedo
-            // 
-            this.buttonRedo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonRedo.CheckedState.Parent = this.buttonRedo;
-            this.buttonRedo.CustomImages.Parent = this.buttonRedo;
-            this.buttonRedo.FillColor = System.Drawing.Color.Transparent;
-            this.buttonRedo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonRedo.ForeColor = System.Drawing.Color.White;
-            this.buttonRedo.HoverState.Parent = this.buttonRedo;
-            this.buttonRedo.Image = global::TracNghiemCSDLPT.Properties.Resources.redo_480px;
-            this.buttonRedo.ImageSize = new System.Drawing.Size(28, 28);
-            this.buttonRedo.Location = new System.Drawing.Point(229, 138);
-            this.buttonRedo.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.buttonRedo.Name = "buttonRedo";
-            this.buttonRedo.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.buttonRedo.ShadowDecoration.Parent = this.buttonRedo;
-            this.buttonRedo.Size = new System.Drawing.Size(30, 30);
-            this.buttonRedo.TabIndex = 2;
-            this.buttonRedo.Visible = false;
-            // 
-            // buttonUndo
-            // 
-            this.buttonUndo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonUndo.CheckedState.Parent = this.buttonUndo;
-            this.buttonUndo.CustomImages.Parent = this.buttonUndo;
-            this.buttonUndo.FillColor = System.Drawing.Color.Transparent;
-            this.buttonUndo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonUndo.ForeColor = System.Drawing.Color.White;
-            this.buttonUndo.HoverState.Parent = this.buttonUndo;
-            this.buttonUndo.Image = global::TracNghiemCSDLPT.Properties.Resources.undo_480px1;
-            this.buttonUndo.ImageSize = new System.Drawing.Size(28, 28);
-            this.buttonUndo.Location = new System.Drawing.Point(229, 30);
-            this.buttonUndo.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.buttonUndo.Name = "buttonUndo";
-            this.buttonUndo.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.buttonUndo.ShadowDecoration.Parent = this.buttonUndo;
-            this.buttonUndo.Size = new System.Drawing.Size(30, 30);
-            this.buttonUndo.TabIndex = 2;
-            this.buttonUndo.Visible = false;
             // 
             // buttonXacNhan
             // 
@@ -395,8 +354,8 @@ namespace TracNghiemCSDLPT.Views
             this.buttonXacNhan.HoverState.Parent = this.buttonXacNhan;
             this.buttonXacNhan.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
             this.buttonXacNhan.ImageSize = new System.Drawing.Size(31, 31);
-            this.buttonXacNhan.Location = new System.Drawing.Point(933, 30);
-            this.buttonXacNhan.Margin = new System.Windows.Forms.Padding(10, 9, 7, 8);
+            this.buttonXacNhan.Location = new System.Drawing.Point(933, 93);
+            this.buttonXacNhan.Margin = new System.Windows.Forms.Padding(10, 9, 7, 20);
             this.buttonXacNhan.Name = "buttonXacNhan";
             this.buttonXacNhan.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.buttonXacNhan.ShadowDecoration.Parent = this.buttonXacNhan;
@@ -405,6 +364,52 @@ namespace TracNghiemCSDLPT.Views
             this.buttonXacNhan.Visible = false;
             this.buttonXacNhan.Click += new System.EventHandler(this.buttonXacNhan_Click);
             // 
+            // buttonRedo
+            // 
+            this.buttonRedo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonRedo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.buttonRedo.CheckedState.Parent = this.buttonRedo;
+            this.buttonRedo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonRedo.CustomImages.Parent = this.buttonRedo;
+            this.buttonRedo.Enabled = false;
+            this.buttonRedo.FillColor = System.Drawing.Color.Transparent;
+            this.buttonRedo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonRedo.ForeColor = System.Drawing.Color.White;
+            this.buttonRedo.HoverState.Parent = this.buttonRedo;
+            this.buttonRedo.Image = global::TracNghiemCSDLPT.Properties.Resources.redo_480px;
+            this.buttonRedo.ImageSize = new System.Drawing.Size(30, 30);
+            this.buttonRedo.Location = new System.Drawing.Point(1133, 351);
+            this.buttonRedo.Margin = new System.Windows.Forms.Padding(20, 10, 15, 3);
+            this.buttonRedo.Name = "buttonRedo";
+            this.buttonRedo.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.buttonRedo.ShadowDecoration.Parent = this.buttonRedo;
+            this.buttonRedo.Size = new System.Drawing.Size(32, 32);
+            this.buttonRedo.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.buttonRedo, "Làm lại hành động đã lưu gần nhất");
+            // 
+            // buttonUndo
+            // 
+            this.buttonUndo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonUndo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.buttonUndo.CheckedState.Parent = this.buttonUndo;
+            this.buttonUndo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonUndo.CustomImages.Parent = this.buttonUndo;
+            this.buttonUndo.Enabled = false;
+            this.buttonUndo.FillColor = System.Drawing.Color.Transparent;
+            this.buttonUndo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonUndo.ForeColor = System.Drawing.Color.White;
+            this.buttonUndo.HoverState.Parent = this.buttonUndo;
+            this.buttonUndo.Image = global::TracNghiemCSDLPT.Properties.Resources.undo_480px1;
+            this.buttonUndo.ImageSize = new System.Drawing.Size(30, 30);
+            this.buttonUndo.Location = new System.Drawing.Point(1068, 351);
+            this.buttonUndo.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.buttonUndo.Name = "buttonUndo";
+            this.buttonUndo.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.buttonUndo.ShadowDecoration.Parent = this.buttonUndo;
+            this.buttonUndo.Size = new System.Drawing.Size(32, 32);
+            this.buttonUndo.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.buttonUndo, "Hoàn tác hành động đã lưu gần nhất");
+            // 
             // MonHocTableAdapter
             // 
             this.MonHocTableAdapter.ClearBeforeFill = true;
@@ -412,7 +417,9 @@ namespace TracNghiemCSDLPT.Views
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BAITHITableAdapter = null;
             this.tableAdapterManager.BANGDIEMTableAdapter = null;
+            this.tableAdapterManager.BODE_BKTableAdapter = null;
             this.tableAdapterManager.BODETableAdapter = null;
             this.tableAdapterManager.COSOTableAdapter = null;
             this.tableAdapterManager.GIAOVIEN_DANGKYTableAdapter = null;
@@ -464,7 +471,7 @@ namespace TracNghiemCSDLPT.Views
             this.buttonXoa.HoverState.Parent = this.buttonXoa;
             this.buttonXoa.Image = global::TracNghiemCSDLPT.Properties.Resources.minus_sign_480px;
             this.buttonXoa.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonXoa.Location = new System.Drawing.Point(416, 289);
+            this.buttonXoa.Location = new System.Drawing.Point(434, 289);
             this.buttonXoa.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonXoa.Name = "buttonXoa";
             this.buttonXoa.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -488,7 +495,7 @@ namespace TracNghiemCSDLPT.Views
             this.buttonLamMoi.HoverState.Parent = this.buttonLamMoi;
             this.buttonLamMoi.Image = global::TracNghiemCSDLPT.Properties.Resources.reset_480px;
             this.buttonLamMoi.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonLamMoi.Location = new System.Drawing.Point(858, 288);
+            this.buttonLamMoi.Location = new System.Drawing.Point(788, 288);
             this.buttonLamMoi.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonLamMoi.Name = "buttonLamMoi";
             this.buttonLamMoi.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -512,7 +519,7 @@ namespace TracNghiemCSDLPT.Views
             this.buttonThem.HoverState.Parent = this.buttonThem;
             this.buttonThem.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
             this.buttonThem.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonThem.Location = new System.Drawing.Point(195, 288);
+            this.buttonThem.Location = new System.Drawing.Point(257, 289);
             this.buttonThem.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonThem.Name = "buttonThem";
             this.buttonThem.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -536,7 +543,7 @@ namespace TracNghiemCSDLPT.Views
             this.buttonSua.HoverState.Parent = this.buttonSua;
             this.buttonSua.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_480px;
             this.buttonSua.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonSua.Location = new System.Drawing.Point(637, 288);
+            this.buttonSua.Location = new System.Drawing.Point(611, 287);
             this.buttonSua.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonSua.Name = "buttonSua";
             this.buttonSua.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
@@ -556,12 +563,18 @@ namespace TracNghiemCSDLPT.Views
             this.TenMHEP.ContainerControl = this;
             this.TenMHEP.Icon = ((System.Drawing.Icon)(resources.GetObject("TenMHEP.Icon")));
             // 
+            // toolTip1
+            // 
+            this.toolTip1.ShowAlways = true;
+            // 
             // FormMonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1192, 654);
+            this.Controls.Add(this.buttonUndo);
             this.Controls.Add(this.buttonSua);
+            this.Controls.Add(this.buttonRedo);
             this.Controls.Add(this.MonHocGridControl);
             this.Controls.Add(this.buttonThem);
             this.Controls.Add(this.bunifuPanel1);
@@ -626,5 +639,6 @@ namespace TracNghiemCSDLPT.Views
         private Guna.UI2.WinForms.Guna2Button buttonSua;
         private System.Windows.Forms.ErrorProvider MaMHEP;
         private System.Windows.Forms.ErrorProvider TenMHEP;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

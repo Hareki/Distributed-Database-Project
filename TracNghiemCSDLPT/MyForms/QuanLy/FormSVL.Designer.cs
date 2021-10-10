@@ -30,7 +30,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             System.Windows.Forms.Label mALOPLabel;
             System.Windows.Forms.Label tENLOPLabel;
             System.Windows.Forms.Label mAKHLabel;
@@ -219,10 +219,10 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.KhoaGridControl.DataSource = this.KhoaBindingSource;
             this.KhoaGridControl.Font = new System.Drawing.Font("Teko SemiBold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            gridLevelNode1.LevelTemplate = this.LopGridView;
-            gridLevelNode1.RelationName = "FK_LOP_KHOA";
+            gridLevelNode2.LevelTemplate = this.LopGridView;
+            gridLevelNode2.RelationName = "FK_LOP_KHOA";
             this.KhoaGridControl.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode2});
             this.KhoaGridControl.Location = new System.Drawing.Point(7, 67);
             this.KhoaGridControl.MainView = this.KhoaGridView;
             this.KhoaGridControl.Name = "KhoaGridControl";
@@ -794,6 +794,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonLamMoiSV.HoverState.FillColor = System.Drawing.Color.Gainsboro;
             this.buttonLamMoiSV.HoverState.Parent = this.buttonLamMoiSV;
             this.buttonLamMoiSV.Image = global::TracNghiemCSDLPT.Properties.Resources.reset_480px;
+            this.buttonLamMoiSV.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.buttonLamMoiSV.ImageOffset = new System.Drawing.Point(-3, 0);
             this.buttonLamMoiSV.ImageSize = new System.Drawing.Size(40, 40);
             this.buttonLamMoiSV.Location = new System.Drawing.Point(8, 268);
             this.buttonLamMoiSV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
@@ -803,6 +805,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonLamMoiSV.Size = new System.Drawing.Size(120, 45);
             this.buttonLamMoiSV.TabIndex = 22;
             this.buttonLamMoiSV.Text = "Làm mới";
+            this.buttonLamMoiSV.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.buttonLamMoiSV.TextOffset = new System.Drawing.Point(-7, 0);
             this.buttonLamMoiSV.Click += new System.EventHandler(this.buttonLamMoiSV_Click);
             // 
             // buttonThemSV
@@ -817,6 +821,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonThemSV.HoverState.FillColor = System.Drawing.Color.Gainsboro;
             this.buttonThemSV.HoverState.Parent = this.buttonThemSV;
             this.buttonThemSV.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
+            this.buttonThemSV.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.buttonThemSV.ImageOffset = new System.Drawing.Point(-3, 0);
             this.buttonThemSV.ImageSize = new System.Drawing.Size(40, 40);
             this.buttonThemSV.Location = new System.Drawing.Point(8, 43);
             this.buttonThemSV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
@@ -826,6 +832,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonThemSV.Size = new System.Drawing.Size(120, 45);
             this.buttonThemSV.TabIndex = 21;
             this.buttonThemSV.Text = "Thêm";
+            this.buttonThemSV.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.buttonThemSV.TextOffset = new System.Drawing.Point(-7, 0);
             this.buttonThemSV.Click += new System.EventHandler(this.buttonThemSV_Click);
             // 
             // buttonSuaSV
@@ -840,6 +848,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonSuaSV.HoverState.FillColor = System.Drawing.Color.Gainsboro;
             this.buttonSuaSV.HoverState.Parent = this.buttonSuaSV;
             this.buttonSuaSV.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_480px;
+            this.buttonSuaSV.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.buttonSuaSV.ImageOffset = new System.Drawing.Point(-3, 0);
             this.buttonSuaSV.ImageSize = new System.Drawing.Size(40, 40);
             this.buttonSuaSV.Location = new System.Drawing.Point(8, 193);
             this.buttonSuaSV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
@@ -849,6 +859,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonSuaSV.Size = new System.Drawing.Size(120, 45);
             this.buttonSuaSV.TabIndex = 20;
             this.buttonSuaSV.Text = "Sửa";
+            this.buttonSuaSV.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.buttonSuaSV.TextOffset = new System.Drawing.Point(-7, 0);
             this.buttonSuaSV.Click += new System.EventHandler(this.buttonSuaSV_Click);
             // 
             // buttonXoaSV
@@ -863,6 +875,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonXoaSV.HoverState.FillColor = System.Drawing.Color.Gainsboro;
             this.buttonXoaSV.HoverState.Parent = this.buttonXoaSV;
             this.buttonXoaSV.Image = global::TracNghiemCSDLPT.Properties.Resources.minus_sign_480px;
+            this.buttonXoaSV.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.buttonXoaSV.ImageOffset = new System.Drawing.Point(-3, 0);
             this.buttonXoaSV.ImageSize = new System.Drawing.Size(40, 40);
             this.buttonXoaSV.Location = new System.Drawing.Point(8, 118);
             this.buttonXoaSV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
@@ -872,6 +886,8 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             this.buttonXoaSV.Size = new System.Drawing.Size(120, 45);
             this.buttonXoaSV.TabIndex = 23;
             this.buttonXoaSV.Text = "Xóa";
+            this.buttonXoaSV.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.buttonXoaSV.TextOffset = new System.Drawing.Point(-7, 0);
             this.buttonXoaSV.Click += new System.EventHandler(this.buttonXoaSV_Click);
             // 
             // label1

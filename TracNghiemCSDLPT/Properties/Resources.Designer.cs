@@ -353,6 +353,26 @@ namespace TracNghiemCSDLPT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap error_480px {
+            get {
+                object obj = ResourceManager.GetObject("error_480px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap exclamation_mark_512px {
+            get {
+                object obj = ResourceManager.GetObject("exclamation_mark_512px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap export_480px {
             get {
                 object obj = ResourceManager.GetObject("export_480px", resourceCulture);
@@ -373,9 +393,39 @@ namespace TracNghiemCSDLPT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap help_480px {
+            get {
+                object obj = ResourceManager.GetObject("help_480px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap help_480px1 {
+            get {
+                object obj = ResourceManager.GetObject("help_480px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap help_96px {
             get {
                 object obj = ResourceManager.GetObject("help_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap help_96px1 {
+            get {
+                object obj = ResourceManager.GetObject("help_96px1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -396,6 +446,16 @@ namespace TracNghiemCSDLPT.Properties {
         internal static System.Drawing.Bitmap info_480px {
             get {
                 object obj = ResourceManager.GetObject("info_480px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap info_480px_disabled {
+            get {
+                object obj = ResourceManager.GetObject("info_480px_disabled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -566,6 +626,16 @@ namespace TracNghiemCSDLPT.Properties {
         internal static System.Drawing.Bitmap Plus___40px {
             get {
                 object obj = ResourceManager.GetObject("Plus +_40px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap question_mark {
+            get {
+                object obj = ResourceManager.GetObject("question-mark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

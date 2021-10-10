@@ -99,6 +99,10 @@ namespace TracNghiemCSDLPT
         {
             return DBConnection.NhomQuyen.Equals("TRUONG");
         }
+        public static bool isCoSo()
+        {
+            return DBConnection.NhomQuyen.Equals("COSO");
+        }
 
     }
 }

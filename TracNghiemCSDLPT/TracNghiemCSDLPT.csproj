@@ -210,40 +210,40 @@
   <ItemGroup>
     <Compile Include="Models\ActionType.cs" />
     <Compile Include="Models\Khoa.cs" />
-    <Compile Include="MyForms\TabbedForms\FormCauHoi.cs">
+    <Compile Include="MyForms\QuanLy\FormCauHoi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyForms\TabbedForms\FormCauHoi.Designer.cs">
+    <Compile Include="MyForms\QuanLy\FormCauHoi.Designer.cs">
       <DependentUpon>FormCauHoi.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyForms\TabbedForms\FormDSDKTTN.cs">
+    <Compile Include="MyForms\BaoCao\FormDSDKTTN.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyForms\TabbedForms\FormDSDKTTN.Designer.cs">
+    <Compile Include="MyForms\BaoCao\FormDSDKTTN.Designer.cs">
       <DependentUpon>FormDSDKTTN.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyForms\TabbedForms\FormGV.cs">
+    <Compile Include="MyForms\QuanLy\FormGV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyForms\TabbedForms\FormGV.Designer.cs">
+    <Compile Include="MyForms\QuanLy\FormGV.Designer.cs">
       <DependentUpon>FormGV.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyForms\TabbedForms\FormKhoa.cs">
+    <Compile Include="MyForms\QuanLy\FormKhoa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyForms\TabbedForms\FormKhoa.designer.cs">
+    <Compile Include="MyForms\QuanLy\FormKhoa.designer.cs">
       <DependentUpon>FormKhoa.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyForms\TabbedForms\FormTaoLogin.cs">
+    <Compile Include="MyForms\Login\FormTaoLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyForms\TabbedForms\FormTaoLogin.Designer.cs">
+    <Compile Include="MyForms\Login\FormTaoLogin.Designer.cs">
       <DependentUpon>FormTaoLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyForms\TabbedForms\FormSVL.cs">
+    <Compile Include="MyForms\QuanLy\FormSVL.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyForms\TabbedForms\FormSVL.Designer.cs">
+    <Compile Include="MyForms\QuanLy\FormSVL.Designer.cs">
       <DependentUpon>FormSVL.cs</DependentUpon>
     </Compile>
     <Compile Include="MyReports\ReportDSDKTTN.cs">
@@ -279,10 +279,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MyForms\TabbedForms\FormMonHoc.cs">
+    <Compile Include="MyForms\QuanLy\FormMonHoc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyForms\TabbedForms\FormMonHoc.Designer.cs">
+    <Compile Include="MyForms\QuanLy\FormMonHoc.Designer.cs">
       <DependentUpon>FormMonHoc.cs</DependentUpon>
     </Compile>
     <Compile Include="Others\Utils.cs" />
@@ -300,22 +300,22 @@
     <EmbeddedResource Include="MyForms\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyForms\TabbedForms\FormCauHoi.resx">
+    <EmbeddedResource Include="MyForms\QuanLy\FormCauHoi.resx">
       <DependentUpon>FormCauHoi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyForms\TabbedForms\FormDSDKTTN.resx">
+    <EmbeddedResource Include="MyForms\BaoCao\FormDSDKTTN.resx">
       <DependentUpon>FormDSDKTTN.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyForms\TabbedForms\FormGV.resx">
+    <EmbeddedResource Include="MyForms\QuanLy\FormGV.resx">
       <DependentUpon>FormGV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyForms\TabbedForms\FormKhoa.resx">
+    <EmbeddedResource Include="MyForms\QuanLy\FormKhoa.resx">
       <DependentUpon>FormKhoa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyForms\TabbedForms\FormTaoLogin.resx">
+    <EmbeddedResource Include="MyForms\Login\FormTaoLogin.resx">
       <DependentUpon>FormTaoLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyForms\TabbedForms\FormSVL.resx">
+    <EmbeddedResource Include="MyForms\QuanLy\FormSVL.resx">
       <DependentUpon>FormSVL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyReports\ReportDSDKTTN.resx">
@@ -338,7 +338,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="MyForms\TabbedForms\FormMonHoc.resx">
+    <EmbeddedResource Include="MyForms\QuanLy\FormMonHoc.resx">
       <DependentUpon>FormMonHoc.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -617,6 +617,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\undo white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info_480px_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\question-mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exclamation_mark_512px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help_96px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help_480px1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

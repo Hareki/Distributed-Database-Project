@@ -344,6 +344,11 @@ namespace TracNghiemCSDLPT
             else if (ShowPassword == true)
                 TextPassword.UseSystemPasswordChar = true;
         }
+
+        private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 
     class MyFormPainter : FormPainter

@@ -38,7 +38,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
         {
             buttonThem.Enabled = buttonXoa.Enabled =
                  buttonSua.Enabled = state;
-            if (Utils.IsTruong()) buttonLamMoi.Enabled = true;
+            if (Utils.IsTruong() || Utils.isCoSo()) buttonLamMoi.Enabled = true;
             else buttonLamMoi.Enabled = state;
 
             if (state == false)
@@ -56,6 +56,9 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             switch (DBConnection.NhomQuyen)
             {
                 case "TRUONG":
+                    SetIdleButtonEnabled(false);
+                    break;
+                case "COSO":
                     SetIdleButtonEnabled(false);
                     break;
             }
@@ -82,9 +85,9 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
 
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
             loadAllData();
+
             MHCombo.DisplayMember = "TENMH";
             MHCombo.ValueMember = "MAMH";
-
 
             rdoButtons.Add(rdoDA_A);
             rdoButtons.Add(rdoDA_B);
@@ -143,10 +146,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                     e.Cancel = true;
         }
 
-        private void MonHocGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-
-        }
 
         private GridView GetCorrTextBoxData(bool getFirstRow)
         {
@@ -172,7 +171,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             string maGV = ((DataRowView)BoDeBindingSource[BoDeBindingSource.Position])["MAGV"].ToString();
             DSGVTCSBindingSource.Position = DSGVTCSBindingSource.Find("MAGV", maGV);
 
-
+            CheckButtonState();
             return detailView;
 
         }
@@ -230,7 +229,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
 
         private void SetInputButtonEnabled(bool state)
         {
-            buttonXacNhan.Visible = buttonHuy.Visible = state;
+            panelInput.Visible = buttonXacNhan.Visible = buttonHuy.Visible = state;
         }
         private void buttonThem_Click(object sender, EventArgs e)
         {
@@ -242,27 +241,42 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             SetInputButtonEnabled(true);
 
             MonHocGridControl.Enabled = false;
-
             state = State.add;
             BoDeBindingSource.AddNew();
             labelGVSoan.Text = DBConnection.UserName + " - " + DBConnection.HoTen;
             rdoA.Checked = true;
             rdoDA_A.Checked = true;
             textMaCH.EditValue = 0;
-
-
         }
 
         private void CheckButtonState()
         {
-            if (DBConnection.NhomQuyen.Equals("COSO"))
+            if (DBConnection.NhomQuyen.Equals("GIAOVIEN"))
             {
-                if (BoDeBindingSource.Count == 0)
+                string maGV = (BoDeBindingSource[BoDeBindingSource.Position] as DataRowView)["MAGV"].ToString();
+                maGV = maGV.Trim();
+                bool test1 = BoDeBindingSource.Count == 0;
+                bool test2 = !maGV.Equals(DBConnection.UserName);
+                if (test1 || test2)
+                {
                     buttonXoa.Enabled = buttonSua.Enabled = false;
-                else buttonXoa.Enabled = buttonSua.Enabled = true;
+                    if (test2)
+                    {
+                        tipXoa.Visible = true;
+                        tipSua.Visible = true;
+                    }
+                }
+                else
+                {
+                    buttonXoa.Enabled = buttonSua.Enabled = true;
+                    tipXoa.Visible = false;
+                    tipSua.Visible = false;
+                }
             }
-
         }
+
+
+
         private void buttonLamMoi_Click(object sender, EventArgs e)
         {
             try
@@ -369,7 +383,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             Utils.SetTextEditError(noiDungEP, textNoiDung, null);
             Utils.SetTextEditError(maCHEP, textMaCH, null);
         }
-        private void buttonXacNhanLop_Click(object sender, EventArgs e)
+        private void buttonXacNhan_Click(object sender, EventArgs e)
         {
             bool test1 = string.IsNullOrEmpty(trimText(textChoiceA));
             bool test2 = string.IsNullOrEmpty(trimText(textChoiceB));
@@ -452,7 +466,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                 BoDeBindingSource.EndEdit();
                 BoDeBindingSource.ResetCurrentItem();
                 this.BoDeTableAdapter.Update(this.TN_CSDLPTDataSet.BODE);
-
                 if (state == State.edit)
                     Utils.ShowMessage("Sửa thông tin câu hỏi thành công", Others.NotiForm.FormType.Success, 2);
                 else if (state == State.add)
@@ -518,7 +531,7 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             state = State.edit;
         }
 
-        private void buttonHuyLop_Click(object sender, EventArgs e)
+        private void buttonHuy_Click(object sender, EventArgs e)
         {
             InfoPanel.Enabled = false;
 
@@ -529,7 +542,6 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
             BoDeBindingSource.CancelEdit();
             if (state == State.add)
                 BoDeBindingSource.Position = selectedRow;
-
             SetIdleButtonEnabled(true);
             SetInputButtonEnabled(false);
 
@@ -563,11 +575,41 @@ namespace TracNghiemCSDLPT.MyForms.TabbedForms
                     Utils.ShowErrorMessage("Không thể xóa câu hỏi, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi xóa câu hỏi");
                     Console.WriteLine(ex.StackTrace);
                     this.BoDeTableAdapter.Fill(TN_CSDLPTDataSet.BODE);
-                    BoDeBindingSource.Position = BoDeBindingSource.Find("MALOP", RemoveCH);
+                    BoDeBindingSource.Position = BoDeBindingSource.Find("CAUHOI", RemoveCH);
                     return;
                 }
             }
             CheckButtonState();
         }
+
+        private void pictureBox1_EnabledChanged(object sender, EventArgs e)
+        {
+            if (pictureBox1.Enabled)
+            {
+                pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.info_480px;
+            }
+            else
+            {
+                pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.info_480px_disabled;
+            }
+        }
+
+        private void buttonXoa_EnabledChanged(object sender, EventArgs e)
+        {
+            if (buttonXoa.Enabled)
+                toolTip2.SetToolTip(buttonXoa, "Không thể xóa câu hỏi của giảng viên khác!");
+            else
+                toolTip2.SetToolTip(buttonXoa, null);
+        }
+
+        private void buttonSua_EnabledChanged(object sender, EventArgs e)
+        {
+            if (buttonSua.Enabled)
+                toolTip2.SetToolTip(buttonSua, "Không thể sửa câu hỏi của giảng viên khác!");
+            else
+                toolTip2.SetToolTip(buttonSua, null);
+        }
+
+
     }
 }

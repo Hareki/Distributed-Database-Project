@@ -1,19 +1,13 @@
 ﻿using DevExpress.XtraBars;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using TracNghiemCSDLPT.MyForms.BaoCao;
 using TracNghiemCSDLPT.MyForms.QuanLy;
-using TracNghiemCSDLPT.Views;
-using TracNghiemCSDLPT.SQL_Connection;
+using TracNghiemCSDLPT.MyForms.TaiKhoan;
 using TracNghiemCSDLPT.MyForms.Thi;
+using TracNghiemCSDLPT.Others;
 
-namespace TracNghiemCSDLPT
+namespace TracNghiemCSDLPT.MyForms
 {
     public partial class MainView : DevExpress.XtraBars.Ribbon.RibbonForm
     {
@@ -37,7 +31,7 @@ namespace TracNghiemCSDLPT
                     buttonMonHoc.Enabled = buttonSVL.Enabled = buttonKhoa.Enabled
                         = buttonGV.Enabled = false;
 
-                    buttonDKTN.Enabled  = false;
+                    buttonDKTN.Enabled = false;
                     buttonToChucThi.Enabled = false;
                     buttonThamGiaThi.Caption = "Thi thử";
                     buttonTaoTK.Enabled = false;
@@ -121,7 +115,8 @@ namespace TracNghiemCSDLPT
 
         private void buttonDangXuat_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if(Utils.ShowConfirmMessage("Bạn có chắc muốn đăng xuất khỏi hệ thống?", "Xác nhận")){
+            if (Utils.ShowConfirmMessage("Bạn có chắc muốn đăng xuất khỏi hệ thống?", "Xác nhận"))
+            {
                 Program.LoginInstance = new FormLogin();
                 Program.LoginInstance.Show();
                 this.Hide();

@@ -1,5 +1,5 @@
 ﻿
-namespace TracNghiemCSDLPT
+namespace TracNghiemCSDLPT.MyForms
 {
     partial class MainView
     {

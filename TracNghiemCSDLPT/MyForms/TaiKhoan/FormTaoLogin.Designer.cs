@@ -1,5 +1,5 @@
 ﻿
-namespace TracNghiemCSDLPT.MyForms.QuanLy
+namespace TracNghiemCSDLPT.MyForms.TaiKhoan
 {
     partial class FormTaoLogin
     {

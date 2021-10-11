@@ -3,13 +3,9 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TracNghiemCSDLPT.SQL_Connection
+namespace TracNghiemCSDLPT.Others
 {
     public struct Para
     {
@@ -17,8 +13,8 @@ namespace TracNghiemCSDLPT.SQL_Connection
         public string RealValue;
         public Para(string valueName, string realValue)
         {
-            this.ValueName = valueName;
-            this.RealValue = realValue;
+            ValueName = valueName;
+            RealValue = realValue;
         }
     }
     class DBConnection
@@ -55,18 +51,18 @@ namespace TracNghiemCSDLPT.SQL_Connection
         //HTKN Connection
         public static string RemoteLogin = "HTKN";
         public static string RemotePassword = "123456";
-        
+
 
         public static bool ConnectToPublisher()
         {
-            if (DBConnection.PublisherConnection != null && DBConnection.PublisherConnection.State == System.Data.ConnectionState.Open)
+            if (PublisherConnection != null && PublisherConnection.State == ConnectionState.Open)
             {
                 PublisherConnection.Close();
             }
             try
             {
-                DBConnection.PublisherConnection.ConnectionString = PublisherConnectionString;
-                DBConnection.PublisherConnection.Open();
+                PublisherConnection.ConnectionString = PublisherConnectionString;
+                PublisherConnection.Open();
                 return true;
             }
             catch (Exception ex)
@@ -77,25 +73,25 @@ namespace TracNghiemCSDLPT.SQL_Connection
         }
         private static void GenerateSubConString(string subcriberName, string loginName, string password)
         {
-            DBConnection.SubcriberConnectionString = "Data source=" + subcriberName + "; " +
+            SubcriberConnectionString = "Data source=" + subcriberName + "; " +
             "Initial Catalog=" + DatabaseName + ";Persist Security Info=True;" +
             "User ID=" + loginName + ";Password=" + password;
         }
 
         public static bool ConnectToSubcriber(string loginName, string password, string subcriberName)
         {
-            if (DBConnection.SubcriberConnection != null && DBConnection.SubcriberConnection.State == System.Data.ConnectionState.Open)
+            if (SubcriberConnection != null && SubcriberConnection.State == ConnectionState.Open)
             {
-                DBConnection.SubcriberConnection.Close();
+                SubcriberConnection.Close();
             }
             try
             {
-                DBConnection.LoginName = loginName;
-                DBConnection.Password = password;
-                DBConnection.SubcriberName = subcriberName;
+                LoginName = loginName;
+                Password = password;
+                SubcriberName = subcriberName;
                 GenerateSubConString(subcriberName, loginName, password);
-                DBConnection.SubcriberConnection.ConnectionString = SubcriberConnectionString;
-                DBConnection.SubcriberConnection.Open();
+                SubcriberConnection.ConnectionString = SubcriberConnectionString;
+                SubcriberConnection.Open();
                 return true;
             }
             catch (Exception ex)
@@ -108,20 +104,20 @@ namespace TracNghiemCSDLPT.SQL_Connection
 
         public static bool ConnectToSubcriber(string subcriberName)
         {
-            if (SubcriberConnection != null && SubcriberConnection.State == System.Data.ConnectionState.Open)
+            if (SubcriberConnection != null && SubcriberConnection.State == ConnectionState.Open)
             {
                 SubcriberConnection.Close();
             }
             try
             {
-                DBConnection.LoginName = DBConnection.LoginSV;
-                DBConnection.Password = DBConnection.PasswordSV;
-                DBConnection.SubcriberName = subcriberName;
+                LoginName = LoginSV;
+                Password = PasswordSV;
+                SubcriberName = subcriberName;
                 GenerateSubConString(subcriberName, LoginSV, PasswordSV);
-                DBConnection.SubcriberConnection.ConnectionString = SubcriberConnectionString;
-                DBConnection.SubcriberConnection.Open();
+                SubcriberConnection.ConnectionString = SubcriberConnectionString;
+                SubcriberConnection.Open();
 
-                Console.WriteLine("Connection String: " + DBConnection.SubcriberConnectionString);
+                Console.WriteLine("Connection String: " + SubcriberConnectionString);
                 return true;
             }
             catch (Exception ex)
@@ -161,11 +157,11 @@ namespace TracNghiemCSDLPT.SQL_Connection
             SqlDataReader result;
             SqlCommand sqlCmd = new SqlCommand(SPName, SubcriberConnection);
             sqlCmd.CommandType = CommandType.StoredProcedure;
-            foreach(Para element in paraList)
+            foreach (Para element in paraList)
             {
                 sqlCmd.Parameters.Add(new SqlParameter(element.ValueName, element.RealValue));
             }
-            
+
             if (SubcriberConnection.State == ConnectionState.Closed)
                 SubcriberConnection.Open();
             try

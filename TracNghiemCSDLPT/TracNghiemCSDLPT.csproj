@@ -250,10 +250,10 @@
     <Compile Include="MyForms\QuanLy\FormKhoa.designer.cs">
       <DependentUpon>FormKhoa.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyForms\Login\FormTaoLogin.cs">
+    <Compile Include="MyForms\TaiKhoan\FormTaoLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyForms\Login\FormTaoLogin.Designer.cs">
+    <Compile Include="MyForms\TaiKhoan\FormTaoLogin.Designer.cs">
       <DependentUpon>FormTaoLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="MyForms\QuanLy\FormSVL.cs">
@@ -334,7 +334,7 @@
     <EmbeddedResource Include="MyForms\QuanLy\FormKhoa.resx">
       <DependentUpon>FormKhoa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyForms\Login\FormTaoLogin.resx">
+    <EmbeddedResource Include="MyForms\TaiKhoan\FormTaoLogin.resx">
       <DependentUpon>FormTaoLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForms\QuanLy\FormSVL.resx">

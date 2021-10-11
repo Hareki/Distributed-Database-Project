@@ -1,16 +1,11 @@
-﻿using DevExpress.XtraEditors;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using TracNghiemCSDLPT.SQL_Connection;
-namespace TracNghiemCSDLPT.Views
+using TracNghiemCSDLPT.Others;
+namespace TracNghiemCSDLPT.MyForms.QuanLy
 {
     public partial class FormMonHoc : DevExpress.XtraEditors.XtraForm
     {
@@ -19,7 +14,7 @@ namespace TracNghiemCSDLPT.Views
         public FormMonHoc()
         {
             InitializeComponent();
-            
+
         }
         private void PhanQuyen()
         {
@@ -68,7 +63,7 @@ namespace TracNghiemCSDLPT.Views
 
         private void SetIdleButtonEnabled(bool state)
         {
-            buttonThem.Enabled = buttonXoa.Enabled = buttonUndo.Enabled = buttonRedo.Enabled = 
+            buttonThem.Enabled = buttonXoa.Enabled = buttonUndo.Enabled = buttonRedo.Enabled =
                  buttonSua.Enabled = state;
             if (Utils.IsTruong()) buttonLamMoi.Enabled = true;
             else buttonLamMoi.Enabled = state;
@@ -85,7 +80,7 @@ namespace TracNghiemCSDLPT.Views
         private void SetInputButtonEnabled(bool state)
         {
 
-                buttonHuy.Visible = buttonXacNhan.Visible = state;
+            buttonHuy.Visible = buttonXacNhan.Visible = state;
         }
 
 
@@ -98,10 +93,10 @@ namespace TracNghiemCSDLPT.Views
 
             InfoPanel.Text = "Thêm mới thông tin môn học";
 
-         //   SetIdleButtonEnabled(false);
+            //   SetIdleButtonEnabled(false);
             SetInputButtonEnabled(true);
 
-      //      MonHocGridControl.Enabled = false;
+            //      MonHocGridControl.Enabled = false;
             state = State.add;
             MonHocBindingSource.AddNew();
         }

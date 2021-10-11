@@ -1,24 +1,17 @@
-﻿using DevExpress.Utils;
-using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Controls;
+﻿using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.DXErrorProvider;
 using DevExpress.XtraEditors.ViewInfo;
 using DevExpress.XtraGrid.Columns;
-using DevExpress.XtraGrid.Views.BandedGrid;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using TracNghiemCSDLPT.SQL_Connection;
+using TracNghiemCSDLPT.Others;
 
 namespace TracNghiemCSDLPT.MyForms.QuanLy
 {
@@ -76,12 +69,14 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.SinhVienTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.GV_DKTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.BangDiemTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.Khoa2TableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
 
             this.KhoaTableAdapter.Fill(this.TN_CSDLPTDataSet.KHOA);
             this.LopTableAdapter.Fill(this.TN_CSDLPTDataSet.LOP);
             this.SinhVienTableAdapter.Fill(this.TN_CSDLPTDataSet.SINHVIEN);
             this.GV_DKTableAdapter.Fill(this.TN_CSDLPTDataSet.GIAOVIEN_DANGKY);
             this.BangDiemTableAdapter.Fill(this.TN_CSDLPTDataSet.BANGDIEM);
+            this.Khoa2TableAdapter.Fill(this.TN_CSDLPTDataSet.KHOA2);
 
             checkButtonStateLop();
             //    checkButtonStateSV(); lúc nãy chưa có mã lớp, để ở đây sẽ không có dữ liệu
@@ -151,8 +146,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         private void FormSVL_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'TN_CSDLPTDataSet.KHOA2' table. You can move, or remove it, as needed.
-            this.Khoa2TableAdapter.Fill(this.TN_CSDLPTDataSet.KHOA2);
+
 
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
 

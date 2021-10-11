@@ -1,14 +1,5 @@
-﻿using DevExpress.XtraEditors;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using TracNghiemCSDLPT.SQL_Connection;
+﻿using System;
+using TracNghiemCSDLPT.Others;
 
 namespace TracNghiemCSDLPT.MyForms.Thi
 {
@@ -33,7 +24,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.GVDKTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.LopTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.MonHocTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-           
+
             this.GVDKTableAdapter.Fill(this.TN_CSDLPTDataSet.GIAOVIEN_DANGKY);
             this.LopTableAdapter.Fill(this.TN_CSDLPTDataSet.LOP);
             this.MonHocTableAdapter.Fill(this.TN_CSDLPTDataSet.MONHOC);

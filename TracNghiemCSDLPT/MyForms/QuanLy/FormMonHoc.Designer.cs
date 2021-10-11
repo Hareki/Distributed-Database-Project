@@ -1,5 +1,5 @@
 ﻿
-namespace TracNghiemCSDLPT.Views
+namespace TracNghiemCSDLPT.MyForms.QuanLy
 {
     partial class FormMonHoc
     {

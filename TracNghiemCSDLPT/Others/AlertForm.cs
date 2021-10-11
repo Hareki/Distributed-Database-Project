@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TracNghiemCSDLPT.Others
@@ -33,8 +27,8 @@ namespace TracNghiemCSDLPT.Others
             NotiNum++;
             showNoti(message, type, lineNum);
             Lifting += this.Height;
-            
-            
+
+
         }
         public enum FormAction
         {
@@ -137,7 +131,7 @@ namespace TracNghiemCSDLPT.Others
                 NotiForm frm = (NotiForm)Application.OpenForms[fname];
                 if (frm == null)
                 {
-                    
+
                     this.Name = fname;
                     this.x = Screen.PrimaryScreen.WorkingArea.Width - this.Width + 15;
                     if (NotiNum > i + 1)
@@ -148,7 +142,7 @@ namespace TracNghiemCSDLPT.Others
                     {
                         this.y = Screen.PrimaryScreen.WorkingArea.Height - Lifting - 15 * i - manualLifting - (lineNum - 1) * lineHeight;
                     }
-                    
+
                     this.Location = new Point(this.x, this.y);
                     break;
                 }

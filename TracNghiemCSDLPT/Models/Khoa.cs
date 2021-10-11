@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TracNghiemCSDLPT.Models
+﻿namespace TracNghiemCSDLPT.Models
 {
     class Khoa
     {
@@ -34,6 +28,6 @@ namespace TracNghiemCSDLPT.Models
             this.ActionType = action;
         }
 
-        public Khoa() :base() {  }
+        public Khoa() : base() { }
     }
 }

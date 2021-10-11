@@ -1,13 +1,6 @@
-﻿using DevExpress.XtraEditors;
-using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Configuration;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
-using TracNghiemCSDLPT.Others;
-using TracNghiemCSDLPT.SQL_Connection;
+using TracNghiemCSDLPT.MyForms;
 
 namespace TracNghiemCSDLPT
 {

@@ -1,18 +1,10 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using TracNghiemCSDLPT.MyReports;
-using TracNghiemCSDLPT.SQL_Connection;
+using TracNghiemCSDLPT.Others;
 
-namespace TracNghiemCSDLPT.MyForms.QuanLy
+namespace TracNghiemCSDLPT.MyForms.BaoCao
 {
     public partial class FormDSDKTTN : XtraForm
     {

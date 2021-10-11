@@ -1,25 +1,18 @@
 ﻿using DevExpress.Skins;
 using DevExpress.Skins.XtraForm;
 using DevExpress.Utils.Drawing;
-using DevExpress.XtraEditors;
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
-using TracNghiemCSDLPT.SQL_Connection;
-using System.Windows.Forms;
 using System.Data.SqlTypes;
-using Bunifu.UI.WinForms;
+using System.Drawing;
+using System.Windows.Forms;
+using TracNghiemCSDLPT.Others;
 using static Bunifu.UI.WinForms.BunifuTextBox;
-using Guna.UI2.WinForms;
-using System.Collections;
 
-namespace TracNghiemCSDLPT
+namespace TracNghiemCSDLPT.MyForms
 {
 
     public partial class FormLogin : DevExpress.XtraEditors.XtraForm

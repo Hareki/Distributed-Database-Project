@@ -8,9 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TracNghiemCSDLPT.MyForms.TabbedForms;
+using TracNghiemCSDLPT.MyForms.QuanLy;
 using TracNghiemCSDLPT.Views;
 using TracNghiemCSDLPT.SQL_Connection;
+using TracNghiemCSDLPT.MyForms.Thi;
 
 namespace TracNghiemCSDLPT
 {
@@ -125,6 +126,16 @@ namespace TracNghiemCSDLPT
                 Program.LoginInstance.Show();
                 this.Hide();
             }
+        }
+
+        private void buttonToChucThi_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            showForm(typeof(FormDKThi));
+        }
+
+        private void buttonKQThi_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
         }
     }
 

@@ -12,9 +12,9 @@ using System.Windows.Forms;
 using TracNghiemCSDLPT.MyReports;
 using TracNghiemCSDLPT.SQL_Connection;
 
-namespace TracNghiemCSDLPT.MyForms.TabbedForms
+namespace TracNghiemCSDLPT.MyForms.QuanLy
 {
-    public partial class FormDSDKTTN : DevExpress.XtraEditors.XtraForm
+    public partial class FormDSDKTTN : XtraForm
     {
         private int PreviousIndexCS;
         public FormDSDKTTN()

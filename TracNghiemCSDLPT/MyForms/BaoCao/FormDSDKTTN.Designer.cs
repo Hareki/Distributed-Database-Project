@@ -1,5 +1,5 @@
 ﻿
-namespace TracNghiemCSDLPT.MyForms.TabbedForms
+namespace TracNghiemCSDLPT.MyForms.QuanLy
 {
     partial class FormDSDKTTN
     {

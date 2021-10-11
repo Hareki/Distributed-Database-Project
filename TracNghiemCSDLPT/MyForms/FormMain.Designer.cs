@@ -246,14 +246,16 @@ namespace TracNghiemCSDLPT
             this.buttonKQThi.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.leaderboard_500px;
             this.buttonKQThi.LargeWidth = 80;
             this.buttonKQThi.Name = "buttonKQThi";
+            this.buttonKQThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonKQThi_ItemClick);
             // 
             // buttonToChucThi
             // 
-            this.buttonToChucThi.Caption = "Tổ chức thi";
+            this.buttonToChucThi.Caption = "Đăng ký thi";
             this.buttonToChucThi.Id = 20;
             this.buttonToChucThi.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.box_settings_500px;
             this.buttonToChucThi.LargeWidth = 80;
             this.buttonToChucThi.Name = "buttonToChucThi";
+            this.buttonToChucThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonToChucThi_ItemClick);
             // 
             // buttonThamGiaThi
             // 

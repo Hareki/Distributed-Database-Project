@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TracNghiemCSDLPT.SQL_Connection;
 
-namespace TracNghiemCSDLPT.MyForms.TabbedForms
+namespace TracNghiemCSDLPT.MyForms.QuanLy
 {
     public partial class FormTaoLogin : DevExpress.XtraEditors.XtraForm
     {

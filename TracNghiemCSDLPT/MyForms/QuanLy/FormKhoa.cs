@@ -13,7 +13,7 @@ using System.Windows.Forms;
 using TracNghiemCSDLPT.Models;
 using TracNghiemCSDLPT.SQL_Connection;
 
-namespace TracNghiemCSDLPT.MyForms.TabbedForms
+namespace TracNghiemCSDLPT.MyForms.QuanLy
 {
     public partial class FormKhoa : DevExpress.XtraEditors.XtraForm
     {

@@ -112,7 +112,8 @@ namespace TracNghiemCSDLPT.MyForms
                 Program.MainInstance = new MainView();
                 Program.MainInstance.statusMa.Caption = "Mã GV: " + DBConnection.UserName;
                 Program.MainInstance.statusTen.Caption = "Họ tên: " + DBConnection.HoTen;
-                Program.MainInstance.statusQuyen.Caption = "Nhóm: " + DBConnection.NhomQuyen;
+                Program.MainInstance.statusQuyen.Caption = "Nhóm: " +
+                    DBConnection.GetVNTextNhomQuyen(DBConnection.NhomQuyen);
                 Program.MainInstance.Show();
                 this.Hide();
             }
@@ -155,7 +156,8 @@ namespace TracNghiemCSDLPT.MyForms
                 Program.MainInstance = new MainView();
                 Program.MainInstance.statusMa.Caption = "Mã SV: " + loginName;
                 Program.MainInstance.statusTen.Caption = "Họ tên: " + DBConnection.HoTen;
-                Program.MainInstance.statusQuyen.Caption = "Nhóm: " + DBConnection.NhomQuyen;
+                Program.MainInstance.statusQuyen.Caption = "Nhóm: " + 
+                    DBConnection.GetVNTextNhomQuyen(DBConnection.NhomQuyen);
                 Program.MainInstance.Show();
                 this.Hide();
             }

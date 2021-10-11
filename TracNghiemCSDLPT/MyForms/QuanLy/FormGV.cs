@@ -497,5 +497,15 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 if (!Utils.ShowConfirmMessage("Hủy những thay đổi đang thực hiện và đóng cửa sổ này?", "Xác nhận"))
                     e.Cancel = true;
         }
+
+        private void pictureBox1_EnabledChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

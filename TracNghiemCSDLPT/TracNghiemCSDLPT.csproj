@@ -679,5 +679,20 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book_500px_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\note_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\school.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\school_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\note_disabled1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

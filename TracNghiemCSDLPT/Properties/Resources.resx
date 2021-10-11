@@ -133,11 +133,17 @@
   <data name="asd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\asd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="book_500px_disabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\book_500px_disabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="test_passed_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\test_passed_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit_graph_report_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_graph_report_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="school_disabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\school_disabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cancel1_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cancel1_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -156,6 +162,9 @@
   </data>
   <data name="disableasd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\disableasd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="info_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\info_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="workspace" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\workspace.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,20 +193,20 @@
   <data name="school_500px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\school_500px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="question-mark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\question-mark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="help_96px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\help_96px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="invisible_512px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\invisible_512px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="lock_500px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lock_500px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="school" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\school.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cancel_35px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cancel_35px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="question-mark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\question-mark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="note_disabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\note_disabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cancel_40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cancel_40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -252,6 +261,9 @@
   </data>
   <data name="edit_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lock_500px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lock_500px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="minus_40px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minus_40px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -310,8 +322,8 @@
   <data name="exclamation_mark_512px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exclamation_mark_512px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sad_cloud_45px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sad_cloud_45px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cancel_35px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancel_35px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="info_45px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\info_45px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -340,8 +352,8 @@
   <data name="database_administrator_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\database_administrator_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="student_male_480px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\student_male_480px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sad_cloud_45px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sad_cloud_45px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="teacher_500px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\teacher_500px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -352,11 +364,14 @@
   <data name="database_administrator_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\database_administrator_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="student_male_480px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\student_male_480px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logo4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="info_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\info_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="note" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\note.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cancel_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cancel_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -370,7 +385,7 @@
   <data name="undo_480px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\undo_480px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="note" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\note.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="note_disabled1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\note_disabled1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

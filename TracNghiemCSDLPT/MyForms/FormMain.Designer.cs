@@ -69,6 +69,7 @@ namespace TracNghiemCSDLPT.MyForms
             // ribbon
             // 
             this.ribbon.Controller = this.barAndDockingController1;
+            this.ribbon.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(34, 30, 34, 30);
             this.ribbon.ExpandCollapseItem.Id = 0;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
@@ -92,6 +93,7 @@ namespace TracNghiemCSDLPT.MyForms
             this.ribbon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbon.MaxItemId = 23;
             this.ribbon.Name = "ribbon";
+            this.ribbon.OptionsMenuMinWidth = 377;
             this.ribbon.OptionsTouch.ShowTouchUISelectorInSearchMenu = false;
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.pageQuanLy,
@@ -100,7 +102,7 @@ namespace TracNghiemCSDLPT.MyForms
             this.pageTaiKhoan});
             this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.ShowToolbarCustomizeItem = false;
-            this.ribbon.Size = new System.Drawing.Size(956, 237);
+            this.ribbon.Size = new System.Drawing.Size(1093, 237);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             this.ribbon.Toolbar.ShowCustomizeItem = false;
             // 
@@ -197,11 +199,11 @@ namespace TracNghiemCSDLPT.MyForms
             // 
             this.statusMa.Caption = "Mã NV: ABC123";
             this.statusMa.Id = 15;
-            this.statusMa.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.statusMa.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusMa.ItemAppearance.Hovered.Options.UseFont = true;
-            this.statusMa.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.statusMa.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.statusMa.ItemAppearance.Normal.Options.UseFont = true;
-            this.statusMa.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.statusMa.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.statusMa.ItemAppearance.Pressed.Options.UseFont = true;
             this.statusMa.Name = "statusMa";
             // 
@@ -209,11 +211,11 @@ namespace TracNghiemCSDLPT.MyForms
             // 
             this.statusTen.Caption = "Họ và tên: Nguyễn Ngọc Minh Tú";
             this.statusTen.Id = 16;
-            this.statusTen.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.statusTen.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.statusTen.ItemAppearance.Hovered.Options.UseFont = true;
-            this.statusTen.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.statusTen.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.statusTen.ItemAppearance.Normal.Options.UseFont = true;
-            this.statusTen.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.statusTen.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.statusTen.ItemAppearance.Pressed.Options.UseFont = true;
             this.statusTen.Name = "statusTen";
             // 
@@ -221,11 +223,11 @@ namespace TracNghiemCSDLPT.MyForms
             // 
             this.statusQuyen.Caption = "Nhóm: Admin";
             this.statusQuyen.Id = 17;
-            this.statusQuyen.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.statusQuyen.ItemAppearance.Hovered.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.statusQuyen.ItemAppearance.Hovered.Options.UseFont = true;
-            this.statusQuyen.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.statusQuyen.ItemAppearance.Normal.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.statusQuyen.ItemAppearance.Normal.Options.UseFont = true;
-            this.statusQuyen.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 9F);
+            this.statusQuyen.ItemAppearance.Pressed.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.statusQuyen.ItemAppearance.Pressed.Options.UseFont = true;
             this.statusQuyen.Name = "statusQuyen";
             // 
@@ -356,6 +358,7 @@ namespace TracNghiemCSDLPT.MyForms
             // 
             // ribbonStatusBar
             // 
+            this.ribbonStatusBar.BackColor = System.Drawing.Color.Red;
             this.ribbonStatusBar.ItemLinks.Add(this.statusMa, true);
             this.ribbonStatusBar.ItemLinks.Add(this.statusTen, true);
             this.ribbonStatusBar.ItemLinks.Add(this.statusQuyen, true);
@@ -363,7 +366,7 @@ namespace TracNghiemCSDLPT.MyForms
             this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(956, 36);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1093, 36);
             // 
             // documentManager1
             // 
@@ -389,11 +392,13 @@ namespace TracNghiemCSDLPT.MyForms
             // 
             // MainView
             // 
+            this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
+            this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseForeColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(956, 714);
+            this.ClientSize = new System.Drawing.Size(1093, 714);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("MainView.IconOptions.Icon")));

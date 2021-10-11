@@ -606,7 +606,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonXacNhanLop.Size = new System.Drawing.Size(30, 30);
             this.buttonXacNhanLop.TabIndex = 24;
             this.buttonXacNhanLop.Visible = false;
-            this.buttonXacNhanLop.Click += new System.EventHandler(this.buttonXacNhanLop_Click);
+            this.buttonXacNhanLop.Click += new System.EventHandler(this.ButtonXacNhanLop_Click);
             // 
             // SinhVienGridControl
             // 

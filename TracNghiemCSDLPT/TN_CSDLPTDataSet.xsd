@@ -812,6 +812,34 @@ FROM     KHOA</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GVDK_ENDUSERTableAdapter" GeneratorDataComponentClassName="GVDK_ENDUSERTableAdapter" Name="GVDK_ENDUSER" UserDataComponentName="GVDK_ENDUSERTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TN_CSDLPTConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT GIAOVIEN.MAGV, GIAOVIEN.HO + ' ' + GIAOVIEN.TEN as HOTEN, MONHOC.TENMH, LOP.TENLOP, TRINHDO, NGAYTHI, LAN, SOCAUTHI, THOIGIAN
+FROM Lop INNER JOIN GIAOVIEN_DANGKY ON Lop.MALOP = GIAOVIEN_DANGKY.MALOP
+INNER JOIN GIAOVIEN ON GIAOVIEN.MAGV = GIAOVIEN_DANGKY.MAGV 
+INNER JOIN MONHOC ON MONHOC.MAMH = GIAOVIEN_DANGKY.MAMH
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MAGV" DataSetColumn="MAGV" />
+              <Mapping SourceColumn="HOTEN" DataSetColumn="HOTEN" />
+              <Mapping SourceColumn="TENMH" DataSetColumn="TENMH" />
+              <Mapping SourceColumn="TENLOP" DataSetColumn="TENLOP" />
+              <Mapping SourceColumn="TRINHDO" DataSetColumn="TRINHDO" />
+              <Mapping SourceColumn="NGAYTHI" DataSetColumn="NGAYTHI" />
+              <Mapping SourceColumn="LAN" DataSetColumn="LAN" />
+              <Mapping SourceColumn="SOCAUTHI" DataSetColumn="SOCAUTHI" />
+              <Mapping SourceColumn="THOIGIAN" DataSetColumn="THOIGIAN" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -1305,6 +1333,51 @@ FROM     KHOA</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="GVDK_ENDUSER" msprop:Generator_TableClassName="GVDK_ENDUSERDataTable" msprop:Generator_TableVarName="tableGVDK_ENDUSER" msprop:Generator_TablePropName="GVDK_ENDUSER" msprop:Generator_RowDeletingName="GVDK_ENDUSERRowDeleting" msprop:Generator_RowChangingName="GVDK_ENDUSERRowChanging" msprop:Generator_RowEvHandlerName="GVDK_ENDUSERRowChangeEventHandler" msprop:Generator_RowDeletedName="GVDK_ENDUSERRowDeleted" msprop:Generator_UserTableName="GVDK_ENDUSER" msprop:Generator_RowChangedName="GVDK_ENDUSERRowChanged" msprop:Generator_RowEvArgName="GVDK_ENDUSERRowChangeEvent" msprop:Generator_RowClassName="GVDK_ENDUSERRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MAGV" msprop:Generator_ColumnVarNameInTable="columnMAGV" msprop:Generator_ColumnPropNameInRow="MAGV" msprop:Generator_ColumnPropNameInTable="MAGVColumn" msprop:Generator_UserColumnName="MAGV">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HOTEN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHOTEN" msprop:Generator_ColumnPropNameInRow="HOTEN" msprop:Generator_ColumnPropNameInTable="HOTENColumn" msprop:Generator_UserColumnName="HOTEN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="81" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TENMH" msprop:Generator_ColumnVarNameInTable="columnTENMH" msprop:Generator_ColumnPropNameInRow="TENMH" msprop:Generator_ColumnPropNameInTable="TENMHColumn" msprop:Generator_UserColumnName="TENMH">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TENLOP" msprop:Generator_ColumnVarNameInTable="columnTENLOP" msprop:Generator_ColumnPropNameInRow="TENLOP" msprop:Generator_ColumnPropNameInTable="TENLOPColumn" msprop:Generator_UserColumnName="TENLOP">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TRINHDO" msprop:Generator_ColumnVarNameInTable="columnTRINHDO" msprop:Generator_ColumnPropNameInRow="TRINHDO" msprop:Generator_ColumnPropNameInTable="TRINHDOColumn" msprop:Generator_UserColumnName="TRINHDO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NGAYTHI" msprop:Generator_ColumnVarNameInTable="columnNGAYTHI" msprop:Generator_ColumnPropNameInRow="NGAYTHI" msprop:Generator_ColumnPropNameInTable="NGAYTHIColumn" msprop:Generator_UserColumnName="NGAYTHI" type="xs:dateTime" />
+              <xs:element name="LAN" msprop:Generator_ColumnVarNameInTable="columnLAN" msprop:Generator_ColumnPropNameInRow="LAN" msprop:Generator_ColumnPropNameInTable="LANColumn" msprop:Generator_UserColumnName="LAN" type="xs:short" />
+              <xs:element name="SOCAUTHI" msprop:Generator_ColumnVarNameInTable="columnSOCAUTHI" msprop:Generator_ColumnPropNameInRow="SOCAUTHI" msprop:Generator_ColumnPropNameInTable="SOCAUTHIColumn" msprop:Generator_UserColumnName="SOCAUTHI" type="xs:short" />
+              <xs:element name="THOIGIAN" msprop:Generator_ColumnVarNameInTable="columnTHOIGIAN" msprop:Generator_ColumnPropNameInRow="THOIGIAN" msprop:Generator_ColumnPropNameInTable="THOIGIANColumn" msprop:Generator_UserColumnName="THOIGIAN" type="xs:short" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -1407,7 +1480,6 @@ FROM     KHOA</CommandText>
       <msdata:Relationship name="FK_GIAOVIEN_DANGKY_GIAOVIEN1" msdata:parent="GIAOVIEN" msdata:child="GIAOVIEN_DANGKY" msdata:parentkey="MAGV" msdata:childkey="MAGV" msprop:Generator_UserChildTable="GIAOVIEN_DANGKY" msprop:Generator_ChildPropName="GetGIAOVIEN_DANGKYRows" msprop:Generator_UserRelationName="FK_GIAOVIEN_DANGKY_GIAOVIEN1" msprop:Generator_ParentPropName="GIAOVIENRow" msprop:Generator_RelationVarName="relationFK_GIAOVIEN_DANGKY_GIAOVIEN1" msprop:Generator_UserParentTable="GIAOVIEN" />
       <msdata:Relationship name="FK_GIAOVIEN_KHOA" msdata:parent="KHOA" msdata:child="GIAOVIEN" msdata:parentkey="MAKH" msdata:childkey="MAKH" msprop:Generator_UserChildTable="GIAOVIEN" msprop:Generator_ChildPropName="GetGIAOVIENRows" msprop:Generator_UserRelationName="FK_GIAOVIEN_KHOA" msprop:Generator_RelationVarName="relationFK_GIAOVIEN_KHOA" msprop:Generator_UserParentTable="KHOA" msprop:Generator_ParentPropName="KHOARow" />
       <msdata:Relationship name="FK_BODEBK_BODE" msdata:parent="BODE" msdata:child="BODE_BK" msdata:parentkey="CAUHOI" msdata:childkey="CAUHOI" msprop:Generator_UserChildTable="BODE_BK" msprop:Generator_ChildPropName="GetBODE_BKRows" msprop:Generator_UserRelationName="FK_BODEBK_BODE" msprop:Generator_RelationVarName="relationFK_BODEBK_BODE" msprop:Generator_UserParentTable="BODE" msprop:Generator_ParentPropName="BODERow" />
-      <msdata:Relationship name="FK_BODE_MONHOC1" msdata:parent="MONHOC2" msdata:child="BODE" msdata:parentkey="MAMH" msdata:childkey="MAMH" msprop:Generator_UserChildTable="BODE" msprop:Generator_ChildPropName="GetBODERows" msprop:Generator_UserRelationName="FK_BODE_MONHOC1" msprop:Generator_RelationVarName="relationFK_BODE_MONHOC1" msprop:Generator_UserParentTable="MONHOC2" msprop:Generator_ParentPropName="MONHOC2Row" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

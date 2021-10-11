@@ -191,6 +191,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // buttonRedo.Visible =
             buttonHuy.Visible =
             buttonXacNhan.Visible = state;
+           
         }
 
         private void SetInfoPanel(bool state, Color color, string message)
@@ -232,6 +233,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             {
                 KhoaBindingSource.Position = _oldPositionRow;
             }
+            _state = State.Idle;
         }
 
         private bool CheckDeleteCondition()
@@ -556,6 +558,14 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             if (_state != State.Idle)
                 if (!Utils.ShowConfirmMessage("Hủy những thay đổi đang thực hiện và đóng cửa sổ này?", "Xác nhận"))
                     e.Cancel = true;
+        }
+
+        private void pictureBox1_EnabledChanged(object sender, EventArgs e)
+        {
+            if (pictureBox1.Enabled)
+                pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.school;
+            else
+                pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.school_disabled;
         }
     }
 }

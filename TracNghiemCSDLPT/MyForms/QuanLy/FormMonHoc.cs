@@ -9,7 +9,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 {
     public partial class FormMonHoc : DevExpress.XtraEditors.XtraForm
     {
-        int selectedRow = 0;
+        private int selectedRow = 0;
 
         public FormMonHoc()
         {
@@ -23,13 +23,15 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 case "TRUONG":
                     SetIdleButtonEnabled(false);
                     break;
-
+                case "GIAOVIEN":
+                    SetIdleButtonEnabled(false);
+                    break;
             }
 
         }
 
-        Color ActiveForeColor = Color.FromArgb(72, 70, 68);
-        Color DisabledForeColor = SystemColors.AppWorkspace;
+        readonly Color ActiveForeColor = Color.FromArgb(72, 70, 68);
+        readonly Color DisabledForeColor = SystemColors.AppWorkspace;
         State state = State.idle;
         string origMaMH = "~!@#$%";
         string origTenMH = "~!@#$%";
@@ -44,9 +46,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 buttonXoa.Enabled = buttonSua.Enabled = false;
             else buttonXoa.Enabled = buttonSua.Enabled = true;
         }
-        private void MonHoc_Load(object sender, EventArgs e)
+        private void LoadAllData()
         {
-            this.TN_CSDLPTDataSet.EnforceConstraints = false;//phải có dòng này, nếu không khi refresh sẽ ko cho, do môn học là khóa chính, đã trỏ ra các bảng khác
+           
             this.MonHocTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.BoDeTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.GV_DKTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
@@ -56,7 +58,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.BoDeTableAdapter.Fill(this.TN_CSDLPTDataSet.BODE);
             this.GV_DKTableAdapter.Fill(this.TN_CSDLPTDataSet.GIAOVIEN_DANGKY);
             this.BangDiemTableAdapter.Fill(this.TN_CSDLPTDataSet.BANGDIEM);
-
+        }
+        private void MonHoc_Load(object sender, EventArgs e)
+        {
+            this.TN_CSDLPTDataSet.EnforceConstraints = false;//phải có dòng này, nếu không khi refresh sẽ ko cho, do môn học là khóa chính, đã trỏ ra các bảng khác
+            LoadAllData();
             checkButtonState();
             PhanQuyen();
         }
@@ -79,7 +85,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         private void SetInputButtonEnabled(bool state)
         {
-
             buttonHuy.Visible = buttonXacNhan.Visible = state;
         }
 
@@ -93,10 +98,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             InfoPanel.Text = "Thêm mới thông tin môn học";
 
-            //   SetIdleButtonEnabled(false);
+            SetIdleButtonEnabled(false);
             SetInputButtonEnabled(true);
 
-            //      MonHocGridControl.Enabled = false;
+            MonHocGridControl.Enabled = false;
             state = State.add;
             MonHocBindingSource.AddNew();
         }
@@ -115,6 +120,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             SetInputButtonEnabled(false);
             Utils.SetTextEditError(TenMHEP, TextTenMH, null);
             Utils.SetTextEditError(MaMHEP, TextMaMH, null);
+            state = State.idle;
 
         }
 
@@ -140,8 +146,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             try
             {
-                this.MonHocTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-                this.MonHocTableAdapter.Fill(this.TN_CSDLPTDataSet.MONHOC);
+                LoadAllData();
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
 
                 checkButtonState();
@@ -319,6 +324,18 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             if (state != State.idle)
                 if (!Utils.ShowConfirmMessage("Hủy những thay đổi đang thực hiện và đóng cửa sổ này?", "Xác nhận"))
                     e.Cancel = true;
+        }
+
+        private void pictureBox1_EnabledChanged(object sender, EventArgs e)
+        {
+            if (pictureBox1.Enabled)
+            {
+                this.pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.book_500px;
+            }
+            else
+            {
+                this.pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.book_500px_disabled;
+            }
         }
     }
 }

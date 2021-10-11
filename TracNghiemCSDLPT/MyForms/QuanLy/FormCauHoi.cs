@@ -539,7 +539,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 BoDeBindingSource.Position = selectedRow;
             SetIdleButtonEnabled(true);
             SetInputButtonEnabled(false);
-
+            state = State.idle;
 
             ClearError();
         }

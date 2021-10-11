@@ -37,8 +37,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
             this.buttonHuy = new Guna.UI2.WinForms.Guna2CircleButton();
             this.buttonXacNhan = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.buttonRedo = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.buttonUndo = new Guna.UI2.WinForms.Guna2CircleButton();
             this.buttonSua = new Guna.UI2.WinForms.Guna2Button();
             this.buttonThem = new Guna.UI2.WinForms.Guna2Button();
             this.buttonLamMoi = new Guna.UI2.WinForms.Guna2Button();
@@ -52,6 +50,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.TextTenKhoa = new DevExpress.XtraEditors.TextEdit();
             this.TextMaKhoa = new DevExpress.XtraEditors.TextEdit();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonRedo = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.buttonUndo = new Guna.UI2.WinForms.Guna2CircleButton();
             this.KhoaTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.KHOATableAdapter();
             this.tableAdapterManager = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
             this.KhoaGridControl = new DevExpress.XtraGrid.GridControl();
@@ -87,7 +87,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // mAKHLabel
             // 
             mAKHLabel.AutoSize = true;
-            mAKHLabel.Location = new System.Drawing.Point(219, 76);
+            mAKHLabel.Location = new System.Drawing.Point(250, 76);
             mAKHLabel.Name = "mAKHLabel";
             mAKHLabel.Size = new System.Drawing.Size(111, 40);
             mAKHLabel.TabIndex = 5;
@@ -96,7 +96,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // tENKHLabel
             // 
             tENKHLabel.AutoSize = true;
-            tENKHLabel.Location = new System.Drawing.Point(219, 133);
+            tENKHLabel.Location = new System.Drawing.Point(250, 133);
             tENKHLabel.Name = "tENKHLabel";
             tENKHLabel.Size = new System.Drawing.Size(119, 40);
             tENKHLabel.TabIndex = 6;
@@ -105,7 +105,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // LabelMaCS
             // 
             LabelMaCS.AutoSize = true;
-            LabelMaCS.Location = new System.Drawing.Point(219, 190);
+            LabelMaCS.Location = new System.Drawing.Point(250, 190);
             LabelMaCS.Name = "LabelMaCS";
             LabelMaCS.Size = new System.Drawing.Size(116, 40);
             LabelMaCS.TabIndex = 7;
@@ -132,7 +132,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.bunifuPanel2.Location = new System.Drawing.Point(0, 0);
             this.bunifuPanel2.Name = "bunifuPanel2";
             this.bunifuPanel2.ShowBorders = true;
-            this.bunifuPanel2.Size = new System.Drawing.Size(1192, 397);
+            this.bunifuPanel2.Size = new System.Drawing.Size(1362, 397);
             this.bunifuPanel2.TabIndex = 24;
             // 
             // buttonHuy
@@ -146,12 +146,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonHuy.HoverState.Parent = this.buttonHuy;
             this.buttonHuy.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
             this.buttonHuy.ImageSize = new System.Drawing.Size(31, 31);
-            this.buttonHuy.Location = new System.Drawing.Point(972, 210);
-            this.buttonHuy.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.buttonHuy.Location = new System.Drawing.Point(1111, 210);
+            this.buttonHuy.Margin = new System.Windows.Forms.Padding(11, 3, 3, 3);
             this.buttonHuy.Name = "buttonHuy";
             this.buttonHuy.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.buttonHuy.ShadowDecoration.Parent = this.buttonHuy;
-            this.buttonHuy.Size = new System.Drawing.Size(30, 30);
+            this.buttonHuy.Size = new System.Drawing.Size(34, 30);
             this.buttonHuy.TabIndex = 31;
             this.buttonHuy.Visible = false;
             this.buttonHuy.Click += new System.EventHandler(this.ButtonHuy_Click);
@@ -167,57 +167,15 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonXacNhan.HoverState.Parent = this.buttonXacNhan;
             this.buttonXacNhan.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
             this.buttonXacNhan.ImageSize = new System.Drawing.Size(31, 31);
-            this.buttonXacNhan.Location = new System.Drawing.Point(972, 157);
-            this.buttonXacNhan.Margin = new System.Windows.Forms.Padding(10, 9, 7, 20);
+            this.buttonXacNhan.Location = new System.Drawing.Point(1111, 157);
+            this.buttonXacNhan.Margin = new System.Windows.Forms.Padding(11, 9, 8, 20);
             this.buttonXacNhan.Name = "buttonXacNhan";
             this.buttonXacNhan.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.buttonXacNhan.ShadowDecoration.Parent = this.buttonXacNhan;
-            this.buttonXacNhan.Size = new System.Drawing.Size(30, 30);
+            this.buttonXacNhan.Size = new System.Drawing.Size(34, 30);
             this.buttonXacNhan.TabIndex = 32;
             this.buttonXacNhan.Visible = false;
             this.buttonXacNhan.Click += new System.EventHandler(this.ButtonXacNhan_Click);
-            // 
-            // buttonRedo
-            // 
-            this.buttonRedo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonRedo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.buttonRedo.CheckedState.Parent = this.buttonRedo;
-            this.buttonRedo.CustomImages.Parent = this.buttonRedo;
-            this.buttonRedo.FillColor = System.Drawing.Color.Transparent;
-            this.buttonRedo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonRedo.ForeColor = System.Drawing.Color.White;
-            this.buttonRedo.HoverState.Parent = this.buttonRedo;
-            this.buttonRedo.Image = global::TracNghiemCSDLPT.Properties.Resources.redo_480px;
-            this.buttonRedo.ImageSize = new System.Drawing.Size(28, 28);
-            this.buttonRedo.Location = new System.Drawing.Point(1143, 403);
-            this.buttonRedo.Margin = new System.Windows.Forms.Padding(15, 3, 10, 3);
-            this.buttonRedo.Name = "buttonRedo";
-            this.buttonRedo.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.buttonRedo.ShadowDecoration.Parent = this.buttonRedo;
-            this.buttonRedo.Size = new System.Drawing.Size(30, 30);
-            this.buttonRedo.TabIndex = 29;
-            this.buttonRedo.Click += new System.EventHandler(this.ButtonRedo_Click);
-            // 
-            // buttonUndo
-            // 
-            this.buttonUndo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUndo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.buttonUndo.CheckedState.Parent = this.buttonUndo;
-            this.buttonUndo.CustomImages.Parent = this.buttonUndo;
-            this.buttonUndo.FillColor = System.Drawing.Color.Transparent;
-            this.buttonUndo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonUndo.ForeColor = System.Drawing.Color.White;
-            this.buttonUndo.HoverState.Parent = this.buttonUndo;
-            this.buttonUndo.Image = global::TracNghiemCSDLPT.Properties.Resources.undo_480px1;
-            this.buttonUndo.ImageSize = new System.Drawing.Size(28, 28);
-            this.buttonUndo.Location = new System.Drawing.Point(1088, 403);
-            this.buttonUndo.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.buttonUndo.Name = "buttonUndo";
-            this.buttonUndo.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.buttonUndo.ShadowDecoration.Parent = this.buttonUndo;
-            this.buttonUndo.Size = new System.Drawing.Size(30, 30);
-            this.buttonUndo.TabIndex = 30;
-            this.buttonUndo.Click += new System.EventHandler(this.ButtonUndo_Click);
             // 
             // buttonSua
             // 
@@ -233,12 +191,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonSua.HoverState.Parent = this.buttonSua;
             this.buttonSua.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_480px;
             this.buttonSua.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonSua.Location = new System.Drawing.Point(643, 341);
+            this.buttonSua.Location = new System.Drawing.Point(735, 341);
             this.buttonSua.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonSua.Name = "buttonSua";
             this.buttonSua.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
             this.buttonSua.ShadowDecoration.Parent = this.buttonSua;
-            this.buttonSua.Size = new System.Drawing.Size(147, 45);
+            this.buttonSua.Size = new System.Drawing.Size(168, 45);
             this.buttonSua.TabIndex = 25;
             this.buttonSua.Text = "Sửa";
             this.buttonSua.Click += new System.EventHandler(this.ButtonSua_Click);
@@ -257,12 +215,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonThem.HoverState.Parent = this.buttonThem;
             this.buttonThem.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
             this.buttonThem.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonThem.Location = new System.Drawing.Point(201, 341);
+            this.buttonThem.Location = new System.Drawing.Point(230, 341);
             this.buttonThem.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonThem.Name = "buttonThem";
             this.buttonThem.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
             this.buttonThem.ShadowDecoration.Parent = this.buttonThem;
-            this.buttonThem.Size = new System.Drawing.Size(147, 45);
+            this.buttonThem.Size = new System.Drawing.Size(168, 45);
             this.buttonThem.TabIndex = 26;
             this.buttonThem.Text = "Thêm";
             this.buttonThem.Click += new System.EventHandler(this.ButtonThem_Click);
@@ -281,12 +239,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonLamMoi.HoverState.Parent = this.buttonLamMoi;
             this.buttonLamMoi.Image = global::TracNghiemCSDLPT.Properties.Resources.reset_480px;
             this.buttonLamMoi.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonLamMoi.Location = new System.Drawing.Point(864, 341);
+            this.buttonLamMoi.Location = new System.Drawing.Point(987, 341);
             this.buttonLamMoi.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonLamMoi.Name = "buttonLamMoi";
             this.buttonLamMoi.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
             this.buttonLamMoi.ShadowDecoration.Parent = this.buttonLamMoi;
-            this.buttonLamMoi.Size = new System.Drawing.Size(147, 45);
+            this.buttonLamMoi.Size = new System.Drawing.Size(168, 45);
             this.buttonLamMoi.TabIndex = 27;
             this.buttonLamMoi.Text = "Làm mới";
             this.buttonLamMoi.Click += new System.EventHandler(this.ButtonLamMoi_Click);
@@ -305,12 +263,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonXoa.HoverState.Parent = this.buttonXoa;
             this.buttonXoa.Image = global::TracNghiemCSDLPT.Properties.Resources.minus_sign_480px;
             this.buttonXoa.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonXoa.Location = new System.Drawing.Point(422, 342);
+            this.buttonXoa.Location = new System.Drawing.Point(482, 342);
             this.buttonXoa.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonXoa.Name = "buttonXoa";
             this.buttonXoa.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
             this.buttonXoa.ShadowDecoration.Parent = this.buttonXoa;
-            this.buttonXoa.Size = new System.Drawing.Size(147, 45);
+            this.buttonXoa.Size = new System.Drawing.Size(168, 45);
             this.buttonXoa.TabIndex = 28;
             this.buttonXoa.Text = "Xóa";
             this.buttonXoa.Click += new System.EventHandler(this.ButtonXoa_Click);
@@ -333,11 +291,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.CoSoComboBox.HoverState.Parent = this.CoSoComboBox;
             this.CoSoComboBox.ItemHeight = 30;
             this.CoSoComboBox.ItemsAppearance.Parent = this.CoSoComboBox;
-            this.CoSoComboBox.Location = new System.Drawing.Point(125, 8);
+            this.CoSoComboBox.Location = new System.Drawing.Point(143, 8);
             this.CoSoComboBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.CoSoComboBox.Name = "CoSoComboBox";
             this.CoSoComboBox.ShadowDecoration.Parent = this.CoSoComboBox;
-            this.CoSoComboBox.Size = new System.Drawing.Size(254, 36);
+            this.CoSoComboBox.Size = new System.Drawing.Size(290, 36);
             this.CoSoComboBox.TabIndex = 24;
             this.CoSoComboBox.TextOffset = new System.Drawing.Point(3, 3);
             this.CoSoComboBox.SelectedIndexChanged += new System.EventHandler(this.CoSoComboBox_SelectedIndexChanged);
@@ -346,7 +304,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(12, 14);
+            this.label1.Location = new System.Drawing.Point(14, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 30);
             this.label1.TabIndex = 23;
@@ -372,9 +330,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.InfoPanel.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.InfoPanel.LabelIndent = 10;
             this.InfoPanel.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
-            this.InfoPanel.Location = new System.Drawing.Point(296, 57);
+            this.InfoPanel.Location = new System.Drawing.Point(338, 57);
             this.InfoPanel.Name = "InfoPanel";
-            this.InfoPanel.Size = new System.Drawing.Size(648, 274);
+            this.InfoPanel.Size = new System.Drawing.Size(741, 274);
             this.InfoPanel.TabIndex = 0;
             this.InfoPanel.TabStop = false;
             this.InfoPanel.Text = "Thông tin khoa";
@@ -383,11 +341,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.TextMaCS.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.KhoaBindingSource, "MACS", true));
             this.TextMaCS.Enabled = false;
-            this.TextMaCS.Location = new System.Drawing.Point(347, 195);
+            this.TextMaCS.Location = new System.Drawing.Point(397, 195);
             this.TextMaCS.Name = "TextMaCS";
             this.TextMaCS.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
             this.TextMaCS.Properties.Appearance.Options.UseFont = true;
-            this.TextMaCS.Size = new System.Drawing.Size(252, 34);
+            this.TextMaCS.Size = new System.Drawing.Size(288, 34);
             this.TextMaCS.TabIndex = 8;
             // 
             // KhoaBindingSource
@@ -403,34 +361,77 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // TextTenKhoa
             // 
             this.TextTenKhoa.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.KhoaBindingSource, "TENKH", true));
-            this.TextTenKhoa.Location = new System.Drawing.Point(347, 138);
+            this.TextTenKhoa.Location = new System.Drawing.Point(397, 138);
             this.TextTenKhoa.Name = "TextTenKhoa";
             this.TextTenKhoa.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
             this.TextTenKhoa.Properties.Appearance.Options.UseFont = true;
             this.TextTenKhoa.Properties.MaxLength = 50;
-            this.TextTenKhoa.Size = new System.Drawing.Size(252, 34);
+            this.TextTenKhoa.Size = new System.Drawing.Size(288, 34);
             this.TextTenKhoa.TabIndex = 7;
             // 
             // TextMaKhoa
             // 
             this.TextMaKhoa.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.KhoaBindingSource, "MAKH", true));
-            this.TextMaKhoa.Location = new System.Drawing.Point(347, 81);
+            this.TextMaKhoa.Location = new System.Drawing.Point(397, 81);
             this.TextMaKhoa.Name = "TextMaKhoa";
             this.TextMaKhoa.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
             this.TextMaKhoa.Properties.Appearance.Options.UseFont = true;
             this.TextMaKhoa.Properties.MaxLength = 8;
-            this.TextMaKhoa.Size = new System.Drawing.Size(252, 34);
+            this.TextMaKhoa.Size = new System.Drawing.Size(288, 34);
             this.TextMaKhoa.TabIndex = 5;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.school_480px;
-            this.pictureBox1.Location = new System.Drawing.Point(47, 73);
+            this.pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.school_disabled;
+            this.pictureBox1.Location = new System.Drawing.Point(54, 73);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 156);
+            this.pictureBox1.Size = new System.Drawing.Size(146, 156);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.EnabledChanged += new System.EventHandler(this.pictureBox1_EnabledChanged);
+            // 
+            // buttonRedo
+            // 
+            this.buttonRedo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonRedo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.buttonRedo.CheckedState.Parent = this.buttonRedo;
+            this.buttonRedo.CustomImages.Parent = this.buttonRedo;
+            this.buttonRedo.FillColor = System.Drawing.Color.Transparent;
+            this.buttonRedo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonRedo.ForeColor = System.Drawing.Color.White;
+            this.buttonRedo.HoverState.Parent = this.buttonRedo;
+            this.buttonRedo.Image = global::TracNghiemCSDLPT.Properties.Resources.redo_480px;
+            this.buttonRedo.ImageSize = new System.Drawing.Size(28, 28);
+            this.buttonRedo.Location = new System.Drawing.Point(1306, 403);
+            this.buttonRedo.Margin = new System.Windows.Forms.Padding(17, 3, 11, 3);
+            this.buttonRedo.Name = "buttonRedo";
+            this.buttonRedo.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.buttonRedo.ShadowDecoration.Parent = this.buttonRedo;
+            this.buttonRedo.Size = new System.Drawing.Size(34, 30);
+            this.buttonRedo.TabIndex = 29;
+            this.buttonRedo.Click += new System.EventHandler(this.ButtonRedo_Click);
+            // 
+            // buttonUndo
+            // 
+            this.buttonUndo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonUndo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.buttonUndo.CheckedState.Parent = this.buttonUndo;
+            this.buttonUndo.CustomImages.Parent = this.buttonUndo;
+            this.buttonUndo.FillColor = System.Drawing.Color.Transparent;
+            this.buttonUndo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonUndo.ForeColor = System.Drawing.Color.White;
+            this.buttonUndo.HoverState.Parent = this.buttonUndo;
+            this.buttonUndo.Image = global::TracNghiemCSDLPT.Properties.Resources.undo_480px1;
+            this.buttonUndo.ImageSize = new System.Drawing.Size(28, 28);
+            this.buttonUndo.Location = new System.Drawing.Point(1243, 403);
+            this.buttonUndo.Margin = new System.Windows.Forms.Padding(3, 3, 11, 3);
+            this.buttonUndo.Name = "buttonUndo";
+            this.buttonUndo.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.buttonUndo.ShadowDecoration.Parent = this.buttonUndo;
+            this.buttonUndo.Size = new System.Drawing.Size(34, 30);
+            this.buttonUndo.TabIndex = 30;
+            this.buttonUndo.Click += new System.EventHandler(this.ButtonUndo_Click);
             // 
             // KhoaTableAdapter
             // 
@@ -462,7 +463,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.KhoaGridControl.Location = new System.Drawing.Point(0, 396);
             this.KhoaGridControl.MainView = this.gridView1;
             this.KhoaGridControl.Name = "KhoaGridControl";
-            this.KhoaGridControl.Size = new System.Drawing.Size(1192, 259);
+            this.KhoaGridControl.Size = new System.Drawing.Size(1362, 259);
             this.KhoaGridControl.TabIndex = 24;
             this.KhoaGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -524,11 +525,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.colMAKH.AppearanceHeader.Options.UseBackColor = true;
             this.colMAKH.Caption = "Mã khoa";
             this.colMAKH.FieldName = "MAKH";
-            this.colMAKH.MinWidth = 25;
+            this.colMAKH.MinWidth = 29;
             this.colMAKH.Name = "colMAKH";
             this.colMAKH.Visible = true;
             this.colMAKH.VisibleIndex = 0;
-            this.colMAKH.Width = 94;
+            this.colMAKH.Width = 107;
             // 
             // colTENKH
             // 
@@ -536,11 +537,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.colTENKH.AppearanceHeader.Options.UseBackColor = true;
             this.colTENKH.Caption = "Tên khoa";
             this.colTENKH.FieldName = "TENKH";
-            this.colTENKH.MinWidth = 25;
+            this.colTENKH.MinWidth = 29;
             this.colTENKH.Name = "colTENKH";
             this.colTENKH.Visible = true;
             this.colTENKH.VisibleIndex = 1;
-            this.colTENKH.Width = 94;
+            this.colTENKH.Width = 107;
             // 
             // colMACS
             // 
@@ -548,11 +549,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.colMACS.AppearanceHeader.Options.UseBackColor = true;
             this.colMACS.Caption = "Mã cơ sở";
             this.colMACS.FieldName = "MACS";
-            this.colMACS.MinWidth = 25;
+            this.colMACS.MinWidth = 29;
             this.colMACS.Name = "colMACS";
             this.colMACS.Visible = true;
             this.colMACS.VisibleIndex = 2;
-            this.colMACS.Width = 94;
+            this.colMACS.Width = 107;
             // 
             // LopBindingSource
             // 
@@ -582,9 +583,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             // FormKhoa
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1192, 654);
+            this.ClientSize = new System.Drawing.Size(1362, 654);
             this.Controls.Add(this.bunifuPanel2);
             this.Controls.Add(this.buttonUndo);
             this.Controls.Add(this.buttonRedo);

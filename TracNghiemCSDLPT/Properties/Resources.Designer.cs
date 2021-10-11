@@ -143,6 +143,16 @@ namespace TracNghiemCSDLPT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap book_500px_disabled {
+            get {
+                object obj = ResourceManager.GetObject("book_500px_disabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap box_settings_500px {
             get {
                 object obj = ResourceManager.GetObject("box_settings_500px", resourceCulture);
@@ -603,6 +613,26 @@ namespace TracNghiemCSDLPT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap note_disabled {
+            get {
+                object obj = ResourceManager.GetObject("note_disabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap note_disabled1 {
+            get {
+                object obj = ResourceManager.GetObject("note_disabled1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ok_45px {
             get {
                 object obj = ResourceManager.GetObject("ok_45px", resourceCulture);
@@ -723,6 +753,16 @@ namespace TracNghiemCSDLPT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap school {
+            get {
+                object obj = ResourceManager.GetObject("school", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap school_480px {
             get {
                 object obj = ResourceManager.GetObject("school_480px", resourceCulture);
@@ -736,6 +776,16 @@ namespace TracNghiemCSDLPT.Properties {
         internal static System.Drawing.Bitmap school_500px {
             get {
                 object obj = ResourceManager.GetObject("school_500px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap school_disabled {
+            get {
+                object obj = ResourceManager.GetObject("school_disabled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

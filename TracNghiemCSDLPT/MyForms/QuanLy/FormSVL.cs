@@ -286,7 +286,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             KhoaGridControl.Enabled = false;
             // KhoaBindingSource.SuspendBinding();
             ComboMaKH.SelectedIndex = 0;
-
+            SetSVState(false);
             state = State.addLop;
             LopBindingSource.AddNew();
         }
@@ -309,19 +309,21 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             SetIdleButtonEnabledLop(true);
             SetInputButtonEnabledLop(false);
-
+            SetSVState(true);
             Utils.SetTextEditError(MaLopEP, TextMaLop, null);
             Utils.SetTextEditError(TenLopEP, TextTenLop, null);
+            state = State.idle;
         }
 
         private void buttonLamMoiLop_Click(object sender, EventArgs e)
         {
             try
             {
-                this.KhoaTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-                this.KhoaTableAdapter.Fill(this.TN_CSDLPTDataSet.KHOA);
-                this.LopTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-                this.LopTableAdapter.Fill(this.TN_CSDLPTDataSet.LOP);
+                //this.KhoaTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+                //this.KhoaTableAdapter.Fill(this.TN_CSDLPTDataSet.KHOA);
+                //this.LopTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+                //this.LopTableAdapter.Fill(this.TN_CSDLPTDataSet.LOP);
+                LoadAllData();
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
 
                 checkButtonStateLop();
@@ -347,7 +349,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             SetIdleButtonEnabledLop(false);
             SetInputButtonEnabledLop(true);
-
+            SetSVState(false);
 
             origMaLop = TextMaLop.Text.Trim();
             origTenLop = Utils.CapitalizeString(TextTenLop.Text, Utils.CapitalMode.FirstWordOnly);
@@ -456,7 +458,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             detailView.FocusedRowHandle = lOPBindingSource1.Find("MALOP", saveMaLopForReset);
 
         }
-        private void buttonXacNhanLop_Click(object sender, EventArgs e)
+        private void ButtonXacNhanLop_Click(object sender, EventArgs e)
         {
             TextMaLop.Text = TextMaLop.Text.Trim();
             TextTenLop.Text = Utils.CapitalizeString
@@ -529,7 +531,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 InfoPanel.Text = "Thông tin lớp";
                 Utils.SetTextEditError(MaLopEP, TextMaLop, null);
                 Utils.SetTextEditError(TenLopEP, TextTenLop, null);
-
+                SetSVState(true);
                 checkButtonStateLop();
                 origMaLop = origTenLop = "~!@#$%";
 
@@ -745,6 +747,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             KhoaGridControl.Enabled = InfoPanel.Enabled = state;
             this.TextMaLop.ForeColor = this.ComboMaKH.ForeColor =
                 this.TextTenLop.ForeColor = state == true ? ActiveForeColor : DisabledForeColor;
+        }
+
+        private void SetSVState(bool state)
+        {
+            SinhVienGridControl.Enabled = state;
+            SetIdleButtonEnabledSV(state);
         }
 
         private void SinhVienGridView_CustomDrawCell(object sender, RowCellCustomDrawEventArgs e)

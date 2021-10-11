@@ -52,7 +52,21 @@ namespace TracNghiemCSDLPT.Others
         public static string RemoteLogin = "HTKN";
         public static string RemotePassword = "123456";
 
-
+        public static String GetVNTextNhomQuyen(string NhomQuyen)
+        {
+            switch (NhomQuyen)
+            {
+                case "TRUONG":
+                    return "Trường";
+                case "COSO":
+                    return "Cơ sở";
+                case "GIAOVIEN":
+                    return "Giảng viên";
+                case "SINHVIEN":
+                    return "Sinh viên";
+            }
+            return string.Empty;
+        }
         public static bool ConnectToPublisher()
         {
             if (PublisherConnection != null && PublisherConnection.State == ConnectionState.Open)

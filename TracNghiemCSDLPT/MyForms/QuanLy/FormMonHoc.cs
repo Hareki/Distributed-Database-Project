@@ -35,6 +35,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         State state = State.idle;
         string origMaMH = "~!@#$%";
         string origTenMH = "~!@#$%";
+
+        private void SetDefaultOrigValue()
+        {
+            origTenMH = "~!@#$%";
+            origMaMH = "~!@#$%";
+        }
         enum State
         {
             add, edit, idle
@@ -121,6 +127,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             Utils.SetTextEditError(TenMHEP, TextTenMH, null);
             Utils.SetTextEditError(MaMHEP, TextMaMH, null);
             state = State.idle;
+            SetDefaultOrigValue();
 
         }
 
@@ -314,8 +321,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 TextTenMH.ForeColor = DisabledForeColor;
             SetIdleButtonEnabled(true);
             SetInputButtonEnabled(false);
-            origMaMH = "~!@#$%";
-            origTenMH = "~!@#$%";
+            SetDefaultOrigValue();
             checkButtonState();
         }
 

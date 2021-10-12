@@ -42,7 +42,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.GVDKTableAdapter.Fill(this.TN_CSDLPTDataSet.GIAOVIEN_DANGKY);
             this.BoDeTableAdapter.Fill(this.TN_CSDLPTDataSet.BODE);
 
-
+        }
+        private void SetDefaultOrigValue()
+        {
+            origMaGV = "~!@#$%";
         }
 
         private void PhanQuyen()
@@ -122,7 +125,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             GVBindingSource.AddNew();
         }
 
-        private void buttonHuyGV_Click(object sender, EventArgs e)
+        private void ButtonHuyGV_Click(object sender, EventArgs e)
         {
             GVGridView.OptionsBehavior.Editable = false;
             GVBindingSource.CancelEdit();
@@ -131,6 +134,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             state = State.idle;
             SetIdleButtonEnabledGV(true);
             SetInputButtonEnabledGV(false);
+            SetDefaultOrigValue();
             SetKhoaState(true);
         }
 
@@ -197,7 +201,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     state = State.idle;
                     GVGridView.ClearColumnErrors();
                     CheckButtonStateGV();
-                    origMaGV = "~!@#$%";
+                    SetDefaultOrigValue();
 
                 }
                 catch (Exception ex)

@@ -73,6 +73,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.BoDeTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.BODETableAdapter();
             this.GVDKBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.GVDKTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.GIAOVIEN_DANGKYTableAdapter();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.LopGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KhoaGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KhoaBindingSource)).BeginInit();
@@ -89,6 +90,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.bunifuPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BoDeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GVDKBindingSource)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // LopGridView
@@ -296,9 +298,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.asd;
-            this.pictureBox1.Location = new System.Drawing.Point(1170, 52);
+            this.pictureBox1.Location = new System.Drawing.Point(1217, 52);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(525, 351);
+            this.pictureBox1.Size = new System.Drawing.Size(478, 351);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
@@ -648,8 +650,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.bunifuPanel1.Controls.Add(this.buttonUndoGV);
             this.bunifuPanel1.Controls.Add(this.buttonRedoGV);
             this.bunifuPanel1.Controls.Add(this.ViewCaption);
-            this.bunifuPanel1.Controls.Add(this.buttonXacNhanGV);
-            this.bunifuPanel1.Controls.Add(this.buttonHuyGV);
             this.bunifuPanel1.Location = new System.Drawing.Point(183, 436);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
@@ -715,8 +715,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             // buttonXacNhanGV
             // 
-            this.buttonXacNhanGV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonXacNhanGV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.buttonXacNhanGV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.buttonXacNhanGV.CheckedState.Parent = this.buttonXacNhanGV;
             this.buttonXacNhanGV.CustomImages.Parent = this.buttonXacNhanGV;
             this.buttonXacNhanGV.FillColor = System.Drawing.Color.Transparent;
@@ -725,7 +724,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonXacNhanGV.HoverState.Parent = this.buttonXacNhanGV;
             this.buttonXacNhanGV.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
             this.buttonXacNhanGV.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonXacNhanGV.Location = new System.Drawing.Point(17, 8);
+            this.buttonXacNhanGV.Location = new System.Drawing.Point(4, 131);
             this.buttonXacNhanGV.Margin = new System.Windows.Forms.Padding(17, 0, 23, 3);
             this.buttonXacNhanGV.Name = "buttonXacNhanGV";
             this.buttonXacNhanGV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -737,8 +736,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             // buttonHuyGV
             // 
-            this.buttonHuyGV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonHuyGV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.buttonHuyGV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.buttonHuyGV.CheckedState.Parent = this.buttonHuyGV;
             this.buttonHuyGV.CustomImages.Parent = this.buttonHuyGV;
             this.buttonHuyGV.FillColor = System.Drawing.Color.Transparent;
@@ -747,7 +745,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonHuyGV.HoverState.Parent = this.buttonHuyGV;
             this.buttonHuyGV.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
             this.buttonHuyGV.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonHuyGV.Location = new System.Drawing.Point(80, 8);
+            this.buttonHuyGV.Location = new System.Drawing.Point(4, 190);
             this.buttonHuyGV.Margin = new System.Windows.Forms.Padding(3, 3, 57, 3);
             this.buttonHuyGV.Name = "buttonHuyGV";
             this.buttonHuyGV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -755,7 +753,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonHuyGV.Size = new System.Drawing.Size(34, 30);
             this.buttonHuyGV.TabIndex = 25;
             this.buttonHuyGV.Visible = false;
-            this.buttonHuyGV.Click += new System.EventHandler(this.buttonHuyGV_Click);
+            this.buttonHuyGV.Click += new System.EventHandler(this.ButtonHuyGV_Click);
             // 
             // BoDeBindingSource
             // 
@@ -775,11 +773,21 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.GVDKTableAdapter.ClearBeforeFill = true;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.buttonHuyGV);
+            this.panel2.Controls.Add(this.buttonXacNhanGV);
+            this.panel2.Location = new System.Drawing.Point(1169, 52);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(42, 351);
+            this.panel2.TabIndex = 33;
+            // 
             // FormGV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1709, 829);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.KhoaGridControl);
             this.Controls.Add(this.GVGridControl);
             this.Controls.Add(this.bunifuPanel1);
@@ -810,6 +818,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.bunifuPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BoDeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GVDKBindingSource)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -859,5 +868,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private TN_CSDLPTDataSetTableAdapters.GIAOVIEN_DANGKYTableAdapter GVDKTableAdapter;
         private Guna.UI2.WinForms.Guna2CircleButton buttonUndoGV;
         private Guna.UI2.WinForms.Guna2CircleButton buttonRedoGV;
+        private System.Windows.Forms.Panel panel2;
     }
 }

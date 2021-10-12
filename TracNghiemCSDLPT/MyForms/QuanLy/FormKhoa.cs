@@ -55,6 +55,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private const string ColTenKhoa = "TENKH";
         private const string ColMaCoSo = "MACS";
 
+        private void SetDefaultOrigValue()
+        {
+            _origMaKH = "~!@#$%";
+            _origTenKH = "~!@#$%";
+
+        }
         private void FormKhoa_Load(object sender, EventArgs e)
         {
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
@@ -234,6 +240,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 KhoaBindingSource.Position = _oldPositionRow;
             }
             _state = State.Idle;
+            SetDefaultOrigValue();
         }
 
         private bool CheckDeleteCondition()
@@ -412,7 +419,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 SetIdleButtonEnabled(true);
                 SetInputButtonEnabled(false);
                 CheckButtonState();
-                _origMaKH = _origTenKH = "~!@#$%";
+                SetDefaultOrigValue();
             }
             catch (Exception ex)
             {

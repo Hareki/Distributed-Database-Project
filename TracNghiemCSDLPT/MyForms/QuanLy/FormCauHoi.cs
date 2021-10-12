@@ -46,6 +46,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
         }
 
+        private void setDefaultOrigValue()
+        {
+            origMaCH = -1;
+        }
         private void PhanQuyen()
         {
             switch (DBConnection.NhomQuyen)
@@ -476,7 +480,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
 
                 CheckButtonState();
-                origMaCH = -1;
+                setDefaultOrigValue();
 
             }
             catch (Exception ex)
@@ -532,7 +536,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
 
             MonHocGridControl.Enabled = true;
-
+            setDefaultOrigValue();
 
             BoDeBindingSource.CancelEdit();
             if (state == State.add)

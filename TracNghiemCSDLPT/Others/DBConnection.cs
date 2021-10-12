@@ -10,8 +10,8 @@ namespace TracNghiemCSDLPT.Others
     public struct Para
     {
         public string ValueName;
-        public string RealValue;
-        public Para(string valueName, string realValue)
+        public object RealValue;
+        public Para(string valueName, object realValue)
         {
             ValueName = valueName;
             RealValue = realValue;

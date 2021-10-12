@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using TracNghiemCSDLPT.Others;
 
@@ -19,6 +22,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         readonly Color ActiveForeColor = Color.FromArgb(72, 70, 68);
         readonly Color DisabledForeColor = SystemColors.AppWorkspace;
         private int PreviousIndexCS;
+        private string origMaMH = "!@#$%";
+        private string origMaLop = "!@#$%";
+        private int origLan = -1;
 
         private void SetInputButtonEnabled(bool state)
         {
@@ -30,12 +36,20 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.LopTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.MonHocTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.DSGVTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.SVTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
 
             this.GVDK2TableAdapter.Fill(this.TN_CSDLPTDataSet.GVDK_ENDUSER);
             this.LopTableAdapter.Fill(this.TN_CSDLPTDataSet.LOP);
             this.MonHocTableAdapter.Fill(this.TN_CSDLPTDataSet.MONHOC);
             this.DSGVTableAdapter.Fill(this.TN_CSDLPTDataSet.DSGIAOVIEN);
+            this.SVTableAdapter.Fill(this.TN_CSDLPTDataSet.SINHVIEN);
 
+        }
+        private void SetOrigDefaultValue()
+        {
+            origMaMH = "!@#$%";
+            origMaLop = "!@#$%";
+            origLan = -1;
         }
         private void PhanQuyen()
         {
@@ -70,10 +84,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         }
         private void FormDKThi_Load(object sender, EventArgs e)
         {
-
+          
 
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
             LoadData();
+            LookUpGV.Properties.DataSource = DSGVBindingSource;
             LookUpGV.Properties.DisplayMember = "FullInfo";
             LookUpGV.Properties.ValueMember = "MaGV";
 
@@ -83,9 +98,13 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             LopCombo.DisplayMember = "TENLOP";
             LopCombo.ValueMember = "MALOP";
 
+            this.CoSoComboBox.DataSource = DBConnection.BS_Subcribers;
+            this.CoSoComboBox.DisplayMember = "TENCS";
+            this.CoSoComboBox.ValueMember = "TENSERVER";
             this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
             this.PreviousIndexCS = this.CoSoComboBox.SelectedIndex;
 
+            NgayThi.Value = NgayThi.Value.AddDays(1);
             PhanQuyen();
 
 
@@ -118,7 +137,14 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             GVDK2GridControl.Enabled = false;
             state = State.add;
         }
-
+        private void ClearErrors()
+        {
+            GVEP.SetError(LookUpGV, null);
+            TrinhDoEP.SetError(panelTrinhDo, null);
+            LanEP.SetError(panelLan, null);
+            SoCauEP.SetError(labelCau, null);
+            ThoiGianEP.SetError(labelPhut, null);
+        }
         private void buttonHuy_Click(object sender, EventArgs e)
         {
             InfoPanel.Enabled = false;
@@ -131,8 +157,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 GVDK2BindingSource.Position = selectedRow;
             SetIdleButtonEnabled(true);
             SetInputButtonEnabled(false);
-            //Utils.SetTextEditError(TenMHEP, TextTenMH, null);
-            //Utils.SetTextEditError(MaMHEP, TextMaMH, null);
+            ClearErrors();
+            SetOrigDefaultValue();
             state = State.idle;
         }
 
@@ -143,7 +169,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 LoadData();
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
 
-               // checkButtonState();
+                // checkButtonState();
             }
             catch (Exception ex)
             {
@@ -153,6 +179,19 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             }
         }
 
+        private string getTrinhDo()
+        {
+            if (rdoA.Checked) return "A";
+            else if (rdoB.Checked) return "B";
+            else if (rdoC.Checked) return "C";
+            else return null;
+        }
+        private int getLan()
+        {
+            if (rdo1.Checked) return 1;
+            else if (rdo2.Checked) return 2;
+            else return -1;
+        }
         private void CoSoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CoSoComboBox.SelectedValue.ToString() == "System.Data.DataRowView")
@@ -181,6 +220,151 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 LoadData();
                 this.PreviousIndexCS = this.CoSoComboBox.SelectedIndex;
             }
+        }
+
+        private bool AlreadyExistsDKT(string maMH, string maLop, int lan)
+        {
+            List<Para> paraList = new List<Para>();
+            paraList.Add(new Para("@MaMH", maMH));
+            paraList.Add(new Para("@MaLop", maLop));
+            paraList.Add(new Para("@Lan", lan));
+            string SPName = "usp_GVDK_GetInfoByIDs";
+            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
+            if (myReader == null)
+            {
+                Console.WriteLine(System.Environment.StackTrace);
+                return true;
+            }
+            if (myReader.HasRows)
+            {
+                myReader.Close();
+                return true;
+
+            }
+            else
+            {
+                myReader.Close();
+                return false;
+            }
+        }
+
+        private void buttonXacNhan_Click(object sender, EventArgs e)
+        {
+            bool test1 = LookUpGV.EditValue is null;
+            bool test2 = !rdoA.Checked && !rdoB.Checked && !rdoC.Checked;
+            bool test3 = !rdo1.Checked && !rdo2.Checked;
+            bool test4 = spinSoCau.Value < 10 || spinSoCau.Value > 100;
+            bool test5 = spinThoiGian.Value < 15 || spinSoCau.Value > 60;
+            if (test1 || test2 || test3 || test4 || test5)
+            {
+                if (test1)
+                    GVEP.SetError(LookUpGV, "Vui lòng chọn giáo viên giảng dạy");
+                else
+                    GVEP.SetError(LookUpGV, null);
+                if (test2)
+                    TrinhDoEP.SetError(panelTrinhDo, "Vui lòng chọn trình độ");
+                else
+                    TrinhDoEP.SetError(panelTrinhDo, null);
+                if (test3)
+                    LanEP.SetError(panelLan, "Vui lòng chọn lần thi");
+                else
+                    LanEP.SetError(panelLan, null);
+                if (test4)
+                    SoCauEP.SetError(labelCau, "Số câu phải nằm trong khoảng từ 10 đến 100 câu");
+                else
+                    SoCauEP.SetError(labelCau, null);
+                if (test5)
+                    ThoiGianEP.SetError(labelPhut, "Thời gian phải nằm trong khoảng từ 15 đến 60 phút");
+                else
+                    ThoiGianEP.SetError(labelPhut, null);
+                Utils.ShowMessage("Vui lòng xem lại thông tin đã nhập", Others.NotiForm.FormType.Error, 2);
+                return;
+            }
+            string maGV = (LookUpGV.GetSelectedDataRow() as DataRowView)["MaGV"].ToString();
+            string maMH = MHCombo.SelectedValue.ToString();
+            string maLop = LopCombo.SelectedValue.ToString();
+            string trinhDo = getTrinhDo();
+            string ngayThi = NgayThi.Value.ToString("dd/MM/yyyy");
+            int lan = getLan();
+            int soCau = (int)spinSoCau.Value;
+            int thoiGian = (int)spinThoiGian.Value;
+
+            bool testMH = !origMaMH.ToLower().Equals(maMH.ToLower());
+            bool testLop = !origMaLop.ToLower().Equals(maLop.ToLower());
+            bool testLan = lan != origLan;
+
+
+            if (testMH || testLop || testLan)
+            {
+                if (AlreadyExistsDKT(maMH, maLop, lan))
+                {
+                    SetOrigDefaultValue();
+                    Utils.ShowMessage("Thông tin này đăng ký đã tồn tại", Others.NotiForm.FormType.Error, 2);
+                    return;
+                }
+            }
+            LopBindingSource.Position = LopBindingSource.Find("MALOP", maLop);
+            if (SVBindingSource.Count == 0)
+            {
+                SetOrigDefaultValue();
+                Utils.ShowMessage("Lớp không có sinh viên nào, không thể đăng ký thi", Others.NotiForm.FormType.Error, 2);
+                return;
+            }
+
+
+            List<Para> paraList = new List<Para>();
+            paraList.Add(new Para("@MaGV", maGV));
+            paraList.Add(new Para("@MaMH", maMH));
+            paraList.Add(new Para("@MaLop", maLop));
+            paraList.Add(new Para("@TrinhDo", trinhDo));
+            paraList.Add(new Para("@NgayThi", ngayThi));
+            paraList.Add(new Para("@Lan", lan));
+            paraList.Add(new Para("@SoCauThi", soCau));
+            paraList.Add(new Para("@ThoiGian", thoiGian));
+            if (state == State.add)
+            {
+                string SPName = "usp_GVDK_AddRecord";
+                SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
+                if (myReader == null)
+                {
+                    // Console.WriteLine(System.Environment.StackTrace);
+                    return;
+                }
+                Utils.ShowMessage("Thêm thông tin đăng ký thi thành công", Others.NotiForm.FormType.Success, 2);
+            }
+            else if (state == State.edit)
+            {
+                paraList.Add(new Para("@OldMaMH", origMaMH));
+                paraList.Add(new Para("@OldMaLop", origMaLop));
+                paraList.Add(new Para("@OldLan", origLan));
+                string SPName = "usp_GVDK_UpdateRecord";
+                SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
+                if (myReader == null)
+                {
+                    return;
+                }
+                Utils.ShowMessage("Sửa thông tin đăng ký thi thành công", Others.NotiForm.FormType.Success, 2);
+            }
+            //chưa làm load lại dữ liệu, đã thêm dc
+
+        }
+
+        private void buttonSua_Click(object sender, EventArgs e)
+        {
+            InfoPanel.Enabled = true;
+            InfoPanel.Text = "Sửa thông tin đăng ký thi";
+            SetIdleButtonEnabled(false);
+            SetInputButtonEnabled(true);
+            origMaLop = LopCombo.SelectedValue.ToString().Trim();
+            origMaMH = MHCombo.SelectedValue.ToString().Trim();
+            origLan = getLan();
+            GVDK2GridControl.Enabled = false;
+            state = State.edit;
+        }
+
+        private void buttonXoa_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

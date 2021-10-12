@@ -62,6 +62,17 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             addLop, editLop, idle, addSV, editSV
         }
+
+        private void SetDefaultOrigValueLop()
+        {
+            origTenLop = "~!@#$%";
+            origMaLop = "~!@#$%";
+        }
+        private void SetDefaultOrigValueSV()
+        {
+            origMaSV = "~!@#$%";
+        }
+
         private void LoadAllData()
         {
             this.KhoaTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
@@ -107,7 +118,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         }
 
-        private void checkButtonStateSV()
+        private void CheckButtonStateSV()
         {
             if (DBConnection.NhomQuyen.Equals("COSO"))
             {
@@ -166,7 +177,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             GridView view = getCorrTextBoxData(true);
             if (view != null)
                 view.Focus();
-            checkButtonStateSV();
+            CheckButtonStateSV();
             PhanQuyen();
 
         }
@@ -301,7 +312,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             KhoaGridControl.Enabled = true;
             // KhoaBindingSource.ResumeBinding();
             ComboMaKH.SelectedIndex = saveKHIndex;
-
+            SetDefaultOrigValueLop();
             LopBindingSource.CancelEdit();
             InfoPanel.Text = "Thông tin lớp";
             if (state == State.addLop)
@@ -533,7 +544,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 Utils.SetTextEditError(TenLopEP, TextTenLop, null);
                 SetSVState(true);
                 checkButtonStateLop();
-                origMaLop = origTenLop = "~!@#$%";
+                SetDefaultOrigValueLop();
 
             }
             catch (Exception ex)
@@ -838,7 +849,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 }
             }
 
-            checkButtonStateSV();
+            CheckButtonStateSV();
         }
 
         private void buttonLamMoiSV_Click(object sender, EventArgs e)
@@ -892,7 +903,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void SinhVienBindingSource_CurrentChanged(object sender, EventArgs e)
         {
-            checkButtonStateSV();
+            CheckButtonStateSV();
         }
 
         private void SinhVienGridView_ShownEditor(object sender, EventArgs e)
@@ -942,8 +953,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                         Utils.ShowMessage("Thêm thông tin sinh viên thành công", Others.NotiForm.FormType.Success, 2);
                     state = State.idle;
                     SinhVienGridView.ClearColumnErrors();
-                    checkButtonStateSV();
-                    origMaSV = "~!@#$%";
+                    CheckButtonStateSV();
+                    SetDefaultOrigValueSV();
 
                 }
                 catch (Exception ex)
@@ -968,6 +979,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             if (state == State.addSV)
                 SinhVienBindingSource.Position = selectedRowSV;
             state = State.idle;
+            SetDefaultOrigValueSV();
             SetIdleButtonEnabledSV(true);
             SetInputButtonEnabledSV(false);
             SetLopState(true);

@@ -124,11 +124,15 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
         }
 
-        private bool MaKhoaAlreadyExists(string maKhoa)
+        private bool MaKhoaAlreadyExists(string maKhoa, bool isUndoRedo)
         {
             string SPName = "usp_Khoa_GetInfoById";
             List<Para> paraList = new List<Para>();
             paraList.Add(new Para("@ID", maKhoa));
+            if (isUndoRedo)
+            {
+                paraList.Add(new Para("@MACS", this._maCS));
+            }
             SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
             if (myReader == null)
             {
@@ -142,11 +146,15 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
 
 
-        private bool TenKhoaAlreadyExists(string tenKhoa)
+        private bool TenKhoaAlreadyExists(string tenKhoa, bool isUndoRedo)
         {
             string SPName = "usp_Khoa_GetInfoByName";
             List<Para> paraList = new List<Para>();
             paraList.Add(new Para("@Name", tenKhoa));
+            if (isUndoRedo)
+            {
+                paraList.Add(new Para("@MACS", this._maCS));
+            }
             SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
             if (myReader == null)
             {
@@ -340,7 +348,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
         }
 
-        private bool IsMaKhoaValid()
+        private bool IsMaKhoaValid(bool isUndoRedo)
         {
             string maKhoa = TextMaKhoa.Text;
             if (string.IsNullOrEmpty(maKhoa))
@@ -350,7 +358,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 return false;
             }
 
-            if (!_origMaKH.Equals(maKhoa.ToLower()) && MaKhoaAlreadyExists(maKhoa))
+            if (!_origMaKH.Equals(maKhoa.ToLower()) && MaKhoaAlreadyExists(maKhoa, isUndoRedo))
             {
                 Utils.SetTextEditError(MaKHEP, TextMaKhoa, "Mã khoa đã tồn tại");
                 Utils.ShowMessage("Thông tin vừa nhập đã tồn tại", Others.NotiForm.FormType.Error, 2);
@@ -360,7 +368,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             return true;
         }
 
-        private bool IsTenKhoaValid()
+        private bool IsTenKhoaValid(bool isUndoRedo)
         {
             string tenKhoa = TextTenKhoa.Text;
             if (string.IsNullOrEmpty(tenKhoa))
@@ -371,7 +379,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
 
 
-            if (!_origTenKH.Equals(tenKhoa.ToLower()) && TenKhoaAlreadyExists(tenKhoa))
+            if (!_origTenKH.Equals(tenKhoa.ToLower()) && TenKhoaAlreadyExists(tenKhoa, isUndoRedo))
             {
                 Utils.SetTextEditError(MaKHEP, TextTenKhoa, "Tên khoa đã tồn tại");
                 Utils.ShowMessage("Thông tin vừa nhập đã tồn tại", Others.NotiForm.FormType.Error, 2);
@@ -381,12 +389,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             return true;
         }
 
-        private Khoa ApplyInsertUpdate()
+        private Khoa ApplyInsertUpdate(bool isUndoRedo = false)
         {
             Khoa changedKhoa = new Khoa();
             TextMaKhoa.Text = TextMaKhoa.Text.Trim();
             TextTenKhoa.Text = Utils.CapitalizeString(TextTenKhoa.Text.Trim(), Utils.CapitalMode.FirstWordOnly);
-            if (!IsMaKhoaValid() || !IsTenKhoaValid())
+            if (!IsMaKhoaValid(isUndoRedo) || !IsTenKhoaValid(isUndoRedo))
             {
                 changedKhoa.ActionType = ActionType.NotValid;
                 return changedKhoa;
@@ -503,7 +511,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             TextMaKhoa.Text = undoKhoa.MaKhoa;
             TextTenKhoa.Text = undoKhoa.TenKhoa;
             TextMaCS.Text = undoKhoa.MaCoSo;
-            Khoa changedKhoa = ApplyInsertUpdate();
+            Khoa changedKhoa = ApplyInsertUpdate(true);
             return changedKhoa;
         }
 

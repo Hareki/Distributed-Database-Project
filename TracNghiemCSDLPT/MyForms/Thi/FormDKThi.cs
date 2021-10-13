@@ -1,8 +1,10 @@
-﻿using System;
+﻿using DevExpress.XtraGrid.Views.Grid;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Windows.Forms;
 using TracNghiemCSDLPT.Others;
 
 namespace TracNghiemCSDLPT.MyForms.Thi
@@ -30,20 +32,40 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             buttonHuy.Visible = buttonXacNhan.Visible = state;
         }
-        private void LoadData()
+        private void LoadGVDK2()
         {
             this.GVDK2TableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.LopTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.MonHocTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.DSGVTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.SVTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-
             this.GVDK2TableAdapter.Fill(this.TN_CSDLPTDataSet.GVDK_ENDUSER);
+        }
+        private void LoadLop()
+        {
+            this.LopTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.LopTableAdapter.Fill(this.TN_CSDLPTDataSet.LOP);
-            this.MonHocTableAdapter.Fill(this.TN_CSDLPTDataSet.MONHOC);
-            this.DSGVTableAdapter.Fill(this.TN_CSDLPTDataSet.DSGIAOVIEN);
-            this.SVTableAdapter.Fill(this.TN_CSDLPTDataSet.SINHVIEN);
 
+        }
+        private void LoadMonHoc()
+        {
+            this.MonHocTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.MonHocTableAdapter.Fill(this.TN_CSDLPTDataSet.MONHOC);
+        }
+        private void LoadDSGV()
+        {
+            this.DSGVTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.DSGVTableAdapter.Fill(this.TN_CSDLPTDataSet.DSGIAOVIEN);
+        }
+        private void LoadSV()
+        {
+            this.SVTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.SVTableAdapter.Fill(this.TN_CSDLPTDataSet.SINHVIEN);
+        }
+
+        private void LoadAllData()
+        {
+            LoadGVDK2();
+            LoadLop();
+            LoadSV();
+            LoadMonHoc();
+            LoadDSGV();
         }
         private void SetOrigDefaultValue()
         {
@@ -84,13 +106,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         }
         private void FormDKThi_Load(object sender, EventArgs e)
         {
-          
-
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
-            LoadData();
-            LookUpGV.Properties.DataSource = DSGVBindingSource;
+            LoadAllData();
+
             LookUpGV.Properties.DisplayMember = "FullInfo";
             LookUpGV.Properties.ValueMember = "MaGV";
+           // DSGVBindingSource.Position = -1;
 
             MHCombo.DisplayMember = "TENMH";
             MHCombo.ValueMember = "MAMH";
@@ -98,13 +119,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             LopCombo.DisplayMember = "TENLOP";
             LopCombo.ValueMember = "MALOP";
 
-            this.CoSoComboBox.DataSource = DBConnection.BS_Subcribers;
-            this.CoSoComboBox.DisplayMember = "TENCS";
-            this.CoSoComboBox.ValueMember = "TENSERVER";
-            this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
-            this.PreviousIndexCS = this.CoSoComboBox.SelectedIndex;
+            Utils.BindingComboData(this.CoSoComboBox, this.PreviousIndexCS);
 
             NgayThi.Value = NgayThi.Value.AddDays(1);
+
             PhanQuyen();
 
 
@@ -112,29 +130,27 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
         private void pictureBox1_EnabledChanged(object sender, EventArgs e)
         {
-            if (pictureBox1.Enabled)
-            {
-                pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.note;
-            }
-            else
-            {
-                pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.note_disabled;
-            }
+            Image image = this.pictureBox1.Enabled? global::TracNghiemCSDLPT.Properties.Resources.note :
+                global::TracNghiemCSDLPT.Properties.Resources.note_disabled;
+
+            this.pictureBox1.Image = image;
         }
 
-        private void buttonThem_Click(object sender, EventArgs e)
+        private void ConfigInputState()
         {
-            selectedRow = GVDK2BindingSource.Position;
             InfoPanel.Enabled = true;
             InfoPanel.ForeColor = LookUpGV.ForeColor =
                 LopCombo.ForeColor = MHCombo.ForeColor = ActiveForeColor;
-
-            InfoPanel.Text = "Thêm thông tin đăng ký thi";
-
             SetIdleButtonEnabled(false);
             SetInputButtonEnabled(true);
-
             GVDK2GridControl.Enabled = false;
+
+        }
+        private void buttonThem_Click(object sender, EventArgs e)
+        {
+            selectedRow = GVDK2BindingSource.Position;
+            ConfigInputState();
+            InfoPanel.Text = "Thêm thông tin đăng ký thi";        
             state = State.add;
         }
         private void ClearErrors()
@@ -145,31 +161,34 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             SoCauEP.SetError(labelCau, null);
             ThoiGianEP.SetError(labelPhut, null);
         }
-        private void buttonHuy_Click(object sender, EventArgs e)
+
+        private void ConfigIdleState()
         {
+            GVDK2GridControl.Enabled = true;
             InfoPanel.Enabled = false;
             InfoPanel.ForeColor = LookUpGV.ForeColor =
                 LopCombo.ForeColor = MHCombo.ForeColor = DisabledForeColor;
-            GVDK2GridControl.Enabled = true;
-            //GVDK2BindingSource.CancelEdit();
-            InfoPanel.Text = "Thông tin đăng ký trắc nghiệm";
-            if (state == State.add)
-                GVDK2BindingSource.Position = selectedRow;
             SetIdleButtonEnabled(true);
             SetInputButtonEnabled(false);
             ClearErrors();
             SetOrigDefaultValue();
             state = State.idle;
+            InfoPanel.Text = "Thông tin đăng ký trắc nghiệm";
+        }
+        private void buttonHuy_Click(object sender, EventArgs e)
+        {
+            ConfigIdleState();
+            if (state == State.add)
+                GVDK2BindingSource.Position = selectedRow;
         }
 
         private void buttonLamMoi_Click(object sender, EventArgs e)
         {
             try
             {
-                LoadData();
+                LoadAllData();
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
 
-                // checkButtonState();
             }
             catch (Exception ex)
             {
@@ -179,14 +198,14 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             }
         }
 
-        private string getTrinhDo()
+        private string GetTrinhDo()
         {
             if (rdoA.Checked) return "A";
             else if (rdoB.Checked) return "B";
             else if (rdoC.Checked) return "C";
             else return null;
         }
-        private int getLan()
+        private int GetLan()
         {
             if (rdo1.Checked) return 1;
             else if (rdo2.Checked) return 2;
@@ -217,7 +236,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             }
             else
             {
-                LoadData();
+                LoadAllData();
                 this.PreviousIndexCS = this.CoSoComboBox.SelectedIndex;
             }
         }
@@ -283,9 +302,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             string maGV = (LookUpGV.GetSelectedDataRow() as DataRowView)["MaGV"].ToString();
             string maMH = MHCombo.SelectedValue.ToString();
             string maLop = LopCombo.SelectedValue.ToString();
-            string trinhDo = getTrinhDo();
+            string trinhDo = GetTrinhDo();
             string ngayThi = NgayThi.Value.ToString("dd/MM/yyyy");
-            int lan = getLan();
+            int lan = GetLan();
             int soCau = (int)spinSoCau.Value;
             int thoiGian = (int)spinThoiGian.Value;
 
@@ -343,22 +362,27 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 {
                     return;
                 }
+                
                 Utils.ShowMessage("Sửa thông tin đăng ký thi thành công", Others.NotiForm.FormType.Success, 2);
             }
-            //chưa làm load lại dữ liệu, đã thêm dc
+            GVDK2TableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            GVDKTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
 
+            GVDKTableAdapter.Fill(TN_CSDLPTDataSet.GIAOVIEN_DANGKY);
+            GVDK2TableAdapter.Fill(TN_CSDLPTDataSet.GVDK_ENDUSER);
+
+            GVDK2BindingSource.MoveLast();
+
+            ConfigIdleState();
         }
-
+     
         private void buttonSua_Click(object sender, EventArgs e)
         {
-            InfoPanel.Enabled = true;
+            ConfigInputState();
             InfoPanel.Text = "Sửa thông tin đăng ký thi";
-            SetIdleButtonEnabled(false);
-            SetInputButtonEnabled(true);
             origMaLop = LopCombo.SelectedValue.ToString().Trim();
             origMaMH = MHCombo.SelectedValue.ToString().Trim();
-            origLan = getLan();
-            GVDK2GridControl.Enabled = false;
+            origLan = GetLan();
             state = State.edit;
         }
 
@@ -366,5 +390,27 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
 
         }
+
+
+        private void GetCorrData()
+        {
+            DSGVBindingSource.Position = DSGVBindingSource.Find("MAGV",
+                Utils.GetCellValueBDS(GVDK2BindingSource, GVDK2BindingSource.Position, "MAGV"));
+            LookUpGV.EditValue = DSGVBindingSource[DSGVBindingSource.Position] as DataRowView;
+
+
+            LopBindingSource.Position = LopBindingSource.Find("TENLOP",
+                Utils.GetCellValueBDS(GVDK2BindingSource, GVDK2BindingSource.Position, "TENLOP"));
+
+            MonHocBindingSource.Position = MonHocBindingSource.Find("TENMH",
+                Utils.GetCellValueBDS(GVDK2BindingSource, GVDK2BindingSource.Position, "TENMH"));
+
+        }
+
+        private void GVDK2GridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            GetCorrData();
+        }
+
     }
 }

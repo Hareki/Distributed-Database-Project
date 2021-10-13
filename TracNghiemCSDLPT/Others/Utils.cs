@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using System;
+using System.Data;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using TracNghiemCSDLPT.Others;
@@ -96,5 +97,17 @@ namespace TracNghiemCSDLPT
             return DBConnection.NhomQuyen.Equals("COSO");
         }
 
+        public static void BindingComboData(System.Windows.Forms.ComboBox CoSoComboBox, int PreviousIndexCS)
+        {
+            CoSoComboBox.DataSource = DBConnection.BS_Subcribers;
+            CoSoComboBox.DisplayMember = "TENCS";
+            CoSoComboBox.ValueMember = "TENSERVER";
+            CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
+            PreviousIndexCS = CoSoComboBox.SelectedIndex;
+        }
+        public static string GetCellValueBDS(BindingSource bds, int rowIndex, string columnName)
+        {
+            return (bds[rowIndex] as DataRowView)[columnName].ToString();
+        }
     }
 }

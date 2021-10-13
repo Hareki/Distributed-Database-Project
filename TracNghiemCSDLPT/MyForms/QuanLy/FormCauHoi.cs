@@ -94,7 +94,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             rdoButtons.Add(rdoDA_D);
 
             MonHocGridView.ExpandMasterRow(0);
-            GridView view = GetCorrTextBoxData(true);
+            GridView view = GetCorrData(true);
             if (view != null)
                 view.Focus();
             CheckButtonState();
@@ -109,7 +109,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     MonHocGridView.ExpandMasterRow(i);
                 opened = true;
             }
-            GetCorrTextBoxData(false);
+            GetCorrData(false);
         }
 
         private void UncheckOtherRDOs(Guna2CustomRadioButton button)
@@ -146,7 +146,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
 
 
-        private GridView GetCorrTextBoxData(bool getFirstRow)
+        private GridView GetCorrData(bool getFirstRow)
         {
             GridView detailView;
             if (getFirstRow)

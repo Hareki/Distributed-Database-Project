@@ -306,8 +306,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 state = State.idle;
 
                 InfoPanel.Text = "Thông tin môn học";
-                Utils.SetTextEditError(MaMHEP, TextMaMH, null);
-                Utils.SetTextEditError(TenMHEP, TextTenMH, null);
+                ClearErrors();
 
             }
             catch (Exception ex)
@@ -342,6 +341,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             {
                 this.pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.book_500px_disabled;
             }
+        }
+        private void ClearErrors()
+        {
+            Utils.SetTextEditError(MaMHEP, TextMaMH, null);
+            Utils.SetTextEditError(TenMHEP, TextTenMH, null);
         }
     }
 }

@@ -69,6 +69,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.labelPhut = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.panelTrinhDo = new System.Windows.Forms.Panel();
+            this.panelLan = new System.Windows.Forms.Panel();
             this.GVDK2GridControl = new DevExpress.XtraGrid.GridControl();
             this.GVDK2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.GVDK2GridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -94,13 +96,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.DSGVTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.DSGIAOVIENTableAdapter();
             this.CoSoComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.panelLan = new System.Windows.Forms.Panel();
             this.GVEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.TrinhDoEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.SoCauEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.ThoiGianEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.LanEP = new System.Windows.Forms.ErrorProvider(this.components);
-            this.panelTrinhDo = new System.Windows.Forms.Panel();
             this.SVBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SVTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.SINHVIENTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).BeginInit();
@@ -113,19 +113,19 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             ((System.ComponentModel.ISupportInitialize)(this.spinThoiGian.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bunifuPanel1.SuspendLayout();
+            this.panelTrinhDo.SuspendLayout();
+            this.panelLan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GVDK2GridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GVDK2BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GVDK2GridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GVDKBindingSource)).BeginInit();
             this.InfoPanel.SuspendLayout();
-            this.panelLan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GVEP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TrinhDoEP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SoCauEP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ThoiGianEP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LanEP)).BeginInit();
-            this.panelTrinhDo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SVBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -184,6 +184,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             this.LopCombo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LopCombo.BackColor = System.Drawing.Color.Transparent;
+            this.LopCombo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LopBindingSource, "TENLOP", true));
+            this.LopCombo.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.LopBindingSource, "MALOP", true));
             this.LopCombo.DataSource = this.LopBindingSource;
             this.LopCombo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.LopCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -217,6 +219,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             this.MHCombo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.MHCombo.BackColor = System.Drawing.Color.Transparent;
+            this.MHCombo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.MonHocBindingSource, "TENMH", true));
+            this.MHCombo.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.MonHocBindingSource, "MAMH", true));
             this.MHCombo.DataSource = this.MonHocBindingSource;
             this.MHCombo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.MHCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -332,6 +336,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.LookUpGV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LookUpGV.Location = new System.Drawing.Point(153, 60);
             this.LookUpGV.Name = "LookUpGV";
+            this.LookUpGV.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.LookUpGV.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.LookUpGV.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LookUpGV.Properties.Appearance.Options.UseBorderColor = true;
@@ -344,9 +349,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.LookUpGV.Properties.AppearanceFocused.Options.UseBorderColor = true;
             this.LookUpGV.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.LookUpGV.Properties.DataSource = this.DSGVBindingSource;
             this.LookUpGV.Properties.NullText = "Chọn giáo viên đăng ký thi";
             this.LookUpGV.Properties.PopupView = this.gridLookUpEdit1View;
             this.LookUpGV.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
+            this.LookUpGV.Properties.ValueMember = "FullInfo";
             this.LookUpGV.Size = new System.Drawing.Size(459, 38);
             this.LookUpGV.TabIndex = 34;
             // 
@@ -682,6 +689,30 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.bunifuPanel1.Size = new System.Drawing.Size(1247, 261);
             this.bunifuPanel1.TabIndex = 37;
             // 
+            // panelTrinhDo
+            // 
+            this.panelTrinhDo.Controls.Add(this.rdoA);
+            this.panelTrinhDo.Controls.Add(this.label4);
+            this.panelTrinhDo.Controls.Add(this.rdoB);
+            this.panelTrinhDo.Controls.Add(this.rdoC);
+            this.panelTrinhDo.Controls.Add(this.label6);
+            this.panelTrinhDo.Controls.Add(this.label5);
+            this.panelTrinhDo.Location = new System.Drawing.Point(153, 157);
+            this.panelTrinhDo.Name = "panelTrinhDo";
+            this.panelTrinhDo.Size = new System.Drawing.Size(459, 79);
+            this.panelTrinhDo.TabIndex = 49;
+            // 
+            // panelLan
+            // 
+            this.panelLan.Controls.Add(this.rdo1);
+            this.panelLan.Controls.Add(this.label15);
+            this.panelLan.Controls.Add(this.label13);
+            this.panelLan.Controls.Add(this.rdo2);
+            this.panelLan.Location = new System.Drawing.Point(1061, 121);
+            this.panelLan.Name = "panelLan";
+            this.panelLan.Size = new System.Drawing.Size(147, 43);
+            this.panelLan.TabIndex = 48;
+            // 
             // GVDK2GridControl
             // 
             this.GVDK2GridControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -758,6 +789,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.GVDK2GridView.OptionsView.ShowIndicator = false;
             this.GVDK2GridView.OptionsView.ShowViewCaption = true;
             this.GVDK2GridView.ViewCaption = "Danh sách đăng ký thi trắc nghiệm";
+            this.GVDK2GridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.GVDK2GridView_FocusedRowChanged);
             // 
             // colMAGV1
             // 
@@ -857,7 +889,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.InfoPanel.Controls.Add(this.buttonXacNhan);
             this.InfoPanel.Controls.Add(this.pictureBox1);
             this.InfoPanel.Controls.Add(this.bunifuPanel1);
-            this.InfoPanel.Enabled = false;
             this.InfoPanel.Font = new System.Drawing.Font("Baloo 2", 15F, System.Drawing.FontStyle.Bold);
             this.InfoPanel.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.InfoPanel.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1099,17 +1130,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label16.TabIndex = 46;
             this.label16.Text = "Chọn cơ sở";
             // 
-            // panelLan
-            // 
-            this.panelLan.Controls.Add(this.rdo1);
-            this.panelLan.Controls.Add(this.label15);
-            this.panelLan.Controls.Add(this.label13);
-            this.panelLan.Controls.Add(this.rdo2);
-            this.panelLan.Location = new System.Drawing.Point(1061, 121);
-            this.panelLan.Name = "panelLan";
-            this.panelLan.Size = new System.Drawing.Size(147, 43);
-            this.panelLan.TabIndex = 48;
-            // 
             // GVEP
             // 
             this.GVEP.ContainerControl = this;
@@ -1134,19 +1154,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             this.LanEP.ContainerControl = this;
             this.LanEP.Icon = ((System.Drawing.Icon)(resources.GetObject("LanEP.Icon")));
-            // 
-            // panelTrinhDo
-            // 
-            this.panelTrinhDo.Controls.Add(this.rdoA);
-            this.panelTrinhDo.Controls.Add(this.label4);
-            this.panelTrinhDo.Controls.Add(this.rdoB);
-            this.panelTrinhDo.Controls.Add(this.rdoC);
-            this.panelTrinhDo.Controls.Add(this.label6);
-            this.panelTrinhDo.Controls.Add(this.label5);
-            this.panelTrinhDo.Location = new System.Drawing.Point(153, 157);
-            this.panelTrinhDo.Name = "panelTrinhDo";
-            this.panelTrinhDo.Size = new System.Drawing.Size(459, 79);
-            this.panelTrinhDo.TabIndex = 49;
             // 
             // SVBindingSource
             // 
@@ -1187,21 +1194,21 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.bunifuPanel1.ResumeLayout(false);
             this.bunifuPanel1.PerformLayout();
+            this.panelTrinhDo.ResumeLayout(false);
+            this.panelTrinhDo.PerformLayout();
+            this.panelLan.ResumeLayout(false);
+            this.panelLan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GVDK2GridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GVDK2BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GVDK2GridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GVDKBindingSource)).EndInit();
             this.InfoPanel.ResumeLayout(false);
-            this.panelLan.ResumeLayout(false);
-            this.panelLan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GVEP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TrinhDoEP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SoCauEP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ThoiGianEP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LanEP)).EndInit();
-            this.panelTrinhDo.ResumeLayout(false);
-            this.panelTrinhDo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SVBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

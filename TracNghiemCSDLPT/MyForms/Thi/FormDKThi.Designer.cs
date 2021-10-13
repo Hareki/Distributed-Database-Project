@@ -184,6 +184,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             this.LopCombo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LopCombo.BackColor = System.Drawing.Color.Transparent;
+            this.LopCombo.BorderColor = System.Drawing.Color.White;
             this.LopCombo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LopBindingSource, "TENLOP", true));
             this.LopCombo.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.LopBindingSource, "MALOP", true));
             this.LopCombo.DataSource = this.LopBindingSource;
@@ -219,6 +220,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             this.MHCombo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.MHCombo.BackColor = System.Drawing.Color.Transparent;
+            this.MHCombo.BorderColor = System.Drawing.Color.White;
             this.MHCombo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.MonHocBindingSource, "TENMH", true));
             this.MHCombo.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.MonHocBindingSource, "MAMH", true));
             this.MHCombo.DataSource = this.MonHocBindingSource;
@@ -265,8 +267,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // spinSoCau
             // 
             this.spinSoCau.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.spinSoCau.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.GVDK2BindingSource, "SOCAUTHI", true));
             this.spinSoCau.EditValue = new decimal(new int[] {
-            0,
+            10,
             0,
             0,
             0});
@@ -282,6 +285,16 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.spinSoCau.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.spinSoCau.Properties.IsFloatValue = false;
             this.spinSoCau.Properties.MaskSettings.Set("mask", "N00");
+            this.spinSoCau.Properties.MaxValue = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.spinSoCau.Properties.MinValue = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.spinSoCau.Size = new System.Drawing.Size(90, 38);
             this.spinSoCau.TabIndex = 33;
             // 
@@ -341,7 +354,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.LookUpGV.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LookUpGV.Properties.Appearance.Options.UseBorderColor = true;
             this.LookUpGV.Properties.Appearance.Options.UseFont = true;
-            this.LookUpGV.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.LookUpGV.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.White;
             this.LookUpGV.Properties.AppearanceDisabled.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.LookUpGV.Properties.AppearanceDisabled.Options.UseBackColor = true;
             this.LookUpGV.Properties.AppearanceDisabled.Options.UseBorderColor = true;
@@ -351,6 +364,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.LookUpGV.Properties.DataSource = this.DSGVBindingSource;
             this.LookUpGV.Properties.NullText = "Chọn giáo viên đăng ký thi";
+            this.LookUpGV.Properties.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.LookUpGV.Properties.PopupView = this.gridLookUpEdit1View;
             this.LookUpGV.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
             this.LookUpGV.Properties.ValueMember = "FullInfo";
@@ -423,9 +437,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             this.rdoB.Animated = true;
             this.rdoB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.rdoB.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(198)))), ((int)(((byte)(203)))));
+            this.rdoB.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.rdoB.CheckedState.BorderThickness = 0;
-            this.rdoB.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(198)))), ((int)(((byte)(203)))));
+            this.rdoB.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.rdoB.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rdoB.CheckedState.Parent = this.rdoB;
             this.rdoB.Location = new System.Drawing.Point(3, 49);
@@ -464,8 +478,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // spinThoiGian
             // 
             this.spinThoiGian.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.spinThoiGian.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.GVDK2BindingSource, "THOIGIAN", true));
             this.spinThoiGian.EditValue = new decimal(new int[] {
-            0,
+            15,
             0,
             0,
             0});
@@ -481,6 +496,16 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.spinThoiGian.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.spinThoiGian.Properties.IsFloatValue = false;
             this.spinThoiGian.Properties.MaskSettings.Set("mask", "N00");
+            this.spinThoiGian.Properties.MaxValue = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.spinThoiGian.Properties.MinValue = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
             this.spinThoiGian.Size = new System.Drawing.Size(90, 38);
             this.spinThoiGian.TabIndex = 33;
             // 
@@ -488,9 +513,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             this.rdoA.Animated = true;
             this.rdoA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.rdoA.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(198)))), ((int)(((byte)(203)))));
+            this.rdoA.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.rdoA.CheckedState.BorderThickness = 0;
-            this.rdoA.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(198)))), ((int)(((byte)(203)))));
+            this.rdoA.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.rdoA.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rdoA.CheckedState.Parent = this.rdoA;
             this.rdoA.Location = new System.Drawing.Point(3, 9);
@@ -569,6 +594,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.NgayThi.BorderColor = System.Drawing.Color.Silver;
             this.NgayThi.BorderRadius = 1;
             this.NgayThi.Color = System.Drawing.Color.Silver;
+            this.NgayThi.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.GVDK2BindingSource, "NGAYTHI", true));
             this.NgayThi.DateBorderThickness = Bunifu.UI.WinForms.BunifuDatePicker.BorderThickness.Thin;
             this.NgayThi.DateTextAlign = Bunifu.UI.WinForms.BunifuDatePicker.TextAlign.Left;
             this.NgayThi.DisabledColor = System.Drawing.Color.Gray;
@@ -592,9 +618,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             this.rdoC.Animated = true;
             this.rdoC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.rdoC.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(198)))), ((int)(((byte)(203)))));
+            this.rdoC.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.rdoC.CheckedState.BorderThickness = 0;
-            this.rdoC.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(198)))), ((int)(((byte)(203)))));
+            this.rdoC.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.rdoC.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rdoC.CheckedState.Parent = this.rdoC;
             this.rdoC.Location = new System.Drawing.Point(318, 9);
@@ -889,6 +915,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.InfoPanel.Controls.Add(this.buttonXacNhan);
             this.InfoPanel.Controls.Add(this.pictureBox1);
             this.InfoPanel.Controls.Add(this.bunifuPanel1);
+            this.InfoPanel.Enabled = false;
             this.InfoPanel.Font = new System.Drawing.Font("Baloo 2", 15F, System.Drawing.FontStyle.Bold);
             this.InfoPanel.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.InfoPanel.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;

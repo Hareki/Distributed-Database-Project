@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraGrid.Views.Grid;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -151,6 +152,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             selectedRow = GVDK2BindingSource.Position;
             ConfigInputState();
             InfoPanel.Text = "Thêm thông tin đăng ký thi";        
+            SetBlankDataInput();
             state = State.add;
         }
         private void ClearErrors()
@@ -172,14 +174,19 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             SetInputButtonEnabled(false);
             ClearErrors();
             SetOrigDefaultValue();
-            state = State.idle;
+            
             InfoPanel.Text = "Thông tin đăng ký trắc nghiệm";
         }
         private void buttonHuy_Click(object sender, EventArgs e)
         {
             ConfigIdleState();
             if (state == State.add)
-                GVDK2BindingSource.Position = selectedRow;
+            {
+                GVDK2BindingSource.Position = 1;
+                GetCorrData();
+            }
+            state = State.idle;
+
         }
 
         private void buttonLamMoi_Click(object sender, EventArgs e)
@@ -266,7 +273,23 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 return false;
             }
         }
+        private void UncheckAllRDO()
+        {
+            rdo1.Checked = rdo2.Checked =
+            rdoA.Checked = rdoB.Checked =
+            rdoC.Checked = false;
+        }
+        private void SetBlankDataInput()
+        {
+            LookUpGV.EditValue = null;
+            MonHocBindingSource.MoveFirst();
+            LopBindingSource.MoveFirst();
+            NgayThi.Value = DateTime.Now.AddDays(1);
+            spinSoCau.Value = 10;
+            spinThoiGian.Value = 15;
+            UncheckAllRDO();
 
+        }
         private void buttonXacNhan_Click(object sender, EventArgs e)
         {
             bool test1 = LookUpGV.EditValue is null;
@@ -372,8 +395,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             GVDK2TableAdapter.Fill(TN_CSDLPTDataSet.GVDK_ENDUSER);
 
             GVDK2BindingSource.MoveLast();
-
             ConfigIdleState();
+            state = State.idle;
         }
      
         private void buttonSua_Click(object sender, EventArgs e)
@@ -391,20 +414,58 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
         }
 
+        private void SetCorrRDOTrinhDo()
+        {
+            string trinhDo = Utils.GetCellValueBDS(GVDK2BindingSource, GVDK2BindingSource.Position, "TRINHDO");
+            switch (trinhDo)
+            {
+                case "A":
+                    rdoA.Checked = true;
+                    break;
+                case "B":
+                    rdoB.Checked = true;
+                    break;
+                case "C":
+                    rdoC.Checked = true;
+                    break;
+
+            }
+        }
+
+        private void SetCorrRDOLan()
+        {
+            string lan = Utils.GetCellValueBDS(GVDK2BindingSource, GVDK2BindingSource.Position, "LAN");
+            switch (lan)
+            {
+                case "1":
+                    rdo1.Checked = true;
+                    break;
+                case "2":
+                    rdo2.Checked = true;
+                    break;
+            }
+        }
+
+        private void SetCorrBDS(BindingSource bds, string columnName)
+        {
+            bds.Position = bds.Find(columnName,
+               Utils.GetCellValueBDS(GVDK2BindingSource, GVDK2BindingSource.Position, columnName));
+        }
+        private void SetCorrBDS(BindingSource bds, string columnName, GridLookUpEdit lookUp)
+        {
+            SetCorrBDS(bds, columnName);
+            lookUp.EditValue = bds[bds.Position] as DataRowView;
+        }
+        
 
         private void GetCorrData()
         {
-            DSGVBindingSource.Position = DSGVBindingSource.Find("MAGV",
-                Utils.GetCellValueBDS(GVDK2BindingSource, GVDK2BindingSource.Position, "MAGV"));
-            LookUpGV.EditValue = DSGVBindingSource[DSGVBindingSource.Position] as DataRowView;
-
-
-            LopBindingSource.Position = LopBindingSource.Find("TENLOP",
-                Utils.GetCellValueBDS(GVDK2BindingSource, GVDK2BindingSource.Position, "TENLOP"));
-
-            MonHocBindingSource.Position = MonHocBindingSource.Find("TENMH",
-                Utils.GetCellValueBDS(GVDK2BindingSource, GVDK2BindingSource.Position, "TENMH"));
-
+            SetCorrBDS(DSGVBindingSource, "MAGV", LookUpGV);
+            SetCorrBDS(LopBindingSource, "TENLOP");
+            SetCorrBDS(MonHocBindingSource, "TENMH");
+            SetCorrRDOTrinhDo();
+            SetCorrRDOLan();
+            //  không cần ngày thi, thời gian, số câu do dùng data binding của GVDK2 luôn
         }
 
         private void GVDK2GridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)

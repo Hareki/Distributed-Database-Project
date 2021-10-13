@@ -24,8 +24,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private int origMaCH = -1;
         State state = State.idle;
-        Color ActiveForeColor = Color.FromArgb(72, 70, 68);
-        Color DisabledForeColor = SystemColors.AppWorkspace;
         List<Guna2CustomRadioButton> rdoButtons = new List<Guna2CustomRadioButton>();
         private int selectedRow;
         private bool opened = false;

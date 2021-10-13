@@ -5,8 +5,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Windows.Forms;
 using TracNghiemCSDLPT.Others;
+using static TracNghiemCSDLPT.TN_CSDLPTDataSet;
 
 namespace TracNghiemCSDLPT.MyForms.Thi
 {
@@ -28,7 +30,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private string origMaMH = "!@#$%";
         private string origMaLop = "!@#$%";
         private int origLan = -1;
-
+        //------------Dùng trong add---------
+        private int origSoCau;
+        private int origThoiGian;
+        private DateTime origNgayThi;
         private void SetInputButtonEnabled(bool state)
         {
             buttonHuy.Visible = buttonXacNhan.Visible = state;
@@ -105,6 +110,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             else
                 buttonUndo.BackColor = buttonRedo.BackColor = Color.FromArgb(240, 240, 240);
         }
+
+
         private void FormDKThi_Load(object sender, EventArgs e)
         {
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
@@ -112,7 +119,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
             LookUpGV.Properties.DisplayMember = "FullInfo";
             LookUpGV.Properties.ValueMember = "MaGV";
-           // DSGVBindingSource.Position = -1;
+            // DSGVBindingSource.Position = -1;
 
             MHCombo.DisplayMember = "TENMH";
             MHCombo.ValueMember = "MAMH";
@@ -122,16 +129,16 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
             Utils.BindingComboData(this.CoSoComboBox, this.PreviousIndexCS);
 
-            NgayThi.Value = NgayThi.Value.AddDays(1);
+            NgayThi.EditValue = ((DateTime)NgayThi.EditValue).AddDays(1);
 
             PhanQuyen();
-
+            Utils.ConfigControlColor(InfoPanel);
 
         }
 
         private void pictureBox1_EnabledChanged(object sender, EventArgs e)
         {
-            Image image = this.pictureBox1.Enabled? global::TracNghiemCSDLPT.Properties.Resources.note :
+            Image image = this.pictureBox1.Enabled ? global::TracNghiemCSDLPT.Properties.Resources.note :
                 global::TracNghiemCSDLPT.Properties.Resources.note_disabled;
 
             this.pictureBox1.Image = image;
@@ -147,11 +154,21 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             GVDK2GridControl.Enabled = false;
 
         }
+        private void SaveOrigInput()
+        {
+            //do không dùng binding source nên phải lưu lại những giá trị này, nếu ko sẽ bị lỗi :<
+            selectedRow = GVDK2BindingSource.Position;
+            origThoiGian = int.Parse(Utils.GetCellValueBDS(GVDK2BindingSource, selectedRow, "THOIGIAN"));
+            origSoCau = int.Parse(Utils.GetCellValueBDS(GVDK2BindingSource, selectedRow, "SOCAUTHI"));
+            origNgayThi =
+            DateTime.ParseExact(Utils.GetCellValueBDS(GVDK2BindingSource, selectedRow, "NGAYTHI"), "dd/MM/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+        }
         private void buttonThem_Click(object sender, EventArgs e)
         {
-            selectedRow = GVDK2BindingSource.Position;
+            SaveOrigInput();
             ConfigInputState();
-            InfoPanel.Text = "Thêm thông tin đăng ký thi";        
+            InfoPanel.Text = "Thêm thông tin đăng ký thi";
+            InfoPanel.ForeColor = Utils.AddColor;
             SetBlankDataInput();
             state = State.add;
         }
@@ -174,17 +191,23 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             SetInputButtonEnabled(false);
             ClearErrors();
             SetOrigDefaultValue();
-            
-            InfoPanel.Text = "Thông tin đăng ký trắc nghiệm";
+
+            InfoPanel.Text = "Thông tin đăng ký thi";
+            InfoPanel.ForeColor = Utils.DisabledColor;
         }
         private void buttonHuy_Click(object sender, EventArgs e)
         {
+
+            GVDK2BindingSource.Position = selectedRow;
+            Utils.SetCellValueBDS(GVDK2BindingSource, selectedRow, "THOIGIAN", origThoiGian);
+            Utils.SetCellValueBDS(GVDK2BindingSource, selectedRow, "SOCAUTHI", origSoCau);
+            Utils.SetCellValueBDS(GVDK2BindingSource, selectedRow, "NGAYTHI", origNgayThi);
+            spinSoCau.Value = origSoCau;
+            spinThoiGian.Value = origThoiGian;
+            NgayThi.EditValue = origNgayThi;
+            GetCorrData();
+
             ConfigIdleState();
-            if (state == State.add)
-            {
-                GVDK2BindingSource.Position = 1;
-                GetCorrData();
-            }
             state = State.idle;
 
         }
@@ -284,7 +307,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             LookUpGV.EditValue = null;
             MonHocBindingSource.MoveFirst();
             LopBindingSource.MoveFirst();
-            NgayThi.Value = DateTime.Now.AddDays(1);
+            NgayThi.EditValue = DateTime.Now.AddDays(1);
             spinSoCau.Value = 10;
             spinThoiGian.Value = 15;
             UncheckAllRDO();
@@ -322,11 +345,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 Utils.ShowMessage("Vui lòng xem lại thông tin đã nhập", Others.NotiForm.FormType.Error, 2);
                 return;
             }
-            string maGV = (LookUpGV.GetSelectedDataRow() as DataRowView)["MaGV"].ToString();
-            string maMH = MHCombo.SelectedValue.ToString();
-            string maLop = LopCombo.SelectedValue.ToString();
+            string maGV = (LookUpGV.GetSelectedDataRow() as DataRowView)["MaGV"].ToString().Trim();
+            string maMH = MHCombo.SelectedValue.ToString().Trim();
+            string maLop = LopCombo.SelectedValue.ToString().Trim();
             string trinhDo = GetTrinhDo();
-            string ngayThi = NgayThi.Value.ToString("dd/MM/yyyy");
+            string ngayThi = ((DateTime)NgayThi.EditValue).ToString("dd/MM/yyyy");
             int lan = GetLan();
             int soCau = (int)spinSoCau.Value;
             int thoiGian = (int)spinThoiGian.Value;
@@ -385,24 +408,60 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 {
                     return;
                 }
-                
+
                 Utils.ShowMessage("Sửa thông tin đăng ký thi thành công", Others.NotiForm.FormType.Success, 2);
             }
+
+
             GVDK2TableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             GVDKTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
 
             GVDKTableAdapter.Fill(TN_CSDLPTDataSet.GIAOVIEN_DANGKY);
             GVDK2TableAdapter.Fill(TN_CSDLPTDataSet.GVDK_ENDUSER);
 
-            GVDK2BindingSource.MoveLast();
+            GVDK2BindingSource.Position = FindGVDK2Row(maMH, maLop, (short)lan);
+            Console.WriteLine("position: " + GVDK2BindingSource.Position);
+
             ConfigIdleState();
             state = State.idle;
         }
-     
+        //private int FindGVDK2Row(string tenMH, string tenLop, short lan)
+        //{  
+        //    DataTable dt = TN_CSDLPTDataSet.GVDK_ENDUSER;
+        //    int recordsNumber = dt.Rows.Count;
+
+        //    for (int i = 0; i < recordsNumber; i++)
+        //    {
+        //        var row = dt.Rows[i];
+        //        if (row["TENMH"].ToString().Equals(tenMH) && row["TENLOP"].ToString().Equals(tenLop) && (short)row["LAN"] == lan)
+        //        {
+        //            return i;
+        //        }
+        //    }
+        //    return -1;
+        //}
+        private int FindGVDK2Row(string maMH, string maLop, short lan)
+        {
+            //GVDK và GVDK2 có cùng index, chỉ khác kiểu dữ liệu hiện lên.
+            DataTable dt = TN_CSDLPTDataSet.GIAOVIEN_DANGKY;
+            int recordsNumber = dt.Rows.Count;
+
+            for (int i = 0; i < recordsNumber; i++)
+            {
+                var row = dt.Rows[i] as GIAOVIEN_DANGKYRow;
+                if (row.MAMH.Trim().Equals(maMH) && row.MALOP.Trim().Equals(maLop) && row.LAN == lan)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
         private void buttonSua_Click(object sender, EventArgs e)
         {
+            SaveOrigInput();
             ConfigInputState();
             InfoPanel.Text = "Sửa thông tin đăng ký thi";
+            InfoPanel.ForeColor = Utils.EditColor;
             origMaLop = LopCombo.SelectedValue.ToString().Trim();
             origMaMH = MHCombo.SelectedValue.ToString().Trim();
             origLan = GetLan();
@@ -456,7 +515,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             SetCorrBDS(bds, columnName);
             lookUp.EditValue = bds[bds.Position] as DataRowView;
         }
-        
+
 
         private void GetCorrData()
         {
@@ -470,7 +529,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
         private void GVDK2GridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            GetCorrData();
+            if (GVDK2BindingSource.Position != -1)
+            {
+                GetCorrData();
+            }
+
         }
 
     }

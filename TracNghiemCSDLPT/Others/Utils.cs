@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using TracNghiemCSDLPT.Others;
@@ -9,6 +10,11 @@ namespace TracNghiemCSDLPT
 {
     class Utils
     {
+
+        public readonly static Color AddColor = Color.FromArgb(45, 200, 110);
+        public readonly static Color EditColor = Color.FromArgb(2, 163, 236);
+        public readonly static Color ActiveColor = Color.FromArgb(72, 70, 68);
+        public readonly static Color DisabledColor = SystemColors.AppWorkspace;
         public static void ShowErrorMessage(string text, string title)
         {
             MessageBox.Show(text, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -108,6 +114,15 @@ namespace TracNghiemCSDLPT
         public static string GetCellValueBDS(BindingSource bds, int rowIndex, string columnName)
         {
             return (bds[rowIndex] as DataRowView)[columnName].ToString();
+        }
+        public static void SetCellValueBDS(BindingSource bds, int rowIndex, string columnName, object value)
+        {
+            ((DataRowView)bds[rowIndex])[columnName] = value;
+        }
+        public static void ConfigControlColor(GroupBox gb)
+        {
+            foreach (Control ctl in gb.Controls)
+                ctl.ForeColor = SystemColors.ControlText;
         }
     }
 }

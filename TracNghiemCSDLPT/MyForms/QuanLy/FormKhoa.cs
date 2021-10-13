@@ -47,8 +47,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private readonly Stack<Khoa> _redoStack = new Stack<Khoa>();
         private Khoa _beforeEditKhoa = null;
 
-        private readonly Color _activeForeColor = Color.FromArgb(72, 70, 68);
-        private readonly Color _disabledForeColor = SystemColors.AppWorkspace;
         private State _state = State.Idle;
 
         private const string ColMaKhoa = "MAKH";
@@ -220,7 +218,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private void ButtonThem_Click(object sender, EventArgs e)
         {
             _oldPositionRow = KhoaBindingSource.Position;
-            SetInfoPanel(true, _activeForeColor, "Thêm mới thông tin khoa");
+            SetInfoPanel(true, Utils.ActiveColor, "Thêm mới thông tin khoa");
             SetIdleButtonEnabled(false);
             SetInputButtonEnabled(true);
             KhoaGridControl.Enabled = false;
@@ -236,7 +234,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         private void ButtonHuy_Click(object sender, EventArgs e)
         {
-            SetInfoPanel(false, _disabledForeColor, "Thông tin khoa");
+            SetInfoPanel(false, Utils.DisabledColor, "Thông tin khoa");
             SetIdleButtonEnabled(true);
             SetInputButtonEnabled(false);
             KhoaGridControl.Enabled = true;
@@ -423,7 +421,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 _state = State.Idle;
                 ResetTextEditErrors();
                 KhoaGridControl.Enabled = true;
-                SetInfoPanel(false, _disabledForeColor, "Thông tin khoa");
+                SetInfoPanel(false, Utils.DisabledColor, "Thông tin khoa");
                 SetIdleButtonEnabled(true);
                 SetInputButtonEnabled(false);
                 CheckButtonState();
@@ -458,7 +456,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private void ButtonSua_Click(object sender, EventArgs e)
         {
             _beforeEditKhoa = GetKhoaAtPosition(KhoaBindingSource.Position);
-            SetInfoPanel(true, _activeForeColor, "Sửa thông tin khoa");
+            SetInfoPanel(true, Utils.ActiveColor, "Sửa thông tin khoa");
             SetIdleButtonEnabled(false);
             SetInputButtonEnabled(true);
             KhoaGridControl.Enabled = false;

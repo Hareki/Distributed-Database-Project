@@ -25,17 +25,17 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             Add, Edit, Idle
         }
         private int _selectedRowGv;
-        private int _previousIndexCs;
+        private int _previousIndexCS;
         private string _origMaGv = "~!@#$%";
         private int _editingGvIndex;
         private string _saveMaKhForReset;
         private void LoadAllData()
         {
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
-            this.KhoaTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
-            this.GVTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
-            this.GVDKTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
-            this.BoDeTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
+            this.KhoaTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.GVTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.GVDKTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.BoDeTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
 
             this.KhoaTableAdapter.Fill(this.TN_CSDLPTDataSet.KHOA);
             this.GVTableAdapter.Fill(this.TN_CSDLPTDataSet.GIAOVIEN);
@@ -50,7 +50,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void PhanQuyen()
         {
-            switch (DbConnection.NhomQuyen)
+            switch (DBConnection.NhomQuyen)
             {
                 case "TRUONG":
                     SetIdleButtonEnabledGv(false);
@@ -64,7 +64,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void CheckButtonStateGv()
         {
-            if (DbConnection.NhomQuyen.Equals("COSO"))
+            if (DBConnection.NhomQuyen.Equals("COSO"))
             {
                 if (KhoaBindingSource.Count == 0)
                     buttonXoaGV.Enabled = buttonSuaGV.Enabled = false;
@@ -81,11 +81,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
 
-            this.CoSoComboBox.DataSource = DbConnection.BsSubcribers;
+            this.CoSoComboBox.DataSource = DBConnection.BsSubcribers;
             this.CoSoComboBox.DisplayMember = "TENCS";
             this.CoSoComboBox.ValueMember = "TENSERVER";
-            this.CoSoComboBox.SelectedIndex = DbConnection.IndexCs;
-            this._previousIndexCs = this.CoSoComboBox.SelectedIndex;
+            this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
+            this._previousIndexCS= this.CoSoComboBox.SelectedIndex;
             CheckButtonStateGv();
             PhanQuyen();
         }
@@ -144,27 +144,27 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 return;
             string login, pass;
             string serverName = CoSoComboBox.SelectedValue.ToString();
-            if (CoSoComboBox.SelectedIndex != DbConnection.IndexCs)//Không cần check loginGV, vì ko bao giờ hiện CB này
+            if (CoSoComboBox.SelectedIndex != DBConnection.IndexCS)//Không cần check loginGV, vì ko bao giờ hiện CB này
             {
-                login = DbConnection.RemoteLogin;
-                pass = DbConnection.RemotePassword;
+                login = DBConnection.RemoteLogin;
+                pass = DBConnection.RemotePassword;
             }
             else
             {
-                login = DbConnection.LoginName;
-                pass = DbConnection.Password;
+                login = DBConnection.LoginName;
+                pass = DBConnection.Password;
             }
-            bool success = DbConnection.ConnectToSubcriber(login, pass, serverName);
+            bool success = DBConnection.ConnectToSubcriber(login, pass, serverName);
             if (!success)
             {
                 Utils.ShowMessage("Tạm thời không thể kết nối đến cơ sở này", Others.NotiForm.FormType.Error, 2);
-                this.CoSoComboBox.SelectedIndex = this._previousIndexCs;
+                this.CoSoComboBox.SelectedIndex = this._previousIndexCS;
                 return;
             }
             else
             {
                 LoadAllData();
-                this._previousIndexCs = this.CoSoComboBox.SelectedIndex;
+                this._previousIndexCS= this.CoSoComboBox.SelectedIndex;
             }
         }
 
@@ -237,11 +237,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             if (CheckTheRow(rowHandle))
             {
                 GridView view = GVGridView;
-                String maGv = GetCellAtRowGv(colMAGV, rowHandle);
+                String maGV = GetCellAtRowGv(colMAGV, rowHandle);
                 String ho = GetCellAtRowGv(colHO, rowHandle);
                 String ten = GetCellAtRowGv(colTEN, rowHandle);
                 if (column.Equals(view.Columns["MAGV"]))
-                    return ValidateMaGv(maGv);
+                    return ValidateMaGv(maGV);
                 else if (column.Equals(view.Columns["HO"]))
                     return ValidateHoGv(ho, rowHandle);
                 else if (column.Equals(view.Columns["TEN"]))
@@ -251,18 +251,18 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
 
 
-        private string ValidateMaGv(string maGv)
+        private string ValidateMaGv(string maGV)
         {
-            if (string.IsNullOrEmpty(maGv))
+            if (string.IsNullOrEmpty(maGV))
                 return "Vui lòng nhập mã giảng viên";
-            if (maGv.Length > 8)
+            if (maGV.Length > 8)
                 return "Mã giảng viên không vượt quá 8 ký tự";
 
             bool test1 = false;
-            if (!_origMaGv.Trim().Equals(maGv.Trim()))
+            if (!_origMaGv.Trim().Equals(maGV.Trim()))
             {
                 //    Console.WriteLine("MAA" + maGV);
-                test1 = AlreadyExistsGv(maGv);
+                test1 = AlreadyExistsGv(maGV);
             }
 
 
@@ -300,7 +300,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             List<Para> paraList = new List<Para>();
             paraList.Add(new Para("@ID", testName));
             string spName = "usp_GiaoVien_GetInfoByID";
-            SqlDataReader myReader = DbConnection.ExecuteSqlDataReaderSp(spName, paraList);
+            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
             if (myReader == null)
             {
                 Console.WriteLine(System.Environment.StackTrace);
@@ -349,8 +349,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             SetIdleButtonEnabledGv(false);
             SetInputButtonEnabledGv(true);
 
-            string maGv = GetCellAtFRowGv(colMAGV).Trim();
-            GVGridView.SetRowCellValue(GVGridView.FocusedRowHandle, colMAGV, maGv);
+            string maGV = GetCellAtFRowGv(colMAGV).Trim();
+            GVGridView.SetRowCellValue(GVGridView.FocusedRowHandle, colMAGV, maGV);
 
             _editingGvIndex = GVGridView.FocusedRowHandle;
             GVGridView.OptionsBehavior.Editable = true;
@@ -449,7 +449,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 Utils.ShowMessage("Giảng viên này đã soạn đề, không thể xóa", Others.NotiForm.FormType.Error, 2);
                 return;
             }
-            if (GetCellAtFRowGv(colMAGV).Equals(DbConnection.UserName))
+            if (GetCellAtFRowGv(colMAGV).Equals(DBConnection.UserName))
             {
                 Utils.ShowMessage("Không thể tự xóa chính bản thân mình", Others.NotiForm.FormType.Error, 2);
                 return;
@@ -467,7 +467,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     List<Para> paraList = new List<Para>();
                     paraList.Add(new Para("@UserName", removedGv.Trim()));
                     string spName = "usp_Login_RemoveLoginUser";
-                    SqlDataReader myReader = DbConnection.ExecuteSqlDataReaderSp(spName, paraList);
+                    SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
 
                     if (myReader == null)
                     {

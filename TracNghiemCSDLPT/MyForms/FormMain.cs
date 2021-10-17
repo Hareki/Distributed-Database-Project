@@ -19,7 +19,7 @@ namespace TracNghiemCSDLPT.MyForms
 
         private void PhanQuyen()
         {
-            switch (DbConnection.NhomQuyen)
+            switch (DBConnection.NhomQuyen)
             {
                 case "TRUONG":
                     buttonToChucThi.Enabled = buttonThamGiaThi.Enabled = false;
@@ -110,7 +110,7 @@ namespace TracNghiemCSDLPT.MyForms
 
         private void buttonDKTN_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ShowForm(typeof(FormDsdkttn));
+            ShowForm(typeof(FormDSDKTTN));
         }
 
         private void buttonDangXuat_ItemClick(object sender, ItemClickEventArgs e)

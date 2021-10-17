@@ -1,7 +1,7 @@
 ﻿
 namespace TracNghiemCSDLPT.MyForms.BaoCao
 {
-    partial class FormDsdkttn
+    partial class FormDSDKTTN
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDsdkttn));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDSDKTTN));
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.CoSoComboBox = new Guna.UI2.WinForms.Guna2ComboBox();

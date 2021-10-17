@@ -96,20 +96,20 @@ namespace TracNghiemCSDLPT
 
         public static bool IsTruong()
         {
-            return DbConnection.NhomQuyen.Equals("TRUONG");
+            return DBConnection.NhomQuyen.Equals("TRUONG");
         }
         public static bool IsCoSo()
         {
-            return DbConnection.NhomQuyen.Equals("COSO");
+            return DBConnection.NhomQuyen.Equals("COSO");
         }
 
-        public static void BindingComboData(System.Windows.Forms.ComboBox coSoComboBox, int previousIndexCs)
+        public static void BindingComboData(System.Windows.Forms.ComboBox coSoComboBox, int previousIndexCS)
         {
-            coSoComboBox.DataSource = DbConnection.BsSubcribers;
+            coSoComboBox.DataSource = DBConnection.BsSubcribers;
             coSoComboBox.DisplayMember = "TENCS";
             coSoComboBox.ValueMember = "TENSERVER";
-            coSoComboBox.SelectedIndex = DbConnection.IndexCs;
-            previousIndexCs = coSoComboBox.SelectedIndex;
+            coSoComboBox.SelectedIndex = DBConnection.IndexCS;
+            previousIndexCS = coSoComboBox.SelectedIndex;
         }
         public static string GetCellValueBds(BindingSource bds, int rowIndex, string columnName)
         {

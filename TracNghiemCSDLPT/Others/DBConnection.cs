@@ -17,7 +17,7 @@ namespace TracNghiemCSDLPT.Others
             RealValue = realValue;
         }
     }
-    class DbConnection
+    class DBConnection
     {
         private static string _databaseName = "TN_CSDLPT";
         //Unique Publisher Connection
@@ -34,7 +34,7 @@ namespace TracNghiemCSDLPT.Others
 
         public static string LoginSv = "LOGIN_SINHVIEN";
         public static string PasswordSv = "123456";
-        public static string UserNameSv = "USER_SINHVIEN";
+        public static string UserNameSV = "USER_SINHVIEN";
 
         public static string SubcriberName;
         public static string LoginName;
@@ -46,7 +46,7 @@ namespace TracNghiemCSDLPT.Others
         public static string UserName; // aka MaGV
         public static string HoTen; // Ten GV
         public static string NhomQuyen;
-        public static int IndexCs = -1;
+        public static int IndexCS = -1;
 
         //HTKN Connection
         public static string RemoteLogin = "HTKN";
@@ -166,7 +166,7 @@ namespace TracNghiemCSDLPT.Others
         }
 
 
-        public static SqlDataReader ExecuteSqlDataReaderSp(string spName, List<Para> paraList)
+        public static SqlDataReader ExecuteSqlDataReaderSP(string spName, List<Para> paraList)
         {
             SqlDataReader result;
             SqlCommand sqlCmd = new SqlCommand(spName, SubcriberConnection);

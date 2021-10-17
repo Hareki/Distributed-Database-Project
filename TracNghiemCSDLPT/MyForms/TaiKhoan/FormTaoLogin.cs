@@ -15,7 +15,7 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
 
         private void PhanQuyen()
         {
-            switch (DbConnection.NhomQuyen)
+            switch (DBConnection.NhomQuyen)
             {
                 case "TRUONG":
                     LoadGvData();
@@ -41,12 +41,12 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
 
         private void LoadGvData()
         {
-            this.DSGVTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
+            this.DSGVTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.DSGVTableAdapter.Fill(this.TN_CSDLPTDataSet.DSGIAOVIEN);
         }
         private void LoadGvtcsData()
         {
-            this.DSGVTCSTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
+            this.DSGVTCSTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.DSGVTCSTableAdapter.Fill(this.TN_CSDLPTDataSet.DSGIAOVIENTCS);
         }
 
@@ -91,7 +91,7 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             }
             string loginName = TextTenDangNhap.Text.Trim();
             string password = TextMatKhau.Text;
-            string maGv = (LookUpGV.GetSelectedDataRow() as DataRowView)["MaGV"].ToString();
+            string maGV = (LookUpGV.GetSelectedDataRow() as DataRowView)["MaGV"].ToString();
             string accType;
             if (panelCSGV.Visible)
                 accType = rdoCS.Checked ? "COSO" : "GIAOVIEN";
@@ -100,13 +100,13 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             List<Para> paraList = new List<Para>();
             paraList.Add(new Para("@LoginName", loginName));
             paraList.Add(new Para("@Password", password));
-            paraList.Add(new Para("@Username", maGv));
+            paraList.Add(new Para("@Username", maGV));
             paraList.Add(new Para("@Role", accType));
 
             string spName = "usp_Login_AddLoginUser";
 
 
-            SqlDataReader myReader = DbConnection.ExecuteSqlDataReaderSp(spName, paraList);
+            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
             if (myReader == null)
             {
                 Console.WriteLine(System.Environment.StackTrace);

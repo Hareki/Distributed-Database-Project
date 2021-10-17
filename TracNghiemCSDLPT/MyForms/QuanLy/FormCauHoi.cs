@@ -50,7 +50,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         private void PhanQuyen()
         {
-            switch (DbConnection.NhomQuyen)
+            switch (DBConnection.NhomQuyen)
             {
                 case "TRUONG":
                     SetIdleButtonEnabled(false);
@@ -64,11 +64,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void LoadAllData()
         {
-            this.MonHocTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
-            this.BoDeTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
-            this.MH2TableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
-            this.DSGVTCSTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
-            this.BaiThiTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
+            this.MonHocTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.BoDeTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.MH2TableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.DSGVTCSTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.BaiThiTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
 
             this.MonHocTableAdapter.Fill(this.TN_CSDLPTDataSet.MONHOC);
             this.BoDeTableAdapter.Fill(this.TN_CSDLPTDataSet.BODE);
@@ -165,8 +165,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             string maMh = ((DataRowView)BoDeBindingSource[BoDeBindingSource.Position])["MAMH"].ToString();
             MH2BindingSource.Position = MH2BindingSource.Find("MAMH", maMh);
 
-            string maGv = ((DataRowView)BoDeBindingSource[BoDeBindingSource.Position])["MAGV"].ToString();
-            DSGVTCSBindingSource.Position = DSGVTCSBindingSource.Find("MAGV", maGv);
+            string maGV = ((DataRowView)BoDeBindingSource[BoDeBindingSource.Position])["MAGV"].ToString();
+            DSGVTCSBindingSource.Position = DSGVTCSBindingSource.Find("MAGV", maGV);
 
             CheckButtonState();
             return detailView;
@@ -240,7 +240,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             MonHocGridControl.Enabled = false;
             _state = State.Add;
             BoDeBindingSource.AddNew();
-            labelGVSoan.Text = DbConnection.UserName + " - " + DbConnection.HoTen;
+            labelGVSoan.Text = DBConnection.UserName + " - " + DBConnection.HoTen;
             rdoA.Checked = true;
             rdoDA_A.Checked = true;
             textMaCH.EditValue = 0;
@@ -248,12 +248,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void CheckButtonState()
         {
-            if (DbConnection.NhomQuyen.Equals("GIAOVIEN"))
+            if (DBConnection.NhomQuyen.Equals("GIAOVIEN"))
             {
-                string maGv = (BoDeBindingSource[BoDeBindingSource.Position] as DataRowView)["MAGV"].ToString();
-                maGv = maGv.Trim();
+                string maGV = (BoDeBindingSource[BoDeBindingSource.Position] as DataRowView)["MAGV"].ToString();
+                maGV = maGV.Trim();
                 bool test1 = BoDeBindingSource.Count == 0;
-                bool test2 = !maGv.Equals(DbConnection.UserName);
+                bool test2 = !maGV.Equals(DBConnection.UserName);
                 if (test1 || test2)
                 {
                     buttonXoa.Enabled = buttonSua.Enabled = false;
@@ -309,12 +309,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             string spName = "usp_BoDe_GetInfoByID";
 
             SqlDataReader result;
-            SqlCommand sqlCmd = new SqlCommand(spName, DbConnection.SubcriberConnection);
+            SqlCommand sqlCmd = new SqlCommand(spName, DBConnection.SubcriberConnection);
             sqlCmd.CommandType = CommandType.StoredProcedure;
             sqlCmd.Parameters.Add(new SqlParameter("@ID", id));
 
-            if (DbConnection.SubcriberConnection.State == ConnectionState.Closed)
-                DbConnection.SubcriberConnection.Open();
+            if (DBConnection.SubcriberConnection.State == ConnectionState.Closed)
+                DBConnection.SubcriberConnection.Open();
             try
             {
                 result = sqlCmd.ExecuteReader();
@@ -322,7 +322,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
             catch (SqlException ex)
             {
-                DbConnection.SubcriberConnection.Close();
+                DBConnection.SubcriberConnection.Close();
                 Utils.ShowErrorMessage("Xảy ra lỗi" + ex.Message, "Lỗi kết nối");
                 Console.WriteLine(ex.StackTrace);
                 return null;
@@ -389,7 +389,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             bool test5 = string.IsNullOrEmpty(TrimText(textNoiDung));
             bool test6 = string.IsNullOrEmpty(TrimText(textMaCH));
 
-            string maGv = labelGVSoan.Text.Split('-')[0].Trim();
+            string maGV = labelGVSoan.Text.Split('-')[0].Trim();
             string maMh = MHCombo.SelectedValue.ToString();
             string trinhDo = GetTrinhDo();
 
@@ -454,7 +454,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             try
             {
-                ((DataRowView)BoDeBindingSource[BoDeBindingSource.Position])["MAGV"] = maGv;
+                ((DataRowView)BoDeBindingSource[BoDeBindingSource.Position])["MAGV"] = maGV;
                 ((DataRowView)BoDeBindingSource[BoDeBindingSource.Position])["MAMH"] = maMh;
                 ((DataRowView)BoDeBindingSource[BoDeBindingSource.Position])["TRINHDO"] = trinhDo;
 

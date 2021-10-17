@@ -18,7 +18,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         private void PhanQuyen()
         {
-            switch (DbConnection.NhomQuyen)
+            switch (DBConnection.NhomQuyen)
             {
                 case "TRUONG":
                     SetIdleButtonEnabled(false);
@@ -33,13 +33,13 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         readonly Color _activeForeColor = Color.FromArgb(72, 70, 68);
         readonly Color _disabledForeColor = SystemColors.AppWorkspace;
         State _state = State.Idle;
-        string _origMaMh = "~!@#$%";
+        string _origMaMH = "~!@#$%";
         string _origTenMh = "~!@#$%";
 
         private void SetDefaultOrigValue()
         {
             _origTenMh = "~!@#$%";
-            _origMaMh = "~!@#$%";
+            _origMaMH = "~!@#$%";
         }
         enum State
         {
@@ -55,10 +55,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private void LoadAllData()
         {
            
-            this.MonHocTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
-            this.BoDeTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
-            this.GV_DKTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
-            this.BangDiemTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
+            this.MonHocTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.BoDeTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.GV_DKTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.BangDiemTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
 
             this.MonHocTableAdapter.Fill(this.TN_CSDLPTDataSet.MONHOC);
             this.BoDeTableAdapter.Fill(this.TN_CSDLPTDataSet.BODE);
@@ -143,7 +143,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             SetIdleButtonEnabled(false);
             SetInputButtonEnabled(true);
 
-            _origMaMh = TextMaMH.Text.Trim();
+            _origMaMH = TextMaMH.Text.Trim();
             _origTenMh = Utils.CapitalizeString(TextTenMH.Text, Utils.CapitalMode.FirstWordOnly);
             MonHocGridControl.Enabled = false;
             _state = State.Edit;
@@ -168,7 +168,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void buttonXoa_Click(object sender, EventArgs e)
         {
-            string removedMh = "";
+            string removedMH = "";
             _selectedRow = MonHocBindingSource.Position;
             if (BoDeBindingSource.Count > 0)
             {
@@ -189,7 +189,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             {
                 try
                 {
-                    removedMh = ((DataRowView)MonHocBindingSource[_selectedRow])["MAMH"].ToString();
+                    removedMH = ((DataRowView)MonHocBindingSource[_selectedRow])["MAMH"].ToString();
                     MonHocBindingSource.RemoveCurrent();
                     MonHocTableAdapter.Update(TN_CSDLPTDataSet.MONHOC);
                     Utils.ShowMessage("Xóa môn học thành công!", Others.NotiForm.FormType.Success, 1);
@@ -199,7 +199,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     Utils.ShowErrorMessage("Không thể xóa môn học này, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi xóa môn học");
                     Console.WriteLine(ex.StackTrace);
                     this.MonHocTableAdapter.Fill(TN_CSDLPTDataSet.MONHOC);
-                    MonHocBindingSource.Position = MonHocBindingSource.Find("MAMH", removedMh);
+                    MonHocBindingSource.Position = MonHocBindingSource.Find("MAMH", removedMH);
                     return;
                 }
             }
@@ -223,7 +223,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 paraList.Add(new Para("@Name", testName));
             }
 
-            SqlDataReader myReader = DbConnection.ExecuteSqlDataReaderSp(spName, paraList);
+            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
             if (myReader == null)
             {
                 Console.WriteLine(System.Environment.StackTrace);
@@ -270,7 +270,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 return;
             }
             test1 = test2 = false;
-            if (!_origMaMh.ToLower().Equals(TextMaMH.Text.ToLower()))
+            if (!_origMaMH.ToLower().Equals(TextMaMH.Text.ToLower()))
                 test1 = AlreadyExists(TextMaMH.Text, true);
 
             if (!_origTenMh.ToLower().Equals(TextTenMH.Text.ToLower()))

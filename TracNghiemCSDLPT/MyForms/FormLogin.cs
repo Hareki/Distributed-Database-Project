@@ -20,26 +20,26 @@ namespace TracNghiemCSDLPT.MyForms
         public FormLogin()
         {
             InitializeComponent();
-            InitializeUi();
+            InitializeUI();
             AutoFilled();
         }
         public StateProperties ErrorState;
         private Color _errorColor = Color.FromArgb(236, 65, 52);
-        private void InitializeUi()
+        private void InitializeUI()
         {
             DataTable dataTable = GetSubcriber();
             if (dataTable == null)
             {
                 return;
             }
-            ComboBoxCoSo.DataSource = DbConnection.BsSubcribers.DataSource = dataTable;
+            ComboBoxCoSo.DataSource = DBConnection.BsSubcribers.DataSource = dataTable;
             ComboBoxCoSo.DisplayMember = "TENCS";
             ComboBoxCoSo.ValueMember = "TENSERVER";
             ComboBoxCoSo.SelectedIndex = -1;
         }
         private DataTable GetSubcriber()
         {
-            if (!DbConnection.ConnectToPublisher())
+            if (!DBConnection.ConnectToPublisher())
             {
                 Utils.ShowMessage("Kết nối đến CSDL thất bại. " +
                      "Vui lòng xem lại tên server và tên CSDL trong chuỗi kết nối",
@@ -50,9 +50,9 @@ namespace TracNghiemCSDLPT.MyForms
 
             string query = "SELECT * FROM view_GetSubcribers";
             DataTable dataTable = new DataTable();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(query, DbConnection.PublisherConnection);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(query, DBConnection.PublisherConnection);
             dataAdapter.Fill(dataTable);
-            DbConnection.PublisherConnection.Close();
+            DBConnection.PublisherConnection.Close();
             return dataTable;
         }
         protected override FormPainter CreateFormBorderPainter()
@@ -86,7 +86,7 @@ namespace TracNghiemCSDLPT.MyForms
 
             if (rdoGV.Checked)
             {
-                if (!DbConnection.ConnectToSubcriber(loginName, password, ComboBoxCoSo.SelectedValue.ToString()))
+                if (!DBConnection.ConnectToSubcriber(loginName, password, ComboBoxCoSo.SelectedValue.ToString()))
                 {
                     Utils.ShowMessage("Tài khoản, mật khẩu hoặc cơ sở không chính xác. Vui lòng xem " +
                         "lại thông tin đăng nhập.", Others.NotiForm.FormType.Error, 4);
@@ -97,29 +97,29 @@ namespace TracNghiemCSDLPT.MyForms
                 List<Para> paraList = new List<Para>();
                 paraList.Add(new Para("@LoginName", loginName));
                 string spName = "usp_LoginGV_GetInfoByLogin";
-                SqlDataReader myReader = DbConnection.ExecuteSqlDataReaderSp(spName, paraList);
+                SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
                 if (myReader == null)
                 {
                     Console.WriteLine(System.Environment.StackTrace);
                     return;
                 }
                 myReader.Read();
-                DbConnection.UserName = myReader.GetString(0); // Lấy Mã GV, chính là Username ở cột 1.
-                DbConnection.HoTen = myReader.GetString(1);
-                DbConnection.NhomQuyen = myReader.GetString(2);
-                DbConnection.IndexCs = ComboBoxCoSo.SelectedIndex;
+                DBConnection.UserName = myReader.GetString(0); // Lấy Mã GV, chính là Username ở cột 1.
+                DBConnection.HoTen = myReader.GetString(1);
+                DBConnection.NhomQuyen = myReader.GetString(2);
+                DBConnection.IndexCS = ComboBoxCoSo.SelectedIndex;
                 myReader.Close();
                 Program.MainInstance = new MainView();
-                Program.MainInstance.statusMa.Caption = "Mã GV: " + DbConnection.UserName;
-                Program.MainInstance.statusTen.Caption = "Họ tên: " + DbConnection.HoTen;
+                Program.MainInstance.statusMa.Caption = "Mã GV: " + DBConnection.UserName;
+                Program.MainInstance.statusTen.Caption = "Họ tên: " + DBConnection.HoTen;
                 Program.MainInstance.statusQuyen.Caption = "Nhóm: " +
-                    DbConnection.GetVnTextNhomQuyen(DbConnection.NhomQuyen);
+                    DBConnection.GetVnTextNhomQuyen(DBConnection.NhomQuyen);
                 Program.MainInstance.Show();
                 this.Hide();
             }
             else
             {
-                if (!DbConnection.ConnectToSubcriber(ComboBoxCoSo.SelectedValue.ToString()))
+                if (!DBConnection.ConnectToSubcriber(ComboBoxCoSo.SelectedValue.ToString()))
                 {
                     Utils.ShowMessage("Kết nối đến CSDL thất bại. " +
                         "Login hoặc password của sinh viên trong chuỗi kết nối không chính xác", Others.NotiForm.FormType.Error, 3);
@@ -131,7 +131,7 @@ namespace TracNghiemCSDLPT.MyForms
                 List<Para> paraList = new List<Para>();
                 paraList.Add(new Para("@LoginName", loginName));
                 paraList.Add(new Para("@Password", password));
-                SqlDataReader myReader = DbConnection.ExecuteSqlDataReaderSp(spName, paraList);
+                SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
                 if (myReader == null)
                 {
                     Console.WriteLine(System.Environment.StackTrace);
@@ -149,15 +149,15 @@ namespace TracNghiemCSDLPT.MyForms
                     return;
                 }
 
-                DbConnection.UserName = DbConnection.UserNameSv;
-                DbConnection.HoTen = myReader.GetString(1);
-                DbConnection.NhomQuyen = myReader.GetString(2);
+                DBConnection.UserName = DBConnection.UserNameSV;
+                DBConnection.HoTen = myReader.GetString(1);
+                DBConnection.NhomQuyen = myReader.GetString(2);
                 myReader.Close();
                 Program.MainInstance = new MainView();
                 Program.MainInstance.statusMa.Caption = "Mã SV: " + loginName;
-                Program.MainInstance.statusTen.Caption = "Họ tên: " + DbConnection.HoTen;
+                Program.MainInstance.statusTen.Caption = "Họ tên: " + DBConnection.HoTen;
                 Program.MainInstance.statusQuyen.Caption = "Nhóm: " + 
-                    DbConnection.GetVnTextNhomQuyen(DbConnection.NhomQuyen);
+                    DBConnection.GetVnTextNhomQuyen(DBConnection.NhomQuyen);
                 Program.MainInstance.Show();
                 this.Hide();
             }
@@ -180,7 +180,7 @@ namespace TracNghiemCSDLPT.MyForms
         {
             if (ComboBoxCoSo.SelectedIndex != -1)
             {
-                DbConnection.SubcriberName = ComboBoxCoSo.SelectedValue.ToString();
+                DBConnection.SubcriberName = ComboBoxCoSo.SelectedValue.ToString();
             }
 
 

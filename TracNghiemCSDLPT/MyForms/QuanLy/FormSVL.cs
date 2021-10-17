@@ -25,7 +25,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void PhanQuyen()
         {
-            switch (DbConnection.NhomQuyen)
+            switch (DBConnection.NhomQuyen)
             {
                 case "TRUONG":
                     SetIdleButtonEnabledSv(false);
@@ -38,16 +38,16 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         }
 
-        private int _previousIndexCs;
+        private int _previousIndexCS;
         private bool _opened = false;
         private int _selectedRowLop;
-        private int _selectedRowSv;
+        private int _selectedRowSV;
         private int _saveKhIndex;
 
         private string _origMaLop = "~!@#$%";
         private string _origTenLop = "~!@#$%";
 
-        private string _origMaSv = "~!@#$%";
+        private string _origMaSV = "~!@#$%";
         private int _editingSvIndex;
 
         private bool _canSaveSv = true;
@@ -68,19 +68,19 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             _origTenLop = "~!@#$%";
             _origMaLop = "~!@#$%";
         }
-        private void SetDefaultOrigValueSv()
+        private void SetDefaultOrigValueSV()
         {
-            _origMaSv = "~!@#$%";
+            _origMaSV = "~!@#$%";
         }
 
         private void LoadAllData()
         {
-            this.KhoaTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
-            this.LopTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
-            this.SinhVienTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
-            this.GV_DKTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
-            this.BangDiemTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
-            this.Khoa2TableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
+            this.KhoaTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.LopTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.SinhVienTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.GV_DKTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.BangDiemTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.Khoa2TableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
 
             this.KhoaTableAdapter.Fill(this.TN_CSDLPTDataSet.KHOA);
             this.LopTableAdapter.Fill(this.TN_CSDLPTDataSet.LOP);
@@ -109,7 +109,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void CheckButtonStateLop()
         {
-            if (DbConnection.NhomQuyen.Equals("COSO"))
+            if (DBConnection.NhomQuyen.Equals("COSO"))
             {
                 if (LopBindingSource.Count == 0)
                     buttonXoaLop.Enabled = buttonSuaLop.Enabled = false;
@@ -118,9 +118,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         }
 
-        private void CheckButtonStateSv()
+        private void CheckButtonStateSV()
         {
-            if (DbConnection.NhomQuyen.Equals("COSO"))
+            if (DBConnection.NhomQuyen.Equals("COSO"))
             {
                 if (SinhVienBindingSource.Count == 0)
                     buttonXoaSV.Enabled = buttonSuaSV.Enabled = false;
@@ -163,11 +163,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             LoadAllData();
 
-            this.CoSoComboBox.DataSource = DbConnection.BsSubcribers;
+            this.CoSoComboBox.DataSource = DBConnection.BsSubcribers;
             this.CoSoComboBox.DisplayMember = "TENCS";
             this.CoSoComboBox.ValueMember = "TENSERVER";
-            this.CoSoComboBox.SelectedIndex = DbConnection.IndexCs;
-            this._previousIndexCs = this.CoSoComboBox.SelectedIndex;
+            this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
+            this._previousIndexCS= this.CoSoComboBox.SelectedIndex;
 
             //  this.ComboMaKH.DataSource = KhoaBindingSource;
             this.ComboMaKH.DisplayMember = "TENKH";
@@ -177,7 +177,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             GridView view = GetCorrTextBoxData(true);
             if (view != null)
                 view.Focus();
-            CheckButtonStateSv();
+            CheckButtonStateSV();
             PhanQuyen();
 
         }
@@ -213,27 +213,27 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 return;
             string login, pass;
             string serverName = CoSoComboBox.SelectedValue.ToString();
-            if (CoSoComboBox.SelectedIndex != DbConnection.IndexCs)//Không cần check loginSV, vì ko bao giờ hiện CB này
+            if (CoSoComboBox.SelectedIndex != DBConnection.IndexCS)//Không cần check loginSV, vì ko bao giờ hiện CB này
             {
-                login = DbConnection.RemoteLogin;
-                pass = DbConnection.RemotePassword;
+                login = DBConnection.RemoteLogin;
+                pass = DBConnection.RemotePassword;
             }
             else
             {
-                login = DbConnection.LoginName;
-                pass = DbConnection.Password;
+                login = DBConnection.LoginName;
+                pass = DBConnection.Password;
             }
-            bool success = DbConnection.ConnectToSubcriber(login, pass, serverName);
+            bool success = DBConnection.ConnectToSubcriber(login, pass, serverName);
             if (!success)
             {
                 Utils.ShowMessage("Tạm thời không thể kết nối đến cơ sở này", Others.NotiForm.FormType.Error, 2);
-                this.CoSoComboBox.SelectedIndex = this._previousIndexCs;
+                this.CoSoComboBox.SelectedIndex = this._previousIndexCS;
                 return;
             }
             else
             {
                 LoadAllData();
-                this._previousIndexCs = this.CoSoComboBox.SelectedIndex;
+                this._previousIndexCS= this.CoSoComboBox.SelectedIndex;
             }
         }
 
@@ -275,7 +275,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 buttonUndoSV.BackColor = buttonRedoSV.BackColor = Color.FromArgb(240, 240, 240);
             }
         }
-        private void SetInputButtonEnabledSv(bool state)
+        private void SetInputButtonEnabledSV(bool state)
         {
             buttonHuySV.Visible = buttonXacNhanSV.Visible = state;
         }
@@ -383,7 +383,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 spName = spName.Replace("XXX", "Name");
                 paraList.Add(new Para("@Name", testName));
             }
-            SqlDataReader myReader = DbConnection.ExecuteSqlDataReaderSp(spName, paraList);
+            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
             if (myReader == null)
             {
                 Console.WriteLine(System.Environment.StackTrace);
@@ -408,7 +408,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             paraList.Add(new Para("@ID", testName));
 
             string spName = "usp_SinhVien_GetInfoByID";
-            SqlDataReader myReader = DbConnection.ExecuteSqlDataReaderSp(spName, paraList);
+            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
             if (myReader == null)
             {
                 Console.WriteLine(System.Environment.StackTrace);
@@ -601,27 +601,27 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void buttonThemSV_Click(object sender, EventArgs e)
         {
-            _selectedRowSv = SinhVienBindingSource.Position;
+            _selectedRowSV = SinhVienBindingSource.Position;
 
             SetLopState(false);
 
             SetIdleButtonEnabledSv(false);
-            SetInputButtonEnabledSv(true);
+            SetInputButtonEnabledSV(true);
             _state = State.AddSv;
             SinhVienGridView.OptionsBehavior.Editable = true;
             SinhVienBindingSource.AddNew();
 
         }
 
-        private string GetCellAtRowSv(GridColumn column, int row)
+        private string GetCellAtRowSV(GridColumn column, int row)
         {
             return SinhVienGridView.GetRowCellValue(row, column).ToString();
         }
-        private string GetCellAtFRowSv(GridColumn column)
+        private string GetCellAtFRowSV(GridColumn column)
         {
             return SinhVienGridView.GetRowCellValue(SinhVienGridView.FocusedRowHandle, column).ToString();
         }
-        private void SetCellAtRowSv(GridColumn column, string value, int row)
+        private void SetCellAtRowSV(GridColumn column, string value, int row)
         {
             SinhVienGridView.SetRowCellValue(row, column, value);
         }
@@ -703,7 +703,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         }
 
-        private string ValidateMaSv(string maSv)
+        private string ValidateMaSV(string maSv)
         {
             if (string.IsNullOrEmpty(maSv))
                 return "Vui lòng nhập mã sinh viên";
@@ -711,7 +711,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 return "Mã sinh viên không vượt quá 8 ký tự";
 
             bool test1 = false;
-            if (!_origMaSv.Trim().Equals(maSv.Trim()))
+            if (!_origMaSV.Trim().Equals(maSv.Trim()))
             {
                 //    Console.WriteLine("MAA" + maSV);
                 test1 = AlreadyExistsSv(maSv);
@@ -723,7 +723,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             return string.Empty;
         }
-        private string ValidateHoSv(string ho, int row)
+        private string ValidateHoSV(string ho, int row)
         {
             ho = Utils.CapitalizeString(ho, Utils.CapitalMode.EveryWord);
             // setCellAtRowSV(colHO, ho, row);
@@ -808,22 +808,22 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             SetLopState(false);
             SetIdleButtonEnabledSv(false);
-            SetInputButtonEnabledSv(true);
+            SetInputButtonEnabledSV(true);
 
 
-            string maSv = GetCellAtFRowSv(colMASV).Trim();
+            string maSv = GetCellAtFRowSV(colMASV).Trim();
             SinhVienGridView.SetRowCellValue(SinhVienGridView.FocusedRowHandle, colMASV, maSv);
 
             _editingSvIndex = SinhVienGridView.FocusedRowHandle;
             SinhVienGridView.OptionsBehavior.Editable = true;
-            _origMaSv = GetCellAtFRowSv(colMASV).Trim();
+            _origMaSV = GetCellAtFRowSV(colMASV).Trim();
             _state = State.EditSv;
         }
 
         private void buttonXoaSV_Click(object sender, EventArgs e)
         {
             string removedSv = "";
-            _selectedRowSv = SinhVienBindingSource.Position;
+            _selectedRowSV = SinhVienBindingSource.Position;
             if (BangDiemBindingSource.Count > 0)
             {
                 Utils.ShowMessage("Sinh viên này đã dự thi, không thể xóa", Others.NotiForm.FormType.Error, 2);
@@ -834,7 +834,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             {
                 try
                 {
-                    removedSv = ((DataRowView)SinhVienBindingSource[_selectedRowSv])["MASV"].ToString();
+                    removedSv = ((DataRowView)SinhVienBindingSource[_selectedRowSV])["MASV"].ToString();
                     SinhVienBindingSource.RemoveCurrent();
                     SinhVienTableAdapter.Update(TN_CSDLPTDataSet.SINHVIEN);
                     Utils.ShowMessage("Xóa thông tin sinh viên thành công!", Others.NotiForm.FormType.Success, 2);
@@ -849,7 +849,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 }
             }
 
-            CheckButtonStateSv();
+            CheckButtonStateSV();
         }
 
         private void buttonLamMoiSV_Click(object sender, EventArgs e)
@@ -878,13 +878,13 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             if (CheckTheRow(rowHandle))
             {
                 GridView view = SinhVienGridView;
-                String maSv = GetCellAtRowSv(colMASV, rowHandle);
-                String ho = GetCellAtRowSv(colHO, rowHandle);
-                String ten = GetCellAtRowSv(colTEN, rowHandle);
+                String maSv = GetCellAtRowSV(colMASV, rowHandle);
+                String ho = GetCellAtRowSV(colHO, rowHandle);
+                String ten = GetCellAtRowSV(colTEN, rowHandle);
                 if (column.Equals(view.Columns["MASV"]))
-                    return ValidateMaSv(maSv);
+                    return ValidateMaSV(maSv);
                 else if (column.Equals(view.Columns["HO"]))
-                    return ValidateHoSv(ho, rowHandle);
+                    return ValidateHoSV(ho, rowHandle);
                 else if (column.Equals(view.Columns["TEN"]))
                     return ValidateTenSv(ten, rowHandle);
             }
@@ -903,7 +903,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void SinhVienBindingSource_CurrentChanged(object sender, EventArgs e)
         {
-            CheckButtonStateSv();
+            CheckButtonStateSV();
         }
 
         private void SinhVienGridView_ShownEditor(object sender, EventArgs e)
@@ -938,11 +938,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 try
                 {
                     int editingIndex = GetEditingIndexSv();
-                    string ho = Utils.CapitalizeString(GetCellAtRowSv(colHO, editingIndex), Utils.CapitalMode.EveryWord);
-                    SetCellAtRowSv(colHO, ho, editingIndex);
+                    string ho = Utils.CapitalizeString(GetCellAtRowSV(colHO, editingIndex), Utils.CapitalMode.EveryWord);
+                    SetCellAtRowSV(colHO, ho, editingIndex);
 
-                    string ten = Utils.CapitalizeString(GetCellAtRowSv(colTEN, editingIndex), Utils.CapitalMode.EveryWord);
-                    SetCellAtRowSv(colTEN, ten, editingIndex);
+                    string ten = Utils.CapitalizeString(GetCellAtRowSV(colTEN, editingIndex), Utils.CapitalMode.EveryWord);
+                    SetCellAtRowSV(colTEN, ten, editingIndex);
 
                     SinhVienBindingSource.EndEdit();
                     SinhVienBindingSource.ResetCurrentItem();
@@ -953,8 +953,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                         Utils.ShowMessage("Thêm thông tin sinh viên thành công", Others.NotiForm.FormType.Success, 2);
                     _state = State.Idle;
                     SinhVienGridView.ClearColumnErrors();
-                    CheckButtonStateSv();
-                    SetDefaultOrigValueSv();
+                    CheckButtonStateSV();
+                    SetDefaultOrigValueSV();
 
                 }
                 catch (Exception ex)
@@ -964,7 +964,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 }
                 SetLopState(true);
                 SetIdleButtonEnabledSv(true);
-                SetInputButtonEnabledSv(false);
+                SetInputButtonEnabledSV(false);
             }
             else
             {
@@ -977,11 +977,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             SinhVienGridView.OptionsBehavior.Editable = false;
             SinhVienBindingSource.CancelEdit();
             if (_state == State.AddSv)
-                SinhVienBindingSource.Position = _selectedRowSv;
+                SinhVienBindingSource.Position = _selectedRowSV;
             _state = State.Idle;
-            SetDefaultOrigValueSv();
+            SetDefaultOrigValueSV();
             SetIdleButtonEnabledSv(true);
-            SetInputButtonEnabledSv(false);
+            SetInputButtonEnabledSV(false);
             SetLopState(true);
         }
 

@@ -26,8 +26,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private State _state = State.Idle;
         readonly Color _activeForeColor = Color.FromArgb(72, 70, 68);
         readonly Color _disabledForeColor = SystemColors.AppWorkspace;
-        private int _previousIndexCs;
-        private string _origMaMh = "!@#$%";
+        private int _previousIndexCS;
+        private string _origMaMH = "!@#$%";
         private string _origMaLop = "!@#$%";
         private int _origLan = -1;
         //------------Dùng trong add---------
@@ -40,28 +40,28 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         }
         private void LoadGvdk2()
         {
-            this.GVDK2TableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
+            this.GVDK2TableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.GVDK2TableAdapter.Fill(this.TN_CSDLPTDataSet.GVDK_ENDUSER);
         }
         private void LoadLop()
         {
-            this.LopTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
+            this.LopTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.LopTableAdapter.Fill(this.TN_CSDLPTDataSet.LOP);
 
         }
         private void LoadMonHoc()
         {
-            this.MonHocTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
+            this.MonHocTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.MonHocTableAdapter.Fill(this.TN_CSDLPTDataSet.MONHOC);
         }
         private void LoadDsgv()
         {
-            this.DSGVTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
+            this.DSGVTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.DSGVTableAdapter.Fill(this.TN_CSDLPTDataSet.DSGIAOVIEN);
         }
         private void LoadSv()
         {
-            this.SVTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
+            this.SVTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.SVTableAdapter.Fill(this.TN_CSDLPTDataSet.SINHVIEN);
         }
 
@@ -75,13 +75,13 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         }
         private void SetOrigDefaultValue()
         {
-            _origMaMh = "!@#$%";
+            _origMaMH = "!@#$%";
             _origMaLop = "!@#$%";
             _origLan = -1;
         }
         private void PhanQuyen()
         {
-            switch (DbConnection.NhomQuyen)
+            switch (DBConnection.NhomQuyen)
             {
                 case "TRUONG":
                     SetIdleButtonEnabled(false);
@@ -130,7 +130,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             LopCombo.DisplayMember = "TENLOP";
             LopCombo.ValueMember = "MALOP";
 
-            Utils.BindingComboData(this.CoSoComboBox, this._previousIndexCs);
+            Utils.BindingComboData(this.CoSoComboBox, this._previousIndexCS);
 
             NgayThi.EditValue = ((DateTime)NgayThi.EditValue).AddDays(1);
 
@@ -252,27 +252,27 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 return;
             string login, pass;
             string serverName = CoSoComboBox.SelectedValue.ToString();
-            if (CoSoComboBox.SelectedIndex != DbConnection.IndexCs)//Không cần check loginGV, vì ko bao giờ hiện CB này
+            if (CoSoComboBox.SelectedIndex != DBConnection.IndexCS)//Không cần check loginGV, vì ko bao giờ hiện CB này
             {
-                login = DbConnection.RemoteLogin;
-                pass = DbConnection.RemotePassword;
+                login = DBConnection.RemoteLogin;
+                pass = DBConnection.RemotePassword;
             }
             else
             {
-                login = DbConnection.LoginName;
-                pass = DbConnection.Password;
+                login = DBConnection.LoginName;
+                pass = DBConnection.Password;
             }
-            bool success = DbConnection.ConnectToSubcriber(login, pass, serverName);
+            bool success = DBConnection.ConnectToSubcriber(login, pass, serverName);
             if (!success)
             {
                 Utils.ShowMessage("Tạm thời không thể kết nối đến cơ sở này", Others.NotiForm.FormType.Error, 2);
-                this.CoSoComboBox.SelectedIndex = this._previousIndexCs;
+                this.CoSoComboBox.SelectedIndex = this._previousIndexCS;
                 return;
             }
             else
             {
                 LoadAllData();
-                this._previousIndexCs = this.CoSoComboBox.SelectedIndex;
+                this._previousIndexCS= this.CoSoComboBox.SelectedIndex;
             }
         }
 
@@ -283,7 +283,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             paraList.Add(new Para("@MaLop", maLop));
             paraList.Add(new Para("@Lan", lan));
             string spName = "usp_GVDK_GetInfoByIDs";
-            SqlDataReader myReader = DbConnection.ExecuteSqlDataReaderSp(spName, paraList);
+            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
             if (myReader == null)
             {
                 Console.WriteLine(System.Environment.StackTrace);
@@ -329,7 +329,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             paraList.Add(new Para("@MaMH", maMh));
             paraList.Add(new Para("@MaLop", maLop));
             string spName = "usp_GVDK_CheckSoLan";
-            SqlDataReader myReader = DbConnection.ExecuteSqlDataReaderSp(spName, paraList);
+            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
             if (myReader == null)
                 return -1;
             else
@@ -385,7 +385,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             {
                 ClearErrors();
             }
-            string maGv = (LookUpGV.GetSelectedDataRow() as DataRowView)["MaGV"].ToString().Trim();
+            string maGV = (LookUpGV.GetSelectedDataRow() as DataRowView)["MaGV"].ToString().Trim();
             string maMh = MHCombo.SelectedValue.ToString().Trim();
             string maLop = LopCombo.SelectedValue.ToString().Trim();
             string trinhDo = GetTrinhDo();
@@ -394,7 +394,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             int soCau = (int)spinSoCau.Value;
             int thoiGian = (int)spinThoiGian.Value;
 
-            bool testMh = !_origMaMh.ToLower().Equals(maMh.ToLower());
+            bool testMh = !_origMaMH.ToLower().Equals(maMh.ToLower());
             bool testLop = !_origMaLop.ToLower().Equals(maLop.ToLower());
             bool testLan = lan != _origLan;
 
@@ -420,7 +420,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
 
             List<Para> paraList = new List<Para>();
-            paraList.Add(new Para("@MaGV", maGv));
+            paraList.Add(new Para("@MaGV", maGV));
             paraList.Add(new Para("@MaMH", maMh));
             paraList.Add(new Para("@MaLop", maLop));
             paraList.Add(new Para("@TrinhDo", trinhDo));
@@ -431,7 +431,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             if (_state == State.Add)
             {
                 string spName = "usp_GVDK_AddRecord";
-                SqlDataReader myReader = DbConnection.ExecuteSqlDataReaderSp(spName, paraList);
+                SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
                 if (myReader == null)
                 {
                     // Console.WriteLine(System.Environment.StackTrace);
@@ -442,11 +442,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             }
             else if (_state == State.Edit)
             {
-                paraList.Add(new Para("@OldMaMH", _origMaMh));
+                paraList.Add(new Para("@OldMaMH", _origMaMH));
                 paraList.Add(new Para("@OldMaLop", _origMaLop));
                 paraList.Add(new Para("@OldLan", _origLan));
                 string spName = "usp_GVDK_UpdateRecord";
-                SqlDataReader myReader = DbConnection.ExecuteSqlDataReaderSp(spName, paraList);
+                SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
                 if (myReader == null)
                 {
                     return;
@@ -506,7 +506,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 InfoPanel.Text = "Sửa thông tin đăng ký thi";
                 InfoPanel.ForeColor = Utils.EditColor;
                 _origMaLop = LopCombo.SelectedValue.ToString().Trim();
-                _origMaMh = MHCombo.SelectedValue.ToString().Trim();
+                _origMaMH = MHCombo.SelectedValue.ToString().Trim();
                 _origLan = GetLan();
                 _state = State.Edit;
             }
@@ -534,7 +534,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                     paraList.Add(new Para("@OldLan", lan));
 
                     string spName = "usp_GVDK_DeleteRecord";
-                    SqlDataReader myReader = DbConnection.ExecuteSqlDataReaderSp(spName, paraList);
+                    SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
                     if (myReader == null)
                         return;
                     else
@@ -639,7 +639,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
                     if (_state == State.Edit)
                     {
-                        if (maMh != _origMaMh && maLop != _origMaLop)
+                        if (maMh != _origMaMH && maLop != _origMaLop)
                         {
                             if (soLan == 0)
                                 rdo1.Checked = true;

@@ -6,25 +6,25 @@ using TracNghiemCSDLPT.Others;
 
 namespace TracNghiemCSDLPT.MyForms.BaoCao
 {
-    public partial class FormDsdkttn : XtraForm
+    public partial class FormDSDKTTN : XtraForm
     {
-        private int _previousIndexCs;
-        public FormDsdkttn()
+        private int _previousIndexCS;
+        public FormDSDKTTN()
         {
             InitializeComponent();
 
-            this.CoSoComboBox.DataSource = DbConnection.BsSubcribers;
+            this.CoSoComboBox.DataSource = DBConnection.BsSubcribers;
             this.CoSoComboBox.DisplayMember = "TENCS";
             this.CoSoComboBox.ValueMember = "TENSERVER";
-            this.CoSoComboBox.SelectedIndex = DbConnection.IndexCs;
-            this._previousIndexCs = this.CoSoComboBox.SelectedIndex;
+            this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
+            this._previousIndexCS= this.CoSoComboBox.SelectedIndex;
         }
 
         private void buttonPrint_Click(object sender, EventArgs e)
         {
             String textDateFrom = dateFrom.Value.ToString("dd/MM/yyyy");
             String textDateTo = dateTo.Value.ToString("dd/MM/yyyy");
-            ReportDsdkttn report = new ReportDsdkttn(textDateFrom, textDateTo, DbConnection.SubcriberConnectionString);
+            ReportDSDKTTN report = new ReportDSDKTTN(textDateFrom, textDateTo, DBConnection.SubcriberConnectionString);
             report.ReportTitle.Text = "DANH SÁCH ĐĂNG KÝ THI TRẮC NGHIỆM " +
                 CoSoComboBox.Text.ToUpper() + " TỪ NGÀY " + textDateFrom + " ĐẾN NGÀY " + textDateTo;
             ReportPrintTool printer = new ReportPrintTool(report);
@@ -37,26 +37,26 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
                 return;
             string login, pass;
             string serverName = CoSoComboBox.SelectedValue.ToString();
-            if (CoSoComboBox.SelectedIndex != DbConnection.IndexCs)//Không cần check loginGV, vì ko bao giờ hiện CB này
+            if (CoSoComboBox.SelectedIndex != DBConnection.IndexCS)//Không cần check loginGV, vì ko bao giờ hiện CB này
             {
-                login = DbConnection.RemoteLogin;
-                pass = DbConnection.RemotePassword;
+                login = DBConnection.RemoteLogin;
+                pass = DBConnection.RemotePassword;
             }
             else
             {
-                login = DbConnection.LoginName;
-                pass = DbConnection.Password;
+                login = DBConnection.LoginName;
+                pass = DBConnection.Password;
             }
-            bool success = DbConnection.ConnectToSubcriber(login, pass, serverName);
+            bool success = DBConnection.ConnectToSubcriber(login, pass, serverName);
             if (!success)
             {
                 Utils.ShowMessage("Tạm thời không thể kết nối đến cơ sở này", Others.NotiForm.FormType.Error, 2);
-                this.CoSoComboBox.SelectedIndex = this._previousIndexCs;
+                this.CoSoComboBox.SelectedIndex = this._previousIndexCS;
                 return;
             }
             else
             {
-                this._previousIndexCs = this.CoSoComboBox.SelectedIndex;
+                this._previousIndexCS= this.CoSoComboBox.SelectedIndex;
             }
         }
 

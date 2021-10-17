@@ -179,6 +179,9 @@
         TkSuQmCC
 </value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1094, 89</value>
+  </metadata>
   <metadata name="GVDKBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>16, 65</value>
   </metadata>
@@ -189,13 +192,13 @@
     <value>699, 66</value>
   </metadata>
   <metadata name="DSGVTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 109</value>
+    <value>17, 132</value>
   </metadata>
   <metadata name="GVEP.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>204, 109</value>
+    <value>204, 132</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>46</value>
+    <value>208</value>
   </metadata>
   <data name="FormDKThi.IconOptions.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -350,7 +353,7 @@
 </value>
   </data>
   <metadata name="TrinhDoEP.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>359, 109</value>
+    <value>297, 132</value>
   </metadata>
   <data name="TrinhDoEP.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -429,7 +432,7 @@
 </value>
   </data>
   <metadata name="SoCauEP.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>514, 109</value>
+    <value>425, 132</value>
   </metadata>
   <data name="SoCauEP.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -508,7 +511,7 @@
 </value>
   </data>
   <metadata name="ThoiGianEP.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>669, 109</value>
+    <value>541, 132</value>
   </metadata>
   <data name="ThoiGianEP.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -587,7 +590,7 @@
 </value>
   </data>
   <metadata name="LanEP.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>824, 109</value>
+    <value>675, 132</value>
   </metadata>
   <data name="LanEP.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -669,6 +672,85 @@
     <value>921, 89</value>
   </metadata>
   <metadata name="SVTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>907, 174</value>
+    <value>772, 132</value>
   </metadata>
+  <metadata name="NgayThiEP.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>938, 132</value>
+  </metadata>
+  <data name="NgayThiEP.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1P+kArGSMADM+
+        7AMyPuwHMj7sBzM+7AOsZIwANT/pAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMj7sADI+7AAyPuwGMj7sKjI+
+        7FsyPuyJMj7spzI+7LYyPuy2Mj7spzI+7IkyPuxbMj7sKTI+7AYyPuwAMj7sAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMjzuADI+7AAyPuwKMj7sTDI+
+        7KkyPuzmMj7s/TI+7P8yPuz/Mj7s/zI+7P8yPuz/Mj7s/zI+7P0yPuzmMj7sqTI+7EwyPuwKMj7sADdD
+        6gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADI+7AAxPusAMj7sMTI+
+        7KoyPuz1Mj7s/zI+7P8yPuz0Mj7s2TI+7L0yPuytMj7srTI+7L0yPuzZMj7s9DI+7P8yPuz/Mj7s9DI+
+        7KkyPuwxLkLqADE/7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyPusAMz7rAzI+
+        7FoyPuzeMj7s/zI+7P4yPuzbMj7sijI+7EIyPuwZMj7sCTI+7AMyPuwDMj7sCTI+7BoyPuxBMj7sijI+
+        7NsyPuz+Mj7s/zI+7N4yPuxZMj7rAzI+7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMj7sADI+
+        7AMyPuxqMj7s7zI+7P8yPuzvMj7sjDI+7CMyPu0BMj7sAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADI+
+        7AAyPuwBMj7sIzI+7IwyPuzvMj7s/zI+7O8yPuxqMj7sAzI+7AAAAAAAAAAAAAAAAAAAAAAAAAAAADI/
+        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
+        /A/wD/AP+AAAH/4AAH//AAD//8AD///8P/8=
+</value>
+  </data>
 </root>

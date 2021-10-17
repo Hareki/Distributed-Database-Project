@@ -126,9 +126,6 @@
   <metadata name="toolTipController1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>188, 146</value>
   </metadata>
-  <metadata name="TN_CSDLPTDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>219, 60</value>
-  </metadata>
   <metadata name="mALOPLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
@@ -147,9 +144,6 @@
   <metadata name="Khoa2BindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>556, 146</value>
   </metadata>
-  <metadata name="Khoa2BindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>556, 146</value>
-  </metadata>
   <metadata name="LopBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>652, 17</value>
   </metadata>
@@ -159,10 +153,10 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="bunifuSeparator1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAABYsAAAANCAYAAADopzF4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAB2SURBVHhe7dpRCQAwDEPB+Fe0n0GddTDqonfwTIQEAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvnOrJUmSJEmSJEm7MxZLkiRJkiRJknr+xQAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAwHLJAzoMhIao68m9AAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAABlYAAAANCAYAAADbqlOAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAACDSURBVHhe7duxCQAwDANB7T9RmoA3c5r0SW3u4KcQCgAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADrF0tSZIkSZIkSZKkd4YVSZIkSZIkSZKkz+5vBQAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADGSw5o3plJVfj8ZwAAAABJRU5ErkJggg==
 </value>
   </data>
   <metadata name="LopTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -179,16 +173,17 @@
   </metadata>
   <data name="bunifuPanel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAABPMAAAAwCAYAAAB0Uz+nAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAHqSURBVHhe7dqxbYRAFEXRKcWluAK3SWDBDIFTt0BGuCIj
-        cMJWwBqLxNLmy5POk072K7j6xczMzMzMzMzMzILWdd1brfXzdzsAAAAAcB2tta+j350pr5RxHL+nadq3
-        bQMAAAAALmSe573WejtTXilH4Xt2CAAAAAC83tHvzpQn5gEAAADAlYl5AAAAABBCzAMAAACAEGIeAAAA
-        AIQQ8wAAAAAghJgHAAAAACHEPAAAAAAIIeYBAAAAQAgxDwAAAABCiHkAAAAAEELMAwAAAIAQYh4AAAAA
-        hBDzAAAAACCEmAcAAAAAIcQ8AAAAAAgh5gEAAABACDEPAAAAAEKIeQAAAAAQQswDAAAAgBBiHgAAAACE
-        EPMAAAAAIISYBwAAAAAhxDwAAAAACCHmAQAAAEAIMQ8AAAAAQoh5AAAAABBCzAMAAACAEGIeAAAAAIQQ
-        8wAAAAAghJgHAAAAACHEPAAAAAAIIeYBAAAAQAgxDwAAAABCiHkAAAAAEELMAwAAAIAQYh4AAAAAhBDz
-        AAAAACCEmAcAAAAAIcQ8AAAAAAgh5gEAAABACDEPAAAAAEL8i3m11tuyLE8PAQAAAIDXWdd17/v+fqa8
-        v8+892EYfo7CBwAAAABcxxHyWmsfZ8ozMzMzMzMzMzOz66+UBzKunjobHjlcAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAABagAAAAwCAYAAAD0KZ3YAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAILSURBVHhe7dqxbYRAFEXRKcWluAK3SWDBDIFTt0BGuCIj
+        cIIrwMYisbThsi85TzrZr+DqFzMzMzMzMzMzMzOz2Lque6m1vv9uBwAAAACAq7TWPo4mfebpUsZx/Jym
+        ad+2DQAAAAAALjPP815rvZ15upSjWt87BAAAAACARzua9JmnBWoAAAAAAJ5HoAYAAAAAIEKgBgAAAAAg
+        QqAGAAAAACBCoAYAAAAAIEKgBgAAAAAgQqAGAAAAACBCoAYAAAAAIEKgBgAAAAAgQqAGAAAAACBCoAYA
+        AAAAIEKgBgAAAAAgQqAGAAAAACBCoAYAAAAAIEKgBgAAAAAgQqAGAAAAACBCoAYAAAAAIEKgBgAAAAAg
+        QqAGAAAAACBCoAYAAAAAIEKgBgAAAAAgQqAGAAAAACBCoAYAAAAAIEKgBgAAAAAgQqAGAAAAACBCoAYA
+        AAAAIEKgBgAAAAAgQqAGAAAAACBCoAYAAAAAIEKgBgAAAAAgQqAGAAAAACBCoAYAAAAAIEKgBgAAAAAg
+        QqAGAAAAACBCoAYAAAAAIEKgBgAAAAAgQqAGAAAAACBCoAYAAAAAIEKgBgAAAAAgQqAGAAAAACBCoAYA
+        AAAAIOJfoK613pZluXsIAAAAAACPsq7r3vf995mn/z6oX4dh+DqqNQAAAAAAXOWI0621tzNPm5mZmZmZ
+        mZmZmZk9e6X8AH7CXxPkUSjKAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="FormSVL.IconOptions.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -524,5 +519,8 @@
   </metadata>
   <metadata name="Khoa2TableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>760, 146</value>
+  </metadata>
+  <metadata name="behaviorManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>951, 146</value>
   </metadata>
 </root>

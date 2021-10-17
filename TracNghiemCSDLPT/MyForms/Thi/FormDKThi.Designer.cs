@@ -67,6 +67,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.labelPhut = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.NgayThi = new DevExpress.XtraEditors.DateEdit();
             this.LopCombo = new System.Windows.Forms.ComboBox();
             this.MHCombo = new System.Windows.Forms.ComboBox();
             this.panelTrinhDo = new System.Windows.Forms.Panel();
@@ -102,7 +103,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.LanEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.SVBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SVTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.SINHVIENTableAdapter();
-            this.NgayThi = new DevExpress.XtraEditors.DateEdit();
+            this.NgayThiEP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MonHocBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LopBindingSource)).BeginInit();
@@ -114,6 +117,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             ((System.ComponentModel.ISupportInitialize)(this.spinThoiGian.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bunifuPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NgayThi.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NgayThi.Properties)).BeginInit();
             this.panelTrinhDo.SuspendLayout();
             this.panelLan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GVDK2GridControl)).BeginInit();
@@ -127,8 +132,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             ((System.ComponentModel.ISupportInitialize)(this.ThoiGianEP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LanEP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SVBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NgayThi.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NgayThi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NgayThiEP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // TN_CSDLPTDataSet
@@ -398,6 +403,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.label13.Enabled = false;
             this.label13.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(42, 6);
             this.label13.Name = "label13";
@@ -440,8 +446,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.label15.Enabled = false;
             this.label15.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(119, 6);
+            this.label15.Location = new System.Drawing.Point(99, 6);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(23, 30);
             this.label15.TabIndex = 27;
@@ -524,6 +531,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.rdo1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(198)))), ((int)(((byte)(203)))));
             this.rdo1.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rdo1.CheckedState.Parent = this.rdo1;
+            this.rdo1.Enabled = false;
             this.rdo1.Location = new System.Drawing.Point(12, 11);
             this.rdo1.Name = "rdo1";
             this.rdo1.ShadowDecoration.Parent = this.rdo1;
@@ -552,8 +560,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.label14.Enabled = false;
             this.label14.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(994, 127);
+            this.label14.Location = new System.Drawing.Point(984, 124);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(71, 30);
             this.label14.TabIndex = 26;
@@ -588,7 +597,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.rdo2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(198)))), ((int)(((byte)(203)))));
             this.rdo2.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rdo2.CheckedState.Parent = this.rdo2;
-            this.rdo2.Location = new System.Drawing.Point(90, 11);
+            this.rdo2.Enabled = false;
+            this.rdo2.Location = new System.Drawing.Point(70, 11);
             this.rdo2.Name = "rdo2";
             this.rdo2.ShadowDecoration.Parent = this.rdo2;
             this.rdo2.Size = new System.Drawing.Size(20, 20);
@@ -635,6 +645,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuPanel1.BorderRadius = 3;
             this.bunifuPanel1.BorderThickness = 1;
+            this.bunifuPanel1.Controls.Add(this.pictureBox2);
             this.bunifuPanel1.Controls.Add(this.NgayThi);
             this.bunifuPanel1.Controls.Add(this.LopCombo);
             this.bunifuPanel1.Controls.Add(this.MHCombo);
@@ -660,10 +671,24 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.bunifuPanel1.Size = new System.Drawing.Size(1247, 261);
             this.bunifuPanel1.TabIndex = 37;
             // 
+            // NgayThi
+            // 
+            this.NgayThi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.GVDK2BindingSource, "NGAYTHI", true));
+            this.NgayThi.EditValue = null;
+            this.NgayThi.Location = new System.Drawing.Point(749, 123);
+            this.NgayThi.Name = "NgayThi";
+            this.NgayThi.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.NgayThi.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F);
+            this.NgayThi.Properties.Appearance.Options.UseFont = true;
+            this.NgayThi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.NgayThi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.NgayThi.Size = new System.Drawing.Size(191, 38);
+            this.NgayThi.TabIndex = 52;
+            // 
             // LopCombo
             // 
-            this.LopCombo.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.LopBindingSource, "MALOP", true));
-            this.LopCombo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LopBindingSource, "TENLOP", true));
             this.LopCombo.DataSource = this.LopBindingSource;
             this.LopCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.LopCombo.Font = new System.Drawing.Font("Baloo 2", 12F);
@@ -673,12 +698,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.LopCombo.Name = "LopCombo";
             this.LopCombo.Size = new System.Drawing.Size(459, 40);
             this.LopCombo.TabIndex = 51;
+            this.LopCombo.SelectedIndexChanged += new System.EventHandler(this.LopCombo_SelectedIndexChanged);
             // 
             // MHCombo
             // 
             this.MHCombo.BackColor = System.Drawing.Color.White;
-            this.MHCombo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.MonHocBindingSource, "TENMH", true));
-            this.MHCombo.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.MonHocBindingSource, "MAMH", true));
             this.MHCombo.DataSource = this.MonHocBindingSource;
             this.MHCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MHCombo.FlatStyle = System.Windows.Forms.FlatStyle.System;
@@ -689,6 +713,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.MHCombo.Name = "MHCombo";
             this.MHCombo.Size = new System.Drawing.Size(459, 40);
             this.MHCombo.TabIndex = 50;
+            this.MHCombo.SelectedIndexChanged += new System.EventHandler(this.MHCombo_SelectedIndexChanged);
             // 
             // panelTrinhDo
             // 
@@ -709,9 +734,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.panelLan.Controls.Add(this.label15);
             this.panelLan.Controls.Add(this.label13);
             this.panelLan.Controls.Add(this.rdo2);
-            this.panelLan.Location = new System.Drawing.Point(1061, 121);
+            this.panelLan.Location = new System.Drawing.Point(1051, 118);
             this.panelLan.Name = "panelLan";
-            this.panelLan.Size = new System.Drawing.Size(147, 43);
+            this.panelLan.Size = new System.Drawing.Size(130, 43);
             this.panelLan.TabIndex = 48;
             // 
             // GVDK2GridControl
@@ -897,6 +922,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.InfoPanel.TabIndex = 39;
             this.InfoPanel.TabStop = false;
             this.InfoPanel.Text = "Thông tin đăng ký thi trắc nghiệm";
+            this.toolTip1.SetToolTip(this.InfoPanel, "Lần thi được chọn tự động bằng cách:\r\n-Nếu với lớp và môn học đã chọn chưa thi lầ" +
+        "n 1, tự động chọn lần 1\r\n-Nếu ngược lại, tự động chọn lần 2\r\n\r\n");
             // 
             // buttonHuy
             // 
@@ -909,7 +936,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonHuy.HoverState.Parent = this.buttonHuy;
             this.buttonHuy.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
             this.buttonHuy.ImageSize = new System.Drawing.Size(31, 31);
-            this.buttonHuy.Location = new System.Drawing.Point(1570, 165);
+            this.buttonHuy.Location = new System.Drawing.Point(1575, 117);
             this.buttonHuy.Margin = new System.Windows.Forms.Padding(11, 0, 3, 3);
             this.buttonHuy.Name = "buttonHuy";
             this.buttonHuy.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -930,7 +957,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonXacNhan.HoverState.Parent = this.buttonXacNhan;
             this.buttonXacNhan.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
             this.buttonXacNhan.ImageSize = new System.Drawing.Size(31, 31);
-            this.buttonXacNhan.Location = new System.Drawing.Point(1570, 115);
+            this.buttonXacNhan.Location = new System.Drawing.Point(1575, 47);
             this.buttonXacNhan.Margin = new System.Windows.Forms.Padding(11, 9, 8, 20);
             this.buttonXacNhan.Name = "buttonXacNhan";
             this.buttonXacNhan.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -1161,20 +1188,25 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             this.SVTableAdapter.ClearBeforeFill = true;
             // 
-            // NgayThi
+            // NgayThiEP
             // 
-            this.NgayThi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.GVDK2BindingSource, "NGAYTHI", true));
-            this.NgayThi.EditValue = null;
-            this.NgayThi.Location = new System.Drawing.Point(749, 123);
-            this.NgayThi.Name = "NgayThi";
-            this.NgayThi.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F);
-            this.NgayThi.Properties.Appearance.Options.UseFont = true;
-            this.NgayThi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.NgayThi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.NgayThi.Size = new System.Drawing.Size(191, 38);
-            this.NgayThi.TabIndex = 52;
+            this.NgayThiEP.ContainerControl = this;
+            this.NgayThiEP.Icon = ((System.Drawing.Icon)(resources.GetObject("NgayThiEP.Icon")));
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox2.Image = global::TracNghiemCSDLPT.Properties.Resources.info_480px_disabled;
+            this.pictureBox2.Location = new System.Drawing.Point(1187, 124);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(38, 30);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 53;
+            this.pictureBox2.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox2, "Lần thi được chọn tự động bằng cách:\r\n-Nếu với lớp và môn học đã chọn chưa thi lầ" +
+        "n 1, tự động chọn lần 1.\r\n-Nếu ngược lại, tự động chọn lần 2.");
+            this.pictureBox2.EnabledChanged += new System.EventHandler(this.pictureBox2_EnabledChanged);
             // 
             // FormDKThi
             // 
@@ -1194,6 +1226,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("FormDKThi.IconOptions.Icon")));
             this.Name = "FormDKThi";
             this.Text = "Đăng ký thi";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormDKThi_FormClosing);
             this.Load += new System.EventHandler(this.FormDKThi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MonHocBindingSource)).EndInit();
@@ -1207,6 +1240,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.bunifuPanel1.ResumeLayout(false);
             this.bunifuPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NgayThi.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NgayThi.Properties)).EndInit();
             this.panelTrinhDo.ResumeLayout(false);
             this.panelTrinhDo.PerformLayout();
             this.panelLan.ResumeLayout(false);
@@ -1222,8 +1257,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             ((System.ComponentModel.ISupportInitialize)(this.ThoiGianEP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LanEP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SVBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NgayThi.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NgayThi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NgayThiEP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1303,5 +1338,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private System.Windows.Forms.ComboBox MHCombo;
         private System.Windows.Forms.ComboBox LopCombo;
         private DevExpress.XtraEditors.DateEdit NgayThi;
+        private System.Windows.Forms.ErrorProvider NgayThiEP;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -98,7 +98,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             }
 
         }
-
+        private bool CanDeleteEdit(DateTime ngayThi)
+        {
+            return (ngayThi.Date > DateTime.Now.Date);
+        }
         private void SetIdleButtonEnabled(bool state)
         {
             buttonThem.Enabled = buttonXoa.Enabled = buttonUndo.Enabled = buttonRedo.Enabled =
@@ -171,6 +174,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             InfoPanel.ForeColor = Utils.AddColor;
             SetBlankDataInput();
             state = State.add;
+            SetLan();
         }
         private void ClearErrors()
         {
@@ -179,6 +183,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             LanEP.SetError(panelLan, null);
             SoCauEP.SetError(labelCau, null);
             ThoiGianEP.SetError(labelPhut, null);
+            NgayThiEP.SetError(NgayThi, null);
         }
 
         private void ConfigIdleState()
@@ -298,19 +303,43 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         }
         private void UncheckAllRDO()
         {
-            rdo1.Checked = rdo2.Checked =
             rdoA.Checked = rdoB.Checked =
             rdoC.Checked = false;
         }
         private void SetBlankDataInput()
         {
             LookUpGV.EditValue = null;
-            MonHocBindingSource.MoveFirst();
-            LopBindingSource.MoveFirst();
+
+            //MHCombo.SelectedIndex = 0;
+            //LopCombo.SelectedIndex = 0;
+            MonHocBindingSource.Position = 0;
+            LopBindingSource.Position = 0;
+
+
             NgayThi.EditValue = DateTime.Now.AddDays(1);
             spinSoCau.Value = 10;
             spinThoiGian.Value = 15;
             UncheckAllRDO();
+
+        }
+
+        private int CheckSoLan(string maMH, string maLop)
+        {
+            List<Para> paraList = new List<Para>();
+            paraList.Add(new Para("@MaMH", maMH));
+            paraList.Add(new Para("@MaLop", maLop));
+            string SPName = "usp_GVDK_CheckSoLan";
+            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
+            if (myReader == null)
+                return -1;
+            else
+            {
+                myReader.Read();
+                int resultSQL = int.Parse(myReader.GetValue(0).ToString());
+                myReader.Close();
+                return resultSQL;
+            }
+
 
         }
         private void buttonXacNhan_Click(object sender, EventArgs e)
@@ -320,7 +349,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             bool test3 = !rdo1.Checked && !rdo2.Checked;
             bool test4 = spinSoCau.Value < 10 || spinSoCau.Value > 100;
             bool test5 = spinThoiGian.Value < 15 || spinSoCau.Value > 60;
-            if (test1 || test2 || test3 || test4 || test5)
+            bool test6 = !CanDeleteEdit(NgayThi.DateTime);
+            if (test1 || test2 || test3 || test4 || test5 || test6)
             {
                 if (test1)
                     GVEP.SetError(LookUpGV, "Vui lòng chọn giáo viên giảng dạy");
@@ -342,8 +372,18 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                     ThoiGianEP.SetError(labelPhut, "Thời gian phải nằm trong khoảng từ 15 đến 60 phút");
                 else
                     ThoiGianEP.SetError(labelPhut, null);
+                if (test6)
+                    NgayThiEP.SetError(NgayThi, "Ngày thi phải lớn hơn ngày hiện tại");
+                else
+                    NgayThiEP.SetError(NgayThi, null);
+
+
                 Utils.ShowMessage("Vui lòng xem lại thông tin đã nhập", Others.NotiForm.FormType.Error, 2);
                 return;
+            }
+            else
+            {
+                ClearErrors();
             }
             string maGV = (LookUpGV.GetSelectedDataRow() as DataRowView)["MaGV"].ToString().Trim();
             string maMH = MHCombo.SelectedValue.ToString().Trim();
@@ -363,7 +403,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             {
                 if (AlreadyExistsDKT(maMH, maLop, lan))
                 {
-                    SetOrigDefaultValue();
                     Utils.ShowMessage("Thông tin này đăng ký đã tồn tại", Others.NotiForm.FormType.Error, 2);
                     return;
                 }
@@ -371,10 +410,13 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             LopBindingSource.Position = LopBindingSource.Find("MALOP", maLop);
             if (SVBindingSource.Count == 0)
             {
-                SetOrigDefaultValue();
                 Utils.ShowMessage("Lớp không có sinh viên nào, không thể đăng ký thi", Others.NotiForm.FormType.Error, 2);
                 return;
             }
+
+
+
+
 
 
             List<Para> paraList = new List<Para>();
@@ -395,6 +437,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                     // Console.WriteLine(System.Environment.StackTrace);
                     return;
                 }
+                myReader.Close();
                 Utils.ShowMessage("Thêm thông tin đăng ký thi thành công", Others.NotiForm.FormType.Success, 2);
             }
             else if (state == State.edit)
@@ -408,68 +451,107 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 {
                     return;
                 }
-
+                myReader.Close();
                 Utils.ShowMessage("Sửa thông tin đăng ký thi thành công", Others.NotiForm.FormType.Success, 2);
             }
 
-
-            GVDK2TableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            GVDKTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-
-            GVDKTableAdapter.Fill(TN_CSDLPTDataSet.GIAOVIEN_DANGKY);
-            GVDK2TableAdapter.Fill(TN_CSDLPTDataSet.GVDK_ENDUSER);
-
-            GVDK2BindingSource.Position = FindGVDK2Row(maMH, maLop, (short)lan);
-            Console.WriteLine("position: " + GVDK2BindingSource.Position);
+            string tenMH = MHCombo.Text;
+            string tenLop = LopCombo.Text; // phải để trước, để sau sẽ trigger GetCorrData làm dữ liệu bị sai
+            LoadGVDK2();
+            GVDK2BindingSource.Position = FindGVDK2Row(tenMH, tenLop, (short)lan);
 
             ConfigIdleState();
             state = State.idle;
         }
-        //private int FindGVDK2Row(string tenMH, string tenLop, short lan)
-        //{  
-        //    DataTable dt = TN_CSDLPTDataSet.GVDK_ENDUSER;
-        //    int recordsNumber = dt.Rows.Count;
-
-        //    for (int i = 0; i < recordsNumber; i++)
-        //    {
-        //        var row = dt.Rows[i];
-        //        if (row["TENMH"].ToString().Equals(tenMH) && row["TENLOP"].ToString().Equals(tenLop) && (short)row["LAN"] == lan)
-        //        {
-        //            return i;
-        //        }
-        //    }
-        //    return -1;
-        //}
-        private int FindGVDK2Row(string maMH, string maLop, short lan)
+        private int FindGVDK2Row(string tenMH, string tenLop, short lan)
         {
-            //GVDK và GVDK2 có cùng index, chỉ khác kiểu dữ liệu hiện lên.
-            DataTable dt = TN_CSDLPTDataSet.GIAOVIEN_DANGKY;
+            DataTable dt = TN_CSDLPTDataSet.GVDK_ENDUSER;
             int recordsNumber = dt.Rows.Count;
 
             for (int i = 0; i < recordsNumber; i++)
             {
-                var row = dt.Rows[i] as GIAOVIEN_DANGKYRow;
-                if (row.MAMH.Trim().Equals(maMH) && row.MALOP.Trim().Equals(maLop) && row.LAN == lan)
+                var row = dt.Rows[i];
+                string test1 = row["TENMH"].ToString();
+                string test2 = row["TENLOP"].ToString();
+                string test3 = row["LAN"].ToString();
+                if (row["TENMH"].ToString().Equals(tenMH) && row["TENLOP"].ToString().Equals(tenLop) && (short)row["LAN"] == lan)
                 {
                     return i;
                 }
             }
             return -1;
         }
+        //private int FindGVDK2Row(string maMH, string maLop, short lan)
+        //{
+        //    //GVDK và GVDK2 có cùng index, chỉ khác kiểu dữ liệu hiện lên.
+        //    DataTable dt = TN_CSDLPTDataSet.GIAOVIEN_DANGKY;
+        //    int recordsNumber = dt.Rows.Count;
+
+        //    for (int i = 0; i < recordsNumber; i++)
+        //    {
+        //        var row = dt.Rows[i] as GIAOVIEN_DANGKYRow;
+        //        if (row.MAMH.Trim().Equals(maMH) && row.MALOP.Trim().Equals(maLop) && row.LAN == lan)
+        //        {
+        //            return i;
+        //        }
+        //    }
+        //    return -1;
+        //}
         private void buttonSua_Click(object sender, EventArgs e)
         {
-            SaveOrigInput();
-            ConfigInputState();
-            InfoPanel.Text = "Sửa thông tin đăng ký thi";
-            InfoPanel.ForeColor = Utils.EditColor;
-            origMaLop = LopCombo.SelectedValue.ToString().Trim();
-            origMaMH = MHCombo.SelectedValue.ToString().Trim();
-            origLan = GetLan();
-            state = State.edit;
+            if (CanDeleteEdit(NgayThi.DateTime))
+            {
+                SaveOrigInput();
+                ConfigInputState();
+                InfoPanel.Text = "Sửa thông tin đăng ký thi";
+                InfoPanel.ForeColor = Utils.EditColor;
+                origMaLop = LopCombo.SelectedValue.ToString().Trim();
+                origMaMH = MHCombo.SelectedValue.ToString().Trim();
+                origLan = GetLan();
+                state = State.edit;
+            }
+            else
+            {
+                Utils.ShowMessage("Không thể chỉnh sửa ngày thi đã kết thúc hoặc đang diễn ra", NotiForm.FormType.Error, 3);
+                return;
+            }
+
         }
 
         private void buttonXoa_Click(object sender, EventArgs e)
         {
+            DateTime ngayThi = NgayThi.DateTime;
+            if (CanDeleteEdit(ngayThi))
+            {
+                if (Utils.ShowConfirmMessage("Bạn có chắc muốn xóa thông tin đăng ký thi này?", "Xác nhận"))
+                {
+                    string maMH = MHCombo.SelectedValue.ToString();
+                    string maLop = LopCombo.SelectedValue.ToString();
+                    int lan = GetLan();
+                    List<Para> paraList = new List<Para>();
+                    paraList.Add(new Para("@OldMaMH", maMH));
+                    paraList.Add(new Para("@OldMaLop", maLop));
+                    paraList.Add(new Para("@OldLan", lan));
+
+                    string SPName = "usp_GVDK_DeleteRecord";
+                    SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
+                    if (myReader == null)
+                        return;
+                    else
+                    {
+                        Utils.ShowMessage("Xóa thông tin đăng ký thi thành công", NotiForm.FormType.Success, 2);
+                        LoadGVDK2();
+                        myReader.Close();
+                        return;
+                    }
+
+                }
+            }
+            else
+            {
+                Utils.ShowMessage("Không thể xóa ngày thi đã kết thúc hoặc đang diễn ra", NotiForm.FormType.Warning, 2);
+                return;
+            }
 
         }
 
@@ -536,5 +618,69 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
         }
 
+        private void SetLan()
+        {
+            if (MHCombo.SelectedValue != null && LopCombo.SelectedValue != null)
+            {
+                string maMH = MHCombo.SelectedValue.ToString();
+                string maLop = LopCombo.SelectedValue.ToString();
+
+                if (maMH != "System.Data.DataRowView" && maLop != "System.Data.DataRowView")
+                {
+                    int soLan = CheckSoLan(maMH, maLop);
+                    if (state == State.add)
+                    {
+                        if (soLan == 0)
+                            rdo1.Checked = true;
+                        else rdo2.Checked = true;
+                    }
+
+
+
+                    if (state == State.edit)
+                    {
+                        if (maMH != origMaMH && maLop != origMaLop)
+                        {
+                            if (soLan == 0)
+                                rdo1.Checked = true;
+                            else rdo2.Checked = true;
+                        }
+                        else
+                        {
+                            if (soLan == 1 || soLan == 0) rdo1.Checked = true;
+                            else rdo2.Checked = true;
+                        }
+                    }
+                }
+
+            }
+            //  if (state == State.edit && maMH.Equals(origMaMH) && maLop.Equals(origMaLop)) return;
+
+
+        }
+
+        private void LopCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetLan();
+        }
+
+        private void MHCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetLan();
+        }
+
+        private void FormDKThi_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (state != State.idle)
+                if (!Utils.ShowConfirmMessage("Hủy những thay đổi đang thực hiện và đóng cửa sổ này?", "Xác nhận"))
+                    e.Cancel = true;
+        }
+
+        private void pictureBox2_EnabledChanged(object sender, EventArgs e)
+        {
+            Image image = pictureBox2.Enabled ? global::TracNghiemCSDLPT.Properties.Resources.info_480px :
+                global::TracNghiemCSDLPT.Properties.Resources.info_480px_disabled;
+            pictureBox2.Image = image;
+        }
     }
 }

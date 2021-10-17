@@ -581,14 +581,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void pictureBox1_EnabledChanged(object sender, EventArgs e)
         {
-            if (pictureBox1.Enabled)
-            {
-                pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.info_480px;
-            }
-            else
-            {
-                pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.info_480px_disabled;
-            }
+            Image image = pictureBox1.Enabled? global::TracNghiemCSDLPT.Properties.Resources.info_480px:
+                global::TracNghiemCSDLPT.Properties.Resources.info_480px_disabled;
+            pictureBox1.Image = image;
         }
 
         private void buttonXoa_EnabledChanged(object sender, EventArgs e)

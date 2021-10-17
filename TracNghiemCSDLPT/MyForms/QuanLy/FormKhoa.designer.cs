@@ -46,7 +46,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.InfoPanel = new Bunifu.UI.WinForms.BunifuGroupBox();
             this.TextMaCS = new DevExpress.XtraEditors.TextEdit();
             this.KhoaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TN_CSDLPTDataSet();
+            this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TnCsdlptDataSet();
             this.TextTenKhoa = new DevExpress.XtraEditors.TextEdit();
             this.TextMaKhoa = new DevExpress.XtraEditors.TextEdit();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -619,7 +619,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel2;
         private TN_CSDLPTDataSetTableAdapters.KHOATableAdapter KhoaTableAdapter;
         private TN_CSDLPTDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private TN_CSDLPTDataSet TN_CSDLPTDataSet;
+        private TnCsdlptDataSet TN_CSDLPTDataSet;
         private System.Windows.Forms.BindingSource KhoaBindingSource;
         private DevExpress.XtraGrid.GridControl KhoaGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;

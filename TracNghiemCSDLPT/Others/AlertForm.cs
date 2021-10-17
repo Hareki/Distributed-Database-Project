@@ -6,16 +6,16 @@ namespace TracNghiemCSDLPT.Others
 {
     public partial class NotiForm : Form
     {
-        private readonly int waitingTime = 3000;
-        private FormAction action;
-        private int x, y;
-        private FormType type;
-        private bool forceClose = false;
-        private readonly Size origSize = new Size(410, 135);
-        private readonly int lineHeight = 35;
-        private readonly int manualLifting = 140;
+        private readonly int _waitingTime = 3000;
+        private FormAction _action;
+        private int _x, _y;
+        private FormType _type;
+        private bool _forceClose = false;
+        private readonly Size _origSize = new Size(410, 135);
+        private readonly int _lineHeight = 35;
+        private readonly int _manualLifting = 140;
         public static int Lifting = 0;
-        private static int NotiNum = 0;
+        private static int _notiNum = 0;
         public NotiForm()
         {
             InitializeComponent();
@@ -23,23 +23,23 @@ namespace TracNghiemCSDLPT.Others
         public NotiForm(String message, FormType type, int lineNum)
         {
             InitializeComponent();
-            this.Size = new Size(410, 135 + (lineNum - 1) * lineHeight);
-            NotiNum++;
-            showNoti(message, type, lineNum);
+            this.Size = new Size(410, 135 + (lineNum - 1) * _lineHeight);
+            _notiNum++;
+            ShowNoti(message, type, lineNum);
             Lifting += this.Height;
 
 
         }
         public enum FormAction
         {
-            start, wait, close
+            Start, Wait, Close
         }
         public enum FormType
         {
             Success, Warning, Error, Info
         }
 
-        private bool inForm()
+        private bool InForm()
         {
             Point pos = Control.MousePosition;
             return (pos.X >= Left && pos.Y >= Top && pos.X < Right && pos.Y < Bottom);
@@ -48,16 +48,16 @@ namespace TracNghiemCSDLPT.Others
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            switch (this.action)
+            switch (this._action)
             {
-                case FormAction.wait:
-                    timer1.Interval = waitingTime;
-                    action = FormAction.close;
+                case FormAction.Wait:
+                    timer1.Interval = _waitingTime;
+                    _action = FormAction.Close;
                     break;
-                case FormAction.start:
+                case FormAction.Start:
                     timer1.Interval = 1;
                     this.Opacity += 0.1;
-                    if (this.x < this.Location.X)
+                    if (this._x < this.Location.X)
                     {
                         this.Left--;
                     }
@@ -65,11 +65,11 @@ namespace TracNghiemCSDLPT.Others
                     {
                         if (this.Opacity == 1.0)
                         {
-                            action = FormAction.wait;
+                            _action = FormAction.Wait;
                         }
                     }
                     break;
-                case FormAction.close:
+                case FormAction.Close:
                     timer1.Interval = 1;
                     this.Opacity -= 0.1;
                     this.Left -= 3;
@@ -84,14 +84,14 @@ namespace TracNghiemCSDLPT.Others
         private void PictureClose_Click(object sender, EventArgs e)
         {
             timer1.Start();
-            this.forceClose = true;
+            this._forceClose = true;
             timer1.Interval = 1;
-            action = FormAction.close;
+            _action = FormAction.Close;
         }
 
         private void NotiForm_MouseEnter(object sender, EventArgs e)
         {
-            if (inForm() && forceClose == false)
+            if (InForm() && _forceClose == false)
             {
                 this.timer1.Stop();
                 this.Opacity = 1.0;
@@ -100,11 +100,11 @@ namespace TracNghiemCSDLPT.Others
 
         private void NotiForm_MouseLeave(object sender, EventArgs e)
         {
-            if (!inForm() && forceClose == false)
+            if (!InForm() && _forceClose == false)
             {
-                this.timer1.Interval = waitingTime;
+                this.timer1.Interval = _waitingTime;
                 this.timer1.Start();
-                action = FormAction.close;
+                _action = FormAction.Close;
             }
 
         }
@@ -116,10 +116,10 @@ namespace TracNghiemCSDLPT.Others
         private void NotiForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Lifting -= this.Height;
-            NotiNum--;
+            _notiNum--;
         }
 
-        private void showNoti(string message, FormType type, int lineNum)
+        private void ShowNoti(string message, FormType type, int lineNum)
         {
             this.Opacity = 0.0;
             this.StartPosition = FormStartPosition.Manual;
@@ -133,21 +133,21 @@ namespace TracNghiemCSDLPT.Others
                 {
 
                     this.Name = fname;
-                    this.x = Screen.PrimaryScreen.WorkingArea.Width - this.Width + 15;
-                    if (NotiNum > i + 1)
+                    this._x = Screen.PrimaryScreen.WorkingArea.Width - this.Width + 15;
+                    if (_notiNum > i + 1)
                     {
-                        this.y = Screen.PrimaryScreen.WorkingArea.Height - manualLifting - (lineNum - 1) * lineHeight;
+                        this._y = Screen.PrimaryScreen.WorkingArea.Height - _manualLifting - (lineNum - 1) * _lineHeight;
                     }
                     else
                     {
-                        this.y = Screen.PrimaryScreen.WorkingArea.Height - Lifting - 15 * i - manualLifting - (lineNum - 1) * lineHeight;
+                        this._y = Screen.PrimaryScreen.WorkingArea.Height - Lifting - 15 * i - _manualLifting - (lineNum - 1) * _lineHeight;
                     }
 
-                    this.Location = new Point(this.x, this.y);
+                    this.Location = new Point(this._x, this._y);
                     break;
                 }
             }
-            this.x = Screen.PrimaryScreen.WorkingArea.Width - base.Width - 5;
+            this._x = Screen.PrimaryScreen.WorkingArea.Width - base.Width - 5;
 
             switch (type)
             {
@@ -173,7 +173,7 @@ namespace TracNghiemCSDLPT.Others
 
             this.message.Text = message;
             this.Show();
-            this.action = FormAction.start;
+            this._action = FormAction.Start;
             this.timer1.Interval = 1;
             timer1.Start();
         }

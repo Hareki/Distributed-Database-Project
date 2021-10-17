@@ -19,19 +19,19 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         enum State
         {
-            add, edit, idle
+            Add, Edit, Idle
         }
 
-        private int origMaCH = -1;
-        State state = State.idle;
-        List<Guna2CustomRadioButton> rdoButtons = new List<Guna2CustomRadioButton>();
-        private int selectedRow;
-        private bool opened = false;
+        private int _origMaCh = -1;
+        State _state = State.Idle;
+        List<Guna2CustomRadioButton> _rdoButtons = new List<Guna2CustomRadioButton>();
+        private int _selectedRow;
+        private bool _opened = false;
         private void SetIdleButtonEnabled(bool state)
         {
             buttonThem.Enabled = buttonXoa.Enabled =
                  buttonSua.Enabled = state;
-            if (Utils.IsTruong() || Utils.isCoSo()) buttonLamMoi.Enabled = true;
+            if (Utils.IsTruong() || Utils.IsCoSo()) buttonLamMoi.Enabled = true;
             else buttonLamMoi.Enabled = state;
 
             if (state == false)
@@ -44,13 +44,13 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
         }
 
-        private void setDefaultOrigValue()
+        private void SetDefaultOrigValue()
         {
-            origMaCH = -1;
+            _origMaCh = -1;
         }
         private void PhanQuyen()
         {
-            switch (DBConnection.NhomQuyen)
+            switch (DbConnection.NhomQuyen)
             {
                 case "TRUONG":
                     SetIdleButtonEnabled(false);
@@ -62,13 +62,13 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         }
 
-        private void loadAllData()
+        private void LoadAllData()
         {
-            this.MonHocTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.BoDeTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.MH2TableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.DSGVTCSTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.BaiThiTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.MonHocTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
+            this.BoDeTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
+            this.MH2TableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
+            this.DSGVTCSTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
+            this.BaiThiTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
 
             this.MonHocTableAdapter.Fill(this.TN_CSDLPTDataSet.MONHOC);
             this.BoDeTableAdapter.Fill(this.TN_CSDLPTDataSet.BODE);
@@ -81,15 +81,15 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
 
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
-            loadAllData();
+            LoadAllData();
 
             MHCombo.DisplayMember = "TENMH";
             MHCombo.ValueMember = "MAMH";
 
-            rdoButtons.Add(rdoDA_A);
-            rdoButtons.Add(rdoDA_B);
-            rdoButtons.Add(rdoDA_C);
-            rdoButtons.Add(rdoDA_D);
+            _rdoButtons.Add(rdoDA_A);
+            _rdoButtons.Add(rdoDA_B);
+            _rdoButtons.Add(rdoDA_C);
+            _rdoButtons.Add(rdoDA_D);
 
             MonHocGridView.ExpandMasterRow(0);
             GridView view = GetCorrData(true);
@@ -101,18 +101,18 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void BoDeGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            if (!opened)
+            if (!_opened)
             {
                 for (int i = 1; i < MonHocGridView.RowCount; i++)
                     MonHocGridView.ExpandMasterRow(i);
-                opened = true;
+                _opened = true;
             }
             GetCorrData(false);
         }
 
-        private void UncheckOtherRDOs(Guna2CustomRadioButton button)
+        private void UncheckOtherRdOs(Guna2CustomRadioButton button)
         {
-            foreach (Guna2CustomRadioButton element in rdoButtons)
+            foreach (Guna2CustomRadioButton element in _rdoButtons)
             {
                 if (!element.Equals(button))
                 {
@@ -138,7 +138,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void FormCauHoi_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (state != State.idle)
+            if (_state != State.Idle)
                 if (!Utils.ShowConfirmMessage("Hủy những thay đổi đang thực hiện và đóng cửa sổ này?", "Xác nhận"))
                     e.Cancel = true;
         }
@@ -156,17 +156,17 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
             if (detailView is null) return null;
             Object test = (detailView as GridView).GetFocusedRowCellValue(colCAUHOI);
-            string MaCauHoi;
+            string maCauHoi;
             if (test != null)
-                MaCauHoi = test.ToString();
+                maCauHoi = test.ToString();
             else return null;
-            BoDeBindingSource.Position = BoDeBindingSource.Find("CAUHOI", MaCauHoi);
+            BoDeBindingSource.Position = BoDeBindingSource.Find("CAUHOI", maCauHoi);
 
-            string maMH = ((DataRowView)BoDeBindingSource[BoDeBindingSource.Position])["MAMH"].ToString();
-            MH2BindingSource.Position = MH2BindingSource.Find("MAMH", maMH);
+            string maMh = ((DataRowView)BoDeBindingSource[BoDeBindingSource.Position])["MAMH"].ToString();
+            MH2BindingSource.Position = MH2BindingSource.Find("MAMH", maMh);
 
-            string maGV = ((DataRowView)BoDeBindingSource[BoDeBindingSource.Position])["MAGV"].ToString();
-            DSGVTCSBindingSource.Position = DSGVTCSBindingSource.Find("MAGV", maGV);
+            string maGv = ((DataRowView)BoDeBindingSource[BoDeBindingSource.Position])["MAGV"].ToString();
+            DSGVTCSBindingSource.Position = DSGVTCSBindingSource.Find("MAGV", maGv);
 
             CheckButtonState();
             return detailView;
@@ -200,22 +200,22 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             {
                 if (rdoButton.Equals(rdoDA_A))
                 {
-                    UncheckOtherRDOs(rdoDA_A);
+                    UncheckOtherRdOs(rdoDA_A);
                     labelDapAn.Text = "A";
                 }
                 else if (rdoButton.Equals(rdoDA_B))
                 {
-                    UncheckOtherRDOs(rdoDA_B);
+                    UncheckOtherRdOs(rdoDA_B);
                     labelDapAn.Text = "B";
                 }
                 else if (rdoButton.Equals(rdoDA_C))
                 {
-                    UncheckOtherRDOs(rdoDA_C);
+                    UncheckOtherRdOs(rdoDA_C);
                     labelDapAn.Text = "C";
                 }
                 else if (rdoButton.Equals(rdoDA_D))
                 {
-                    UncheckOtherRDOs(rdoDA_D);
+                    UncheckOtherRdOs(rdoDA_D);
                     labelDapAn.Text = "D";
                 }
             }
@@ -230,7 +230,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         private void buttonThem_Click(object sender, EventArgs e)
         {
-            selectedRow = BoDeBindingSource.Position;
+            _selectedRow = BoDeBindingSource.Position;
             InfoPanel.Enabled = true;
 
 
@@ -238,9 +238,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             SetInputButtonEnabled(true);
 
             MonHocGridControl.Enabled = false;
-            state = State.add;
+            _state = State.Add;
             BoDeBindingSource.AddNew();
-            labelGVSoan.Text = DBConnection.UserName + " - " + DBConnection.HoTen;
+            labelGVSoan.Text = DbConnection.UserName + " - " + DbConnection.HoTen;
             rdoA.Checked = true;
             rdoDA_A.Checked = true;
             textMaCH.EditValue = 0;
@@ -248,12 +248,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void CheckButtonState()
         {
-            if (DBConnection.NhomQuyen.Equals("GIAOVIEN"))
+            if (DbConnection.NhomQuyen.Equals("GIAOVIEN"))
             {
-                string maGV = (BoDeBindingSource[BoDeBindingSource.Position] as DataRowView)["MAGV"].ToString();
-                maGV = maGV.Trim();
+                string maGv = (BoDeBindingSource[BoDeBindingSource.Position] as DataRowView)["MAGV"].ToString();
+                maGv = maGv.Trim();
                 bool test1 = BoDeBindingSource.Count == 0;
-                bool test2 = !maGV.Equals(DBConnection.UserName);
+                bool test2 = !maGv.Equals(DbConnection.UserName);
                 if (test1 || test2)
                 {
                     buttonXoa.Enabled = buttonSua.Enabled = false;
@@ -278,7 +278,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             try
             {
-                loadAllData();
+                LoadAllData();
                 CheckButtonState();
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
             }
@@ -290,31 +290,31 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
         }
 
-        private string trimText(Control textEdit)
+        private string TrimText(Control textEdit)
         {
             textEdit.Text = textEdit.Text.Trim();
             return textEdit.Text;
         }
 
-        private string getTrinhDo()
+        private string GetTrinhDo()
         {
             if (rdoA.Checked) return "A";
             else if (rdoB.Checked) return "B";
             else if (rdoC.Checked) return "C";
             else return null;
         }
-        private SqlDataReader ExecuteIdCheck(int ID)
+        private SqlDataReader ExecuteIdCheck(int id)
         {
 
-            string SPName = "usp_BoDe_GetInfoByID";
+            string spName = "usp_BoDe_GetInfoByID";
 
             SqlDataReader result;
-            SqlCommand sqlCmd = new SqlCommand(SPName, DBConnection.SubcriberConnection);
+            SqlCommand sqlCmd = new SqlCommand(spName, DbConnection.SubcriberConnection);
             sqlCmd.CommandType = CommandType.StoredProcedure;
-            sqlCmd.Parameters.Add(new SqlParameter("@ID", ID));
+            sqlCmd.Parameters.Add(new SqlParameter("@ID", id));
 
-            if (DBConnection.SubcriberConnection.State == ConnectionState.Closed)
-                DBConnection.SubcriberConnection.Open();
+            if (DbConnection.SubcriberConnection.State == ConnectionState.Closed)
+                DbConnection.SubcriberConnection.Open();
             try
             {
                 result = sqlCmd.ExecuteReader();
@@ -322,15 +322,15 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
             catch (SqlException ex)
             {
-                DBConnection.SubcriberConnection.Close();
+                DbConnection.SubcriberConnection.Close();
                 Utils.ShowErrorMessage("Xảy ra lỗi" + ex.Message, "Lỗi kết nối");
                 Console.WriteLine(ex.StackTrace);
                 return null;
             }
         }
-        private bool AlreadyExistsCH(int ID)
+        private bool AlreadyExistsCh(int id)
         {
-            SqlDataReader myReader = ExecuteIdCheck(ID);
+            SqlDataReader myReader = ExecuteIdCheck(id);
             if (myReader == null)
             {
                 Console.WriteLine(System.Environment.StackTrace);
@@ -349,7 +349,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
         }
 
-        private void GoToNewlyCreatedRowCH()
+        private void GoToNewlyCreatedRowCh()
         {
             GridView detailView;
             int row = MonHocGridView.LocateByDisplayText(0, colMAMH, MHCombo.SelectedValue.ToString());
@@ -382,23 +382,23 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         private void buttonXacNhan_Click(object sender, EventArgs e)
         {
-            bool test1 = string.IsNullOrEmpty(trimText(textChoiceA));
-            bool test2 = string.IsNullOrEmpty(trimText(textChoiceB));
-            bool test3 = string.IsNullOrEmpty(trimText(textChoiceC));
-            bool test4 = string.IsNullOrEmpty(trimText(textChoiceD));
-            bool test5 = string.IsNullOrEmpty(trimText(textNoiDung));
-            bool test6 = string.IsNullOrEmpty(trimText(textMaCH));
+            bool test1 = string.IsNullOrEmpty(TrimText(textChoiceA));
+            bool test2 = string.IsNullOrEmpty(TrimText(textChoiceB));
+            bool test3 = string.IsNullOrEmpty(TrimText(textChoiceC));
+            bool test4 = string.IsNullOrEmpty(TrimText(textChoiceD));
+            bool test5 = string.IsNullOrEmpty(TrimText(textNoiDung));
+            bool test6 = string.IsNullOrEmpty(TrimText(textMaCH));
 
-            string maGV = labelGVSoan.Text.Split('-')[0].Trim();
-            string maMH = MHCombo.SelectedValue.ToString();
-            string trinhDo = getTrinhDo();
+            string maGv = labelGVSoan.Text.Split('-')[0].Trim();
+            string maMh = MHCombo.SelectedValue.ToString();
+            string trinhDo = GetTrinhDo();
 
             bool test7 = false;
-            if (!int.TryParse(textMaCH.Text, out int maCH))
+            if (!int.TryParse(textMaCH.Text, out int maCh))
             {
                 test7 = true;
             }
-            else if (maCH <= 0)
+            else if (maCh <= 0)
             {
                 test7 = true;
             }
@@ -438,11 +438,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 return;
             }
 
-            bool testMaCH = false;
-            if (origMaCH != maCH)
-                testMaCH = AlreadyExistsCH(maCH);
+            bool testMaCh = false;
+            if (_origMaCh != maCh)
+                testMaCh = AlreadyExistsCh(maCh);
 
-            if (testMaCH)
+            if (testMaCh)
             {
                 Utils.SetTextEditError(maCHEP, textMaCH, "Mã câu hỏi đã tồn tại");
                 Utils.ShowMessage("Thông tin vừa nhập đã tồn tại", Others.NotiForm.FormType.Error, 2);
@@ -454,31 +454,31 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             try
             {
-                ((DataRowView)BoDeBindingSource[BoDeBindingSource.Position])["MAGV"] = maGV;
-                ((DataRowView)BoDeBindingSource[BoDeBindingSource.Position])["MAMH"] = maMH;
+                ((DataRowView)BoDeBindingSource[BoDeBindingSource.Position])["MAGV"] = maGv;
+                ((DataRowView)BoDeBindingSource[BoDeBindingSource.Position])["MAMH"] = maMh;
                 ((DataRowView)BoDeBindingSource[BoDeBindingSource.Position])["TRINHDO"] = trinhDo;
 
                 TN_CSDLPTDataSet.BODE.Columns[0].ReadOnly = false;
-                ((DataRowView)BoDeBindingSource[BoDeBindingSource.Position])["CAUHOI"] = maCH;
+                ((DataRowView)BoDeBindingSource[BoDeBindingSource.Position])["CAUHOI"] = maCh;
                 BoDeBindingSource.EndEdit();
                 BoDeBindingSource.ResetCurrentItem();
                 this.BoDeTableAdapter.Update(this.TN_CSDLPTDataSet.BODE);
-                if (state == State.edit)
+                if (_state == State.Edit)
                     Utils.ShowMessage("Sửa thông tin câu hỏi thành công", Others.NotiForm.FormType.Success, 2);
-                else if (state == State.add)
+                else if (_state == State.Add)
                 {
-                    GoToNewlyCreatedRowCH();
+                    GoToNewlyCreatedRowCh();
                     Utils.ShowMessage("Thêm câu hỏi thành công", Others.NotiForm.FormType.Success, 2);
                 }
 
 
-                state = State.idle;
+                _state = State.Idle;
 
                 ClearError();
 
 
                 CheckButtonState();
-                setDefaultOrigValue();
+                SetDefaultOrigValue();
 
             }
             catch (Exception ex)
@@ -523,9 +523,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             SetIdleButtonEnabled(false);
             SetInputButtonEnabled(true);
 
-            origMaCH = int.Parse(textMaCH.Text);
+            _origMaCh = int.Parse(textMaCH.Text);
             MonHocGridControl.Enabled = false;
-            state = State.edit;
+            _state = State.Edit;
         }
 
         private void buttonHuy_Click(object sender, EventArgs e)
@@ -534,14 +534,14 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
 
             MonHocGridControl.Enabled = true;
-            setDefaultOrigValue();
+            SetDefaultOrigValue();
 
             BoDeBindingSource.CancelEdit();
-            if (state == State.add)
-                BoDeBindingSource.Position = selectedRow;
+            if (_state == State.Add)
+                BoDeBindingSource.Position = _selectedRow;
             SetIdleButtonEnabled(true);
             SetInputButtonEnabled(false);
-            state = State.idle;
+            _state = State.Idle;
 
             ClearError();
         }
@@ -549,8 +549,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private void buttonXoa_Click(object sender, EventArgs e)
         {
 
-            int RemoveCH = -100;
-            selectedRow = BoDeBindingSource.Position;
+            int removeCh = -100;
+            _selectedRow = BoDeBindingSource.Position;
             if (BaiThiBindingSource.Count > 0)
             {
                 Utils.ShowMessage("Không thể xóa vì đã câu hỏi đã được sử dụng để thi", Others.NotiForm.FormType.Error, 2);
@@ -562,17 +562,17 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             {
                 try
                 {
-                    RemoveCH = int.Parse(((DataRowView)BoDeBindingSource[selectedRow])["CAUHOI"].ToString());
+                    removeCh = int.Parse(((DataRowView)BoDeBindingSource[_selectedRow])["CAUHOI"].ToString());
                     BoDeBindingSource.RemoveCurrent();
                     BoDeTableAdapter.Update(TN_CSDLPTDataSet.BODE);
-                    Utils.ShowMessage("Xóa câu hỏi " + RemoveCH + " thành công!", Others.NotiForm.FormType.Success, 1);
+                    Utils.ShowMessage("Xóa câu hỏi " + removeCh + " thành công!", Others.NotiForm.FormType.Success, 1);
                 }
                 catch (Exception ex)
                 {
                     Utils.ShowErrorMessage("Không thể xóa câu hỏi, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi xóa câu hỏi");
                     Console.WriteLine(ex.StackTrace);
                     this.BoDeTableAdapter.Fill(TN_CSDLPTDataSet.BODE);
-                    BoDeBindingSource.Position = BoDeBindingSource.Find("CAUHOI", RemoveCH);
+                    BoDeBindingSource.Position = BoDeBindingSource.Find("CAUHOI", removeCh);
                     return;
                 }
             }

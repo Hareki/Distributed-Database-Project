@@ -17,24 +17,24 @@ namespace TracNghiemCSDLPT.Others
             RealValue = realValue;
         }
     }
-    class DBConnection
+    class DbConnection
     {
-        private static string DatabaseName = "TN_CSDLPT";
+        private static string _databaseName = "TN_CSDLPT";
         //Unique Publisher Connection
         public static SqlConnection PublisherConnection = new SqlConnection();
-        private static string PublisherName = ConfigurationManager.AppSettings["PublisherName"];
-        private static string SysAdminName = "sa";
-        private static string SysAdminPassword = "123456";
-        private static string PublisherConnectionString = "Data source=" + PublisherName + "; " +
-            "Initial Catalog=" + DatabaseName + ";Persist Security Info=True;" +
-            "User ID=" + SysAdminName + ";Password=" + SysAdminPassword;
+        private static string _publisherName = ConfigurationManager.AppSettings["PublisherName"];
+        private static string _sysAdminName = "sa";
+        private static string _sysAdminPassword = "123456";
+        private static string _publisherConnectionString = "Data source=" + _publisherName + "; " +
+            "Initial Catalog=" + _databaseName + ";Persist Security Info=True;" +
+            "User ID=" + _sysAdminName + ";Password=" + _sysAdminPassword;
 
         //Current Subcriber Connection
         public static SqlConnection SubcriberConnection = new SqlConnection();
 
-        public static string LoginSV = "LOGIN_SINHVIEN";
-        public static string PasswordSV = "123456";
-        public static string UserNameSV = "USER_SINHVIEN";
+        public static string LoginSv = "LOGIN_SINHVIEN";
+        public static string PasswordSv = "123456";
+        public static string UserNameSv = "USER_SINHVIEN";
 
         public static string SubcriberName;
         public static string LoginName;
@@ -42,19 +42,19 @@ namespace TracNghiemCSDLPT.Others
         public static string SubcriberConnectionString;
 
 
-        public static BindingSource BS_Subcribers = new BindingSource();
+        public static BindingSource BsSubcribers = new BindingSource();
         public static string UserName; // aka MaGV
         public static string HoTen; // Ten GV
         public static string NhomQuyen;
-        public static int IndexCS = -1;
+        public static int IndexCs = -1;
 
         //HTKN Connection
         public static string RemoteLogin = "HTKN";
         public static string RemotePassword = "123456";
 
-        public static String GetVNTextNhomQuyen(string NhomQuyen)
+        public static String GetVnTextNhomQuyen(string nhomQuyen)
         {
-            switch (NhomQuyen)
+            switch (nhomQuyen)
             {
                 case "TRUONG":
                     return "Trường";
@@ -75,7 +75,7 @@ namespace TracNghiemCSDLPT.Others
             }
             try
             {
-                PublisherConnection.ConnectionString = PublisherConnectionString;
+                PublisherConnection.ConnectionString = _publisherConnectionString;
                 PublisherConnection.Open();
                 return true;
             }
@@ -88,7 +88,7 @@ namespace TracNghiemCSDLPT.Others
         private static void GenerateSubConString(string subcriberName, string loginName, string password)
         {
             SubcriberConnectionString = "Data source=" + subcriberName + "; " +
-            "Initial Catalog=" + DatabaseName + ";Persist Security Info=True;" +
+            "Initial Catalog=" + _databaseName + ";Persist Security Info=True;" +
             "User ID=" + loginName + ";Password=" + password;
         }
 
@@ -124,10 +124,10 @@ namespace TracNghiemCSDLPT.Others
             }
             try
             {
-                LoginName = LoginSV;
-                Password = PasswordSV;
+                LoginName = LoginSv;
+                Password = PasswordSv;
                 SubcriberName = subcriberName;
-                GenerateSubConString(subcriberName, LoginSV, PasswordSV);
+                GenerateSubConString(subcriberName, LoginSv, PasswordSv);
                 SubcriberConnection.ConnectionString = SubcriberConnectionString;
                 SubcriberConnection.Open();
 
@@ -166,10 +166,10 @@ namespace TracNghiemCSDLPT.Others
         }
 
 
-        public static SqlDataReader ExecuteSqlDataReaderSP(string SPName, List<Para> paraList)
+        public static SqlDataReader ExecuteSqlDataReaderSp(string spName, List<Para> paraList)
         {
             SqlDataReader result;
-            SqlCommand sqlCmd = new SqlCommand(SPName, SubcriberConnection);
+            SqlCommand sqlCmd = new SqlCommand(spName, SubcriberConnection);
             sqlCmd.CommandType = CommandType.StoredProcedure;
             foreach (Para element in paraList)
             {

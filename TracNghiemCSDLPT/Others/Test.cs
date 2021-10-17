@@ -5,14 +5,14 @@ namespace TracNghiemCSDLPT.Others
 {
     public partial class Test : Form
     {
-        private string stringTest;
+        private string _stringTest;
         public Test()
         {
             InitializeComponent();
             //  Console.WriteLine(Utils.CapitalizeString(test, Utils.CapitalMode.EveryWord));
             //   Console.WriteLine(test);
         }
-        public static int time;
+        public static int Time;
 
         private void button1_Click(object sender, EventArgs e)
         {

@@ -2,9 +2,9 @@
 {
 
 
-    partial class TN_CSDLPTDataSet
+    partial class TnCsdlptDataSet
     {
-        partial class MONHOCDataTable
+        partial class MonhocDataTable
         {
         }
     }

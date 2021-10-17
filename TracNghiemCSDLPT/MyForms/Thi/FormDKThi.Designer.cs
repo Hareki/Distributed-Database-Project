@@ -1,7 +1,7 @@
 ﻿
 namespace TracNghiemCSDLPT.MyForms.Thi
 {
-    partial class FormDKThi
+    partial class FormDkThi
     {
         /// <summary>
         /// Required designer variable.
@@ -30,8 +30,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDKThi));
-            this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TN_CSDLPTDataSet();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDkThi));
+            this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TnCsdlptDataSet();
             this.MonHocBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.MonHocTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.MONHOCTableAdapter();
             this.tableAdapterManager = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
@@ -1224,7 +1224,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.Controls.Add(this.InfoPanel);
             this.Controls.Add(this.GVDK2GridControl);
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("FormDKThi.IconOptions.Icon")));
-            this.Name = "FormDKThi";
+            this.Name = "FormDkThi";
             this.Text = "Đăng ký thi";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormDKThi_FormClosing);
             this.Load += new System.EventHandler(this.FormDKThi_Load);
@@ -1266,7 +1266,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
         #endregion
 
-        private TN_CSDLPTDataSet TN_CSDLPTDataSet;
+        private TnCsdlptDataSet TN_CSDLPTDataSet;
         private System.Windows.Forms.BindingSource MonHocBindingSource;
         private TN_CSDLPTDataSetTableAdapters.MONHOCTableAdapter MonHocTableAdapter;
         private TN_CSDLPTDataSetTableAdapters.TableAdapterManager tableAdapterManager;

@@ -13,29 +13,29 @@ using TracNghiemCSDLPT.Others;
 
 namespace TracNghiemCSDLPT.MyForms.QuanLy
 {
-    public partial class FormGV : DevExpress.XtraEditors.XtraForm
+    public partial class FormGv : DevExpress.XtraEditors.XtraForm
     {
-        public FormGV()
+        public FormGv()
         {
             InitializeComponent();
         }
-        State state = State.idle;
+        State _state = State.Idle;
         enum State
         {
-            add, edit, idle
+            Add, Edit, Idle
         }
-        private int selectedRowGV;
-        private int PreviousIndexCS;
-        private string origMaGV = "~!@#$%";
-        private int editingGVIndex;
-        private string saveMaKHForReset;
+        private int _selectedRowGv;
+        private int _previousIndexCs;
+        private string _origMaGv = "~!@#$%";
+        private int _editingGvIndex;
+        private string _saveMaKhForReset;
         private void LoadAllData()
         {
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
-            this.KhoaTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.GVTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.GVDKTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.BoDeTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.KhoaTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
+            this.GVTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
+            this.GVDKTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
+            this.BoDeTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
 
             this.KhoaTableAdapter.Fill(this.TN_CSDLPTDataSet.KHOA);
             this.GVTableAdapter.Fill(this.TN_CSDLPTDataSet.GIAOVIEN);
@@ -45,15 +45,15 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         private void SetDefaultOrigValue()
         {
-            origMaGV = "~!@#$%";
+            _origMaGv = "~!@#$%";
         }
 
         private void PhanQuyen()
         {
-            switch (DBConnection.NhomQuyen)
+            switch (DbConnection.NhomQuyen)
             {
                 case "TRUONG":
-                    SetIdleButtonEnabledGV(false);
+                    SetIdleButtonEnabledGv(false);
                     break;
                 case "COSO":
                     CoSoComboBox.Enabled = false;
@@ -62,13 +62,13 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         }
 
-        private void CheckButtonStateGV()
+        private void CheckButtonStateGv()
         {
-            if (DBConnection.NhomQuyen.Equals("COSO"))
+            if (DbConnection.NhomQuyen.Equals("COSO"))
             {
                 if (KhoaBindingSource.Count == 0)
                     buttonXoaGV.Enabled = buttonSuaGV.Enabled = false;
-                else if (state != State.add && state != State.edit)
+                else if (_state != State.Add && _state != State.Edit)
                     buttonXoaGV.Enabled = buttonSuaGV.Enabled = true;
             }
 
@@ -81,12 +81,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
 
-            this.CoSoComboBox.DataSource = DBConnection.BS_Subcribers;
+            this.CoSoComboBox.DataSource = DbConnection.BsSubcribers;
             this.CoSoComboBox.DisplayMember = "TENCS";
             this.CoSoComboBox.ValueMember = "TENSERVER";
-            this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
-            this.PreviousIndexCS = this.CoSoComboBox.SelectedIndex;
-            CheckButtonStateGV();
+            this.CoSoComboBox.SelectedIndex = DbConnection.IndexCs;
+            this._previousIndexCs = this.CoSoComboBox.SelectedIndex;
+            CheckButtonStateGv();
             PhanQuyen();
         }
 
@@ -94,7 +94,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
 
 
-        private void SetIdleButtonEnabledGV(bool state)
+        private void SetIdleButtonEnabledGv(bool state)
         {
             buttonThemGV.Enabled = buttonSuaGV.Enabled = buttonUndoGV.Enabled =
               buttonRedoGV.Enabled = buttonXoaGV.Enabled = state;
@@ -102,7 +102,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             else buttonLamMoiGV.Enabled = state;
         }
 
-        private void SetInputButtonEnabledGV(bool state)
+        private void SetInputButtonEnabledGv(bool state)
         {
             buttonHuyGV.Visible = buttonXacNhanGV.Visible = state;
         }
@@ -116,11 +116,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void buttonThemGV_Click(object sender, EventArgs e)
         {
-            selectedRowGV = GVBindingSource.Position;
+            _selectedRowGv = GVBindingSource.Position;
             //   SetKhoaState(false);
             //    SetIdleButtonEnabledGV(false);
-            SetInputButtonEnabledGV(true);
-            state = State.add;
+            SetInputButtonEnabledGv(true);
+            _state = State.Add;
             GVGridView.OptionsBehavior.Editable = true;
             GVBindingSource.AddNew();
         }
@@ -129,11 +129,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             GVGridView.OptionsBehavior.Editable = false;
             GVBindingSource.CancelEdit();
-            if (state == State.add)
-                GVBindingSource.Position = selectedRowGV;
-            state = State.idle;
-            SetIdleButtonEnabledGV(true);
-            SetInputButtonEnabledGV(false);
+            if (_state == State.Add)
+                GVBindingSource.Position = _selectedRowGv;
+            _state = State.Idle;
+            SetIdleButtonEnabledGv(true);
+            SetInputButtonEnabledGv(false);
             SetDefaultOrigValue();
             SetKhoaState(true);
         }
@@ -144,63 +144,63 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 return;
             string login, pass;
             string serverName = CoSoComboBox.SelectedValue.ToString();
-            if (CoSoComboBox.SelectedIndex != DBConnection.IndexCS)//Không cần check loginGV, vì ko bao giờ hiện CB này
+            if (CoSoComboBox.SelectedIndex != DbConnection.IndexCs)//Không cần check loginGV, vì ko bao giờ hiện CB này
             {
-                login = DBConnection.RemoteLogin;
-                pass = DBConnection.RemotePassword;
+                login = DbConnection.RemoteLogin;
+                pass = DbConnection.RemotePassword;
             }
             else
             {
-                login = DBConnection.LoginName;
-                pass = DBConnection.Password;
+                login = DbConnection.LoginName;
+                pass = DbConnection.Password;
             }
-            bool success = DBConnection.ConnectToSubcriber(login, pass, serverName);
+            bool success = DbConnection.ConnectToSubcriber(login, pass, serverName);
             if (!success)
             {
                 Utils.ShowMessage("Tạm thời không thể kết nối đến cơ sở này", Others.NotiForm.FormType.Error, 2);
-                this.CoSoComboBox.SelectedIndex = this.PreviousIndexCS;
+                this.CoSoComboBox.SelectedIndex = this._previousIndexCs;
                 return;
             }
             else
             {
                 LoadAllData();
-                this.PreviousIndexCS = this.CoSoComboBox.SelectedIndex;
+                this._previousIndexCs = this.CoSoComboBox.SelectedIndex;
             }
         }
 
 
-        private void setCellAtRowGV(GridColumn column, string value, int row)
+        private void SetCellAtRowGv(GridColumn column, string value, int row)
         {
             GVGridView.SetRowCellValue(row, column, value);
         }
 
         private void buttonXacNhanGV_Click(object sender, EventArgs e)
         {
-            bool test1 = (GetError(GetEditingIndexGV(), colMAGV) == string.Empty);
-            bool test2 = (GetError(GetEditingIndexGV(), colHO) == string.Empty);
-            bool test3 = (GetError(GetEditingIndexGV(), colTEN) == string.Empty);
+            bool test1 = (GetError(GetEditingIndexGv(), colMAGV) == string.Empty);
+            bool test2 = (GetError(GetEditingIndexGv(), colHO) == string.Empty);
+            bool test3 = (GetError(GetEditingIndexGv(), colTEN) == string.Empty);
             GVGridView.ClearColumnErrors(); // lệnh này chỉ clear các cột bị lỗi trong show_editor (và chỉ có 1 cột bị chịu tác động của show_editor tại 1 thời điểm)
             if (test1 && test2 & test3)
             {
                 try
                 {
-                    int editingIndex = GetEditingIndexGV();
-                    string ho = Utils.CapitalizeString(getCellAtRowGV(colHO, editingIndex), Utils.CapitalMode.EveryWord);
-                    setCellAtRowGV(colHO, ho, editingIndex);
+                    int editingIndex = GetEditingIndexGv();
+                    string ho = Utils.CapitalizeString(GetCellAtRowGv(colHO, editingIndex), Utils.CapitalMode.EveryWord);
+                    SetCellAtRowGv(colHO, ho, editingIndex);
 
-                    string ten = Utils.CapitalizeString(getCellAtRowGV(colTEN, editingIndex), Utils.CapitalMode.EveryWord);
-                    setCellAtRowGV(colTEN, ten, editingIndex);
+                    string ten = Utils.CapitalizeString(GetCellAtRowGv(colTEN, editingIndex), Utils.CapitalMode.EveryWord);
+                    SetCellAtRowGv(colTEN, ten, editingIndex);
 
                     GVBindingSource.EndEdit();
                     GVBindingSource.ResetCurrentItem();
                     this.GVTableAdapter.Update(this.TN_CSDLPTDataSet.GIAOVIEN);
-                    if (state == State.edit)
+                    if (_state == State.Edit)
                         Utils.ShowMessage("Sửa thông tin giảng viên thành công", Others.NotiForm.FormType.Success, 2);
-                    else if (state == State.add)
+                    else if (_state == State.Add)
                         Utils.ShowMessage("Thêm thông tin giảng viên thành công", Others.NotiForm.FormType.Success, 2);
-                    state = State.idle;
+                    _state = State.Idle;
                     GVGridView.ClearColumnErrors();
-                    CheckButtonStateGV();
+                    CheckButtonStateGv();
                     SetDefaultOrigValue();
 
                 }
@@ -210,23 +210,23 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     return;
                 }
                 SetKhoaState(true);
-                SetIdleButtonEnabledGV(true);
-                SetInputButtonEnabledGV(false);
+                SetIdleButtonEnabledGv(true);
+                SetInputButtonEnabledGv(false);
             }
             else
             {
                 Utils.ShowMessage("Vui lòng xem lại thông tin đã nhập", Others.NotiForm.FormType.Error, 2);
             }
         }
-        private bool checkTheRow(int rowHandle)
+        private bool CheckTheRow(int rowHandle)
         {
             //lúc add new() row handle chưa có dữ liệu (= -2147483647), khi select qua row khác rồi select lại thì mới nhận
-            bool test1 = state != State.add && state != State.edit;
-            bool test2a = rowHandle == GVGridView.RowCount - 1;
+            bool test1 = _state != State.Add && _state != State.Edit;
+            bool test2A = rowHandle == GVGridView.RowCount - 1;
             // bool test2b = rowHandle == -2147483647;
-            bool test3 = rowHandle == editingGVIndex;
+            bool test3 = rowHandle == _editingGvIndex;
             if (test1) return false;
-            if (((test2a) && state == State.add) || (test3 && state == State.edit))
+            if (((test2A) && _state == State.Add) || (test3 && _state == State.Edit))
             {
                 return true;
             }
@@ -234,35 +234,35 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         public string GetError(int rowHandle, GridColumn column)
         {
-            if (checkTheRow(rowHandle))
+            if (CheckTheRow(rowHandle))
             {
                 GridView view = GVGridView;
-                String maGV = getCellAtRowGV(colMAGV, rowHandle);
-                String ho = getCellAtRowGV(colHO, rowHandle);
-                String ten = getCellAtRowGV(colTEN, rowHandle);
+                String maGv = GetCellAtRowGv(colMAGV, rowHandle);
+                String ho = GetCellAtRowGv(colHO, rowHandle);
+                String ten = GetCellAtRowGv(colTEN, rowHandle);
                 if (column.Equals(view.Columns["MAGV"]))
-                    return ValidateMaGV(maGV);
+                    return ValidateMaGv(maGv);
                 else if (column.Equals(view.Columns["HO"]))
-                    return ValidateHoGV(ho, rowHandle);
+                    return ValidateHoGv(ho, rowHandle);
                 else if (column.Equals(view.Columns["TEN"]))
-                    return ValidateTenGV(ten, rowHandle);
+                    return ValidateTenGv(ten, rowHandle);
             }
             return string.Empty;
         }
 
 
-        private string ValidateMaGV(string maGV)
+        private string ValidateMaGv(string maGv)
         {
-            if (string.IsNullOrEmpty(maGV))
+            if (string.IsNullOrEmpty(maGv))
                 return "Vui lòng nhập mã giảng viên";
-            if (maGV.Length > 8)
+            if (maGv.Length > 8)
                 return "Mã giảng viên không vượt quá 8 ký tự";
 
             bool test1 = false;
-            if (!origMaGV.Trim().Equals(maGV.Trim()))
+            if (!_origMaGv.Trim().Equals(maGv.Trim()))
             {
                 //    Console.WriteLine("MAA" + maGV);
-                test1 = AlreadyExistsGV(maGV);
+                test1 = AlreadyExistsGv(maGv);
             }
 
 
@@ -271,7 +271,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             return string.Empty;
         }
-        private string ValidateHoGV(string ho, int row)
+        private string ValidateHoGv(string ho, int row)
         {
             ho = Utils.CapitalizeString(ho, Utils.CapitalMode.EveryWord);
             // setCellAtRowGV(colHO, ho, row);
@@ -282,7 +282,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 return "Họ, tên đệm của GV chỉ được chứa chữ";
             return string.Empty;
         }
-        private string ValidateTenGV(string ten, int row)
+        private string ValidateTenGv(string ten, int row)
         {
             ten = Utils.CapitalizeString(ten, Utils.CapitalMode.EveryWord);
             //    setCellAtRowGV(colTEN, ten, row);
@@ -295,12 +295,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
 
 
-        private bool AlreadyExistsGV(string testName)
+        private bool AlreadyExistsGv(string testName)
         {
             List<Para> paraList = new List<Para>();
             paraList.Add(new Para("@ID", testName));
-            string SPName = "usp_GiaoVien_GetInfoByID";
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
+            string spName = "usp_GiaoVien_GetInfoByID";
+            SqlDataReader myReader = DbConnection.ExecuteSqlDataReaderSp(spName, paraList);
             if (myReader == null)
             {
                 Console.WriteLine(System.Environment.StackTrace);
@@ -327,46 +327,46 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             cellInfo.ErrorIcon = DXErrorProvider.GetErrorIconInternal(ErrorType.Critical);
         }
 
-        private int GetEditingIndexGV()
+        private int GetEditingIndexGv()
         {
-            if (state == State.edit)
-                return editingGVIndex;
-            else if (state == State.add)
+            if (_state == State.Edit)
+                return _editingGvIndex;
+            else if (_state == State.Add)
                 return GVGridView.RowCount - 1;
             return -1;
         }
-        private string getCellAtRowGV(GridColumn column, int row)
+        private string GetCellAtRowGv(GridColumn column, int row)
         {
             return GVGridView.GetRowCellValue(row, column).ToString();
         }
-        private string getCellAtFRowGV(GridColumn column)
+        private string GetCellAtFRowGv(GridColumn column)
         {
             return GVGridView.GetRowCellValue(GVGridView.FocusedRowHandle, column).ToString();
         }
         private void buttonSuaGV_Click(object sender, EventArgs e)
         {
             SetKhoaState(false);
-            SetIdleButtonEnabledGV(false);
-            SetInputButtonEnabledGV(true);
+            SetIdleButtonEnabledGv(false);
+            SetInputButtonEnabledGv(true);
 
-            string maGV = getCellAtFRowGV(colMAGV).Trim();
-            GVGridView.SetRowCellValue(GVGridView.FocusedRowHandle, colMAGV, maGV);
+            string maGv = GetCellAtFRowGv(colMAGV).Trim();
+            GVGridView.SetRowCellValue(GVGridView.FocusedRowHandle, colMAGV, maGv);
 
-            editingGVIndex = GVGridView.FocusedRowHandle;
+            _editingGvIndex = GVGridView.FocusedRowHandle;
             GVGridView.OptionsBehavior.Editable = true;
-            origMaGV = getCellAtFRowGV(colMAGV).Trim();
-            state = State.edit;
+            _origMaGv = GetCellAtFRowGv(colMAGV).Trim();
+            _state = State.Edit;
         }
 
         private void buttonLamMoiGV_Click(object sender, EventArgs e)
         {
             try
             {
-                saveMaKHForReset = (KhoaBindingSource[KhoaBindingSource.Position] as DataRowView)["MAKH"].ToString();
+                _saveMaKhForReset = (KhoaBindingSource[KhoaBindingSource.Position] as DataRowView)["MAKH"].ToString();
                 LoadAllData();
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
                 //  GobackAfterReset();
-                CheckButtonStateGV();
+                CheckButtonStateGv();
             }
             catch (Exception ex)
             {
@@ -378,7 +378,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void GVGridView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
         {
-            if (checkTheRow(e.RowHandle))
+            if (CheckTheRow(e.RowHandle))
             {
                 BaseEditViewInfo info = ((GridCellInfo)e.Cell).ViewInfo;
                 string error = GetError(e.RowHandle, e.Column);
@@ -389,23 +389,23 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             //----
             if (e.RowHandle == GVGridView.FocusedRowHandle) return;
-            if (state == State.add)
+            if (_state == State.Add)
             {
                 if (e.RowHandle == GVGridView.RowCount - 1)
                     e.Appearance.BackColor = Color.FromArgb(255, 237, 211);
             }
-            if (state == State.edit)
+            if (_state == State.Edit)
             {
-                if (e.RowHandle == editingGVIndex)
+                if (e.RowHandle == _editingGvIndex)
                     e.Appearance.BackColor = Color.FromArgb(255, 237, 211);
             }
         }
 
         private void GVGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            bool test1 = state == State.add && (e.FocusedRowHandle == GVGridView.RowCount - 1
+            bool test1 = _state == State.Add && (e.FocusedRowHandle == GVGridView.RowCount - 1
                 || e.FocusedRowHandle == -2147483647);
-            bool test2 = state == State.edit && e.FocusedRowHandle == editingGVIndex;
+            bool test2 = _state == State.Edit && e.FocusedRowHandle == _editingGvIndex;
 
             if (test1 || test2)
                 GVGridView.OptionsBehavior.Editable = true;
@@ -429,16 +429,16 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             if (KhoaBindingSource.Position >= 0)
             {
-                string MaKhoa = (KhoaBindingSource[KhoaBindingSource.Position] as DataRowView)["MAKH"].ToString();
-                ViewCaption.Text = "Danh sách giảng viên thuộc khoa " + MaKhoa.Trim();
+                string maKhoa = (KhoaBindingSource[KhoaBindingSource.Position] as DataRowView)["MAKH"].ToString();
+                ViewCaption.Text = "Danh sách giảng viên thuộc khoa " + maKhoa.Trim();
             }
 
         }
 
         private void buttonXoaGV_Click(object sender, EventArgs e)
         {
-            string RemovedGV = "";
-            selectedRowGV = GVBindingSource.Position;
+            string removedGv = "";
+            _selectedRowGv = GVBindingSource.Position;
             if (GVDKBindingSource.Count > 0)
             {
                 Utils.ShowMessage("Giảng viên này đã tổ chức thi, không thể xóa", Others.NotiForm.FormType.Error, 2);
@@ -449,7 +449,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 Utils.ShowMessage("Giảng viên này đã soạn đề, không thể xóa", Others.NotiForm.FormType.Error, 2);
                 return;
             }
-            if (getCellAtFRowGV(colMAGV).Equals(DBConnection.UserName))
+            if (GetCellAtFRowGv(colMAGV).Equals(DbConnection.UserName))
             {
                 Utils.ShowMessage("Không thể tự xóa chính bản thân mình", Others.NotiForm.FormType.Error, 2);
                 return;
@@ -459,15 +459,15 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             {
                 try
                 {
-                    RemovedGV = ((DataRowView)GVBindingSource[selectedRowGV])["MAGV"].ToString();
+                    removedGv = ((DataRowView)GVBindingSource[_selectedRowGv])["MAGV"].ToString();
                     GVBindingSource.RemoveCurrent();
                     GVTableAdapter.Update(TN_CSDLPTDataSet.GIAOVIEN);
 
                     //Xóa user và login tương ứng (nếu có)
                     List<Para> paraList = new List<Para>();
-                    paraList.Add(new Para("@UserName", RemovedGV.Trim()));
-                    string SPName = "usp_Login_RemoveLoginUser";
-                    SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
+                    paraList.Add(new Para("@UserName", removedGv.Trim()));
+                    string spName = "usp_Login_RemoveLoginUser";
+                    SqlDataReader myReader = DbConnection.ExecuteSqlDataReaderSp(spName, paraList);
 
                     if (myReader == null)
                     {
@@ -488,16 +488,16 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     Utils.ShowErrorMessage("Không thể xóa giảng viên này, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi xóa nhân viên");
                     Console.WriteLine(ex.StackTrace);
                     this.GVTableAdapter.Fill(TN_CSDLPTDataSet.GIAOVIEN);
-                    GVBindingSource.Position = GVBindingSource.Find("MAGV", RemovedGV);
+                    GVBindingSource.Position = GVBindingSource.Find("MAGV", removedGv);
                     return;
                 }
             }
-            CheckButtonStateGV();
+            CheckButtonStateGv();
         }
 
         private void FormGV_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (state != State.idle)
+            if (_state != State.Idle)
                 if (!Utils.ShowConfirmMessage("Hủy những thay đổi đang thực hiện và đóng cửa sổ này?", "Xác nhận"))
                     e.Cancel = true;
         }

@@ -20,26 +20,26 @@ namespace TracNghiemCSDLPT.MyForms
         public FormLogin()
         {
             InitializeComponent();
-            InitializeUI();
+            InitializeUi();
             AutoFilled();
         }
         public StateProperties ErrorState;
-        private Color ErrorColor = Color.FromArgb(236, 65, 52);
-        private void InitializeUI()
+        private Color _errorColor = Color.FromArgb(236, 65, 52);
+        private void InitializeUi()
         {
             DataTable dataTable = GetSubcriber();
             if (dataTable == null)
             {
                 return;
             }
-            ComboBoxCoSo.DataSource = DBConnection.BS_Subcribers.DataSource = dataTable;
+            ComboBoxCoSo.DataSource = DbConnection.BsSubcribers.DataSource = dataTable;
             ComboBoxCoSo.DisplayMember = "TENCS";
             ComboBoxCoSo.ValueMember = "TENSERVER";
             ComboBoxCoSo.SelectedIndex = -1;
         }
         private DataTable GetSubcriber()
         {
-            if (!DBConnection.ConnectToPublisher())
+            if (!DbConnection.ConnectToPublisher())
             {
                 Utils.ShowMessage("Kết nối đến CSDL thất bại. " +
                      "Vui lòng xem lại tên server và tên CSDL trong chuỗi kết nối",
@@ -50,16 +50,16 @@ namespace TracNghiemCSDLPT.MyForms
 
             string query = "SELECT * FROM view_GetSubcribers";
             DataTable dataTable = new DataTable();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(query, DBConnection.PublisherConnection);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(query, DbConnection.PublisherConnection);
             dataAdapter.Fill(dataTable);
-            DBConnection.PublisherConnection.Close();
+            DbConnection.PublisherConnection.Close();
             return dataTable;
         }
         protected override FormPainter CreateFormBorderPainter()
         {
             return new MyFormPainter(this, DevExpress.LookAndFeel.UserLookAndFeel.Default.ActiveLookAndFeel);
         }
-        bool ShowPassword = true;
+        bool _showPassword = true;
 
         private void AutoFilled()
         {
@@ -86,7 +86,7 @@ namespace TracNghiemCSDLPT.MyForms
 
             if (rdoGV.Checked)
             {
-                if (!DBConnection.ConnectToSubcriber(loginName, password, ComboBoxCoSo.SelectedValue.ToString()))
+                if (!DbConnection.ConnectToSubcriber(loginName, password, ComboBoxCoSo.SelectedValue.ToString()))
                 {
                     Utils.ShowMessage("Tài khoản, mật khẩu hoặc cơ sở không chính xác. Vui lòng xem " +
                         "lại thông tin đăng nhập.", Others.NotiForm.FormType.Error, 4);
@@ -96,42 +96,42 @@ namespace TracNghiemCSDLPT.MyForms
 
                 List<Para> paraList = new List<Para>();
                 paraList.Add(new Para("@LoginName", loginName));
-                string SPName = "usp_LoginGV_GetInfoByLogin";
-                SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
+                string spName = "usp_LoginGV_GetInfoByLogin";
+                SqlDataReader myReader = DbConnection.ExecuteSqlDataReaderSp(spName, paraList);
                 if (myReader == null)
                 {
                     Console.WriteLine(System.Environment.StackTrace);
                     return;
                 }
                 myReader.Read();
-                DBConnection.UserName = myReader.GetString(0); // Lấy Mã GV, chính là Username ở cột 1.
-                DBConnection.HoTen = myReader.GetString(1);
-                DBConnection.NhomQuyen = myReader.GetString(2);
-                DBConnection.IndexCS = ComboBoxCoSo.SelectedIndex;
+                DbConnection.UserName = myReader.GetString(0); // Lấy Mã GV, chính là Username ở cột 1.
+                DbConnection.HoTen = myReader.GetString(1);
+                DbConnection.NhomQuyen = myReader.GetString(2);
+                DbConnection.IndexCs = ComboBoxCoSo.SelectedIndex;
                 myReader.Close();
                 Program.MainInstance = new MainView();
-                Program.MainInstance.statusMa.Caption = "Mã GV: " + DBConnection.UserName;
-                Program.MainInstance.statusTen.Caption = "Họ tên: " + DBConnection.HoTen;
+                Program.MainInstance.statusMa.Caption = "Mã GV: " + DbConnection.UserName;
+                Program.MainInstance.statusTen.Caption = "Họ tên: " + DbConnection.HoTen;
                 Program.MainInstance.statusQuyen.Caption = "Nhóm: " +
-                    DBConnection.GetVNTextNhomQuyen(DBConnection.NhomQuyen);
+                    DbConnection.GetVnTextNhomQuyen(DbConnection.NhomQuyen);
                 Program.MainInstance.Show();
                 this.Hide();
             }
             else
             {
-                if (!DBConnection.ConnectToSubcriber(ComboBoxCoSo.SelectedValue.ToString()))
+                if (!DbConnection.ConnectToSubcriber(ComboBoxCoSo.SelectedValue.ToString()))
                 {
                     Utils.ShowMessage("Kết nối đến CSDL thất bại. " +
                         "Login hoặc password của sinh viên trong chuỗi kết nối không chính xác", Others.NotiForm.FormType.Error, 3);
                     return;
                 }
 
-                string SPName = "usp_LoginSV_GetInfoByLogin";
+                string spName = "usp_LoginSV_GetInfoByLogin";
 
                 List<Para> paraList = new List<Para>();
                 paraList.Add(new Para("@LoginName", loginName));
                 paraList.Add(new Para("@Password", password));
-                SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
+                SqlDataReader myReader = DbConnection.ExecuteSqlDataReaderSp(spName, paraList);
                 if (myReader == null)
                 {
                     Console.WriteLine(System.Environment.StackTrace);
@@ -149,15 +149,15 @@ namespace TracNghiemCSDLPT.MyForms
                     return;
                 }
 
-                DBConnection.UserName = DBConnection.UserNameSV;
-                DBConnection.HoTen = myReader.GetString(1);
-                DBConnection.NhomQuyen = myReader.GetString(2);
+                DbConnection.UserName = DbConnection.UserNameSv;
+                DbConnection.HoTen = myReader.GetString(1);
+                DbConnection.NhomQuyen = myReader.GetString(2);
                 myReader.Close();
                 Program.MainInstance = new MainView();
                 Program.MainInstance.statusMa.Caption = "Mã SV: " + loginName;
-                Program.MainInstance.statusTen.Caption = "Họ tên: " + DBConnection.HoTen;
+                Program.MainInstance.statusTen.Caption = "Họ tên: " + DbConnection.HoTen;
                 Program.MainInstance.statusQuyen.Caption = "Nhóm: " + 
-                    DBConnection.GetVNTextNhomQuyen(DBConnection.NhomQuyen);
+                    DbConnection.GetVnTextNhomQuyen(DbConnection.NhomQuyen);
                 Program.MainInstance.Show();
                 this.Hide();
             }
@@ -180,7 +180,7 @@ namespace TracNghiemCSDLPT.MyForms
         {
             if (ComboBoxCoSo.SelectedIndex != -1)
             {
-                DBConnection.SubcriberName = ComboBoxCoSo.SelectedValue.ToString();
+                DbConnection.SubcriberName = ComboBoxCoSo.SelectedValue.ToString();
             }
 
 
@@ -190,13 +190,13 @@ namespace TracNghiemCSDLPT.MyForms
         {
             if (TextPassword.UseSystemPasswordChar == true)
             {
-                ShowPassword = false;
+                _showPassword = false;
                 TextPassword.IconRight = global::TracNghiemCSDLPT.Properties.Resources.eye_512px;
                 TextPassword.UseSystemPasswordChar = false;
             }
             else
             {
-                ShowPassword = true;
+                _showPassword = true;
                 TextPassword.IconRight = global::TracNghiemCSDLPT.Properties.Resources.invisible_512px;
                 TextPassword.UseSystemPasswordChar = true;
             }
@@ -216,12 +216,12 @@ namespace TracNghiemCSDLPT.MyForms
             if (string.IsNullOrEmpty(TextLogin.Text))
             {
                 LoginEP.SetError(TextLogin, "Vui lòng nhập tài khoản");
-                SetBorderState(TextLogin, BorderState.error);
+                SetBorderState(TextLogin, BorderState.Error);
                 return false;
             }
             else
             {
-                SetBorderState(TextLogin, BorderState.normal);
+                SetBorderState(TextLogin, BorderState.Normal);
                 LoginEP.SetError(TextLogin, null);
                 return true;
             }
@@ -231,7 +231,7 @@ namespace TracNghiemCSDLPT.MyForms
         {
             if (ComboBoxCoSo.SelectedIndex == -1)
             {
-                ComboBoxCoSo.BorderColor = ErrorColor;
+                ComboBoxCoSo.BorderColor = _errorColor;
                 CSEP.SetError(ComboBoxCoSo, "Vui lòng chọn cơ sở công tác/học tập");
                 return false;
             }
@@ -248,13 +248,13 @@ namespace TracNghiemCSDLPT.MyForms
             if (string.IsNullOrEmpty(TextPassword.Text))
             {
                 PasswordEP.SetError(TextPassword, "Vui lòng nhập mật khẩu");
-                SetBorderState(TextPassword, BorderState.error);
+                SetBorderState(TextPassword, BorderState.Error);
                 return false;
             }
             else
             {
                 PasswordEP.SetError(TextPassword, null);
-                SetBorderState(TextPassword, BorderState.normal);
+                SetBorderState(TextPassword, BorderState.Normal);
                 return true;
             }
 
@@ -265,8 +265,8 @@ namespace TracNghiemCSDLPT.MyForms
             if (!rdoGV.Checked && !rdoSV.Checked)
             {
                 RdoEP.SetError(PanelSV, "Vui lòng chọn nhóm quyền");
-                PanelSV.BorderColor = ErrorColor;
-                PanelGV.BorderColor = ErrorColor;
+                PanelSV.BorderColor = _errorColor;
+                PanelGV.BorderColor = _errorColor;
                 return false;
             }
             else
@@ -280,14 +280,14 @@ namespace TracNghiemCSDLPT.MyForms
 
         enum BorderState
         {
-            normal, error
+            Normal, Error
         }
         private void SetBorderState(Guna2TextBox textBox, BorderState state)
         {
-            if (state == BorderState.error)
+            if (state == BorderState.Error)
             {
                 textBox.BorderColor = textBox.HoverState.BorderColor =
-                   textBox.FocusedState.BorderColor = ErrorColor;
+                   textBox.FocusedState.BorderColor = _errorColor;
 
 
             }
@@ -320,13 +320,13 @@ namespace TracNghiemCSDLPT.MyForms
         {
             if (TextPassword.UseSystemPasswordChar == true)
             {
-                ShowPassword = false;
+                _showPassword = false;
                 TextPassword.IconRight = global::TracNghiemCSDLPT.Properties.Resources.eye_512px;
                 TextPassword.UseSystemPasswordChar = false;
             }
             else
             {
-                ShowPassword = true;
+                _showPassword = true;
                 TextPassword.IconRight = global::TracNghiemCSDLPT.Properties.Resources.invisible_512px;
                 TextPassword.UseSystemPasswordChar = true;
             }
@@ -336,7 +336,7 @@ namespace TracNghiemCSDLPT.MyForms
         {
             if (TextPassword.Text.Equals(""))
                 TextPassword.UseSystemPasswordChar = false;
-            else if (ShowPassword == true)
+            else if (_showPassword == true)
                 TextPassword.UseSystemPasswordChar = true;
         }
 

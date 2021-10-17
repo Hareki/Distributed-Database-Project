@@ -22,7 +22,7 @@ namespace TracNghiemCSDLPT {
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
     [global::System.Xml.Serialization.XmlRootAttribute("TN_CSDLPTDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class TN_CSDLPTDataSet : global::System.Data.DataSet {
+    public partial class TnCsdlptDataSet : global::System.Data.DataSet {
         
         private BANGDIEMDataTable tableBANGDIEM;
         
@@ -30,7 +30,7 @@ namespace TracNghiemCSDLPT {
         
         private GIAOVIEN_DANGKYDataTable tableGIAOVIEN_DANGKY;
         
-        private MONHOCDataTable tableMONHOC;
+        private MonhocDataTable tableMONHOC;
         
         private COSODataTable tableCOSO;
         
@@ -88,7 +88,7 @@ namespace TracNghiemCSDLPT {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public TN_CSDLPTDataSet() {
+        public TnCsdlptDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -99,7 +99,7 @@ namespace TracNghiemCSDLPT {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected TN_CSDLPTDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected TnCsdlptDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -122,7 +122,7 @@ namespace TracNghiemCSDLPT {
                     base.Tables.Add(new GIAOVIEN_DANGKYDataTable(ds.Tables["GIAOVIEN_DANGKY"]));
                 }
                 if ((ds.Tables["MONHOC"] != null)) {
-                    base.Tables.Add(new MONHOCDataTable(ds.Tables["MONHOC"]));
+                    base.Tables.Add(new MonhocDataTable(ds.Tables["MONHOC"]));
                 }
                 if ((ds.Tables["COSO"] != null)) {
                     base.Tables.Add(new COSODataTable(ds.Tables["COSO"]));
@@ -212,7 +212,7 @@ namespace TracNghiemCSDLPT {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public MONHOCDataTable MONHOC {
+        public MonhocDataTable MONHOC {
             get {
                 return this.tableMONHOC;
             }
@@ -380,7 +380,7 @@ namespace TracNghiemCSDLPT {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            TN_CSDLPTDataSet cln = ((TN_CSDLPTDataSet)(base.Clone()));
+            TnCsdlptDataSet cln = ((TnCsdlptDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -415,7 +415,7 @@ namespace TracNghiemCSDLPT {
                     base.Tables.Add(new GIAOVIEN_DANGKYDataTable(ds.Tables["GIAOVIEN_DANGKY"]));
                 }
                 if ((ds.Tables["MONHOC"] != null)) {
-                    base.Tables.Add(new MONHOCDataTable(ds.Tables["MONHOC"]));
+                    base.Tables.Add(new MonhocDataTable(ds.Tables["MONHOC"]));
                 }
                 if ((ds.Tables["COSO"] != null)) {
                     base.Tables.Add(new COSODataTable(ds.Tables["COSO"]));
@@ -504,7 +504,7 @@ namespace TracNghiemCSDLPT {
                     this.tableGIAOVIEN_DANGKY.InitVars();
                 }
             }
-            this.tableMONHOC = ((MONHOCDataTable)(base.Tables["MONHOC"]));
+            this.tableMONHOC = ((MonhocDataTable)(base.Tables["MONHOC"]));
             if ((initTable == true)) {
                 if ((this.tableMONHOC != null)) {
                     this.tableMONHOC.InitVars();
@@ -612,7 +612,7 @@ namespace TracNghiemCSDLPT {
             base.Tables.Add(this.tableBODE);
             this.tableGIAOVIEN_DANGKY = new GIAOVIEN_DANGKYDataTable();
             base.Tables.Add(this.tableGIAOVIEN_DANGKY);
-            this.tableMONHOC = new MONHOCDataTable();
+            this.tableMONHOC = new MonhocDataTable();
             base.Tables.Add(this.tableMONHOC);
             this.tableCOSO = new COSODataTable();
             base.Tables.Add(this.tableCOSO);
@@ -867,7 +867,7 @@ namespace TracNghiemCSDLPT {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            TN_CSDLPTDataSet ds = new TN_CSDLPTDataSet();
+            TnCsdlptDataSet ds = new TnCsdlptDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -1245,7 +1245,7 @@ namespace TracNghiemCSDLPT {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TN_CSDLPTDataSet ds = new TN_CSDLPTDataSet();
+                TnCsdlptDataSet ds = new TnCsdlptDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1657,7 +1657,7 @@ namespace TracNghiemCSDLPT {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TN_CSDLPTDataSet ds = new TN_CSDLPTDataSet();
+                TnCsdlptDataSet ds = new TnCsdlptDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2036,7 +2036,7 @@ namespace TracNghiemCSDLPT {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TN_CSDLPTDataSet ds = new TN_CSDLPTDataSet();
+                TnCsdlptDataSet ds = new TnCsdlptDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2100,7 +2100,7 @@ namespace TracNghiemCSDLPT {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class MONHOCDataTable : global::System.Data.TypedTableBase<MONHOCRow> {
+        public partial class MonhocDataTable : global::System.Data.TypedTableBase<MONHOCRow> {
             
             private global::System.Data.DataColumn columnMAMH;
             
@@ -2108,7 +2108,7 @@ namespace TracNghiemCSDLPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public MONHOCDataTable() {
+            public MonhocDataTable() {
                 this.TableName = "MONHOC";
                 this.BeginInit();
                 this.InitClass();
@@ -2117,7 +2117,7 @@ namespace TracNghiemCSDLPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal MONHOCDataTable(global::System.Data.DataTable table) {
+            internal MonhocDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -2134,7 +2134,7 @@ namespace TracNghiemCSDLPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected MONHOCDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected MonhocDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -2212,7 +2212,7 @@ namespace TracNghiemCSDLPT {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                MONHOCDataTable cln = ((MONHOCDataTable)(base.Clone()));
+                MonhocDataTable cln = ((MonhocDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -2220,7 +2220,7 @@ namespace TracNghiemCSDLPT {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new MONHOCDataTable();
+                return new MonhocDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2311,7 +2311,7 @@ namespace TracNghiemCSDLPT {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TN_CSDLPTDataSet ds = new TN_CSDLPTDataSet();
+                TnCsdlptDataSet ds = new TnCsdlptDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2601,7 +2601,7 @@ namespace TracNghiemCSDLPT {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TN_CSDLPTDataSet ds = new TN_CSDLPTDataSet();
+                TnCsdlptDataSet ds = new TnCsdlptDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2895,7 +2895,7 @@ namespace TracNghiemCSDLPT {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TN_CSDLPTDataSet ds = new TN_CSDLPTDataSet();
+                TnCsdlptDataSet ds = new TnCsdlptDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -3189,7 +3189,7 @@ namespace TracNghiemCSDLPT {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TN_CSDLPTDataSet ds = new TN_CSDLPTDataSet();
+                TnCsdlptDataSet ds = new TnCsdlptDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -3528,7 +3528,7 @@ namespace TracNghiemCSDLPT {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TN_CSDLPTDataSet ds = new TN_CSDLPTDataSet();
+                TnCsdlptDataSet ds = new TnCsdlptDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -3809,7 +3809,7 @@ namespace TracNghiemCSDLPT {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TN_CSDLPTDataSet ds = new TN_CSDLPTDataSet();
+                TnCsdlptDataSet ds = new TnCsdlptDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -4134,7 +4134,7 @@ namespace TracNghiemCSDLPT {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TN_CSDLPTDataSet ds = new TN_CSDLPTDataSet();
+                TnCsdlptDataSet ds = new TnCsdlptDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -4415,7 +4415,7 @@ namespace TracNghiemCSDLPT {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TN_CSDLPTDataSet ds = new TN_CSDLPTDataSet();
+                TnCsdlptDataSet ds = new TnCsdlptDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -4741,7 +4741,7 @@ namespace TracNghiemCSDLPT {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TN_CSDLPTDataSet ds = new TN_CSDLPTDataSet();
+                TnCsdlptDataSet ds = new TnCsdlptDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -5145,7 +5145,7 @@ namespace TracNghiemCSDLPT {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TN_CSDLPTDataSet ds = new TN_CSDLPTDataSet();
+                TnCsdlptDataSet ds = new TnCsdlptDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -5420,7 +5420,7 @@ namespace TracNghiemCSDLPT {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TN_CSDLPTDataSet ds = new TN_CSDLPTDataSet();
+                TnCsdlptDataSet ds = new TnCsdlptDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -5695,7 +5695,7 @@ namespace TracNghiemCSDLPT {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TN_CSDLPTDataSet ds = new TN_CSDLPTDataSet();
+                TnCsdlptDataSet ds = new TnCsdlptDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -6068,7 +6068,7 @@ namespace TracNghiemCSDLPT {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TN_CSDLPTDataSet ds = new TN_CSDLPTDataSet();
+                TnCsdlptDataSet ds = new TnCsdlptDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -6551,13 +6551,13 @@ namespace TracNghiemCSDLPT {
         ///</summary>
         public partial class MONHOCRow : global::System.Data.DataRow {
             
-            private MONHOCDataTable tableMONHOC;
+            private MonhocDataTable tableMONHOC;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal MONHOCRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableMONHOC = ((MONHOCDataTable)(this.Table));
+                this.tableMONHOC = ((MonhocDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8481,7 +8481,7 @@ SELECT MABANGDIEM, MASV, MAMH, LAN, NGAYTHI, DIEM FROM BANGDIEM WHERE (MABANGDIE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TN_CSDLPTDataSet.BANGDIEMDataTable dataTable) {
+        public virtual int Fill(TnCsdlptDataSet.BANGDIEMDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -8494,9 +8494,9 @@ SELECT MABANGDIEM, MASV, MAMH, LAN, NGAYTHI, DIEM FROM BANGDIEM WHERE (MABANGDIE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TN_CSDLPTDataSet.BANGDIEMDataTable GetData() {
+        public virtual TnCsdlptDataSet.BANGDIEMDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TN_CSDLPTDataSet.BANGDIEMDataTable dataTable = new TN_CSDLPTDataSet.BANGDIEMDataTable();
+            TnCsdlptDataSet.BANGDIEMDataTable dataTable = new TnCsdlptDataSet.BANGDIEMDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -8504,14 +8504,14 @@ SELECT MABANGDIEM, MASV, MAMH, LAN, NGAYTHI, DIEM FROM BANGDIEM WHERE (MABANGDIE
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TN_CSDLPTDataSet.BANGDIEMDataTable dataTable) {
+        public virtual int Update(TnCsdlptDataSet.BANGDIEMDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TN_CSDLPTDataSet dataSet) {
+        public virtual int Update(TnCsdlptDataSet dataSet) {
             return this.Adapter.Update(dataSet, "BANGDIEM");
         }
         
@@ -8875,7 +8875,7 @@ SELECT CAUHOI, MAMH, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, MAGV FROM BODE WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TN_CSDLPTDataSet.BODEDataTable dataTable) {
+        public virtual int Fill(TnCsdlptDataSet.BODEDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -8888,9 +8888,9 @@ SELECT CAUHOI, MAMH, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, MAGV FROM BODE WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TN_CSDLPTDataSet.BODEDataTable GetData() {
+        public virtual TnCsdlptDataSet.BODEDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TN_CSDLPTDataSet.BODEDataTable dataTable = new TN_CSDLPTDataSet.BODEDataTable();
+            TnCsdlptDataSet.BODEDataTable dataTable = new TnCsdlptDataSet.BODEDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -8898,14 +8898,14 @@ SELECT CAUHOI, MAMH, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, MAGV FROM BODE WHERE 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TN_CSDLPTDataSet.BODEDataTable dataTable) {
+        public virtual int Update(TnCsdlptDataSet.BODEDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TN_CSDLPTDataSet dataSet) {
+        public virtual int Update(TnCsdlptDataSet dataSet) {
             return this.Adapter.Update(dataSet, "BODE");
         }
         
@@ -9455,7 +9455,7 @@ SELECT MAGV, MAMH, MALOP, TRINHDO, NGAYTHI, LAN, SOCAUTHI, THOIGIAN FROM GIAOVIE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TN_CSDLPTDataSet.GIAOVIEN_DANGKYDataTable dataTable) {
+        public virtual int Fill(TnCsdlptDataSet.GIAOVIEN_DANGKYDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -9468,9 +9468,9 @@ SELECT MAGV, MAMH, MALOP, TRINHDO, NGAYTHI, LAN, SOCAUTHI, THOIGIAN FROM GIAOVIE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TN_CSDLPTDataSet.GIAOVIEN_DANGKYDataTable GetData() {
+        public virtual TnCsdlptDataSet.GIAOVIEN_DANGKYDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TN_CSDLPTDataSet.GIAOVIEN_DANGKYDataTable dataTable = new TN_CSDLPTDataSet.GIAOVIEN_DANGKYDataTable();
+            TnCsdlptDataSet.GIAOVIEN_DANGKYDataTable dataTable = new TnCsdlptDataSet.GIAOVIEN_DANGKYDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -9478,14 +9478,14 @@ SELECT MAGV, MAMH, MALOP, TRINHDO, NGAYTHI, LAN, SOCAUTHI, THOIGIAN FROM GIAOVIE
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TN_CSDLPTDataSet.GIAOVIEN_DANGKYDataTable dataTable) {
+        public virtual int Update(TnCsdlptDataSet.GIAOVIEN_DANGKYDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TN_CSDLPTDataSet dataSet) {
+        public virtual int Update(TnCsdlptDataSet dataSet) {
             return this.Adapter.Update(dataSet, "GIAOVIEN_DANGKY");
         }
         
@@ -9875,7 +9875,7 @@ SELECT MAGV, MAMH, MALOP, TRINHDO, NGAYTHI, LAN, SOCAUTHI, THOIGIAN FROM GIAOVIE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TN_CSDLPTDataSet.MONHOCDataTable dataTable) {
+        public virtual int Fill(TnCsdlptDataSet.MonhocDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -9888,9 +9888,9 @@ SELECT MAGV, MAMH, MALOP, TRINHDO, NGAYTHI, LAN, SOCAUTHI, THOIGIAN FROM GIAOVIE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TN_CSDLPTDataSet.MONHOCDataTable GetData() {
+        public virtual TnCsdlptDataSet.MonhocDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TN_CSDLPTDataSet.MONHOCDataTable dataTable = new TN_CSDLPTDataSet.MONHOCDataTable();
+            TnCsdlptDataSet.MonhocDataTable dataTable = new TnCsdlptDataSet.MonhocDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -9898,14 +9898,14 @@ SELECT MAGV, MAMH, MALOP, TRINHDO, NGAYTHI, LAN, SOCAUTHI, THOIGIAN FROM GIAOVIE
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TN_CSDLPTDataSet.MONHOCDataTable dataTable) {
+        public virtual int Update(TnCsdlptDataSet.MonhocDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TN_CSDLPTDataSet dataSet) {
+        public virtual int Update(TnCsdlptDataSet dataSet) {
             return this.Adapter.Update(dataSet, "MONHOC");
         }
         
@@ -10222,7 +10222,7 @@ SELECT MACS, TENCS, DIACHI FROM COSO WHERE (MACS = @MACS)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TN_CSDLPTDataSet.COSODataTable dataTable) {
+        public virtual int Fill(TnCsdlptDataSet.COSODataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -10235,9 +10235,9 @@ SELECT MACS, TENCS, DIACHI FROM COSO WHERE (MACS = @MACS)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TN_CSDLPTDataSet.COSODataTable GetData() {
+        public virtual TnCsdlptDataSet.COSODataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TN_CSDLPTDataSet.COSODataTable dataTable = new TN_CSDLPTDataSet.COSODataTable();
+            TnCsdlptDataSet.COSODataTable dataTable = new TnCsdlptDataSet.COSODataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -10245,14 +10245,14 @@ SELECT MACS, TENCS, DIACHI FROM COSO WHERE (MACS = @MACS)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TN_CSDLPTDataSet.COSODataTable dataTable) {
+        public virtual int Update(TnCsdlptDataSet.COSODataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TN_CSDLPTDataSet dataSet) {
+        public virtual int Update(TnCsdlptDataSet dataSet) {
             return this.Adapter.Update(dataSet, "COSO");
         }
         
@@ -10595,7 +10595,7 @@ SELECT MACS, TENCS, DIACHI FROM COSO WHERE (MACS = @MACS)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TN_CSDLPTDataSet.KHOADataTable dataTable) {
+        public virtual int Fill(TnCsdlptDataSet.KHOADataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -10608,9 +10608,9 @@ SELECT MACS, TENCS, DIACHI FROM COSO WHERE (MACS = @MACS)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TN_CSDLPTDataSet.KHOADataTable GetData() {
+        public virtual TnCsdlptDataSet.KHOADataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TN_CSDLPTDataSet.KHOADataTable dataTable = new TN_CSDLPTDataSet.KHOADataTable();
+            TnCsdlptDataSet.KHOADataTable dataTable = new TnCsdlptDataSet.KHOADataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -10618,14 +10618,14 @@ SELECT MACS, TENCS, DIACHI FROM COSO WHERE (MACS = @MACS)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TN_CSDLPTDataSet.KHOADataTable dataTable) {
+        public virtual int Update(TnCsdlptDataSet.KHOADataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TN_CSDLPTDataSet dataSet) {
+        public virtual int Update(TnCsdlptDataSet dataSet) {
             return this.Adapter.Update(dataSet, "KHOA");
         }
         
@@ -10964,7 +10964,7 @@ SELECT MACS, TENCS, DIACHI FROM COSO WHERE (MACS = @MACS)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TN_CSDLPTDataSet.LOPDataTable dataTable) {
+        public virtual int Fill(TnCsdlptDataSet.LOPDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -10977,9 +10977,9 @@ SELECT MACS, TENCS, DIACHI FROM COSO WHERE (MACS = @MACS)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TN_CSDLPTDataSet.LOPDataTable GetData() {
+        public virtual TnCsdlptDataSet.LOPDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TN_CSDLPTDataSet.LOPDataTable dataTable = new TN_CSDLPTDataSet.LOPDataTable();
+            TnCsdlptDataSet.LOPDataTable dataTable = new TnCsdlptDataSet.LOPDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -10987,14 +10987,14 @@ SELECT MACS, TENCS, DIACHI FROM COSO WHERE (MACS = @MACS)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TN_CSDLPTDataSet.LOPDataTable dataTable) {
+        public virtual int Update(TnCsdlptDataSet.LOPDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TN_CSDLPTDataSet dataSet) {
+        public virtual int Update(TnCsdlptDataSet dataSet) {
             return this.Adapter.Update(dataSet, "LOP");
         }
         
@@ -11351,7 +11351,7 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TN_CSDLPTDataSet.SINHVIENDataTable dataTable) {
+        public virtual int Fill(TnCsdlptDataSet.SINHVIENDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -11364,9 +11364,9 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TN_CSDLPTDataSet.SINHVIENDataTable GetData() {
+        public virtual TnCsdlptDataSet.SINHVIENDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TN_CSDLPTDataSet.SINHVIENDataTable dataTable = new TN_CSDLPTDataSet.SINHVIENDataTable();
+            TnCsdlptDataSet.SINHVIENDataTable dataTable = new TnCsdlptDataSet.SINHVIENDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -11374,14 +11374,14 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TN_CSDLPTDataSet.SINHVIENDataTable dataTable) {
+        public virtual int Update(TnCsdlptDataSet.SINHVIENDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TN_CSDLPTDataSet dataSet) {
+        public virtual int Update(TnCsdlptDataSet dataSet) {
             return this.Adapter.Update(dataSet, "SINHVIEN");
         }
         
@@ -11773,7 +11773,7 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TN_CSDLPTDataSet.DSGIAOVIENDataTable dataTable) {
+        public virtual int Fill(TnCsdlptDataSet.DSGIAOVIENDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -11786,9 +11786,9 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TN_CSDLPTDataSet.DSGIAOVIENDataTable GetData() {
+        public virtual TnCsdlptDataSet.DSGIAOVIENDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TN_CSDLPTDataSet.DSGIAOVIENDataTable dataTable = new TN_CSDLPTDataSet.DSGIAOVIENDataTable();
+            TnCsdlptDataSet.DSGIAOVIENDataTable dataTable = new TnCsdlptDataSet.DSGIAOVIENDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -11983,7 +11983,7 @@ SELECT MAGV, HO, TEN, DIACHI, MAKH FROM GIAOVIEN WHERE (MAGV = @MAGV)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TN_CSDLPTDataSet.GIAOVIENDataTable dataTable) {
+        public virtual int Fill(TnCsdlptDataSet.GIAOVIENDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -11996,9 +11996,9 @@ SELECT MAGV, HO, TEN, DIACHI, MAKH FROM GIAOVIEN WHERE (MAGV = @MAGV)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TN_CSDLPTDataSet.GIAOVIENDataTable GetData() {
+        public virtual TnCsdlptDataSet.GIAOVIENDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TN_CSDLPTDataSet.GIAOVIENDataTable dataTable = new TN_CSDLPTDataSet.GIAOVIENDataTable();
+            TnCsdlptDataSet.GIAOVIENDataTable dataTable = new TnCsdlptDataSet.GIAOVIENDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -12006,14 +12006,14 @@ SELECT MAGV, HO, TEN, DIACHI, MAKH FROM GIAOVIEN WHERE (MAGV = @MAGV)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TN_CSDLPTDataSet.GIAOVIENDataTable dataTable) {
+        public virtual int Update(TnCsdlptDataSet.GIAOVIENDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TN_CSDLPTDataSet dataSet) {
+        public virtual int Update(TnCsdlptDataSet dataSet) {
             return this.Adapter.Update(dataSet, "GIAOVIEN");
         }
         
@@ -12378,7 +12378,7 @@ SELECT MAGV, HO, TEN, DIACHI, MAKH FROM GIAOVIEN WHERE (MAGV = @MAGV)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TN_CSDLPTDataSet.DSGIAOVIENTCSDataTable dataTable) {
+        public virtual int Fill(TnCsdlptDataSet.DSGIAOVIENTCSDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -12391,9 +12391,9 @@ SELECT MAGV, HO, TEN, DIACHI, MAKH FROM GIAOVIEN WHERE (MAGV = @MAGV)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TN_CSDLPTDataSet.DSGIAOVIENTCSDataTable GetData() {
+        public virtual TnCsdlptDataSet.DSGIAOVIENTCSDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TN_CSDLPTDataSet.DSGIAOVIENTCSDataTable dataTable = new TN_CSDLPTDataSet.DSGIAOVIENTCSDataTable();
+            TnCsdlptDataSet.DSGIAOVIENTCSDataTable dataTable = new TnCsdlptDataSet.DSGIAOVIENTCSDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -12587,7 +12587,7 @@ SELECT MABANGDIEM, CAUHOI, STT, LUACHON, rowguid FROM BAITHI WHERE (CAUHOI = @CA
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TN_CSDLPTDataSet.BAITHIDataTable dataTable) {
+        public virtual int Fill(TnCsdlptDataSet.BAITHIDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -12600,9 +12600,9 @@ SELECT MABANGDIEM, CAUHOI, STT, LUACHON, rowguid FROM BAITHI WHERE (CAUHOI = @CA
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TN_CSDLPTDataSet.BAITHIDataTable GetData() {
+        public virtual TnCsdlptDataSet.BAITHIDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TN_CSDLPTDataSet.BAITHIDataTable dataTable = new TN_CSDLPTDataSet.BAITHIDataTable();
+            TnCsdlptDataSet.BAITHIDataTable dataTable = new TnCsdlptDataSet.BAITHIDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -12610,14 +12610,14 @@ SELECT MABANGDIEM, CAUHOI, STT, LUACHON, rowguid FROM BAITHI WHERE (CAUHOI = @CA
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TN_CSDLPTDataSet.BAITHIDataTable dataTable) {
+        public virtual int Update(TnCsdlptDataSet.BAITHIDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TN_CSDLPTDataSet dataSet) {
+        public virtual int Update(TnCsdlptDataSet dataSet) {
             return this.Adapter.Update(dataSet, "BAITHI");
         }
         
@@ -12958,7 +12958,7 @@ SELECT NGAYBACKUP, CAUHOI, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, rowguid FROM BO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TN_CSDLPTDataSet.BODE_BKDataTable dataTable) {
+        public virtual int Fill(TnCsdlptDataSet.BODE_BKDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -12971,9 +12971,9 @@ SELECT NGAYBACKUP, CAUHOI, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, rowguid FROM BO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TN_CSDLPTDataSet.BODE_BKDataTable GetData() {
+        public virtual TnCsdlptDataSet.BODE_BKDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TN_CSDLPTDataSet.BODE_BKDataTable dataTable = new TN_CSDLPTDataSet.BODE_BKDataTable();
+            TnCsdlptDataSet.BODE_BKDataTable dataTable = new TnCsdlptDataSet.BODE_BKDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -12981,14 +12981,14 @@ SELECT NGAYBACKUP, CAUHOI, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, rowguid FROM BO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TN_CSDLPTDataSet.BODE_BKDataTable dataTable) {
+        public virtual int Update(TnCsdlptDataSet.BODE_BKDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TN_CSDLPTDataSet dataSet) {
+        public virtual int Update(TnCsdlptDataSet dataSet) {
             return this.Adapter.Update(dataSet, "BODE_BK");
         }
         
@@ -13444,7 +13444,7 @@ SELECT NGAYBACKUP, CAUHOI, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, rowguid FROM BO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TN_CSDLPTDataSet.MONHOC2DataTable dataTable) {
+        public virtual int Fill(TnCsdlptDataSet.MONHOC2DataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -13457,9 +13457,9 @@ SELECT NGAYBACKUP, CAUHOI, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, rowguid FROM BO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TN_CSDLPTDataSet.MONHOC2DataTable GetData() {
+        public virtual TnCsdlptDataSet.MONHOC2DataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TN_CSDLPTDataSet.MONHOC2DataTable dataTable = new TN_CSDLPTDataSet.MONHOC2DataTable();
+            TnCsdlptDataSet.MONHOC2DataTable dataTable = new TnCsdlptDataSet.MONHOC2DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -13612,7 +13612,7 @@ SELECT NGAYBACKUP, CAUHOI, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, rowguid FROM BO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TN_CSDLPTDataSet.KHOA2DataTable dataTable) {
+        public virtual int Fill(TnCsdlptDataSet.KHOA2DataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -13625,9 +13625,9 @@ SELECT NGAYBACKUP, CAUHOI, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, rowguid FROM BO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TN_CSDLPTDataSet.KHOA2DataTable GetData() {
+        public virtual TnCsdlptDataSet.KHOA2DataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TN_CSDLPTDataSet.KHOA2DataTable dataTable = new TN_CSDLPTDataSet.KHOA2DataTable();
+            TnCsdlptDataSet.KHOA2DataTable dataTable = new TnCsdlptDataSet.KHOA2DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -13791,7 +13791,7 @@ INNER JOIN MONHOC ON MONHOC.MAMH = GIAOVIEN_DANGKY.MAMH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TN_CSDLPTDataSet.GVDK_ENDUSERDataTable dataTable) {
+        public virtual int Fill(TnCsdlptDataSet.GVDK_ENDUSERDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -13804,9 +13804,9 @@ INNER JOIN MONHOC ON MONHOC.MAMH = GIAOVIEN_DANGKY.MAMH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TN_CSDLPTDataSet.GVDK_ENDUSERDataTable GetData() {
+        public virtual TnCsdlptDataSet.GVDK_ENDUSERDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TN_CSDLPTDataSet.GVDK_ENDUSERDataTable dataTable = new TN_CSDLPTDataSet.GVDK_ENDUSERDataTable();
+            TnCsdlptDataSet.GVDK_ENDUSERDataTable dataTable = new TnCsdlptDataSet.GVDK_ENDUSERDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -14133,7 +14133,7 @@ INNER JOIN MONHOC ON MONHOC.MAMH = GIAOVIEN_DANGKY.MAMH
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(TN_CSDLPTDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(TnCsdlptDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._cOSOTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.COSO.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -14242,7 +14242,7 @@ INNER JOIN MONHOC ON MONHOC.MAMH = GIAOVIEN_DANGKY.MAMH
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(TN_CSDLPTDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(TnCsdlptDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._cOSOTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.COSO.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -14340,7 +14340,7 @@ INNER JOIN MONHOC ON MONHOC.MAMH = GIAOVIEN_DANGKY.MAMH
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(TN_CSDLPTDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(TnCsdlptDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._bODE_BKTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.BODE_BK.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -14462,7 +14462,7 @@ INNER JOIN MONHOC ON MONHOC.MAMH = GIAOVIEN_DANGKY.MAMH
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(TN_CSDLPTDataSet dataSet) {
+        public virtual int UpdateAll(TnCsdlptDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

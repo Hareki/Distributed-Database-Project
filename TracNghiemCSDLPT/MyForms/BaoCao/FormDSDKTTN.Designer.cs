@@ -1,7 +1,7 @@
 ﻿
 namespace TracNghiemCSDLPT.MyForms.BaoCao
 {
-    partial class FormDSDKTTN
+    partial class FormDsdkttn
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDSDKTTN));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDsdkttn));
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.CoSoComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -257,7 +257,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1421, 813);
             this.Controls.Add(this.bunifuPanel1);
-            this.Name = "FormDSDKTTN";
+            this.Name = "FormDsdkttn";
             this.Text = "Danh sách đăng ký thi TN";
             this.bunifuPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

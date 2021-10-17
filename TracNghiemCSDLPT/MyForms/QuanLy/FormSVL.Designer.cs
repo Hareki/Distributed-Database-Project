@@ -1,7 +1,7 @@
 ﻿
 namespace TracNghiemCSDLPT.MyForms.QuanLy
 {
-    partial class FormSVL
+    partial class FormSvl
     {
         /// <summary>
         /// Required designer variable.
@@ -34,14 +34,14 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             System.Windows.Forms.Label mALOPLabel;
             System.Windows.Forms.Label tENLOPLabel;
             System.Windows.Forms.Label mAKHLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSVL));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSvl));
             this.LopGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMALOP1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENLOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAKH1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.KhoaGridControl = new DevExpress.XtraGrid.GridControl();
             this.KhoaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TN_CSDLPTDataSet();
+            this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TnCsdlptDataSet();
             this.KhoaGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAKH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENKH = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -1187,7 +1187,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.Controls.Add(this.InfoPanel);
             this.Controls.Add(this.KhoaGridControl);
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("FormSVL.IconOptions.Icon")));
-            this.Name = "FormSVL";
+            this.Name = "FormSvl";
             this.Text = "Sinh viên và lớp";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormSVL_FormClosing);
             this.Load += new System.EventHandler(this.FormSVL_Load);
@@ -1227,7 +1227,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         #endregion
 
-        private TN_CSDLPTDataSet TN_CSDLPTDataSet;
+        private TnCsdlptDataSet TN_CSDLPTDataSet;
         private System.Windows.Forms.BindingSource KhoaBindingSource;
         private TN_CSDLPTDataSetTableAdapters.KHOATableAdapter KhoaTableAdapter;
         private TN_CSDLPTDataSetTableAdapters.TableAdapterManager tableAdapterManager;

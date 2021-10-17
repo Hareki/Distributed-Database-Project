@@ -75,7 +75,7 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             this.LabelCoSo = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.DSGVBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TN_CSDLPTDataSet();
+            this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TnCsdlptDataSet();
             this.DSGVTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.DSGIAOVIENTableAdapter();
             this.tableAdapterManager = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
             this.LookUpEP = new System.Windows.Forms.ErrorProvider(this.components);
@@ -906,7 +906,7 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
         private DevExpress.XtraEditors.GridLookUpEdit LookUpGV;
         private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
         private System.Windows.Forms.Label label6;
-        private TN_CSDLPTDataSet TN_CSDLPTDataSet;
+        private TnCsdlptDataSet TN_CSDLPTDataSet;
         private System.Windows.Forms.BindingSource DSGVBindingSource;
         private TN_CSDLPTDataSetTableAdapters.DSGIAOVIENTableAdapter DSGVTableAdapter;
         private TN_CSDLPTDataSetTableAdapters.TableAdapterManager tableAdapterManager;

@@ -25,7 +25,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void PhanQuyen()
         {
-            switch (DBConnection.NhomQuyen)
+            switch (DbConnection.NhomQuyen)
             {
                 case "TRUONG":
                     SetIdleButtonEnabled(false);
@@ -37,11 +37,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         }
 
-        private int _previousIndexCS;
+        private int _previousIndexCs;
         private int _oldPositionRow;
-        private string _origMaKH = "~!@#$%";
-        private string _origTenKH = "~!@#$%";
-        private string _maCS;
+        private string _origMaKh = "~!@#$%";
+        private string _origTenKh = "~!@#$%";
+        private string _maCs;
 
         private readonly Stack<Khoa> _undoStack = new Stack<Khoa>();
         private readonly Stack<Khoa> _redoStack = new Stack<Khoa>();
@@ -55,8 +55,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void SetDefaultOrigValue()
         {
-            _origMaKH = "~!@#$%";
-            _origTenKH = "~!@#$%";
+            _origMaKh = "~!@#$%";
+            _origTenKh = "~!@#$%";
 
         }
         private void FormKhoa_Load(object sender, EventArgs e)
@@ -71,23 +71,23 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void LoadCombobox()
         {
-            this.CoSoComboBox.DataSource = DBConnection.BS_Subcribers;
+            this.CoSoComboBox.DataSource = DbConnection.BsSubcribers;
             this.CoSoComboBox.DisplayMember = "TENCS";
             this.CoSoComboBox.ValueMember = "TENSERVER";
-            this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
-            this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
+            this.CoSoComboBox.SelectedIndex = DbConnection.IndexCs;
+            this._previousIndexCs = this.CoSoComboBox.SelectedIndex;
         }
 
         private void LoadAllData()
         {
             this.LopTableAdapter.Connection.ConnectionString =
             this.GiaoVienTableAdapter.Connection.ConnectionString =
-            this.KhoaTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.KhoaTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
 
             this.KhoaTableAdapter.Fill(this.TN_CSDLPTDataSet.KHOA);
             this.GiaoVienTableAdapter.Fill(this.TN_CSDLPTDataSet.GIAOVIEN);
             this.LopTableAdapter.Fill(this.TN_CSDLPTDataSet.LOP);
-            this._maCS = ((DataRowView)DBConnection.BS_Subcribers[CoSoComboBox.SelectedIndex])[ColMaCoSo].ToString();
+            this._maCs = ((DataRowView)DbConnection.BsSubcribers[CoSoComboBox.SelectedIndex])[ColMaCoSo].ToString();
         }
 
         private void CoSoComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -98,40 +98,40 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
             string login, pass;
             string serverName = CoSoComboBox.SelectedValue.ToString();
-            if (CoSoComboBox.SelectedIndex != DBConnection.IndexCS)
+            if (CoSoComboBox.SelectedIndex != DbConnection.IndexCs)
             {
-                login = DBConnection.RemoteLogin;
-                pass = DBConnection.RemotePassword;
+                login = DbConnection.RemoteLogin;
+                pass = DbConnection.RemotePassword;
             }
             else
             {
-                login = DBConnection.LoginName;
-                pass = DBConnection.Password;
+                login = DbConnection.LoginName;
+                pass = DbConnection.Password;
             }
-            bool success = DBConnection.ConnectToSubcriber(login, pass, serverName);
+            bool success = DbConnection.ConnectToSubcriber(login, pass, serverName);
             if (success)
             {
                 LoadAllData();
-                this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
+                this._previousIndexCs = this.CoSoComboBox.SelectedIndex;
 
             }
             else
             {
                 Utils.ShowMessage("Tạm thời không thể kết nối đến cơ sở này", Others.NotiForm.FormType.Error, 2);
-                this.CoSoComboBox.SelectedIndex = this._previousIndexCS;
+                this.CoSoComboBox.SelectedIndex = this._previousIndexCs;
             }
         }
 
         private bool MaKhoaAlreadyExists(string maKhoa, bool isUndoRedo)
         {
-            string SPName = "usp_Khoa_GetInfoById";
+            string spName = "usp_Khoa_GetInfoById";
             List<Para> paraList = new List<Para>();
             paraList.Add(new Para("@ID", maKhoa));
             if (isUndoRedo)
             {
-                paraList.Add(new Para("@MACS", this._maCS));
+                paraList.Add(new Para("@MACS", this._maCs));
             }
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
+            SqlDataReader myReader = DbConnection.ExecuteSqlDataReaderSp(spName, paraList);
             if (myReader == null)
             {
                 Console.WriteLine(System.Environment.StackTrace);
@@ -146,14 +146,14 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private bool TenKhoaAlreadyExists(string tenKhoa, bool isUndoRedo)
         {
-            string SPName = "usp_Khoa_GetInfoByName";
+            string spName = "usp_Khoa_GetInfoByName";
             List<Para> paraList = new List<Para>();
             paraList.Add(new Para("@Name", tenKhoa));
             if (isUndoRedo)
             {
-                paraList.Add(new Para("@MACS", this._maCS));
+                paraList.Add(new Para("@MACS", this._maCs));
             }
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
+            SqlDataReader myReader = DbConnection.ExecuteSqlDataReaderSp(spName, paraList);
             if (myReader == null)
             {
                 Console.WriteLine(System.Environment.StackTrace);
@@ -224,7 +224,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             KhoaGridControl.Enabled = false;
             _state = State.Add;
             KhoaBindingSource.AddNew();
-            TextMaCS.Text = _maCS;
+            TextMaCS.Text = _maCs;
         }
 
         private void ResetTextEditErrors()
@@ -285,7 +285,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     removedMaKhoa = rowView[ColMaKhoa].ToString();
                     KhoaBindingSource.RemoveCurrent();
                     KhoaTableAdapter.Update(TN_CSDLPTDataSet.KHOA);
-                    deletedKhoa.Update(removedMaKhoa, removedTenKhoa, this._maCS, ActionType.Insert);
+                    deletedKhoa.Update(removedMaKhoa, removedTenKhoa, this._maCs, ActionType.Insert);
                     Utils.ShowMessage($"Xóa khoa {deletedKhoa.TenKhoa} thành công!", Others.NotiForm.FormType.Success, 1);
                     CheckButtonState();
                 }
@@ -333,7 +333,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             try
             {
-                this.KhoaTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+                this.KhoaTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
                 this.KhoaTableAdapter.Fill(this.TN_CSDLPTDataSet.KHOA);
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
                 CheckButtonState();
@@ -356,7 +356,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 return false;
             }
 
-            if (!_origMaKH.Equals(maKhoa.ToLower()) && MaKhoaAlreadyExists(maKhoa, isUndoRedo))
+            if (!_origMaKh.Equals(maKhoa.ToLower()) && MaKhoaAlreadyExists(maKhoa, isUndoRedo))
             {
                 Utils.SetTextEditError(MaKHEP, TextMaKhoa, "Mã khoa đã tồn tại");
                 Utils.ShowMessage("Thông tin vừa nhập đã tồn tại", Others.NotiForm.FormType.Error, 2);
@@ -377,7 +377,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
 
 
-            if (!_origTenKH.Equals(tenKhoa.ToLower()) && TenKhoaAlreadyExists(tenKhoa, isUndoRedo))
+            if (!_origTenKh.Equals(tenKhoa.ToLower()) && TenKhoaAlreadyExists(tenKhoa, isUndoRedo))
             {
                 Utils.SetTextEditError(MaKHEP, TextTenKhoa, "Tên khoa đã tồn tại");
                 Utils.ShowMessage("Thông tin vừa nhập đã tồn tại", Others.NotiForm.FormType.Error, 2);
@@ -402,7 +402,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             if (_state == State.Add)
             {
-                changedKhoa.Update(TextMaKhoa.Text, TextTenKhoa.Text, this._maCS, ActionType.Delete);
+                changedKhoa.Update(TextMaKhoa.Text, TextTenKhoa.Text, this._maCs, ActionType.Delete);
                 message = $"Thêm khoa {changedKhoa.TenKhoa} thành công!";
             }
             else if (_state == State.Edit)
@@ -449,7 +449,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             DataRowView rowView = ((DataRowView)KhoaBindingSource[selectedRow]);
             khoa.MaKhoa = rowView[ColMaKhoa].ToString().Trim().ToUpper();
             khoa.TenKhoa = Utils.CapitalizeString(rowView[ColTenKhoa].ToString(), Utils.CapitalMode.FirstWordOnly);
-            khoa.MaCoSo = this._maCS;
+            khoa.MaCoSo = this._maCs;
             return khoa;
         }
 
@@ -461,8 +461,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             SetInputButtonEnabled(true);
             KhoaGridControl.Enabled = false;
             _state = State.Edit;
-            _origMaKH = TextMaKhoa.Text.Trim().ToLower();
-            _origTenKH = TextTenKhoa.Text.Trim().ToLower();
+            _origMaKh = TextMaKhoa.Text.Trim().ToLower();
+            _origTenKh = TextTenKhoa.Text.Trim().ToLower();
         }
 
 
@@ -493,8 +493,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             _state = State.Edit;
             int selectedRow = KhoaBindingSource.Find(ColMaKhoa, undoRedoKhoa.MaKhoa);
             _beforeEditKhoa = GetKhoaAtPosition(selectedRow);
-            _origMaKH = _beforeEditKhoa.MaKhoa.ToLower();
-            _origTenKH = _beforeEditKhoa.TenKhoa.ToLower();
+            _origMaKh = _beforeEditKhoa.MaKhoa.ToLower();
+            _origTenKh = _beforeEditKhoa.TenKhoa.ToLower();
             return ApplyInsertUpdateUndoRedo(undoRedoKhoa);
         }
 

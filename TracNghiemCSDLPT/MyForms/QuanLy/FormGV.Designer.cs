@@ -1,7 +1,7 @@
 ﻿
 namespace TracNghiemCSDLPT.MyForms.QuanLy
 {
-    partial class FormGV
+    partial class FormGv
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGV));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGv));
             this.LopGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMALOP1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENLOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAKH1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.KhoaGridControl = new DevExpress.XtraGrid.GridControl();
             this.KhoaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TN_CSDLPTDataSet();
+            this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TnCsdlptDataSet();
             this.KhoaGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAKH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENKH = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -797,7 +797,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("FormGV.IconOptions.Icon")));
-            this.Name = "FormGV";
+            this.Name = "FormGv";
             this.Text = "Giáo viên";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormGV_FormClosing);
             this.Load += new System.EventHandler(this.FormGV_Load);
@@ -839,7 +839,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private Guna.UI2.WinForms.Guna2ComboBox CoSoComboBox;
         private System.Windows.Forms.Label label1;
         private Bunifu.UI.WinForms.BunifuSeparator bunifuSeparator1;
-        private TN_CSDLPTDataSet TN_CSDLPTDataSet;
+        private TnCsdlptDataSet TN_CSDLPTDataSet;
         private System.Windows.Forms.BindingSource KhoaBindingSource;
         private TN_CSDLPTDataSetTableAdapters.KHOATableAdapter KhoaTableAdapter;
         private TN_CSDLPTDataSetTableAdapters.TableAdapterManager tableAdapterManager;

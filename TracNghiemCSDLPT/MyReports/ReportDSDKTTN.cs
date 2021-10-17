@@ -1,12 +1,12 @@
 ﻿namespace TracNghiemCSDLPT.MyReports
 {
-    public partial class ReportDSDKTTN : DevExpress.XtraReports.UI.XtraReport
+    public partial class ReportDsdkttn : DevExpress.XtraReports.UI.XtraReport
     {
-        public ReportDSDKTTN()
+        public ReportDsdkttn()
         {
             InitializeComponent();
         }
-        public ReportDSDKTTN(string dateFrom, string dateTo, string connectionString)
+        public ReportDsdkttn(string dateFrom, string dateTo, string connectionString)
         {
             InitializeComponent();
             this.bANGDIEMTableAdapter.Connection.ConnectionString = connectionString;

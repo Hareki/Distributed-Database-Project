@@ -9,7 +9,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 {
     public partial class FormMonHoc : DevExpress.XtraEditors.XtraForm
     {
-        private int selectedRow = 0;
+        private int _selectedRow = 0;
 
         public FormMonHoc()
         {
@@ -18,7 +18,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         private void PhanQuyen()
         {
-            switch (DBConnection.NhomQuyen)
+            switch (DbConnection.NhomQuyen)
             {
                 case "TRUONG":
                     SetIdleButtonEnabled(false);
@@ -30,23 +30,23 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         }
 
-        readonly Color ActiveForeColor = Color.FromArgb(72, 70, 68);
-        readonly Color DisabledForeColor = SystemColors.AppWorkspace;
-        State state = State.idle;
-        string origMaMH = "~!@#$%";
-        string origTenMH = "~!@#$%";
+        readonly Color _activeForeColor = Color.FromArgb(72, 70, 68);
+        readonly Color _disabledForeColor = SystemColors.AppWorkspace;
+        State _state = State.Idle;
+        string _origMaMh = "~!@#$%";
+        string _origTenMh = "~!@#$%";
 
         private void SetDefaultOrigValue()
         {
-            origTenMH = "~!@#$%";
-            origMaMH = "~!@#$%";
+            _origTenMh = "~!@#$%";
+            _origMaMh = "~!@#$%";
         }
         enum State
         {
-            add, edit, idle
+            Add, Edit, Idle
         }
 
-        private void checkButtonState()
+        private void CheckButtonState()
         {
             if (MonHocBindingSource.Count == 0)
                 buttonXoa.Enabled = buttonSua.Enabled = false;
@@ -55,10 +55,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private void LoadAllData()
         {
            
-            this.MonHocTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.BoDeTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.GV_DKTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.BangDiemTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.MonHocTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
+            this.BoDeTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
+            this.GV_DKTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
+            this.BangDiemTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
 
             this.MonHocTableAdapter.Fill(this.TN_CSDLPTDataSet.MONHOC);
             this.BoDeTableAdapter.Fill(this.TN_CSDLPTDataSet.BODE);
@@ -69,7 +69,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             this.TN_CSDLPTDataSet.EnforceConstraints = false;//phải có dòng này, nếu không khi refresh sẽ ko cho, do môn học là khóa chính, đã trỏ ra các bảng khác
             LoadAllData();
-            checkButtonState();
+            CheckButtonState();
             PhanQuyen();
         }
 
@@ -97,10 +97,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void buttonThem_Click(object sender, EventArgs e)
         {
-            selectedRow = MonHocBindingSource.Position;
+            _selectedRow = MonHocBindingSource.Position;
             InfoPanel.Enabled = true;
             InfoPanel.ForeColor = TextMaMH.ForeColor =
-                TextTenMH.ForeColor = ActiveForeColor;
+                TextTenMH.ForeColor = _activeForeColor;
 
             InfoPanel.Text = "Thêm mới thông tin môn học";
 
@@ -108,7 +108,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             SetInputButtonEnabled(true);
 
             MonHocGridControl.Enabled = false;
-            state = State.add;
+            _state = State.Add;
             MonHocBindingSource.AddNew();
         }
 
@@ -116,17 +116,17 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             InfoPanel.Enabled = false;
             InfoPanel.ForeColor = TextMaMH.ForeColor =
-                TextTenMH.ForeColor = DisabledForeColor;
+                TextTenMH.ForeColor = _disabledForeColor;
             MonHocGridControl.Enabled = true;
             MonHocBindingSource.CancelEdit();
             InfoPanel.Text = "Thông tin môn học";
-            if (state == State.add)
-                MonHocBindingSource.Position = selectedRow;
+            if (_state == State.Add)
+                MonHocBindingSource.Position = _selectedRow;
             SetIdleButtonEnabled(true);
             SetInputButtonEnabled(false);
             Utils.SetTextEditError(TenMHEP, TextTenMH, null);
             Utils.SetTextEditError(MaMHEP, TextMaMH, null);
-            state = State.idle;
+            _state = State.Idle;
             SetDefaultOrigValue();
 
         }
@@ -135,7 +135,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             InfoPanel.Enabled = true;
             InfoPanel.ForeColor = TextMaMH.ForeColor =
-                TextTenMH.ForeColor = ActiveForeColor;
+                TextTenMH.ForeColor = _activeForeColor;
 
             InfoPanel.Text = "Sửa thông tin môn học";
             TextMaMH.Text = TextMaMH.Text.Trim();
@@ -143,10 +143,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             SetIdleButtonEnabled(false);
             SetInputButtonEnabled(true);
 
-            origMaMH = TextMaMH.Text.Trim();
-            origTenMH = Utils.CapitalizeString(TextTenMH.Text, Utils.CapitalMode.FirstWordOnly);
+            _origMaMh = TextMaMH.Text.Trim();
+            _origTenMh = Utils.CapitalizeString(TextTenMH.Text, Utils.CapitalMode.FirstWordOnly);
             MonHocGridControl.Enabled = false;
-            state = State.edit;
+            _state = State.Edit;
         }
 
         private void buttonLamMoi_Click(object sender, EventArgs e)
@@ -156,7 +156,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 LoadAllData();
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
 
-                checkButtonState();
+                CheckButtonState();
             }
             catch (Exception ex)
             {
@@ -168,8 +168,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void buttonXoa_Click(object sender, EventArgs e)
         {
-            string RemovedMH = "";
-            selectedRow = MonHocBindingSource.Position;
+            string removedMh = "";
+            _selectedRow = MonHocBindingSource.Position;
             if (BoDeBindingSource.Count > 0)
             {
                 Utils.ShowMessage("Không thể xóa vì đã có câu hỏi thuộc môn học này", Others.NotiForm.FormType.Error, 2);
@@ -189,7 +189,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             {
                 try
                 {
-                    RemovedMH = ((DataRowView)MonHocBindingSource[selectedRow])["MAMH"].ToString();
+                    removedMh = ((DataRowView)MonHocBindingSource[_selectedRow])["MAMH"].ToString();
                     MonHocBindingSource.RemoveCurrent();
                     MonHocTableAdapter.Update(TN_CSDLPTDataSet.MONHOC);
                     Utils.ShowMessage("Xóa môn học thành công!", Others.NotiForm.FormType.Success, 1);
@@ -199,31 +199,31 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     Utils.ShowErrorMessage("Không thể xóa môn học này, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi xóa môn học");
                     Console.WriteLine(ex.StackTrace);
                     this.MonHocTableAdapter.Fill(TN_CSDLPTDataSet.MONHOC);
-                    MonHocBindingSource.Position = MonHocBindingSource.Find("MAMH", RemovedMH);
+                    MonHocBindingSource.Position = MonHocBindingSource.Find("MAMH", removedMh);
                     return;
                 }
             }
 
-            checkButtonState();
+            CheckButtonState();
         }
 
-        private bool AlreadyExists(string testName, bool isID)
+        private bool AlreadyExists(string testName, bool isId)
         {
             List<Para> paraList = new List<Para>();
-            string SPName = "usp_MonHoc_GetInfoByXXX";
-            if (isID)
+            string spName = "usp_MonHoc_GetInfoByXXX";
+            if (isId)
             {
-                SPName = SPName.Replace("XXX", "ID");
+                spName = spName.Replace("XXX", "ID");
                 paraList.Add(new Para("@ID", testName));
             }
 
             else
             {
-                SPName = SPName.Replace("XXX", "Name");
+                spName = spName.Replace("XXX", "Name");
                 paraList.Add(new Para("@Name", testName));
             }
 
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
+            SqlDataReader myReader = DbConnection.ExecuteSqlDataReaderSp(spName, paraList);
             if (myReader == null)
             {
                 Console.WriteLine(System.Environment.StackTrace);
@@ -270,10 +270,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 return;
             }
             test1 = test2 = false;
-            if (!origMaMH.ToLower().Equals(TextMaMH.Text.ToLower()))
+            if (!_origMaMh.ToLower().Equals(TextMaMH.Text.ToLower()))
                 test1 = AlreadyExists(TextMaMH.Text, true);
 
-            if (!origTenMH.ToLower().Equals(TextTenMH.Text.ToLower()))
+            if (!_origTenMh.ToLower().Equals(TextTenMH.Text.ToLower()))
                 test2 = AlreadyExists(TextTenMH.Text, false);
 
 
@@ -299,11 +299,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
                 MonHocBindingSource.ResetCurrentItem();
                 this.MonHocTableAdapter.Update(this.TN_CSDLPTDataSet.MONHOC);
-                if (state == State.edit)
+                if (_state == State.Edit)
                     Utils.ShowMessage("Sửa môn học thành công", Others.NotiForm.FormType.Success, 1);
-                else if (state == State.add)
+                else if (_state == State.Add)
                     Utils.ShowMessage("Thêm môn học thành công", Others.NotiForm.FormType.Success, 1);
-                state = State.idle;
+                _state = State.Idle;
 
                 InfoPanel.Text = "Thông tin môn học";
                 ClearErrors();
@@ -317,16 +317,16 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             MonHocGridControl.Enabled = true;
             InfoPanel.Enabled = false;
             InfoPanel.ForeColor = TextMaMH.ForeColor =
-                TextTenMH.ForeColor = DisabledForeColor;
+                TextTenMH.ForeColor = _disabledForeColor;
             SetIdleButtonEnabled(true);
             SetInputButtonEnabled(false);
             SetDefaultOrigValue();
-            checkButtonState();
+            CheckButtonState();
         }
 
         private void FormMonHoc_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (state != State.idle)
+            if (_state != State.Idle)
                 if (!Utils.ShowConfirmMessage("Hủy những thay đổi đang thực hiện và đóng cửa sổ này?", "Xác nhận"))
                     e.Cancel = true;
         }

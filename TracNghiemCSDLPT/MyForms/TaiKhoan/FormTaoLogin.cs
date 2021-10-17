@@ -15,10 +15,10 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
 
         private void PhanQuyen()
         {
-            switch (DBConnection.NhomQuyen)
+            switch (DbConnection.NhomQuyen)
             {
                 case "TRUONG":
-                    loadGVData();
+                    LoadGvData();
                     LookUpGV.Properties.DataSource = DSGVBindingSource;
                     LookUpGV.Properties.DisplayMember = "FullInfo";
                     LookUpGV.Properties.ValueMember = "MaGV";
@@ -28,7 +28,7 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
                     rdoTruong.Checked = true;
                     break;
                 case "COSO":
-                    loadGVTCSData();
+                    LoadGvtcsData();
                     LookUpGV.Properties.DataSource = DSGVTCSBindingSource;
                     LookUpGV.Properties.DisplayMember = "FullInfo";
                     LookUpGV.Properties.ValueMember = "MaGV";
@@ -39,14 +39,14 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             }
         }
 
-        private void loadGVData()
+        private void LoadGvData()
         {
-            this.DSGVTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.DSGVTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
             this.DSGVTableAdapter.Fill(this.TN_CSDLPTDataSet.DSGIAOVIEN);
         }
-        private void loadGVTCSData()
+        private void LoadGvtcsData()
         {
-            this.DSGVTCSTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.DSGVTCSTableAdapter.Connection.ConnectionString = DbConnection.SubcriberConnectionString;
             this.DSGVTCSTableAdapter.Fill(this.TN_CSDLPTDataSet.DSGIAOVIENTCS);
         }
 
@@ -89,24 +89,24 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
                     TenDangNhapEP.SetError(TextTenDangNhap, "Tên tài khoản chỉ được chứa ký tự '/', '.' chữ và số");
                 return;
             }
-            string LoginName = TextTenDangNhap.Text.Trim();
-            string Password = TextMatKhau.Text;
-            string MaGV = (LookUpGV.GetSelectedDataRow() as DataRowView)["MaGV"].ToString();
-            string AccType;
+            string loginName = TextTenDangNhap.Text.Trim();
+            string password = TextMatKhau.Text;
+            string maGv = (LookUpGV.GetSelectedDataRow() as DataRowView)["MaGV"].ToString();
+            string accType;
             if (panelCSGV.Visible)
-                AccType = rdoCS.Checked ? "COSO" : "GIAOVIEN";
-            else AccType = "TRUONG";
+                accType = rdoCS.Checked ? "COSO" : "GIAOVIEN";
+            else accType = "TRUONG";
 
             List<Para> paraList = new List<Para>();
-            paraList.Add(new Para("@LoginName", LoginName));
-            paraList.Add(new Para("@Password", Password));
-            paraList.Add(new Para("@Username", MaGV));
-            paraList.Add(new Para("@Role", AccType));
+            paraList.Add(new Para("@LoginName", loginName));
+            paraList.Add(new Para("@Password", password));
+            paraList.Add(new Para("@Username", maGv));
+            paraList.Add(new Para("@Role", accType));
 
-            string SPName = "usp_Login_AddLoginUser";
+            string spName = "usp_Login_AddLoginUser";
 
 
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(SPName, paraList);
+            SqlDataReader myReader = DbConnection.ExecuteSqlDataReaderSp(spName, paraList);
             if (myReader == null)
             {
                 Console.WriteLine(System.Environment.StackTrace);

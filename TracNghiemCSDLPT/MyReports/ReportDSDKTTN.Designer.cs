@@ -1,7 +1,7 @@
 ﻿
 namespace TracNghiemCSDLPT.MyReports
 {
-    partial class ReportDSDKTTN
+    partial class ReportDsdkttn
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@ namespace TracNghiemCSDLPT.MyReports
             DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery1 = new DevExpress.DataAccess.Sql.StoredProcQuery();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter1 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter2 = new DevExpress.DataAccess.Sql.QueryParameter();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportDSDKTTN));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportDsdkttn));
             DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
@@ -64,7 +64,7 @@ namespace TracNghiemCSDLPT.MyReports
             this.DetailData1 = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DetailData3_Odd = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.tN_CSDLPTDataSet1 = new TracNghiemCSDLPT.TN_CSDLPTDataSet();
+            this.tN_CSDLPTDataSet1 = new TracNghiemCSDLPT.TnCsdlptDataSet();
             this.bANGDIEMTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.BANGDIEMTableAdapter();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
@@ -623,7 +623,7 @@ namespace TracNghiemCSDLPT.MyReports
         private DevExpress.XtraReports.UI.XRControlStyle DetailData3_Odd;
         private DevExpress.XtraReports.UI.XRControlStyle PageInfo;
         public DevExpress.XtraReports.UI.XRLabel ReportTitle;
-        private TN_CSDLPTDataSet tN_CSDLPTDataSet1;
+        private TnCsdlptDataSet tN_CSDLPTDataSet1;
         private TN_CSDLPTDataSetTableAdapters.BANGDIEMTableAdapter bANGDIEMTableAdapter;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell1;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell2;

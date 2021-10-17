@@ -19,7 +19,7 @@ namespace TracNghiemCSDLPT.MyForms
 
         private void PhanQuyen()
         {
-            switch (DBConnection.NhomQuyen)
+            switch (DbConnection.NhomQuyen)
             {
                 case "TRUONG":
                     buttonToChucThi.Enabled = buttonThamGiaThi.Enabled = false;
@@ -54,7 +54,7 @@ namespace TracNghiemCSDLPT.MyForms
             return null;
         }
 
-        private void showForm(Type type)
+        private void ShowForm(Type type)
         {
             Form form = GetFormIfExists(type);
             if (form != null)
@@ -69,7 +69,7 @@ namespace TracNghiemCSDLPT.MyForms
 
         private void buttonMonHoc_ItemClick(object sender, ItemClickEventArgs e)
         {
-            showForm(typeof(FormMonHoc));
+            ShowForm(typeof(FormMonHoc));
         }
 
         private void MainView_FormClosed(object sender, FormClosedEventArgs e)
@@ -85,32 +85,32 @@ namespace TracNghiemCSDLPT.MyForms
 
         private void buttonSinhVien_ItemClick(object sender, ItemClickEventArgs e)
         {
-            showForm(typeof(FormSVL));
+            ShowForm(typeof(FormSvl));
         }
 
         private void buttonTaoTK_ItemClick(object sender, ItemClickEventArgs e)
         {
-            showForm(typeof(FormTaoLogin));
+            ShowForm(typeof(FormTaoLogin));
         }
 
         private void buttonKhoaLop_ItemClick(object sender, ItemClickEventArgs e)
         {
-            showForm(typeof(FormKhoa));
+            ShowForm(typeof(FormKhoa));
         }
 
         private void butonGiaoVien_ItemClick(object sender, ItemClickEventArgs e)
         {
-            showForm(typeof(FormGV));
+            ShowForm(typeof(FormGv));
         }
 
         private void buttonDeThi_ItemClick(object sender, ItemClickEventArgs e)
         {
-            showForm(typeof(FormCauHoi));
+            ShowForm(typeof(FormCauHoi));
         }
 
         private void buttonDKTN_ItemClick(object sender, ItemClickEventArgs e)
         {
-            showForm(typeof(FormDSDKTTN));
+            ShowForm(typeof(FormDsdkttn));
         }
 
         private void buttonDangXuat_ItemClick(object sender, ItemClickEventArgs e)
@@ -125,7 +125,7 @@ namespace TracNghiemCSDLPT.MyForms
 
         private void buttonToChucThi_ItemClick(object sender, ItemClickEventArgs e)
         {
-            showForm(typeof(FormDKThi));
+            ShowForm(typeof(FormDkThi));
         }
 
         private void buttonKQThi_ItemClick(object sender, ItemClickEventArgs e)

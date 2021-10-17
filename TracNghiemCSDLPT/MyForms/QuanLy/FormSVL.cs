@@ -50,13 +50,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private string _origMaSV = "~!@#$%";
         private int _editingSvIndex;
 
-        private bool _canSaveSv = true;
         private string _saveMaKhForReset;
         private string _saveMaLopForReset;
 
 
-        Color _activeForeColor = Color.FromArgb(72, 70, 68);
-        Color _disabledForeColor = SystemColors.AppWorkspace;
+
         State _state = State.Idle;
         enum State
         {
@@ -286,7 +284,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             //  InfoPanel.Enabled = true;
             ComboMaKH.Enabled = TextTenLop.Enabled = TextMaLop.Enabled = true;
             InfoPanel.ForeColor = TextMaLop.ForeColor =
-                TextTenLop.ForeColor = ComboMaKH.ForeColor = _activeForeColor;
+                TextTenLop.ForeColor = ComboMaKH.ForeColor = Utils.ActiveColor;
 
             InfoPanel.Text = "Thêm mới thông tin lớp";
 
@@ -307,7 +305,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             //   InfoPanel.Enabled = false;
             ComboMaKH.Enabled = TextTenLop.Enabled = TextMaLop.Enabled = false;
             InfoPanel.ForeColor = TextMaLop.ForeColor =
-                TextTenLop.ForeColor = ComboMaKH.ForeColor = _disabledForeColor;
+                TextTenLop.ForeColor = ComboMaKH.ForeColor = Utils.DisabledColor;
 
             KhoaGridControl.Enabled = true;
             // KhoaBindingSource.ResumeBinding();
@@ -352,7 +350,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             //InfoPanel.Enabled = true;InfoPanel.Enabled = true;
             ComboMaKH.Enabled = TextTenLop.Enabled = TextMaLop.Enabled = true;
             InfoPanel.ForeColor = TextMaLop.ForeColor =
-                TextTenLop.ForeColor = ComboMaKH.ForeColor = _activeForeColor;
+                TextTenLop.ForeColor = ComboMaKH.ForeColor = Utils.ActiveColor;
 
             TextMaLop.Text = TextMaLop.Text.Trim();
 
@@ -557,7 +555,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             TextMaLop.Enabled = TextTenLop.Enabled = ComboMaKH.Enabled = false;
             InfoPanel.ForeColor = TextTenLop.ForeColor = TextMaLop.ForeColor = ComboMaKH.ForeColor
-                        = _disabledForeColor;
+                        = Utils.DisabledColor;
             SetIdleButtonEnabledLop(true);
             SetInputButtonEnabledLop(false);
 
@@ -757,7 +755,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             KhoaGridControl.Enabled = InfoPanel.Enabled = state;
             this.TextMaLop.ForeColor = this.ComboMaKH.ForeColor =
-                this.TextTenLop.ForeColor = state == true ? _activeForeColor : _disabledForeColor;
+                this.TextTenLop.ForeColor = state == true ? Utils.ActiveColor : Utils.DisabledColor;
         }
 
         private void SetSvState(bool state)

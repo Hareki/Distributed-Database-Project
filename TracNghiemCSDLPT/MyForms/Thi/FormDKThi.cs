@@ -136,6 +136,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
             PhanQuyen();
             Utils.ConfigControlColor(InfoPanel);
+            GVDK2GridView.Columns["NGAYTHI"].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
 
         }
 
@@ -161,17 +162,16 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             //do không dùng binding source nên phải lưu lại những giá trị này, nếu ko sẽ bị lỗi :<
             _selectedRow = GVDK2BindingSource.Position;
-            _origThoiGian = int.Parse(Utils.GetCellValueBds(GVDK2BindingSource, _selectedRow, "THOIGIAN"));
-            _origSoCau = int.Parse(Utils.GetCellValueBds(GVDK2BindingSource, _selectedRow, "SOCAUTHI"));
+            _origThoiGian = int.Parse(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "THOIGIAN"));
+            _origSoCau = int.Parse(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "SOCAUTHI"));
             _origNgayThi =
-            DateTime.ParseExact(Utils.GetCellValueBds(GVDK2BindingSource, _selectedRow, "NGAYTHI"), "dd/MM/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+            DateTime.ParseExact(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "NGAYTHI"), "dd/MM/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
         }
         private void buttonThem_Click(object sender, EventArgs e)
         {
             SaveOrigInput();
             ConfigInputState();
-            InfoPanel.Text = "Thêm thông tin đăng ký thi";
-            InfoPanel.ForeColor = Utils.AddColor;
+            Utils.ConfigInfoPanelAppearance(InfoPanel, "Thêm thông tin đăng ký thi", Utils.AddColor);
             SetBlankDataInput();
             _state = State.Add;
             SetLan();
@@ -197,8 +197,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             ClearErrors();
             SetOrigDefaultValue();
 
-            InfoPanel.Text = "Thông tin đăng ký thi";
-            InfoPanel.ForeColor = Utils.DisabledColor;
+            Utils.ConfigInfoPanelAppearance(InfoPanel, "Thông tin đăng ký thi", Utils.DisabledColor);
         }
         private void buttonHuy_Click(object sender, EventArgs e)
         {
@@ -272,7 +271,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             else
             {
                 LoadAllData();
-                this._previousIndexCS= this.CoSoComboBox.SelectedIndex;
+                this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
             }
         }
 
@@ -300,6 +299,24 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 myReader.Close();
                 return false;
             }
+        }
+
+        private int GetNumberOfQuestsions(string maMh, string trinhDo, int soCauHoi)
+        {
+            List<Para> paraList = new List<Para>();
+            paraList.Add(new Para("@MaMH", maMh));
+            paraList.Add(new Para("@TrinhDo", trinhDo));
+            string spName = "usp_BoDe_CheckNumberOfQuestions";
+            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
+            if (myReader == null)
+            {
+                Console.WriteLine(System.Environment.StackTrace);
+                return -1;
+            }
+            myReader.Read();
+            int soCauHoiReal = int.Parse(myReader.GetValue(0).ToString());
+            myReader.Close();
+            return soCauHoiReal;
         }
         private void UncheckAllRdo()
         {
@@ -413,10 +430,15 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 Utils.ShowMessage("Lớp không có sinh viên nào, không thể đăng ký thi", Others.NotiForm.FormType.Error, 2);
                 return;
             }
-
-
-
-
+            int soCauHoiReal = GetNumberOfQuestsions(maMh, trinhDo, soCau);
+            Console.WriteLine("Real: " + soCauHoiReal);
+            if (soCauHoiReal < soCau)
+            {
+                Utils.ShowMessage("Không đủ số câu hỏi để tạo đề thi (" + 
+                    soCauHoiReal +" < " +  soCau + ")", Others.NotiForm.FormType.Error, 2);
+                return;
+            }
+            
 
 
             List<Para> paraList = new List<Para>();
@@ -503,8 +525,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             {
                 SaveOrigInput();
                 ConfigInputState();
-                InfoPanel.Text = "Sửa thông tin đăng ký thi";
-                InfoPanel.ForeColor = Utils.EditColor;
+                Utils.ConfigInfoPanelAppearance(InfoPanel, "Sửa thông tin đăng ký thi", Utils.EditColor);
                 _origMaLop = LopCombo.SelectedValue.ToString().Trim();
                 _origMaMH = MHCombo.SelectedValue.ToString().Trim();
                 _origLan = GetLan();
@@ -557,7 +578,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
         private void SetCorrRdoTrinhDo()
         {
-            string trinhDo = Utils.GetCellValueBds(GVDK2BindingSource, GVDK2BindingSource.Position, "TRINHDO");
+            string trinhDo = Utils.GetCellStringBds(GVDK2BindingSource, GVDK2BindingSource.Position, "TRINHDO");
             switch (trinhDo)
             {
                 case "A":
@@ -575,7 +596,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
         private void SetCorrRdoLan()
         {
-            string lan = Utils.GetCellValueBds(GVDK2BindingSource, GVDK2BindingSource.Position, "LAN");
+            string lan = Utils.GetCellStringBds(GVDK2BindingSource, GVDK2BindingSource.Position, "LAN");
             switch (lan)
             {
                 case "1":
@@ -590,7 +611,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private void SetCorrBds(BindingSource bds, string columnName)
         {
             bds.Position = bds.Find(columnName,
-               Utils.GetCellValueBds(GVDK2BindingSource, GVDK2BindingSource.Position, columnName));
+               Utils.GetCellStringBds(GVDK2BindingSource, GVDK2BindingSource.Position, columnName));
         }
         private void SetCorrBds(BindingSource bds, string columnName, GridLookUpEdit lookUp)
         {
@@ -681,6 +702,20 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             Image image = pictureBox2.Enabled ? global::TracNghiemCSDLPT.Properties.Resources.info_480px :
                 global::TracNghiemCSDLPT.Properties.Resources.info_480px_disabled;
             pictureBox2.Image = image;
+        }
+
+        private void GVDK2GridView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            if (e.RowHandle == GVDK2GridView.FocusedRowHandle) return;
+
+            //if (((DateTime)Utils.GetCellValueBds(GVDK2BindingSource, e.RowHandle, "NGAYTHI")).Date >= DateTime.Now.Date)
+            //{
+            //    e.Appearance.BackColor = Color.FromArgb(255, 237, 211);
+            //}
+            if (((DateTime)GVDK2GridView.GetDataRow(e.RowHandle)["NGAYTHI"]).Date >= DateTime.Now.Date)
+            {
+                e.Appearance.BackColor = Color.FromArgb(255, 237, 211);
+            }
         }
     }
 }

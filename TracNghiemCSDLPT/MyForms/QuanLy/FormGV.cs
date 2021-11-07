@@ -29,6 +29,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private string _origMaGv = "~!@#$%";
         private int _editingGvIndex;
         private string _saveMaKhForReset;
+
         private void LoadAllData()
         {
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
@@ -120,6 +121,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             //   SetKhoaState(false);
             //    SetIdleButtonEnabledGV(false);
             SetInputButtonEnabledGv(true);
+            Utils.SetCustomizationEnabled(GVGridView, false);
             _state = State.Add;
             GVGridView.OptionsBehavior.Editable = true;
             GVBindingSource.AddNew();
@@ -128,7 +130,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private void ButtonHuyGV_Click(object sender, EventArgs e)
         {
             GVGridView.OptionsBehavior.Editable = false;
-            GVBindingSource.CancelEdit();
+
+            this.GVTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.GVTableAdapter.Fill(TN_CSDLPTDataSet.GIAOVIEN);
+            Utils.SetCustomizationEnabled(GVGridView, true);
             if (_state == State.Add)
                 GVBindingSource.Position = _selectedRowGv;
             _state = State.Idle;
@@ -202,6 +207,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     GVGridView.ClearColumnErrors();
                     CheckButtonStateGv();
                     SetDefaultOrigValue();
+                    Utils.SetCustomizationEnabled(GVGridView, true);
 
                 }
                 catch (Exception ex)
@@ -348,7 +354,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             SetKhoaState(false);
             SetIdleButtonEnabledGv(false);
             SetInputButtonEnabledGv(true);
-
+            Utils.SetCustomizationEnabled(GVGridView, false);
             string maGV = GetCellAtFRowGv(colMAGV).Trim();
             GVGridView.SetRowCellValue(GVGridView.FocusedRowHandle, colMAGV, maGV);
 

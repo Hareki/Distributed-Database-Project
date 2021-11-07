@@ -71,6 +71,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             LoadAllData();
             CheckButtonState();
             PhanQuyen();
+            Utils.ConfigControlColor(InfoPanel);
         }
 
         private void SetIdleButtonEnabled(bool state)
@@ -102,7 +103,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             InfoPanel.ForeColor = TextMaMH.ForeColor =
                 TextTenMH.ForeColor = _activeForeColor;
 
-            InfoPanel.Text = "Thêm mới thông tin môn học";
+            //InfoPanel.Text = "Thêm mới thông tin môn học";
+            //InfoPanel.ForeColor = Utils.AddColor;
+            Utils.ConfigInfoPanelAppearance(InfoPanel, "Thêm mới thông tin môn học", Utils.AddColor);
 
             SetIdleButtonEnabled(false);
             SetInputButtonEnabled(true);
@@ -119,7 +122,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 TextTenMH.ForeColor = _disabledForeColor;
             MonHocGridControl.Enabled = true;
             MonHocBindingSource.CancelEdit();
-            InfoPanel.Text = "Thông tin môn học";
+            //InfoPanel.Text = "Thông tin môn học";
+            //InfoPanel.ForeColor = Utils.DisabledColor;
+            Utils.ConfigInfoPanelAppearance(InfoPanel, "Thông tin môn học", Utils.DisabledColor);
             if (_state == State.Add)
                 MonHocBindingSource.Position = _selectedRow;
             SetIdleButtonEnabled(true);
@@ -137,7 +142,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             InfoPanel.ForeColor = TextMaMH.ForeColor =
                 TextTenMH.ForeColor = _activeForeColor;
 
-            InfoPanel.Text = "Sửa thông tin môn học";
+            //InfoPanel.Text = "Sửa thông tin môn học";
+            //InfoPanel.ForeColor = Utils.EditColor;
+            Utils.ConfigInfoPanelAppearance(InfoPanel, "Sửa thông tin môn học", Utils.EditColor);
             TextMaMH.Text = TextMaMH.Text.Trim();
 
             SetIdleButtonEnabled(false);
@@ -305,7 +312,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     Utils.ShowMessage("Thêm môn học thành công", Others.NotiForm.FormType.Success, 1);
                 _state = State.Idle;
 
-                InfoPanel.Text = "Thông tin môn học";
+                //InfoPanel.Text = "Thông tin môn học";
+                //InfoPanel.ForeColor = Utils.DisabledColor;
+                Utils.ConfigInfoPanelAppearance(InfoPanel, "Thông tin môn học", Utils.DisabledColor);
                 ClearErrors();
 
             }

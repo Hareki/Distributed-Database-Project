@@ -690,6 +690,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.SinhVienGridView.OptionsView.ShowIndicator = false;
             this.SinhVienGridView.ViewCaption = "Danh sách sinh viên thuộc lớp";
             this.SinhVienGridView.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.SinhVienGridView_CustomDrawCell);
+            this.SinhVienGridView.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.SinhVienGridView_PopupMenuShowing);
             this.SinhVienGridView.ShownEditor += new System.EventHandler(this.SinhVienGridView_ShownEditor);
             this.SinhVienGridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.SinhVienGridView_FocusedRowChanged);
             this.SinhVienGridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.SinhVienGridView_InvalidRowException);
@@ -1171,7 +1172,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonRedoLop.Size = new System.Drawing.Size(37, 32);
             this.buttonRedoLop.TabIndex = 33;
             // 
-            // FormSVL
+            // FormSvl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1186,7 +1187,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.InfoPanel);
             this.Controls.Add(this.KhoaGridControl);
-            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("FormSVL.IconOptions.Icon")));
             this.Name = "FormSvl";
             this.Text = "Sinh viên và lớp";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormSVL_FormClosing);

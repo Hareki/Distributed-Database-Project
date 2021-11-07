@@ -1,4 +1,7 @@
-﻿using DevExpress.XtraEditors;
+﻿using Bunifu.UI.WinForms;
+using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Data;
 using System.Drawing;
@@ -111,9 +114,13 @@ namespace TracNghiemCSDLPT
             coSoComboBox.SelectedIndex = DBConnection.IndexCS;
             previousIndexCS = coSoComboBox.SelectedIndex;
         }
-        public static string GetCellValueBds(BindingSource bds, int rowIndex, string columnName)
+        public static string GetCellStringBds(BindingSource bds, int rowIndex, string columnName)
         {
             return (bds[rowIndex] as DataRowView)[columnName].ToString();
+        }
+        public static object GetCellValueBds(BindingSource bds, int rowIndex, string columnName)
+        {
+            return (bds[rowIndex] as DataRowView)[columnName];
         }
         public static void SetCellValueBds(BindingSource bds, int rowIndex, string columnName, object value)
         {
@@ -123,6 +130,27 @@ namespace TracNghiemCSDLPT
         {
             foreach (Control ctl in gb.Controls)
                 ctl.ForeColor = SystemColors.ControlText;
+        }
+        public static void SetCustomizationEnabled(GridView gridView1, bool enabled)
+        {
+            gridView1.OptionsCustomization.AllowSort = enabled;
+            gridView1.OptionsCustomization.AllowFilter = enabled;
+            gridView1.OptionsCustomization.AllowGroup = enabled;
+            gridView1.ActiveFilter.Clear();
+            gridView1.ClearSorting();
+            gridView1.ClearGrouping();
+            gridView1.ClearColumnsFilter();
+            foreach (GridColumn column in gridView1.Columns)
+            {
+                column.Visible = true;
+            }
+
+        }
+        public static void ConfigInfoPanelAppearance(BunifuGroupBox infoPanel, string text, Color color)
+        {
+            infoPanel.Text = text;
+            infoPanel.BorderColor = color;
+            infoPanel.ForeColor = color;
         }
     }
 }

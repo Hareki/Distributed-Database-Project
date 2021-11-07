@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors.Controls;
+﻿using DevExpress.Utils;
+using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.DXErrorProvider;
 using DevExpress.XtraEditors.ViewInfo;
 using DevExpress.XtraGrid.Columns;
@@ -71,6 +72,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             _origMaSV = "~!@#$%";
         }
 
+        
         private void LoadAllData()
         {
             this.KhoaTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
@@ -165,7 +167,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.CoSoComboBox.DisplayMember = "TENCS";
             this.CoSoComboBox.ValueMember = "TENSERVER";
             this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
-            this._previousIndexCS= this.CoSoComboBox.SelectedIndex;
+            this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
 
             //  this.ComboMaKH.DataSource = KhoaBindingSource;
             this.ComboMaKH.DisplayMember = "TENKH";
@@ -231,7 +233,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             else
             {
                 LoadAllData();
-                this._previousIndexCS= this.CoSoComboBox.SelectedIndex;
+                this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
             }
         }
 
@@ -311,7 +313,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // KhoaBindingSource.ResumeBinding();
             ComboMaKH.SelectedIndex = _saveKhIndex;
             SetDefaultOrigValueLop();
-            LopBindingSource.CancelEdit();
+
+            this.LopTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.LopTableAdapter.Fill(this.TN_CSDLPTDataSet.LOP);
+
             InfoPanel.Text = "Thông tin lớp";
             if (_state == State.AddLop)
                 LopBindingSource.Position = _selectedRowLop;
@@ -596,7 +601,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
             CheckButtonStateLop();
         }
-
+       
         private void buttonThemSV_Click(object sender, EventArgs e)
         {
             _selectedRowSV = SinhVienBindingSource.Position;
@@ -607,6 +612,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             SetInputButtonEnabledSV(true);
             _state = State.AddSv;
             SinhVienGridView.OptionsBehavior.Editable = true;
+            //thêm disable sorting
+            Utils.SetCustomizationEnabled(SinhVienGridView, false);
             SinhVienBindingSource.AddNew();
 
         }
@@ -807,7 +814,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             SetLopState(false);
             SetIdleButtonEnabledSv(false);
             SetInputButtonEnabledSV(true);
-
+            Utils.SetCustomizationEnabled(SinhVienGridView, false);
 
             string maSv = GetCellAtFRowSV(colMASV).Trim();
             SinhVienGridView.SetRowCellValue(SinhVienGridView.FocusedRowHandle, colMASV, maSv);
@@ -953,6 +960,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     SinhVienGridView.ClearColumnErrors();
                     CheckButtonStateSV();
                     SetDefaultOrigValueSV();
+                    Utils.SetCustomizationEnabled(SinhVienGridView, true);
 
                 }
                 catch (Exception ex)
@@ -973,7 +981,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private void buttonHuySV_Click(object sender, EventArgs e)
         {
             SinhVienGridView.OptionsBehavior.Editable = false;
-            SinhVienBindingSource.CancelEdit();
+            this.SinhVienTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.SinhVienTableAdapter.Fill(this.TN_CSDLPTDataSet.SINHVIEN);
             if (_state == State.AddSv)
                 SinhVienBindingSource.Position = _selectedRowSV;
             _state = State.Idle;
@@ -981,6 +990,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             SetIdleButtonEnabledSv(true);
             SetInputButtonEnabledSV(false);
             SetLopState(true);
+            Utils.SetCustomizationEnabled(SinhVienGridView, true);
         }
 
         private void FormSVL_FormClosing(object sender, FormClosingEventArgs e)
@@ -988,6 +998,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             if (_state != State.Idle)
                 if (!Utils.ShowConfirmMessage("Hủy những thay đổi đang thực hiện và đóng cửa sổ này?", "Xác nhận"))
                     e.Cancel = true;
+        }
+
+        private void SinhVienGridView_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
+        {
+            //e.Allow = false;
         }
     }
 }

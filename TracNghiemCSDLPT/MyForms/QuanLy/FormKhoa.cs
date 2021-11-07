@@ -63,10 +63,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
             LoadCombobox();
-            LoadAllData();
+            //LoadAllData();
             CheckButtonState();
             buttonUndo.Enabled = buttonRedo.Enabled = false;
             PhanQuyen();
+            Utils.ConfigControlColor(InfoPanel);
         }
 
         private void LoadCombobox()
@@ -75,7 +76,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.CoSoComboBox.DisplayMember = "TENCS";
             this.CoSoComboBox.ValueMember = "TENSERVER";
             this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
-            this._previousIndexCS= this.CoSoComboBox.SelectedIndex;
+            this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
         }
 
         private void LoadAllData()
@@ -112,7 +113,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             if (success)
             {
                 LoadAllData();
-                this._previousIndexCS= this.CoSoComboBox.SelectedIndex;
+                this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
 
             }
             else
@@ -203,7 +204,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // buttonRedo.Visible =
             buttonHuy.Visible =
             buttonXacNhan.Visible = state;
-           
+
         }
 
         private void SetInfoPanel(bool state, Color color, string message)
@@ -213,6 +214,18 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             TextMaKhoa.ForeColor =
             TextTenKhoa.ForeColor = color;
             InfoPanel.Text = message;
+            switch (message)
+            {
+                case "Thêm mới thông tin khoa":
+                    Utils.ConfigInfoPanelAppearance(InfoPanel, message, Utils.AddColor);
+                    break;
+                case "Thông tin khoa":
+                    Utils.ConfigInfoPanelAppearance(InfoPanel, message, Utils.DisabledColor);
+                    break;
+                case "Sửa thông tin khoa":
+                    Utils.ConfigInfoPanelAppearance(InfoPanel, message, Utils.EditColor);
+                    break;
+            }
         }
 
         private void ButtonThem_Click(object sender, EventArgs e)

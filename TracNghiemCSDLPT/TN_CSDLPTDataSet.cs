@@ -2,7 +2,7 @@
 {
 
 
-    partial class TnCsdlptDataSet
+    partial class TN_CSDLPTDataSet
     {
         partial class MonhocDataTable
         {

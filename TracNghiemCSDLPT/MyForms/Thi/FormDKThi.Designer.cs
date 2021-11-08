@@ -31,7 +31,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDkThi));
-            this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TnCsdlptDataSet();
+            this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TN_CSDLPTDataSet();
             this.MonHocBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.MonHocTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.MONHOCTableAdapter();
             this.tableAdapterManager = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
@@ -1275,7 +1275,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
         #endregion
 
-        private TnCsdlptDataSet TN_CSDLPTDataSet;
+        private TN_CSDLPTDataSet TN_CSDLPTDataSet;
         private System.Windows.Forms.BindingSource MonHocBindingSource;
         private TN_CSDLPTDataSetTableAdapters.MONHOCTableAdapter MonHocTableAdapter;
         private TN_CSDLPTDataSetTableAdapters.TableAdapterManager tableAdapterManager;

@@ -39,7 +39,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MonHocGridControl = new DevExpress.XtraGrid.GridControl();
             this.MonHocBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TnCsdlptDataSet();
+            this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TN_CSDLPTDataSet();
             this.MonHocGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENMH = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -1378,7 +1378,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private DevExpress.XtraGrid.GridControl MonHocGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView BoDeGridView;
         private DevExpress.XtraGrid.Views.Grid.GridView MonHocGridView;
-        private TnCsdlptDataSet TN_CSDLPTDataSet;
+        private TN_CSDLPTDataSet TN_CSDLPTDataSet;
         private System.Windows.Forms.BindingSource MonHocBindingSource;
         private TN_CSDLPTDataSetTableAdapters.MONHOCTableAdapter MonHocTableAdapter;
         private TN_CSDLPTDataSetTableAdapters.TableAdapterManager tableAdapterManager;

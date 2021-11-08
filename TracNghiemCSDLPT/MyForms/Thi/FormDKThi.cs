@@ -8,7 +8,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 using TracNghiemCSDLPT.Others;
-using static TracNghiemCSDLPT.TnCsdlptDataSet;
+using static TracNghiemCSDLPT.TN_CSDLPTDataSet;
 
 namespace TracNghiemCSDLPT.MyForms.Thi
 {

@@ -66,7 +66,7 @@ namespace TracNghiemCSDLPT.MyReports
             this.DetailData1 = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DetailData3_Odd = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.tN_CSDLPTDataSet1 = new TracNghiemCSDLPT.TnCsdlptDataSet();
+            this.tN_CSDLPTDataSet1 = new TracNghiemCSDLPT.TN_CSDLPTDataSet();
             this.bANGDIEMTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.BANGDIEMTableAdapter();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
@@ -724,7 +724,7 @@ namespace TracNghiemCSDLPT.MyReports
         private DevExpress.XtraReports.UI.XRControlStyle DetailData3_Odd;
         private DevExpress.XtraReports.UI.XRControlStyle PageInfo;
         public DevExpress.XtraReports.UI.XRLabel ReportTitle;
-        private TnCsdlptDataSet tN_CSDLPTDataSet1;
+        private TN_CSDLPTDataSet tN_CSDLPTDataSet1;
         private TN_CSDLPTDataSetTableAdapters.BANGDIEMTableAdapter bANGDIEMTableAdapter;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell1;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell2;

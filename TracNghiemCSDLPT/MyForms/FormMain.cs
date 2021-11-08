@@ -130,7 +130,7 @@ namespace TracNghiemCSDLPT.MyForms
 
         private void buttonKQThi_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            ShowForm(typeof(FormKQT));
         }
     }
 

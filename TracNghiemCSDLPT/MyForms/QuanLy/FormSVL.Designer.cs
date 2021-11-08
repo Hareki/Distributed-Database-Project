@@ -41,7 +41,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.colMAKH1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.KhoaGridControl = new DevExpress.XtraGrid.GridControl();
             this.KhoaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TnCsdlptDataSet();
+            this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TN_CSDLPTDataSet();
             this.KhoaGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAKH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENKH = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -1227,7 +1227,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         #endregion
 
-        private TnCsdlptDataSet TN_CSDLPTDataSet;
+        private TN_CSDLPTDataSet TN_CSDLPTDataSet;
         private System.Windows.Forms.BindingSource KhoaBindingSource;
         private TN_CSDLPTDataSetTableAdapters.KHOATableAdapter KhoaTableAdapter;
         private TN_CSDLPTDataSetTableAdapters.TableAdapterManager tableAdapterManager;

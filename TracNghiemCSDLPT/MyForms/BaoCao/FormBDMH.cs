@@ -12,10 +12,10 @@ using TracNghiemCSDLPT.Others;
 
 namespace TracNghiemCSDLPT.MyForms.BaoCao
 {
-    public partial class FormKQT : DevExpress.XtraEditors.XtraForm
+    public partial class FormBDMH : DevExpress.XtraEditors.XtraForm
     {
         private int _previousIndexCS;
-        public FormKQT()
+        public FormBDMH()
         {
             InitializeComponent();
 
@@ -25,11 +25,20 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
             this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
 
-            LookUpSv.Properties.DisplayMember = "FullInfo";
-            LookUpSv.Properties.ValueMember = "MaSV";
+            LookUpLop.Properties.DisplayMember = "FullInfo";
+            LookUpLop.Properties.ValueMember = "MaLop";
 
             LookUpMh.Properties.DisplayMember = "FullInfo";
             LookUpMh.Properties.ValueMember = "MaMH";
+        }
+
+        private void FormBDMH_Load(object sender, EventArgs e)
+        {
+            this.DSMHTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.DSLTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.DSMHTableAdapter.Fill(this.TN_CSDLPTDataSet.DSMH);
+            this.DSLTableAdapter.Fill(this.TN_CSDLPTDataSet.DSL);
+
         }
 
         private void CoSoComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -64,16 +73,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void FormKQT_Load(object sender, EventArgs e)
-        {   
-            this.DSSVTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.DSMHTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-
-            this.DSSVTableAdapter.Fill(this.TN_CSDLPTDataSet.DSSV);
-            this.DSMHTableAdapter.Fill(this.TN_CSDLPTDataSet.DSMH);
-
         }
     }
 }

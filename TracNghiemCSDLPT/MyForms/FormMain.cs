@@ -80,7 +80,7 @@ namespace TracNghiemCSDLPT.MyForms
 
         private void buttonBangDiem_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            ShowForm(typeof(FormBDMH));
         }
 
         private void buttonSinhVien_ItemClick(object sender, ItemClickEventArgs e)

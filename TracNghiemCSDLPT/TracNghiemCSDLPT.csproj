@@ -229,6 +229,12 @@
   <ItemGroup>
     <Compile Include="Models\ActionType.cs" />
     <Compile Include="Models\Khoa.cs" />
+    <Compile Include="MyForms\BaoCao\FormBDMH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForms\BaoCao\FormBDMH.Designer.cs">
+      <DependentUpon>FormBDMH.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForms\BaoCao\FormKQT.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -325,6 +331,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TN_CSDLPTDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="MyForms\BaoCao\FormBDMH.resx">
+      <DependentUpon>FormBDMH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForms\BaoCao\FormKQT.resx">
       <DependentUpon>FormKQT.cs</DependentUpon>
     </EmbeddedResource>
@@ -708,6 +717,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\KQT3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transcript.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

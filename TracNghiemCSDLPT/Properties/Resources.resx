@@ -118,11 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="user_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="note_disabled1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\note_disabled1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="checklist-icon-flat-13" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\checklist-icon-flat-13.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="workspace" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\workspace.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="classroom_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\classroom_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,17 +160,8 @@
   <data name="logo31" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo31.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="minus_40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minus_40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="disableasd" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\disableasd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="info_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\info_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="workspace" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\workspace.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="add_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="info_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\info_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,17 +187,29 @@
   <data name="school_500px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\school_500px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="undo white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\undo white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="help_96px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\help_96px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="invisible_512px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\invisible_512px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="leaderboard_500px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\leaderboard_500px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="school" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\school.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="question-mark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\question-mark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cancel_35px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancel_35px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user_480px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user_480px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="note_disabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\note_disabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -238,9 +244,6 @@
   <data name="report_file_512px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\report_file_512px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="warning_shield_45px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\warning_shield_45px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="undo_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\undo_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -268,8 +271,8 @@
   <data name="minus_40px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minus_40px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="undo white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\undo white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="user_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="redo_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\redo_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -280,8 +283,8 @@
   <data name="edit_40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="add_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="eye_512px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eye_512px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="error_45px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\error_45px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -310,11 +313,11 @@
   <data name="redo white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\redo white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="info_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\info_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="school_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\school_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="eye_512px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eye_512px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -322,8 +325,8 @@
   <data name="exclamation_mark_512px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exclamation_mark_512px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cancel_35px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cancel_35px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="warning_shield_45px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\warning_shield_45px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="info_45px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\info_45px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -337,8 +340,8 @@
   <data name="database_administrator_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\database_administrator_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="user_480px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user_480px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="minus_40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minus_40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cancel_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cancel_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -376,8 +379,8 @@
   <data name="cancel_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cancel_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="leaderboard_500px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\leaderboard_500px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="disableasd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\disableasd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -385,7 +388,7 @@
   <data name="undo_480px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\undo_480px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="note_disabled1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\note_disabled1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="KQT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\KQT3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

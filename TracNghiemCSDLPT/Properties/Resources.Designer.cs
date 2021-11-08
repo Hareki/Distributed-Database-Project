@@ -493,6 +493,16 @@ namespace TracNghiemCSDLPT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap KQT {
+            get {
+                object obj = ResourceManager.GetObject("KQT", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap leaderboard_500px {
             get {
                 object obj = ResourceManager.GetObject("leaderboard_500px", resourceCulture);

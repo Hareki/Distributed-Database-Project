@@ -229,6 +229,12 @@
   <ItemGroup>
     <Compile Include="Models\ActionType.cs" />
     <Compile Include="Models\Khoa.cs" />
+    <Compile Include="MyForms\BaoCao\FormKQT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForms\BaoCao\FormKQT.Designer.cs">
+      <DependentUpon>FormKQT.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForms\QuanLy\FormCauHoi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -319,6 +325,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TN_CSDLPTDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="MyForms\BaoCao\FormKQT.resx">
+      <DependentUpon>FormKQT.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForms\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -696,6 +705,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\note_disabled1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KQT3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

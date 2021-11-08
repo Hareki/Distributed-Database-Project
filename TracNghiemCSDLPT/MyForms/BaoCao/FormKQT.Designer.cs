@@ -34,34 +34,34 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.label2 = new System.Windows.Forms.Label();
             this.CoSoComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.LookUpGV = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHoTen = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridLookUpEdit1 = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonPrint = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.panelLan = new System.Windows.Forms.Panel();
             this.rdo1 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.rdo2 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
-            this.label6 = new System.Windows.Forms.Label();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonPrint = new System.Windows.Forms.Button();
+            this.gridLookUpEdit1 = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.LookUpGV = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHoTen = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bunifuPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LookUpGV.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
+            this.panelLan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            this.panelLan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpGV.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuPanel1
@@ -114,6 +114,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.CoSoComboBox.ShadowDecoration.Parent = this.CoSoComboBox;
             this.CoSoComboBox.Size = new System.Drawing.Size(286, 36);
             this.CoSoComboBox.TabIndex = 31;
+            this.CoSoComboBox.SelectedIndexChanged += new System.EventHandler(this.CoSoComboBox_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -134,163 +135,47 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.panel1.Size = new System.Drawing.Size(535, 606);
             this.panel1.TabIndex = 1;
             // 
-            // label7
+            // buttonCancel
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label7.Font = new System.Drawing.Font("Baloo 2", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(110)))), ((int)(((byte)(190)))));
-            this.label7.Location = new System.Drawing.Point(214, 5);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(215, 93);
-            this.label7.TabIndex = 25;
-            this.label7.Text = "Kết quả bài thi trắc nghiệm";
+            this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(202)))), ((int)(((byte)(202)))));
+            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancel.Font = new System.Drawing.Font("Baloo 2 SemiBold", 13.8F, System.Drawing.FontStyle.Bold);
+            this.buttonCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonCancel.Location = new System.Drawing.Point(285, 404);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(207, 46);
+            this.buttonCancel.TabIndex = 52;
+            this.buttonCancel.Text = "Hủy";
+            this.buttonCancel.UseVisualStyleBackColor = false;
             // 
-            // pictureBox2
+            // buttonPrint
             // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox2.Image = global::TracNghiemCSDLPT.Properties.Resources.logo31;
-            this.pictureBox2.Location = new System.Drawing.Point(105, 5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(103, 65);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 24;
-            this.pictureBox2.TabStop = false;
+            this.buttonPrint.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
+            this.buttonPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPrint.Font = new System.Drawing.Font("Baloo 2 SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPrint.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonPrint.Location = new System.Drawing.Point(47, 404);
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.Size = new System.Drawing.Size(207, 46);
+            this.buttonPrint.TabIndex = 51;
+            this.buttonPrint.Text = "In xem trước";
+            this.buttonPrint.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
+            // label6
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.KQT;
-            this.pictureBox1.Location = new System.Drawing.Point(552, 77);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(471, 606);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // LookUpGV
-            // 
-            this.LookUpGV.Location = new System.Drawing.Point(47, 156);
-            this.LookUpGV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 40);
-            this.LookUpGV.Name = "LookUpGV";
-            this.LookUpGV.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LookUpGV.Properties.Appearance.Options.UseFont = true;
-            this.LookUpGV.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.LookUpGV.Properties.NullText = "Chọn sinh viên";
-            this.LookUpGV.Properties.PopupView = this.gridLookUpEdit1View;
-            this.LookUpGV.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
-            this.LookUpGV.Size = new System.Drawing.Size(445, 38);
-            this.LookUpGV.TabIndex = 30;
-            // 
-            // gridLookUpEdit1View
-            // 
-            this.gridLookUpEdit1View.Appearance.HeaderPanel.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold);
-            this.gridLookUpEdit1View.Appearance.HeaderPanel.Options.UseFont = true;
-            this.gridLookUpEdit1View.Appearance.Row.Font = new System.Drawing.Font("Baloo 2", 12F);
-            this.gridLookUpEdit1View.Appearance.Row.Options.UseFont = true;
-            this.gridLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMAGV,
-            this.colHoTen});
-            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
-            this.gridLookUpEdit1View.OptionsEditForm.PopupEditFormWidth = 361;
-            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            this.gridLookUpEdit1View.OptionsView.ShowIndicator = false;
-            this.gridLookUpEdit1View.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colHoTen, DevExpress.Data.ColumnSortOrder.Ascending)});
-            // 
-            // colMAGV
-            // 
-            this.colMAGV.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
-            this.colMAGV.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.colMAGV.AppearanceHeader.Options.UseBackColor = true;
-            this.colMAGV.AppearanceHeader.Options.UseForeColor = true;
-            this.colMAGV.Caption = "Mã GV";
-            this.colMAGV.FieldName = "MAGV";
-            this.colMAGV.MinWidth = 23;
-            this.colMAGV.Name = "colMAGV";
-            this.colMAGV.Visible = true;
-            this.colMAGV.VisibleIndex = 0;
-            this.colMAGV.Width = 103;
-            // 
-            // colHoTen
-            // 
-            this.colHoTen.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
-            this.colHoTen.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.colHoTen.AppearanceHeader.Options.UseBackColor = true;
-            this.colHoTen.AppearanceHeader.Options.UseForeColor = true;
-            this.colHoTen.Caption = "Họ và tên";
-            this.colHoTen.FieldName = "HoTen";
-            this.colHoTen.MinWidth = 23;
-            this.colHoTen.Name = "colHoTen";
-            this.colHoTen.Visible = true;
-            this.colHoTen.VisibleIndex = 1;
-            this.colHoTen.Width = 354;
-            // 
-            // gridLookUpEdit1
-            // 
-            this.gridLookUpEdit1.Location = new System.Drawing.Point(47, 237);
-            this.gridLookUpEdit1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 40);
-            this.gridLookUpEdit1.Name = "gridLookUpEdit1";
-            this.gridLookUpEdit1.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridLookUpEdit1.Properties.Appearance.Options.UseFont = true;
-            this.gridLookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.gridLookUpEdit1.Properties.NullText = "Chọn môn đã thi";
-            this.gridLookUpEdit1.Properties.PopupView = this.gridView1;
-            this.gridLookUpEdit1.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
-            this.gridLookUpEdit1.Size = new System.Drawing.Size(445, 38);
-            this.gridLookUpEdit1.TabIndex = 31;
-            // 
-            // gridView1
-            // 
-            this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold);
-            this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
-            this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Baloo 2", 12F);
-            this.gridView1.Appearance.Row.Options.UseFont = true;
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
-            this.gridColumn2});
-            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsEditForm.PopupEditFormWidth = 361;
-            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            this.gridView1.OptionsView.ShowIndicator = false;
-            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn2, DevExpress.Data.ColumnSortOrder.Ascending)});
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
-            this.gridColumn1.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.gridColumn1.AppearanceHeader.Options.UseBackColor = true;
-            this.gridColumn1.AppearanceHeader.Options.UseForeColor = true;
-            this.gridColumn1.Caption = "Mã GV";
-            this.gridColumn1.FieldName = "MAGV";
-            this.gridColumn1.MinWidth = 23;
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 103;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
-            this.gridColumn2.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.gridColumn2.AppearanceHeader.Options.UseBackColor = true;
-            this.gridColumn2.AppearanceHeader.Options.UseForeColor = true;
-            this.gridColumn2.Caption = "Họ và tên";
-            this.gridColumn2.FieldName = "HoTen";
-            this.gridColumn2.MinWidth = 23;
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 354;
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Font = new System.Drawing.Font("Baloo 2", 10.8F);
+            this.label6.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label6.Location = new System.Drawing.Point(42, 331);
+            this.label6.Margin = new System.Windows.Forms.Padding(3, 0, 11, 5);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 30);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "Lần thi";
             // 
             // panelLan
             // 
@@ -372,47 +257,163 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.rdo2.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.rdo2.UncheckedState.Parent = this.rdo2;
             // 
-            // label6
+            // gridLookUpEdit1
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Baloo 2", 10.8F);
-            this.label6.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label6.Location = new System.Drawing.Point(42, 331);
-            this.label6.Margin = new System.Windows.Forms.Padding(3, 0, 11, 5);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 30);
-            this.label6.TabIndex = 29;
-            this.label6.Text = "Lần thi";
+            this.gridLookUpEdit1.Location = new System.Drawing.Point(47, 237);
+            this.gridLookUpEdit1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 40);
+            this.gridLookUpEdit1.Name = "gridLookUpEdit1";
+            this.gridLookUpEdit1.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridLookUpEdit1.Properties.Appearance.Options.UseFont = true;
+            this.gridLookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.gridLookUpEdit1.Properties.NullText = "Chọn môn đã thi";
+            this.gridLookUpEdit1.Properties.PopupView = this.gridView1;
+            this.gridLookUpEdit1.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
+            this.gridLookUpEdit1.Size = new System.Drawing.Size(445, 38);
+            this.gridLookUpEdit1.TabIndex = 31;
             // 
-            // buttonCancel
+            // gridView1
             // 
-            this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(202)))), ((int)(((byte)(202)))));
-            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancel.Font = new System.Drawing.Font("Baloo 2 SemiBold", 13.8F, System.Drawing.FontStyle.Bold);
-            this.buttonCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonCancel.Location = new System.Drawing.Point(285, 404);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(207, 46);
-            this.buttonCancel.TabIndex = 52;
-            this.buttonCancel.Text = "Hủy";
-            this.buttonCancel.UseVisualStyleBackColor = false;
+            this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold);
+            this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Baloo 2", 12F);
+            this.gridView1.Appearance.Row.Options.UseFont = true;
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2});
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsEditForm.PopupEditFormWidth = 361;
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.OptionsView.ShowIndicator = false;
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn2, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
-            // buttonPrint
+            // gridColumn1
             // 
-            this.buttonPrint.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
-            this.buttonPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPrint.Font = new System.Drawing.Font("Baloo 2 SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPrint.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonPrint.Location = new System.Drawing.Point(47, 404);
-            this.buttonPrint.Name = "buttonPrint";
-            this.buttonPrint.Size = new System.Drawing.Size(207, 46);
-            this.buttonPrint.TabIndex = 51;
-            this.buttonPrint.Text = "In xem trước";
-            this.buttonPrint.UseVisualStyleBackColor = false;
+            this.gridColumn1.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
+            this.gridColumn1.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.gridColumn1.AppearanceHeader.Options.UseBackColor = true;
+            this.gridColumn1.AppearanceHeader.Options.UseForeColor = true;
+            this.gridColumn1.Caption = "Mã GV";
+            this.gridColumn1.FieldName = "MAGV";
+            this.gridColumn1.MinWidth = 23;
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 103;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
+            this.gridColumn2.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.gridColumn2.AppearanceHeader.Options.UseBackColor = true;
+            this.gridColumn2.AppearanceHeader.Options.UseForeColor = true;
+            this.gridColumn2.Caption = "Họ và tên";
+            this.gridColumn2.FieldName = "HoTen";
+            this.gridColumn2.MinWidth = 23;
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 354;
+            // 
+            // LookUpGV
+            // 
+            this.LookUpGV.Location = new System.Drawing.Point(47, 156);
+            this.LookUpGV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 40);
+            this.LookUpGV.Name = "LookUpGV";
+            this.LookUpGV.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LookUpGV.Properties.Appearance.Options.UseFont = true;
+            this.LookUpGV.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.LookUpGV.Properties.NullText = "Chọn sinh viên";
+            this.LookUpGV.Properties.PopupView = this.gridLookUpEdit1View;
+            this.LookUpGV.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
+            this.LookUpGV.Size = new System.Drawing.Size(445, 38);
+            this.LookUpGV.TabIndex = 30;
+            // 
+            // gridLookUpEdit1View
+            // 
+            this.gridLookUpEdit1View.Appearance.HeaderPanel.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold);
+            this.gridLookUpEdit1View.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridLookUpEdit1View.Appearance.Row.Font = new System.Drawing.Font("Baloo 2", 12F);
+            this.gridLookUpEdit1View.Appearance.Row.Options.UseFont = true;
+            this.gridLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMAGV,
+            this.colHoTen});
+            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
+            this.gridLookUpEdit1View.OptionsEditForm.PopupEditFormWidth = 361;
+            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            this.gridLookUpEdit1View.OptionsView.ShowIndicator = false;
+            this.gridLookUpEdit1View.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colHoTen, DevExpress.Data.ColumnSortOrder.Ascending)});
+            // 
+            // colMAGV
+            // 
+            this.colMAGV.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
+            this.colMAGV.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.colMAGV.AppearanceHeader.Options.UseBackColor = true;
+            this.colMAGV.AppearanceHeader.Options.UseForeColor = true;
+            this.colMAGV.Caption = "Mã GV";
+            this.colMAGV.FieldName = "MAGV";
+            this.colMAGV.MinWidth = 23;
+            this.colMAGV.Name = "colMAGV";
+            this.colMAGV.Visible = true;
+            this.colMAGV.VisibleIndex = 0;
+            this.colMAGV.Width = 103;
+            // 
+            // colHoTen
+            // 
+            this.colHoTen.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
+            this.colHoTen.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.colHoTen.AppearanceHeader.Options.UseBackColor = true;
+            this.colHoTen.AppearanceHeader.Options.UseForeColor = true;
+            this.colHoTen.Caption = "Họ và tên";
+            this.colHoTen.FieldName = "HoTen";
+            this.colHoTen.MinWidth = 23;
+            this.colHoTen.Name = "colHoTen";
+            this.colHoTen.Visible = true;
+            this.colHoTen.VisibleIndex = 1;
+            this.colHoTen.Width = 354;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label7.Font = new System.Drawing.Font("Baloo 2", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(110)))), ((int)(((byte)(190)))));
+            this.label7.Location = new System.Drawing.Point(214, 5);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(215, 93);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Kết quả bài thi trắc nghiệm";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox2.Image = global::TracNghiemCSDLPT.Properties.Resources.logo31;
+            this.pictureBox2.Location = new System.Drawing.Point(105, 5);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(103, 65);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 24;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.KQT;
+            this.pictureBox1.Location = new System.Drawing.Point(552, 77);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(471, 606);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // FormKQT
             // 
@@ -426,14 +427,14 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.bunifuPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LookUpGV.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panelLan.ResumeLayout(false);
             this.panelLan.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpGV.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

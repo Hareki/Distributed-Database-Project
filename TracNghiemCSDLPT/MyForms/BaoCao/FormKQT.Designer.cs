@@ -29,7 +29,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormKQT));
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,32 +50,18 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.rdo2 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
-            this.gridLookUpEdit1 = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.LookUpGV = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHoTen = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TN_CSDLPTDataSet();
-            this.DSSVBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DSSVTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.DSSINHVIENTableAdapter();
-            this.tableAdapterManager = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
-            this.DSMHBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DSMHTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.DSMONHOCTableAdapter();
-
+            this.label6 = new System.Windows.Forms.Label();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonPrint = new System.Windows.Forms.Button();
             this.bunifuPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DSSVBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DSMHBindingSource)).BeginInit();
-
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpGV.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            this.panelLan.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuPanel1
@@ -429,46 +414,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.buttonPrint.Text = "In xem trước";
             this.buttonPrint.UseVisualStyleBackColor = false;
             // 
-            // TN_CSDLPTDataSet
-            // 
-            this.TN_CSDLPTDataSet.DataSetName = "TN_CSDLPTDataSet";
-            this.TN_CSDLPTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // DSSVBindingSource
-            // 
-            this.DSSVBindingSource.DataMember = "DSSINHVIEN";
-            this.DSSVBindingSource.DataSource = this.TN_CSDLPTDataSet;
-            // 
-            // DSSVTableAdapter
-            // 
-            this.DSSVTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.BAITHITableAdapter = null;
-            this.tableAdapterManager.BANGDIEMTableAdapter = null;
-            this.tableAdapterManager.BODE_BKTableAdapter = null;
-            this.tableAdapterManager.BODETableAdapter = null;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.COSOTableAdapter = null;
-            this.tableAdapterManager.GIAOVIEN_DANGKYTableAdapter = null;
-            this.tableAdapterManager.GIAOVIENTableAdapter = null;
-            this.tableAdapterManager.KHOATableAdapter = null;
-            this.tableAdapterManager.LOPTableAdapter = null;
-            this.tableAdapterManager.MONHOCTableAdapter = null;
-            this.tableAdapterManager.SINHVIENTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // DSMHBindingSource
-            // 
-            this.DSMHBindingSource.DataMember = "DSMONHOC";
-            this.DSMHBindingSource.DataSource = this.TN_CSDLPTDataSet;
-            // 
-            // DSMHTableAdapter
-            // 
-            this.DSMHTableAdapter.ClearBeforeFill = true;
-            // 
             // FormKQT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -477,16 +422,18 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.Controls.Add(this.bunifuPanel1);
             this.Name = "FormKQT";
             this.Text = "FormKQT";
-            this.Load += new System.EventHandler(this.FormKQT_Load);
             this.bunifuPanel1.ResumeLayout(false);
             this.bunifuPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DSSVBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DSMHBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpGV.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            this.panelLan.ResumeLayout(false);
+            this.panelLan.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -516,11 +463,5 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonPrint;
-        private TN_CSDLPTDataSet TN_CSDLPTDataSet;
-        private System.Windows.Forms.BindingSource DSSVBindingSource;
-        private TN_CSDLPTDataSetTableAdapters.DSSINHVIENTableAdapter DSSVTableAdapter;
-        private TN_CSDLPTDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingSource DSMHBindingSource;
-        private TN_CSDLPTDataSetTableAdapters.DSMONHOCTableAdapter DSMHTableAdapter;
     }
 }

@@ -20,6 +20,25 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this._previousIndexCS= this.CoSoComboBox.SelectedIndex;
         }
 
+
+        private void PhanQuyen()
+        {
+            switch (DBConnection.NhomQuyen)
+            {
+                case "TRUONG":
+                    CoSoComboBox.Enabled = true;
+                    break;
+                case "GIAOVIEN":
+                    CoSoComboBox.Enabled = false;
+                    buttonPrint.Enabled = false;
+                    break;
+                case "COSO":
+                    CoSoComboBox.Enabled = false;
+                    break;
+
+            }
+
+        }
         private void buttonPrint_Click(object sender, EventArgs e)
         {
             String textDateFrom = dateFrom.Value.ToString("dd/MM/yyyy");

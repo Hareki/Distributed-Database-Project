@@ -30,6 +30,26 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
 
             LookUpMh.Properties.DisplayMember = "FullInfo";
             LookUpMh.Properties.ValueMember = "MaMH";
+            PhanQuyen();
+        }
+
+
+        private void PhanQuyen()
+        {
+            switch (DBConnection.NhomQuyen)
+            {
+                case "TRUONG":
+                    CoSoComboBox.Enabled = true;
+                    break;
+                case "GIAOVIEN":
+                    CoSoComboBox.Enabled = false;
+                    break;
+                case "COSO":
+                    CoSoComboBox.Enabled = false;
+                    break;
+
+            }
+
         }
 
         private void CoSoComboBox_SelectedIndexChanged(object sender, EventArgs e)

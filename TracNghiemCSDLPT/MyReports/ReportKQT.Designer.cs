@@ -35,6 +35,7 @@ namespace TracNghiemCSDLPT.MyReports
             DevExpress.DataAccess.Sql.QueryParameter queryParameter2 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter3 = new DevExpress.DataAccess.Sql.QueryParameter();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportKQT));
+            DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.pageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
@@ -585,11 +586,11 @@ namespace TracNghiemCSDLPT.MyReports
             // xrLabel11
             // 
             this.xrLabel11.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(422.6269F, 21.66667F);
+            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(524.9936F, 21.66667F);
             this.xrLabel11.Multiline = true;
             this.xrLabel11.Name = "xrLabel11";
             this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel11.SizeF = new System.Drawing.SizeF(159.1666F, 23F);
+            this.xrLabel11.SizeF = new System.Drawing.SizeF(56.7998F, 23F);
             this.xrLabel11.StylePriority.UseFont = false;
             this.xrLabel11.StylePriority.UseTextAlignment = false;
             this.xrLabel11.Text = "Điểm";
@@ -604,10 +605,11 @@ namespace TracNghiemCSDLPT.MyReports
             this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel12.SizeF = new System.Drawing.SizeF(58.33325F, 23F);
             this.xrLabel12.StylePriority.UseFont = false;
-            this.xrLabel12.Text = "9.5";
             // 
             // xrLabel10
             // 
+            this.xrLabel10.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Sum(Iif([LUACHON]==[DAP_AN],1,0 )) +\'/\' + sumRecordNumber()")});
             this.xrLabel10.Font = new System.Drawing.Font("Times New Roman", 13.8F);
             this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(165.8334F, 21.66667F);
             this.xrLabel10.Multiline = true;
@@ -615,18 +617,19 @@ namespace TracNghiemCSDLPT.MyReports
             this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel10.SizeF = new System.Drawing.SizeF(159.1666F, 23F);
             this.xrLabel10.StylePriority.UseFont = false;
-            this.xrLabel10.Text = "30/45";
+            xrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
+            this.xrLabel10.Summary = xrSummary1;
             // 
             // xrLabel1
             // 
             this.xrLabel1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(2.485708F, 21.66667F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 21.66667F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel1.SizeF = new System.Drawing.SizeF(159.1666F, 23F);
             this.xrLabel1.StylePriority.UseFont = false;
-            this.xrLabel1.Text = "Tổng số câu đúng";
+            this.xrLabel1.Text = "Tổng số câu đúng:";
             // 
             // xrControlStyle1
             // 

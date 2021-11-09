@@ -173,6 +173,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.buttonPrint.TabIndex = 51;
             this.buttonPrint.Text = "In xem trước";
             this.buttonPrint.UseVisualStyleBackColor = false;
+            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
             // 
             // label6
             // 
@@ -204,12 +205,12 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             // 
             this.rdo1.Animated = true;
             this.rdo1.BackColor = System.Drawing.Color.White;
+            this.rdo1.Checked = true;
             this.rdo1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(198)))), ((int)(((byte)(203)))));
             this.rdo1.CheckedState.BorderThickness = 0;
             this.rdo1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(198)))), ((int)(((byte)(203)))));
             this.rdo1.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rdo1.CheckedState.Parent = this.rdo1;
-            this.rdo1.Enabled = false;
             this.rdo1.Location = new System.Drawing.Point(16, 13);
             this.rdo1.Name = "rdo1";
             this.rdo1.ShadowDecoration.Parent = this.rdo1;
@@ -256,7 +257,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.rdo2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(198)))), ((int)(((byte)(203)))));
             this.rdo2.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rdo2.CheckedState.Parent = this.rdo2;
-            this.rdo2.Enabled = false;
             this.rdo2.Location = new System.Drawing.Point(93, 13);
             this.rdo2.Name = "rdo2";
             this.rdo2.ShadowDecoration.Parent = this.rdo2;

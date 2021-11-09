@@ -291,7 +291,7 @@ namespace TracNghiemCSDLPT.MyReports
             this.tableCell6.BorderWidth = 1F;
             this.tableCell6.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[MASV]"),
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "StyleName", "Iif([DIEM] > 0, \'DetailData1\', \'wrongAnswerStyle\')\n\n\n")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "StyleName", "Iif([DIEM] > 0, \'DetailData1\', \'wrongAnswerStyle\')")});
             this.tableCell6.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableCell6.Name = "tableCell6";
             this.tableCell6.StyleName = "DetailData1";
@@ -307,7 +307,7 @@ namespace TracNghiemCSDLPT.MyReports
             this.tableCell7.BorderWidth = 1F;
             this.tableCell7.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[HO]"),
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "StyleName", "Iif([DIEM] > 0, \'DetailData1\', \'wrongAnswerStyle\')\n")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "StyleName", "Iif([DIEM] > 0, \'DetailData1\', \'wrongAnswerStyle\')")});
             this.tableCell7.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableCell7.Name = "tableCell7";
             this.tableCell7.StyleName = "DetailData1";
@@ -320,7 +320,7 @@ namespace TracNghiemCSDLPT.MyReports
             this.tableCell8.BorderWidth = 1F;
             this.tableCell8.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[TEN]"),
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "StyleName", "Iif([DIEM] > 0, \'DetailData1\', \'wrongAnswerStyle\')\n\n")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "StyleName", "Iif([DIEM] > 0, \'DetailData1\', \'wrongAnswerStyle\')")});
             this.tableCell8.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableCell8.Name = "tableCell8";
             this.tableCell8.StyleName = "DetailData1";
@@ -334,7 +334,7 @@ namespace TracNghiemCSDLPT.MyReports
             this.tableCell9.BorderWidth = 1F;
             this.tableCell9.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[DIEM]"),
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "StyleName", "Iif([DIEM] > 0, \'DetailData1\', \'wrongAnswerStyle\')\n\n")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "StyleName", "Iif([DIEM] > 0, \'DetailData1\', \'wrongAnswerStyle\')")});
             this.tableCell9.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableCell9.Name = "tableCell9";
             this.tableCell9.StyleName = "DetailData1";
@@ -349,7 +349,7 @@ namespace TracNghiemCSDLPT.MyReports
             this.tableCell10.BorderWidth = 1F;
             this.tableCell10.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[DIEMCHU]"),
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "StyleName", "Iif([DIEM] > 0, \'DetailData1\', \'wrongAnswerStyle\')\n\n")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "StyleName", "Iif([DIEM] > 0, \'DetailData1\', \'wrongAnswerStyle\')")});
             this.tableCell10.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableCell10.Name = "tableCell10";
             this.tableCell10.Padding = new DevExpress.XtraPrinting.PaddingInfo(6, 6, 6, 6, 100F);
@@ -461,7 +461,8 @@ namespace TracNghiemCSDLPT.MyReports
             // xrLabel10
             // 
             this.xrLabel10.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Sum(Iif([DIEM] > 0,1,0 )) +\'/\' + sumRecordNumber()")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(sumRecordNumber() == 0, \'0/0\', Sum(Iif([DIEM] > 0,1,0 )) +\'/\' + sumRecordNumb" +
+                    "er())")});
             this.xrLabel10.Font = new System.Drawing.Font("Times New Roman", 13.8F);
             this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(384.181F, 23.33333F);
             this.xrLabel10.Multiline = true;

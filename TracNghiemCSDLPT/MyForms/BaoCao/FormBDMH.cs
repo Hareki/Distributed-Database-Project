@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TracNghiemCSDLPT.MyReports;
 using TracNghiemCSDLPT.Others;
 
 namespace TracNghiemCSDLPT.MyForms.BaoCao
@@ -92,6 +94,28 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void buttonPrint_Click(object sender, EventArgs e)
+        {
+            if (!(LookUpLop.EditValue is null) && !(LookUpMh.EditValue is null))
+            {
+                string maLop = (LookUpLop.EditValue as DataRowView)["MALOP"].ToString();
+                string maMh = (LookUpMh.EditValue as DataRowView)["MAMH"].ToString();
+                int lan;
+                if (rdo1.Checked) lan = 1;
+                else lan = 2;
+
+                ReportBDMH report = new ReportBDMH(maLop, maMh, lan, DBConnection.SubcriberConnectionString);
+                ReportPrintTool printer = new ReportPrintTool(report);
+                printer.ShowPreviewDialog();
+            }
+            else
+            {
+                Utils.ShowMessage("Vui lòng chọn đầy đủ thông tin trước khi in", NotiForm.FormType.Warning, 2);
+                return;
+            }
+
         }
     }
 }

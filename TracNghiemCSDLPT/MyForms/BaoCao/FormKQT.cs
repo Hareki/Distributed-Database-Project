@@ -1,13 +1,16 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TracNghiemCSDLPT.MyReports;
 using TracNghiemCSDLPT.Others;
 
 namespace TracNghiemCSDLPT.MyForms.BaoCao
@@ -24,12 +27,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.CoSoComboBox.ValueMember = "TENSERVER";
             this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
             this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
-
-            LookUpSv.Properties.DisplayMember = "FullInfo";
-            LookUpSv.Properties.ValueMember = "MaSV";
-
-            LookUpMh.Properties.DisplayMember = "FullInfo";
-            LookUpMh.Properties.ValueMember = "MaMH";
             PhanQuyen();
         }
 
@@ -87,13 +84,75 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         }
 
         private void FormKQT_Load(object sender, EventArgs e)
-        {   
+        {
             this.DSSVTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.DSMHTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
 
             this.DSSVTableAdapter.Fill(this.TN_CSDLPTDataSet.DSSV);
             this.DSMHTableAdapter.Fill(this.TN_CSDLPTDataSet.DSMH);
 
+        }
+
+        private void SetReportInfo(ReportKQT report, string tenLop, string tenSv, string tenMh, string ngayThi, string diem)
+        {
+            report.lblDiem.Text = ": " + diem;
+            report.lblHoTen.Text = ": " + tenSv;
+            report.lblMonThi.Text = ": " + tenMh;
+            report.lblNgayThi.Text = ": " + ngayThi;
+            report.lblLop.Text = ": " + tenLop;
+
+        }
+        private void buttonPrint_Click(object sender, EventArgs e)
+        {
+            if (!(LookUpSv.EditValue is null) && !(LookUpMh.EditValue is null))
+            {
+                string maSv = (LookUpSv.EditValue as DataRowView)["MASV"].ToString();
+                string maMh = (LookUpMh.EditValue as DataRowView)["MAMH"].ToString();
+                int lan;
+                if (rdo1.Checked) lan = 1;
+                else lan = 2;
+                ReportKQT report = new ReportKQT(maSv, maMh, lan, DBConnection.SubcriberConnectionString);
+
+
+                List<Para> paraList = new List<Para>();
+                paraList.Add(new Para("@MASV", maSv));
+                paraList.Add(new Para("@MAMH", maMh));
+                paraList.Add(new Para("@LAN", lan));
+                string spName = "usp_Report_KQT2";
+                SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
+                if (myReader == null)
+                {
+                    Console.WriteLine(System.Environment.StackTrace);
+                    return;
+                }
+                myReader.Read();
+                if (myReader.HasRows)
+                {
+                    string tenLop = myReader.GetString(0);
+                    string tenSv = (LookUpSv.EditValue as DataRowView)["HoTen"].ToString();
+                    string tenMh = myReader.GetString(2);
+                    string ngayThi = myReader.GetDateTime(3).ToString("dd/MM/yyyy");
+                    string diem = myReader.GetDouble(4).ToString();
+
+                    SetReportInfo(report, tenLop, tenSv, tenMh, ngayThi, diem);
+                    ReportPrintTool printer = new ReportPrintTool(report);
+                    printer.ShowPreviewDialog();
+                    myReader.Close();
+                }
+                else
+                {
+                    Utils.ShowMessage("Không có bài thi tương ứng với thông tin đã chọn", NotiForm.FormType.Error, 2);
+                    myReader.Close();
+                    return;
+                }
+                
+
+            }
+            else
+            {
+                Utils.ShowMessage("Vui lòng chọn đầy đủ thông tin trước khi in", NotiForm.FormType.Warning, 2);
+                return;
+            }
         }
     }
 }

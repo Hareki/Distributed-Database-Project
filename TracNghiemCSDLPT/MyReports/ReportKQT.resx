@@ -121,12 +121,6 @@
     <value>17, 17</value>
   </metadata>
   <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
-    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9InVzcF9SZXBvcnRfRFNES1RUTiI+PEZpZWxkIE5hbWU9IlRFTkxPUCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJURU5NSCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJIT1RFTiIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJTT0NBVVRISSIgVHlwZT0iSW50MTYiIC8+PEZpZWxkIE5hbWU9Ik5HQVlUSEkiIFR5cGU9IkRhdGVUaW1lIiAvPjxGaWVsZCBOYW1lPSJEQVRISSIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
+    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9InVzcF9SZXBvcnRfS1FUIj48RmllbGQgTmFtZT0iU1RUIiBUeXBlPSJJbnQxNiIgLz48RmllbGQgTmFtZT0iQ0FVSE9JIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iTk9JRFVORyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJBIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkIiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJEIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkxVQUNIT04iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iREFQX0FOIiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjwvRGF0YVNldD4=</value>
   </data>
-  <metadata name="tN_CSDLPTDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 60</value>
-  </metadata>
-  <metadata name="bANGDIEMTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 103</value>
-  </metadata>
 </root>

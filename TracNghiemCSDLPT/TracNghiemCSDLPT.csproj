@@ -289,6 +289,12 @@
     <Compile Include="MyReports\ReportDSDKTTN.Designer.cs">
       <DependentUpon>ReportDSDKTTN.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyReports\ReportKQT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyReports\ReportKQT.Designer.cs">
+      <DependentUpon>ReportKQT.cs</DependentUpon>
+    </Compile>
     <Compile Include="Others\AlertForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -366,6 +372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyReports\ReportDSDKTTN.resx">
       <DependentUpon>ReportDSDKTTN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyReports\ReportKQT.resx">
+      <DependentUpon>ReportKQT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Others\AlertForm.resx">
       <DependentUpon>AlertForm.cs</DependentUpon>

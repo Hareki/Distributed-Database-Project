@@ -283,6 +283,12 @@
     <Compile Include="MyForms\Thi\FormDKThi.Designer.cs">
       <DependentUpon>FormDKThi.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyReports\ReportBDMH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyReports\ReportBDMH.Designer.cs">
+      <DependentUpon>ReportBDMH.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyReports\ReportDSDKTTN.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -369,6 +375,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForms\Thi\FormDKThi.resx">
       <DependentUpon>FormDKThi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyReports\ReportBDMH.resx">
+      <DependentUpon>ReportBDMH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyReports\ReportDSDKTTN.resx">
       <DependentUpon>ReportDSDKTTN.cs</DependentUpon>

@@ -192,7 +192,7 @@ namespace TracNghiemCSDLPT.MyReports
             this.xrTableCell1.StylePriority.UseTextAlignment = false;
             this.xrTableCell1.Text = "STT";
             this.xrTableCell1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell1.Weight = 0.12729563874190664D;
+            this.xrTableCell1.Weight = 0.15845308866130048D;
             // 
             // tableCell1
             // 
@@ -216,7 +216,7 @@ namespace TracNghiemCSDLPT.MyReports
             this.tableCell1.StylePriority.UseTextAlignment = false;
             this.tableCell1.Text = "Tên lớp";
             this.tableCell1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.tableCell1.Weight = 0.29317835313022356D;
+            this.tableCell1.Weight = 0.26202090321082971D;
             // 
             // tableCell2
             // 
@@ -423,7 +423,7 @@ namespace TracNghiemCSDLPT.MyReports
             this.xrTableCell2.Summary = xrSummary1;
             this.xrTableCell2.Text = "xrTableCell2";
             this.xrTableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell2.Weight = 0.11156245844438853D;
+            this.xrTableCell2.Weight = 0.1388689770784402D;
             // 
             // tableCell6
             // 
@@ -439,7 +439,7 @@ namespace TracNghiemCSDLPT.MyReports
             this.tableCell6.StylePriority.UseBorders = false;
             this.tableCell6.StylePriority.UseBorderWidth = false;
             this.tableCell6.StylePriority.UseFont = false;
-            this.tableCell6.Weight = 0.25694286019998569D;
+            this.tableCell6.Weight = 0.22963634156593402D;
             // 
             // tableCell7
             // 
@@ -639,7 +639,7 @@ namespace TracNghiemCSDLPT.MyReports
             this.xrLabel2.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumRecordNumber()")});
             this.xrLabel2.Font = new System.Drawing.Font("Times New Roman", 13.8F);
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(159.1667F, 20.83333F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(159.1666F, 20.83333F);
             this.xrLabel2.Multiline = true;
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -651,7 +651,7 @@ namespace TracNghiemCSDLPT.MyReports
             // 
             // xrLabel1
             // 
-            this.xrLabel1.Font = new System.Drawing.Font("Times New Roman", 13.8F);
+            this.xrLabel1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(2.543131E-05F, 20.83333F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";

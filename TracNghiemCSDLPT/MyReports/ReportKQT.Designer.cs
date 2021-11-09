@@ -107,6 +107,7 @@ namespace TracNghiemCSDLPT.MyReports
             this.pageInfo1.StyleName = "PageInfo";
             this.pageInfo1.StylePriority.UseFont = false;
             this.pageInfo1.StylePriority.UseForeColor = false;
+            this.pageInfo1.TextFormatString = "{0:dd/MM/yyyy h:mm tt}";
             // 
             // pageInfo2
             // 

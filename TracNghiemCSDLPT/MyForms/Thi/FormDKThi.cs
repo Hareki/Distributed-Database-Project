@@ -301,22 +301,24 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             }
         }
 
-        private int GetNumberOfQuestsions(string maMh, string trinhDo, int soCauHoi)
+        private bool  CanAdd(string maMh, string trinhDo, int soCauHoi)
         {
             List<Para> paraList = new List<Para>();
             paraList.Add(new Para("@MaMH", maMh));
             paraList.Add(new Para("@TrinhDo", trinhDo));
-            string spName = "usp_BoDe_CheckNumberOfQuestions";
+            paraList.Add(new Para("@SoCauHoiCanThiet", soCauHoi));
+            string spName = "usp_GVDK_GetAddingPossibility";
             SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
             if (myReader == null)
             {
                 Console.WriteLine(System.Environment.StackTrace);
-                return -1;
+                return false;
             }
             myReader.Read();
-            int soCauHoiReal = int.Parse(myReader.GetValue(0).ToString());
+            int result = int.Parse(myReader.GetValue(0).ToString());
             myReader.Close();
-            return soCauHoiReal;
+            if (result == 0) return true;
+            else return false;
         }
         private void UncheckAllRdo()
         {
@@ -430,12 +432,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 Utils.ShowMessage("Lớp không có sinh viên nào, không thể đăng ký thi", Others.NotiForm.FormType.Error, 2);
                 return;
             }
-            int soCauHoiReal = GetNumberOfQuestsions(maMh, trinhDo, soCau);
-            Console.WriteLine("Real: " + soCauHoiReal);
-            if (soCauHoiReal < soCau)
+            //Áp dụng cho cả khi edit và add
+            if (!CanAdd(maMh,trinhDo,soCau))
             {
-                Utils.ShowMessage("Không đủ số câu hỏi để tạo đề thi (" + 
-                    soCauHoiReal +" < " +  soCau + ")", Others.NotiForm.FormType.Error, 2);
+                Utils.ShowMessage("Số câu hỏi thuộc môn học và trình độ này không " +
+                    "đủ đáp ứng nhu cầu số câu của buổi thi", Others.NotiForm.FormType.Error, 4);
                 return;
             }
             

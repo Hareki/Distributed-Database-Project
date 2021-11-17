@@ -23,6 +23,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
 
         private int _origMaCh = -1;
+        private string _origMaMh = "!@#$%";
+        private string _origTrinhDo = "!@#$%";
         State _state = State.Idle;
         List<Guna2CustomRadioButton> _rdoButtons = new List<Guna2CustomRadioButton>();
         private int _selectedRow;
@@ -47,6 +49,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private void SetDefaultOrigValue()
         {
             _origMaCh = -1;
+            _origMaMh = "!@#$%";
+            _origTrinhDo = "!@#$%";
+
         }
         private void PhanQuyen()
         {
@@ -380,6 +385,27 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             Utils.SetTextEditError(noiDungEP, textNoiDung, null);
             Utils.SetTextEditError(maCHEP, textMaCH, null);
         }
+
+        private List<string> CanDeleteEdit(string trinhDo, string maMh)
+        {
+            List<string> result = new List<string>();
+            List<Para> paraList = new List<Para>();
+            paraList.Add(new Para("@trinhDo", trinhDo));
+            paraList.Add(new Para("@maMon", maMh));
+            string spName = "usp_BoDe_GetDeletingEditingPossibility";
+            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
+            if (myReader.HasRows)
+            {
+                while (myReader.Read())
+                {
+                    result.Add("Lớp " + myReader.GetString(1) + " thi môn " + myReader.GetString(0) +
+                        " lần " + myReader.GetInt16(2) + " vào ngày " + myReader.GetDateTime(3).ToString("dd/MM/yyyy"));
+                }
+            }
+            myReader.Close();
+            return result;
+
+        }
         private void buttonXacNhan_Click(object sender, EventArgs e)
         {
             bool test1 = string.IsNullOrEmpty(TrimText(textChoiceA));
@@ -451,6 +477,22 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             else
                 Utils.SetTextEditError(maCHEP, textMaCH, null);
 
+            if (_state == State.Edit && !(_origMaMh.Equals(maMh)) || !(_origTrinhDo.Equals(trinhDo)))
+            {
+                List<string> result = CanDeleteEdit(_origTrinhDo, _origMaMh);
+                if (result.Count > 0)
+                {
+                    string listBuoiThi = "";
+                    foreach (string record in result)
+                    {
+                        listBuoiThi += "   - " + record + "\n";
+                    }
+                    Utils.ShowErrorMessage("Không thể thay đổi TRÌNH ĐỘ hoặc (và) MÔN HỌC của câu hỏi này" +
+                        ", vì điều này sẽ dẫn đến thiếu câu hỏi cho các buổi thi sau:\n" +
+                        listBuoiThi, "Không thể thay đổi");
+                    return;
+                }
+            }
 
             try
             {
@@ -524,6 +566,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             SetInputButtonEnabled(true);
 
             _origMaCh = int.Parse(textMaCH.Text);
+            _origMaMh = MHCombo.SelectedValue.ToString();
+            _origTrinhDo = GetTrinhDo();
             MonHocGridControl.Enabled = false;
             _state = State.Edit;
         }
@@ -553,9 +597,27 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             _selectedRow = BoDeBindingSource.Position;
             if (BaiThiBindingSource.Count > 0)
             {
-                Utils.ShowMessage("Không thể xóa vì đã câu hỏi đã được sử dụng để thi", Others.NotiForm.FormType.Error, 2);
+                Utils.ShowMessage("Không thể xóa, vì câu hỏi đã được sử dụng để thi", Others.NotiForm.FormType.Error, 2);
                 return;
             }
+
+
+            string maMh = MHCombo.SelectedValue.ToString();
+            string trinhDo = GetTrinhDo();
+            List<string> result = CanDeleteEdit(trinhDo, maMh);
+            if (result.Count > 0)
+            {
+                string listBuoiThi = "";
+                foreach (string record in result)
+                {
+                    listBuoiThi += "   - " + record + "\n";
+                }
+                Utils.ShowErrorMessage("Không thể xóa câu hỏi này" +
+                    ", vì điều này sẽ dẫn đến thiếu câu hỏi cho các buổi thi sau:\n" +
+                    listBuoiThi, "Không thể xóa");
+                return;
+            }
+
 
 
             if (Utils.ShowConfirmMessage("Bạn có chắc muốn xóa câu hỏi này?", "Xác nhận"))
@@ -581,7 +643,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void pictureBox1_EnabledChanged(object sender, EventArgs e)
         {
-            Image image = pictureBox1.Enabled? global::TracNghiemCSDLPT.Properties.Resources.info_480px:
+            Image image = pictureBox1.Enabled ? global::TracNghiemCSDLPT.Properties.Resources.info_480px :
                 global::TracNghiemCSDLPT.Properties.Resources.info_480px_disabled;
             pictureBox1.Image = image;
         }

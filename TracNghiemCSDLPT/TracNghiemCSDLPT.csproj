@@ -283,6 +283,18 @@
     <Compile Include="MyForms\Thi\FormDKThi.Designer.cs">
       <DependentUpon>FormDKThi.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyForms\Thi\FormThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForms\Thi\FormThi.Designer.cs">
+      <DependentUpon>FormThi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForms\Thi\ItemCauHoi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyForms\Thi\ItemCauHoi.Designer.cs">
+      <DependentUpon>ItemCauHoi.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyReports\ReportBDMH.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -375,6 +387,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForms\Thi\FormDKThi.resx">
       <DependentUpon>FormDKThi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForms\Thi\FormThi.resx">
+      <DependentUpon>FormThi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForms\Thi\ItemCauHoi.resx">
+      <DependentUpon>ItemCauHoi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyReports\ReportBDMH.resx">
       <DependentUpon>ReportBDMH.cs</DependentUpon>

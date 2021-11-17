@@ -89,10 +89,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // LabelMaMH
             // 
             LabelMaMH.AutoSize = true;
-            LabelMaMH.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
+            LabelMaMH.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             LabelMaMH.Location = new System.Drawing.Point(234, 82);
             LabelMaMH.Name = "LabelMaMH";
-            LabelMaMH.Size = new System.Drawing.Size(115, 30);
+            LabelMaMH.Size = new System.Drawing.Size(125, 32);
             LabelMaMH.TabIndex = 4;
             LabelMaMH.Text = "Mã môn học";
             LabelMaMH.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -100,10 +100,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // LabelTenMH
             // 
             LabelTenMH.AutoSize = true;
-            LabelTenMH.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
+            LabelTenMH.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             LabelTenMH.Location = new System.Drawing.Point(234, 144);
             LabelTenMH.Name = "LabelTenMH";
-            LabelTenMH.Size = new System.Drawing.Size(120, 30);
+            LabelTenMH.Size = new System.Drawing.Size(131, 32);
             LabelTenMH.TabIndex = 5;
             LabelTenMH.Text = "Tên môn học";
             // 
@@ -300,13 +300,13 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.TextTenMH.Location = new System.Drawing.Point(373, 141);
             this.TextTenMH.Name = "TextTenMH";
             this.TextTenMH.Properties.Appearance.BorderColor = System.Drawing.Color.Silver;
-            this.TextTenMH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
+            this.TextTenMH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextTenMH.Properties.Appearance.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.TextTenMH.Properties.Appearance.Options.UseBorderColor = true;
             this.TextTenMH.Properties.Appearance.Options.UseFont = true;
             this.TextTenMH.Properties.Appearance.Options.UseForeColor = true;
             this.TextTenMH.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.TextTenMH.Size = new System.Drawing.Size(288, 34);
+            this.TextTenMH.Size = new System.Drawing.Size(288, 38);
             this.TextTenMH.TabIndex = 6;
             // 
             // TextMaMH
@@ -315,13 +315,13 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.TextMaMH.Location = new System.Drawing.Point(373, 78);
             this.TextMaMH.Name = "TextMaMH";
             this.TextMaMH.Properties.Appearance.BorderColor = System.Drawing.Color.Silver;
-            this.TextMaMH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
+            this.TextMaMH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextMaMH.Properties.Appearance.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.TextMaMH.Properties.Appearance.Options.UseBorderColor = true;
             this.TextMaMH.Properties.Appearance.Options.UseFont = true;
             this.TextMaMH.Properties.Appearance.Options.UseForeColor = true;
             this.TextMaMH.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.TextMaMH.Size = new System.Drawing.Size(288, 34);
+            this.TextMaMH.Size = new System.Drawing.Size(288, 38);
             this.TextMaMH.TabIndex = 5;
             // 
             // buttonHuy

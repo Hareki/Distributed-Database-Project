@@ -266,6 +266,7 @@ namespace TracNghiemCSDLPT.MyForms
             this.buttonThamGiaThi.ImageOptions.LargeImage = global::TracNghiemCSDLPT.Properties.Resources.time_500px;
             this.buttonThamGiaThi.LargeWidth = 80;
             this.buttonThamGiaThi.Name = "buttonThamGiaThi";
+            this.buttonThamGiaThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonThamGiaThi_ItemClick);
             // 
             // pageQuanLy
             // 

@@ -107,6 +107,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             set
             { _daChon = value; }
         }
+        public int ContentHeight
+        {
+            get { return flowLayoutPanel1.Size.Height; }
+            set
+            { flowLayoutPanel1.Height = value; }
+        }
         private void ItemCauHoi_Load(object sender, EventArgs e)
         {
 

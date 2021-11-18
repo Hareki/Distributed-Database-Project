@@ -30,9 +30,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                     items[i].IDBaiThi = 1;
                     items[i].STT = 1;
                     items[i].NDCauHoi = "Lorem ipsum dol";
-                    items[i].NDCauA = "I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder ";
-                    items[i].NDCauB = "Our studies show that increases in worker productivity have not been adequately ...... rewarded by significant increases in .......";
-                    items[i].NDCauC = "I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder ";
+                    items[i].NDCauA = "I will give yo will give yo will give yo will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder ";
+                    items[i].NDCauB = "Our studies shOur studies shOur studies show that increases in worker productivity have not been adequately ...... rewarded by significant increases in .......";
+                    items[i].NDCauC = "I will give you a cI will give you a cI will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder ";
                     items[i].NDCauD = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nosLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nos";
 
                     items[i].DaChon = "C";

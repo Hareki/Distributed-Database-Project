@@ -132,7 +132,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
             Utils.BindingComboData(this.CoSoComboBox, this._previousIndexCS);
 
-            NgayThi.EditValue = ((DateTime)NgayThi.EditValue).AddDays(1);
+            //NgayThi.EditValue = ((DateTime)NgayThi.EditValue).AddDays(1);
 
             PhanQuyen();
             Utils.ConfigControlColor(InfoPanel);

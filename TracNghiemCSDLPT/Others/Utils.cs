@@ -152,5 +152,12 @@ namespace TracNghiemCSDLPT
             infoPanel.BorderColor = color;
             infoPanel.ForeColor = color;
         }
+
+        public static string GetLookUpValue(GridLookUpEdit lookUp, string columnName)
+        {
+            if (lookUp.GetSelectedDataRow() != null)
+                return (lookUp.GetSelectedDataRow() as DataRowView)[columnName].ToString().Trim();
+            else return string.Empty;
+        }
     }
 }

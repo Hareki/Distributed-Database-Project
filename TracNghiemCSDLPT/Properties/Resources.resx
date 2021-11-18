@@ -166,6 +166,9 @@
   <data name="workspace" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\workspace.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="transcript" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\transcript.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="info_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\info_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -304,6 +307,9 @@
   <data name="choice_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\choice_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="start-up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\start-up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="add_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -391,7 +397,7 @@
   <data name="undo_480px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\undo_480px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="transcript" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\transcript.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="submit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\submit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

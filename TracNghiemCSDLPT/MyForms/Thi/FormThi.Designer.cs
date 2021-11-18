@@ -29,6 +29,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label label7;
             System.Windows.Forms.Label label12;
             System.Windows.Forms.Label LabelMaMH;
@@ -39,42 +40,48 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             System.Windows.Forms.Label label17;
             this.pnlThongTinThi = new Bunifu.UI.WinForms.BunifuGroupBox();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.LookUpMonHoc = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tN_CSDLPTDataSet = new TracNghiemCSDLPT.TN_CSDLPTDataSet();
+            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.LookUpLop = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENLOP = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.lblMaSV = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lbl2 = new System.Windows.Forms.Label();
             this.rdo2 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.rdo1 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
-            this.label13 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label16 = new System.Windows.Forms.Label();
+            this.lbl1 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.lblHoTen = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblNgayThi = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.lblThoiGian = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.lblSoCauThi = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.buttonThem = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnNopBai = new Guna.UI2.WinForms.Guna2Button();
+            this.btnBatDauThi = new Guna.UI2.WinForms.Guna2Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.usp_ThiThu_LayLopCoLichThi_TatCaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usp_ThiThu_LayLopCoLichThi_TatCaTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.usp_ThiThu_LayLopCoLichThi_TatCaTableAdapter();
+            this.tableAdapterManager = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
+            this.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaTableAdapter();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.gridLookUpEdit1 = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             label7 = new System.Windows.Forms.Label();
             label12 = new System.Windows.Forms.Label();
             LabelMaMH = new System.Windows.Forms.Label();
@@ -86,22 +93,25 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.pnlThongTinThi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
+            this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpMonHoc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tN_CSDLPTDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
-            this.panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel8.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usp_ThiThu_LayLopCoLichThi_TatCaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -170,6 +180,28 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             label1.Text = "Tên sinh viên";
             label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
+            label9.Location = new System.Drawing.Point(3, 11);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(118, 30);
+            label9.TabIndex = 51;
+            label9.Text = "Mã sinh viên";
+            label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
+            label17.Location = new System.Drawing.Point(3, 11);
+            label17.Name = "label17";
+            label17.Size = new System.Drawing.Size(77, 30);
+            label17.TabIndex = 34;
+            label17.Text = "Môn thi";
+            label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // pnlThongTinThi
             // 
             this.pnlThongTinThi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -185,7 +217,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.pnlThongTinThi.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
             this.pnlThongTinThi.Location = new System.Drawing.Point(12, 28);
             this.pnlThongTinThi.Name = "pnlThongTinThi";
-            this.pnlThongTinThi.Size = new System.Drawing.Size(1255, 179);
+            this.pnlThongTinThi.Size = new System.Drawing.Size(1271, 179);
             this.pnlThongTinThi.TabIndex = 0;
             this.pnlThongTinThi.TabStop = false;
             this.pnlThongTinThi.Text = "Thông tin thi";
@@ -196,10 +228,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 52.01F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 62.15F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 26.62F),
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 24.57F),
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 56.8F)});
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 24.31F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 46.92F)});
             this.tablePanel1.Controls.Add(this.panel11);
             this.tablePanel1.Controls.Add(this.panel2);
             this.tablePanel1.Controls.Add(this.panel10);
@@ -213,8 +245,90 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 69.19998F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 69.19998F)});
-            this.tablePanel1.Size = new System.Drawing.Size(1243, 128);
+            this.tablePanel1.Size = new System.Drawing.Size(1259, 128);
             this.tablePanel1.TabIndex = 59;
+            // 
+            // panel11
+            // 
+            this.tablePanel1.SetColumn(this.panel11, 0);
+            this.panel11.Controls.Add(this.LookUpMonHoc);
+            this.panel11.Controls.Add(label17);
+            this.panel11.Location = new System.Drawing.Point(3, 72);
+            this.panel11.Name = "panel11";
+            this.tablePanel1.SetRow(this.panel11, 1);
+            this.panel11.Size = new System.Drawing.Size(483, 53);
+            this.panel11.TabIndex = 56;
+            // 
+            // LookUpMonHoc
+            // 
+            this.LookUpMonHoc.Location = new System.Drawing.Point(86, 7);
+            this.LookUpMonHoc.Margin = new System.Windows.Forms.Padding(3, 3, 3, 40);
+            this.LookUpMonHoc.Name = "LookUpMonHoc";
+            this.LookUpMonHoc.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LookUpMonHoc.Properties.Appearance.Options.UseFont = true;
+            this.LookUpMonHoc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.LookUpMonHoc.Properties.DataSource = this.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaBindingSource;
+            this.LookUpMonHoc.Properties.DisplayMember = "FullInfo";
+            this.LookUpMonHoc.Properties.NullText = "Chọn môn thi với lớp tương ứng";
+            this.LookUpMonHoc.Properties.PopupFormSize = new System.Drawing.Size(0, 300);
+            this.LookUpMonHoc.Properties.PopupView = this.gridView3;
+            this.LookUpMonHoc.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
+            this.LookUpMonHoc.Properties.ValueMember = "MAMH";
+            this.LookUpMonHoc.Size = new System.Drawing.Size(355, 38);
+            this.LookUpMonHoc.TabIndex = 40;
+            this.LookUpMonHoc.EditValueChanged += new System.EventHandler(this.LookUpMonHoc_EditValueChanged);
+            // 
+            // usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaBindingSource
+            // 
+            this.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaBindingSource.DataMember = "usp_ThiThu_LayMonThiCuaLopTuongUng_TatCa";
+            this.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaBindingSource.DataSource = this.tN_CSDLPTDataSet;
+            // 
+            // tN_CSDLPTDataSet
+            // 
+            this.tN_CSDLPTDataSet.DataSetName = "TN_CSDLPTDataSet";
+            this.tN_CSDLPTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // gridView3
+            // 
+            this.gridView3.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(255)))), ((int)(((byte)(215)))));
+            this.gridView3.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gridView3.Appearance.HeaderPanel.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold);
+            this.gridView3.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridView3.Appearance.Row.Font = new System.Drawing.Font("Baloo 2", 12F);
+            this.gridView3.Appearance.Row.Options.UseFont = true;
+            this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn3,
+            this.gridColumn4});
+            this.gridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView3.Name = "gridView3";
+            this.gridView3.OptionsEditForm.PopupEditFormWidth = 361;
+            this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView3.OptionsView.ShowGroupPanel = false;
+            this.gridView3.OptionsView.ShowIndicator = false;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
+            this.gridColumn3.AppearanceHeader.Options.UseBackColor = true;
+            this.gridColumn3.Caption = "Mã MH";
+            this.gridColumn3.FieldName = "MAMH";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.FixedWidth = true;
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 0;
+            this.gridColumn3.Width = 100;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
+            this.gridColumn4.AppearanceHeader.Options.UseBackColor = true;
+            this.gridColumn4.Caption = "Tên môn học";
+            this.gridColumn4.FieldName = "TENMH";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 1;
+            this.gridColumn4.Width = 300;
             // 
             // panel2
             // 
@@ -224,7 +338,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
             this.tablePanel1.SetRow(this.panel2, 0);
-            this.panel2.Size = new System.Drawing.Size(398, 63);
+            this.panel2.Size = new System.Drawing.Size(483, 63);
             this.panel2.TabIndex = 55;
             // 
             // LookUpLop
@@ -240,8 +354,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.LookUpLop.Properties.NullText = "Chọn lớp";
             this.LookUpLop.Properties.PopupView = this.gridLookUpEdit1View;
             this.LookUpLop.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
-            this.LookUpLop.Size = new System.Drawing.Size(296, 38);
+            this.LookUpLop.Size = new System.Drawing.Size(355, 38);
             this.LookUpLop.TabIndex = 32;
+            this.LookUpLop.EditValueChanged += new System.EventHandler(this.LookUpLop_EditValueChanged);
             // 
             // gridLookUpEdit1View
             // 
@@ -284,76 +399,54 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.colTENLOP.VisibleIndex = 1;
             this.colTENLOP.Width = 300;
             // 
-            // panel7
+            // panel10
             // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.tablePanel1.SetColumn(this.panel7, 3);
-            this.panel7.Controls.Add(label1);
-            this.panel7.Controls.Add(this.label8);
-            this.panel7.Location = new System.Drawing.Point(805, 3);
-            this.panel7.Name = "panel7";
-            this.tablePanel1.SetRow(this.panel7, 0);
-            this.panel7.Size = new System.Drawing.Size(435, 63);
-            this.panel7.TabIndex = 58;
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tablePanel1.SetColumn(this.panel10, 3);
+            this.panel10.Controls.Add(label9);
+            this.panel10.Controls.Add(this.lblMaSV);
+            this.panel10.Location = new System.Drawing.Point(893, 72);
+            this.panel10.Name = "panel10";
+            this.tablePanel1.SetRow(this.panel10, 1);
+            this.panel10.Size = new System.Drawing.Size(363, 53);
+            this.panel10.TabIndex = 59;
             // 
-            // label8
+            // lblMaSV
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(121, 15);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(201, 32);
-            this.label8.TabIndex = 52;
-            this.label8.Text = "Nguyễn Ngọc Minh Tú";
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.tablePanel1.SetColumn(this.panel6, 2);
-            this.panel6.Controls.Add(this.label11);
-            this.panel6.Controls.Add(label12);
-            this.panel6.Location = new System.Drawing.Point(614, 8);
-            this.panel6.Name = "panel6";
-            this.tablePanel1.SetRow(this.panel6, 0);
-            this.panel6.Size = new System.Drawing.Size(185, 53);
-            this.panel6.TabIndex = 55;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(100, 15);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(82, 32);
-            this.label11.TabIndex = 54;
-            this.label11.Text = "60 phút";
+            this.lblMaSV.AutoSize = true;
+            this.lblMaSV.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaSV.Location = new System.Drawing.Point(121, 10);
+            this.lblMaSV.Name = "lblMaSV";
+            this.lblMaSV.Size = new System.Drawing.Size(46, 32);
+            this.lblMaSV.TabIndex = 52;
+            this.lblMaSV.Text = "001";
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tablePanel1.SetColumn(this.panel5, 1);
-            this.panel5.Controls.Add(this.label15);
+            this.panel5.Controls.Add(this.lbl2);
             this.panel5.Controls.Add(label7);
             this.panel5.Controls.Add(this.rdo2);
             this.panel5.Controls.Add(this.rdo1);
-            this.panel5.Controls.Add(this.label13);
-            this.panel5.Location = new System.Drawing.Point(407, 8);
+            this.panel5.Controls.Add(this.lbl1);
+            this.panel5.Location = new System.Drawing.Point(492, 8);
             this.panel5.Name = "panel5";
             this.tablePanel1.SetRow(this.panel5, 0);
-            this.panel5.Size = new System.Drawing.Size(201, 53);
+            this.panel5.Size = new System.Drawing.Size(203, 53);
             this.panel5.TabIndex = 55;
             // 
-            // label15
+            // lbl2
             // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.label15.Enabled = false;
-            this.label15.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(167, 16);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(23, 30);
-            this.label15.TabIndex = 27;
-            this.label15.Text = "2";
+            this.lbl2.AutoSize = true;
+            this.lbl2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.lbl2.Enabled = false;
+            this.lbl2.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2.Location = new System.Drawing.Point(167, 16);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(23, 30);
+            this.lbl2.TabIndex = 27;
+            this.lbl2.Text = "2";
             // 
             // rdo2
             // 
@@ -397,61 +490,105 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.rdo1.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.rdo1.UncheckedState.Parent = this.rdo1;
             // 
-            // label13
+            // lbl1
             // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.label13.Enabled = false;
-            this.label13.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(115, 16);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(20, 30);
-            this.label13.TabIndex = 28;
-            this.label13.Text = "1";
+            this.lbl1.AutoSize = true;
+            this.lbl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.lbl1.Enabled = false;
+            this.lbl1.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1.Location = new System.Drawing.Point(115, 16);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(20, 30);
+            this.lbl1.TabIndex = 28;
+            this.lbl1.Text = "1";
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tablePanel1.SetColumn(this.panel7, 3);
+            this.panel7.Controls.Add(label1);
+            this.panel7.Controls.Add(this.lblHoTen);
+            this.panel7.Location = new System.Drawing.Point(893, 3);
+            this.panel7.Name = "panel7";
+            this.tablePanel1.SetRow(this.panel7, 0);
+            this.panel7.Size = new System.Drawing.Size(363, 63);
+            this.panel7.TabIndex = 58;
+            // 
+            // lblHoTen
+            // 
+            this.lblHoTen.AutoSize = true;
+            this.lblHoTen.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHoTen.Location = new System.Drawing.Point(121, 15);
+            this.lblHoTen.Name = "lblHoTen";
+            this.lblHoTen.Size = new System.Drawing.Size(201, 32);
+            this.lblHoTen.TabIndex = 52;
+            this.lblHoTen.Text = "Nguyễn Ngọc Minh Tú";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tablePanel1.SetColumn(this.panel4, 1);
+            this.panel4.Controls.Add(this.lblNgayThi);
+            this.panel4.Controls.Add(label3);
+            this.panel4.Location = new System.Drawing.Point(492, 72);
+            this.panel4.Name = "panel4";
+            this.tablePanel1.SetRow(this.panel4, 1);
+            this.panel4.Size = new System.Drawing.Size(203, 53);
+            this.panel4.TabIndex = 55;
+            // 
+            // lblNgayThi
+            // 
+            this.lblNgayThi.AutoSize = true;
+            this.lblNgayThi.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNgayThi.Location = new System.Drawing.Point(83, 10);
+            this.lblNgayThi.Name = "lblNgayThi";
+            this.lblNgayThi.Size = new System.Drawing.Size(106, 32);
+            this.lblNgayThi.TabIndex = 46;
+            this.lblNgayThi.Text = "13/09/2021";
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tablePanel1.SetColumn(this.panel6, 2);
+            this.panel6.Controls.Add(this.lblThoiGian);
+            this.panel6.Controls.Add(label12);
+            this.panel6.Location = new System.Drawing.Point(702, 8);
+            this.panel6.Name = "panel6";
+            this.tablePanel1.SetRow(this.panel6, 0);
+            this.panel6.Size = new System.Drawing.Size(185, 53);
+            this.panel6.TabIndex = 55;
+            // 
+            // lblThoiGian
+            // 
+            this.lblThoiGian.AutoSize = true;
+            this.lblThoiGian.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblThoiGian.Location = new System.Drawing.Point(100, 15);
+            this.lblThoiGian.Name = "lblThoiGian";
+            this.lblThoiGian.Size = new System.Drawing.Size(82, 32);
+            this.lblThoiGian.TabIndex = 54;
+            this.lblThoiGian.Text = "60 phút";
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tablePanel1.SetColumn(this.panel8, 2);
             this.panel8.Controls.Add(label14);
-            this.panel8.Controls.Add(this.label16);
-            this.panel8.Location = new System.Drawing.Point(614, 72);
+            this.panel8.Controls.Add(this.lblSoCauThi);
+            this.panel8.Location = new System.Drawing.Point(702, 72);
             this.panel8.Name = "panel8";
             this.tablePanel1.SetRow(this.panel8, 1);
             this.panel8.Size = new System.Drawing.Size(185, 53);
             this.panel8.TabIndex = 57;
             // 
-            // label16
+            // lblSoCauThi
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(100, 10);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(68, 32);
-            this.label16.TabIndex = 52;
-            this.label16.Text = "15 câu";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.tablePanel1.SetColumn(this.panel4, 1);
-            this.panel4.Controls.Add(this.label6);
-            this.panel4.Controls.Add(label3);
-            this.panel4.Location = new System.Drawing.Point(407, 72);
-            this.panel4.Name = "panel4";
-            this.tablePanel1.SetRow(this.panel4, 1);
-            this.panel4.Size = new System.Drawing.Size(201, 53);
-            this.panel4.TabIndex = 55;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(83, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(106, 32);
-            this.label6.TabIndex = 46;
-            this.label6.Text = "13/09/2021";
+            this.lblSoCauThi.AutoSize = true;
+            this.lblSoCauThi.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSoCauThi.Location = new System.Drawing.Point(100, 10);
+            this.lblSoCauThi.Name = "lblSoCauThi";
+            this.lblSoCauThi.Size = new System.Drawing.Size(68, 32);
+            this.lblSoCauThi.TabIndex = 52;
+            this.lblSoCauThi.Text = "15 câu";
             // 
             // label5
             // 
@@ -469,10 +606,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl1.Location = new System.Drawing.Point(1445, 50);
+            this.gridControl1.Location = new System.Drawing.Point(1461, 50);
             this.gridControl1.MainView = this.gridView2;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(214, 596);
+            this.gridControl1.Size = new System.Drawing.Size(214, 612);
             this.gridControl1.TabIndex = 3;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -523,59 +660,59 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.gridColumn2.VisibleIndex = 1;
             this.gridColumn2.Width = 94;
             // 
-            // buttonThem
+            // btnNopBai
             // 
-            this.buttonThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonThem.Animated = true;
-            this.buttonThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
-            this.buttonThem.CheckedState.Parent = this.buttonThem;
-            this.buttonThem.CustomImages.Parent = this.buttonThem;
-            this.buttonThem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
-            this.buttonThem.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonThem.ForeColor = System.Drawing.Color.Black;
-            this.buttonThem.HoverState.FillColor = System.Drawing.Color.Gainsboro;
-            this.buttonThem.HoverState.Parent = this.buttonThem;
-            this.buttonThem.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
-            this.buttonThem.ImageSize = new System.Drawing.Size(40, 40);
-            this.buttonThem.Location = new System.Drawing.Point(6, 91);
-            this.buttonThem.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
-            this.buttonThem.Name = "buttonThem";
-            this.buttonThem.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
-            this.buttonThem.ShadowDecoration.Parent = this.buttonThem;
-            this.buttonThem.Size = new System.Drawing.Size(157, 66);
-            this.buttonThem.TabIndex = 42;
-            this.buttonThem.Text = "Nộp bài";
-            this.buttonThem.Click += new System.EventHandler(this.buttonThem_Click);
+            this.btnNopBai.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNopBai.Animated = true;
+            this.btnNopBai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.btnNopBai.CheckedState.Parent = this.btnNopBai;
+            this.btnNopBai.CustomImages.Parent = this.btnNopBai;
+            this.btnNopBai.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.btnNopBai.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNopBai.ForeColor = System.Drawing.Color.Black;
+            this.btnNopBai.HoverState.FillColor = System.Drawing.Color.Gainsboro;
+            this.btnNopBai.HoverState.Parent = this.btnNopBai;
+            this.btnNopBai.Image = global::TracNghiemCSDLPT.Properties.Resources.submit;
+            this.btnNopBai.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnNopBai.Location = new System.Drawing.Point(6, 91);
+            this.btnNopBai.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.btnNopBai.Name = "btnNopBai";
+            this.btnNopBai.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
+            this.btnNopBai.ShadowDecoration.Parent = this.btnNopBai;
+            this.btnNopBai.Size = new System.Drawing.Size(157, 66);
+            this.btnNopBai.TabIndex = 42;
+            this.btnNopBai.Text = "Nộp bài";
+            this.btnNopBai.Click += new System.EventHandler(this.buttonThem_Click);
             // 
-            // guna2Button1
+            // btnBatDauThi
             // 
-            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button1.Animated = true;
-            this.guna2Button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.Gainsboro;
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
-            this.guna2Button1.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2Button1.Location = new System.Drawing.Point(6, 0);
-            this.guna2Button1.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(157, 66);
-            this.guna2Button1.TabIndex = 43;
-            this.guna2Button1.Text = "Bắt đầu thi";
+            this.btnBatDauThi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBatDauThi.Animated = true;
+            this.btnBatDauThi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.btnBatDauThi.CheckedState.Parent = this.btnBatDauThi;
+            this.btnBatDauThi.CustomImages.Parent = this.btnBatDauThi;
+            this.btnBatDauThi.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.btnBatDauThi.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBatDauThi.ForeColor = System.Drawing.Color.Black;
+            this.btnBatDauThi.HoverState.FillColor = System.Drawing.Color.Gainsboro;
+            this.btnBatDauThi.HoverState.Parent = this.btnBatDauThi;
+            this.btnBatDauThi.Image = global::TracNghiemCSDLPT.Properties.Resources.start_up;
+            this.btnBatDauThi.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnBatDauThi.Location = new System.Drawing.Point(6, 0);
+            this.btnBatDauThi.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.btnBatDauThi.Name = "btnBatDauThi";
+            this.btnBatDauThi.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
+            this.btnBatDauThi.ShadowDecoration.Parent = this.btnBatDauThi;
+            this.btnBatDauThi.Size = new System.Drawing.Size(157, 66);
+            this.btnBatDauThi.TabIndex = 43;
+            this.btnBatDauThi.Text = "Bắt đầu thi";
             // 
             // panel9
             // 
             this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel9.Controls.Add(this.guna2Button1);
-            this.panel9.Controls.Add(this.buttonThem);
-            this.panel9.Location = new System.Drawing.Point(1273, 50);
+            this.panel9.Controls.Add(this.btnBatDauThi);
+            this.panel9.Controls.Add(this.btnNopBai);
+            this.panel9.Location = new System.Drawing.Point(1289, 50);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(166, 157);
             this.panel9.TabIndex = 44;
@@ -596,142 +733,56 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(1445, 652);
+            this.panel1.Location = new System.Drawing.Point(1461, 668);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(217, 69);
             this.panel1.TabIndex = 2;
             // 
+            // usp_ThiThu_LayLopCoLichThi_TatCaBindingSource
+            // 
+            this.usp_ThiThu_LayLopCoLichThi_TatCaBindingSource.DataMember = "usp_ThiThu_LayLopCoLichThi_TatCa";
+            this.usp_ThiThu_LayLopCoLichThi_TatCaBindingSource.DataSource = this.tN_CSDLPTDataSet;
+            // 
+            // usp_ThiThu_LayLopCoLichThi_TatCaTableAdapter
+            // 
+            this.usp_ThiThu_LayLopCoLichThi_TatCaTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BAITHITableAdapter = null;
+            this.tableAdapterManager.BANGDIEMTableAdapter = null;
+            this.tableAdapterManager.BODE_BKTableAdapter = null;
+            this.tableAdapterManager.BODETableAdapter = null;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.COSOTableAdapter = null;
+            this.tableAdapterManager.GIAOVIEN_DANGKYTableAdapter = null;
+            this.tableAdapterManager.GIAOVIENTableAdapter = null;
+            this.tableAdapterManager.KHOATableAdapter = null;
+            this.tableAdapterManager.LOPTableAdapter = null;
+            this.tableAdapterManager.MONHOCTableAdapter = null;
+            this.tableAdapterManager.SINHVIENTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaTableAdapter
+            // 
+            this.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaTableAdapter.ClearBeforeFill = true;
+            // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(18, 217);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(18, 213);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1418, 504);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1437, 521);
             this.flowLayoutPanel1.TabIndex = 45;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.tablePanel1.SetColumn(this.panel10, 3);
-            this.panel10.Controls.Add(label9);
-            this.panel10.Controls.Add(this.label10);
-            this.panel10.Location = new System.Drawing.Point(805, 72);
-            this.panel10.Name = "panel10";
-            this.tablePanel1.SetRow(this.panel10, 1);
-            this.panel10.Size = new System.Drawing.Size(435, 53);
-            this.panel10.TabIndex = 59;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            label9.Location = new System.Drawing.Point(3, 11);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(118, 30);
-            label9.TabIndex = 51;
-            label9.Text = "Mã sinh viên";
-            label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(121, 10);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(46, 32);
-            this.label10.TabIndex = 52;
-            this.label10.Text = "001";
-            // 
-            // panel11
-            // 
-            this.tablePanel1.SetColumn(this.panel11, 0);
-            this.panel11.Controls.Add(this.gridLookUpEdit1);
-            this.panel11.Controls.Add(label17);
-            this.panel11.Location = new System.Drawing.Point(3, 72);
-            this.panel11.Name = "panel11";
-            this.tablePanel1.SetRow(this.panel11, 1);
-            this.panel11.Size = new System.Drawing.Size(398, 53);
-            this.panel11.TabIndex = 56;
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            label17.Location = new System.Drawing.Point(3, 11);
-            label17.Name = "label17";
-            label17.Size = new System.Drawing.Size(77, 30);
-            label17.TabIndex = 34;
-            label17.Text = "Môn thi";
-            label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // gridLookUpEdit1
-            // 
-            this.gridLookUpEdit1.Location = new System.Drawing.Point(86, 7);
-            this.gridLookUpEdit1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 40);
-            this.gridLookUpEdit1.Name = "gridLookUpEdit1";
-            this.gridLookUpEdit1.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridLookUpEdit1.Properties.Appearance.Options.UseFont = true;
-            this.gridLookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.gridLookUpEdit1.Properties.DisplayMember = "FullInfo";
-            this.gridLookUpEdit1.Properties.NullText = "Chọn môn đã thi";
-            this.gridLookUpEdit1.Properties.PopupFormSize = new System.Drawing.Size(0, 300);
-            this.gridLookUpEdit1.Properties.PopupView = this.gridView3;
-            this.gridLookUpEdit1.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
-            this.gridLookUpEdit1.Size = new System.Drawing.Size(296, 38);
-            this.gridLookUpEdit1.TabIndex = 40;
-            // 
-            // gridView3
-            // 
-            this.gridView3.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(255)))), ((int)(((byte)(215)))));
-            this.gridView3.Appearance.FocusedRow.Options.UseBackColor = true;
-            this.gridView3.Appearance.HeaderPanel.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold);
-            this.gridView3.Appearance.HeaderPanel.Options.UseFont = true;
-            this.gridView3.Appearance.Row.Font = new System.Drawing.Font("Baloo 2", 12F);
-            this.gridView3.Appearance.Row.Options.UseFont = true;
-            this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn3,
-            this.gridColumn4});
-            this.gridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView3.Name = "gridView3";
-            this.gridView3.OptionsEditForm.PopupEditFormWidth = 361;
-            this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView3.OptionsView.ShowGroupPanel = false;
-            this.gridView3.OptionsView.ShowIndicator = false;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
-            this.gridColumn3.AppearanceHeader.Options.UseBackColor = true;
-            this.gridColumn3.Caption = "Mã MH";
-            this.gridColumn3.FieldName = "MAMH";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.OptionsColumn.FixedWidth = true;
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 0;
-            this.gridColumn3.Width = 100;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
-            this.gridColumn4.AppearanceHeader.Options.UseBackColor = true;
-            this.gridColumn4.Caption = "Tên môn học";
-            this.gridColumn4.FieldName = "TENMH";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 1;
-            this.gridColumn4.Width = 300;
+            this.flowLayoutPanel1.WrapContents = false;
             // 
             // FormThi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1674, 733);
+            this.ClientSize = new System.Drawing.Size(1690, 749);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.gridControl1);
@@ -739,34 +790,38 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.Controls.Add(this.pnlThongTinThi);
             this.Name = "FormThi";
             this.Text = "Dự thi";
+            this.Load += new System.EventHandler(this.FormThi_Load);
             this.pnlThongTinThi.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpMonHoc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tN_CSDLPTDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usp_ThiThu_LayLopCoLichThi_TatCaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -779,37 +834,43 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private Guna.UI2.WinForms.Guna2Button buttonThem;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private System.Windows.Forms.Label label11;
+        private Guna.UI2.WinForms.Guna2Button btnNopBai;
+        private Guna.UI2.WinForms.Guna2Button btnBatDauThi;
+        private System.Windows.Forms.Label lblThoiGian;
         private Guna.UI2.WinForms.Guna2CustomRadioButton rdo1;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lbl2;
+        private System.Windows.Forms.Label lbl1;
         private Guna.UI2.WinForms.Guna2CustomRadioButton rdo2;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblHoTen;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblSoCauThi;
         private System.Windows.Forms.Panel panel2;
         private DevExpress.XtraEditors.GridLookUpEdit LookUpLop;
         private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
         private DevExpress.XtraGrid.Columns.GridColumn colMALOP;
         private DevExpress.XtraGrid.Columns.GridColumn colTENLOP;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblNgayThi;
         private DevExpress.Utils.Layout.TablePanel tablePanel1;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblMaSV;
         private System.Windows.Forms.Panel panel11;
-        private DevExpress.XtraEditors.GridLookUpEdit gridLookUpEdit1;
+        private DevExpress.XtraEditors.GridLookUpEdit LookUpMonHoc;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private TN_CSDLPTDataSet tN_CSDLPTDataSet;
+        private System.Windows.Forms.BindingSource usp_ThiThu_LayLopCoLichThi_TatCaBindingSource;
+        private TN_CSDLPTDataSetTableAdapters.usp_ThiThu_LayLopCoLichThi_TatCaTableAdapter usp_ThiThu_LayLopCoLichThi_TatCaTableAdapter;
+        private TN_CSDLPTDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.BindingSource usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaBindingSource;
+        private TN_CSDLPTDataSetTableAdapters.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaTableAdapter usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaTableAdapter;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

@@ -757,5 +757,11 @@
   <ItemGroup>
     <None Include="Resources\transcript.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\start-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\submit.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

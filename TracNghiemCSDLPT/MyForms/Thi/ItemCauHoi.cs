@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         public ItemCauHoi()
         {
             InitializeComponent();
+            InitRdoList();
         }
 
         private int _stt; // mã stt của câu đó
@@ -28,6 +30,25 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private string _daChon = "";
         private string _dapAn = "";
 
+        private Guna2CustomRadioButton[] _rdoList = new Guna2CustomRadioButton[4];
+        private void InitRdoList()
+        {
+            _rdoList[0] = rdoA;
+            _rdoList[1] = rdoB;
+            _rdoList[2] = rdoC;
+            _rdoList[3] = rdoD;
+
+        }
+        private void UncheckAllOtherRdos(Guna2CustomRadioButton rdo)
+        {
+            for (int i = 0; i < _rdoList.Length; i++)
+            {
+                if (_rdoList[i] != rdo)
+                {
+                    _rdoList[i].Checked = false;
+                }
+            }
+        }
         public int STT
         {
             get { return _stt; }
@@ -115,6 +136,16 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         }
         private void ItemCauHoi_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void Rdo_CheckedChanged(object sender, EventArgs e)
+        {
+            Guna2CustomRadioButton rdo = sender as Guna2CustomRadioButton;
+            if (rdo.Checked)
+            {
+                UncheckAllOtherRdos(rdo);
+            }
 
         }
     }

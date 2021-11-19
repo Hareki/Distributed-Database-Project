@@ -193,6 +193,35 @@ namespace TracNghiemCSDLPT.Others
             }
         }
 
+        public static DataTable ExecuteSqlDataTableSP(string spName, List<Para> paraList)
+        {
+            DataTable result = new DataTable();
+            SqlCommand sqlCmd = new SqlCommand(spName, SubcriberConnection);
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            foreach (Para element in paraList)
+            {
+                sqlCmd.Parameters.Add(new SqlParameter(element.ValueName, element.RealValue));
+            }
+
+            if (SubcriberConnection.State == ConnectionState.Closed)
+                SubcriberConnection.Open();
+            try
+            {
+                var reader = sqlCmd.ExecuteReader();
+                result.Load(reader);
+                reader.Close();
+                return result;
+            }
+            catch (SqlException ex)
+            {
+                SubcriberConnection.Close();
+                Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
+                SubcriberConnection.Close();
+                Console.WriteLine(ex.StackTrace);
+                return null;
+            }
+        }
+
 
         public static DataTable ExecuteSqlDataTable(string query)
         {

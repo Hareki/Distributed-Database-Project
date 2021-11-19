@@ -38,8 +38,16 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label9;
             System.Windows.Forms.Label label17;
+            System.Windows.Forms.Label label2;
             this.pnlThongTinThi = new Bunifu.UI.WinForms.BunifuGroupBox();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblTrinhDo = new System.Windows.Forms.Label();
+            this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.lblMaSV = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.lblThoiGian = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.LookUpMonHoc = new DevExpress.XtraEditors.GridLookUpEdit();
             this.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -52,21 +60,17 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENLOP = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.lblMaSV = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lbl2 = new System.Windows.Forms.Label();
             this.rdo2 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.rdo1 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.lbl1 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.lblSoCauThi = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.lblHoTen = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblNgayThi = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.lblThoiGian = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.lblSoCauThi = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -81,7 +85,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.usp_ThiThu_LayLopCoLichThi_TatCaTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.usp_ThiThu_LayLopCoLichThi_TatCaTableAdapter();
             this.tableAdapterManager = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
             this.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaTableAdapter();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowPnlBaiThi = new System.Windows.Forms.FlowLayoutPanel();
+            this.DeThiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             label7 = new System.Windows.Forms.Label();
             label12 = new System.Windows.Forms.Label();
             LabelMaMH = new System.Windows.Forms.Label();
@@ -90,9 +95,15 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             label1 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
             label17 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
             this.pnlThongTinThi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).BeginInit();
+            this.tablePanel2.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpMonHoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaBindingSource)).BeginInit();
@@ -101,17 +112,16 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
-            this.panel10.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usp_ThiThu_LayLopCoLichThi_TatCaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DeThiBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -127,9 +137,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             // label12
             // 
+            label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
             label12.AutoSize = true;
             label12.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            label12.Location = new System.Drawing.Point(6, 16);
+            label12.Location = new System.Drawing.Point(6, 11);
             label12.Name = "label12";
             label12.Size = new System.Drawing.Size(92, 30);
             label12.TabIndex = 53;
@@ -182,6 +193,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             // label9
             // 
+            label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             label9.AutoSize = true;
             label9.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
             label9.Location = new System.Drawing.Point(3, 11);
@@ -201,6 +213,17 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             label17.TabIndex = 34;
             label17.Text = "Môn thi";
             label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
+            label2.Location = new System.Drawing.Point(11, 11);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(83, 30);
+            label2.TabIndex = 51;
+            label2.Text = "Trình độ";
+            label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pnlThongTinThi
             // 
@@ -232,14 +255,14 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 26.62F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 24.31F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 46.92F)});
+            this.tablePanel1.Controls.Add(this.panel3);
+            this.tablePanel1.Controls.Add(this.tablePanel2);
             this.tablePanel1.Controls.Add(this.panel11);
             this.tablePanel1.Controls.Add(this.panel2);
-            this.tablePanel1.Controls.Add(this.panel10);
             this.tablePanel1.Controls.Add(this.panel5);
+            this.tablePanel1.Controls.Add(this.panel8);
             this.tablePanel1.Controls.Add(this.panel7);
             this.tablePanel1.Controls.Add(this.panel4);
-            this.tablePanel1.Controls.Add(this.panel6);
-            this.tablePanel1.Controls.Add(this.panel8);
             this.tablePanel1.Location = new System.Drawing.Point(6, 47);
             this.tablePanel1.Name = "tablePanel1";
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
@@ -247,6 +270,88 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 69.19998F)});
             this.tablePanel1.Size = new System.Drawing.Size(1259, 128);
             this.tablePanel1.TabIndex = 59;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tablePanel1.SetColumn(this.panel3, 2);
+            this.panel3.Controls.Add(label2);
+            this.panel3.Controls.Add(this.lblTrinhDo);
+            this.panel3.Location = new System.Drawing.Point(702, 8);
+            this.panel3.Name = "panel3";
+            this.tablePanel1.SetRow(this.panel3, 0);
+            this.panel3.Size = new System.Drawing.Size(185, 53);
+            this.panel3.TabIndex = 58;
+            // 
+            // lblTrinhDo
+            // 
+            this.lblTrinhDo.AutoSize = true;
+            this.lblTrinhDo.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrinhDo.Location = new System.Drawing.Point(100, 10);
+            this.lblTrinhDo.Name = "lblTrinhDo";
+            this.lblTrinhDo.Size = new System.Drawing.Size(19, 32);
+            this.lblTrinhDo.TabIndex = 52;
+            this.lblTrinhDo.Text = " ";
+            // 
+            // tablePanel2
+            // 
+            this.tablePanel1.SetColumn(this.tablePanel2, 3);
+            this.tablePanel2.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F)});
+            this.tablePanel2.Controls.Add(this.panel10);
+            this.tablePanel2.Controls.Add(this.panel6);
+            this.tablePanel2.Location = new System.Drawing.Point(893, 72);
+            this.tablePanel2.Name = "tablePanel2";
+            this.tablePanel1.SetRow(this.tablePanel2, 1);
+            this.tablePanel2.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
+            this.tablePanel2.Size = new System.Drawing.Size(363, 53);
+            this.tablePanel2.TabIndex = 60;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tablePanel2.SetColumn(this.panel10, 1);
+            this.panel10.Controls.Add(label9);
+            this.panel10.Controls.Add(this.lblMaSV);
+            this.panel10.Location = new System.Drawing.Point(185, 3);
+            this.panel10.Name = "panel10";
+            this.tablePanel2.SetRow(this.panel10, 0);
+            this.panel10.Size = new System.Drawing.Size(176, 47);
+            this.panel10.TabIndex = 59;
+            // 
+            // lblMaSV
+            // 
+            this.lblMaSV.AutoSize = true;
+            this.lblMaSV.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaSV.Location = new System.Drawing.Point(121, 10);
+            this.lblMaSV.Name = "lblMaSV";
+            this.lblMaSV.Size = new System.Drawing.Size(19, 32);
+            this.lblMaSV.TabIndex = 52;
+            this.lblMaSV.Text = " ";
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tablePanel2.SetColumn(this.panel6, 0);
+            this.panel6.Controls.Add(this.lblThoiGian);
+            this.panel6.Controls.Add(label12);
+            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Name = "panel6";
+            this.tablePanel2.SetRow(this.panel6, 0);
+            this.panel6.Size = new System.Drawing.Size(176, 47);
+            this.panel6.TabIndex = 55;
+            // 
+            // lblThoiGian
+            // 
+            this.lblThoiGian.AutoSize = true;
+            this.lblThoiGian.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblThoiGian.Location = new System.Drawing.Point(91, 9);
+            this.lblThoiGian.Name = "lblThoiGian";
+            this.lblThoiGian.Size = new System.Drawing.Size(19, 32);
+            this.lblThoiGian.TabIndex = 54;
+            this.lblThoiGian.Text = " ";
             // 
             // panel11
             // 
@@ -399,28 +504,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.colTENLOP.VisibleIndex = 1;
             this.colTENLOP.Width = 300;
             // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.tablePanel1.SetColumn(this.panel10, 3);
-            this.panel10.Controls.Add(label9);
-            this.panel10.Controls.Add(this.lblMaSV);
-            this.panel10.Location = new System.Drawing.Point(893, 72);
-            this.panel10.Name = "panel10";
-            this.tablePanel1.SetRow(this.panel10, 1);
-            this.panel10.Size = new System.Drawing.Size(363, 53);
-            this.panel10.TabIndex = 59;
-            // 
-            // lblMaSV
-            // 
-            this.lblMaSV.AutoSize = true;
-            this.lblMaSV.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaSV.Location = new System.Drawing.Point(121, 10);
-            this.lblMaSV.Name = "lblMaSV";
-            this.lblMaSV.Size = new System.Drawing.Size(46, 32);
-            this.lblMaSV.TabIndex = 52;
-            this.lblMaSV.Text = "001";
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
@@ -468,6 +551,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.rdo2.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdo2.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.rdo2.UncheckedState.Parent = this.rdo2;
+            this.rdo2.CheckedChanged += new System.EventHandler(this.Rdo_CheckedChanged);
             // 
             // rdo1
             // 
@@ -489,6 +573,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.rdo1.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdo1.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.rdo1.UncheckedState.Parent = this.rdo1;
+            this.rdo1.CheckedChanged += new System.EventHandler(this.Rdo_CheckedChanged);
             // 
             // lbl1
             // 
@@ -501,72 +586,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.lbl1.Size = new System.Drawing.Size(20, 30);
             this.lbl1.TabIndex = 28;
             this.lbl1.Text = "1";
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.tablePanel1.SetColumn(this.panel7, 3);
-            this.panel7.Controls.Add(label1);
-            this.panel7.Controls.Add(this.lblHoTen);
-            this.panel7.Location = new System.Drawing.Point(893, 3);
-            this.panel7.Name = "panel7";
-            this.tablePanel1.SetRow(this.panel7, 0);
-            this.panel7.Size = new System.Drawing.Size(363, 63);
-            this.panel7.TabIndex = 58;
-            // 
-            // lblHoTen
-            // 
-            this.lblHoTen.AutoSize = true;
-            this.lblHoTen.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHoTen.Location = new System.Drawing.Point(121, 15);
-            this.lblHoTen.Name = "lblHoTen";
-            this.lblHoTen.Size = new System.Drawing.Size(201, 32);
-            this.lblHoTen.TabIndex = 52;
-            this.lblHoTen.Text = "Nguyễn Ngọc Minh Tú";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.tablePanel1.SetColumn(this.panel4, 1);
-            this.panel4.Controls.Add(this.lblNgayThi);
-            this.panel4.Controls.Add(label3);
-            this.panel4.Location = new System.Drawing.Point(492, 72);
-            this.panel4.Name = "panel4";
-            this.tablePanel1.SetRow(this.panel4, 1);
-            this.panel4.Size = new System.Drawing.Size(203, 53);
-            this.panel4.TabIndex = 55;
-            // 
-            // lblNgayThi
-            // 
-            this.lblNgayThi.AutoSize = true;
-            this.lblNgayThi.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNgayThi.Location = new System.Drawing.Point(83, 10);
-            this.lblNgayThi.Name = "lblNgayThi";
-            this.lblNgayThi.Size = new System.Drawing.Size(106, 32);
-            this.lblNgayThi.TabIndex = 46;
-            this.lblNgayThi.Text = "13/09/2021";
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.tablePanel1.SetColumn(this.panel6, 2);
-            this.panel6.Controls.Add(this.lblThoiGian);
-            this.panel6.Controls.Add(label12);
-            this.panel6.Location = new System.Drawing.Point(702, 8);
-            this.panel6.Name = "panel6";
-            this.tablePanel1.SetRow(this.panel6, 0);
-            this.panel6.Size = new System.Drawing.Size(185, 53);
-            this.panel6.TabIndex = 55;
-            // 
-            // lblThoiGian
-            // 
-            this.lblThoiGian.AutoSize = true;
-            this.lblThoiGian.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblThoiGian.Location = new System.Drawing.Point(100, 15);
-            this.lblThoiGian.Name = "lblThoiGian";
-            this.lblThoiGian.Size = new System.Drawing.Size(82, 32);
-            this.lblThoiGian.TabIndex = 54;
-            this.lblThoiGian.Text = "60 phút";
             // 
             // panel8
             // 
@@ -586,19 +605,63 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.lblSoCauThi.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSoCauThi.Location = new System.Drawing.Point(100, 10);
             this.lblSoCauThi.Name = "lblSoCauThi";
-            this.lblSoCauThi.Size = new System.Drawing.Size(68, 32);
+            this.lblSoCauThi.Size = new System.Drawing.Size(19, 32);
             this.lblSoCauThi.TabIndex = 52;
-            this.lblSoCauThi.Text = "15 câu";
+            this.lblSoCauThi.Text = " ";
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tablePanel1.SetColumn(this.panel7, 3);
+            this.panel7.Controls.Add(label1);
+            this.panel7.Controls.Add(this.lblHoTen);
+            this.panel7.Location = new System.Drawing.Point(893, 3);
+            this.panel7.Name = "panel7";
+            this.tablePanel1.SetRow(this.panel7, 0);
+            this.panel7.Size = new System.Drawing.Size(363, 63);
+            this.panel7.TabIndex = 58;
+            // 
+            // lblHoTen
+            // 
+            this.lblHoTen.AutoSize = true;
+            this.lblHoTen.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHoTen.Location = new System.Drawing.Point(121, 15);
+            this.lblHoTen.Name = "lblHoTen";
+            this.lblHoTen.Size = new System.Drawing.Size(19, 32);
+            this.lblHoTen.TabIndex = 52;
+            this.lblHoTen.Text = " ";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tablePanel1.SetColumn(this.panel4, 1);
+            this.panel4.Controls.Add(this.lblNgayThi);
+            this.panel4.Controls.Add(label3);
+            this.panel4.Location = new System.Drawing.Point(492, 72);
+            this.panel4.Name = "panel4";
+            this.tablePanel1.SetRow(this.panel4, 1);
+            this.panel4.Size = new System.Drawing.Size(203, 53);
+            this.panel4.TabIndex = 55;
+            // 
+            // lblNgayThi
+            // 
+            this.lblNgayThi.AutoSize = true;
+            this.lblNgayThi.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNgayThi.Location = new System.Drawing.Point(83, 10);
+            this.lblNgayThi.Name = "lblNgayThi";
+            this.lblNgayThi.Size = new System.Drawing.Size(23, 32);
+            this.lblNgayThi.TabIndex = 46;
+            this.lblNgayThi.Text = "  ";
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Baloo 2", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Baloo 2", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(105)))), ((int)(((byte)(106)))));
             this.label5.Location = new System.Drawing.Point(46, 30);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 36);
+            this.label5.Size = new System.Drawing.Size(141, 40);
             this.label5.TabIndex = 4;
             this.label5.Text = "50 : 12 phút";
             // 
@@ -667,6 +730,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.btnNopBai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
             this.btnNopBai.CheckedState.Parent = this.btnNopBai;
             this.btnNopBai.CustomImages.Parent = this.btnNopBai;
+            this.btnNopBai.Enabled = false;
             this.btnNopBai.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
             this.btnNopBai.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNopBai.ForeColor = System.Drawing.Color.Black;
@@ -691,6 +755,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.btnBatDauThi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
             this.btnBatDauThi.CheckedState.Parent = this.btnBatDauThi;
             this.btnBatDauThi.CustomImages.Parent = this.btnBatDauThi;
+            this.btnBatDauThi.Enabled = false;
             this.btnBatDauThi.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
             this.btnBatDauThi.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBatDauThi.ForeColor = System.Drawing.Color.Black;
@@ -706,6 +771,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.btnBatDauThi.Size = new System.Drawing.Size(157, 66);
             this.btnBatDauThi.TabIndex = 43;
             this.btnBatDauThi.Text = "Bắt đầu thi";
+            this.btnBatDauThi.Click += new System.EventHandler(this.btnBatDauThi_Click);
             // 
             // panel9
             // 
@@ -768,22 +834,25 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             this.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaTableAdapter.ClearBeforeFill = true;
             // 
-            // flowLayoutPanel1
+            // flowPnlBaiThi
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(18, 213);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1437, 521);
-            this.flowLayoutPanel1.TabIndex = 45;
-            this.flowLayoutPanel1.WrapContents = false;
+            this.flowPnlBaiThi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowPnlBaiThi.AutoScroll = true;
+            this.flowPnlBaiThi.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowPnlBaiThi.Location = new System.Drawing.Point(18, 217);
+            this.flowPnlBaiThi.Name = "flowPnlBaiThi";
+            this.flowPnlBaiThi.Size = new System.Drawing.Size(1437, 517);
+            this.flowPnlBaiThi.TabIndex = 45;
+            this.flowPnlBaiThi.WrapContents = false;
             // 
             // FormThi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1690, 749);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.flowPnlBaiThi);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.panel1);
@@ -794,6 +863,14 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.pnlThongTinThi.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).EndInit();
+            this.tablePanel2.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpMonHoc.Properties)).EndInit();
@@ -804,24 +881,21 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usp_ThiThu_LayLopCoLichThi_TatCaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DeThiBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -871,6 +945,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private TN_CSDLPTDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingSource usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaBindingSource;
         private TN_CSDLPTDataSetTableAdapters.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaTableAdapter usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaTableAdapter;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowPnlBaiThi;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lblTrinhDo;
+        private DevExpress.Utils.Layout.TablePanel tablePanel2;
+        private System.Windows.Forms.BindingSource DeThiBindingSource;
     }
 }

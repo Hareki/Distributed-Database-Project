@@ -35,10 +35,10 @@ namespace TracNghiemCSDLPT.Others
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.pictureClose = new System.Windows.Forms.PictureBox();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.lblTieuDe = new System.Windows.Forms.Label();
+            this.pictureClose = new System.Windows.Forms.PictureBox();
+            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).BeginInit();
@@ -64,13 +64,13 @@ namespace TracNghiemCSDLPT.Others
             this.btnConfirm.CheckedState.Parent = this.btnConfirm;
             this.btnConfirm.CustomImages.Parent = this.btnConfirm;
             this.btnConfirm.FillColor = System.Drawing.Color.White;
-            this.btnConfirm.Font = new System.Drawing.Font("Baloo 2", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirm.ForeColor = System.Drawing.Color.DarkOrange;
             this.btnConfirm.HoverState.Parent = this.btnConfirm;
-            this.btnConfirm.Location = new System.Drawing.Point(361, 176);
+            this.btnConfirm.Location = new System.Drawing.Point(361, 183);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.ShadowDecoration.Parent = this.btnConfirm;
-            this.btnConfirm.Size = new System.Drawing.Size(121, 45);
+            this.btnConfirm.Size = new System.Drawing.Size(111, 38);
             this.btnConfirm.TabIndex = 7;
             this.btnConfirm.Text = "Xác nhận";
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
@@ -82,13 +82,13 @@ namespace TracNghiemCSDLPT.Others
             this.btnCancel.CheckedState.Parent = this.btnCancel;
             this.btnCancel.CustomImages.Parent = this.btnCancel;
             this.btnCancel.FillColor = System.Drawing.Color.White;
-            this.btnCancel.Font = new System.Drawing.Font("Baloo 2", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.DarkOrange;
             this.btnCancel.HoverState.Parent = this.btnCancel;
-            this.btnCancel.Location = new System.Drawing.Point(531, 176);
+            this.btnCancel.Location = new System.Drawing.Point(531, 183);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.ShadowDecoration.Parent = this.btnCancel;
-            this.btnCancel.Size = new System.Drawing.Size(121, 45);
+            this.btnCancel.Size = new System.Drawing.Size(111, 38);
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -115,12 +115,17 @@ namespace TracNghiemCSDLPT.Others
             this.panel2.Size = new System.Drawing.Size(667, 44);
             this.panel2.TabIndex = 10;
             // 
-            // bunifuDragControl1
+            // lblTieuDe
             // 
-            this.bunifuDragControl1.Fixed = true;
-            this.bunifuDragControl1.Horizontal = true;
-            this.bunifuDragControl1.TargetControl = this.panel2;
-            this.bunifuDragControl1.Vertical = true;
+            this.lblTieuDe.AutoSize = true;
+            this.lblTieuDe.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTieuDe.ForeColor = System.Drawing.Color.White;
+            this.lblTieuDe.Location = new System.Drawing.Point(6, 5);
+            this.lblTieuDe.MaximumSize = new System.Drawing.Size(570, 0);
+            this.lblTieuDe.Name = "lblTieuDe";
+            this.lblTieuDe.Size = new System.Drawing.Size(130, 32);
+            this.lblTieuDe.TabIndex = 5;
+            this.lblTieuDe.Text = "Message Text";
             // 
             // pictureClose
             // 
@@ -134,6 +139,13 @@ namespace TracNghiemCSDLPT.Others
             this.pictureClose.TabStop = false;
             this.pictureClose.Click += new System.EventHandler(this.pictureClose_Click);
             // 
+            // bunifuDragControl1
+            // 
+            this.bunifuDragControl1.Fixed = true;
+            this.bunifuDragControl1.Horizontal = true;
+            this.bunifuDragControl1.TargetControl = this.panel2;
+            this.bunifuDragControl1.Vertical = true;
+            // 
             // pictureBox
             // 
             this.pictureBox.Image = global::TracNghiemCSDLPT.Properties.Resources.warning_shield_45px;
@@ -143,18 +155,6 @@ namespace TracNghiemCSDLPT.Others
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox.TabIndex = 5;
             this.pictureBox.TabStop = false;
-            // 
-            // lblTieuDe
-            // 
-            this.lblTieuDe.AutoSize = true;
-            this.lblTieuDe.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTieuDe.ForeColor = System.Drawing.Color.White;
-            this.lblTieuDe.Location = new System.Drawing.Point(6, 5);
-            this.lblTieuDe.MaximumSize = new System.Drawing.Size(570, 0);
-            this.lblTieuDe.Name = "lblTieuDe";
-            this.lblTieuDe.Size = new System.Drawing.Size(130, 32);
-            this.lblTieuDe.TabIndex = 5;
-            this.lblTieuDe.Text = "Message Text";
             // 
             // ConfirmForm
             // 

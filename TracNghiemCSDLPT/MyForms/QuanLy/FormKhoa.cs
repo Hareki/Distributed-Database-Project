@@ -63,11 +63,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
             LoadCombobox();
-            //LoadAllData();
+            LoadAllData();
             CheckButtonState();
             buttonUndo.Enabled = buttonRedo.Enabled = false;
             PhanQuyen();
-            Utils.ConfigControlColor(InfoPanel);
+         //   Utils.ConfigControlColor(InfoPanel);
         }
 
         private void LoadCombobox()

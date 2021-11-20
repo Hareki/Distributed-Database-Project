@@ -1,7 +1,7 @@
 ﻿
 namespace TracNghiemCSDLPT.Others
 {
-    partial class FormDiem
+    partial class ResultForm
     {
         /// <summary>
         /// Required designer variable.

@@ -170,7 +170,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             //    lblSoCauThi.Text + " câu. Điểm: " + result[0], "Kết quả");
             string soCauDung = result[1] + "/" + lblSoCauThi.Text;
             string diem = "Điểm: " + result[0];
-            FormDiem formThongBaoDiem = new FormDiem(soCauDung, diem);
+            ResultForm formThongBaoDiem = new ResultForm(soCauDung, diem);
         }
         private void BtnNopBai_Click(object sender, EventArgs e)
         {

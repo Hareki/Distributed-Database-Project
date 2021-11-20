@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TracNghiemCSDLPT.Others
 {
-    public partial class FormDiem : Form
+    public partial class ResultForm : Form
     {
-        public FormDiem(string soCauDung, string diem)
+        public ResultForm(string soCauDung, string diem)
         {
             InitializeComponent();
             lblSoCauDung.Text = soCauDung;

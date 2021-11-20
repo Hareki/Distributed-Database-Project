@@ -22,6 +22,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             InitializeComponent();
             PhanQuyen();
             InitThongTinThi();
+            Utils.ConfigControlColor(pnlThongTinThi);
         }
 
 
@@ -207,8 +208,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         }
         private void FormThi_Load(object sender, EventArgs e)
         {
-
-
+            this.WindowState = FormWindowState.Maximized;
         }
         private void ClearInfo()
         {
@@ -315,6 +315,22 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             GenerateMaCauHoiSummary(int.Parse(lblSoCauThi.Text));
             summaryBindingSource.DataSource = summaryItems;
         }
+        private void SetPnlThongTinThiEnabled(bool enabled)
+        {
+
+            if (enabled)
+            {
+                pnlThongTinThi.Enabled = true;
+                pnlThongTinThi.ForeColor = Utils.ActiveColor;
+            }
+            else
+            {
+                pnlThongTinThi.Enabled = false;
+                pnlThongTinThi.ForeColor = Utils.DisabledColor;
+
+            }
+
+        }
         private void btnBatDauThi_Click(object sender, EventArgs e)
         {
             string maMh = Utils.GetLookUpValue(LookUpMonHoc, "MAMH");
@@ -338,7 +354,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
             DeThiBindingSource.DataSource = myTable;
 
-            pnlThongTinThi.Enabled = false;
+            SetPnlThongTinThiEnabled(false);
             btnBatDauThi.Enabled = false;
             LoadBaiThi(true);
 

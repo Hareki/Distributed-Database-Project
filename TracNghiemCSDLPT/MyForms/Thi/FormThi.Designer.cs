@@ -86,7 +86,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.summaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.summaryGridControl = new DevExpress.XtraGrid.GridControl();
             this.summaryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colMaCauHoi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSTT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDaChon = new DevExpress.XtraGrid.Columns.GridColumn();
             this.countDownTimer = new System.Windows.Forms.Timer(this.components);
             label7 = new System.Windows.Forms.Label();
@@ -847,7 +847,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.summaryGridView.Appearance.ViewCaption.Font = new System.Drawing.Font("Baloo 2", 13.8F, System.Drawing.FontStyle.Bold);
             this.summaryGridView.Appearance.ViewCaption.Options.UseFont = true;
             this.summaryGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMaCauHoi,
+            this.colSTT,
             this.colDaChon});
             this.summaryGridView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.summaryGridView.GridControl = this.summaryGridControl;
@@ -867,23 +867,17 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.summaryGridView.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gridView1_PopupMenuShowing);
             this.summaryGridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
-            // colMaCauHoi
+            // colSTT
             // 
-            this.colMaCauHoi.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.colMaCauHoi.AppearanceHeader.Options.UseBackColor = true;
-            this.colMaCauHoi.Caption = "Câu số";
-            this.colMaCauHoi.FieldName = "MaCauHoi";
-            this.colMaCauHoi.MinWidth = 25;
-            this.colMaCauHoi.Name = "colMaCauHoi";
-            this.colMaCauHoi.Visible = true;
-            this.colMaCauHoi.VisibleIndex = 0;
-            this.colMaCauHoi.Width = 94;
+            this.colSTT.FieldName = "STT";
+            this.colSTT.MinWidth = 25;
+            this.colSTT.Name = "colSTT";
+            this.colSTT.Visible = true;
+            this.colSTT.VisibleIndex = 0;
+            this.colSTT.Width = 94;
             // 
             // colDaChon
             // 
-            this.colDaChon.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.colDaChon.AppearanceHeader.Options.UseBackColor = true;
-            this.colDaChon.Caption = "Đã chọn";
             this.colDaChon.FieldName = "DaChon";
             this.colDaChon.MinWidth = 25;
             this.colDaChon.Name = "colDaChon";
@@ -898,8 +892,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             // FormThi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1690, 749);
             this.Controls.Add(this.summaryGridControl);
             this.Controls.Add(this.flowPnlBaiThi);
@@ -999,8 +993,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private System.Windows.Forms.BindingSource summaryBindingSource;
         private DevExpress.XtraGrid.GridControl summaryGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView summaryGridView;
-        private DevExpress.XtraGrid.Columns.GridColumn colMaCauHoi;
-        private DevExpress.XtraGrid.Columns.GridColumn colDaChon;
         private System.Windows.Forms.Timer countDownTimer;
+        private DevExpress.XtraGrid.Columns.GridColumn colSTT;
+        private DevExpress.XtraGrid.Columns.GridColumn colDaChon;
     }
 }

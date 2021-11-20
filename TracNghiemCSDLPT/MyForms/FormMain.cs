@@ -135,7 +135,8 @@ namespace TracNghiemCSDLPT.MyForms
 
         private void buttonThamGiaThi_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ShowForm(typeof(FormThi));
+            //ShowForm(typeof(FormThi));
+            (new FormThi()).ShowDialog();
         }
     }
 

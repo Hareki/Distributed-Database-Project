@@ -676,21 +676,24 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.btnNopBai.CheckedState.Parent = this.btnNopBai;
             this.btnNopBai.CustomImages.Parent = this.btnNopBai;
             this.btnNopBai.Enabled = false;
-            this.btnNopBai.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.btnNopBai.FillColor = System.Drawing.Color.Gainsboro;
             this.btnNopBai.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNopBai.ForeColor = System.Drawing.Color.Black;
-            this.btnNopBai.HoverState.FillColor = System.Drawing.Color.Gainsboro;
+            this.btnNopBai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
+            this.btnNopBai.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.btnNopBai.HoverState.Parent = this.btnNopBai;
             this.btnNopBai.Image = global::TracNghiemCSDLPT.Properties.Resources.submit;
-            this.btnNopBai.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnNopBai.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnNopBai.ImageSize = new System.Drawing.Size(35, 35);
             this.btnNopBai.Location = new System.Drawing.Point(6, 91);
             this.btnNopBai.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.btnNopBai.Name = "btnNopBai";
-            this.btnNopBai.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
+            this.btnNopBai.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.btnNopBai.ShadowDecoration.Parent = this.btnNopBai;
             this.btnNopBai.Size = new System.Drawing.Size(157, 66);
             this.btnNopBai.TabIndex = 42;
             this.btnNopBai.Text = "Nộp bài";
+            this.btnNopBai.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnNopBai.TextOffset = new System.Drawing.Point(3, 0);
             this.btnNopBai.Click += new System.EventHandler(this.BtnNopBai_Click);
             // 
             // btnBatDauThi
@@ -701,21 +704,24 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.btnBatDauThi.CheckedState.Parent = this.btnBatDauThi;
             this.btnBatDauThi.CustomImages.Parent = this.btnBatDauThi;
             this.btnBatDauThi.Enabled = false;
-            this.btnBatDauThi.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.btnBatDauThi.FillColor = System.Drawing.Color.Gainsboro;
             this.btnBatDauThi.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBatDauThi.ForeColor = System.Drawing.Color.Black;
-            this.btnBatDauThi.HoverState.FillColor = System.Drawing.Color.Gainsboro;
+            this.btnBatDauThi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
+            this.btnBatDauThi.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.btnBatDauThi.HoverState.Parent = this.btnBatDauThi;
             this.btnBatDauThi.Image = global::TracNghiemCSDLPT.Properties.Resources.start_up;
-            this.btnBatDauThi.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnBatDauThi.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnBatDauThi.ImageSize = new System.Drawing.Size(35, 35);
             this.btnBatDauThi.Location = new System.Drawing.Point(6, 0);
             this.btnBatDauThi.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.btnBatDauThi.Name = "btnBatDauThi";
-            this.btnBatDauThi.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
+            this.btnBatDauThi.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.btnBatDauThi.ShadowDecoration.Parent = this.btnBatDauThi;
             this.btnBatDauThi.Size = new System.Drawing.Size(157, 66);
             this.btnBatDauThi.TabIndex = 43;
             this.btnBatDauThi.Text = "Bắt đầu thi";
+            this.btnBatDauThi.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnBatDauThi.TextOffset = new System.Drawing.Point(3, 0);
             this.btnBatDauThi.Click += new System.EventHandler(this.btnBatDauThi_Click);
             // 
             // panel9

@@ -71,7 +71,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             LoadAllData();
             CheckButtonState();
             PhanQuyen();
-            Utils.ConfigControlColor(InfoPanel);
+      //      Utils.ConfigControlColor(InfoPanel);
         }
 
         private void SetIdleButtonEnabled(bool state)

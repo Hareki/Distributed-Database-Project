@@ -30,7 +30,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             System.Windows.Forms.Label mALOPLabel;
             System.Windows.Forms.Label tENLOPLabel;
             System.Windows.Forms.Label mAKHLabel;
@@ -221,10 +221,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             | System.Windows.Forms.AnchorStyles.Right)));
             this.KhoaGridControl.DataSource = this.KhoaBindingSource;
             this.KhoaGridControl.Font = new System.Drawing.Font("Teko SemiBold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            gridLevelNode1.LevelTemplate = this.LopGridView;
-            gridLevelNode1.RelationName = "FK_LOP_KHOA";
+            gridLevelNode2.LevelTemplate = this.LopGridView;
+            gridLevelNode2.RelationName = "FK_LOP_KHOA";
             this.KhoaGridControl.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode2});
             this.KhoaGridControl.Location = new System.Drawing.Point(8, 67);
             this.KhoaGridControl.MainView = this.KhoaGridView;
             this.KhoaGridControl.Name = "KhoaGridControl";
@@ -448,21 +448,24 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonLamMoiLop.Animated = true;
             this.buttonLamMoiLop.CheckedState.Parent = this.buttonLamMoiLop;
             this.buttonLamMoiLop.CustomImages.Parent = this.buttonLamMoiLop;
-            this.buttonLamMoiLop.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonLamMoiLop.FillColor = System.Drawing.Color.Gainsboro;
             this.buttonLamMoiLop.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLamMoiLop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.buttonLamMoiLop.HoverState.FillColor = System.Drawing.Color.Gainsboro;
+            this.buttonLamMoiLop.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonLamMoiLop.HoverState.Parent = this.buttonLamMoiLop;
             this.buttonLamMoiLop.Image = global::TracNghiemCSDLPT.Properties.Resources.reset_480px;
-            this.buttonLamMoiLop.ImageSize = new System.Drawing.Size(40, 40);
+            this.buttonLamMoiLop.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.buttonLamMoiLop.ImageSize = new System.Drawing.Size(35, 35);
             this.buttonLamMoiLop.Location = new System.Drawing.Point(387, 256);
             this.buttonLamMoiLop.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonLamMoiLop.Name = "buttonLamMoiLop";
-            this.buttonLamMoiLop.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
+            this.buttonLamMoiLop.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonLamMoiLop.ShadowDecoration.Parent = this.buttonLamMoiLop;
             this.buttonLamMoiLop.Size = new System.Drawing.Size(137, 45);
             this.buttonLamMoiLop.TabIndex = 18;
             this.buttonLamMoiLop.Text = "Làm mới";
+            this.buttonLamMoiLop.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.buttonLamMoiLop.TextOffset = new System.Drawing.Point(-3, 0);
             this.buttonLamMoiLop.Click += new System.EventHandler(this.buttonLamMoiLop_Click);
             // 
             // buttonSuaLop
@@ -471,21 +474,24 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonSuaLop.Animated = true;
             this.buttonSuaLop.CheckedState.Parent = this.buttonSuaLop;
             this.buttonSuaLop.CustomImages.Parent = this.buttonSuaLop;
-            this.buttonSuaLop.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonSuaLop.FillColor = System.Drawing.Color.Gainsboro;
             this.buttonSuaLop.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSuaLop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.buttonSuaLop.HoverState.FillColor = System.Drawing.Color.Gainsboro;
+            this.buttonSuaLop.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonSuaLop.HoverState.Parent = this.buttonSuaLop;
             this.buttonSuaLop.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_480px;
-            this.buttonSuaLop.ImageSize = new System.Drawing.Size(40, 40);
+            this.buttonSuaLop.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.buttonSuaLop.ImageSize = new System.Drawing.Size(35, 35);
             this.buttonSuaLop.Location = new System.Drawing.Point(387, 191);
             this.buttonSuaLop.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonSuaLop.Name = "buttonSuaLop";
-            this.buttonSuaLop.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
+            this.buttonSuaLop.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonSuaLop.ShadowDecoration.Parent = this.buttonSuaLop;
             this.buttonSuaLop.Size = new System.Drawing.Size(137, 45);
             this.buttonSuaLop.TabIndex = 16;
             this.buttonSuaLop.Text = "Sửa";
+            this.buttonSuaLop.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.buttonSuaLop.TextOffset = new System.Drawing.Point(-3, 0);
             this.buttonSuaLop.Click += new System.EventHandler(this.buttonSuaLop_Click);
             // 
             // buttonThemLop
@@ -494,21 +500,24 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonThemLop.Animated = true;
             this.buttonThemLop.CheckedState.Parent = this.buttonThemLop;
             this.buttonThemLop.CustomImages.Parent = this.buttonThemLop;
-            this.buttonThemLop.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonThemLop.FillColor = System.Drawing.Color.Gainsboro;
             this.buttonThemLop.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonThemLop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.buttonThemLop.HoverState.FillColor = System.Drawing.Color.Gainsboro;
+            this.buttonThemLop.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonThemLop.HoverState.Parent = this.buttonThemLop;
             this.buttonThemLop.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
-            this.buttonThemLop.ImageSize = new System.Drawing.Size(40, 40);
+            this.buttonThemLop.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.buttonThemLop.ImageSize = new System.Drawing.Size(35, 35);
             this.buttonThemLop.Location = new System.Drawing.Point(387, 44);
             this.buttonThemLop.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonThemLop.Name = "buttonThemLop";
-            this.buttonThemLop.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
+            this.buttonThemLop.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonThemLop.ShadowDecoration.Parent = this.buttonThemLop;
             this.buttonThemLop.Size = new System.Drawing.Size(137, 45);
             this.buttonThemLop.TabIndex = 17;
             this.buttonThemLop.Text = "Thêm";
+            this.buttonThemLop.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.buttonThemLop.TextOffset = new System.Drawing.Point(-3, 0);
             this.buttonThemLop.Click += new System.EventHandler(this.buttonThemLop_Click);
             // 
             // buttonXoaLop
@@ -517,21 +526,24 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonXoaLop.Animated = true;
             this.buttonXoaLop.CheckedState.Parent = this.buttonXoaLop;
             this.buttonXoaLop.CustomImages.Parent = this.buttonXoaLop;
-            this.buttonXoaLop.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonXoaLop.FillColor = System.Drawing.Color.Gainsboro;
             this.buttonXoaLop.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonXoaLop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.buttonXoaLop.HoverState.FillColor = System.Drawing.Color.Gainsboro;
+            this.buttonXoaLop.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonXoaLop.HoverState.Parent = this.buttonXoaLop;
             this.buttonXoaLop.Image = global::TracNghiemCSDLPT.Properties.Resources.minus_sign_480px;
-            this.buttonXoaLop.ImageSize = new System.Drawing.Size(40, 40);
+            this.buttonXoaLop.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.buttonXoaLop.ImageSize = new System.Drawing.Size(35, 35);
             this.buttonXoaLop.Location = new System.Drawing.Point(387, 116);
             this.buttonXoaLop.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonXoaLop.Name = "buttonXoaLop";
-            this.buttonXoaLop.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
+            this.buttonXoaLop.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonXoaLop.ShadowDecoration.Parent = this.buttonXoaLop;
             this.buttonXoaLop.Size = new System.Drawing.Size(137, 45);
             this.buttonXoaLop.TabIndex = 19;
             this.buttonXoaLop.Text = "Xóa";
+            this.buttonXoaLop.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.buttonXoaLop.TextOffset = new System.Drawing.Point(-3, 0);
             this.buttonXoaLop.Click += new System.EventHandler(this.buttonXoaLop_Click);
             // 
             // buttonHuyLop
@@ -792,25 +804,24 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonLamMoiSV.Animated = true;
             this.buttonLamMoiSV.CheckedState.Parent = this.buttonLamMoiSV;
             this.buttonLamMoiSV.CustomImages.Parent = this.buttonLamMoiSV;
-            this.buttonLamMoiSV.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonLamMoiSV.FillColor = System.Drawing.Color.Gainsboro;
             this.buttonLamMoiSV.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLamMoiSV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.buttonLamMoiSV.HoverState.FillColor = System.Drawing.Color.Gainsboro;
+            this.buttonLamMoiSV.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonLamMoiSV.HoverState.Parent = this.buttonLamMoiSV;
             this.buttonLamMoiSV.Image = global::TracNghiemCSDLPT.Properties.Resources.reset_480px;
             this.buttonLamMoiSV.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.buttonLamMoiSV.ImageOffset = new System.Drawing.Point(-3, 0);
-            this.buttonLamMoiSV.ImageSize = new System.Drawing.Size(40, 40);
+            this.buttonLamMoiSV.ImageSize = new System.Drawing.Size(35, 35);
             this.buttonLamMoiSV.Location = new System.Drawing.Point(9, 268);
             this.buttonLamMoiSV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
             this.buttonLamMoiSV.Name = "buttonLamMoiSV";
-            this.buttonLamMoiSV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
+            this.buttonLamMoiSV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonLamMoiSV.ShadowDecoration.Parent = this.buttonLamMoiSV;
             this.buttonLamMoiSV.Size = new System.Drawing.Size(137, 45);
             this.buttonLamMoiSV.TabIndex = 22;
             this.buttonLamMoiSV.Text = "Làm mới";
             this.buttonLamMoiSV.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.buttonLamMoiSV.TextOffset = new System.Drawing.Point(-7, 0);
             this.buttonLamMoiSV.Click += new System.EventHandler(this.buttonLamMoiSV_Click);
             // 
             // buttonThemSV
@@ -819,25 +830,24 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonThemSV.Animated = true;
             this.buttonThemSV.CheckedState.Parent = this.buttonThemSV;
             this.buttonThemSV.CustomImages.Parent = this.buttonThemSV;
-            this.buttonThemSV.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonThemSV.FillColor = System.Drawing.Color.Gainsboro;
             this.buttonThemSV.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonThemSV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.buttonThemSV.HoverState.FillColor = System.Drawing.Color.Gainsboro;
+            this.buttonThemSV.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonThemSV.HoverState.Parent = this.buttonThemSV;
             this.buttonThemSV.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
             this.buttonThemSV.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.buttonThemSV.ImageOffset = new System.Drawing.Point(-3, 0);
-            this.buttonThemSV.ImageSize = new System.Drawing.Size(40, 40);
+            this.buttonThemSV.ImageSize = new System.Drawing.Size(35, 35);
             this.buttonThemSV.Location = new System.Drawing.Point(9, 43);
             this.buttonThemSV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
             this.buttonThemSV.Name = "buttonThemSV";
-            this.buttonThemSV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
+            this.buttonThemSV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonThemSV.ShadowDecoration.Parent = this.buttonThemSV;
             this.buttonThemSV.Size = new System.Drawing.Size(137, 45);
             this.buttonThemSV.TabIndex = 21;
             this.buttonThemSV.Text = "Thêm";
             this.buttonThemSV.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.buttonThemSV.TextOffset = new System.Drawing.Point(-7, 0);
             this.buttonThemSV.Click += new System.EventHandler(this.buttonThemSV_Click);
             // 
             // buttonSuaSV
@@ -846,25 +856,24 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonSuaSV.Animated = true;
             this.buttonSuaSV.CheckedState.Parent = this.buttonSuaSV;
             this.buttonSuaSV.CustomImages.Parent = this.buttonSuaSV;
-            this.buttonSuaSV.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonSuaSV.FillColor = System.Drawing.Color.Gainsboro;
             this.buttonSuaSV.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSuaSV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.buttonSuaSV.HoverState.FillColor = System.Drawing.Color.Gainsboro;
+            this.buttonSuaSV.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonSuaSV.HoverState.Parent = this.buttonSuaSV;
             this.buttonSuaSV.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_480px;
             this.buttonSuaSV.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.buttonSuaSV.ImageOffset = new System.Drawing.Point(-3, 0);
-            this.buttonSuaSV.ImageSize = new System.Drawing.Size(40, 40);
+            this.buttonSuaSV.ImageSize = new System.Drawing.Size(35, 35);
             this.buttonSuaSV.Location = new System.Drawing.Point(9, 193);
             this.buttonSuaSV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
             this.buttonSuaSV.Name = "buttonSuaSV";
-            this.buttonSuaSV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
+            this.buttonSuaSV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonSuaSV.ShadowDecoration.Parent = this.buttonSuaSV;
             this.buttonSuaSV.Size = new System.Drawing.Size(137, 45);
             this.buttonSuaSV.TabIndex = 20;
             this.buttonSuaSV.Text = "Sửa";
             this.buttonSuaSV.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.buttonSuaSV.TextOffset = new System.Drawing.Point(-7, 0);
             this.buttonSuaSV.Click += new System.EventHandler(this.buttonSuaSV_Click);
             // 
             // buttonXoaSV
@@ -873,7 +882,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonXoaSV.Animated = true;
             this.buttonXoaSV.CheckedState.Parent = this.buttonXoaSV;
             this.buttonXoaSV.CustomImages.Parent = this.buttonXoaSV;
-            this.buttonXoaSV.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonXoaSV.FillColor = System.Drawing.Color.Gainsboro;
             this.buttonXoaSV.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonXoaSV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
             this.buttonXoaSV.HoverState.FillColor = System.Drawing.Color.Gainsboro;
@@ -881,17 +890,16 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonXoaSV.Image = global::TracNghiemCSDLPT.Properties.Resources.minus_sign_480px;
             this.buttonXoaSV.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.buttonXoaSV.ImageOffset = new System.Drawing.Point(-3, 0);
-            this.buttonXoaSV.ImageSize = new System.Drawing.Size(40, 40);
+            this.buttonXoaSV.ImageSize = new System.Drawing.Size(35, 35);
             this.buttonXoaSV.Location = new System.Drawing.Point(9, 118);
             this.buttonXoaSV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
             this.buttonXoaSV.Name = "buttonXoaSV";
-            this.buttonXoaSV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(185)))));
+            this.buttonXoaSV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonXoaSV.ShadowDecoration.Parent = this.buttonXoaSV;
             this.buttonXoaSV.Size = new System.Drawing.Size(137, 45);
             this.buttonXoaSV.TabIndex = 23;
             this.buttonXoaSV.Text = "Xóa";
             this.buttonXoaSV.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.buttonXoaSV.TextOffset = new System.Drawing.Point(-7, 0);
             this.buttonXoaSV.Click += new System.EventHandler(this.buttonXoaSV_Click);
             // 
             // label1

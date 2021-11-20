@@ -22,6 +22,14 @@ namespace TracNghiemCSDLPT
         {
             MessageBox.Show(text, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+        public static void ShowWarningMessage(string text, string title)
+        {
+            MessageBox.Show(text, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+        public static void ShowInformationMessage(string text, string title)
+        {
+            MessageBox.Show(text, title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
         public static bool ShowConfirmMessage(string text, string title)
         {

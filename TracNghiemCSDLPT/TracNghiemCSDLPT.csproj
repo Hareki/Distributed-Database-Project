@@ -229,6 +229,7 @@
   <ItemGroup>
     <Compile Include="Models\ActionType.cs" />
     <Compile Include="Models\Khoa.cs" />
+    <Compile Include="Models\SummaryItem.cs" />
     <Compile Include="MyForms\BaoCao\FormBDMH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -424,6 +425,7 @@
       <DependentUpon>FormMonHoc.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\TracNghiemCSDLPT.Models.SummaryItem.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

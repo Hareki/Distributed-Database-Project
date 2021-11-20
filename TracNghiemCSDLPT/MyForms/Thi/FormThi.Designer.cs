@@ -71,11 +71,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.lblHoTen = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblNgayThi = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lblCountDown = new System.Windows.Forms.Label();
+            this.DeThiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnNopBai = new Guna.UI2.WinForms.Guna2Button();
             this.btnBatDauThi = new Guna.UI2.WinForms.Guna2Button();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -86,7 +83,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.tableAdapterManager = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
             this.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaTableAdapter();
             this.flowPnlBaiThi = new System.Windows.Forms.FlowLayoutPanel();
-            this.DeThiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.summaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.summaryGridControl = new DevExpress.XtraGrid.GridControl();
+            this.summaryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMaCauHoi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDaChon = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.countDownTimer = new System.Windows.Forms.Timer(this.components);
             label7 = new System.Windows.Forms.Label();
             label12 = new System.Windows.Forms.Label();
             LabelMaMH = new System.Windows.Forms.Label();
@@ -116,12 +118,13 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DeThiBindingSource)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usp_ThiThu_LayLopCoLichThi_TatCaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DeThiBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.summaryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.summaryGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.summaryGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -653,75 +656,17 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.lblNgayThi.TabIndex = 46;
             this.lblNgayThi.Text = "  ";
             // 
-            // label5
+            // lblCountDown
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Baloo 2", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(105)))), ((int)(((byte)(106)))));
-            this.label5.Location = new System.Drawing.Point(46, 30);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(141, 40);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "50 : 12 phút";
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl1.Location = new System.Drawing.Point(1461, 50);
-            this.gridControl1.MainView = this.gridView2;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(214, 612);
-            this.gridControl1.TabIndex = 3;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
-            // 
-            // gridView2
-            // 
-            this.gridView2.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(126)))));
-            this.gridView2.Appearance.HeaderPanel.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridView2.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.Red;
-            this.gridView2.Appearance.HeaderPanel.Options.UseBackColor = true;
-            this.gridView2.Appearance.HeaderPanel.Options.UseFont = true;
-            this.gridView2.Appearance.HeaderPanel.Options.UseForeColor = true;
-            this.gridView2.Appearance.Row.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridView2.Appearance.Row.Options.UseFont = true;
-            this.gridView2.Appearance.Row.Options.UseTextOptions = true;
-            this.gridView2.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
-            this.gridColumn2});
-            this.gridView2.GridControl = this.gridControl1;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsView.ShowGroupPanel = false;
-            this.gridView2.OptionsView.ShowIndicator = false;
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(135)))), ((int)(((byte)(144)))));
-            this.gridColumn1.AppearanceHeader.Options.UseBackColor = true;
-            this.gridColumn1.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn1.Caption = "Câu số";
-            this.gridColumn1.MinWidth = 25;
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 94;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(135)))), ((int)(((byte)(144)))));
-            this.gridColumn2.AppearanceHeader.Options.UseBackColor = true;
-            this.gridColumn2.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn2.Caption = "Đã chọn";
-            this.gridColumn2.MinWidth = 25;
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 94;
+            this.lblCountDown.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblCountDown.AutoSize = true;
+            this.lblCountDown.Font = new System.Drawing.Font("Baloo 2", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCountDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(105)))), ((int)(((byte)(106)))));
+            this.lblCountDown.Location = new System.Drawing.Point(62, 26);
+            this.lblCountDown.Name = "lblCountDown";
+            this.lblCountDown.Size = new System.Drawing.Size(93, 40);
+            this.lblCountDown.TabIndex = 4;
+            this.lblCountDown.Text = "00 : 00";
             // 
             // btnNopBai
             // 
@@ -746,7 +691,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.btnNopBai.Size = new System.Drawing.Size(157, 66);
             this.btnNopBai.TabIndex = 42;
             this.btnNopBai.Text = "Nộp bài";
-            this.btnNopBai.Click += new System.EventHandler(this.buttonThem_Click);
+            this.btnNopBai.Click += new System.EventHandler(this.BtnNopBai_Click);
             // 
             // btnBatDauThi
             // 
@@ -797,7 +742,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.lblCountDown);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(1461, 668);
             this.panel1.Name = "panel1";
@@ -847,14 +792,118 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.flowPnlBaiThi.TabIndex = 45;
             this.flowPnlBaiThi.WrapContents = false;
             // 
+            // summaryBindingSource
+            // 
+            this.summaryBindingSource.DataSource = typeof(TracNghiemCSDLPT.Models.SummaryItem);
+            // 
+            // summaryGridControl
+            // 
+            this.summaryGridControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.summaryGridControl.DataSource = this.summaryBindingSource;
+            this.summaryGridControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.summaryGridControl.Location = new System.Drawing.Point(1461, 50);
+            this.summaryGridControl.MainView = this.summaryGridView;
+            this.summaryGridControl.Name = "summaryGridControl";
+            this.summaryGridControl.Size = new System.Drawing.Size(217, 612);
+            this.summaryGridControl.TabIndex = 46;
+            this.summaryGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.summaryGridView});
+            // 
+            // summaryGridView
+            // 
+            this.summaryGridView.Appearance.EvenRow.BackColor = System.Drawing.Color.White;
+            this.summaryGridView.Appearance.EvenRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
+            this.summaryGridView.Appearance.EvenRow.Options.UseBackColor = true;
+            this.summaryGridView.Appearance.EvenRow.Options.UseForeColor = true;
+            this.summaryGridView.Appearance.FocusedCell.BackColor = System.Drawing.Color.Transparent;
+            this.summaryGridView.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.summaryGridView.Appearance.FocusedRow.BackColor = System.Drawing.Color.Transparent;
+            this.summaryGridView.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.summaryGridView.Appearance.GroupRow.Font = new System.Drawing.Font("Baloo 2", 10.2F);
+            this.summaryGridView.Appearance.GroupRow.Options.UseFont = true;
+            this.summaryGridView.Appearance.HeaderPanel.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold);
+            this.summaryGridView.Appearance.HeaderPanel.Options.UseFont = true;
+            this.summaryGridView.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.summaryGridView.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.summaryGridView.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(255)))), ((int)(((byte)(215)))));
+            this.summaryGridView.Appearance.HideSelectionRow.Options.UseBackColor = true;
+            this.summaryGridView.Appearance.OddRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.summaryGridView.Appearance.OddRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
+            this.summaryGridView.Appearance.OddRow.Options.UseBackColor = true;
+            this.summaryGridView.Appearance.OddRow.Options.UseForeColor = true;
+            this.summaryGridView.Appearance.Preview.Font = new System.Drawing.Font("Baloo 2", 10.2F);
+            this.summaryGridView.Appearance.Preview.Options.UseFont = true;
+            this.summaryGridView.Appearance.Row.Font = new System.Drawing.Font("Baloo 2", 12F);
+            this.summaryGridView.Appearance.Row.Options.UseFont = true;
+            this.summaryGridView.Appearance.Row.Options.UseTextOptions = true;
+            this.summaryGridView.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.summaryGridView.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(255)))), ((int)(((byte)(215)))));
+            this.summaryGridView.Appearance.SelectedRow.Font = new System.Drawing.Font("Baloo 2", 12F);
+            this.summaryGridView.Appearance.SelectedRow.Options.UseBackColor = true;
+            this.summaryGridView.Appearance.SelectedRow.Options.UseFont = true;
+            this.summaryGridView.Appearance.TopNewRow.Font = new System.Drawing.Font("Baloo 2", 10.2F);
+            this.summaryGridView.Appearance.TopNewRow.Options.UseFont = true;
+            this.summaryGridView.Appearance.ViewCaption.Font = new System.Drawing.Font("Baloo 2", 13.8F, System.Drawing.FontStyle.Bold);
+            this.summaryGridView.Appearance.ViewCaption.Options.UseFont = true;
+            this.summaryGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMaCauHoi,
+            this.colDaChon});
+            this.summaryGridView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.summaryGridView.GridControl = this.summaryGridControl;
+            this.summaryGridView.Name = "summaryGridView";
+            this.summaryGridView.OptionsBehavior.Editable = false;
+            this.summaryGridView.OptionsBehavior.ReadOnly = true;
+            this.summaryGridView.OptionsCustomization.AllowColumnResizing = false;
+            this.summaryGridView.OptionsCustomization.AllowFilter = false;
+            this.summaryGridView.OptionsCustomization.AllowSort = false;
+            this.summaryGridView.OptionsDetail.EnableMasterViewMode = false;
+            this.summaryGridView.OptionsPrint.EnableAppearanceOddRow = true;
+            this.summaryGridView.OptionsScrollAnnotations.ShowFocusedRow = DevExpress.Utils.DefaultBoolean.True;
+            this.summaryGridView.OptionsView.ShowGroupPanel = false;
+            this.summaryGridView.OptionsView.ShowIndicator = false;
+            this.summaryGridView.ViewCaption = "Danh sách khoa";
+            this.summaryGridView.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.summaryGridView_CustomDrawCell);
+            this.summaryGridView.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gridView1_PopupMenuShowing);
+            this.summaryGridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
+            // 
+            // colMaCauHoi
+            // 
+            this.colMaCauHoi.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
+            this.colMaCauHoi.AppearanceHeader.Options.UseBackColor = true;
+            this.colMaCauHoi.Caption = "Câu số";
+            this.colMaCauHoi.FieldName = "MaCauHoi";
+            this.colMaCauHoi.MinWidth = 25;
+            this.colMaCauHoi.Name = "colMaCauHoi";
+            this.colMaCauHoi.Visible = true;
+            this.colMaCauHoi.VisibleIndex = 0;
+            this.colMaCauHoi.Width = 94;
+            // 
+            // colDaChon
+            // 
+            this.colDaChon.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
+            this.colDaChon.AppearanceHeader.Options.UseBackColor = true;
+            this.colDaChon.Caption = "Đã chọn";
+            this.colDaChon.FieldName = "DaChon";
+            this.colDaChon.MinWidth = 25;
+            this.colDaChon.Name = "colDaChon";
+            this.colDaChon.Visible = true;
+            this.colDaChon.VisibleIndex = 1;
+            this.colDaChon.Width = 94;
+            // 
+            // countDownTimer
+            // 
+            this.countDownTimer.Interval = 1000;
+            this.countDownTimer.Tick += new System.EventHandler(this.CountDownTimer_Tick);
+            // 
             // FormThi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1690, 749);
+            this.Controls.Add(this.summaryGridControl);
             this.Controls.Add(this.flowPnlBaiThi);
             this.Controls.Add(this.panel9);
-            this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlThongTinThi);
             this.Name = "FormThi";
@@ -889,13 +938,14 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.panel7.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DeThiBindingSource)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usp_ThiThu_LayLopCoLichThi_TatCaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DeThiBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.summaryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.summaryGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.summaryGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -903,11 +953,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         #endregion
 
         private Bunifu.UI.WinForms.BunifuGroupBox pnlThongTinThi;
-        private System.Windows.Forms.Label label5;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private System.Windows.Forms.Label lblCountDown;
         private Guna.UI2.WinForms.Guna2Button btnNopBai;
         private Guna.UI2.WinForms.Guna2Button btnBatDauThi;
         private System.Windows.Forms.Label lblThoiGian;
@@ -950,5 +996,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private System.Windows.Forms.Label lblTrinhDo;
         private DevExpress.Utils.Layout.TablePanel tablePanel2;
         private System.Windows.Forms.BindingSource DeThiBindingSource;
+        private System.Windows.Forms.BindingSource summaryBindingSource;
+        private DevExpress.XtraGrid.GridControl summaryGridControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView summaryGridView;
+        private DevExpress.XtraGrid.Columns.GridColumn colMaCauHoi;
+        private DevExpress.XtraGrid.Columns.GridColumn colDaChon;
+        private System.Windows.Forms.Timer countDownTimer;
     }
 }

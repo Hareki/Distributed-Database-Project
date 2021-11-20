@@ -18,6 +18,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             InitializeComponent();
             InitRdoList();
         }
+        public ItemCauHoi(FormThi parentThi)
+        {
+            InitializeComponent();
+            InitRdoList();
+            ParentThi = parentThi;
+        }
 
         private int _stt; // mã stt của câu đó
         private int _maCauHoi; // mã thực của câu đó trong Db
@@ -29,6 +35,16 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private string _ndCauD;
         private string _daChon = "";
         private string _dapAn = "";
+        private FormThi _parentThi;
+
+        public FormThi ParentThi
+        {
+            get { return _parentThi; }
+            set
+            {
+                _parentThi = value;
+            }
+        }
 
         private Guna2CustomRadioButton[] _rdoList = new Guna2CustomRadioButton[4];
         private void InitRdoList()
@@ -145,6 +161,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             if (rdo.Checked)
             {
                 UncheckAllOtherRdos(rdo);
+                ParentThi.UpdateSummaryTable(STT, rdo.Tag.ToString());
             }
 
         }

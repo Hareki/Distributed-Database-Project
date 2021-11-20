@@ -104,6 +104,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.rdoA.ShadowDecoration.Parent = this.rdoA;
             this.rdoA.Size = new System.Drawing.Size(20, 20);
             this.rdoA.TabIndex = 3;
+            this.rdoA.Tag = "A";
             this.rdoA.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdoA.UncheckedState.BorderThickness = 2;
             this.rdoA.UncheckedState.FillColor = System.Drawing.Color.Transparent;
@@ -168,6 +169,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.rdoB.ShadowDecoration.Parent = this.rdoB;
             this.rdoB.Size = new System.Drawing.Size(20, 20);
             this.rdoB.TabIndex = 3;
+            this.rdoB.Tag = "B";
             this.rdoB.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdoB.UncheckedState.BorderThickness = 2;
             this.rdoB.UncheckedState.FillColor = System.Drawing.Color.Transparent;
@@ -221,6 +223,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.rdoC.ShadowDecoration.Parent = this.rdoC;
             this.rdoC.Size = new System.Drawing.Size(20, 20);
             this.rdoC.TabIndex = 3;
+            this.rdoC.Tag = "C";
             this.rdoC.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdoC.UncheckedState.BorderThickness = 2;
             this.rdoC.UncheckedState.FillColor = System.Drawing.Color.Transparent;
@@ -274,6 +277,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.rdoD.ShadowDecoration.Parent = this.rdoD;
             this.rdoD.Size = new System.Drawing.Size(20, 20);
             this.rdoD.TabIndex = 3;
+            this.rdoD.Tag = "D";
             this.rdoD.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdoD.UncheckedState.BorderThickness = 2;
             this.rdoD.UncheckedState.FillColor = System.Drawing.Color.Transparent;

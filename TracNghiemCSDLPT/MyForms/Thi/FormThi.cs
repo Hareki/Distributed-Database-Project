@@ -9,31 +9,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TracNghiemCSDLPT.Models;
 using TracNghiemCSDLPT.Others;
 
 namespace TracNghiemCSDLPT.MyForms.Thi
 {
     public partial class FormThi : DevExpress.XtraEditors.XtraForm
     {
-        
+
         public FormThi()
         {
             InitializeComponent();
             PhanQuyen();
-            for (int i = 0; i < 2; i++)
-            {
-                thongTinThi[i] = new ThongTinThi();
-            }
-
+            InitThongTinThi();
         }
 
 
         private ThongTinThi[] thongTinThi = new ThongTinThi[2];
-        private DataTable _summrayDataTable;
-        private void InitSummrayDataTable()
+        private List<SummaryItem> summaryItems = new List<SummaryItem>();
+        private int _min, _sec;
+
+        private void GenerateMaCauHoiSummary(int soCauThi)
         {
-            _summrayDataTable.Clear();
-            //_summrayDataTable.Columns.Add("STT")
+            for (int i = 1; i <= soCauThi; i++)
+            {
+                summaryItems.Add(new SummaryItem(i, string.Empty));
+            }
+        }
+        private void InitThongTinThi()
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                thongTinThi[i] = new ThongTinThi();
+            }
         }
         private void SetAllButtonsEnabled(bool enabled)
         {
@@ -135,10 +143,52 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             }
         }
 
-
-        private void buttonThem_Click(object sender, EventArgs e)
+        private string GetUncheckedQuestions()
         {
-            test();
+            string result = string.Empty;
+            for (int i = 0; i < summaryGridView.RowCount; i++)
+            {
+                SummaryItem item = (summaryGridView.GetRow(i) as SummaryItem);
+                if (item.DaChon.Equals(string.Empty))
+                {
+                    result += item.STT + ", ";
+                }
+            }
+            if (!result.Equals(string.Empty))
+            {
+                result = result.Substring(0, result.Length - 2);
+            }
+
+
+            return result;
+        }
+        private void ShowResult()
+        {
+            float[] result = GetResult();
+            Utils.ShowInformationMessage("Hoàn tất bài thi.\nBạn trả lời đúng " + result[1] + "/" +
+                lblSoCauThi.Text + " câu. Điểm: " + result[0], "Kết quả");
+        }
+        private void BtnNopBai_Click(object sender, EventArgs e)
+        {
+            //test();
+            string result = GetUncheckedQuestions();
+            if (!result.Equals(string.Empty))
+            {
+                bool confirmed = Utils.ShowConfirmMessage("Bạn vẫn còn câu hỏi chưa hoàn tất: "
+                    + result + "\nXác nhận nộp bài?", "Cảnh báo");
+                if (confirmed)
+                {
+                    ShowResult();
+                    return;
+                }
+
+
+            }
+            else
+            {
+                ShowResult();
+            }
+
         }
 
         private void LoadAllLopThi()
@@ -237,18 +287,20 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             ItemCauHoi[] items = new ItemCauHoi[int.Parse(lblSoCauThi.Text)];
             for (int i = 0; i < items.Length; i++)
             {
-                items[i] = new ItemCauHoi();
-                //items[i].IDBaiThi = thiThu == true? 0 : Utils.GetCellStringBds(DeThiBindingSource,i,)
-                items[i].STT = i + 1;
-                items[i].NDCauHoi = Utils.GetCellStringBds(DeThiBindingSource, i, "NOIDUNG");
-                items[i].NDCauA = Utils.GetCellStringBds(DeThiBindingSource, i, "A");
-                items[i].NDCauB = Utils.GetCellStringBds(DeThiBindingSource, i, "B");
-                items[i].NDCauC = Utils.GetCellStringBds(DeThiBindingSource, i, "C");
-                items[i].NDCauD = Utils.GetCellStringBds(DeThiBindingSource, i, "D");
+                items[i] = new ItemCauHoi(this)
+                {
+                    //items[i].IDBaiThi = thiThu == true? 0 : Utils.GetCellStringBds(DeThiBindingSource,i,)
+                    STT = i + 1,
+                    NDCauHoi = Utils.GetCellStringBds(DeThiBindingSource, i, "NOIDUNG"),
+                    NDCauA = Utils.GetCellStringBds(DeThiBindingSource, i, "A"),
+                    NDCauB = Utils.GetCellStringBds(DeThiBindingSource, i, "B"),
+                    NDCauC = Utils.GetCellStringBds(DeThiBindingSource, i, "C"),
+                    NDCauD = Utils.GetCellStringBds(DeThiBindingSource, i, "D"),
 
-                //items[i].DaChon = Utils.GetCellStringBds(DeThiBindingSource, i, "DAP_AN");
-                items[i].DapAn = Utils.GetCellStringBds(DeThiBindingSource, i, "DAP_AN");
-                items[i].Width = flowPnlBaiThi.Size.Width - 50;
+                    //items[i].DaChon = Utils.GetCellStringBds(DeThiBindingSource, i, "DAP_AN");
+                    DapAn = Utils.GetCellStringBds(DeThiBindingSource, i, "DAP_AN"),
+                    Width = flowPnlBaiThi.Size.Width - 50
+                };
                 items[i].Height = items[i].ContentHeight + 40;
 
                 flowPnlBaiThi.Controls.Add(items[i]);
@@ -257,7 +309,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         }
         private void LoadSummarayTable()
         {
-
+            GenerateMaCauHoiSummary(int.Parse(lblSoCauThi.Text));
+            summaryBindingSource.DataSource = summaryItems;
         }
         private void btnBatDauThi_Click(object sender, EventArgs e)
         {
@@ -283,8 +336,15 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             DeThiBindingSource.DataSource = myTable;
 
             pnlThongTinThi.Enabled = false;
+            btnBatDauThi.Enabled = false;
             LoadBaiThi(true);
-            LoadSummaryTable();
+
+            LoadSummarayTable();
+            _min = int.Parse(lblThoiGian.Text);
+            _sec = 1;
+            countDownTimer.Start();
+            btnNopBai.Enabled = true;
+
 
 
         }
@@ -346,6 +406,93 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             thongTinThi[index].TrinhDo = myReader.GetString(3);
             thongTinThi[index].ThoiGian = int.Parse(myReader.GetValue(4).ToString());
         }
+
+        private void gridView1_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            e.Allow = false;
+        }
+
+        private void ScrollToControl(int index)
+        {
+            //var control = flowPnlBaiThi.Controls[index];
+            //Point controlLocation = control.Location;
+            //int x = Math.Abs(controlLocation.X);
+            //int y = Math.Abs(controlLocation.Y);
+            //flowPnlBaiThi.AutoScrollPosition = new Point(x, y);
+            //Console.WriteLine("a");
+
+            var control = flowPnlBaiThi.Controls[index];
+            var controlLocation = control.Location - new Size(flowPnlBaiThi.AutoScrollPosition);
+            controlLocation -= new Size(control.Margin.Left, control.Margin.Top);
+            flowPnlBaiThi.AutoScrollPosition = controlLocation;
+        }
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            ScrollToControl(summaryBindingSource.Position);
+        }
+
+        public void UpdateSummaryTable(int stt, string daChon)
+        {
+            int index = stt - 1;
+            (summaryBindingSource[index] as SummaryItem).DaChon = daChon;
+            summaryGridView.RefreshData();
+        }
+
+        private void CountDownTimer_Tick(object sender, EventArgs e)
+        {
+
+            if (_sec == 0)
+            {
+                if (_min == 0)
+                {
+                    lblCountDown.Text = "Hết giờ";
+                    countDownTimer.Stop();
+                }
+                else
+                {
+                    _min--;
+                    _sec = 59;
+                }
+
+            }
+            else
+            {
+                _sec--;
+            }
+            lblCountDown.Text = string.Format("{0} : {1}", _min.ToString().PadLeft(2, '0'), _sec.ToString().PadLeft(2, '0'));
+        }
+
+        private void summaryGridView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            //if (e.RowHandle == summaryGridView.FocusedRowHandle)
+            //{
+            //    e.Appearance.BackColor = Color.FromArgb(255, 237, 211);
+            //    return;
+            //}
+
+            if (!(summaryGridView.GetRow(e.RowHandle) as SummaryItem).DaChon.Equals(string.Empty))
+            {
+                e.Appearance.BackColor = Color.FromArgb(193, 255, 215);
+                Console.WriteLine("painted");
+            }
+
+        }
+        private float[] GetResult()
+        {
+            int soCauThi = int.Parse(lblSoCauThi.Text);
+            int soCauDung = 0;
+            for (int i = 0; i < flowPnlBaiThi.Controls.Count; i++)
+            {
+                ItemCauHoi item = flowPnlBaiThi.Controls[i] as ItemCauHoi;
+                if (item.DaChon.Equals(item.DapAn))
+                {
+                    soCauDung++;
+                }
+            }
+            float mark = ((float)soCauDung * ((float)10 / (float)soCauThi));
+            float[] result = { mark, soCauDung };
+            return result;
+        }
     }
     public class ThongTinThi
     {
@@ -376,4 +523,5 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             TrinhDo = string.Empty;
         }
     }
+
 }

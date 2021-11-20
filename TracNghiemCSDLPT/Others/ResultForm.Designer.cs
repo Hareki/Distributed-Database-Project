@@ -97,7 +97,7 @@ namespace TracNghiemCSDLPT.Others
             this.lblDiem.Location = new System.Drawing.Point(85, 166);
             this.lblDiem.MaximumSize = new System.Drawing.Size(570, 0);
             this.lblDiem.Name = "lblDiem";
-            this.lblDiem.Size = new System.Drawing.Size(130, 43);
+            this.lblDiem.Size = new System.Drawing.Size(137, 45);
             this.lblDiem.TabIndex = 8;
             this.lblDiem.Text = "Điểm: 8.5";
             // 
@@ -114,15 +114,18 @@ namespace TracNghiemCSDLPT.Others
             // btnConfirm
             // 
             this.btnConfirm.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnConfirm.Animated = true;
             this.btnConfirm.BorderRadius = 10;
             this.btnConfirm.CheckedState.Parent = this.btnConfirm;
             this.btnConfirm.CustomImages.Parent = this.btnConfirm;
             this.btnConfirm.FillColor = System.Drawing.Color.White;
             this.btnConfirm.Font = new System.Drawing.Font("Baloo 2", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(164)))), ((int)(((byte)(236)))));
+            this.btnConfirm.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.btnConfirm.HoverState.Parent = this.btnConfirm;
             this.btnConfirm.Location = new System.Drawing.Point(186, 212);
             this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.btnConfirm.ShadowDecoration.Parent = this.btnConfirm;
             this.btnConfirm.Size = new System.Drawing.Size(121, 41);
             this.btnConfirm.TabIndex = 10;
@@ -134,10 +137,10 @@ namespace TracNghiemCSDLPT.Others
             this.lblSoCauDung.AutoSize = true;
             this.lblSoCauDung.Font = new System.Drawing.Font("Baloo 2", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSoCauDung.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(255)))), ((int)(((byte)(183)))));
-            this.lblSoCauDung.Location = new System.Drawing.Point(335, 112);
+            this.lblSoCauDung.Location = new System.Drawing.Point(319, 111);
             this.lblSoCauDung.MaximumSize = new System.Drawing.Size(570, 0);
             this.lblSoCauDung.Name = "lblSoCauDung";
-            this.lblSoCauDung.Size = new System.Drawing.Size(135, 43);
+            this.lblSoCauDung.Size = new System.Drawing.Size(142, 45);
             this.lblSoCauDung.TabIndex = 11;
             this.lblSoCauDung.Text = "35/40 câu";
             // 
@@ -148,7 +151,7 @@ namespace TracNghiemCSDLPT.Others
             this.bunifuDragControl1.TargetControl = this.panel1;
             this.bunifuDragControl1.Vertical = true;
             // 
-            // FormDiem
+            // ResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -162,7 +165,7 @@ namespace TracNghiemCSDLPT.Others
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.message);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormDiem";
+            this.Name = "ResultForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormDiem";
             this.panel1.ResumeLayout(false);

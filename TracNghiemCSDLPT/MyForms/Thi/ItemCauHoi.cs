@@ -25,6 +25,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             ParentThi = parentThi;
         }
 
+
         private int _stt; // mã stt của câu đó
         private int _maCauHoi; // mã thực của câu đó trong Db
         private int _idBaiThi; // bài thi mà câu hỏi này thuộc về
@@ -45,6 +46,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 _parentThi = value;
             }
         }
+
+
 
         private Guna2CustomRadioButton[] _rdoList = new Guna2CustomRadioButton[4];
         private void InitRdoList()
@@ -162,8 +165,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             {
                 UncheckAllOtherRdos(rdo);
                 ParentThi.UpdateSummaryTable(STT, rdo.Tag.ToString());
+                this.DaChon = rdo.Tag.ToString();
             }
 
         }
     }
+
 }

@@ -875,6 +875,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             // colSTT
             // 
+            this.colSTT.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
+            this.colSTT.AppearanceHeader.Options.UseBackColor = true;
+            this.colSTT.Caption = "Câu số";
             this.colSTT.FieldName = "STT";
             this.colSTT.MinWidth = 25;
             this.colSTT.Name = "colSTT";
@@ -884,6 +887,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             // colDaChon
             // 
+            this.colDaChon.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
+            this.colDaChon.AppearanceHeader.Options.UseBackColor = true;
+            this.colDaChon.Caption = "Đã chọn";
             this.colDaChon.FieldName = "DaChon";
             this.colDaChon.MinWidth = 25;
             this.colDaChon.Name = "colDaChon";

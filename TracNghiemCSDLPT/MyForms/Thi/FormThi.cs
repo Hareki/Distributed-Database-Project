@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -29,7 +30,15 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private ThongTinThi[] thongTinThi = new ThongTinThi[2];
         private List<SummaryItem> summaryItems = new List<SummaryItem>();
         private int _min, _sec;
+        private string[] ABCD = { "A", "B", "C", "D" };
 
+        private void ResetABCD()
+        {
+            ABCD[0] = "A";
+            ABCD[1] = "B";
+            ABCD[2] = "C";
+            ABCD[3] = "D";
+        }
         private void GenerateMaCauHoiSummary(int soCauThi)
         {
             for (int i = 1; i <= soCauThi; i++)
@@ -168,9 +177,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             float[] result = GetResult();
             //Utils.ShowInformationMessage("Hoàn tất bài thi.\nBạn trả lời đúng " + result[1] + "/" +
             //    lblSoCauThi.Text + " câu. Điểm: " + result[0], "Kết quả");
-            string soCauDung = result[1] + "/" + lblSoCauThi.Text;
+            string soCauDung = result[1] + "/" + lblSoCauThi.Text + " câu";
             string diem = "Điểm: " + result[0];
+            countDownTimer.Stop();
             ResultForm formThongBaoDiem = new ResultForm(soCauDung, diem);
+            this.Close();
         }
         private void BtnNopBai_Click(object sender, EventArgs e)
         {
@@ -180,13 +191,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             {
                 bool confirmed = Utils.ShowConfirmMessage("Bạn vẫn còn câu hỏi chưa hoàn tất: "
                     + result + "\n\nXác nhận nộp bài?", "Cảnh báo");
-                if (confirmed)
+                if (!confirmed)
                 {
-                    ShowResult();
                     return;
                 }
-
-
+                ShowResult();
             }
             else
             {
@@ -285,28 +294,76 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             return DBConnection.NhomQuyen.Equals("SINHVIEN");
         }
 
+        private void SwapABCD(int posA, int posB)
+        {
+            string temp;
+            temp = ABCD[posA];
+            ABCD[posA] = ABCD[posB];
+            ABCD[posB] = temp;
+        }
+        private void ShuffleABCD()
+        {
+            Random random = new Random();
+            for (int i = 0; i < ABCD.Length; i++)
+            {
+                SwapABCD(i, random.Next(i, ABCD.Length));
+            }
+        }
+        private int GetAnswerIndexInABCD(string realAnswer)//lấy đáp án thật dò trong ABCD
+        {
+            for (int i = 0; i < ABCD.Length; i++)
+            {
+                if (realAnswer.Equals(ABCD[i]))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        //private string GetAnswerAfterShuffling(int answerIndex)
+        //{
+
+        //}
         private void LoadBaiThi(bool thiThu)
         {
             ItemCauHoi[] items = new ItemCauHoi[int.Parse(lblSoCauThi.Text)];
+
+
             for (int i = 0; i < items.Length; i++)
             {
+                ShuffleABCD();
+                Dictionary<string, string> FakeRealDict = new Dictionary<string, string>();
+
                 items[i] = new ItemCauHoi(this)
                 {
+
                     //items[i].IDBaiThi = thiThu == true? 0 : Utils.GetCellStringBds(DeThiBindingSource,i,)
                     STT = i + 1,
                     NDCauHoi = Utils.GetCellStringBds(DeThiBindingSource, i, "NOIDUNG"),
-                    NDCauA = Utils.GetCellStringBds(DeThiBindingSource, i, "A"),
-                    NDCauB = Utils.GetCellStringBds(DeThiBindingSource, i, "B"),
-                    NDCauC = Utils.GetCellStringBds(DeThiBindingSource, i, "C"),
-                    NDCauD = Utils.GetCellStringBds(DeThiBindingSource, i, "D"),
-
-                    //items[i].DaChon = Utils.GetCellStringBds(DeThiBindingSource, i, "DAP_AN");
-                    DapAn = Utils.GetCellStringBds(DeThiBindingSource, i, "DAP_AN"),
-                    Width = flowPnlBaiThi.Size.Width - 50
+                    NDCauA = Utils.GetCellStringBds(DeThiBindingSource, i, ABCD[0]),
+                    NDCauB = Utils.GetCellStringBds(DeThiBindingSource, i, ABCD[1]),
+                    NDCauC = Utils.GetCellStringBds(DeThiBindingSource, i, ABCD[2]),
+                    NDCauD = Utils.GetCellStringBds(DeThiBindingSource, i, ABCD[3]),
+                    MaCauHoi = int.Parse(Utils.GetCellStringBds(DeThiBindingSource, i, "CAUHOI"))
                 };
-                items[i].Height = items[i].ContentHeight + 40;
+                FakeRealDict.Add(ABCD[0], "A");//thay items[i].NDCauA thành A thôi cũng dc, do đã dùng phương thức Get (tương tự với B, C, D)
+                FakeRealDict.Add(ABCD[1], "B");
+                FakeRealDict.Add(ABCD[2], "C");
+                FakeRealDict.Add(ABCD[3], "D");
 
+                string answer = Utils.GetCellStringBds(DeThiBindingSource, i, "DAP_AN");
+                int answerIndex = GetAnswerIndexInABCD(answer);
+
+                //items[i].DaChon = Utils.GetCellStringBds(DeThiBindingSource, i, "DAP_AN");
+                //items[i].DapAn = Utils.GetCellStringBds(DeThiBindingSource, i, "DAP_AN");
+                Debug.Assert(FakeRealDict.TryGetValue(ABCD[answerIndex], out string fakeAnswer));
+                items[i].DapAn = fakeAnswer;
+
+                items[i].Width = flowPnlBaiThi.Size.Width - 50;
+                items[i].Height = items[i].ContentHeight + 40;
                 flowPnlBaiThi.Controls.Add(items[i]);
+
+                ResetABCD();
             }
 
         }

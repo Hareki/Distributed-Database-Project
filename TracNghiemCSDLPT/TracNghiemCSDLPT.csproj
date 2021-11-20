@@ -339,6 +339,12 @@
     <Compile Include="MyForms\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Others\FormDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Others\FormDiem.Designer.cs">
+      <DependentUpon>FormDiem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Others\Test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -415,6 +421,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Others\ConfirmForm.resx">
       <DependentUpon>ConfirmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Others\FormDiem.resx">
+      <DependentUpon>FormDiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Others\Test.resx">
       <DependentUpon>Test.cs</DependentUpon>

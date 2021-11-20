@@ -165,8 +165,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private void ShowResult()
         {
             float[] result = GetResult();
-            Utils.ShowInformationMessage("Hoàn tất bài thi.\nBạn trả lời đúng " + result[1] + "/" +
-                lblSoCauThi.Text + " câu. Điểm: " + result[0], "Kết quả");
+            //Utils.ShowInformationMessage("Hoàn tất bài thi.\nBạn trả lời đúng " + result[1] + "/" +
+            //    lblSoCauThi.Text + " câu. Điểm: " + result[0], "Kết quả");
+            string soCauDung = result[1] + "/" + lblSoCauThi.Text;
+            string diem = "Điểm: " + result[0];
+            FormDiem formThongBaoDiem = new FormDiem(soCauDung, diem);
         }
         private void BtnNopBai_Click(object sender, EventArgs e)
         {
@@ -175,7 +178,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             if (!result.Equals(string.Empty))
             {
                 bool confirmed = Utils.ShowConfirmMessage("Bạn vẫn còn câu hỏi chưa hoàn tất: "
-                    + result + "\nXác nhận nộp bài?", "Cảnh báo");
+                    + result + "\n\nXác nhận nộp bài?", "Cảnh báo");
                 if (confirmed)
                 {
                     ShowResult();

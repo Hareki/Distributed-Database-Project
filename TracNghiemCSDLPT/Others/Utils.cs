@@ -26,17 +26,15 @@ namespace TracNghiemCSDLPT
         {
             MessageBox.Show(text, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-        public static void ShowInformationMessage(string text, string title)
-        {
-            MessageBox.Show(text, title, MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
 
         public static bool ShowConfirmMessage(string text, string title)
         {
 
-            DialogResult result = MessageBox.Show(text, title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (result == DialogResult.Yes) return true;
-            else return false;
+            //DialogResult result = MessageBox.Show(text, title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            //if (result == DialogResult.Yes) return true;
+            //else return false;
+            ConfirmForm confirmForm = new ConfirmForm(text, title);
+            return confirmForm.Confirmed;
         }
         public static void ShowMessage(string message, NotiForm.FormType type, int lineNum)
         {

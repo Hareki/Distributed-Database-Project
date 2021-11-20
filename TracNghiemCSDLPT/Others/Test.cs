@@ -16,8 +16,9 @@ namespace TracNghiemCSDLPT.Others
 
         private void button1_Click(object sender, EventArgs e)
         {
-            NotiForm frm = new NotiForm("Kết nối đến CSDL thất bại. " +
-                     "Vui lòng xem lại tên server và tên CSDL ", NotiForm.FormType.Success, 4);
+            //NotiForm frm = new NotiForm("Kết nối đến CSDL thất bại. " +
+            //         "Vui lòng xem lại tên server và tên CSDL ", NotiForm.FormType.Success, 4);
+            ConfirmForm frm = new ConfirmForm("Bạn có chắc muốBạn có c có chắc muốn  có chắc muốn  có chắc muốn  có chắc muốn  có chắc muốn  có chắc muốn hắc muốn xóa môn học nàyBạn có chắc muốn xóa môn học nàyn xóa môn học này?", "test");
         }
 
         private void button2_Click(object sender, EventArgs e)

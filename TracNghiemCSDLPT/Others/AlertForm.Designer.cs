@@ -32,10 +32,10 @@ namespace TracNghiemCSDLPT.Others
             this.components = new System.ComponentModel.Container();
             this.message = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.pictureClose = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // message
@@ -53,16 +53,6 @@ namespace TracNghiemCSDLPT.Others
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // pictureBox
-            // 
-            this.pictureBox.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_45px;
-            this.pictureBox.Location = new System.Drawing.Point(19, 52);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(42, 48);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox.TabIndex = 2;
-            this.pictureBox.TabStop = false;
-            // 
             // pictureClose
             // 
             this.pictureClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -74,6 +64,16 @@ namespace TracNghiemCSDLPT.Others
             this.pictureClose.TabIndex = 3;
             this.pictureClose.TabStop = false;
             this.pictureClose.Click += new System.EventHandler(this.PictureClose_Click);
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_45px;
+            this.pictureBox.Location = new System.Drawing.Point(19, 52);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(42, 48);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox.TabIndex = 2;
+            this.pictureBox.TabStop = false;
             // 
             // NotiForm
             // 
@@ -92,8 +92,8 @@ namespace TracNghiemCSDLPT.Others
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NotiForm_FormClosing);
             this.MouseEnter += new System.EventHandler(this.NotiForm_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.NotiForm_MouseLeave);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

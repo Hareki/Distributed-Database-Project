@@ -125,13 +125,13 @@ namespace TracNghiemCSDLPT.Others
             this.StartPosition = FormStartPosition.Manual;
             string fname;
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 10; i++)//quét xem ở noti thứ mấy thì có chỗ trống
             {
                 fname = "noti" + i.ToString();
                 NotiForm frm = (NotiForm)Application.OpenForms[fname];
                 if (frm == null)
                 {
-
+                    
                     this.Name = fname;
                     this._x = Screen.PrimaryScreen.WorkingArea.Width - this.Width + 15;
                     if (_notiNum > i + 1)

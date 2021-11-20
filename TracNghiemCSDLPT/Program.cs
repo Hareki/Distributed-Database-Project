@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using TracNghiemCSDLPT.MyForms;
+using TracNghiemCSDLPT.Others;
 
 namespace TracNghiemCSDLPT
 {
@@ -19,7 +20,7 @@ namespace TracNghiemCSDLPT
             Application.SetCompatibleTextRenderingDefault(false);
             LoginInstance = new FormLogin();
             Application.Run(LoginInstance);
-            // Application.Run(new Test());
+           //  Application.Run(new Test());
         }
     }
 }

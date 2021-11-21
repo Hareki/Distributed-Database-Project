@@ -62,7 +62,21 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             if (NhomQuyen.Equals("SINHVIEN"))
             {
-
+                List<Para> paraList = new List<Para>();
+                paraList.Add(new Para("@MaSV", lblMaSV.Text));
+                string spName = "usp_Thi_LayLopCuaSV";
+                SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
+                if (myReader == null)
+                {
+                    Console.WriteLine(System.Environment.StackTrace);
+                    return;
+                }
+                myReader.Read();
+                string maLop = myReader.GetString(0).Trim();
+                string tenLop = myReader.GetString(1);
+                string fullInfo = maLop + " - " + tenLop;
+                LookUpLop.Properties.NullText = fullInfo;
+                myReader.Close();
             }
             else
             {
@@ -71,12 +85,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 LookUpLop.Properties.DisplayMember = "FullInfo";
             }
         }
-        private void FillLookUpMonThiData()
+        private string GetMaLopFromNullText() //
         {
-            LoadMonThiTuongUng(Utils.GetLookUpValue(LookUpLop, "MALOP"));
-            LookUpMonHoc.Properties.DataSource = usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaBindingSource;
-            LookUpMonHoc.Properties.DisplayMember = "FullInfo";
+            string fullInfo = LookUpLop.Properties.NullText;
+            return fullInfo.Substring(0, fullInfo.IndexOf('-') - 1);
         }
+
         private void SetSvInfo(string hoTen, string maSv)
         {
             lblHoTen.Text = hoTen;
@@ -87,24 +101,32 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             switch (DBConnection.NhomQuyen)
             {
                 case "TRUONG":
-                    SetAllButtonsEnabled(false);
+                    LookUpLop.Enabled = LookUpMonHoc.Enabled = false;
                     break;
                 case "GIAOVIEN":
-                    SetAllButtonsEnabled(true);
-                    FillLookUpLopData("GIAOVIEN");
-                    FillLookUpMonThiData();
+                    LookUpLop.Enabled = LookUpMonHoc.Enabled = true;
+                    LookUpMonHoc.Properties.DataSource = usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaBindingSource;
+                    LookUpMonHoc.Properties.DisplayMember = "FullInfo";
                     SetSvInfo("Giảng viên thi thử", "Test");
+                    FillLookUpLopData("GIAOVIEN");
                     break;
                 case "COSO":
-                    SetAllButtonsEnabled(true);
-                    FillLookUpLopData("COSO");
-                    FillLookUpMonThiData();
+                    LookUpLop.Enabled = LookUpMonHoc.Enabled = true;
+                    LookUpMonHoc.Properties.DataSource = usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaBindingSource;
+                    LookUpMonHoc.Properties.DisplayMember = "FullInfo";
                     SetSvInfo("Giảng viên thi thử", "Test");
+                    FillLookUpLopData("COSO");
+
                     break;
                 case "SINHVIEN":
-                    SetAllButtonsEnabled(true);
+                    LookUpLop.Enabled = false;
+                    LookUpMonHoc.Enabled = true;
+                    LookUpMonHoc.Properties.DataSource = usp_Thi_LayMonThiCuaLopTuongUng_TrongNgayBindingSource;
+                    LookUpMonHoc.Properties.DisplayMember = "FullInfo";
+                    SetSvInfo(DBConnection.HoTen, DBConnection.MaSv);// đặt trước filllookup để filllookup dùng
                     FillLookUpLopData("SINHVIEN");
-                    FillLookUpMonThiData();
+                    LoadMonThiTuongUng(GetMaLopFromNullText());
+
                     break;
 
             }
@@ -212,8 +234,17 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
         private void LoadMonThiTuongUng(string maLop)
         {
-            this.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaTableAdapter.Fill(this.tN_CSDLPTDataSet.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCa, maLop);
+            if (!isSv())
+            {
+                this.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+                this.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaTableAdapter.Fill(this.tN_CSDLPTDataSet.usp_ThiThu_LayMonThiCuaLopTuongUng_TatCa, maLop);
+            }
+            else
+            {
+                this.usp_Thi_LayMonThiCuaLopTuongUng_TrongNgayTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+                this.usp_Thi_LayMonThiCuaLopTuongUng_TrongNgayTableAdapter.Fill(this.tN_CSDLPTDataSet.usp_Thi_LayMonThiCuaLopTuongUng_TrongNgay, maLop);
+            }
+
         }
         private void FormThi_Load(object sender, EventArgs e)
         {
@@ -233,8 +264,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         }
         private void LookUpLop_EditValueChanged(object sender, EventArgs e)
         {
-            LoadMonThiTuongUng(Utils.GetLookUpValue(LookUpLop, "MALOP"));
-            ClearInfo();
+            if (!isSv())
+            {
+                LoadMonThiTuongUng(Utils.GetLookUpValue(LookUpLop, "MALOP"));
+                ClearInfo();
+            }
         }
 
         private void SetRdoLanEnabled(bool enabled, bool clearRdo)
@@ -429,9 +463,22 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             if (LookUpMonHoc.EditValue != null)
             {
+                string maLop;
+                int trongNgay;
+                if (isSv())
+                {
+                    maLop = GetMaLopFromNullText();
+                    trongNgay = 1;
+                }
+                else
+                {
+                    maLop = Utils.GetLookUpValue(LookUpLop, "MALOP");
+                    trongNgay = 0;
+                }
                 List<Para> paraList = new List<Para>();
                 paraList.Add(new Para("@MAMH", Utils.GetLookUpValue(LookUpMonHoc, "MAMH")));
-                paraList.Add(new Para("@MALOP", Utils.GetLookUpValue(LookUpLop, "MALOP")));
+                paraList.Add(new Para("@MALOP", maLop));
+                paraList.Add(new Para("@TrongNgay", trongNgay));
                 string spName = "usp_Thi_LayThongTinThiCuaLopVaMonTuongUng";
                 SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
                 if (myReader == null)
@@ -553,6 +600,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             }
 
         }
+
         private float[] GetResult()
         {
             int soCauThi = int.Parse(lblSoCauThi.Text);

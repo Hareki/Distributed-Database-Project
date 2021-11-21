@@ -35,6 +35,7 @@ namespace TracNghiemCSDLPT.Others
         public static string LoginSv = "LOGIN_SINHVIEN";
         public static string PasswordSv = "123456";
         public static string UserNameSV = "USER_SINHVIEN";
+        public static string MaSv;
 
         public static string SubcriberName;
         public static string LoginName;
@@ -44,7 +45,7 @@ namespace TracNghiemCSDLPT.Others
 
         public static BindingSource BsSubcribers = new BindingSource();
         public static string UserName; // aka MaGV
-        public static string HoTen; // Ten GV
+        public static string HoTen; // Ten GV, Ten Sv
         public static string NhomQuyen;
         public static int IndexCS = -1;
 
@@ -110,8 +111,8 @@ namespace TracNghiemCSDLPT.Others
             }
             catch (Exception ex)
             {
-                Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
-                Console.WriteLine(ex.StackTrace);
+                //Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
+                //Console.WriteLine(ex.StackTrace);
                 return false;
             }
         }

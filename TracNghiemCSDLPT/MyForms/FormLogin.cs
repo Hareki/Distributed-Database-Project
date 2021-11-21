@@ -64,9 +64,9 @@ namespace TracNghiemCSDLPT.MyForms
         private void AutoFilled()
         {
             ComboBoxCoSo.SelectedIndex = 0;
-            rdoGV.Checked = true;
-            TextLogin.Text = "PVH";
-            TextPassword.Text = "123456";
+            rdoSV.Checked = true;
+            TextLogin.Text = "002";
+            TextPassword.Text = "shiba123";
 
         }
         private void RequestLogin()
@@ -152,6 +152,7 @@ namespace TracNghiemCSDLPT.MyForms
                 DBConnection.UserName = DBConnection.UserNameSV;
                 DBConnection.HoTen = myReader.GetString(1);
                 DBConnection.NhomQuyen = myReader.GetString(2);
+                DBConnection.MaSv = loginName;
                 myReader.Close();
                 Program.MainInstance = new MainView();
                 Program.MainInstance.statusMa.Caption = "Mã SV: " + loginName;

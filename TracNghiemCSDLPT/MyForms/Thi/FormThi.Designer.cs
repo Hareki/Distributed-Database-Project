@@ -725,7 +725,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.btnBatDauThi.Text = "Bắt đầu thi";
             this.btnBatDauThi.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnBatDauThi.TextOffset = new System.Drawing.Point(3, 0);
-            this.btnBatDauThi.Click += new System.EventHandler(this.btnBatDauThi_Click);
+            this.btnBatDauThi.Click += new System.EventHandler(this.BtnBatDauThi_Click);
             // 
             // panel9
             // 

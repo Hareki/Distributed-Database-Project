@@ -25,10 +25,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             ParentThi = parentThi;
         }
 
-
+        //thực thể của bài thi, kèm thông tin của câu hỏi hiện lên cho ng` dùng làm bài
         private int _stt; // mã stt của câu đó
         private int _maCauHoi; // mã thực của câu đó trong Db
-        private int _idBaiThi; // bài thi mà câu hỏi này thuộc về
+        private string _maBangDiem; // mã bảng điểm mà câu hỏi (với bài làm) này thuộc về
         private string _ndCauHoi;
         private string _ndCauA;
         private string _ndCauB;
@@ -83,10 +83,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             get { return _maCauHoi; }
             set { _maCauHoi = value; }
         }
-        public int IDBaiThi
+        public string MaBangDiem
         {
-            get { return _idBaiThi; }
-            set { _idBaiThi = value; }
+            get { return _maBangDiem; }
+            set { _maBangDiem = value; }
         }
         public string NDCauHoi
         {

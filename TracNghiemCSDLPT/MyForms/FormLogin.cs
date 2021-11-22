@@ -21,7 +21,7 @@ namespace TracNghiemCSDLPT.MyForms
         {
             InitializeComponent();
             InitializeUI();
-            AutoFilled();
+            AutoFilled2();
         }
         public StateProperties ErrorState;
         private Color _errorColor = Color.FromArgb(236, 65, 52);
@@ -69,6 +69,14 @@ namespace TracNghiemCSDLPT.MyForms
             TextPassword.Text = "shiba123";
 
         }
+        private void AutoFilled2()
+        {
+            ComboBoxCoSo.SelectedIndex = 0;
+            rdoGV.Checked = true;
+            TextLogin.Text = "PVH";
+            TextPassword.Text = "123456";
+
+        }
         private void RequestLogin()
         {
             string loginName = TextLogin.Text.Trim();
@@ -97,25 +105,27 @@ namespace TracNghiemCSDLPT.MyForms
                 List<Para> paraList = new List<Para>();
                 paraList.Add(new Para("@LoginName", loginName));
                 string spName = "usp_LoginGV_GetInfoByLogin";
-                SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
-                if (myReader == null)
+                using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
                 {
-                    Console.WriteLine(System.Environment.StackTrace);
-                    return;
+                    if (myReader == null)
+                    {
+                        Console.WriteLine(System.Environment.StackTrace);
+                        return;
+                    }
+                    myReader.Read();
+                    DBConnection.UserName = myReader.GetString(0); // Lấy Mã GV, chính là Username ở cột 1.
+                    DBConnection.HoTen = myReader.GetString(1);
+                    DBConnection.NhomQuyen = myReader.GetString(2);
+                    DBConnection.IndexCS = ComboBoxCoSo.SelectedIndex;
+                    Program.MainInstance = new MainView();
+                    Program.MainInstance.statusMa.Caption = "Mã GV: " + DBConnection.UserName;
+                    Program.MainInstance.statusTen.Caption = "Họ tên: " + DBConnection.HoTen;
+                    Program.MainInstance.statusQuyen.Caption = "Nhóm: " +
+                        DBConnection.GetVnTextNhomQuyen(DBConnection.NhomQuyen);
+                    Program.MainInstance.Show();
+                    this.Hide();
                 }
-                myReader.Read();
-                DBConnection.UserName = myReader.GetString(0); // Lấy Mã GV, chính là Username ở cột 1.
-                DBConnection.HoTen = myReader.GetString(1);
-                DBConnection.NhomQuyen = myReader.GetString(2);
-                DBConnection.IndexCS = ComboBoxCoSo.SelectedIndex;
-                myReader.Close();
-                Program.MainInstance = new MainView();
-                Program.MainInstance.statusMa.Caption = "Mã GV: " + DBConnection.UserName;
-                Program.MainInstance.statusTen.Caption = "Họ tên: " + DBConnection.HoTen;
-                Program.MainInstance.statusQuyen.Caption = "Nhóm: " +
-                    DBConnection.GetVnTextNhomQuyen(DBConnection.NhomQuyen);
-                Program.MainInstance.Show();
-                this.Hide();
+
             }
             else
             {
@@ -131,36 +141,38 @@ namespace TracNghiemCSDLPT.MyForms
                 List<Para> paraList = new List<Para>();
                 paraList.Add(new Para("@LoginName", loginName));
                 paraList.Add(new Para("@Password", password));
-                SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
-                if (myReader == null)
+                using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
                 {
-                    Console.WriteLine(System.Environment.StackTrace);
-                    return;
-                }
-                myReader.Read();
-                try
-                {
-                    myReader.GetString(1);
-                }
-                catch (SqlNullValueException ex)
-                {
-                    Utils.ShowMessage("Mã sinh viên, mật khẩu hoặc cơ sở không chính xác. Vui lòng xem " +
-                        "lại thông tin đăng nhập.", Others.NotiForm.FormType.Error, 4);
-                    return;
+                    if (myReader == null)
+                    {
+                        Console.WriteLine(System.Environment.StackTrace);
+                        return;
+                    }
+                    myReader.Read();
+                    try
+                    {
+                        myReader.GetString(1);
+                    }
+                    catch (SqlNullValueException ex)
+                    {
+                        Utils.ShowMessage("Mã sinh viên, mật khẩu hoặc cơ sở không chính xác. Vui lòng xem " +
+                            "lại thông tin đăng nhập.", Others.NotiForm.FormType.Error, 4);
+                        return;
+                    }
+
+                    DBConnection.UserName = DBConnection.UserNameSV;
+                    DBConnection.HoTen = myReader.GetString(1);
+                    DBConnection.NhomQuyen = myReader.GetString(2);
+                    DBConnection.MaSv = loginName;
+                    Program.MainInstance = new MainView();
+                    Program.MainInstance.statusMa.Caption = "Mã SV: " + loginName;
+                    Program.MainInstance.statusTen.Caption = "Họ tên: " + DBConnection.HoTen;
+                    Program.MainInstance.statusQuyen.Caption = "Nhóm: " +
+                        DBConnection.GetVnTextNhomQuyen(DBConnection.NhomQuyen);
+                    Program.MainInstance.Show();
+                    this.Hide();
                 }
 
-                DBConnection.UserName = DBConnection.UserNameSV;
-                DBConnection.HoTen = myReader.GetString(1);
-                DBConnection.NhomQuyen = myReader.GetString(2);
-                DBConnection.MaSv = loginName;
-                myReader.Close();
-                Program.MainInstance = new MainView();
-                Program.MainInstance.statusMa.Caption = "Mã SV: " + loginName;
-                Program.MainInstance.statusTen.Caption = "Họ tên: " + DBConnection.HoTen;
-                Program.MainInstance.statusQuyen.Caption = "Nhóm: " + 
-                    DBConnection.GetVnTextNhomQuyen(DBConnection.NhomQuyen);
-                Program.MainInstance.Show();
-                this.Hide();
             }
         }
 

@@ -31,6 +31,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private List<SummaryItem> summaryItems = new List<SummaryItem>();
         private int _min, _sec;
         private string[] ABCD = { "A", "B", "C", "D" };
+        private string _maBangDiem;
+        private DateTime _ngayThi;
 
         private void ResetABCD()
         {
@@ -39,6 +41,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             ABCD[2] = "C";
             ABCD[3] = "D";
         }
+
         private void GenerateMaCauHoiSummary(int soCauThi)
         {
             for (int i = 1; i <= soCauThi; i++)
@@ -65,18 +68,21 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 List<Para> paraList = new List<Para>();
                 paraList.Add(new Para("@MaSV", lblMaSV.Text));
                 string spName = "usp_Thi_LayLopCuaSV";
-                SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
-                if (myReader == null)
+                using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
                 {
-                    Console.WriteLine(System.Environment.StackTrace);
-                    return;
+                    if (myReader == null)
+                    {
+                        Console.WriteLine(System.Environment.StackTrace);
+                        return;
+                    }
+                    myReader.Read();
+                    string maLop = myReader.GetString(0).Trim();
+                    string tenLop = myReader.GetString(1);
+                    string fullInfo = maLop + " - " + tenLop;
+                    LookUpLop.Properties.NullText = fullInfo;
                 }
-                myReader.Read();
-                string maLop = myReader.GetString(0).Trim();
-                string tenLop = myReader.GetString(1);
-                string fullInfo = maLop + " - " + tenLop;
-                LookUpLop.Properties.NullText = fullInfo;
-                myReader.Close();
+
+
             }
             else
             {
@@ -140,7 +146,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 if (i == 0)
                 {
                     items[i] = new ItemCauHoi();
-                    items[i].IDBaiThi = 1;
+                    items[i].MaBangDiem = "1";
                     items[i].STT = 1;
                     items[i].NDCauHoi = "Lorem ipsum dol";
                     items[i].NDCauA = "I will give yo will give yo will give yo will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder ";
@@ -156,7 +162,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 else
                 {
                     items[i] = new ItemCauHoi();
-                    items[i].IDBaiThi = 1;
+                    items[i].MaBangDiem = "1";
                     items[i].STT = 1;
                     items[i].NDCauHoi = "Lorem ipsum dol";
                     items[i].NDCauA = "bbb";
@@ -194,9 +200,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
             return result;
         }
-        private void ShowResult()
+        private void ShowResult(double[] result)
         {
-            float[] result = GetResult();
+
             //Utils.ShowInformationMessage("Hoàn tất bài thi.\nBạn trả lời đúng " + result[1] + "/" +
             //    lblSoCauThi.Text + " câu. Điểm: " + result[0], "Kết quả");
             string soCauDung = result[1] + "/" + lblSoCauThi.Text + " câu";
@@ -205,23 +211,118 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             ResultForm formThongBaoDiem = new ResultForm(soCauDung, diem);
             this.Close();
         }
+
+        private void ExecuteMergingDataTable(DataTable dataTable)
+        {
+            SqlParameter para = new SqlParameter();
+            para.SqlDbType = SqlDbType.Structured;
+            para.TypeName = "dbo.Table_BaiThi";
+            para.ParameterName = "@BaiThi";
+            para.Value = dataTable;
+
+            SqlConnection connection = DBConnection.SubcriberConnection;
+            string spName = "usp_Thi_ThemBaiThi";
+            SqlCommand sqlCmd = new SqlCommand(spName, connection);
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.Parameters.Add(para);
+
+            if (connection.State == ConnectionState.Closed)
+                connection.Open();
+            try
+            {
+                sqlCmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                connection.Close();
+                Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
+                connection.Close();
+                Console.WriteLine(ex.StackTrace);
+            }
+        }
+        private void InsertBaiThiToDB()
+        {
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("MABANGDIEM", typeof(string));
+            dataTable.Columns.Add("CAUHOI", typeof(int));
+            dataTable.Columns.Add("STT", typeof(int));
+            dataTable.Columns.Add("LUACHON", typeof(string));
+
+            string maBangDiem = _maBangDiem;
+            for (int i = 0; i < DeThiBindingSource.Count; i++)
+            {
+                int maCauHoi = int.Parse(Utils.GetCellStringBds(DeThiBindingSource, i, "CAUHOI"));
+                int STT = (summaryBindingSource[i] as SummaryItem).STT;
+                string daChon = (summaryBindingSource[i] as SummaryItem).DaChon;
+                dataTable.Rows.Add(maBangDiem, maCauHoi, STT, daChon);
+            }
+
+            ExecuteMergingDataTable(dataTable);
+
+        }
+
+        private string GetMaMh()
+        {
+            return Utils.GetLookUpValue(LookUpMonHoc, "MAMH");
+        }
+        private int GetLan()
+        {
+            Debug.Assert(rdo1.Checked || rdo2.Checked);
+            if (rdo1.Checked)
+                return 1;
+            else return 2;
+        }
+        private string GetMaSvFromLabel()
+        {
+            return lblMaSV.Text;
+        }
+        private void InsertBangDiemToDB(double[] result)
+        {
+            string maBangDiem = _maBangDiem;
+            string maSv = lblMaSV.Text;
+            string maMh = GetMaMh();
+            int lan = GetLan();
+            DateTime ngayThi = _ngayThi;
+            double diem = result[0];
+
+            List<Para> paraList = new List<Para>();
+            paraList.Add(new Para("@MABANGDIEM", maBangDiem));
+            paraList.Add(new Para("@MASV", maSv));
+            paraList.Add(new Para("@MAMH", maMh));
+            paraList.Add(new Para("@LAN", lan));
+            paraList.Add(new Para("@NGAYTHI", _ngayThi));
+            paraList.Add(new Para("@DIEM", diem));
+
+            string spName = "usp_Thi_ThemBangDiem";
+            bool success = DBConnection.ExecuteSqlNonQuerySP(spName, paraList);
+            if (!success)
+            {
+                Console.WriteLine(System.Environment.StackTrace);
+                return;
+            }
+
+
+        }
         private void BtnNopBai_Click(object sender, EventArgs e)
         {
             //test();
-            string result = GetUncheckedQuestions();
-            if (!result.Equals(string.Empty))
+            string uncheckedQuestions = GetUncheckedQuestions();
+            if (!uncheckedQuestions.Equals(string.Empty))
             {
                 bool confirmed = Utils.ShowConfirmMessage("Bạn vẫn còn câu hỏi chưa hoàn tất: "
-                    + result + "\n\nXác nhận nộp bài?", "Cảnh báo");
+                    + uncheckedQuestions + "\n\nXác nhận nộp bài?", "Cảnh báo");
                 if (!confirmed)
                 {
                     return;
                 }
-                ShowResult();
             }
-            else
+            double[] result = GetResult();
+            ShowResult(result);
+
+            if (isSv())
             {
-                ShowResult();
+                InsertBangDiemToDB(result);
+                InsertBaiThiToDB();
             }
 
         }
@@ -358,21 +459,39 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         //{
 
         //}
+
+        private string GetRealAnswerByFakeAnswer(char fakeAnswer, string[] shuffledAnswers)// do value này đảm bảo tính unique
+        {
+            Debug.Assert(fakeAnswer >= 65 && fakeAnswer <= 68);
+            int index = fakeAnswer - 65;
+            return shuffledAnswers[index];
+
+        }
+        private string GetFakeAnswerByShuffledIndex(int index)
+        {
+            Debug.Assert(index >= 0 && index <= 3);
+            return Char.ConvertFromUtf32(index + 65);
+        }
+        private List<string[]> _shuffledAnswersList = new List<string[]>();
         private void LoadBaiThi(bool thiThu)
         {
             ItemCauHoi[] items = new ItemCauHoi[int.Parse(lblSoCauThi.Text)];
-
+            if (isSv())
+            {
+                _maBangDiem = GenerateMbd();
+            }
 
             for (int i = 0; i < items.Length; i++)
             {
                 ShuffleABCD();
-                Dictionary<string, string> FakeRealDict = new Dictionary<string, string>();
+                //Key (theo thứ tự trong dictonary) là thứ tự các câu hỏi thật, bị shuffle
+                //Value là  câu trả lời giả tương ứng
 
                 items[i] = new ItemCauHoi(this)
                 {
-
                     //items[i].IDBaiThi = thiThu == true? 0 : Utils.GetCellStringBds(DeThiBindingSource,i,)
                     STT = i + 1,
+                    MaBangDiem = isSv() ? _maBangDiem : string.Empty,
                     NDCauHoi = Utils.GetCellStringBds(DeThiBindingSource, i, "NOIDUNG"),
                     NDCauA = Utils.GetCellStringBds(DeThiBindingSource, i, ABCD[0]),
                     NDCauB = Utils.GetCellStringBds(DeThiBindingSource, i, ABCD[1]),
@@ -380,24 +499,26 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                     NDCauD = Utils.GetCellStringBds(DeThiBindingSource, i, ABCD[3]),
                     MaCauHoi = int.Parse(Utils.GetCellStringBds(DeThiBindingSource, i, "CAUHOI"))
                 };
-                FakeRealDict.Add(ABCD[0], "A");//thay items[i].NDCauA thành A thôi cũng dc, do đã dùng phương thức Get (tương tự với B, C, D)
-                FakeRealDict.Add(ABCD[1], "B");
-                FakeRealDict.Add(ABCD[2], "C");
-                FakeRealDict.Add(ABCD[3], "D");
+
+
+                //Value: A B C D:  thứ tự trong chương trình
+                //Key:   D C A B:  nội dung thực trên db
+
+                _shuffledAnswersList.Add(new string[4] { ABCD[0], ABCD[1], ABCD[2], ABCD[3] });
+
 
                 string answer = Utils.GetCellStringBds(DeThiBindingSource, i, "DAP_AN");
                 int answerIndex = GetAnswerIndexInABCD(answer);
 
-                //items[i].DaChon = Utils.GetCellStringBds(DeThiBindingSource, i, "DAP_AN");
                 //items[i].DapAn = Utils.GetCellStringBds(DeThiBindingSource, i, "DAP_AN");
-                Debug.Assert(FakeRealDict.TryGetValue(ABCD[answerIndex], out string fakeAnswer));
+                string fakeAnswer = GetFakeAnswerByShuffledIndex(answerIndex);
                 items[i].DapAn = fakeAnswer;
 
                 items[i].Width = flowPnlBaiThi.Size.Width - 50;
                 items[i].Height = items[i].ContentHeight + 40;
                 flowPnlBaiThi.Controls.Add(items[i]);
 
-                ResetABCD();
+                //ResetABCD(); khỏi reset cũng dc
             }
 
         }
@@ -422,8 +543,36 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             }
 
         }
-        private void btnBatDauThi_Click(object sender, EventArgs e)
+        private string GenerateMbd()
         {
+            return DateTimeOffset.UtcNow.ToUnixTimeMilliseconds().ToString();
+        }
+        private string GetMaLopFromLabel_Sv()//chỉ áp dụng cho SV
+        {
+            return LookUpLop.Properties.NullText;
+        }
+        private bool Tested()
+        {
+            List<Para> paraList = new List<Para>();
+            paraList.Add(new Para("@MaSv", GetMaSvFromLabel()));
+            paraList.Add(new Para("@MaMh", GetMaLopFromLabel_Sv()));
+            string spName = "usp_Thi_KiemTraThiChua";
+            using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
+            {
+                if (myReader == null)
+                {
+                    Console.WriteLine(System.Environment.StackTrace);
+                    return true;
+                }
+                myReader.Read();
+                return myReader.HasRows;
+            }
+        }
+        private void BtnBatDauThi_Click(object sender, EventArgs e)
+        {
+
+
+
             string maMh = Utils.GetLookUpValue(LookUpMonHoc, "MAMH");
             string maLop = Utils.GetLookUpValue(LookUpLop, "MALOP");
             string trinhDo = lblTrinhDo.Text;
@@ -431,10 +580,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
             //usp_Thi_LayDeThi
             List<Para> paraList = new List<Para>();
-            paraList.Add(new Para("@MaMH", maMh));
-            paraList.Add(new Para("@MaLop", maLop));
-            paraList.Add(new Para("@SoCauThi", soCauYeuCau));
-            paraList.Add(new Para("@TrinhDo", trinhDo));
+            paraList.Add(new Para("@maMon", maMh));
+            paraList.Add(new Para("@maLop", maLop));
+            paraList.Add(new Para("@soCauYeuCau", soCauYeuCau));
+            paraList.Add(new Para("@trinhDo", trinhDo));
             string spName = "usp_Thi_LayDeThi";
             DataTable myTable = DBConnection.ExecuteSqlDataTableSP(spName, paraList);
             if (myTable == null)
@@ -455,6 +604,15 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             countDownTimer.Start();
             btnNopBai.Enabled = true;
 
+            if (isSv())
+            {
+                _ngayThi = DateTime.Now;
+                if (Tested())
+                {
+                    Utils.ShowMessage("Sinh viên đã dự thi môn và lần thi này rồi", NotiForm.FormType.Error, 2);
+                    return;
+                }
+            }
 
 
         }
@@ -480,45 +638,48 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 paraList.Add(new Para("@MALOP", maLop));
                 paraList.Add(new Para("@TrongNgay", trongNgay));
                 string spName = "usp_Thi_LayThongTinThiCuaLopVaMonTuongUng";
-                SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
-                if (myReader == null)
+                using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
                 {
-                    Console.WriteLine(System.Environment.StackTrace);
-                    return;
-                }
-                myReader.Read();
-                int rowCount = int.Parse(myReader.GetValue(5).ToString());
-                if (rowCount == 1)
-                {
-                    SetRdoLanEnabled(false, false);
-
-                    //thongTinThi[0].NgayThi = myReader.GetDateTime(1);
-                    int lanThi = int.Parse(myReader.GetValue(0).ToString());
-                    // nếu chỉ có 1 lần thi và đó lần thứ 2 thì vẫn lưu vào --thongTinThi[0]
-                    switch (lanThi)
+                    if (myReader == null)
                     {
-                        case 1:
-                            SetThongTinThi(0, 1, myReader);
-                            rdo1.Checked = true;
-                            break;
-                        case 2:
-                            SetThongTinThi(0, 2, myReader);
-                            rdo2.Checked = true;
-                            break;
+                        Console.WriteLine(System.Environment.StackTrace);
+                        return;
                     }
-
-                }
-                else
-                {
-                    SetRdoLanEnabled(true, false);
-                    // _lanThi = 3;
-                    // nếu như có 2 ngày thi thì --thongTinThi[0] lưu lần thi 1, --thongTinThi[1] lưu lần thi 2
-                    SetThongTinThi(0, 1, myReader);
                     myReader.Read();
-                    SetThongTinThi(1, 2, myReader);
-                    rdo1.Checked = true;
+                    int rowCount = int.Parse(myReader.GetValue(5).ToString());
+                    if (rowCount == 1)
+                    {
+                        SetRdoLanEnabled(false, false);
+
+                        //thongTinThi[0].NgayThi = myReader.GetDateTime(1);
+                        int lanThi = int.Parse(myReader.GetValue(0).ToString());
+                        // nếu chỉ có 1 lần thi và đó lần thứ 2 thì vẫn lưu vào --thongTinThi[0]
+                        switch (lanThi)
+                        {
+                            case 1:
+                                SetThongTinThi(0, 1, myReader);
+                                rdo1.Checked = true;
+                                break;
+                            case 2:
+                                SetThongTinThi(0, 2, myReader);
+                                rdo2.Checked = true;
+                                break;
+                        }
+
+                    }
+                    else
+                    {
+                        SetRdoLanEnabled(true, false);
+                        // _lanThi = 3;
+                        // nếu như có 2 ngày thi thì --thongTinThi[0] lưu lần thi 1, --thongTinThi[1] lưu lần thi 2
+                        SetThongTinThi(0, 1, myReader);
+                        myReader.Read();
+                        SetThongTinThi(1, 2, myReader);
+                        rdo1.Checked = true;
+                    }
                 }
-                myReader.Close();
+
+
             }
         }
         private void SetThongTinThi(int index, int lanThi, SqlDataReader myReader)
@@ -569,7 +730,15 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 if (_min == 0)
                 {
                     lblCountDown.Text = "Hết giờ";
-                    countDownTimer.Stop();
+
+                    double[] result = GetResult();
+                    ShowResult(result);
+
+                    if (isSv())
+                    {
+                        InsertBangDiemToDB(result);
+                        InsertBaiThiToDB();
+                    }
                 }
                 else
                 {
@@ -601,7 +770,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
         }
 
-        private float[] GetResult()
+        private double[] GetResult()
         {
             int soCauThi = int.Parse(lblSoCauThi.Text);
             int soCauDung = 0;
@@ -613,8 +782,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                     soCauDung++;
                 }
             }
-            float mark = ((float)soCauDung * ((float)10 / (float)soCauThi));
-            float[] result = { mark, soCauDung };
+            double mark = ((double)soCauDung * ((double)10 / (double)soCauThi));
+            mark = Math.Round((double)mark, 1);
+            double[] result = { mark, soCauDung };
             return result;
         }
     }

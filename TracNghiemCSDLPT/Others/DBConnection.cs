@@ -267,5 +267,31 @@ namespace TracNghiemCSDLPT.Others
                 return false;
             }
         }
+
+        public static bool ExecuteSqlNonQuerySP(string spName, List<Para> paraList)
+        {
+            SqlCommand sqlCmd = new SqlCommand(spName, SubcriberConnection);
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            foreach (Para element in paraList)
+            {
+                sqlCmd.Parameters.Add(new SqlParameter(element.ValueName, element.RealValue));
+            }
+
+            if (SubcriberConnection.State == ConnectionState.Closed)
+                SubcriberConnection.Open();
+            try
+            {
+                sqlCmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                SubcriberConnection.Close();
+                Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
+                SubcriberConnection.Close();
+                Console.WriteLine(ex.StackTrace);
+                return false;
+            }
+        }
     }
 }

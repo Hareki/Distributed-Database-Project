@@ -72,7 +72,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             _origMaSV = "~!@#$%";
         }
 
-        
+
         private void LoadAllData()
         {
             this.KhoaTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
@@ -386,23 +386,24 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 spName = spName.Replace("XXX", "Name");
                 paraList.Add(new Para("@Name", testName));
             }
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
-            if (myReader == null)
+            using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
             {
-                Console.WriteLine(System.Environment.StackTrace);
-                return true;
-            }
-            if (myReader.HasRows)
-            {
-                myReader.Close();
-                return true;
+                if (myReader == null)
+                {
+                    Console.WriteLine(System.Environment.StackTrace);
+                    return true;
+                }
+                if (myReader.HasRows)
+                {
+                    return true;
 
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
-            {
-                myReader.Close();
-                return false;
-            }
+
         }
 
         private bool AlreadyExistsSv(string testName)
@@ -411,23 +412,24 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             paraList.Add(new Para("@ID", testName));
 
             string spName = "usp_SinhVien_GetInfoByID";
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
-            if (myReader == null)
+            using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
             {
-                Console.WriteLine(System.Environment.StackTrace);
-                return true;
-            }
-            if (myReader.HasRows)
-            {
-                myReader.Close();
-                return true;
+                if (myReader == null)
+                {
+                    Console.WriteLine(System.Environment.StackTrace);
+                    return true;
+                }
+                if (myReader.HasRows)
+                {
+                    return true;
 
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
-            {
-                myReader.Close();
-                return false;
-            }
+
         }
         private void GoToNewlyCreatedRowLop()
         {
@@ -601,7 +603,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
             CheckButtonStateLop();
         }
-       
+
         private void buttonThemSV_Click(object sender, EventArgs e)
         {
             _selectedRowSV = SinhVienBindingSource.Position;

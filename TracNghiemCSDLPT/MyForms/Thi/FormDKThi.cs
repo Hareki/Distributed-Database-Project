@@ -282,23 +282,24 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             paraList.Add(new Para("@MaLop", maLop));
             paraList.Add(new Para("@Lan", lan));
             string spName = "usp_GVDK_GetInfoByIDs";
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
-            if (myReader == null)
+            using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
             {
-                Console.WriteLine(System.Environment.StackTrace);
-                return true;
-            }
-            if (myReader.HasRows)
-            {
-                myReader.Close();
-                return true;
+                if (myReader == null)
+                {
+                    Console.WriteLine(System.Environment.StackTrace);
+                    return true;
+                }
+                if (myReader.HasRows)
+                {
+                    return true;
 
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
-            {
-                myReader.Close();
-                return false;
-            }
+               
         }
 
         private bool  CanAdd(string maMh, string trinhDo, int soCauHoi)
@@ -308,17 +309,19 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             paraList.Add(new Para("@TrinhDo", trinhDo));
             paraList.Add(new Para("@SoCauHoiCanThiet", soCauHoi));
             string spName = "usp_GVDK_GetAddingPossibility";
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
-            if (myReader == null)
+            using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
             {
-                Console.WriteLine(System.Environment.StackTrace);
-                return false;
+                if (myReader == null)
+                {
+                    Console.WriteLine(System.Environment.StackTrace);
+                    return false;
+                }
+                myReader.Read();
+                int result = int.Parse(myReader.GetValue(0).ToString());
+                if (result == 0) return true;
+                else return false;
             }
-            myReader.Read();
-            int result = int.Parse(myReader.GetValue(0).ToString());
-            myReader.Close();
-            if (result == 0) return true;
-            else return false;
+                
         }
         private void UncheckAllRdo()
         {
@@ -348,18 +351,52 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             paraList.Add(new Para("@MaMH", maMh));
             paraList.Add(new Para("@MaLop", maLop));
             string spName = "usp_GVDK_CheckSoLan";
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
-            if (myReader == null)
-                return -1;
-            else
+            using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
             {
-                myReader.Read();
-                int resultSql = int.Parse(myReader.GetValue(0).ToString());
-                myReader.Close();
-                return resultSql;
+                if (myReader == null)
+                {
+                    Console.WriteLine(Environment.StackTrace);
+                    return -1;
+                }
+                else
+                {
+                    myReader.Read();
+                    int resultSql = int.Parse(myReader.GetValue(0).ToString());
+                    return resultSql;
+                }
             }
+                
 
 
+        }
+        private bool HaveDuplicateExamsInADay()
+        {
+            if(GetLan() == 1)
+            {
+                string maMh = MHCombo.SelectedValue.ToString();
+                string maLop = LopCombo.SelectedValue.ToString();
+                List<Para> paraList = new List<Para>();
+                paraList.Add(new Para("@MaMH", maMh));
+                paraList.Add(new Para("@MaLop", maLop));
+                string spName = "usp_GVDK_CheckDuplicateExams";
+                using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
+                {
+                    if (myReader == null)
+                        return true;
+                    else
+                    {
+                        myReader.Read();
+                        int resultSql = int.Parse(myReader.GetValue(0).ToString());
+                        if(resultSql == 0)
+                            return false;
+                        else
+                            return true;
+
+                    }
+                }
+                
+            }
+            return false;
         }
         private void buttonXacNhan_Click(object sender, EventArgs e)
         {
@@ -369,6 +406,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             bool test4 = spinSoCau.Value < 10 || spinSoCau.Value > 100;
             bool test5 = spinThoiGian.Value < 15 || spinSoCau.Value > 60;
             bool test6 = !CanDeleteEdit(NgayThi.DateTime);
+            
             if (test1 || test2 || test3 || test4 || test5 || test6)
             {
                 if (test1)
@@ -404,6 +442,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             {
                 ClearErrors();
             }
+            if (HaveDuplicateExamsInADay())
+            {
+                Utils.ShowMessage("  Không thể thi lần 1 và lần 2 trong cùng một ngày\n  Vui lòng xem lại thông tin đã nhập", Others.NotiForm.FormType.Error, 5);
+                return;
+            }
+
             string maGV = (LookUpGV.GetSelectedDataRow() as DataRowView)["MaGV"].ToString().Trim();
             string maMh = MHCombo.SelectedValue.ToString().Trim();
             string maLop = LopCombo.SelectedValue.ToString().Trim();
@@ -454,13 +498,15 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             if (_state == State.Add)
             {
                 string spName = "usp_GVDK_AddRecord";
-                SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
-                if (myReader == null)
+                using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
                 {
-                    // Console.WriteLine(System.Environment.StackTrace);
-                    return;
+                    if (myReader == null)
+                    {
+                        Console.WriteLine(System.Environment.StackTrace);
+                        return;
+                    }
                 }
-                myReader.Close();
+                   
                 Utils.ShowMessage("Thêm thông tin đăng ký thi thành công", Others.NotiForm.FormType.Success, 2);
             }
             else if (_state == State.Edit)
@@ -469,12 +515,14 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 paraList.Add(new Para("@OldMaLop", _origMaLop));
                 paraList.Add(new Para("@OldLan", _origLan));
                 string spName = "usp_GVDK_UpdateRecord";
-                SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
-                if (myReader == null)
+                using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
                 {
-                    return;
+                    if (myReader == null)
+                    {
+                        return;
+                    }
                 }
-                myReader.Close();
+                  
                 Utils.ShowMessage("Sửa thông tin đăng ký thi thành công", Others.NotiForm.FormType.Success, 2);
             }
 
@@ -556,16 +604,18 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                     paraList.Add(new Para("@OldLan", lan));
 
                     string spName = "usp_GVDK_DeleteRecord";
-                    SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
-                    if (myReader == null)
-                        return;
-                    else
+                    using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
                     {
-                        Utils.ShowMessage("Xóa thông tin đăng ký thi thành công", NotiForm.FormType.Success, 2);
-                        LoadGvdk2();
-                        myReader.Close();
-                        return;
+                        if (myReader == null)
+                            return;
+                        else
+                        {
+                            Utils.ShowMessage("Xóa thông tin đăng ký thi thành công", NotiForm.FormType.Success, 2);
+                            LoadGvdk2();
+                            return;
+                        }
                     }
+                        
 
                 }
             }

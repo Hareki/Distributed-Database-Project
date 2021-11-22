@@ -86,7 +86,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.CoSoComboBox.DisplayMember = "TENCS";
             this.CoSoComboBox.ValueMember = "TENSERVER";
             this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
-            this._previousIndexCS= this.CoSoComboBox.SelectedIndex;
+            this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
             CheckButtonStateGv();
             PhanQuyen();
         }
@@ -169,7 +169,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             else
             {
                 LoadAllData();
-                this._previousIndexCS= this.CoSoComboBox.SelectedIndex;
+                this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
             }
         }
 
@@ -306,23 +306,24 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             List<Para> paraList = new List<Para>();
             paraList.Add(new Para("@ID", testName));
             string spName = "usp_GiaoVien_GetInfoByID";
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
-            if (myReader == null)
+            using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
             {
-                Console.WriteLine(System.Environment.StackTrace);
-                return true;
-            }
-            if (myReader.HasRows)
-            {
-                myReader.Close();
-                return true;
+                if (myReader == null)
+                {
+                    Console.WriteLine(System.Environment.StackTrace);
+                    return true;
+                }
+                if (myReader.HasRows)
+                {
+                    return true;
 
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
-            {
-                myReader.Close();
-                return false;
-            }
+
         }
         void SetError(BaseEditViewInfo cellInfo, string errorIconText)
         {
@@ -473,19 +474,22 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     List<Para> paraList = new List<Para>();
                     paraList.Add(new Para("@UserName", removedGv.Trim()));
                     string spName = "usp_Login_RemoveLoginUser";
-                    SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
+                    using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
+                    {
+                        if (myReader == null)
+                        {
+                            Utils.ShowMessage("Xảy ra lỗi khi xóa login và user của giáo viên tương ứng", Others.NotiForm.FormType.Error, 2);
+                            Console.WriteLine(System.Environment.StackTrace);
+                            return;
+                        }
+                        else
+                        {
+                            myReader.Read();
+                           // Utils.ShowMessage("Mã của task xóa login: " + myReader.GetValue(0), Others.NotiForm.FormType.Error, 2);
+                        }
+                    }
 
-                    if (myReader == null)
-                    {
-                        Utils.ShowMessage("Xảy ra lỗi khi xóa login và user của giáo viên tương ứng", Others.NotiForm.FormType.Error, 2);
-                        Console.WriteLine(System.Environment.StackTrace);
-                        return;
-                    }
-                    else
-                    {
-                        myReader.Read();
-                        Utils.ShowMessage("Mã của task xóa login: " + myReader.GetValue(0), Others.NotiForm.FormType.Error, 2);
-                    }
+
 
                     Utils.ShowMessage("Xóa thông tin giảng viên thành công!", Others.NotiForm.FormType.Success, 2);
                 }

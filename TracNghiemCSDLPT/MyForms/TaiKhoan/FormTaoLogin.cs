@@ -106,37 +106,40 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             string spName = "usp_Login_AddLoginUser";
 
 
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
-            if (myReader == null)
+            using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
             {
-                Console.WriteLine(System.Environment.StackTrace);
-                return;
-            }
-            myReader.Read();
-            int result = int.Parse(myReader.GetValue(0).ToString());
-            myReader.Close();
-            switch (result)
-            {
-                case 1:
-                    {
-                        TenDangNhapEP.SetError(TextTenDangNhap, "Tên đăng nhập đã tồn tại, vui lòng thử tên khác");
-                        Utils.ShowMessage("Tên đăng nhập đã tồn tại, vui lòng thử tên khác", Others.NotiForm.FormType.Warning, 2);
-                        return;
-                    }
+                if (myReader == null)
+                {
+                    Console.WriteLine(System.Environment.StackTrace);
+                    return;
+                }
+                myReader.Read();
+                int result = int.Parse(myReader.GetValue(0).ToString());
+                switch (result)
+                {
+                    case 1:
+                        {
+                            TenDangNhapEP.SetError(TextTenDangNhap, "Tên đăng nhập đã tồn tại, vui lòng thử tên khác");
+                            Utils.ShowMessage("Tên đăng nhập đã tồn tại, vui lòng thử tên khác", Others.NotiForm.FormType.Warning, 2);
+                            return;
+                        }
 
-                case 2:
-                    {
-                        TenDangNhapEP.SetError(TextTenDangNhap, "Giảng viên này đã có tài khoản, không thể tạo thêm");
-                        Utils.ShowMessage("Giảng viên này đã có tài khoản, không thể tạo thêm", Others.NotiForm.FormType.Warning, 2);
-                        return;
-                    }
-                case 0:
-                    {
-                        TextTenDangNhap.Text = TextMatKhau.Text =
-                        TextXacNhan.Text = string.Empty;
-                        rdoCS.Checked = rdoGV.Checked = false;
-                        break;
-                    }
+                    case 2:
+                        {
+                            TenDangNhapEP.SetError(TextTenDangNhap, "Giảng viên này đã có tài khoản, không thể tạo thêm");
+                            Utils.ShowMessage("Giảng viên này đã có tài khoản, không thể tạo thêm", Others.NotiForm.FormType.Warning, 2);
+                            return;
+                        }
+                    case 0:
+                        {
+                            TextTenDangNhap.Text = TextMatKhau.Text =
+                            TextXacNhan.Text = string.Empty;
+                            rdoCS.Checked = rdoGV.Checked = false;
+                            break;
+                        }
+                }
+
+
             }
             Utils.ShowMessage("Đăng ký thành công!", Others.NotiForm.FormType.Success, 1);
 

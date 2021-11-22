@@ -230,23 +230,24 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 paraList.Add(new Para("@Name", testName));
             }
 
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
-            if (myReader == null)
+            using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
             {
-                Console.WriteLine(System.Environment.StackTrace);
-                return true;
-            }
-            if (myReader.HasRows)
-            {
-                myReader.Close();
-                return true;
+                if (myReader == null)
+                {
+                    Console.WriteLine(System.Environment.StackTrace);
+                    return true;
+                }
+                if (myReader.HasRows)
+                {
+                    return true;
 
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
-            {
-                myReader.Close();
-                return false;
-            }
+                
         }
         private void buttonXacNhan_Click(object sender, EventArgs e)
         {

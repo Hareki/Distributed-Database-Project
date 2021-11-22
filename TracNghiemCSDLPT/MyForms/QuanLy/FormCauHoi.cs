@@ -335,23 +335,23 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         private bool AlreadyExistsCh(int id)
         {
-            SqlDataReader myReader = ExecuteIdCheck(id);
-            if (myReader == null)
+            using (SqlDataReader myReader = ExecuteIdCheck(id))
             {
-                Console.WriteLine(System.Environment.StackTrace);
-                return true;
+                if (myReader == null)
+                {
+                    Console.WriteLine(System.Environment.StackTrace);
+                    return true;
+                }
+                if (myReader.HasRows)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            if (myReader.HasRows)
-            {
-                myReader.Close();
-                return true;
-
-            }
-            else
-            {
-                myReader.Close();
-                return false;
-            }
+              
         }
 
         private void GoToNewlyCreatedRowCh()
@@ -393,17 +393,19 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             paraList.Add(new Para("@trinhDo", trinhDo));
             paraList.Add(new Para("@maMon", maMh));
             string spName = "usp_BoDe_GetDeletingEditingPossibility";
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
-            if (myReader.HasRows)
+            using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
             {
-                while (myReader.Read())
+                if (myReader.HasRows)
                 {
-                    result.Add("Lớp " + myReader.GetString(1) + " thi môn " + myReader.GetString(0) +
-                        " lần " + myReader.GetInt16(2) + " vào ngày " + myReader.GetDateTime(3).ToString("dd/MM/yyyy"));
+                    while (myReader.Read())
+                    {
+                        result.Add("Lớp " + myReader.GetString(1) + " thi môn " + myReader.GetString(0) +
+                            " lần " + myReader.GetInt16(2) + " vào ngày " + myReader.GetDateTime(3).ToString("dd/MM/yyyy"));
+                    }
                 }
+                return result;
             }
-            myReader.Close();
-            return result;
+
 
         }
         private void buttonXacNhan_Click(object sender, EventArgs e)

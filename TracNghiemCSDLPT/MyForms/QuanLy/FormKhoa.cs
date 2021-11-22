@@ -67,7 +67,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             CheckButtonState();
             buttonUndo.Enabled = buttonRedo.Enabled = false;
             PhanQuyen();
-         //   Utils.ConfigControlColor(InfoPanel);
+            //   Utils.ConfigControlColor(InfoPanel);
         }
 
         private void LoadCombobox()
@@ -132,15 +132,17 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             {
                 paraList.Add(new Para("@MACS", this._maCs));
             }
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
-            if (myReader == null)
+            using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
             {
-                Console.WriteLine(System.Environment.StackTrace);
-                return true;
+                if (myReader == null)
+                {
+                    Console.WriteLine(System.Environment.StackTrace);
+                    return true;
+                }
+                bool isExist = myReader.HasRows;
+                return isExist;
             }
-            bool isExist = myReader.HasRows;
-            myReader.Close();
-            return isExist;
+
         }
 
 
@@ -154,15 +156,17 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             {
                 paraList.Add(new Para("@MACS", this._maCs));
             }
-            SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
-            if (myReader == null)
+            using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
             {
-                Console.WriteLine(System.Environment.StackTrace);
-                return true;
+                if (myReader == null)
+                {
+                    Console.WriteLine(System.Environment.StackTrace);
+                    return true;
+                }
+                bool isExist = myReader.HasRows;
+                return isExist;
             }
-            bool isExist = myReader.HasRows;
-            myReader.Close();
-            return isExist;
+
         }
 
         private void CheckButtonState()

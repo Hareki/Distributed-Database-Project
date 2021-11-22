@@ -119,32 +119,33 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
                 paraList.Add(new Para("@MAMH", maMh));
                 paraList.Add(new Para("@LAN", lan));
                 string spName = "usp_Report_KQT2";
-                SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList);
-                if (myReader == null)
+                using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
                 {
-                    Console.WriteLine(System.Environment.StackTrace);
-                    return;
-                }
-                myReader.Read();
-                if (myReader.HasRows)
-                {
-                    string tenLop = myReader.GetString(0);
-                    string tenSv = (LookUpSv.EditValue as DataRowView)["HoTen"].ToString();
-                    string tenMh = myReader.GetString(2);
-                    string ngayThi = myReader.GetDateTime(3).ToString("dd/MM/yyyy");
-                    string diem = myReader.GetDouble(4).ToString();
+                    if (myReader == null)
+                    {
+                        Console.WriteLine(System.Environment.StackTrace);
+                        return;
+                    }
+                    myReader.Read();
+                    if (myReader.HasRows)
+                    {
+                        string tenLop = myReader.GetString(0);
+                        string tenSv = (LookUpSv.EditValue as DataRowView)["HoTen"].ToString();
+                        string tenMh = myReader.GetString(2);
+                        string ngayThi = myReader.GetDateTime(3).ToString("dd/MM/yyyy");
+                        string diem = myReader.GetDouble(4).ToString();
 
-                    SetReportInfo(report, tenLop, tenSv, tenMh, ngayThi, diem);
-                    ReportPrintTool printer = new ReportPrintTool(report);
-                    printer.ShowPreviewDialog();
-                    myReader.Close();
+                        SetReportInfo(report, tenLop, tenSv, tenMh, ngayThi, diem);
+                        ReportPrintTool printer = new ReportPrintTool(report);
+                        printer.ShowPreviewDialog();
+                    }
+                    else
+                    {
+                        Utils.ShowMessage("Không có bài thi tương ứng với thông tin đã chọn", NotiForm.FormType.Error, 2);
+                        return;
+                    }
                 }
-                else
-                {
-                    Utils.ShowMessage("Không có bài thi tương ứng với thông tin đã chọn", NotiForm.FormType.Error, 2);
-                    myReader.Close();
-                    return;
-                }
+                  
                 
 
             }

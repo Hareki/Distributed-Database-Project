@@ -131,7 +131,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             GridView view = sender as GridView;
             if (view is null) return;
             string tenMon = (string)view.GetRowCellValue(e.RowHandle, colTENMH); ;
-            if (e.RelationIndex == 1)
+            if (e.RelationIndex == 0)
                 e.RelationName = $"Câu hỏi thuộc môn {tenMon}";
         }
 

@@ -30,7 +30,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             System.Windows.Forms.Label mALOPLabel;
             System.Windows.Forms.Label tENLOPLabel;
             System.Windows.Forms.Label mAKHLabel;
@@ -221,10 +221,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             | System.Windows.Forms.AnchorStyles.Right)));
             this.KhoaGridControl.DataSource = this.KhoaBindingSource;
             this.KhoaGridControl.Font = new System.Drawing.Font("Teko SemiBold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            gridLevelNode2.LevelTemplate = this.LopGridView;
-            gridLevelNode2.RelationName = "FK_LOP_KHOA";
+            gridLevelNode1.LevelTemplate = this.LopGridView;
+            gridLevelNode1.RelationName = "FK_LOP_KHOA";
             this.KhoaGridControl.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.KhoaGridControl.Location = new System.Drawing.Point(8, 67);
             this.KhoaGridControl.MainView = this.KhoaGridView;
             this.KhoaGridControl.Name = "KhoaGridControl";
@@ -968,7 +968,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             // buttonHuySV
             // 
-            this.buttonHuySV.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonHuySV.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.buttonHuySV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.buttonHuySV.CheckedState.Parent = this.buttonHuySV;
             this.buttonHuySV.CustomImages.Parent = this.buttonHuySV;
@@ -990,7 +990,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             // buttonXacNhanSV
             // 
-            this.buttonXacNhanSV.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonXacNhanSV.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.buttonXacNhanSV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.buttonXacNhanSV.CheckedState.Parent = this.buttonXacNhanSV;
             this.buttonXacNhanSV.CustomImages.Parent = this.buttonXacNhanSV;

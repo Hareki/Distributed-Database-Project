@@ -21,7 +21,7 @@ namespace TracNghiemCSDLPT.MyForms
         {
             InitializeComponent();
             InitializeUI();
-            AutoFilled2();
+            AutoFilledGV();
         }
         public StateProperties ErrorState;
         private Color _errorColor = Color.FromArgb(236, 65, 52);
@@ -61,7 +61,7 @@ namespace TracNghiemCSDLPT.MyForms
         }
         bool _showPassword = true;
 
-        private void AutoFilled()
+        private void AutoFilledSV()
         {
             ComboBoxCoSo.SelectedIndex = 0;
             rdoSV.Checked = true;
@@ -69,7 +69,7 @@ namespace TracNghiemCSDLPT.MyForms
             TextPassword.Text = "shiba123";
 
         }
-        private void AutoFilled2()
+        private void AutoFilledCS()
         {
             ComboBoxCoSo.SelectedIndex = 0;
             rdoGV.Checked = true;
@@ -77,6 +77,23 @@ namespace TracNghiemCSDLPT.MyForms
             TextPassword.Text = "123456";
 
         }
+        private void AutoFilledGV()
+        {
+            ComboBoxCoSo.SelectedIndex = 0;
+            rdoGV.Checked = true;
+            TextLogin.Text = "DVT";
+            TextPassword.Text = "123456";
+
+        }
+        private void AutoFilledTruong()
+        {
+            ComboBoxCoSo.SelectedIndex = 0;
+            rdoGV.Checked = true;
+            TextLogin.Text = "KDT";
+            TextPassword.Text = "123456";
+
+        }
+
         private void RequestLogin()
         {
             string loginName = TextLogin.Text.Trim();

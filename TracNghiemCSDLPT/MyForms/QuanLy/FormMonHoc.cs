@@ -184,7 +184,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
             if (GV_DKBindingSource.Count > 0)
             {
-                Utils.ShowMessage("Không thể xóa vì đã có giảng viên đăng ký thi môn học này", Others.NotiForm.FormType.Error, 4);
+                Utils.ShowMessage("Không thể xóa vì đã có giảng viên đăng ký thi môn học này", Others.NotiForm.FormType.Error, 3);
                 return;
             }
             if (BangDiemBindingSource.Count > 0)

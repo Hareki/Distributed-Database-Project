@@ -1004,7 +1004,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void SinhVienGridView_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
         {
-            //e.Allow = false;
+            if(_state == State.AddSv || _state == State.EditSv)
+                e.Allow = false;
         }
     }
 }

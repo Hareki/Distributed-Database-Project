@@ -31,8 +31,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDSDKTTN));
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.CoSoComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.dateTo = new Bunifu.UI.WinForms.BunifuDatePicker();
@@ -58,8 +56,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuPanel1.BorderRadius = 3;
             this.bunifuPanel1.BorderThickness = 1;
-            this.bunifuPanel1.Controls.Add(this.label2);
-            this.bunifuPanel1.Controls.Add(this.CoSoComboBox);
             this.bunifuPanel1.Controls.Add(this.panel1);
             this.bunifuPanel1.Controls.Add(this.pictureBox1);
             this.bunifuPanel1.Location = new System.Drawing.Point(298, 52);
@@ -67,39 +63,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.bunifuPanel1.ShowBorders = true;
             this.bunifuPanel1.Size = new System.Drawing.Size(1026, 708);
             this.bunifuPanel1.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(5, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 30);
-            this.label2.TabIndex = 32;
-            this.label2.Text = "Chọn cơ sở";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // CoSoComboBox
-            // 
-            this.CoSoComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.CoSoComboBox.BorderRadius = 3;
-            this.CoSoComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.CoSoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CoSoComboBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
-            this.CoSoComboBox.FocusedColor = System.Drawing.Color.Empty;
-            this.CoSoComboBox.FocusedState.Parent = this.CoSoComboBox;
-            this.CoSoComboBox.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold);
-            this.CoSoComboBox.ForeColor = System.Drawing.Color.White;
-            this.CoSoComboBox.FormattingEnabled = true;
-            this.CoSoComboBox.HoverState.Parent = this.CoSoComboBox;
-            this.CoSoComboBox.ItemHeight = 30;
-            this.CoSoComboBox.ItemsAppearance.Parent = this.CoSoComboBox;
-            this.CoSoComboBox.Location = new System.Drawing.Point(137, 16);
-            this.CoSoComboBox.Name = "CoSoComboBox";
-            this.CoSoComboBox.ShadowDecoration.Parent = this.CoSoComboBox;
-            this.CoSoComboBox.Size = new System.Drawing.Size(286, 36);
-            this.CoSoComboBox.TabIndex = 31;
-            this.CoSoComboBox.SelectedIndexChanged += new System.EventHandler(this.CoSoComboBox_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -220,17 +183,17 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.Font = new System.Drawing.Font("Baloo 2", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(110)))), ((int)(((byte)(190)))));
-            this.label7.Location = new System.Drawing.Point(168, 5);
+            this.label7.Location = new System.Drawing.Point(157, 5);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(307, 93);
+            this.label7.Size = new System.Drawing.Size(329, 94);
             this.label7.TabIndex = 25;
-            this.label7.Text = "Danh sách đăng ký thi trắc nghiệm";
+            this.label7.Text = "Danh sách đăng ký thi trắc nghiệm của 2 cơ sở\r\n";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox2.Image = global::TracNghiemCSDLPT.Properties.Resources.logo31;
-            this.pictureBox2.Location = new System.Drawing.Point(59, 5);
+            this.pictureBox2.Location = new System.Drawing.Point(48, 5);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(103, 65);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -275,7 +238,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.Name = "FormDSDKTTN";
             this.Text = "Danh sách đăng ký thi TN";
             this.bunifuPanel1.ResumeLayout(false);
-            this.bunifuPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -297,7 +259,5 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         private Bunifu.UI.WinForms.BunifuDatePicker dateTo;
         private Bunifu.UI.WinForms.BunifuDatePicker dateFrom;
         private System.Windows.Forms.Button buttonCancel;
-        private Guna.UI2.WinForms.Guna2ComboBox CoSoComboBox;
-        private System.Windows.Forms.Label label2;
     }
 }

@@ -30,7 +30,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             System.Windows.Forms.Label mALOPLabel;
             System.Windows.Forms.Label tENLOPLabel;
             System.Windows.Forms.Label mAKHLabel;
@@ -221,10 +221,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             | System.Windows.Forms.AnchorStyles.Right)));
             this.KhoaGridControl.DataSource = this.KhoaBindingSource;
             this.KhoaGridControl.Font = new System.Drawing.Font("Teko SemiBold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            gridLevelNode1.LevelTemplate = this.LopGridView;
-            gridLevelNode1.RelationName = "FK_LOP_KHOA";
+            gridLevelNode2.LevelTemplate = this.LopGridView;
+            gridLevelNode2.RelationName = "FK_LOP_KHOA";
             this.KhoaGridControl.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode2});
             this.KhoaGridControl.Location = new System.Drawing.Point(8, 67);
             this.KhoaGridControl.MainView = this.KhoaGridView;
             this.KhoaGridControl.Name = "KhoaGridControl";
@@ -557,7 +557,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonHuyLop.HoverState.Parent = this.buttonHuyLop;
             this.buttonHuyLop.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
             this.buttonHuyLop.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonHuyLop.Location = new System.Drawing.Point(306, 27);
+            this.buttonHuyLop.Location = new System.Drawing.Point(306, 43);
             this.buttonHuyLop.Margin = new System.Windows.Forms.Padding(3, 3, 23, 3);
             this.buttonHuyLop.Name = "buttonHuyLop";
             this.buttonHuyLop.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -612,7 +612,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonXacNhanLop.HoverState.Parent = this.buttonXacNhanLop;
             this.buttonXacNhanLop.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
             this.buttonXacNhanLop.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonXacNhanLop.Location = new System.Drawing.Point(246, 27);
+            this.buttonXacNhanLop.Location = new System.Drawing.Point(246, 43);
             this.buttonXacNhanLop.Margin = new System.Windows.Forms.Padding(3, 3, 23, 3);
             this.buttonXacNhanLop.Name = "buttonXacNhanLop";
             this.buttonXacNhanLop.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;

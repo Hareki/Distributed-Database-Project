@@ -153,11 +153,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             GridView detailView;
             if (getFirstRow)
-                detailView = MonHocGridView.GetDetailView(0, 1) as GridView;
+                detailView = MonHocGridView.GetDetailView(0, 0) as GridView;
             else
             {
                 int row = MonHocGridView.GetSelectedRows()[0];
-                detailView = MonHocGridView.GetDetailView(row, 1) as GridView;
+                detailView = MonHocGridView.GetDetailView(row, 0) as GridView;
             }
             if (detailView is null) return null;
             Object test = (detailView as GridView).GetFocusedRowCellValue(colCAUHOI);

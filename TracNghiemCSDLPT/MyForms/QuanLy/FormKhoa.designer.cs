@@ -584,6 +584,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // TenKHEP
             // 
             this.TenKHEP.ContainerControl = this;
+            this.TenKHEP.Icon = ((System.Drawing.Icon)(resources.GetObject("TenKHEP.Icon")));
             // 
             // FormKhoa
             // 

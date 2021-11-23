@@ -44,7 +44,9 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
                 case "COSO":
                     CoSoComboBox.Enabled = false;
                     break;
-
+                case "SINHVIEN":
+                    CoSoComboBox.Enabled = false;
+                    break;
             }
 
         }
@@ -93,13 +95,14 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
 
         }
 
-        private void SetReportInfo(ReportKQT report, string tenLop, string tenSv, string tenMh, string ngayThi, string diem)
+        private void SetReportInfo(ReportKQT report, string tenLop, string tenSv, string tenMh, string ngayThi, string diem, int lan)
         {
             report.lblDiem.Text = ": " + diem;
             report.lblHoTen.Text = ": " + tenSv;
             report.lblMonThi.Text = ": " + tenMh;
             report.lblNgayThi.Text = ": " + ngayThi;
             report.lblLop.Text = ": " + tenLop;
+            report.lblLan.Text = ": " + lan;
 
         }
         private void buttonPrint_Click(object sender, EventArgs e)
@@ -134,8 +137,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
                         string tenMh = myReader.GetString(2);
                         string ngayThi = myReader.GetDateTime(3).ToString("dd/MM/yyyy");
                         string diem = myReader.GetDouble(4).ToString();
-
-                        SetReportInfo(report, tenLop, tenSv, tenMh, ngayThi, diem);
+                        SetReportInfo(report, tenLop, tenSv, tenMh, ngayThi, diem, lan);
                         ReportPrintTool printer = new ReportPrintTool(report);
                         printer.ShowPreviewDialog();
                     }

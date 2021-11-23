@@ -81,6 +81,8 @@ namespace TracNghiemCSDLPT.MyReports
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrControlStyle1 = new DevExpress.XtraReports.UI.XRControlStyle();
             this.wrongAnswerStyle = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblLan = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -125,6 +127,8 @@ namespace TracNghiemCSDLPT.MyReports
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel6,
+            this.lblLan,
             this.lblNgayThi,
             this.lblMonThi,
             this.lblHoTen,
@@ -644,6 +648,27 @@ namespace TracNghiemCSDLPT.MyReports
             this.wrongAnswerStyle.Name = "wrongAnswerStyle";
             this.wrongAnswerStyle.Padding = new DevExpress.XtraPrinting.PaddingInfo(6, 6, 0, 0, 100F);
             // 
+            // xrLabel6
+            // 
+            this.xrLabel6.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(435.3759F, 155.5138F);
+            this.xrLabel6.Multiline = true;
+            this.xrLabel6.Name = "xrLabel6";
+            this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel6.SizeF = new System.Drawing.SizeF(77.23654F, 25.5F);
+            this.xrLabel6.StylePriority.UseFont = false;
+            this.xrLabel6.Text = "Lần thi:";
+            // 
+            // lblLan
+            // 
+            this.lblLan.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLan.LocationFloat = new DevExpress.Utils.PointFloat(512.6124F, 155.5138F);
+            this.lblLan.Multiline = true;
+            this.lblLan.Name = "lblLan";
+            this.lblLan.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblLan.SizeF = new System.Drawing.SizeF(127.3876F, 25.5F);
+            this.lblLan.StylePriority.UseFont = false;
+            // 
             // ReportKQT
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -720,5 +745,7 @@ namespace TracNghiemCSDLPT.MyReports
         public DevExpress.XtraReports.UI.XRLabel lblHoTen;
         public DevExpress.XtraReports.UI.XRLabel lblLop;
         public DevExpress.XtraReports.UI.XRLabel lblDiem;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel6;
+        public DevExpress.XtraReports.UI.XRLabel lblLan;
     }
 }

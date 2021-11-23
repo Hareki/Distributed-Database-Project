@@ -21,7 +21,7 @@ namespace TracNghiemCSDLPT.MyForms
         {
             InitializeComponent();
             InitializeUI();
-            AutoFilledCS();
+            AutoFilledSV();
         }
         public StateProperties ErrorState;
         private Color _errorColor = Color.FromArgb(236, 65, 52);
@@ -176,7 +176,7 @@ namespace TracNghiemCSDLPT.MyForms
                             "lại thông tin đăng nhập.", Others.NotiForm.FormType.Error, 4);
                         return;
                     }
-
+                    DBConnection.IndexCS = ComboBoxCoSo.SelectedIndex;
                     DBConnection.UserName = DBConnection.UserNameSV;
                     DBConnection.HoTen = myReader.GetString(1);
                     DBConnection.NhomQuyen = myReader.GetString(2);

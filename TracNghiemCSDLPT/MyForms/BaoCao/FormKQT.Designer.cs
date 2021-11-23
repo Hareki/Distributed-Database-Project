@@ -293,7 +293,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.LookUpMh.Properties.DataSource = this.DSMHBindingSource;
             this.LookUpMh.Properties.DisplayMember = "FullInfo";
-            this.LookUpMh.Properties.NullText = "Chọn môn đã thi";
+            this.LookUpMh.Properties.NullText = "Chọn môn đã thi tương ứng với SV đã chọn";
             this.LookUpMh.Properties.PopupFormSize = new System.Drawing.Size(0, 300);
             this.LookUpMh.Properties.PopupView = this.gridView1;
             this.LookUpMh.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;

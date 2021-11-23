@@ -81,7 +81,7 @@ namespace TracNghiemCSDLPT
                 result += word.Substring(0, 1).ToUpper() + word.Substring(1).ToLower() + " ";
             return result.Trim();
         }
-        public static void SetTextEditError(ErrorProvider ep, TextEdit textEdit, string errorMessage)
+        public static void SetTextEditError(ErrorProvider ep, BaseEdit textEdit, string errorMessage)
         {
             textEdit.Properties.Appearance.Options.UseBorderColor = true;
             textEdit.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;

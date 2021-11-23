@@ -29,22 +29,29 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDSDKTTN));
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.dateTo = new Bunifu.UI.WinForms.BunifuDatePicker();
-            this.dateFrom = new Bunifu.UI.WinForms.BunifuDatePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.buttonPrint = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dateFrom = new DevExpress.XtraEditors.DateEdit();
+            this.dateTo = new DevExpress.XtraEditors.DateEdit();
+            this.dateEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.bunifuPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateFrom.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateFrom.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTo.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEP)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuPanel1
@@ -70,9 +77,9 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.buttonCancel);
             this.panel1.Controls.Add(this.dateTo);
             this.panel1.Controls.Add(this.dateFrom);
+            this.panel1.Controls.Add(this.buttonCancel);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label7);
@@ -90,65 +97,13 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCancel.Font = new System.Drawing.Font("Baloo 2 SemiBold", 13.8F, System.Drawing.FontStyle.Bold);
             this.buttonCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonCancel.Location = new System.Drawing.Point(127, 422);
+            this.buttonCancel.Location = new System.Drawing.Point(126, 436);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(287, 46);
             this.buttonCancel.TabIndex = 30;
             this.buttonCancel.Text = "Hủy";
             this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
-            // 
-            // dateTo
-            // 
-            this.dateTo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.dateTo.BackColor = System.Drawing.Color.Transparent;
-            this.dateTo.BorderColor = System.Drawing.Color.Silver;
-            this.dateTo.BorderRadius = 1;
-            this.dateTo.Color = System.Drawing.Color.Silver;
-            this.dateTo.DateBorderThickness = Bunifu.UI.WinForms.BunifuDatePicker.BorderThickness.Thin;
-            this.dateTo.DateTextAlign = Bunifu.UI.WinForms.BunifuDatePicker.TextAlign.Left;
-            this.dateTo.DisabledColor = System.Drawing.Color.Gray;
-            this.dateTo.DisplayWeekNumbers = false;
-            this.dateTo.DPHeight = 0;
-            this.dateTo.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.dateTo.FillDatePicker = false;
-            this.dateTo.Font = new System.Drawing.Font("Baloo 2", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTo.ForeColor = System.Drawing.Color.Black;
-            this.dateTo.Icon = ((System.Drawing.Image)(resources.GetObject("dateTo.Icon")));
-            this.dateTo.IconColor = System.Drawing.Color.Gray;
-            this.dateTo.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Right;
-            this.dateTo.LeftTextMargin = 5;
-            this.dateTo.Location = new System.Drawing.Point(127, 278);
-            this.dateTo.MinimumSize = new System.Drawing.Size(4, 32);
-            this.dateTo.Name = "dateTo";
-            this.dateTo.Size = new System.Drawing.Size(286, 44);
-            this.dateTo.TabIndex = 29;
-            // 
-            // dateFrom
-            // 
-            this.dateFrom.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.dateFrom.BackColor = System.Drawing.Color.Transparent;
-            this.dateFrom.BorderColor = System.Drawing.Color.Silver;
-            this.dateFrom.BorderRadius = 1;
-            this.dateFrom.Color = System.Drawing.Color.Silver;
-            this.dateFrom.DateBorderThickness = Bunifu.UI.WinForms.BunifuDatePicker.BorderThickness.Thin;
-            this.dateFrom.DateTextAlign = Bunifu.UI.WinForms.BunifuDatePicker.TextAlign.Left;
-            this.dateFrom.DisabledColor = System.Drawing.Color.Gray;
-            this.dateFrom.DisplayWeekNumbers = false;
-            this.dateFrom.DPHeight = 0;
-            this.dateFrom.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.dateFrom.FillDatePicker = false;
-            this.dateFrom.Font = new System.Drawing.Font("Baloo 2", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateFrom.ForeColor = System.Drawing.Color.Black;
-            this.dateFrom.Icon = ((System.Drawing.Image)(resources.GetObject("dateFrom.Icon")));
-            this.dateFrom.IconColor = System.Drawing.Color.Gray;
-            this.dateFrom.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Right;
-            this.dateFrom.LeftTextMargin = 5;
-            this.dateFrom.Location = new System.Drawing.Point(127, 177);
-            this.dateFrom.MinimumSize = new System.Drawing.Size(4, 32);
-            this.dateFrom.Name = "dateFrom";
-            this.dateFrom.Size = new System.Drawing.Size(286, 44);
-            this.dateFrom.TabIndex = 29;
             // 
             // label1
             // 
@@ -207,7 +162,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.buttonPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPrint.Font = new System.Drawing.Font("Baloo 2 SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPrint.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonPrint.Location = new System.Drawing.Point(127, 348);
+            this.buttonPrint.Location = new System.Drawing.Point(126, 362);
             this.buttonPrint.Name = "buttonPrint";
             this.buttonPrint.Size = new System.Drawing.Size(287, 46);
             this.buttonPrint.TabIndex = 23;
@@ -229,6 +184,41 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // dateFrom
+            // 
+            this.dateFrom.EditValue = new System.DateTime(2021, 11, 23, 20, 51, 50, 0);
+            this.dateFrom.Location = new System.Drawing.Point(127, 177);
+            this.dateFrom.Name = "dateFrom";
+            this.dateFrom.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.dateFrom.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 13.8F);
+            this.dateFrom.Properties.Appearance.Options.UseFont = true;
+            this.dateFrom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateFrom.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateFrom.Size = new System.Drawing.Size(287, 44);
+            this.dateFrom.TabIndex = 31;
+            // 
+            // dateTo
+            // 
+            this.dateTo.EditValue = new System.DateTime(2021, 11, 23, 20, 52, 9, 0);
+            this.dateTo.Location = new System.Drawing.Point(127, 293);
+            this.dateTo.Name = "dateTo";
+            this.dateTo.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.dateTo.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 13.8F);
+            this.dateTo.Properties.Appearance.Options.UseFont = true;
+            this.dateTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTo.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTo.Size = new System.Drawing.Size(287, 44);
+            this.dateTo.TabIndex = 32;
+            // 
+            // dateEP
+            // 
+            this.dateEP.ContainerControl = this;
+            this.dateEP.Icon = ((System.Drawing.Icon)(resources.GetObject("dateEP.Icon")));
+            // 
             // FormDSDKTTN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -242,6 +232,11 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateFrom.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateFrom.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTo.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEP)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -256,8 +251,9 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
-        private Bunifu.UI.WinForms.BunifuDatePicker dateTo;
-        private Bunifu.UI.WinForms.BunifuDatePicker dateFrom;
         private System.Windows.Forms.Button buttonCancel;
+        private DevExpress.XtraEditors.DateEdit dateTo;
+        private DevExpress.XtraEditors.DateEdit dateFrom;
+        private System.Windows.Forms.ErrorProvider dateEP;
     }
 }

@@ -6,14 +6,15 @@
         {
             InitializeComponent();
         }
-        public ReportDSDKTTN(string dateFrom, string dateTo, string connectionString)
+        public ReportDSDKTTN(string dateFrom, string dateTo, string connectionString, int CSCL)
         {
             InitializeComponent();
           //  this.bANGDIEMTableAdapter.Connection.ConnectionString = connectionString;
-            this.sqlDataSource1.Connection.ConnectionString = connectionString;
-            this.sqlDataSource1.Queries[0].Parameters[0].Value = dateFrom;
-            this.sqlDataSource1.Queries[0].Parameters[1].Value = dateTo;
-            this.sqlDataSource1.Fill();
+            this.sqlDataSource2.Connection.ConnectionString = connectionString;
+            this.sqlDataSource2.Queries[0].Parameters[0].Value = dateFrom;
+            this.sqlDataSource2.Queries[0].Parameters[1].Value = dateTo;
+            this.sqlDataSource2.Queries[0].Parameters[2].Value = CSCL;
+            this.sqlDataSource2.Fill();
 
         }
 

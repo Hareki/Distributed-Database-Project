@@ -28,20 +28,28 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
 
             LookUpLop.Properties.DisplayMember = "FullInfo";
-            LookUpLop.Properties.ValueMember = "MaLop";
-
             LookUpMh.Properties.DisplayMember = "FullInfo";
-            LookUpMh.Properties.ValueMember = "MaMH";
 
             PhanQuyen();
         }
 
+        private void LoadAllLopThi()
+        {
+            this.usp_Report_BDMH_LayLopDaDKTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.usp_Report_BDMH_LayLopDaDKTableAdapter.Fill(this.TN_CSDLPTDataSet.usp_Report_BDMH_LayLopDaDK);
+        }
+
+        private void LoadMonThiCuaLop(string maLop)
+        {
+            this.usp_Report_BDMH_LayMonDaDKTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.usp_Report_BDMH_LayMonDaDKTableAdapter.Fill(this.TN_CSDLPTDataSet.usp_Report_BDMH_LayMonDaDK, maLop);
+        }
         private void FormBDMH_Load(object sender, EventArgs e)
         {
-            this.DSMHTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.DSLTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.DSMHTableAdapter.Fill(this.TN_CSDLPTDataSet.DSMH);
-            this.DSLTableAdapter.Fill(this.TN_CSDLPTDataSet.DSL);
+            LoadAllLopThi();
+            LookUpLop.Properties.DataSource = this.usp_Report_BDMH_LayLopDaDKBindingSource;
+            LookUpLop.Properties.DisplayMember = "FullInfo";
+
 
         }
 
@@ -57,6 +65,10 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
                     break;
                 case "COSO":
                     CoSoComboBox.Enabled = false;
+                    break;
+                case "SINHVIEN":
+                    CoSoComboBox.Enabled = false;
+                    buttonPrint.Enabled = false;
                     break;
 
             }
@@ -116,6 +128,29 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
                 return;
             }
 
+        }
+
+        private void fillToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.usp_Report_BDMH_LayMonDaDKTableAdapter.Fill(this.TN_CSDLPTDataSet.usp_Report_BDMH_LayMonDaDK, mALOPToolStripTextBox.Text);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void ClearInfo()
+        {
+            LookUpMh.EditValue = null;
+        }
+        private void LookUpLop_EditValueChanged(object sender, EventArgs e)
+        {
+            LoadMonThiCuaLop(Utils.GetLookUpValue(LookUpLop, "MALOP"));
+            ClearInfo();
         }
     }
 }

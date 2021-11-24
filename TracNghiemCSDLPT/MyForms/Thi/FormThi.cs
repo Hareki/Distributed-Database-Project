@@ -102,6 +102,13 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             lblHoTen.Text = hoTen;
             lblMaSV.Text = maSv;
         }
+        private void ConfigLookUpCSGV()
+        {
+            LookUpLop.Enabled = LookUpMonHoc.Enabled = true;
+            LookUpMonHoc.Properties.DataSource = usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaBindingSource;
+            LookUpMonHoc.Properties.DisplayMember = "FullInfo";
+            SetSvInfo("Giảng viên thi thử", "Test");
+        }
         private void PhanQuyen()
         {
             switch (DBConnection.NhomQuyen)

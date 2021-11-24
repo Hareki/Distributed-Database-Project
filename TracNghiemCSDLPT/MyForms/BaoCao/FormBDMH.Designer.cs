@@ -44,34 +44,34 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.label13 = new System.Windows.Forms.Label();
             this.rdo2 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.LookUpMh = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.DSMHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TN_CSDLPTDataSet();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENMH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpLop = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.DSLBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENLOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.DSLTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.DSLTableAdapter();
             this.tableAdapterManager = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
-            this.DSMHTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.DSMHTableAdapter();
+            this.usp_Report_BDMH_LayMonDaDKBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usp_Report_BDMH_LayMonDaDKTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.usp_Report_BDMH_LayMonDaDKTableAdapter();
+            this.usp_Report_BDMH_LayLopDaDKBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usp_Report_BDMH_LayLopDaDKTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.usp_Report_BDMH_LayLopDaDKTableAdapter();
             this.bunifuPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelLan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpMh.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DSMHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpLop.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DSLBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usp_Report_BDMH_LayMonDaDKBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usp_Report_BDMH_LayLopDaDKBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuPanel1
@@ -277,7 +277,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.LookUpMh.Properties.Appearance.Options.UseFont = true;
             this.LookUpMh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.LookUpMh.Properties.DataSource = this.DSMHBindingSource;
             this.LookUpMh.Properties.DisplayMember = "FullInfo";
             this.LookUpMh.Properties.NullText = "Chọn môn đã thi";
             this.LookUpMh.Properties.PopupFormSize = new System.Drawing.Size(0, 300);
@@ -285,11 +284,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.LookUpMh.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
             this.LookUpMh.Size = new System.Drawing.Size(445, 38);
             this.LookUpMh.TabIndex = 31;
-            // 
-            // DSMHBindingSource
-            // 
-            this.DSMHBindingSource.DataMember = "DSMH";
-            this.DSMHBindingSource.DataSource = this.TN_CSDLPTDataSet;
             // 
             // TN_CSDLPTDataSet
             // 
@@ -346,18 +340,13 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.LookUpLop.Properties.Appearance.Options.UseFont = true;
             this.LookUpLop.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.LookUpLop.Properties.DataSource = this.DSLBindingSource;
             this.LookUpLop.Properties.DisplayMember = "FullInfo";
             this.LookUpLop.Properties.NullText = "Chọn lớp";
             this.LookUpLop.Properties.PopupView = this.gridLookUpEdit1View;
             this.LookUpLop.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
             this.LookUpLop.Size = new System.Drawing.Size(445, 38);
             this.LookUpLop.TabIndex = 30;
-            // 
-            // DSLBindingSource
-            // 
-            this.DSLBindingSource.DataMember = "DSL";
-            this.DSLBindingSource.DataSource = this.TN_CSDLPTDataSet;
+            this.LookUpLop.EditValueChanged += new System.EventHandler(this.LookUpLop_EditValueChanged);
             // 
             // gridLookUpEdit1View
             // 
@@ -436,10 +425,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // DSLTableAdapter
-            // 
-            this.DSLTableAdapter.ClearBeforeFill = true;
-            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
@@ -457,9 +442,23 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.tableAdapterManager.SINHVIENTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // DSMHTableAdapter
+            // usp_Report_BDMH_LayMonDaDKBindingSource
             // 
-            this.DSMHTableAdapter.ClearBeforeFill = true;
+            this.usp_Report_BDMH_LayMonDaDKBindingSource.DataMember = "usp_Report_BDMH_LayMonDaDK";
+            this.usp_Report_BDMH_LayMonDaDKBindingSource.DataSource = this.TN_CSDLPTDataSet;
+            // 
+            // usp_Report_BDMH_LayMonDaDKTableAdapter
+            // 
+            this.usp_Report_BDMH_LayMonDaDKTableAdapter.ClearBeforeFill = true;
+            // 
+            // usp_Report_BDMH_LayLopDaDKBindingSource
+            // 
+            this.usp_Report_BDMH_LayLopDaDKBindingSource.DataMember = "usp_Report_BDMH_LayLopDaDK";
+            this.usp_Report_BDMH_LayLopDaDKBindingSource.DataSource = this.TN_CSDLPTDataSet;
+            // 
+            // usp_Report_BDMH_LayLopDaDKTableAdapter
+            // 
+            this.usp_Report_BDMH_LayLopDaDKTableAdapter.ClearBeforeFill = true;
             // 
             // FormBDMH
             // 
@@ -477,14 +476,14 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.panelLan.ResumeLayout(false);
             this.panelLan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpMh.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DSMHBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpLop.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DSLBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usp_Report_BDMH_LayMonDaDKBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usp_Report_BDMH_LayLopDaDKBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -513,12 +512,12 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private TN_CSDLPTDataSet TN_CSDLPTDataSet;
-        private System.Windows.Forms.BindingSource DSLBindingSource;
-        private TN_CSDLPTDataSetTableAdapters.DSLTableAdapter DSLTableAdapter;
         private TN_CSDLPTDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingSource DSMHBindingSource;
-        private TN_CSDLPTDataSetTableAdapters.DSMHTableAdapter DSMHTableAdapter;
         private DevExpress.XtraGrid.Columns.GridColumn colMALOP;
         private DevExpress.XtraGrid.Columns.GridColumn colTENLOP;
+        private System.Windows.Forms.BindingSource usp_Report_BDMH_LayMonDaDKBindingSource;
+        private TN_CSDLPTDataSetTableAdapters.usp_Report_BDMH_LayMonDaDKTableAdapter usp_Report_BDMH_LayMonDaDKTableAdapter;
+        private System.Windows.Forms.BindingSource usp_Report_BDMH_LayLopDaDKBindingSource;
+        private TN_CSDLPTDataSetTableAdapters.usp_Report_BDMH_LayLopDaDKTableAdapter usp_Report_BDMH_LayLopDaDKTableAdapter;
     }
 }

@@ -44,10 +44,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.LookUpGV = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.DSGVBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHoTen = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DSGVBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label13 = new System.Windows.Forms.Label();
             this.rdoB = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.label6 = new System.Windows.Forms.Label();
@@ -63,14 +63,20 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.labelPhut = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.LookUpMh = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.DSMHBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTENMH1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpLop = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.DSLBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTENLOP1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.NgayThi = new DevExpress.XtraEditors.DateEdit();
             this.panelTrinhDo = new System.Windows.Forms.Panel();
             this.panelLan = new System.Windows.Forms.Panel();
-            this.DSMHBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DSLBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.GVDK2GridControl = new DevExpress.XtraGrid.GridControl();
             this.GVDK2GridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAGV1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -106,30 +112,29 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.LopTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.LOPTableAdapter();
             this.SVBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SVTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.SINHVIENTableAdapter();
-            this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTENLOP1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.LookUpMh = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.MHEP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.LopEP = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinSoCau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GVDK2BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpGV.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSGVBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinThoiGian.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bunifuPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpMh.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSMHBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpLop.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSLBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NgayThi.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NgayThi.Properties)).BeginInit();
             this.panelTrinhDo.SuspendLayout();
             this.panelLan.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DSMHBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DSLBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GVDK2GridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GVDK2GridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardView1)).BeginInit();
@@ -142,8 +147,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             ((System.ComponentModel.ISupportInitialize)(this.NgayThiEP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LopBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SVBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LookUpMh.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MHEP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LopEP)).BeginInit();
             this.SuspendLayout();
             // 
             // TN_CSDLPTDataSet
@@ -210,7 +216,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label10.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(49, 118);
+            this.label10.Location = new System.Drawing.Point(49, 121);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(85, 30);
             this.label10.TabIndex = 19;
@@ -315,11 +321,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.LookUpGV.Properties.Appearance.Options.UseBorderColor = true;
             this.LookUpGV.Properties.Appearance.Options.UseFont = true;
             this.LookUpGV.Properties.Appearance.Options.UseForeColor = true;
-            this.LookUpGV.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.LookUpGV.Properties.AppearanceDisabled.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.LookUpGV.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.LookUpGV.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(126)))));
             this.LookUpGV.Properties.AppearanceDisabled.Options.UseBackColor = true;
-            this.LookUpGV.Properties.AppearanceDisabled.Options.UseBorderColor = true;
             this.LookUpGV.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.LookUpGV.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
             this.LookUpGV.Properties.AppearanceDropDown.Options.UseForeColor = true;
@@ -339,8 +343,15 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.LookUpGV.Size = new System.Drawing.Size(459, 38);
             this.LookUpGV.TabIndex = 34;
             // 
+            // DSGVBindingSource
+            // 
+            this.DSGVBindingSource.DataMember = "DSGIAOVIEN";
+            this.DSGVBindingSource.DataSource = this.TN_CSDLPTDataSet;
+            // 
             // gridLookUpEdit1View
             // 
+            this.gridLookUpEdit1View.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(255)))), ((int)(((byte)(215)))));
+            this.gridLookUpEdit1View.Appearance.FocusedRow.Options.UseBackColor = true;
             this.gridLookUpEdit1View.Appearance.HeaderPanel.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold);
             this.gridLookUpEdit1View.Appearance.HeaderPanel.Options.UseFont = true;
             this.gridLookUpEdit1View.Appearance.Row.Font = new System.Drawing.Font("Baloo 2", 12F);
@@ -387,11 +398,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.colHoTen.VisibleIndex = 1;
             this.colHoTen.Width = 354;
             // 
-            // DSGVBindingSource
-            // 
-            this.DSGVBindingSource.DataMember = "DSGIAOVIEN";
-            this.DSGVBindingSource.DataSource = this.TN_CSDLPTDataSet;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -420,7 +426,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.rdoB.TabIndex = 25;
             this.rdoB.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdoB.UncheckedState.BorderThickness = 2;
-            this.rdoB.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rdoB.UncheckedState.FillColor = System.Drawing.Color.White;
             this.rdoB.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.rdoB.UncheckedState.Parent = this.rdoB;
             // 
@@ -497,7 +503,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.rdoA.TabIndex = 24;
             this.rdoA.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdoA.UncheckedState.BorderThickness = 2;
-            this.rdoA.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rdoA.UncheckedState.FillColor = System.Drawing.Color.White;
             this.rdoA.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.rdoA.UncheckedState.Parent = this.rdoA;
             // 
@@ -542,7 +548,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label3.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(45, 163);
+            this.label3.Location = new System.Drawing.Point(46, 172);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 30);
             this.label3.TabIndex = 26;
@@ -577,7 +583,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.rdoC.TabIndex = 23;
             this.rdoC.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdoC.UncheckedState.BorderThickness = 2;
-            this.rdoC.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rdoC.UncheckedState.FillColor = System.Drawing.Color.White;
             this.rdoC.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.rdoC.UncheckedState.Parent = this.rdoC;
             // 
@@ -661,8 +667,96 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.bunifuPanel1.Margin = new System.Windows.Forms.Padding(3, 3, 34, 3);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(1247, 263);
+            this.bunifuPanel1.Size = new System.Drawing.Size(1247, 256);
             this.bunifuPanel1.TabIndex = 37;
+            // 
+            // LookUpMh
+            // 
+            this.LookUpMh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LookUpMh.Location = new System.Drawing.Point(153, 123);
+            this.LookUpMh.Name = "LookUpMh";
+            this.LookUpMh.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.LookUpMh.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.LookUpMh.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.LookUpMh.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LookUpMh.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.LookUpMh.Properties.Appearance.Options.UseBackColor = true;
+            this.LookUpMh.Properties.Appearance.Options.UseBorderColor = true;
+            this.LookUpMh.Properties.Appearance.Options.UseFont = true;
+            this.LookUpMh.Properties.Appearance.Options.UseForeColor = true;
+            this.LookUpMh.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.LookUpMh.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(126)))));
+            this.LookUpMh.Properties.AppearanceDisabled.Options.UseBackColor = true;
+            this.LookUpMh.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.LookUpMh.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
+            this.LookUpMh.Properties.AppearanceDropDown.Options.UseForeColor = true;
+            this.LookUpMh.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.LookUpMh.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Black;
+            this.LookUpMh.Properties.AppearanceFocused.Options.UseBorderColor = true;
+            this.LookUpMh.Properties.AppearanceFocused.Options.UseForeColor = true;
+            this.LookUpMh.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Black;
+            this.LookUpMh.Properties.AppearanceReadOnly.Options.UseForeColor = true;
+            this.LookUpMh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.LookUpMh.Properties.DataSource = this.DSMHBindingSource;
+            this.LookUpMh.Properties.DisplayMember = "FullInfo";
+            this.LookUpMh.Properties.NullText = "Chọn môn thi";
+            this.LookUpMh.Properties.PopupView = this.gridView1;
+            this.LookUpMh.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
+            this.LookUpMh.Size = new System.Drawing.Size(459, 38);
+            this.LookUpMh.TabIndex = 56;
+            this.LookUpMh.EditValueChanged += new System.EventHandler(this.LookUpMhLop_EditValueChanged);
+            // 
+            // DSMHBindingSource
+            // 
+            this.DSMHBindingSource.DataMember = "DSMH";
+            this.DSMHBindingSource.DataSource = this.TN_CSDLPTDataSet;
+            // 
+            // gridView1
+            // 
+            this.gridView1.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(255)))), ((int)(((byte)(215)))));
+            this.gridView1.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold);
+            this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Baloo 2", 12F);
+            this.gridView1.Appearance.Row.ForeColor = System.Drawing.Color.Black;
+            this.gridView1.Appearance.Row.Options.UseFont = true;
+            this.gridView1.Appearance.Row.Options.UseForeColor = true;
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMAMH,
+            this.colTENMH1});
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsEditForm.PopupEditFormWidth = 361;
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.OptionsView.ShowIndicator = false;
+            // 
+            // colMAMH
+            // 
+            this.colMAMH.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
+            this.colMAMH.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.colMAMH.AppearanceHeader.Options.UseBackColor = true;
+            this.colMAMH.AppearanceHeader.Options.UseForeColor = true;
+            this.colMAMH.Caption = "Mã MH";
+            this.colMAMH.FieldName = "MAMH";
+            this.colMAMH.Name = "colMAMH";
+            this.colMAMH.Visible = true;
+            this.colMAMH.VisibleIndex = 0;
+            this.colMAMH.Width = 103;
+            // 
+            // colTENMH1
+            // 
+            this.colTENMH1.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
+            this.colTENMH1.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.colTENMH1.AppearanceHeader.Options.UseBackColor = true;
+            this.colTENMH1.AppearanceHeader.Options.UseForeColor = true;
+            this.colTENMH1.Caption = "Tên môn học";
+            this.colTENMH1.FieldName = "TENMH";
+            this.colTENMH1.Name = "colTENMH1";
+            this.colTENMH1.Visible = true;
+            this.colTENMH1.VisibleIndex = 1;
+            this.colTENMH1.Width = 297;
             // 
             // LookUpLop
             // 
@@ -678,11 +772,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.LookUpLop.Properties.Appearance.Options.UseBorderColor = true;
             this.LookUpLop.Properties.Appearance.Options.UseFont = true;
             this.LookUpLop.Properties.Appearance.Options.UseForeColor = true;
-            this.LookUpLop.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.LookUpLop.Properties.AppearanceDisabled.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.LookUpLop.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.LookUpLop.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(126)))));
             this.LookUpLop.Properties.AppearanceDisabled.Options.UseBackColor = true;
-            this.LookUpLop.Properties.AppearanceDisabled.Options.UseBorderColor = true;
             this.LookUpLop.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.LookUpLop.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
             this.LookUpLop.Properties.AppearanceDropDown.Options.UseForeColor = true;
@@ -701,9 +793,17 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.LookUpLop.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
             this.LookUpLop.Size = new System.Drawing.Size(459, 38);
             this.LookUpLop.TabIndex = 55;
+            this.LookUpLop.EditValueChanged += new System.EventHandler(this.LookUpMhLop_EditValueChanged);
+            // 
+            // DSLBindingSource
+            // 
+            this.DSLBindingSource.DataMember = "DSL";
+            this.DSLBindingSource.DataSource = this.TN_CSDLPTDataSet;
             // 
             // gridView2
             // 
+            this.gridView2.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(255)))), ((int)(((byte)(215)))));
+            this.gridView2.Appearance.FocusedRow.Options.UseBackColor = true;
             this.gridView2.Appearance.HeaderPanel.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold);
             this.gridView2.Appearance.HeaderPanel.Options.UseFont = true;
             this.gridView2.Appearance.Row.Font = new System.Drawing.Font("Baloo 2", 12F);
@@ -719,6 +819,32 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             this.gridView2.OptionsView.ShowIndicator = false;
+            // 
+            // colMALOP
+            // 
+            this.colMALOP.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
+            this.colMALOP.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.colMALOP.AppearanceHeader.Options.UseBackColor = true;
+            this.colMALOP.AppearanceHeader.Options.UseForeColor = true;
+            this.colMALOP.Caption = "Mã lớp";
+            this.colMALOP.FieldName = "MALOP";
+            this.colMALOP.Name = "colMALOP";
+            this.colMALOP.Visible = true;
+            this.colMALOP.VisibleIndex = 0;
+            this.colMALOP.Width = 103;
+            // 
+            // colTENLOP1
+            // 
+            this.colTENLOP1.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
+            this.colTENLOP1.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.colTENLOP1.AppearanceHeader.Options.UseBackColor = true;
+            this.colTENLOP1.AppearanceHeader.Options.UseForeColor = true;
+            this.colTENLOP1.Caption = "Tên lớp";
+            this.colTENLOP1.FieldName = "TENLOP";
+            this.colTENLOP1.Name = "colTENLOP1";
+            this.colTENLOP1.Visible = true;
+            this.colTENLOP1.VisibleIndex = 1;
+            this.colTENLOP1.Width = 297;
             // 
             // pictureBox2
             // 
@@ -759,7 +885,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.panelTrinhDo.Controls.Add(this.rdoC);
             this.panelTrinhDo.Controls.Add(this.label6);
             this.panelTrinhDo.Controls.Add(this.label5);
-            this.panelTrinhDo.Location = new System.Drawing.Point(153, 157);
+            this.panelTrinhDo.Location = new System.Drawing.Point(153, 167);
             this.panelTrinhDo.Name = "panelTrinhDo";
             this.panelTrinhDo.Size = new System.Drawing.Size(459, 79);
             this.panelTrinhDo.TabIndex = 49;
@@ -774,16 +900,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.panelLan.Name = "panelLan";
             this.panelLan.Size = new System.Drawing.Size(130, 43);
             this.panelLan.TabIndex = 48;
-            // 
-            // DSMHBindingSource
-            // 
-            this.DSMHBindingSource.DataMember = "DSMH";
-            this.DSMHBindingSource.DataSource = this.TN_CSDLPTDataSet;
-            // 
-            // DSLBindingSource
-            // 
-            this.DSLBindingSource.DataMember = "DSL";
-            this.DSLBindingSource.DataSource = this.TN_CSDLPTDataSet;
             // 
             // GVDK2GridControl
             // 
@@ -964,7 +1080,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.InfoPanel.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
             this.InfoPanel.Location = new System.Drawing.Point(20, 38);
             this.InfoPanel.Name = "InfoPanel";
-            this.InfoPanel.Size = new System.Drawing.Size(1637, 419);
+            this.InfoPanel.Size = new System.Drawing.Size(1637, 309);
             this.InfoPanel.TabIndex = 39;
             this.InfoPanel.TabStop = false;
             this.InfoPanel.Text = "Thông tin đăng ký thi trắc nghiệm";
@@ -982,7 +1098,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonHuy.HoverState.Parent = this.buttonHuy;
             this.buttonHuy.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
             this.buttonHuy.ImageSize = new System.Drawing.Size(31, 31);
-            this.buttonHuy.Location = new System.Drawing.Point(1583, 172);
+            this.buttonHuy.Location = new System.Drawing.Point(1583, 117);
             this.buttonHuy.Margin = new System.Windows.Forms.Padding(11, 0, 3, 3);
             this.buttonHuy.Name = "buttonHuy";
             this.buttonHuy.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -1003,7 +1119,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonXacNhan.HoverState.Parent = this.buttonXacNhan;
             this.buttonXacNhan.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
             this.buttonXacNhan.ImageSize = new System.Drawing.Size(31, 31);
-            this.buttonXacNhan.Location = new System.Drawing.Point(1583, 102);
+            this.buttonXacNhan.Location = new System.Drawing.Point(1583, 47);
             this.buttonXacNhan.Margin = new System.Windows.Forms.Padding(11, 9, 8, 20);
             this.buttonXacNhan.Name = "buttonXacNhan";
             this.buttonXacNhan.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -1027,7 +1143,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonSua.HoverState.Parent = this.buttonSua;
             this.buttonSua.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_480px;
             this.buttonSua.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonSua.Location = new System.Drawing.Point(845, 357);
+            this.buttonSua.Location = new System.Drawing.Point(641, 5);
             this.buttonSua.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonSua.Name = "buttonSua";
             this.buttonSua.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
@@ -1052,7 +1168,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonThem.HoverState.Parent = this.buttonThem;
             this.buttonThem.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
             this.buttonThem.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonThem.Location = new System.Drawing.Point(441, 359);
+            this.buttonThem.Location = new System.Drawing.Point(215, 5);
             this.buttonThem.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonThem.Name = "buttonThem";
             this.buttonThem.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
@@ -1077,7 +1193,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonLamMoi.HoverState.Parent = this.buttonLamMoi;
             this.buttonLamMoi.Image = global::TracNghiemCSDLPT.Properties.Resources.reset_480px;
             this.buttonLamMoi.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonLamMoi.Location = new System.Drawing.Point(1048, 358);
+            this.buttonLamMoi.Location = new System.Drawing.Point(864, 5);
             this.buttonLamMoi.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonLamMoi.Name = "buttonLamMoi";
             this.buttonLamMoi.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
@@ -1102,7 +1218,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonXoa.HoverState.Parent = this.buttonXoa;
             this.buttonXoa.Image = global::TracNghiemCSDLPT.Properties.Resources.minus_sign_480px;
             this.buttonXoa.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonXoa.Location = new System.Drawing.Point(643, 359);
+            this.buttonXoa.Location = new System.Drawing.Point(429, 5);
             this.buttonXoa.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonXoa.Name = "buttonXoa";
             this.buttonXoa.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
@@ -1260,105 +1376,26 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             this.SVTableAdapter.ClearBeforeFill = true;
             // 
-            // colMALOP
+            // panel1
             // 
-            this.colMALOP.FieldName = "MALOP";
-            this.colMALOP.Name = "colMALOP";
-            this.colMALOP.Visible = true;
-            this.colMALOP.VisibleIndex = 0;
+            this.panel1.Controls.Add(this.buttonThem);
+            this.panel1.Controls.Add(this.buttonXoa);
+            this.panel1.Controls.Add(this.buttonSua);
+            this.panel1.Controls.Add(this.buttonLamMoi);
+            this.panel1.Location = new System.Drawing.Point(351, 354);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1247, 58);
+            this.panel1.TabIndex = 44;
             // 
-            // colTENLOP1
+            // MHEP
             // 
-            this.colTENLOP1.FieldName = "TENLOP";
-            this.colTENLOP1.Name = "colTENLOP1";
-            this.colTENLOP1.Visible = true;
-            this.colTENLOP1.VisibleIndex = 1;
+            this.MHEP.ContainerControl = this;
+            this.MHEP.Icon = ((System.Drawing.Icon)(resources.GetObject("MHEP.Icon")));
             // 
-            // LookUpMh
+            // LopEP
             // 
-            this.LookUpMh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LookUpMh.Location = new System.Drawing.Point(153, 123);
-            this.LookUpMh.Name = "LookUpMh";
-            this.LookUpMh.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.LookUpMh.Properties.Appearance.BackColor = System.Drawing.Color.White;
-            this.LookUpMh.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.LookUpMh.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LookUpMh.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.LookUpMh.Properties.Appearance.Options.UseBackColor = true;
-            this.LookUpMh.Properties.Appearance.Options.UseBorderColor = true;
-            this.LookUpMh.Properties.Appearance.Options.UseFont = true;
-            this.LookUpMh.Properties.Appearance.Options.UseForeColor = true;
-            this.LookUpMh.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.LookUpMh.Properties.AppearanceDisabled.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.LookUpMh.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(126)))));
-            this.LookUpMh.Properties.AppearanceDisabled.Options.UseBackColor = true;
-            this.LookUpMh.Properties.AppearanceDisabled.Options.UseBorderColor = true;
-            this.LookUpMh.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.LookUpMh.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
-            this.LookUpMh.Properties.AppearanceDropDown.Options.UseForeColor = true;
-            this.LookUpMh.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.LookUpMh.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Black;
-            this.LookUpMh.Properties.AppearanceFocused.Options.UseBorderColor = true;
-            this.LookUpMh.Properties.AppearanceFocused.Options.UseForeColor = true;
-            this.LookUpMh.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Black;
-            this.LookUpMh.Properties.AppearanceReadOnly.Options.UseForeColor = true;
-            this.LookUpMh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.LookUpMh.Properties.DataSource = this.DSMHBindingSource;
-            this.LookUpMh.Properties.DisplayMember = "FullInfo";
-            this.LookUpMh.Properties.NullText = "Chọn môn thi";
-            this.LookUpMh.Properties.PopupView = this.gridView1;
-            this.LookUpMh.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
-            this.LookUpMh.Size = new System.Drawing.Size(459, 38);
-            this.LookUpMh.TabIndex = 56;
-            // 
-            // gridView1
-            // 
-            this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold);
-            this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
-            this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Baloo 2", 12F);
-            this.gridView1.Appearance.Row.ForeColor = System.Drawing.Color.Black;
-            this.gridView1.Appearance.Row.Options.UseFont = true;
-            this.gridView1.Appearance.Row.Options.UseForeColor = true;
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
-            this.gridColumn2});
-            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsEditForm.PopupEditFormWidth = 361;
-            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            this.gridView1.OptionsView.ShowIndicator = false;
-            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn2, DevExpress.Data.ColumnSortOrder.Ascending)});
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
-            this.gridColumn1.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.gridColumn1.AppearanceHeader.Options.UseBackColor = true;
-            this.gridColumn1.AppearanceHeader.Options.UseForeColor = true;
-            this.gridColumn1.Caption = "Mã GV";
-            this.gridColumn1.FieldName = "MAGV";
-            this.gridColumn1.MinWidth = 23;
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 103;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
-            this.gridColumn2.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.gridColumn2.AppearanceHeader.Options.UseBackColor = true;
-            this.gridColumn2.AppearanceHeader.Options.UseForeColor = true;
-            this.gridColumn2.Caption = "Họ và tên";
-            this.gridColumn2.FieldName = "HoTen";
-            this.gridColumn2.MinWidth = 23;
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 354;
+            this.LopEP.ContainerControl = this;
+            this.LopEP.Icon = ((System.Drawing.Icon)(resources.GetObject("LopEP.Icon")));
             // 
             // FormDkThi
             // 
@@ -1369,10 +1406,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.Controls.Add(this.label16);
             this.Controls.Add(this.buttonUndo);
             this.Controls.Add(this.buttonRedo);
-            this.Controls.Add(this.buttonSua);
-            this.Controls.Add(this.buttonThem);
-            this.Controls.Add(this.buttonLamMoi);
-            this.Controls.Add(this.buttonXoa);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.InfoPanel);
             this.Controls.Add(this.GVDK2GridControl);
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("FormDkThi.IconOptions.Icon")));
@@ -1384,13 +1418,17 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             ((System.ComponentModel.ISupportInitialize)(this.spinSoCau.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GVDK2BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpGV.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSGVBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinThoiGian.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.bunifuPanel1.ResumeLayout(false);
             this.bunifuPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpMh.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSMHBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpLop.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSLBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NgayThi.Properties.CalendarTimeProperties)).EndInit();
@@ -1399,8 +1437,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.panelTrinhDo.PerformLayout();
             this.panelLan.ResumeLayout(false);
             this.panelLan.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DSMHBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DSLBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GVDK2GridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GVDK2GridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardView1)).EndInit();
@@ -1413,8 +1449,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             ((System.ComponentModel.ISupportInitialize)(this.NgayThiEP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LopBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SVBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LookUpMh.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.MHEP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LopEP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1499,9 +1536,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private TN_CSDLPTDataSetTableAdapters.SINHVIENTableAdapter SVTableAdapter;
         private DevExpress.XtraEditors.GridLookUpEdit LookUpMh;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn colMALOP;
         private DevExpress.XtraGrid.Columns.GridColumn colTENLOP1;
+        private DevExpress.XtraGrid.Columns.GridColumn colMAMH;
+        private DevExpress.XtraGrid.Columns.GridColumn colTENMH1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ErrorProvider MHEP;
+        private System.Windows.Forms.ErrorProvider LopEP;
     }
 }

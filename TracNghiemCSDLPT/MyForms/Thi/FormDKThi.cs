@@ -129,23 +129,18 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
 
             LookUpGV.Properties.DisplayMember = "FullInfo";
-            LookUpGV.Properties.ValueMember = "MaGV";
+          //  LookUpGV.Properties.ValueMember = "MaGV"; => Không bị lỗi?? Cayyyyyyyy
 
             LookUpMh.Properties.DisplayMember = "FullInfo";
-          //  LookUpMh.Properties.ValueMember = "MAMH";
-
+          //  LookUpMh.Properties.ValueMember = "MAMH"; => Gây lỗi không hiện value lên khung
+          //=> Value member = edit value
             LookUpLop.Properties.DisplayMember = "FullInfo";
-            LookUpLop.Properties.ValueMember = "MALOP";
+            //  LookUpLop.Properties.ValueMember = "MALOP";  => Gây lỗi không hiện value lên khung
 
             DSGVBindingSource.Position = -1;
             DSMHBindingSource.Position = -1;
             DSLBindingSource.Position = -1;
 
-            //MHCombo.DisplayMember = "TENMH";
-            //MHCombo.ValueMember = "MAMH";
-
-            //LopCombo.DisplayMember = "TENLOP";
-            //LopCombo.ValueMember = "MALOP";
 
             Utils.BindingComboData(this.CoSoComboBox, this._previousIndexCS);
 
@@ -347,9 +342,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         }
         private void SetBlankDataInput()
         {
-            LookUpGV.EditValue = DSGVBindingSource[2];
-            LookUpLop.EditValue = DSLBindingSource[2];
-            LookUpMh.EditValue = DSMHBindingSource[2];
+            LookUpGV.EditValue = null;
+            LookUpLop.EditValue = null;
+            LookUpMh.EditValue = null;
             //  DSGVBindingSource.MoveFirst();
             //  DSMHBindingSource.MoveFirst();
             //  DSLBindingSource.MoveFirst();
@@ -427,8 +422,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             bool test4 = spinSoCau.Value < 10 || spinSoCau.Value > 100;
             bool test5 = spinThoiGian.Value < 15 || spinSoCau.Value > 60;
             bool test6 = !CanDeleteEdit(NgayThi.DateTime);
+            bool test7 = LookUpLop.EditValue is null;
+            bool test8 = LookUpMh.EditValue is null;
 
-            if (test1 || test2 || test3 || test4 || test5 || test6)
+            if (test1 || test2 || test3 || test4 || test5 || test6 || test7 || test8)
             {
                 if (test1)
                     GVEP.SetError(LookUpGV, "Vui lòng chọn giáo viên giảng dạy");
@@ -454,7 +451,14 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                     NgayThiEP.SetError(NgayThi, "Ngày thi phải lớn hơn ngày hiện tại");
                 else
                     NgayThiEP.SetError(NgayThi, null);
-
+                if (test7)
+                    LopEP.SetError(LookUpLop, "Vui lòng chọn lớp thi");
+                else
+                    LopEP.SetError(LookUpLop, null);
+                if (test8)
+                    MHEP.SetError(LookUpMh, "Vui lòng chọn môn thi");
+                else
+                    MHEP.SetError(LookUpMh, null);
 
                 Utils.ShowMessage("Vui lòng xem lại thông tin đã nhập", Others.NotiForm.FormType.Error, 2);
                 return;
@@ -552,8 +556,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 Utils.ShowMessage("Sửa thông tin đăng ký thi thành công", Others.NotiForm.FormType.Success, 2);
             }
 
-            string tenMh = LookUpMh.Text;
-            string tenLop = LookUpLop.Text; // phải để trước, để sau sẽ trigger GetCorrData làm dữ liệu bị sai
+            string tenMh = Utils.GetLookUpValue(LookUpMh, "TENMH");
+            string tenLop = Utils.GetLookUpValue(LookUpLop, "TENLOP"); // phải để trước, để sau sẽ trigger GetCorrData làm dữ liệu bị sai
             LoadGvdk2();
             GVDK2BindingSource.Position = FindGvdk2Row(tenMh, tenLop, (short)lan);
 
@@ -797,5 +801,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             }
         }
 
+        private void LookUpMhLop_EditValueChanged(object sender, EventArgs e)
+        {
+            SetLan();
+        }
     }
 }

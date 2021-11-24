@@ -7,9 +7,5 @@
         partial class DSMHDataTable
         {
         }
-
-        partial class MonhocDataTable
-        {
-        }
     }
 }

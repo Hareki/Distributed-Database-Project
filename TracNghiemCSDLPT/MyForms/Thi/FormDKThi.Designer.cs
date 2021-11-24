@@ -63,14 +63,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.labelPhut = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.LookUpMh = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTENMH1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpLop = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTENLOP1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.NgayThi = new DevExpress.XtraEditors.DateEdit();
             this.panelTrinhDo = new System.Windows.Forms.Panel();
@@ -112,6 +106,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.LopTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.LOPTableAdapter();
             this.SVBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SVTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.SINHVIENTableAdapter();
+            this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTENLOP1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.LookUpMh = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinSoCau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GVDK2BindingSource)).BeginInit();
@@ -121,8 +121,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             ((System.ComponentModel.ISupportInitialize)(this.spinThoiGian.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bunifuPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LookUpMh.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -144,6 +142,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             ((System.ComponentModel.ISupportInitialize)(this.NgayThiEP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LopBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SVBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpMh.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // TN_CSDLPTDataSet
@@ -331,6 +331,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.LookUpGV.Properties.AppearanceReadOnly.Options.UseForeColor = true;
             this.LookUpGV.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.LookUpGV.Properties.DataSource = this.DSGVBindingSource;
+            this.LookUpGV.Properties.DisplayMember = "FullInfo";
             this.LookUpGV.Properties.NullText = "Chọn giáo viên đăng ký thi";
             this.LookUpGV.Properties.PopupView = this.gridLookUpEdit1View;
             this.LookUpGV.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
@@ -662,45 +664,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.bunifuPanel1.Size = new System.Drawing.Size(1247, 263);
             this.bunifuPanel1.TabIndex = 37;
             // 
-            // LookUpMh
-            // 
-            this.LookUpMh.Location = new System.Drawing.Point(156, 121);
-            this.LookUpMh.Name = "LookUpMh";
-            this.LookUpMh.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F);
-            this.LookUpMh.Properties.Appearance.Options.UseFont = true;
-            this.LookUpMh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.LookUpMh.Properties.NullText = "Chọn môn thi";
-            this.LookUpMh.Properties.PopupView = this.gridView1;
-            this.LookUpMh.Size = new System.Drawing.Size(456, 38);
-            this.LookUpMh.TabIndex = 56;
-            // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMAMH,
-            this.colTENMH1});
-            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            // 
-            // colMAMH
-            // 
-            this.colMAMH.Caption = "Mã MH";
-            this.colMAMH.FieldName = "MAMH";
-            this.colMAMH.Name = "colMAMH";
-            this.colMAMH.Visible = true;
-            this.colMAMH.VisibleIndex = 0;
-            // 
-            // colTENMH1
-            // 
-            this.colTENMH1.Caption = "Tên môn học";
-            this.colTENMH1.FieldName = "TENMH";
-            this.colTENMH1.Name = "colTENMH1";
-            this.colTENMH1.Visible = true;
-            this.colTENMH1.VisibleIndex = 1;
-            // 
             // LookUpLop
             // 
             this.LookUpLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -731,6 +694,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.LookUpLop.Properties.AppearanceReadOnly.Options.UseForeColor = true;
             this.LookUpLop.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.LookUpLop.Properties.DataSource = this.DSLBindingSource;
+            this.LookUpLop.Properties.DisplayMember = "FullInfo";
             this.LookUpLop.Properties.NullText = "Chọn lớp thi";
             this.LookUpLop.Properties.PopupView = this.gridView2;
             this.LookUpLop.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
@@ -754,22 +719,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             this.gridView2.OptionsView.ShowIndicator = false;
-            // 
-            // colMALOP
-            // 
-            this.colMALOP.Caption = "Mã lớp";
-            this.colMALOP.FieldName = "MALOP";
-            this.colMALOP.Name = "colMALOP";
-            this.colMALOP.Visible = true;
-            this.colMALOP.VisibleIndex = 0;
-            // 
-            // colTENLOP1
-            // 
-            this.colTENLOP1.Caption = "Tên lớp";
-            this.colTENLOP1.FieldName = "TENLOP";
-            this.colTENLOP1.Name = "colTENLOP1";
-            this.colTENLOP1.Visible = true;
-            this.colTENLOP1.VisibleIndex = 1;
             // 
             // pictureBox2
             // 
@@ -1311,6 +1260,106 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             this.SVTableAdapter.ClearBeforeFill = true;
             // 
+            // colMALOP
+            // 
+            this.colMALOP.FieldName = "MALOP";
+            this.colMALOP.Name = "colMALOP";
+            this.colMALOP.Visible = true;
+            this.colMALOP.VisibleIndex = 0;
+            // 
+            // colTENLOP1
+            // 
+            this.colTENLOP1.FieldName = "TENLOP";
+            this.colTENLOP1.Name = "colTENLOP1";
+            this.colTENLOP1.Visible = true;
+            this.colTENLOP1.VisibleIndex = 1;
+            // 
+            // LookUpMh
+            // 
+            this.LookUpMh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LookUpMh.Location = new System.Drawing.Point(153, 123);
+            this.LookUpMh.Name = "LookUpMh";
+            this.LookUpMh.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.LookUpMh.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.LookUpMh.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.LookUpMh.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LookUpMh.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.LookUpMh.Properties.Appearance.Options.UseBackColor = true;
+            this.LookUpMh.Properties.Appearance.Options.UseBorderColor = true;
+            this.LookUpMh.Properties.Appearance.Options.UseFont = true;
+            this.LookUpMh.Properties.Appearance.Options.UseForeColor = true;
+            this.LookUpMh.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.LookUpMh.Properties.AppearanceDisabled.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.LookUpMh.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(126)))));
+            this.LookUpMh.Properties.AppearanceDisabled.Options.UseBackColor = true;
+            this.LookUpMh.Properties.AppearanceDisabled.Options.UseBorderColor = true;
+            this.LookUpMh.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.LookUpMh.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
+            this.LookUpMh.Properties.AppearanceDropDown.Options.UseForeColor = true;
+            this.LookUpMh.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.LookUpMh.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Black;
+            this.LookUpMh.Properties.AppearanceFocused.Options.UseBorderColor = true;
+            this.LookUpMh.Properties.AppearanceFocused.Options.UseForeColor = true;
+            this.LookUpMh.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Black;
+            this.LookUpMh.Properties.AppearanceReadOnly.Options.UseForeColor = true;
+            this.LookUpMh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.LookUpMh.Properties.DataSource = this.DSMHBindingSource;
+            this.LookUpMh.Properties.DisplayMember = "FullInfo";
+            this.LookUpMh.Properties.NullText = "Chọn môn thi";
+            this.LookUpMh.Properties.PopupView = this.gridView1;
+            this.LookUpMh.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
+            this.LookUpMh.Size = new System.Drawing.Size(459, 38);
+            this.LookUpMh.TabIndex = 56;
+            // 
+            // gridView1
+            // 
+            this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold);
+            this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Baloo 2", 12F);
+            this.gridView1.Appearance.Row.ForeColor = System.Drawing.Color.Black;
+            this.gridView1.Appearance.Row.Options.UseFont = true;
+            this.gridView1.Appearance.Row.Options.UseForeColor = true;
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2});
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsEditForm.PopupEditFormWidth = 361;
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.OptionsView.ShowIndicator = false;
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn2, DevExpress.Data.ColumnSortOrder.Ascending)});
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
+            this.gridColumn1.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.gridColumn1.AppearanceHeader.Options.UseBackColor = true;
+            this.gridColumn1.AppearanceHeader.Options.UseForeColor = true;
+            this.gridColumn1.Caption = "Mã GV";
+            this.gridColumn1.FieldName = "MAGV";
+            this.gridColumn1.MinWidth = 23;
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 103;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
+            this.gridColumn2.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.gridColumn2.AppearanceHeader.Options.UseBackColor = true;
+            this.gridColumn2.AppearanceHeader.Options.UseForeColor = true;
+            this.gridColumn2.Caption = "Họ và tên";
+            this.gridColumn2.FieldName = "HoTen";
+            this.gridColumn2.MinWidth = 23;
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 354;
+            // 
             // FormDkThi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1341,8 +1390,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.bunifuPanel1.ResumeLayout(false);
             this.bunifuPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LookUpMh.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -1366,6 +1413,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             ((System.ComponentModel.ISupportInitialize)(this.NgayThiEP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LopBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SVBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpMh.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1444,15 +1493,15 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private System.Windows.Forms.BindingSource DSLBindingSource;
         private TN_CSDLPTDataSetTableAdapters.DSLTableAdapter DSLTableAdapter;
-        private DevExpress.XtraGrid.Columns.GridColumn colMALOP;
-        private DevExpress.XtraGrid.Columns.GridColumn colTENLOP1;
-        private DevExpress.XtraEditors.GridLookUpEdit LookUpMh;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn colMAMH;
-        private DevExpress.XtraGrid.Columns.GridColumn colTENMH1;
         private System.Windows.Forms.BindingSource LopBindingSource;
         private TN_CSDLPTDataSetTableAdapters.LOPTableAdapter LopTableAdapter;
         private System.Windows.Forms.BindingSource SVBindingSource;
         private TN_CSDLPTDataSetTableAdapters.SINHVIENTableAdapter SVTableAdapter;
+        private DevExpress.XtraEditors.GridLookUpEdit LookUpMh;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn colMALOP;
+        private DevExpress.XtraGrid.Columns.GridColumn colTENLOP1;
     }
 }

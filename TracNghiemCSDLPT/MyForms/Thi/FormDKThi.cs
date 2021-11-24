@@ -132,7 +132,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             LookUpGV.Properties.ValueMember = "MaGV";
 
             LookUpMh.Properties.DisplayMember = "FullInfo";
-            LookUpMh.Properties.ValueMember = "MAMH";
+          //  LookUpMh.Properties.ValueMember = "MAMH";
 
             LookUpLop.Properties.DisplayMember = "FullInfo";
             LookUpLop.Properties.ValueMember = "MALOP";

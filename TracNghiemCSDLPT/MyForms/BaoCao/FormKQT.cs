@@ -21,13 +21,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         public FormKQT()
         {
             InitializeComponent();
-
-            this.CoSoComboBox.DataSource = DBConnection.BsSubcribers;
-            this.CoSoComboBox.DisplayMember = "TENCS";
-            this.CoSoComboBox.ValueMember = "TENSERVER";
-            this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
-            this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
-            PhanQuyen();
         }
 
 
@@ -85,13 +78,22 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.Close();
         }
 
+        private void LoadAllSv()
+        {
+            this.usp_Report_KQT_LaySVThuocLopDaDuThiTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.usp_Report_KQT_LaySVThuocLopDaDuThiTableAdapter.Fill(this.TN_CSDLPTDataSet.usp_Report_KQT_LaySVThuocLopDaDuThi);
+        }
         private void FormKQT_Load(object sender, EventArgs e)
         {
-            this.DSSVTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.DSMHTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            Utils.BindingComboData(this.CoSoComboBox, _previousIndexCS);
 
-            this.DSSVTableAdapter.Fill(this.TN_CSDLPTDataSet.DSSV);
-            this.DSMHTableAdapter.Fill(this.TN_CSDLPTDataSet.DSMH);
+            LoadAllSv();
+            LookUpSv.Properties.DataSource = this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource;
+            LookUpSv.Properties.DisplayMember = "FullInfo";
+
+            LookUpMh.Properties.DataSource = this.usp_Report_KQT_LayMonDaThiBindingSource;
+            LookUpMh.Properties.DisplayMember = "FullInfo";
+            PhanQuyen();
 
         }
 
@@ -147,14 +149,78 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
                         return;
                     }
                 }
-                  
-                
+
+
 
             }
             else
             {
                 Utils.ShowMessage("Vui lòng chọn đầy đủ thông tin trước khi in", NotiForm.FormType.Warning, 2);
                 return;
+            }
+        }
+
+        private void LookUpSv_EditValueChanged(object sender, EventArgs e)
+        {
+            LoadMonThiCuaSv(Utils.GetLookUpValue(LookUpSv, "MASV"));
+            ClearInfo();
+        }
+
+        private void LoadMonThiCuaSv(string maSv)
+        {
+            this.usp_Report_KQT_LayMonDaThiTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.usp_Report_KQT_LayMonDaThiTableAdapter.Fill(this.TN_CSDLPTDataSet.usp_Report_KQT_LayMonDaThi, maSv);
+        }
+
+        private void ClearInfo()
+        {
+            LookUpMh.EditValue = null;
+            rdo1.Checked = rdo2.Checked = false;
+            rdo1.Enabled = rdo2.Enabled = false;
+        }
+
+        private string GetMaSvFromLookUp()
+        {
+            return Utils.GetLookUpValue(LookUpSv, "MASV");
+        }
+        private string GetMaMhFromLookUp()
+        {
+            return Utils.GetLookUpValue(LookUpMh, "MAMH");
+        }
+        private void LookUpMh_EditValueChanged(object sender, EventArgs e)
+        {
+            if (LookUpMh.EditValue != null)
+            {
+                List<Para> paraList = new List<Para>();
+                paraList.Add(new Para("@MASV", GetMaSvFromLookUp()));
+                paraList.Add(new Para("@MAMH", GetMaMhFromLookUp()));
+                string spName = "usp_Report_KQT_LayLanThiTuongUng";
+                using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
+                {
+                    if (myReader == null)
+                    {
+                        Console.WriteLine(System.Environment.StackTrace);
+                        return;
+                    }
+                    myReader.Read();
+                    int soLanThi = int.Parse(myReader.GetValue(0).ToString());
+                    switch (soLanThi)
+                    {
+                        case 1:
+                            rdo1.Checked = true;
+                            rdo1.Enabled = rdo2.Enabled = false;
+                            break;
+                        case 2:
+                            rdo2.Checked = true;
+                            rdo1.Enabled = rdo2.Enabled = false;
+                            break;
+                        case 3:
+                            rdo1.Checked = true;
+                            rdo1.Enabled = rdo2.Enabled = true;
+                            break;
+                    }
+
+                }
             }
         }
     }

@@ -44,7 +44,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.label13 = new System.Windows.Forms.Label();
             this.rdo2 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.LookUpMh = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TN_CSDLPTDataSet();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENMH = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -55,23 +54,27 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TN_CSDLPTDataSet();
             this.tableAdapterManager = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
             this.usp_Report_BDMH_LayMonDaDKBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usp_Report_BDMH_LayMonDaDKTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.usp_Report_BDMH_LayMonDaDKTableAdapter();
             this.usp_Report_BDMH_LayLopDaDKBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usp_Report_BDMH_LayLopDaDKTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.usp_Report_BDMH_LayLopDaDKTableAdapter();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelLan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpMh.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usp_Report_BDMH_LayMonDaDKBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usp_Report_BDMH_LayLopDaDKBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuPanel1
@@ -132,6 +135,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.buttonCancel);
             this.panel1.Controls.Add(this.buttonPrint);
             this.panel1.Controls.Add(this.label6);
@@ -278,17 +282,13 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.LookUpMh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.LookUpMh.Properties.DisplayMember = "FullInfo";
-            this.LookUpMh.Properties.NullText = "Chọn môn đã thi";
+            this.LookUpMh.Properties.NullText = "Chọn môn đã thi tương ứng với lớp đã chọn";
             this.LookUpMh.Properties.PopupFormSize = new System.Drawing.Size(0, 300);
             this.LookUpMh.Properties.PopupView = this.gridView1;
             this.LookUpMh.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
             this.LookUpMh.Size = new System.Drawing.Size(445, 38);
             this.LookUpMh.TabIndex = 31;
-            // 
-            // TN_CSDLPTDataSet
-            // 
-            this.TN_CSDLPTDataSet.DataSetName = "TN_CSDLPTDataSet";
-            this.TN_CSDLPTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.LookUpMh.EditValueChanged += new System.EventHandler(this.LookUpMh_EditValueChanged);
             // 
             // gridView1
             // 
@@ -425,6 +425,11 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // TN_CSDLPTDataSet
+            // 
+            this.TN_CSDLPTDataSet.DataSetName = "TN_CSDLPTDataSet";
+            this.TN_CSDLPTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
@@ -460,6 +465,19 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             // 
             this.usp_Report_BDMH_LayLopDaDKTableAdapter.ClearBeforeFill = true;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox3.Image = global::TracNghiemCSDLPT.Properties.Resources.info_480px;
+            this.pictureBox3.Location = new System.Drawing.Point(47, 558);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(33, 45);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 55;
+            this.pictureBox3.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox3, resources.GetString("pictureBox3.ToolTip"));
+            // 
             // FormBDMH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -476,14 +494,15 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.panelLan.ResumeLayout(false);
             this.panelLan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpMh.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usp_Report_BDMH_LayMonDaDKBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usp_Report_BDMH_LayLopDaDKBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -519,5 +538,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         private TN_CSDLPTDataSetTableAdapters.usp_Report_BDMH_LayMonDaDKTableAdapter usp_Report_BDMH_LayMonDaDKTableAdapter;
         private System.Windows.Forms.BindingSource usp_Report_BDMH_LayLopDaDKBindingSource;
         private TN_CSDLPTDataSetTableAdapters.usp_Report_BDMH_LayLopDaDKTableAdapter usp_Report_BDMH_LayLopDaDKTableAdapter;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

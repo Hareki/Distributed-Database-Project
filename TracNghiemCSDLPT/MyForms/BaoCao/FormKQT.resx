@@ -200,11 +200,23 @@
         1jJUq+cdAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>450, 103</value>
+  </metadata>
+  <data name="pictureBox3.ToolTip" xml:space="preserve">
+    <value>Nhằm hạn chế việc loãng, dư thừa dữ liệu, các thông tin đầu vào sẽ được chọn lọc, cụ thể như sau
+ - Sinh viên:  chỉ hiện những sinh viên thuộc các lớp có lịch thi tính từ ngày hiện tại trở về trước
+ - Môn học: chỉ hiện những môn học mà sinh viên đó đã thi (có điểm)
+ - Lần thi: sẽ được tự động chọn  và vô hiệu hóa thay đổi nếu chỉ có 1 lần thi</value>
+  </data>
   <metadata name="DSMHBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>203, 17</value>
   </metadata>
   <metadata name="TN_CSDLPTDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>744, 60</value>
   </metadata>
   <metadata name="DSSVBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>796, 17</value>
@@ -217,5 +229,14 @@
   </metadata>
   <metadata name="DSSVTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>986, 17</value>
+  </metadata>
+  <metadata name="usp_Report_KQT_LayMonDaThiBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 60</value>
+  </metadata>
+  <metadata name="usp_Report_KQT_LayMonDaThiTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>384, 60</value>
+  </metadata>
+  <metadata name="usp_Report_KQT_LaySVThuocLopDaDuThiTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 103</value>
   </metadata>
 </root>

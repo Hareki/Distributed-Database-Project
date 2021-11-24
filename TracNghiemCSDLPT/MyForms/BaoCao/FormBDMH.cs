@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,17 +21,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         public FormBDMH()
         {
             InitializeComponent();
-
-            this.CoSoComboBox.DataSource = DBConnection.BsSubcribers;
-            this.CoSoComboBox.DisplayMember = "TENCS";
-            this.CoSoComboBox.ValueMember = "TENSERVER";
-            this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
-            this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
-
-            LookUpLop.Properties.DisplayMember = "FullInfo";
-            LookUpMh.Properties.DisplayMember = "FullInfo";
-
-            PhanQuyen();
         }
 
         private void LoadAllLopThi()
@@ -46,10 +36,16 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         }
         private void FormBDMH_Load(object sender, EventArgs e)
         {
+            Utils.BindingComboData(this.CoSoComboBox, this._previousIndexCS);
+
             LoadAllLopThi();
             LookUpLop.Properties.DataSource = this.usp_Report_BDMH_LayLopDaDKBindingSource;
             LookUpLop.Properties.DisplayMember = "FullInfo";
 
+            this.LookUpMh.Properties.DataSource = this.usp_Report_BDMH_LayMonDaDKBindingSource;
+            LookUpMh.Properties.DisplayMember = "FullInfo";
+
+            PhanQuyen();
 
         }
 
@@ -112,8 +108,8 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         {
             if (!(LookUpLop.EditValue is null) && !(LookUpMh.EditValue is null))
             {
-                string maLop = (LookUpLop.EditValue as DataRowView)["MALOP"].ToString();
-                string maMh = (LookUpMh.EditValue as DataRowView)["MAMH"].ToString();
+                string maLop = Utils.GetLookUpValue(LookUpLop, "MALOP");
+                string maMh = Utils.GetLookUpValue(LookUpMh, "MAMH");
                 int lan;
                 if (rdo1.Checked) lan = 1;
                 else lan = 2;
@@ -130,27 +126,63 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
 
         }
 
-        private void fillToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.usp_Report_BDMH_LayMonDaDKTableAdapter.Fill(this.TN_CSDLPTDataSet.usp_Report_BDMH_LayMonDaDK, mALOPToolStripTextBox.Text);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
 
         private void ClearInfo()
         {
             LookUpMh.EditValue = null;
+            rdo1.Checked = rdo2.Checked = false;
+            rdo1.Enabled = rdo2.Enabled = false;
         }
         private void LookUpLop_EditValueChanged(object sender, EventArgs e)
         {
             LoadMonThiCuaLop(Utils.GetLookUpValue(LookUpLop, "MALOP"));
             ClearInfo();
+        }
+
+        private string GetMaMhFromLookUp()
+        {
+            return Utils.GetLookUpValue(LookUpMh, "MAMH");
+        }
+        private string GetMaLopFromLookUp()
+        {
+            return Utils.GetLookUpValue(LookUpLop, "MALOP");
+        }
+        private void LookUpMh_EditValueChanged(object sender, EventArgs e)
+        {
+            if (LookUpMh.EditValue != null)
+            {
+                List<Para> paraList = new List<Para>();
+                paraList.Add(new Para("@MALOP", GetMaLopFromLookUp()));
+                paraList.Add(new Para("@MAMH", GetMaMhFromLookUp()));
+                string spName = "usp_Report_BDMH_LayLanThiTuongUng";
+                using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
+                {
+                    if (myReader == null)
+                    {
+                        Console.WriteLine(System.Environment.StackTrace);
+                        return;
+                    }
+                    myReader.Read();
+                    int soLanThi = int.Parse(myReader.GetValue(0).ToString());
+                    switch (soLanThi)
+                    {
+                        case 1:
+                            rdo1.Checked = true;
+                            rdo1.Enabled = rdo2.Enabled = false;
+                            break;
+                        case 2:
+                            rdo2.Checked = true;
+                            rdo1.Enabled = rdo2.Enabled = false;
+                            break;
+                        case 3:
+                            rdo1.Checked = true;
+                            rdo1.Enabled = rdo2.Enabled = true;
+                            break;
+                    }
+
+                }
+            }
+
         }
     }
 }

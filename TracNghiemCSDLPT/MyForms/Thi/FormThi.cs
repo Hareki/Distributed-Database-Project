@@ -102,11 +102,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             lblHoTen.Text = hoTen;
             lblMaSV.Text = maSv;
         }
-        private void ConfigLookUpCSGV()
+        private void ConfigLookUpMhCSGV()
         {
             LookUpLop.Enabled = LookUpMonHoc.Enabled = true;
             LookUpMonHoc.Properties.DataSource = usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaBindingSource;
-            LookUpMonHoc.Properties.DisplayMember = "FullInfo";
+            LookUpMonHoc.Properties.DisplayMember = "FullInfo";// chỉ ra data source thôi chứ chưa có dữ liệu
             SetSvInfo("Giảng viên thi thử", "Test");
         }
         private void PhanQuyen()
@@ -117,19 +117,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                     LookUpLop.Enabled = LookUpMonHoc.Enabled = false;
                     break;
                 case "GIAOVIEN":
-                    LookUpLop.Enabled = LookUpMonHoc.Enabled = true;
-                    LookUpMonHoc.Properties.DataSource = usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaBindingSource;
-                    LookUpMonHoc.Properties.DisplayMember = "FullInfo";
-                    SetSvInfo("Giảng viên thi thử", "Test");
+                    ConfigLookUpMhCSGV();
                     FillLookUpLopData("GIAOVIEN");
                     break;
                 case "COSO":
-                    LookUpLop.Enabled = LookUpMonHoc.Enabled = true;
-                    LookUpMonHoc.Properties.DataSource = usp_ThiThu_LayMonThiCuaLopTuongUng_TatCaBindingSource;
-                    LookUpMonHoc.Properties.DisplayMember = "FullInfo";
-                    SetSvInfo("Giảng viên thi thử", "Test");
+                    ConfigLookUpMhCSGV();
                     FillLookUpLopData("COSO");
-
                     break;
                 case "SINHVIEN":
                     LookUpLop.Enabled = false;

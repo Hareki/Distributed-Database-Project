@@ -45,14 +45,17 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         }
         private void LoadLop()
         {
+            this.DSLTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.DSLTableAdapter.Fill(this.TN_CSDLPTDataSet.DSL);
+
             this.LopTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.LopTableAdapter.Fill(this.TN_CSDLPTDataSet.LOP);
 
         }
         private void LoadMonHoc()
         {
-            this.MonHocTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.MonHocTableAdapter.Fill(this.TN_CSDLPTDataSet.MONHOC);
+            this.DSMHTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.DSMHTableAdapter.Fill(this.TN_CSDLPTDataSet.DSMH);
         }
         private void LoadDsgv()
         {
@@ -120,15 +123,29 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
             LoadAllData();
 
+            LookUpGV.Properties.DataSource = DSGVBindingSource;
+            LookUpLop.Properties.DataSource = DSLBindingSource;
+            LookUpMh.Properties.DataSource = DSMHBindingSource;
+
+
             LookUpGV.Properties.DisplayMember = "FullInfo";
             LookUpGV.Properties.ValueMember = "MaGV";
-            // DSGVBindingSource.Position = -1;
 
-            MHCombo.DisplayMember = "TENMH";
-            MHCombo.ValueMember = "MAMH";
+            LookUpMh.Properties.DisplayMember = "FullInfo";
+            LookUpMh.Properties.ValueMember = "MAMH";
 
-            LopCombo.DisplayMember = "TENLOP";
-            LopCombo.ValueMember = "MALOP";
+            LookUpLop.Properties.DisplayMember = "FullInfo";
+            LookUpLop.Properties.ValueMember = "MALOP";
+
+            DSGVBindingSource.Position = -1;
+            DSMHBindingSource.Position = -1;
+            DSLBindingSource.Position = -1;
+
+            //MHCombo.DisplayMember = "TENMH";
+            //MHCombo.ValueMember = "MAMH";
+
+            //LopCombo.DisplayMember = "TENLOP";
+            //LopCombo.ValueMember = "MALOP";
 
             Utils.BindingComboData(this.CoSoComboBox, this._previousIndexCS);
 
@@ -152,7 +169,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             InfoPanel.Enabled = true;
             InfoPanel.ForeColor = LookUpGV.ForeColor =
-                LopCombo.ForeColor = MHCombo.ForeColor = _activeForeColor;
+                LookUpLop.ForeColor = LookUpMh.ForeColor = _activeForeColor;
             SetIdleButtonEnabled(false);
             SetInputButtonEnabled(true);
             GVDK2GridControl.Enabled = false;
@@ -191,7 +208,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             GVDK2GridControl.Enabled = true;
             InfoPanel.Enabled = false;
             InfoPanel.ForeColor = LookUpGV.ForeColor =
-                LopCombo.ForeColor = MHCombo.ForeColor = _disabledForeColor;
+                LookUpLop.ForeColor = LookUpMh.ForeColor = _disabledForeColor;
             SetIdleButtonEnabled(true);
             SetInputButtonEnabled(false);
             ClearErrors();
@@ -299,10 +316,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                     return false;
                 }
             }
-               
+
         }
 
-        private bool  CanAdd(string maMh, string trinhDo, int soCauHoi)
+        private bool CanAdd(string maMh, string trinhDo, int soCauHoi)
         {
             List<Para> paraList = new List<Para>();
             paraList.Add(new Para("@MaMH", maMh));
@@ -321,7 +338,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 if (result == 0) return true;
                 else return false;
             }
-                
+
         }
         private void UncheckAllRdo()
         {
@@ -330,12 +347,16 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         }
         private void SetBlankDataInput()
         {
-            LookUpGV.EditValue = null;
-
+            LookUpGV.EditValue = DSGVBindingSource[2];
+            LookUpLop.EditValue = DSLBindingSource[2];
+            LookUpMh.EditValue = DSMHBindingSource[2];
+            //  DSGVBindingSource.MoveFirst();
+            //  DSMHBindingSource.MoveFirst();
+            //  DSLBindingSource.MoveFirst();
             //MHCombo.SelectedIndex = 0;
             //LopCombo.SelectedIndex = 0;
-            MonHocBindingSource.Position = 0;
-            LopBindingSource.Position = 0;
+            //MonHocBindingSource.Position = 0;
+            //LopBindingSource.Position = 0;
 
 
             NgayThi.EditValue = DateTime.Now.AddDays(1);
@@ -365,16 +386,16 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                     return resultSql;
                 }
             }
-                
+
 
 
         }
         private bool HaveDuplicateExamsInADay()
         {
-            if(GetLan() == 1)
+            if (GetLan() == 1)
             {
-                string maMh = MHCombo.SelectedValue.ToString();
-                string maLop = LopCombo.SelectedValue.ToString();
+                string maMh = Utils.GetLookUpValue(LookUpMh, "MAMH");
+                string maLop = Utils.GetLookUpValue(LookUpLop, "MALOP");
                 List<Para> paraList = new List<Para>();
                 paraList.Add(new Para("@MaMH", maMh));
                 paraList.Add(new Para("@MaLop", maLop));
@@ -387,14 +408,14 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                     {
                         myReader.Read();
                         int resultSql = int.Parse(myReader.GetValue(0).ToString());
-                        if(resultSql == 0)
+                        if (resultSql == 0)
                             return false;
                         else
                             return true;
 
                     }
                 }
-                
+
             }
             return false;
         }
@@ -406,7 +427,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             bool test4 = spinSoCau.Value < 10 || spinSoCau.Value > 100;
             bool test5 = spinThoiGian.Value < 15 || spinSoCau.Value > 60;
             bool test6 = !CanDeleteEdit(NgayThi.DateTime);
-            
+
             if (test1 || test2 || test3 || test4 || test5 || test6)
             {
                 if (test1)
@@ -448,9 +469,14 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 return;
             }
 
-            string maGV = (LookUpGV.GetSelectedDataRow() as DataRowView)["MaGV"].ToString().Trim();
-            string maMh = MHCombo.SelectedValue.ToString().Trim();
-            string maLop = LopCombo.SelectedValue.ToString().Trim();
+            //string maGV = (LookUpGV.GetSelectedDataRow() as DataRowView)["MaGV"].ToString().Trim();
+            //string maMh = LookUpMh.SelectedValue.ToString().Trim();
+            //string maLop = LookUpLop.SelectedValue.ToString().Trim();
+
+            string maGV = Utils.GetLookUpValue(LookUpGV, "MAGV");
+            string maMh = Utils.GetLookUpValue(LookUpMh, "MAMH");
+            string maLop = Utils.GetLookUpValue(LookUpLop, "MALOP");
+
             string trinhDo = GetTrinhDo();
             string ngayThi = ((DateTime)NgayThi.EditValue).ToString("dd/MM/yyyy");
             int lan = GetLan();
@@ -477,13 +503,13 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 return;
             }
             //Áp dụng cho cả khi edit và add
-            if (!CanAdd(maMh,trinhDo,soCau))
+            if (!CanAdd(maMh, trinhDo, soCau))
             {
                 Utils.ShowMessage("Số câu hỏi thuộc môn học và trình độ này không " +
                     "đủ đáp ứng nhu cầu số câu của buổi thi", Others.NotiForm.FormType.Error, 4);
                 return;
             }
-            
+
 
 
             List<Para> paraList = new List<Para>();
@@ -506,7 +532,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                         return;
                     }
                 }
-                   
+
                 Utils.ShowMessage("Thêm thông tin đăng ký thi thành công", Others.NotiForm.FormType.Success, 2);
             }
             else if (_state == State.Edit)
@@ -522,12 +548,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                         return;
                     }
                 }
-                  
+
                 Utils.ShowMessage("Sửa thông tin đăng ký thi thành công", Others.NotiForm.FormType.Success, 2);
             }
 
-            string tenMh = MHCombo.Text;
-            string tenLop = LopCombo.Text; // phải để trước, để sau sẽ trigger GetCorrData làm dữ liệu bị sai
+            string tenMh = LookUpMh.Text;
+            string tenLop = LookUpLop.Text; // phải để trước, để sau sẽ trigger GetCorrData làm dữ liệu bị sai
             LoadGvdk2();
             GVDK2BindingSource.Position = FindGvdk2Row(tenMh, tenLop, (short)lan);
 
@@ -575,8 +601,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 SaveOrigInput();
                 ConfigInputState();
                 Utils.ConfigInfoPanelAppearance(InfoPanel, "Sửa thông tin đăng ký thi", Utils.EditColor);
-                _origMaLop = LopCombo.SelectedValue.ToString().Trim();
-                _origMaMH = MHCombo.SelectedValue.ToString().Trim();
+                _origMaLop = Utils.GetLookUpValue(LookUpLop, "MALOP");
+                _origMaMH = Utils.GetLookUpValue(LookUpMh, "MAMH");
                 _origLan = GetLan();
                 _state = State.Edit;
             }
@@ -595,8 +621,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             {
                 if (Utils.ShowConfirmMessage("Bạn có chắc muốn xóa thông tin đăng ký thi này?", "Xác nhận"))
                 {
-                    string maMh = MHCombo.SelectedValue.ToString();
-                    string maLop = LopCombo.SelectedValue.ToString();
+                    string maMh = Utils.GetLookUpValue(LookUpMh, "MAMH");
+                    string maLop = Utils.GetLookUpValue(LookUpLop, "MALOP");
                     int lan = GetLan();
                     List<Para> paraList = new List<Para>();
                     paraList.Add(new Para("@OldMaMH", maMh));
@@ -615,7 +641,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                             return;
                         }
                     }
-                        
+
 
                 }
             }
@@ -674,8 +700,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private void GetCorrData()
         {
             SetCorrBds(DSGVBindingSource, "MAGV", LookUpGV);
-            SetCorrBds(LopBindingSource, "TENLOP");
-            SetCorrBds(MonHocBindingSource, "TENMH");
+            SetCorrBds(DSLBindingSource, "TENLOP", LookUpLop);
+            SetCorrBds(DSMHBindingSource, "TENMH", LookUpMh);
             SetCorrRdoTrinhDo();
             SetCorrRdoLan();
             //  không cần ngày thi, thời gian, số câu do dùng data binding của GVDK2 luôn
@@ -686,16 +712,18 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             if (GVDK2BindingSource.Position != -1)
             {
                 GetCorrData();
+              //  Console.WriteLine((LookUpMh.GetSelectedDataRow() as DataRowView)[0].ToString());
+                Console.WriteLine((LookUpGV.GetSelectedDataRow() as DataRowView)[0].ToString());
             }
 
         }
 
         private void SetLan()
         {
-            if (MHCombo.SelectedValue != null && LopCombo.SelectedValue != null)
+            if (LookUpMh.EditValue != null && LookUpLop.EditValue != null)
             {
-                string maMh = MHCombo.SelectedValue.ToString();
-                string maLop = LopCombo.SelectedValue.ToString();
+                string maMh = Utils.GetLookUpValue(LookUpMh, "MAMH");
+                string maLop = Utils.GetLookUpValue(LookUpLop, "MALOP");
 
                 if (maMh != "System.Data.DataRowView" && maLop != "System.Data.DataRowView")
                 {
@@ -768,5 +796,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 e.Appearance.BackColor = Color.FromArgb(255, 237, 211);
             }
         }
+
     }
 }

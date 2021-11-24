@@ -118,87 +118,75 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="TN_CSDLPTDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="MonHocBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>200, 28</value>
-  </metadata>
-  <metadata name="MonHocTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>427, 17</value>
+    <value>209, 17</value>
   </metadata>
   <metadata name="tableAdapterManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>644, 17</value>
-  </metadata>
-  <metadata name="LopBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>850, 17</value>
-  </metadata>
-  <metadata name="LopTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1000, 17</value>
+    <value>397, 17</value>
   </metadata>
   <metadata name="GVDK2BindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>495, 60</value>
+    <value>784, 17</value>
   </metadata>
   <metadata name="DSGVBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>895, 66</value>
+    <value>17, 60</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="bunifuPanel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAABN8AAAEFCAYAAADT8kFTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAcbSURBVHhe7dpBCsJQFATB3P88uZ+ShaDgRrGFgSoI5P0j
-        NHMAAAAAALHzPG/X9/zvdrvdbrfb7Xa73W632+12uz+7H28AAAAAQOAlwKlxAAAAAPA74hsAAAAARMQ3
+        iVBORw0KGgoAAAANSUhEUgAABN8AAAEHCAYAAACeOuBYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAcrSURBVHhe7dpBasNQFARB3f88up+DFjYYZyXSJgNVIND7
+        R2jmAAAAAAC+4DzPx/Nzu91ut9vtdrvdbrfb7Xa73ffu6//l4wEAAAAAuO2tt4lvAAAAAAAAAAAA/HuW
+        bwAAAAAQEd8AAAAAICK+AQAAAAAAAAAAsMXyDQAAAAAi4hsAAAAARMQ3AAAAAAAAAAAAtli+AQAAAEBE
+        fAMAAACAiPgGAAAAAAAAAADAFss3AAAAAIiIbwAAAAAQEd8AAAAAAAAAAADYYvkGAAAAABHxDQAAAAAi
+        4hsAAAAAAAAAAABbLN8AAAAAICK+AQAAAEBEfAMAAAAAAAAAAGCL5RsAAAAARMQ3AAAAAIiIbwAAAAAA
+        AAAAAGyxfAMAAACAiPgGAAAAABHxDQAAAAAAAAAAgC2WbwAAAAAQEd8AAAAAICK+AQAAAAAAAAAAsMXy
+        DQAAAAAi4hsAAAAARMQ3AAAAAAAAAAAAtli+AQAAAEBEfAMAAACAiPgGAAAAAAAAAADAFss3AAAAAIiI
+        bwAAAAAQEd8AAAAAAAAAAADYYvkGAAAAABHxDQAAAAAi4hsAAAAAAAAAAABbLN8AAAAAICK+AQAAAEBE
+        fAMAAAAAAAAAAGCL5RsAAAAARMQ3AAAAAIiIbwAAAAAAAAAAAGyxfAMAAACAiPgGAAAAABHxDQAAAAAA
+        AAAAgC2WbwAAAAAQEd8AAAAAICK+AQAAAAAAAAAAsMXyDQAAAAAi4hsAAAAARMQ3AAAAAAAAAAAAtli+
+        AQAAAEBEfAMAAACAiPgGAAAAAAAAAADAFss3AAAAAIiIbwAAAAAQEd8AAAAAAAAAAADYYvkGAAAAABHx
+        DQAAAAAi4hsAAAAAAAAAAABbLN8AAAAAICK+AQAAAEBEfAMAAAAAAAAAAGCL5RsAAAAARMQ3AAAAAIiI
+        bwAAAAAAAAAAAGyxfAMAAACAiPgGAAAAABHxDQAAAAAAAAAAgC2WbwAAAAAQEd8AAAAAICK+AQAAAAAA
+        AAAAsMXyDQAAAAAi4hsAAAAARMQ3AAAAAAAAAAAAtli+AQAAAEBEfAMAAACAiPgGAAAAAAAAAADAFss3
+        AAAAAIiIbwAAAAAQEd8AAAAAAAAAAADYYvkGAAAAABHxDQAAAAAi4hsAAAAAAAAAAABbLN8AAAAAICK+
+        AQAAAEBEfAMAAAAAAAAAAGCL5RsAAAAARMQ3AAAAAIiIbwAAAAAAAAAAAGyxfAMAAACAiPgGAAAAABHx
+        DQAAAAAAAAAAgC2WbwAAAAAQEd8AAAAAICK+AQAAAAAAAAAAsMXyDQAAAAAi4hsAAAAARMQ3AAAAAAAA
+        AAAAtli+AQAAAEBEfAMAAACAiPgGAAAAAAAAAADAFss3AAAAAIiIbwAAAAAQEd8AAAAAAAAAAADYYvkG
+        AAAAABHxDQAAAAAi4hsAAAAAAAAAAABbLN8AAAAAICK+AQAAAEBEfAMAAAAAAAAAAGCL5RsAAAAARMQ3
+        AAAAAIiIbwAAAAAAAAAAAGyxfAMAAACAiPgGAAAAABHxDQAAAAAAAAAAgC2WbwAAAAAQEd8AAAAAICK+
+        AQAAAAAAAAAAsMXyDQAAAAAi4hsAAAAARMQ3AAAAAAAAAAAAtli+AQAAAEBEfAMAAACAiPgGAAAAAAAA
+        AADAFss3AAAAAIiIbwAAAAAQEd8AAAAAAAAAAADYYvkGAAAAABHxDQAAAAAi4hsAAAAAAAAAAABbLN8A
+        AAAAICK+AQAAAEBEfAMAAAAAAAAAAGCL5RsAAAAARMQ3AAAAAIiIbwAAAAAAAAAAAGyxfAMAAACAiPgG
+        AAAAABHxDQAAAAAAAAAAgC2WbwAAAAAQEd8AAAAAICK+AQAAAAAAAAAAsMXyDQAAAAAi4hsAAAAARMQ3
         AAAAAAAAAAAAtli+AQAAAEBEfAMAAACAiPgGAAAAAAAAAADAFss3AAAAAIiIbwAAAAAQEd8AAAAAAAAA
         AADYYvkGAAAAABHxDQAAAAAi4hsAAAAAAAAAAABbLN8AAAAAICK+AQAAAEBEfAMAAAAAAAAAAGCL5RsA
         AAAARMQ3AAAAAIiIbwAAAAAAAAAAAGyxfAMAAACAiPgGAAAAABHxDQAAAAAAAAAAgC2WbwAAAAAQEd8A
         AAAAICK+AQAAAAAAAAAAsMXyDQAAAAAi4hsAAAAARMQ3AAAAAAAAAAAAtli+AQAAAEBEfAMAAACAiPgG
         AAAAAAAAAADAFss3AAAAAIiIbwAAAAAQEd8AAAAAAAAAAADYYvkGAAAAABHxDQAAAAAi4hsAAAAAAAAA
         AABbLN8AAAAAICK+AQAAAEBEfAMAAAAAAAAAAGCL5RsAAAAARMQ3AAAAAIiIbwAAAAAAAAAAAGyxfAMA
-        AACAiPgGAAAAABHxDQAAAAAAAAAAgC2WbwAAAAAQEd8AAAAAICK+AQAAAAAAAAAAsMXyDQAAAAAi4hsA
-        AAAARMQ3AAAAAAAAAAAAtli+AQAAAEBEfAMAAACAiPgGAAAAAAAAAADAFss3AAAAAIiIbwAAAAAQEd8A
-        AAAAAAAAAADYYvkGAAAAABHxDQAAAAAi4hsAAAAAAAAAAABbLN8AAAAAICK+AQAAAEBEfAMAAAAAAAAA
-        AGCL5RsAAAAARMQ3AAAAAIiIbwAAAAAAAAAAAGyxfAMAAACAiPgGAAAAABHxDQAAAAAAAAAAgC2WbwAA
-        AAAQEd8AAAAAICK+AQAAAAAAAAAAsMXyDQAAAAAi4hsAAAAARMQ3AAAAAAAAAAAAtli+AQAAAEBEfAMA
-        AACAiPgGAAAAAAAAAADAFss3AAAAAIiIbwAAAAAQEd8AAAAAAAAAAADYYvkGAAAAABHxDQAAAAAi4hsA
-        AAAAAAAAAABbLN8AAAAAICK+AQAAAEBEfAMAAAAAAAAAAGCL5RsAAAAARMQ3AAAAAIiIbwAAAAAAAAAA
-        AGyxfAMAAACAiPgGAAAAABHxDQAAAAAAAAAAgC2WbwAAAAAQEd8AAAAAICK+AQAAAAAAAAAAsMXyDQAA
-        AAAi4hsAAAAARMQ3AAAAAAAAAAAAtli+AQAAAEBEfAMAAACAiPgGAAAAAAAAAADAFss3AAAAAIiIbwAA
-        AAAQEd8AAAAAAAAAAADYYvkGAAAAABHxDQAAAAAi4hsAAAAAAAAAAABbLN8AAAAAICK+AQAAAEBEfAMA
-        AAAAAAAAAGCL5RsAAAAARMQ3AAAAAIiIbwAAAAAAAAAAAGyxfAMAAACAiPgGAAAAABHxDQAAAAAAAAAA
-        gC2WbwAAAAAQEd8AAAAAICK+AQAAAAAAAAAAsMXyDQAAAAAi4hsAAAAARMQ3AAAAAAAAAAAAtli+AQAA
-        AEBEfAMAAACAiPgGAAAAAAAAAADAFss3AAAAAIiIbwAAAAAQEd8AAAAAAAAAAADYYvkGAAAAABHxDQAA
-        AAAi4hsAAAAAAAAAAABbLN8AAAAAICK+AQAAAEBEfAMAAAAAAAAAAGCL5RsAAAAARMQ3AAAAAIiIbwAA
-        AAAAAAAAAGyxfAMAAACAiPgGAAAAABHxDQAAAAAAAAAAgC2WbwAAAAAQEd8AAAAAICK+AQAAAAAAAAAA
-        sMXyDQAAAAAi4hsAAAAARMQ3AAAAAAAAAAAAtli+AQAAAEBEfAMAAACAiPgGAAAAAAAAAADAFss3AAAA
-        AIiIbwAAAAAQEd8AAAAAAAAAAADYYvkGAAAAABHxDQAAAAAi4hsAAAAAAAAAAABbLN8AAAAAICK+AQAA
-        AEBEfAMAAAAAAAAAAGCL5RsAAAAARMQ3AAAAAIiIbwAAAAAAAAAAAGyxfAMAAACAiPgGAAAAABHxDQAA
-        AAAAAAAAgC2WbwAAAAAQEd8AAAAAICK+AQAAAAAAAAAAsMXyDQAAAAAi4hsAAAAARMQ3AAAAAAAAAAAA
-        tli+AQAAAEBEfAMAAACAiPgGAAAAAAAAAADAFss3AAAAAIiIbwAAAAAQEd8AAAAAAAAAAADYYvkGAAAA
-        ABHxDQAAAAAi4hsAAAAAAAAAAABbLN8AAAAAICK+AQAAAEBEfAMAAAAAAAAAAGCL5RsAAAAARMQ3AAAA
-        AIiIbwAAAAAAAAAAAGyxfAMAAACAiPgGAAAAABHxDQAAAAAAAAAAgC2WbwAAAAAQEd8AAAAAICK+AQAA
-        AMA/iG8AAAAA8Dtve9v1+Pjcbrfb7Xa73W632+12u91u93f39Q8AAAAAZI7jDnJZT/8DjwmWAAAAAElF
-        TkSuQmCC
+        AACAiPgGAAAAABHxDQAAAAC+QXwDAAAAgL/za2+7Hp+f2+12u91ut9vtdrvdbrfb7b53X/8AAAAAQOY4
+        fgCSeVY121Pt7QAAAABJRU5ErkJggg==
 </value>
   </data>
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1094, 89</value>
+    <value>211, 60</value>
   </metadata>
-  <metadata name="GVDKBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>16, 65</value>
+  <metadata name="DSMHBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 103</value>
   </metadata>
-  <metadata name="GVDKTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>307, 60</value>
+  <metadata name="DSLBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>603, 17</value>
   </metadata>
   <metadata name="GVDK2TableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>699, 66</value>
+    <value>987, 17</value>
   </metadata>
   <metadata name="DSGVTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 132</value>
+    <value>324, 60</value>
   </metadata>
   <metadata name="GVEP.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>204, 132</value>
+    <value>511, 60</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>208</value>
+    <value>216</value>
   </metadata>
   <data name="FormDkThi.IconOptions.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -353,7 +341,7 @@
 </value>
   </data>
   <metadata name="TrinhDoEP.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>297, 132</value>
+    <value>604, 60</value>
   </metadata>
   <data name="TrinhDoEP.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -432,7 +420,7 @@
 </value>
   </data>
   <metadata name="SoCauEP.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>425, 132</value>
+    <value>732, 60</value>
   </metadata>
   <data name="SoCauEP.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -511,7 +499,7 @@
 </value>
   </data>
   <metadata name="ThoiGianEP.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>541, 132</value>
+    <value>848, 60</value>
   </metadata>
   <data name="ThoiGianEP.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -590,7 +578,7 @@
 </value>
   </data>
   <metadata name="LanEP.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>675, 132</value>
+    <value>982, 60</value>
   </metadata>
   <data name="LanEP.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -668,14 +656,8 @@
         /A/wD/AP+AAAH/4AAH//AAD//8AD///8P/8=
 </value>
   </data>
-  <metadata name="SVBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>921, 89</value>
-  </metadata>
-  <metadata name="SVTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>772, 132</value>
-  </metadata>
   <metadata name="NgayThiEP.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>938, 132</value>
+    <value>1079, 60</value>
   </metadata>
   <data name="NgayThiEP.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -753,4 +735,22 @@
         /A/wD/AP+AAAH/4AAH//AAD//8AD///8P/8=
 </value>
   </data>
+  <metadata name="DSMHTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="DSLTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>216, 103</value>
+  </metadata>
+  <metadata name="LopBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>390, 103</value>
+  </metadata>
+  <metadata name="LopTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>571, 103</value>
+  </metadata>
+  <metadata name="SVBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>744, 103</value>
+  </metadata>
+  <metadata name="SVTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>917, 103</value>
+  </metadata>
 </root>

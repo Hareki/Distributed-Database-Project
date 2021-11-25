@@ -180,7 +180,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label9.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(7, 64);
+            this.label9.Location = new System.Drawing.Point(23, 40);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(127, 30);
             this.label9.TabIndex = 21;
@@ -192,7 +192,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label1.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(697, 63);
+            this.label1.Location = new System.Drawing.Point(713, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 30);
             this.label1.TabIndex = 21;
@@ -204,7 +204,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label8.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(648, 191);
+            this.label8.Location = new System.Drawing.Point(664, 167);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(95, 30);
             this.label8.TabIndex = 30;
@@ -216,7 +216,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label10.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(49, 121);
+            this.label10.Location = new System.Drawing.Point(65, 97);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(85, 30);
             this.label10.TabIndex = 19;
@@ -231,7 +231,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             0,
             0,
             0});
-            this.spinSoCau.Location = new System.Drawing.Point(749, 187);
+            this.spinSoCau.Location = new System.Drawing.Point(765, 163);
             this.spinSoCau.Name = "spinSoCau";
             this.spinSoCau.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinSoCau.Properties.Appearance.Options.UseFont = true;
@@ -267,7 +267,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label2.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(659, 127);
+            this.label2.Location = new System.Drawing.Point(675, 103);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 30);
             this.label2.TabIndex = 30;
@@ -290,7 +290,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label7.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(918, 196);
+            this.label7.Location = new System.Drawing.Point(934, 172);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(119, 30);
             this.label7.TabIndex = 30;
@@ -310,7 +310,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // LookUpGV
             // 
             this.LookUpGV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LookUpGV.Location = new System.Drawing.Point(153, 60);
+            this.LookUpGV.Location = new System.Drawing.Point(169, 36);
             this.LookUpGV.Name = "LookUpGV";
             this.LookUpGV.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.LookUpGV.Properties.Appearance.BackColor = System.Drawing.Color.White;
@@ -462,7 +462,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             0,
             0,
             0});
-            this.spinThoiGian.Location = new System.Drawing.Point(1061, 187);
+            this.spinThoiGian.Location = new System.Drawing.Point(1077, 163);
             this.spinThoiGian.Name = "spinThoiGian";
             this.spinThoiGian.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinThoiGian.Properties.Appearance.Options.UseFont = true;
@@ -514,7 +514,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.labelCau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.labelCau.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.labelCau.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelCau.Location = new System.Drawing.Point(851, 191);
+            this.labelCau.Location = new System.Drawing.Point(867, 167);
             this.labelCau.Margin = new System.Windows.Forms.Padding(3, 0, 11, 5);
             this.labelCau.Name = "labelCau";
             this.labelCau.Size = new System.Drawing.Size(41, 30);
@@ -548,7 +548,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label3.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(46, 172);
+            this.label3.Location = new System.Drawing.Point(62, 148);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 30);
             this.label3.TabIndex = 26;
@@ -561,7 +561,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label14.Enabled = false;
             this.label14.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(984, 124);
+            this.label14.Location = new System.Drawing.Point(1000, 100);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(71, 30);
             this.label14.TabIndex = 26;
@@ -615,7 +615,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.labelPhut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.labelPhut.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.labelPhut.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelPhut.Location = new System.Drawing.Point(1158, 194);
+            this.labelPhut.Location = new System.Drawing.Point(1174, 170);
             this.labelPhut.Margin = new System.Windows.Forms.Padding(3, 0, 11, 5);
             this.labelPhut.Name = "labelPhut";
             this.labelPhut.Size = new System.Drawing.Size(50, 30);
@@ -646,7 +646,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.bunifuPanel1.BorderThickness = 1;
             this.bunifuPanel1.Controls.Add(this.LookUpMh);
             this.bunifuPanel1.Controls.Add(this.LookUpLop);
-            this.bunifuPanel1.Controls.Add(this.pictureBox2);
             this.bunifuPanel1.Controls.Add(this.NgayThi);
             this.bunifuPanel1.Controls.Add(this.panelTrinhDo);
             this.bunifuPanel1.Controls.Add(this.panelLan);
@@ -673,7 +672,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // LookUpMh
             // 
             this.LookUpMh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LookUpMh.Location = new System.Drawing.Point(153, 123);
+            this.LookUpMh.Location = new System.Drawing.Point(169, 99);
             this.LookUpMh.Name = "LookUpMh";
             this.LookUpMh.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.LookUpMh.Properties.Appearance.BackColor = System.Drawing.Color.White;
@@ -761,7 +760,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // LookUpLop
             // 
             this.LookUpLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LookUpLop.Location = new System.Drawing.Point(749, 58);
+            this.LookUpLop.Location = new System.Drawing.Point(765, 34);
             this.LookUpLop.Name = "LookUpLop";
             this.LookUpLop.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.LookUpLop.Properties.Appearance.BackColor = System.Drawing.Color.White;
@@ -848,24 +847,22 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = global::TracNghiemCSDLPT.Properties.Resources.info_480px_disabled;
-            this.pictureBox2.Location = new System.Drawing.Point(1187, 116);
+            this.pictureBox2.Location = new System.Drawing.Point(1586, 258);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(38, 45);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 53;
             this.pictureBox2.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox2, "Lần thi được chọn tự động bằng cách:\r\n-Nếu với lớp và môn học đã chọn chưa thi lầ" +
-        "n 1, tự động chọn lần 1.\r\n-Nếu ngược lại, tự động chọn lần 2.");
+            this.toolTip1.SetToolTip(this.pictureBox2, resources.GetString("pictureBox2.ToolTip"));
             this.pictureBox2.EnabledChanged += new System.EventHandler(this.pictureBox2_EnabledChanged);
             // 
             // NgayThi
             // 
             this.NgayThi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.GVDK2BindingSource, "NGAYTHI", true));
             this.NgayThi.EditValue = null;
-            this.NgayThi.Location = new System.Drawing.Point(749, 123);
+            this.NgayThi.Location = new System.Drawing.Point(765, 99);
             this.NgayThi.Name = "NgayThi";
             this.NgayThi.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.NgayThi.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F);
@@ -885,7 +882,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.panelTrinhDo.Controls.Add(this.rdoC);
             this.panelTrinhDo.Controls.Add(this.label6);
             this.panelTrinhDo.Controls.Add(this.label5);
-            this.panelTrinhDo.Location = new System.Drawing.Point(153, 167);
+            this.panelTrinhDo.Enabled = false;
+            this.panelTrinhDo.Location = new System.Drawing.Point(169, 143);
             this.panelTrinhDo.Name = "panelTrinhDo";
             this.panelTrinhDo.Size = new System.Drawing.Size(459, 79);
             this.panelTrinhDo.TabIndex = 49;
@@ -896,7 +894,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.panelLan.Controls.Add(this.label15);
             this.panelLan.Controls.Add(this.label13);
             this.panelLan.Controls.Add(this.rdo2);
-            this.panelLan.Location = new System.Drawing.Point(1051, 118);
+            this.panelLan.Location = new System.Drawing.Point(1067, 94);
             this.panelLan.Name = "panelLan";
             this.panelLan.Size = new System.Drawing.Size(130, 43);
             this.panelLan.TabIndex = 48;
@@ -1070,6 +1068,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.InfoPanel.BorderThickness = 1;
             this.InfoPanel.Controls.Add(this.buttonHuy);
             this.InfoPanel.Controls.Add(this.buttonXacNhan);
+            this.InfoPanel.Controls.Add(this.pictureBox2);
             this.InfoPanel.Controls.Add(this.pictureBox1);
             this.InfoPanel.Controls.Add(this.bunifuPanel1);
             this.InfoPanel.Enabled = false;

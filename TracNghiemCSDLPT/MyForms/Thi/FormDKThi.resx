@@ -178,6 +178,18 @@
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>211, 60</value>
   </metadata>
+  <data name="pictureBox2.ToolTip" xml:space="preserve">
+    <value>Lần thi được chọn tự động bằng cách:
+ - Nếu với lớp và môn học đã chọn chưa thi lần 1, tự động chọn lần 1.
+ - Nếu đã thi lần 1, chưa thi lần 2, tự động chọn lần 2
+ - Nếu khác cả 2 trường hợp nêu trên, báo lỗi
+
+Trình độ được quyết định bằng cách
+ - Nếu với lớp và môn học đã chọn chưa thi lần 1, cho người dùng nhập trình độ
+ - Nếu đã thi lần 1, chưa thi lần 2, tự động chọn trình độ theo lần 2
+ - Nếu lần thi báo lỗi, trình độ được bỏ trống
+</value>
+  </data>
   <metadata name="GVDK2TableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>987, 17</value>
   </metadata>

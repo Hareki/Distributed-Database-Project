@@ -31,10 +31,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private string _origMaMH = "!@#$%";
         private string _origMaLop = "!@#$%";
         private int _origLan = -1;
-        //------------Dùng trong add---------
+        //------------Dùng trong add---------??
         private int _origSoCau;
         private int _origThoiGian;
         private DateTime _origNgayThi;
+
+
         private void SetInputButtonEnabled(bool state)
         {
             buttonHuy.Visible = buttonXacNhan.Visible = state;
@@ -71,7 +73,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
         private void LoadAllData()
         {
-            
+
             LoadLop();
             LoadSv();
             LoadMonHoc();
@@ -188,7 +190,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             Utils.ConfigInfoPanelAppearance(InfoPanel, "Thêm thông tin đăng ký thi", Utils.AddColor);
             SetBlankDataInput();
             _state = State.Add;
-            SetLanVaTrinhDo();
+            SetLanTrinhDoGV();
         }
         private void ClearErrors()
         {
@@ -355,30 +357,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
         }
 
-        private int CheckSoLan(string maMh, string maLop)
-        {
-            List<Para> paraList = new List<Para>();
-            paraList.Add(new Para("@MaMH", maMh));
-            paraList.Add(new Para("@MaLop", maLop));
-            string spName = "usp_GVDK_CheckSoLan";
-            using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
-            {
-                if (myReader == null)
-                {
-                    Console.WriteLine(Environment.StackTrace);
-                    return -1;
-                }
-                else
-                {
-                    myReader.Read();
-                    int resultSql = int.Parse(myReader.GetValue(0).ToString());
-                    return resultSql;
-                }
-            }
 
-
-
-        }
         private bool HaveDuplicateExamsInADay()
         {
             if (GetLan() == 2)
@@ -389,8 +368,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 List<Para> paraList = new List<Para>();
                 paraList.Add(new Para("@MaMH", maMh));
                 paraList.Add(new Para("@MaLop", maLop));
-                paraList.Add(new Para("@NgayThi", NgayThi.DateTime));
-                string spName = "usp_GVDK_CheckDuplicateExams";
+                paraList.Add(new Para("@NgayThiL2", NgayThi.DateTime));
+                string spName = "usp_GVDK_CheckAddingL2Poss";
                 using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
                 {
                     if (myReader == null)
@@ -456,7 +435,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 else
                     MHEP.SetError(LookUpMh, null);
 
-                Utils.ShowMessage("Vui lòng xem lại thông tin đã nhập", Others.NotiForm.FormType.Error, 2);
+                Utils.ShowMessage("Vui lòng xem lại thông tin đã nhập.", Others.NotiForm.FormType.Error, 2);
                 return;
             }
             else
@@ -465,7 +444,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             }
             if (HaveDuplicateExamsInADay())
             {
-                Utils.ShowMessage("Không thể thi lần 1 và lần 2 trong cùng một ngày\nVui lòng xem lại thông tin đã nhập", Others.NotiForm.FormType.Error, 4);
+                Utils.ShowMessage("Ngày thi đợt 2 phải sau ngày thi đợt 1. Vui lòng xem lại thông tin đã nhập.", Others.NotiForm.FormType.Error, 3);
                 return;
             }
 
@@ -605,7 +584,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 _origMaMH = Utils.GetLookUpValue(LookUpMh, "MAMH");
                 _origLan = GetLan();
                 _state = State.Edit;
-                SetLanVaTrinhDo();
+                SetLanTrinhDoGV();
             }
             else
             {
@@ -715,7 +694,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             {
                 GetCorrData();
                 //  Console.WriteLine((LookUpMh.GetSelectedDataRow() as DataRowView)[0].ToString());
-                Console.WriteLine((LookUpGV.GetSelectedDataRow() as DataRowView)[0].ToString());
+             //   Console.WriteLine((LookUpGV.GetSelectedDataRow() as DataRowView)[0].ToString());
             }
 
         }
@@ -746,12 +725,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                     break;
             }
         }
-        private void SetLan(string maMh, string maLop)
+        private void SetLan(int soLanDaThi, string maMh, string maLop, int lanThiChinhSua)
         {
-            int soLan = CheckSoLan(maMh, maLop);
             if (_state == State.Add)
             {
-                SetRdoLan(soLan);
+                SetRdoLan(soLanDaThi);
             }
 
 
@@ -760,32 +738,28 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             {
                 if (maMh != _origMaMH || maLop != _origMaLop) // có thay đổi => làm giống add
                 {
-                    SetRdoLan(soLan);
+                    SetRdoLan(soLanDaThi);
                 }
                 else //Nếu như đây là chỉnh sửa và ko đụng đến mã lớp hoặc mã môn học thì giữ nguyên số lần
                 {
                     //Chỉnh sửa và giữ nguyên mã mh, mã lớp nên số lần ko thể khác 1 hoặc 2
-                    Debug.Assert(soLan == 1 || soLan == 2);
-                    if (soLan == 1) rdo1.Checked = true;
+                    Debug.Assert(lanThiChinhSua == 1 || lanThiChinhSua == 2);
+                    if (lanThiChinhSua == 1) rdo1.Checked = true;
                     else rdo2.Checked = true;
                 }
             }
         }
 
-        private void SetRdoTrinhDo(SqlDataReader myReader)
+        private void SetRdoTrinhDo(string trinhDoL1, int soLanDaThi)
         {
-            myReader.Read();
-
-            int soLanThi = int.Parse(myReader.GetValue(1).ToString());
-            if (soLanThi == 2)// thi đủ 2 lần rồi thì bỏ trống
+            if (soLanDaThi == 2)// thi đủ 2 lần rồi thì bỏ trống
             {
                 rdoA.Checked = rdoB.Checked = rdoC.Checked = false;
                 return;
             }
 
-            string trinhDoTruoc = myReader.GetValue(0).ToString();
-            Debug.Assert(trinhDoTruoc.Equals("A") || trinhDoTruoc.Equals("B") || trinhDoTruoc.Equals("C"));
-            switch (trinhDoTruoc)
+            Debug.Assert(trinhDoL1.Equals("A") || trinhDoL1.Equals("B") || trinhDoL1.Equals("C"));
+            switch (trinhDoL1)
             {
                 case "A":
                     rdoA.Checked = true;
@@ -799,86 +773,153 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             }
         }
 
-        private void SetTrinhDo(string maMh, string maLop)
+        private void SetTrinhDo(int soLanDaThi, string maMh, string maLop, string trinhDoL1)
         {
-            List<Para> paraList = new List<Para>();
-            paraList.Add(new Para("@MaMH", maMh));
-            paraList.Add(new Para("@MaLop", maLop));
-            string spName = "usp_GVDK_CheckTrinhDo";
-            using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
+
+            if (_state == State.Add)
             {
-                if (myReader == null)
+                if (soLanDaThi > 0)//đã thi lần 1 hoặc luôn lần 2 rồi => chọn tự động
                 {
-                    Console.WriteLine(Environment.StackTrace);
-                    return;
+                    panelTrinhDo.Enabled = false;
+                    SetRdoTrinhDo(trinhDoL1, soLanDaThi);
                 }
                 else
                 {
-                    if (_state == State.Add)
+                    panelTrinhDo.Enabled = true;
+                    rdoA.Checked = rdoB.Checked = rdoC.Checked = false;
+                }
+            }
+            else if (_state == State.Edit)
+            {
+                if (maMh != _origMaMH || maLop != _origMaLop) // thông tin sai lệch => làm giống add
+                {
+                    if (soLanDaThi > 0)
                     {
-                        if (myReader.HasRows)//đã thi lần 1 hoặc luôn lần 2 rồi => chọn tự động
-                        {
-                            panelTrinhDo.Enabled = false;
-                            SetRdoTrinhDo(myReader);
-                        }
-                        else
-                        {
-                            panelTrinhDo.Enabled = true;
-                            rdoA.Checked = rdoB.Checked = rdoC.Checked = false;
-                        }
+                        panelTrinhDo.Enabled = false;
+                        SetRdoTrinhDo(trinhDoL1, soLanDaThi);
                     }
-                    else if (_state == State.Edit)
+                    else
                     {
-                        if (maMh != _origMaMH || maLop != _origMaLop) // thông tin sai lệch => làm giống add
-                        {
-                            if (myReader.HasRows)
-                            {
-                                panelTrinhDo.Enabled = false;
-                                SetRdoTrinhDo(myReader);
-                            }
-                            else
-                            {
-                                panelTrinhDo.Enabled = true;
-                                rdoA.Checked = rdoB.Checked = rdoC.Checked = false;
-                            }
-                        }
-                        else // thông tin ko sai lệch, và là lần 1 => cho sửa trình độ
-                        {
-                            if (myReader.HasRows)
-                            {
-                                myReader.Read();
-                                int soLanThi = int.Parse(myReader.GetValue(1).ToString());
-                                if(soLanThi == 1)
-                                {
-                                    panelTrinhDo.Enabled = true;
-                                }
-                            }
-                        }
-
-
+                        panelTrinhDo.Enabled = true;
+                        rdoA.Checked = rdoB.Checked = rdoC.Checked = false;
                     }
-
-
-
+                }
+                else // thông tin ko sai lệch, và là lần 1 => cho sửa trình độ
+                {
+                    if (soLanDaThi == 1)
+                    {
+                        panelTrinhDo.Enabled = true;
+                    }
+                    else
+                    {
+                        panelTrinhDo.Enabled = false;
+                    }
                 }
             }
         }
-        private void SetLanVaTrinhDo()
+        private void SetLookUpGv(string maGvL1, int soLanDaThi)
+        {
+            if (soLanDaThi == 2)// thi đủ 2 lần rồi thì bỏ trống
+            {
+                LookUpGV.EditValue = null;
+                return;
+            }
+
+            //nếu 1 lần
+            int rowIndex = DSGVBindingSource.Find("MAGV", maGvL1);
+            LookUpGV.EditValue = DSGVBindingSource[rowIndex] as DataRowView;
+        }
+        private void SetGv(int soLanDaThi, string maMh, string maLop, string maGvL1)
+        {
+            if (_state == State.Add)
+            {
+                if (soLanDaThi > 0)//đã thi lần 1 hoặc luôn lần 2 rồi => chọn tự động
+                {
+                    LookUpGV.Enabled = false;
+                    SetLookUpGv(maGvL1, soLanDaThi);
+                }
+                else
+                {
+                    LookUpGV.Enabled = true;
+                    LookUpGV.EditValue = null;
+                }
+            }
+            else if (_state == State.Edit)
+            {
+                if (maMh != _origMaMH || maLop != _origMaLop) // thông tin sai lệch => làm giống add
+                {
+                    if (soLanDaThi > 0)
+                    {
+                        LookUpGV.Enabled = false;
+                        SetLookUpGv(maGvL1, soLanDaThi);
+                    }
+                    else
+                    {
+                        LookUpGV.Enabled = true;
+                        LookUpGV.EditValue = null;
+                    }
+                }
+                else // thông tin ko sai lệch, và là lần 1 => cho sửa GV
+                {
+                    if (soLanDaThi == 1)
+                    {
+                        LookUpGV.Enabled = true;
+                    }
+                    else
+                    {
+                        LookUpGV.Enabled = false;
+                    }
+                }
+            }
+        }
+        private void SetLanTrinhDoGV()
         {
             if (LookUpMh.EditValue != null && LookUpLop.EditValue != null)
             {
                 string maMh = Utils.GetLookUpValue(LookUpMh, "MAMH");
                 string maLop = Utils.GetLookUpValue(LookUpLop, "MALOP");
-
                 if (maMh != "System.Data.DataRowView" && maLop != "System.Data.DataRowView")
                 {
-                    SetLan(maMh, maLop);
-                    SetTrinhDo(maMh, maLop);
+                    List<Para> paraList = new List<Para>();
+                    paraList.Add(new Para("@MaMH", maMh));
+                    paraList.Add(new Para("@MaLop", maLop));
+                    string spName = "usp_GVDK_GetImportantInfo";
+                    using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
+                    {
+                        if (myReader == null)
+                        {
+                            Console.WriteLine(Environment.StackTrace);
+                            return;
+                        }
+                        else
+                        {
+                            int soLanDaThi;
+                            string trinhDoL1;
+                            string maGvL1;
+
+                            if (!myReader.HasRows)
+                            {
+                                soLanDaThi = 0;
+                                trinhDoL1 = string.Empty;
+                                maGvL1 = string.Empty;
+                            }
+                            else//đã thi 1 hoặc 2 lần, chắc chắn lấy ra dc lầ 1 do đã order by LAN
+                            {
+                                myReader.Read();
+
+                                soLanDaThi = int.Parse(myReader.GetValue(4).ToString());
+                                trinhDoL1 = myReader.GetValue(0).ToString();
+                                maGvL1 = myReader.GetString(1);
+                            }
+                            int lanThiChinhSua = GetLan();
+                            SetLan(soLanDaThi, maMh, maLop, lanThiChinhSua);
+                            SetTrinhDo(soLanDaThi, maMh, maLop, trinhDoL1);
+                            SetGv(soLanDaThi, maMh, maLop, maGvL1);
+                        }
+                    }
+
                 }
-
             }
-            //  if (state == State.edit && maMH.Equals(origMaMH) && maLop.Equals(origMaLop)) return;
-
 
         }
 
@@ -916,7 +957,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             if (_state != State.Idle)
             {
-                SetLanVaTrinhDo();
+                SetLanTrinhDoGV();
             }
         }
     }

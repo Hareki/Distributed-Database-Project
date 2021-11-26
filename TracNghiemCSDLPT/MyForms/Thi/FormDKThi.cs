@@ -71,11 +71,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
         private void LoadAllData()
         {
-            LoadGvdk2();
+            
             LoadLop();
             LoadSv();
             LoadMonHoc();
             LoadDsgv();
+            LoadGvdk2();
         }
         private void SetOrigDefaultValue()
         {
@@ -302,15 +303,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                     Console.WriteLine(System.Environment.StackTrace);
                     return true;
                 }
-                if (myReader.HasRows)
-                {
-                    return true;
-
-                }
-                else
-                {
-                    return false;
-                }
+                return myReader.HasRows;
             }
 
         }
@@ -612,6 +605,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 _origMaMH = Utils.GetLookUpValue(LookUpMh, "MAMH");
                 _origLan = GetLan();
                 _state = State.Edit;
+                SetLanVaTrinhDo();
             }
             else
             {
@@ -835,19 +829,33 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                     }
                     else if (_state == State.Edit)
                     {
-                        if (myReader.HasRows) //đã thi 
+                        if (maMh != _origMaMH || maLop != _origMaLop) // thông tin sai lệch => làm giống add
                         {
-                            myReader.Read();
-                            int soLanThi = int.Parse(myReader.GetValue(1).ToString());
-                            if (soLanThi == 1){
-                                panelTrinhDo.Enabled = true;
+                            if (myReader.HasRows)
+                            {
+                                panelTrinhDo.Enabled = false;
+                                SetRdoTrinhDo(myReader);
                             }
                             else
                             {
-
+                                panelTrinhDo.Enabled = true;
+                                rdoA.Checked = rdoB.Checked = rdoC.Checked = false;
                             }
                         }
-                        
+                        else // thông tin ko sai lệch, và là lần 1 => cho sửa trình độ
+                        {
+                            if (myReader.HasRows)
+                            {
+                                myReader.Read();
+                                int soLanThi = int.Parse(myReader.GetValue(1).ToString());
+                                if(soLanThi == 1)
+                                {
+                                    panelTrinhDo.Enabled = true;
+                                }
+                            }
+                        }
+
+
                     }
 
 
@@ -874,15 +882,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
         }
 
-        private void LopCombo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetLanVaTrinhDo();
-        }
 
-        private void MHCombo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetLanVaTrinhDo();
-        }
 
         private void FormDKThi_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -914,7 +914,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
         private void LookUpMhLop_EditValueChanged(object sender, EventArgs e)
         {
-            SetLanVaTrinhDo();
+            if (_state != State.Idle)
+            {
+                SetLanVaTrinhDo();
+            }
         }
     }
 }

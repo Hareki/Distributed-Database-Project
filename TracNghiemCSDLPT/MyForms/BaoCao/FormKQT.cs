@@ -131,9 +131,9 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
                         Console.WriteLine(System.Environment.StackTrace);
                         return;
                     }
-                    myReader.Read();
                     if (myReader.HasRows)
                     {
+                        myReader.Read();
                         string tenLop = myReader.GetString(0);
                         string tenSv = (LookUpSv.EditValue as DataRowView)["HoTen"].ToString();
                         string tenMh = myReader.GetString(2);

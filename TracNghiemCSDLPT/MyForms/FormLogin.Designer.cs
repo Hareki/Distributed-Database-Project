@@ -65,9 +65,9 @@ namespace TracNghiemCSDLPT.MyForms
             // 
             this.label3.Font = new System.Drawing.Font("Baloo 2", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(110)))), ((int)(((byte)(190)))));
-            this.label3.Location = new System.Drawing.Point(210, 9);
+            this.label3.Location = new System.Drawing.Point(234, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(222, 91);
+            this.label3.Size = new System.Drawing.Size(181, 91);
             this.label3.TabIndex = 8;
             this.label3.Text = "Quản lý thi trắc nghiệm";
             // 
@@ -224,7 +224,7 @@ namespace TracNghiemCSDLPT.MyForms
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.logo31;
-            this.pictureBox1.Location = new System.Drawing.Point(84, 9);
+            this.pictureBox1.Location = new System.Drawing.Point(108, 9);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(120, 79);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

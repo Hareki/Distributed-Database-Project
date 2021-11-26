@@ -73,10 +73,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENLOP1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.NgayThi = new DevExpress.XtraEditors.DateEdit();
             this.panelTrinhDo = new System.Windows.Forms.Panel();
             this.panelLan = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.GVDK2GridControl = new DevExpress.XtraGrid.GridControl();
             this.GVDK2GridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAGV1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -130,11 +130,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             ((System.ComponentModel.ISupportInitialize)(this.LookUpLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSLBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NgayThi.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NgayThi.Properties)).BeginInit();
             this.panelTrinhDo.SuspendLayout();
             this.panelLan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GVDK2GridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GVDK2GridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardView1)).BeginInit();
@@ -629,7 +629,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.note_disabled1;
             this.pictureBox1.Location = new System.Drawing.Point(49, 71);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(255, 212);
+            this.pictureBox1.Size = new System.Drawing.Size(234, 212);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 38;
             this.pictureBox1.TabStop = false;
@@ -662,7 +662,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.bunifuPanel1.Controls.Add(this.label14);
             this.bunifuPanel1.Controls.Add(this.labelCau);
             this.bunifuPanel1.Controls.Add(this.spinThoiGian);
-            this.bunifuPanel1.Location = new System.Drawing.Point(331, 47);
+            this.bunifuPanel1.Location = new System.Drawing.Point(310, 47);
             this.bunifuPanel1.Margin = new System.Windows.Forms.Padding(3, 3, 34, 3);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
@@ -845,19 +845,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.colTENLOP1.VisibleIndex = 1;
             this.colTENLOP1.Width = 297;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Image = global::TracNghiemCSDLPT.Properties.Resources.info_480px_disabled;
-            this.pictureBox2.Location = new System.Drawing.Point(1586, 258);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(38, 45);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 53;
-            this.pictureBox2.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox2, resources.GetString("pictureBox2.ToolTip"));
-            this.pictureBox2.EnabledChanged += new System.EventHandler(this.pictureBox2_EnabledChanged);
-            // 
             // NgayThi
             // 
             this.NgayThi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.GVDK2BindingSource, "NGAYTHI", true));
@@ -899,6 +886,19 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.panelLan.Size = new System.Drawing.Size(130, 43);
             this.panelLan.TabIndex = 48;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Image = global::TracNghiemCSDLPT.Properties.Resources.info_480px_disabled;
+            this.pictureBox2.Location = new System.Drawing.Point(1565, 258);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(38, 45);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 53;
+            this.pictureBox2.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox2, resources.GetString("pictureBox2.ToolTip"));
+            this.pictureBox2.EnabledChanged += new System.EventHandler(this.pictureBox2_EnabledChanged);
+            // 
             // GVDK2GridControl
             // 
             this.GVDK2GridControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -909,7 +909,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.GVDK2GridControl.Location = new System.Drawing.Point(15, 414);
             this.GVDK2GridControl.MainView = this.GVDK2GridView;
             this.GVDK2GridControl.Name = "GVDK2GridControl";
-            this.GVDK2GridControl.Size = new System.Drawing.Size(1629, 452);
+            this.GVDK2GridControl.Size = new System.Drawing.Size(1612, 452);
             this.GVDK2GridControl.TabIndex = 36;
             this.GVDK2GridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GVDK2GridView,
@@ -1077,9 +1077,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.InfoPanel.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.InfoPanel.LabelIndent = 10;
             this.InfoPanel.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
-            this.InfoPanel.Location = new System.Drawing.Point(20, 38);
+            this.InfoPanel.Location = new System.Drawing.Point(11, 38);
             this.InfoPanel.Name = "InfoPanel";
-            this.InfoPanel.Size = new System.Drawing.Size(1637, 309);
+            this.InfoPanel.Size = new System.Drawing.Size(1616, 309);
             this.InfoPanel.TabIndex = 39;
             this.InfoPanel.TabStop = false;
             this.InfoPanel.Text = "Thông tin đăng ký thi trắc nghiệm";
@@ -1097,7 +1097,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonHuy.HoverState.Parent = this.buttonHuy;
             this.buttonHuy.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
             this.buttonHuy.ImageSize = new System.Drawing.Size(31, 31);
-            this.buttonHuy.Location = new System.Drawing.Point(1583, 117);
+            this.buttonHuy.Location = new System.Drawing.Point(1573, 117);
             this.buttonHuy.Margin = new System.Windows.Forms.Padding(11, 0, 3, 3);
             this.buttonHuy.Name = "buttonHuy";
             this.buttonHuy.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -1118,7 +1118,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonXacNhan.HoverState.Parent = this.buttonXacNhan;
             this.buttonXacNhan.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
             this.buttonXacNhan.ImageSize = new System.Drawing.Size(31, 31);
-            this.buttonXacNhan.Location = new System.Drawing.Point(1583, 47);
+            this.buttonXacNhan.Location = new System.Drawing.Point(1573, 47);
             this.buttonXacNhan.Margin = new System.Windows.Forms.Padding(11, 9, 8, 20);
             this.buttonXacNhan.Name = "buttonXacNhan";
             this.buttonXacNhan.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -1242,7 +1242,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonUndo.HoverState.Parent = this.buttonUndo;
             this.buttonUndo.Image = global::TracNghiemCSDLPT.Properties.Resources.undo_480px1;
             this.buttonUndo.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonUndo.Location = new System.Drawing.Point(1517, 418);
+            this.buttonUndo.Location = new System.Drawing.Point(1500, 418);
             this.buttonUndo.Margin = new System.Windows.Forms.Padding(3, 3, 11, 3);
             this.buttonUndo.Name = "buttonUndo";
             this.buttonUndo.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -1264,7 +1264,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonRedo.HoverState.Parent = this.buttonRedo;
             this.buttonRedo.Image = global::TracNghiemCSDLPT.Properties.Resources.redo_480px;
             this.buttonRedo.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonRedo.Location = new System.Drawing.Point(1591, 418);
+            this.buttonRedo.Location = new System.Drawing.Point(1574, 418);
             this.buttonRedo.Margin = new System.Windows.Forms.Padding(23, 10, 17, 3);
             this.buttonRedo.Name = "buttonRedo";
             this.buttonRedo.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -1299,7 +1299,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.CoSoComboBox.HoverState.Parent = this.CoSoComboBox;
             this.CoSoComboBox.ItemHeight = 30;
             this.CoSoComboBox.ItemsAppearance.Parent = this.CoSoComboBox;
-            this.CoSoComboBox.Location = new System.Drawing.Point(749, 9);
+            this.CoSoComboBox.Location = new System.Drawing.Point(740, 9);
             this.CoSoComboBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.CoSoComboBox.Name = "CoSoComboBox";
             this.CoSoComboBox.ShadowDecoration.Parent = this.CoSoComboBox;
@@ -1313,7 +1313,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label16.Location = new System.Drawing.Point(620, 15);
+            this.label16.Location = new System.Drawing.Point(611, 15);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(107, 30);
             this.label16.TabIndex = 46;
@@ -1400,7 +1400,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1656, 865);
+            this.ClientSize = new System.Drawing.Size(1639, 865);
             this.Controls.Add(this.CoSoComboBox);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.buttonUndo);
@@ -1429,13 +1429,13 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             ((System.ComponentModel.ISupportInitialize)(this.LookUpLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSLBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NgayThi.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NgayThi.Properties)).EndInit();
             this.panelTrinhDo.ResumeLayout(false);
             this.panelTrinhDo.PerformLayout();
             this.panelLan.ResumeLayout(false);
             this.panelLan.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GVDK2GridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GVDK2GridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardView1)).EndInit();

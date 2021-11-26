@@ -342,14 +342,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     Console.WriteLine(System.Environment.StackTrace);
                     return true;
                 }
-                if (myReader.HasRows)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return myReader.HasRows;
             }
               
         }

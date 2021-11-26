@@ -139,8 +139,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     Console.WriteLine(System.Environment.StackTrace);
                     return true;
                 }
-                bool isExist = myReader.HasRows;
-                return isExist;
+                return myReader.HasRows;
             }
 
         }
@@ -163,8 +162,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     Console.WriteLine(System.Environment.StackTrace);
                     return true;
                 }
-                bool isExist = myReader.HasRows;
-                return isExist;
+                return myReader.HasRows;
             }
 
         }

@@ -104,17 +104,68 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.Close();
         }
 
+        private void SetReportInfo(string tenMh, string tenLop, int lan, DateTime ngayThi, ReportBDMH report)
+        {
+            report.lblLop.Text = ": " + tenLop;
+            report.lblLan.Text = ": " + lan.ToString();
+            report.lblNgayThi.Text = ": " + ngayThi.ToString("dd/MM/yyyy");
+            report.lblMonThi.Text = ": " + tenMh;
+        }
+        private DateTime GetNgayThiFromSP(string maLop, string maMh, int lan)
+        {
+            List<Para> paraList = new List<Para>();
+            paraList.Add(new Para("@MALOP", maLop));
+            paraList.Add(new Para("@MAMH", maMh));
+            paraList.Add(new Para("@LAN", lan));
+            string spName = "usp_Report_BDMH2";
+            using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
+            {
+                if (myReader == null)
+                {
+                    Console.WriteLine(System.Environment.StackTrace);
+                    return DateTime.MinValue;
+                }
+                if (myReader.HasRows)
+                {
+                    myReader.Read();
+                    DateTime ngayThi = myReader.GetDateTime(0);
+                    return ngayThi;
+                }
+                else
+                {
+                    Utils.ShowMessage("Xảy ra lỗi trong quá trình truy vấn, không tìm thấy thông" +
+                        " tin thi", NotiForm.FormType.Error, 2);
+                    return DateTime.MinValue;
+                }
+            }
+        }
+        private int GetLanFromRdo()
+        {
+            if (rdo1.Checked) return 1;
+            else if (rdo2.Checked) return 2;
+            else return -1;
+        }
+
         private void buttonPrint_Click(object sender, EventArgs e)
         {
-            if (!(LookUpLop.EditValue is null) && !(LookUpMh.EditValue is null))
+            int lan = GetLanFromRdo();
+            if (!(LookUpLop.EditValue is null) && !(LookUpMh.EditValue is null) && lan != -1)
             {
                 string maLop = Utils.GetLookUpValue(LookUpLop, "MALOP");
                 string maMh = Utils.GetLookUpValue(LookUpMh, "MAMH");
-                int lan;
-                if (rdo1.Checked) lan = 1;
-                else lan = 2;
+
+                string tenLop = Utils.GetLookUpValue(LookUpLop, "TENLOP");
+                string tenMh = Utils.GetLookUpValue(LookUpMh, "TENMH");
+
+                DateTime ngayThi = GetNgayThiFromSP(maLop, maMh, lan);
+                if (DateTime.Compare(ngayThi, DateTime.MinValue) == 0)
+                {
+                    return;
+                }
 
                 ReportBDMH report = new ReportBDMH(maLop, maMh, lan, DBConnection.SubcriberConnectionString);
+                SetReportInfo(tenMh, tenLop, lan, ngayThi, report);
+
                 ReportPrintTool printer = new ReportPrintTool(report);
                 printer.ShowPreviewDialog();
             }

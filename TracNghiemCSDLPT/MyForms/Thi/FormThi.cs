@@ -578,7 +578,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                     Console.WriteLine(System.Environment.StackTrace);
                     return true;
                 }
-                myReader.Read();
                 return myReader.HasRows;
             }
         }

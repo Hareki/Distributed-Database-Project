@@ -181,7 +181,7 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             this.rdoTruong.Margin = new System.Windows.Forms.Padding(6, 3, 0, 15);
             this.rdoTruong.Name = "rdoTruong";
             this.rdoTruong.ShadowDecoration.Parent = this.rdoTruong;
-            this.rdoTruong.Size = new System.Drawing.Size(25, 22);
+            this.rdoTruong.Size = new System.Drawing.Size(22, 22);
             this.rdoTruong.TabIndex = 2;
             this.rdoTruong.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdoTruong.UncheckedState.BorderThickness = 2;
@@ -692,7 +692,7 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             this.rdoGV.Margin = new System.Windows.Forms.Padding(6, 3, 0, 15);
             this.rdoGV.Name = "rdoGV";
             this.rdoGV.ShadowDecoration.Parent = this.rdoGV;
-            this.rdoGV.Size = new System.Drawing.Size(25, 22);
+            this.rdoGV.Size = new System.Drawing.Size(22, 22);
             this.rdoGV.TabIndex = 2;
             this.rdoGV.Tag = "GIAOVIEN";
             this.rdoGV.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -744,7 +744,7 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             this.rdoCS.Margin = new System.Windows.Forms.Padding(6, 3, 0, 15);
             this.rdoCS.Name = "rdoCS";
             this.rdoCS.ShadowDecoration.Parent = this.rdoCS;
-            this.rdoCS.Size = new System.Drawing.Size(25, 22);
+            this.rdoCS.Size = new System.Drawing.Size(22, 22);
             this.rdoCS.TabIndex = 2;
             this.rdoCS.Tag = "COSO";
             this.rdoCS.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));

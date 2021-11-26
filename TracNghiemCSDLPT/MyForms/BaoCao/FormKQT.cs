@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -33,15 +34,57 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
                     break;
                 case "GIAOVIEN":
                     CoSoComboBox.Enabled = false;
+                    ConfigGvLookUps();
                     break;
                 case "COSO":
                     CoSoComboBox.Enabled = false;
+                    ConfigGvLookUps();
                     break;
                 case "SINHVIEN":
                     CoSoComboBox.Enabled = false;
+                    ConfigSvLookUps();
+                    break;
+                default:
+                    Debug.Assert(false);
                     break;
             }
 
+        }
+        private void ConfigSvLookUps()
+        {
+            LookUpSv.Enabled = false;
+            LookUpSv.EditValue = null;
+            LookUpSv.Properties.NullText = DBConnection.MaSv + " - " + DBConnection.HoTen
+                + " - " + GetMaLopFromSP(DBConnection.MaSv);
+            LoadMonThiCuaSv(DBConnection.MaSv);
+            ClearInfo();
+        }
+
+        private string GetMaLopFromSP(string maSv)
+        {
+
+            List<Para> paraList = new List<Para>();
+            paraList.Add(new Para("@MASV", maSv));
+            string spName = "usp_Report_KQT_LayMaLopCuaSV";
+            using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
+            {
+                if (myReader == null)
+                {
+                    Console.WriteLine(System.Environment.StackTrace);
+                    Debug.Assert(false);
+                    return string.Empty;
+                }
+                if (myReader.HasRows)
+                {
+                    myReader.Read();
+                    return myReader.GetString(0).Trim();
+                }
+                else
+                {
+                    Utils.ShowMessage("Xảy ra lỗi khi truy vấn mã lớp", NotiForm.FormType.Error, 2);
+                    return string.Empty;
+                }
+            }
         }
 
         private void CoSoComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -83,16 +126,22 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.usp_Report_KQT_LaySVThuocLopDaDuThiTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.usp_Report_KQT_LaySVThuocLopDaDuThiTableAdapter.Fill(this.TN_CSDLPTDataSet.usp_Report_KQT_LaySVThuocLopDaDuThi);
         }
-        private void FormKQT_Load(object sender, EventArgs e)
+        private void ConfigLookupMh() // chỉ là config những thuộc tính cơ, bản chưa có dữ liệu
         {
-            Utils.BindingComboData(this.CoSoComboBox, _previousIndexCS);
+            LookUpMh.Properties.DataSource = this.usp_Report_KQT_LayMonDaThiBindingSource;
+            LookUpMh.Properties.DisplayMember = "FullInfo";
 
+        }
+        private void ConfigGvLookUps()
+        {
             LoadAllSv();
             LookUpSv.Properties.DataSource = this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource;
             LookUpSv.Properties.DisplayMember = "FullInfo";
-
-            LookUpMh.Properties.DataSource = this.usp_Report_KQT_LayMonDaThiBindingSource;
-            LookUpMh.Properties.DisplayMember = "FullInfo";
+        }
+        private void FormKQT_Load(object sender, EventArgs e)
+        {
+            Utils.BindingComboData(this.CoSoComboBox, _previousIndexCS);
+            ConfigLookupMh();
             PhanQuyen();
 
         }
@@ -107,12 +156,22 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             report.lblLan.Text = ": " + lan;
 
         }
+        private string GetHoTenSvFromLookUp()
+        {
+            Debug.Assert(!isSv());
+            return Utils.GetLookUpValue(LookUpSv, "HoTen");
+        }
+
         private void buttonPrint_Click(object sender, EventArgs e)
         {
-            if (!(LookUpSv.EditValue is null) && !(LookUpMh.EditValue is null))
+            bool test1 = LookUpSv.EditValue != null;
+            bool test2 = LookUpMh.EditValue != null;
+            bool test3 = isSv();
+
+            if (test2 && (test1 || test3))
             {
-                string maSv = (LookUpSv.EditValue as DataRowView)["MASV"].ToString();
-                string maMh = (LookUpMh.EditValue as DataRowView)["MAMH"].ToString();
+                string maSv = test3 ? DBConnection.MaSv : GetMaSvFromLookUp();
+                string maMh = GetMaMhFromLookUp();
                 int lan;
                 if (rdo1.Checked) lan = 1;
                 else lan = 2;
@@ -135,7 +194,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
                     {
                         myReader.Read();
                         string tenLop = myReader.GetString(0);
-                        string tenSv = (LookUpSv.EditValue as DataRowView)["HoTen"].ToString();
+                        string tenSv = test3 ? DBConnection.HoTen : GetHoTenSvFromLookUp();
                         string tenMh = myReader.GetString(2);
                         string ngayThi = myReader.GetDateTime(3).ToString("dd/MM/yyyy");
                         string diem = myReader.GetDouble(4).ToString();
@@ -149,9 +208,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
                         return;
                     }
                 }
-
-
-
             }
             else
             {
@@ -187,12 +243,17 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         {
             return Utils.GetLookUpValue(LookUpMh, "MAMH");
         }
+        private bool isSv()
+        {
+            return DBConnection.NhomQuyen.Equals("SINHVIEN");
+        }
         private void LookUpMh_EditValueChanged(object sender, EventArgs e)
         {
             if (LookUpMh.EditValue != null)
             {
                 List<Para> paraList = new List<Para>();
-                paraList.Add(new Para("@MASV", GetMaSvFromLookUp()));
+                string maSv = isSv() ? DBConnection.MaSv : GetMaSvFromLookUp();
+                paraList.Add(new Para("@MASV", maSv));
                 paraList.Add(new Para("@MAMH", GetMaMhFromLookUp()));
                 string spName = "usp_Report_KQT_LayLanThiTuongUng";
                 using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))

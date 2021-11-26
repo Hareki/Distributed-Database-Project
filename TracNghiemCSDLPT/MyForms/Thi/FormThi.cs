@@ -328,6 +328,14 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                     return;
                 }
             }
+            else
+            {
+                bool confirmed = Utils.ShowConfirmMessage("Xác nhận nộp bài?", "Cảnh báo");
+                if (!confirmed)
+                {
+                    return;
+                }
+            }
             double[] result = GetResult();
             ShowResult(result);
 

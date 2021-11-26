@@ -344,7 +344,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 }
                 return myReader.HasRows;
             }
-              
+
         }
 
         private void GoToNewlyCreatedRowCh()
@@ -552,19 +552,49 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
 
         }
+        private bool CanPressEditDelete(string maMh, string trinhDo)
+        {
+            List<Para> paraList = new List<Para>();
+            paraList.Add(new Para("@MaMH", maMh));
+            paraList.Add(new Para("@TrinhDo", trinhDo));
+            string spName = "usp_BoDe_PressingEditDeletePoss";
+            using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
+            {
+                if (myReader == null)
+                    return false;
+                else
+                {
+                    myReader.Read();
+                    int result = int.Parse(myReader.GetValue(0).ToString());
+                    if (result == 0) return true;
+                    else return false;
+                }
+            }
+        }
 
         private void buttonSua_Click(object sender, EventArgs e)
         {
-            InfoPanel.Enabled = true;
+            string maMh = MHCombo.SelectedValue.ToString();
+            string trinhDo = GetTrinhDo();
+            if (CanPressEditDelete(maMh, trinhDo))
+            {
+                InfoPanel.Enabled = true;
 
-            SetIdleButtonEnabled(false);
-            SetInputButtonEnabled(true);
+                SetIdleButtonEnabled(false);
+                SetInputButtonEnabled(true);
 
-            _origMaCh = int.Parse(textMaCH.Text);
-            _origMaMh = MHCombo.SelectedValue.ToString();
-            _origTrinhDo = GetTrinhDo();
-            MonHocGridControl.Enabled = false;
-            _state = State.Edit;
+                _origMaCh = int.Parse(textMaCH.Text);
+                _origMaMh = MHCombo.SelectedValue.ToString();
+                _origTrinhDo = GetTrinhDo();
+                MonHocGridControl.Enabled = false;
+                _state = State.Edit;
+            }
+            else
+            {
+                Utils.ShowMessage("Không thể chỉnh sửa câu hỏi thuộc môn học và trình độ đã chọn vào ngày có lớp đang thi chúng", NotiForm.FormType.Error, 4);
+            }
+
+
         }
 
         private void buttonHuy_Click(object sender, EventArgs e)

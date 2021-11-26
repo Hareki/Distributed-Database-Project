@@ -794,6 +794,13 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
         }
 
+        private void FormThi_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(countDownTimer.Enabled)
+            if (!Utils.ShowConfirmMessage("Xác nhận ngừng làm bài thi?", "Xác nhận"))
+                e.Cancel = true;
+        }
+
         private double[] GetResult()
         {
             int soCauThi = int.Parse(lblSoCauThi.Text);

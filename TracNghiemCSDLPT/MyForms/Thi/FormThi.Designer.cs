@@ -926,6 +926,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.Controls.Add(this.pnlThongTinThi);
             this.Name = "FormThi";
             this.Text = "Dự thi";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormThi_FormClosing);
             this.Load += new System.EventHandler(this.FormThi_Load);
             this.pnlThongTinThi.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();

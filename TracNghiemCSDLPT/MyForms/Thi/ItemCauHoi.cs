@@ -158,6 +158,29 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
         }
 
+        public void SetRdo(string daChon)
+        {
+            switch (daChon)
+            {
+                case "A":
+                    rdoA.Checked = true;
+                    UncheckAllOtherRdos(rdoA);
+                    break;
+                case "B":
+                    rdoB.Checked = true;
+                    UncheckAllOtherRdos(rdoB);
+                    break;
+                case "C":
+                    rdoC.Checked = true;
+                    UncheckAllOtherRdos(rdoC);
+                    break;
+                case "D":
+                    rdoA.Checked = true;
+                    UncheckAllOtherRdos(rdoD);
+                    break;
+            }
+        }
+
         private void Rdo_CheckedChanged(object sender, EventArgs e)
         {
             Guna2CustomRadioButton rdo = sender as Guna2CustomRadioButton;
@@ -165,7 +188,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             {
                 UncheckAllOtherRdos(rdo);
                 string daChon = rdo.Tag.ToString();
-                ParentThi.UpdateSummaryTable(STT, daChon);
+                ParentThi.UpdateSummaryTable(STT, daChon, true);
                 ParentThi.UpdateBTDLChiTiet(_maBangDiem, STT, daChon);
                 this.DaChon = daChon;
             }

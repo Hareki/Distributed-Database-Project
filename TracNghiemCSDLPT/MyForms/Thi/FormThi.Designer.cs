@@ -92,7 +92,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.usp_Thi_LayMonThiCuaLopTuongUng_TrongNgayBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usp_Thi_LayMonThiCuaLopTuongUng_TrongNgayTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.usp_Thi_LayMonThiCuaLopTuongUng_TrongNgayTableAdapter();
             this.savingTimer = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.saveTimeLeftTimer = new System.Windows.Forms.Timer(this.components);
             label7 = new System.Windows.Forms.Label();
             label12 = new System.Windows.Forms.Label();
@@ -798,9 +797,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowPnlBaiThi.AutoScroll = true;
             this.flowPnlBaiThi.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowPnlBaiThi.Location = new System.Drawing.Point(18, 291);
+            this.flowPnlBaiThi.Location = new System.Drawing.Point(18, 213);
             this.flowPnlBaiThi.Name = "flowPnlBaiThi";
-            this.flowPnlBaiThi.Size = new System.Drawing.Size(1437, 443);
+            this.flowPnlBaiThi.Size = new System.Drawing.Size(1437, 521);
             this.flowPnlBaiThi.TabIndex = 45;
             this.flowPnlBaiThi.WrapContents = false;
             // 
@@ -920,17 +919,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // savingTimer
             // 
             this.savingTimer.Interval = 5000;
-            this.savingTimer.Tick += new System.EventHandler(this.savingTimer_Tick);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(286, 239);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 36);
-            this.button1.TabIndex = 47;
-            this.button1.Text = "decrypt";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.savingTimer.Tick += new System.EventHandler(this.SavingTimer_Tick);
             // 
             // saveTimeLeftTimer
             // 
@@ -942,7 +931,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1690, 749);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.flowPnlBaiThi);
             this.Controls.Add(this.summaryGridControl);
             this.Controls.Add(this.panel9);
@@ -1049,7 +1037,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private System.Windows.Forms.BindingSource usp_Thi_LayMonThiCuaLopTuongUng_TrongNgayBindingSource;
         private TN_CSDLPTDataSetTableAdapters.usp_Thi_LayMonThiCuaLopTuongUng_TrongNgayTableAdapter usp_Thi_LayMonThiCuaLopTuongUng_TrongNgayTableAdapter;
         private System.Windows.Forms.Timer savingTimer;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Timer saveTimeLeftTimer;
     }
 }

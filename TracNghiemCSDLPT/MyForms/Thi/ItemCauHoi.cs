@@ -164,8 +164,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             if (rdo.Checked)
             {
                 UncheckAllOtherRdos(rdo);
-                ParentThi.UpdateSummaryTable(STT, rdo.Tag.ToString());
-                this.DaChon = rdo.Tag.ToString();
+                string daChon = rdo.Tag.ToString();
+                ParentThi.UpdateSummaryTable(STT, daChon);
+                ParentThi.UpdateBTDLChiTiet(_maBangDiem, STT, daChon);
+                this.DaChon = daChon;
             }
 
         }

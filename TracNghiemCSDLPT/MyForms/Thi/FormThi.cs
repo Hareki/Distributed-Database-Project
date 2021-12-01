@@ -6,7 +6,10 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,6 +27,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             PhanQuyen();
             InitThongTinThi();
             Utils.ConfigControlColor(pnlThongTinThi);
+            savingTimer.Start();
         }
 
 
@@ -33,6 +37,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private string[] ABCD = { "A", "B", "C", "D" };
         private string _maBangDiem;
         private DateTime _ngayThi;
+        private string _maLopSv;
+        private string basePath = "context/";
 
         private void ResetABCD()
         {
@@ -79,6 +85,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                     string maLop = myReader.GetString(0).Trim();
                     string tenLop = myReader.GetString(1);
                     string fullInfo = maLop + " - " + tenLop;
+                    _maLopSv = maLop;
                     LookUpLop.Properties.NullText = fullInfo;
                 }
 
@@ -91,10 +98,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 LookUpLop.Properties.DisplayMember = "FullInfo";
             }
         }
-        private string GetMaLopFromNullText() //
+        private string GetMaLopSv() //
         {
-            string fullInfo = LookUpLop.Properties.NullText;
-            return fullInfo.Substring(0, fullInfo.IndexOf('-') - 1);
+            return _maLopSv;
         }
 
         private void SetSvInfo(string hoTen, string maSv)
@@ -131,7 +137,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                     LookUpMonHoc.Properties.DisplayMember = "FullInfo";
                     SetSvInfo(DBConnection.HoTen, DBConnection.MaSv);// đặt trước filllookup để filllookup dùng
                     FillLookUpLopData("SINHVIEN");
-                    LoadMonThiTuongUng(GetMaLopFromNullText());
+                    LoadMonThiTuongUng(GetMaLopSv());
 
                     break;
 
@@ -212,7 +218,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.Close();
         }
 
-        private void ExecuteMergingDataTable(DataTable dataTable)
+        private void ExecuteMergingDataTable(DataTable dataTable, string spName)
         {
             SqlParameter para = new SqlParameter();
             para.SqlDbType = SqlDbType.Structured;
@@ -221,7 +227,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             para.Value = dataTable;
 
             SqlConnection connection = DBConnection.SubcriberConnection;
-            string spName = "usp_Thi_ThemBaiThi";
             SqlCommand sqlCmd = new SqlCommand(spName, connection);
             sqlCmd.CommandType = CommandType.StoredProcedure;
             sqlCmd.Parameters.Add(para);
@@ -240,7 +245,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 Console.WriteLine(ex.StackTrace);
             }
         }
-        private void InsertBaiThiToDB()
+        private void InsertBaiThi()
         {
             DataTable dataTable = new DataTable();
             dataTable.Columns.Add("MABANGDIEM", typeof(string));
@@ -253,7 +258,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             {
                 int maCauHoi = int.Parse(Utils.GetCellStringBds(DeThiBindingSource, i, "CAUHOI"));
                 int STT = (summaryBindingSource[i] as SummaryItem).STT;
-                
+
                 string fakeAnswerStr = (summaryBindingSource[i] as SummaryItem).DaChon;
                 char fakeAnswer;
                 if (!fakeAnswerStr.Equals(""))
@@ -265,15 +270,15 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                     fakeAnswer = ' ';
                 }
                 string daChon = GetRealAnswerByFakeAnswer(fakeAnswer, _shuffledAnswersList[i]);
-                
+
                 dataTable.Rows.Add(maBangDiem, maCauHoi, STT, daChon);
             }
 
-            ExecuteMergingDataTable(dataTable);
+            ExecuteMergingDataTable(dataTable, "usp_Thi_ThemBaiThi");
 
         }
 
-        private string GetMaMh()
+        private string GetMaMhFromLookUp()
         {
             return Utils.GetLookUpValue(LookUpMonHoc, "MAMH");
         }
@@ -288,33 +293,136 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             return lblMaSV.Text;
         }
-        private void InsertBangDiemToDB(double[] result)
+        private void InsertBangDiem(string maBangDiem, double diem, string maSv, string maMh, int lan, DateTime ngayThi)
         {
-            string maBangDiem = _maBangDiem;
-            string maSv = lblMaSV.Text;
-            string maMh = GetMaMh();
-            int lan = GetLan();
-            DateTime ngayThi = _ngayThi;
-            double diem = result[0];
+            //string maSv = lblMaSV.Text;
+            //string maMh = GetMaMhFromLookUp();
+            //int lan = GetLan();
+            //DateTime ngayThi = _ngayThi;
 
             List<Para> paraList = new List<Para>();
             paraList.Add(new Para("@MABANGDIEM", maBangDiem));
             paraList.Add(new Para("@MASV", maSv));
             paraList.Add(new Para("@MAMH", maMh));
             paraList.Add(new Para("@LAN", lan));
-            paraList.Add(new Para("@NGAYTHI", _ngayThi));
+            paraList.Add(new Para("@NGAYTHI", ngayThi));
             paraList.Add(new Para("@DIEM", diem));
 
-            string spName = "usp_Thi_ThemBangDiem";
+            string spName = "usp_Thi_BD_Insert";
             bool success = DBConnection.ExecuteSqlNonQuerySP(spName, paraList);
             if (!success)
             {
                 Console.WriteLine(System.Environment.StackTrace);
                 return;
             }
+        }
 
+        private void UpdateBangDiem(string maBangDiem, double diem)
+        {
+
+            List<Para> paraList = new List<Para>();
+            paraList.Add(new Para("@MABANGDIEM", maBangDiem));
+            paraList.Add(new Para("@DIEM", diem));
+
+            string spName = "usp_Thi_BD_Update";
+            bool success = DBConnection.ExecuteSqlNonQuerySP(spName, paraList);
+            if (!success)
+            {
+                Console.WriteLine(System.Environment.StackTrace);
+                return;
+            }
+        }
+
+        private void UpdateOrInsertBTDLChung(string maBangDiem, int min, int sec, bool insert)
+        {
+            List<Para> paraList = new List<Para>();
+            paraList.Add(new Para("@MaBangDiem", maBangDiem));
+            paraList.Add(new Para("@Phut", min));
+            paraList.Add(new Para("@Giay", sec));
+            string spName;
+            if (insert)
+                spName = "usp_Thi_BTDL_Chung_Insert";
+            else spName = "usp_Thi_BTDL_Chung_Update";
+            bool success = DBConnection.ExecuteSqlNonQuerySP(spName, paraList);
+            if (!success)
+            {
+                Console.WriteLine(System.Environment.StackTrace);
+                return;
+            }
+        }
+
+        public void UpdateBTDLChiTiet(string maBangDiem, int STT, string daChon)
+        {
+            List<Para> paraList = new List<Para>();
+            paraList.Add(new Para("@MaBangDiem", maBangDiem));
+            paraList.Add(new Para("@STT", STT));
+            paraList.Add(new Para("@DaChon", daChon));
+            string spName = "usp_Thi_BTDL_ChiTiet_Update";
+            bool success = DBConnection.ExecuteSqlNonQuerySP(spName, paraList);
+            if (!success)
+            {
+                Console.WriteLine(System.Environment.StackTrace);
+                return;
+            }
+        }
+        private void InsertAllBTDLChiTiet()
+        {
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("MABANGDIEM", typeof(string));
+            dataTable.Columns.Add("CAUHOI", typeof(int));
+            dataTable.Columns.Add("STT", typeof(int));
+            dataTable.Columns.Add("LUACHON", typeof(string));
+
+            string maBangDiem = _maBangDiem;
+            for (int i = 0; i < DeThiBindingSource.Count; i++)
+            {
+                int maCauHoi = int.Parse(Utils.GetCellStringBds(DeThiBindingSource, i, "CAUHOI"));
+                int STT = (summaryBindingSource[i] as SummaryItem).STT;
+
+                string fakeAnswerStr = (summaryBindingSource[i] as SummaryItem).DaChon;
+                char fakeAnswer;
+                if (!fakeAnswerStr.Equals(""))
+                {
+                    fakeAnswer = fakeAnswerStr.ToCharArray()[0];
+                }
+                else
+                {
+                    fakeAnswer = ' ';
+                }
+                string daChon = GetRealAnswerByFakeAnswer(fakeAnswer, _shuffledAnswersList[i]);
+
+                dataTable.Rows.Add(maBangDiem, maCauHoi, STT, daChon);
+            }
+
+            ExecuteMergingDataTable(dataTable, "usp_Thi_ThemBaiThi");
 
         }
+        private void DeleteBTDLChung(string maBangDiem)
+        {
+            List<Para> paraList = new List<Para>();
+            paraList.Add(new Para("@MaBangDiem", _maBangDiem));
+            string spName = "usp_Thi_BTDL_Chung_Delete";
+            bool success = DBConnection.ExecuteSqlNonQuerySP(spName, paraList);
+            if (!success)
+            {
+                Console.WriteLine(System.Environment.StackTrace);
+                return;
+            }
+        }
+        private void DeleteBTDLChiTiet(string maBangDiem)
+        {
+            List<Para> paraList = new List<Para>();
+            paraList.Add(new Para("@MaBangDiem", _maBangDiem));
+            string spName = "usp_Thi_BTDL_ChiTiet_Delete";
+            bool success = DBConnection.ExecuteSqlNonQuerySP(spName, paraList);
+            if (!success)
+            {
+                Console.WriteLine(System.Environment.StackTrace);
+                return;
+            }
+        }
+
+
         private void BtnNopBai_Click(object sender, EventArgs e)
         {
             //test();
@@ -341,11 +449,15 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
             if (isSv())
             {
-                InsertBangDiemToDB(result);
-                InsertBaiThiToDB();
+                UpdateBangDiem(_maBangDiem, result[0]);
+                InsertBaiThi();
+                DeleteBTDLChiTiet(_maBangDiem);
+                DeleteBTDLChung(_maBangDiem);
             }
 
         }
+
+
 
         private void LoadAllLopThi()
         {
@@ -377,7 +489,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             SetRdoLanEnabled(false, true);
             btnBatDauThi.Enabled = false;
             thongTinThi[0].ClearInfo();
-            thongTinThi[0].ClearInfo();
+            thongTinThi[1].ClearInfo();
 
 
             lblSoCauThi.Text = lblNgayThi.Text = lblTrinhDo.Text = lblThoiGian.Text = string.Empty;
@@ -498,10 +610,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             ItemCauHoi[] items = new ItemCauHoi[int.Parse(lblSoCauThi.Text)];
             _shuffledAnswersList.Clear();
-            if (isSv())
-            {
-                _maBangDiem = GenerateMbd();
-            }
+
 
             for (int i = 0; i < items.Length; i++)
             {
@@ -568,15 +677,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             return DateTimeOffset.UtcNow.ToUnixTimeMilliseconds().ToString();
         }
-        private string GetMaLopFromLabel_Sv()//chỉ áp dụng cho SV
-        {
-            return LookUpLop.Properties.NullText;
-        }
         private bool Tested()
         {
             List<Para> paraList = new List<Para>();
             paraList.Add(new Para("@MaSv", GetMaSvFromLabel()));
-            paraList.Add(new Para("@MaMh", GetMaMh()));
+            paraList.Add(new Para("@MaMh", GetMaMhFromLookUp()));
             paraList.Add(new Para("@Lan", GetLan()));
             string spName = "usp_Thi_KiemTraThiChua";
             using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
@@ -591,23 +696,19 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         }
         private void BtnBatDauThi_Click(object sender, EventArgs e)
         {
-
-
-
-            string maLop = isSv() ? GetMaLopFromNullText() : Utils.GetLookUpValue(LookUpLop, "MALOP");
-            string maMh = Utils.GetLookUpValue(LookUpMonHoc, "MAMH");
+            string maLop = isSv() ? GetMaLopSv() : Utils.GetLookUpValue(LookUpLop, "MALOP");
+            string maMh = GetMaMhFromLookUp();
             string trinhDo = lblTrinhDo.Text;
             string soCauYeuCau = lblSoCauThi.Text;
 
-
             if (isSv())
             {
-                _ngayThi = DateTime.Now;
                 if (Tested())
                 {
                     Utils.ShowMessage("Sinh viên đã dự thi môn và lần thi này rồi", NotiForm.FormType.Error, 2);
                     return;
                 }
+
             }
 
             //usp_Thi_LayDeThi
@@ -636,10 +737,21 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             countDownTimer.Start();
             btnNopBai.Enabled = true;
 
-            
+            if (isSv())
+            {
+                _maBangDiem = GenerateMbd();
+                _ngayThi = DateTime.Now;
+                string maSv = lblMaSV.Text;
+                int lan = GetLan();
+                InsertBangDiem(_maBangDiem, 0, maSv, maMh, lan, _ngayThi);//phải insert vào trước để có mã bảng điểm
+
+                UpdateOrInsertBTDLChung(_maBangDiem, _min, 0, true);
+            }
+
 
 
         }
+
 
         private void LookUpMonHoc_EditValueChanged(object sender, EventArgs e)
         {
@@ -649,7 +761,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 int trongNgay;
                 if (isSv())
                 {
-                    maLop = GetMaLopFromNullText();
+                    maLop = GetMaLopSv();
                     trongNgay = 1;
                 }
                 else
@@ -760,8 +872,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
                     if (isSv())
                     {
-                        InsertBangDiemToDB(result);
-                        InsertBaiThiToDB();
+                        UpdateBangDiem(_maBangDiem, result[0]);
+                        InsertBaiThi();
+                        DeleteBTDLChiTiet(_maBangDiem);
+                        DeleteBTDLChung(_maBangDiem);
                     }
                 }
                 else
@@ -796,9 +910,54 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
         private void FormThi_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(countDownTimer.Enabled)
-            if (!Utils.ShowConfirmMessage("Xác nhận ngừng làm bài thi?", "Xác nhận"))
-                e.Cancel = true;
+            if (countDownTimer.Enabled)
+                if (!Utils.ShowConfirmMessage("Xác nhận ngừng làm bài thi?", "Xác nhận"))
+                    e.Cancel = true;
+        }
+
+        enum FileType
+        {
+            General, Timer, Detail
+        }
+
+        private string GetFileNameOfCurrentSv(FileType type)
+        {
+            string maSv = DBConnection.MaSv;
+            string tenSv = DBConnection.HoTen;
+            string maLop = GetMaLopSv();
+            string maMh = GetMaMhFromLookUp();
+            int lanThi = GetLan();
+            return maSv + "-" + maMh + "-" + lanThi.ToString() + "-" + type.ToString() + ".dat";
+
+
+        }
+        private void savingTimer_Tick(object sender, EventArgs e)
+        {
+
+            if (countDownTimer.Enabled)
+            {
+
+            }
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string filePath = basePath + GetFileNameOfCurrentSv(FileType.Timer);
+            File.Decrypt(filePath);
+            using (BinaryReader reader = new BinaryReader(File.Open(filePath, FileMode.Open)))
+            {
+                int min = reader.ReadInt16();
+                int sec = reader.ReadInt16();
+                Console.WriteLine("Min: " + min);
+                Console.WriteLine("Sec: " + sec);
+            }
+        }
+
+        private void SaveTimeLeftTimer_Tick(object sender, EventArgs e)
+        {
+            UpdateOrInsertBTDLChung(_maBangDiem, _min, _sec, false);
         }
 
         private double[] GetResult()
@@ -848,5 +1007,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             TrinhDo = string.Empty;
         }
     }
+
 
 }

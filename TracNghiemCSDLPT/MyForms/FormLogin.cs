@@ -65,8 +65,8 @@ namespace TracNghiemCSDLPT.MyForms
         {
             ComboBoxCoSo.SelectedIndex = 0;
             rdoSV.Checked = true;
-            TextLogin.Text = "002";
-            TextPassword.Text = "shiba123";
+            TextLogin.Text = "003";
+            TextPassword.Text = "shiba234";
 
         }
         private void AutoFilledCS()

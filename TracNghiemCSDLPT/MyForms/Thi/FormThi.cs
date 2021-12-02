@@ -362,7 +362,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             {
                 fakeAnswer = ' ';
             }
-            string daChon = GetRealAnswerByFakeAnswer(fakeAnswer, _shuffledAnswersList[STT-1]);
+            string daChon = GetRealAnswerByFakeAnswer(fakeAnswer, _shuffledAnswersList[STT - 1]);
             List<Para> paraList = new List<Para>();
             paraList.Add(new Para("@MaBangDiem", maBangDiem));
             paraList.Add(new Para("@STT", STT));
@@ -572,7 +572,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 SwapABCD(i, random.Next(i, ABCD.Length));
             }
         }
-        private int GetAnswerIndexInABCD(string realAnswer)//lấy đáp án thật dò trong ABCD
+        private int GetAnswerIndexInABCD(string realAnswer, string[] ABCD)//lấy đáp án thật dò trong ABCD
         {
             for (int i = 0; i < ABCD.Length; i++)
             {
@@ -598,7 +598,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         }
         private string GetFakeAnswerByShuffledIndex(int index)
         {
-            Debug.Assert(index >= 0 && index <= 3);
+            Debug.Assert(index >= 0 && index <= 3 || index == -1);
+            if (index == -1) return " ";
             return Char.ConvertFromUtf32(index + 65);
         }
         private List<string[]> _shuffledAnswersList = new List<string[]>();
@@ -606,7 +607,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             ItemCauHoi[] items = new ItemCauHoi[int.Parse(lblSoCauThi.Text)];
             _shuffledAnswersList.Clear();
-
 
             for (int i = 0; i < items.Length; i++)
             {
@@ -634,7 +634,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
 
                 string answer = Utils.GetCellStringBds(DeThiBindingSource, i, "DAP_AN");
-                int answerIndex = GetAnswerIndexInABCD(answer);
+                int answerIndex = GetAnswerIndexInABCD(answer, ABCD);
 
                 //items[i].DapAn = Utils.GetCellStringBds(DeThiBindingSource, i, "DAP_AN");
                 string fakeAnswer = GetFakeAnswerByShuffledIndex(answerIndex);
@@ -738,25 +738,23 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 _sec = myReader.GetInt16(3);
             }
         }
-        private void FillSummaryTable()
+        private void FillDapAn_Summray()
         {
             for (int i = 0; i < DeThiBindingSource.Count; i++)//đây là bindingsource với đề thi dc lưu ngữ cảnh, đồng nghĩa có thêm 2 cột là STT và đã chọn
             {
-                int STT = int.Parse(Utils.GetCellStringBds(DeThiBindingSource, i, "STT"));
+                int STT = int.
+                    Parse(Utils.GetCellStringBds(DeThiBindingSource, i, "STT"));
+                int index = STT - 1;
+
                 string daChon = Utils.GetCellStringBds(DeThiBindingSource, i, "DaChon");
-                UpdateSummaryTable(STT, daChon, false);
+                int daChonIndex = GetAnswerIndexInABCD(daChon, _shuffledAnswersList[index]);
+                string daChonSauKhiTron = GetFakeAnswerByShuffledIndex(daChonIndex);
+
+
+                UpdateSummaryTable(STT, daChonSauKhiTron, false);
+                (flowPnlBaiThi.Controls[index] as ItemCauHoi).SetRdo(daChonSauKhiTron);
             }
             summaryGridView.RefreshData();
-        }
-        private void FillItemCauHoiDapAn()
-        {
-            for (int i = 0; i < DeThiBindingSource.Count; i++)//đây là bindingsource với đề thi dc lưu ngữ cảnh, đồng nghĩa có thêm 2 cột là STT và đã chọn
-            {
-                int index = int.
-                    Parse(Utils.GetCellStringBds(DeThiBindingSource, i, "STT")) - 1;
-                string daChon = Utils.GetCellStringBds(DeThiBindingSource, i, "DaChon");
-                (flowPnlBaiThi.Controls[index] as ItemCauHoi).SetRdo(daChon);
-            }
         }
         private void BtnBatDauThi_Click(object sender, EventArgs e)
         {
@@ -816,8 +814,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             LoadSummarayTable();
             if (state == TrangThaiBaiThi.DangThi)
             {
-                FillSummaryTable();
-                FillItemCauHoiDapAn();
+                FillDapAn_Summray();
             }
             else
             {

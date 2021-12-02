@@ -275,7 +275,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.InfoPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.InfoPanel.BorderColor = System.Drawing.Color.LightGray;
             this.InfoPanel.BorderRadius = 1;
-            this.InfoPanel.BorderThickness = 1;
+            this.InfoPanel.BorderThickness = 2;
             this.InfoPanel.Controls.Add(LabelTenMH);
             this.InfoPanel.Controls.Add(this.TextTenMH);
             this.InfoPanel.Controls.Add(LabelMaMH);
@@ -388,6 +388,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonRedo.Size = new System.Drawing.Size(37, 32);
             this.buttonRedo.TabIndex = 2;
             this.toolTip1.SetToolTip(this.buttonRedo, "Làm lại hành động đã lưu gần nhất");
+            this.buttonRedo.Visible = false;
             // 
             // buttonUndo
             // 
@@ -411,6 +412,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonUndo.Size = new System.Drawing.Size(37, 32);
             this.buttonUndo.TabIndex = 2;
             this.toolTip1.SetToolTip(this.buttonUndo, "Hoàn tác hành động đã lưu gần nhất");
+            this.buttonUndo.Visible = false;
             // 
             // MonHocTableAdapter
             // 

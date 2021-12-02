@@ -150,19 +150,16 @@
   <metadata name="LopBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>652, 17</value>
   </metadata>
-  <metadata name="Khoa2BindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>556, 146</value>
-  </metadata>
   <metadata name="SinhVienBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>833, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="bunifuSeparator1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAABlYAAAANCAYAAADbqlOAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAACDSURBVHhe7duxCQAwDANB7T9RmoA3c5r0SW3u4KcQCgAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADrF0tSZIkSZIkSZKkd4YVSZIkSZIkSZKkz+5vBQAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADGSw5o3plJVfj8ZwAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAABhUAAAANCAYAAACuJ+8jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAACASURBVHhe7duxCQAgEATB678iE+E708Rc05cZ2CqOCwAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQFtj1pIkSZIkSZIkSbplVJAkSZIkSZIkSU+dvwIAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMCXkg1IaPjDqPa2xAAAAABJRU5ErkJggg==
 </value>
   </data>
   <metadata name="LopTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -179,17 +176,17 @@
   </metadata>
   <data name="bunifuPanel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAABagAAAAwCAYAAAD0KZ3YAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAILSURBVHhe7dqxbYRAFEXRKcWluAK3SWDBDIFTt0BGuCIj
-        cIIrwMYisbThsi85TzrZr+DqFzMzMzMzMzMzMzOz2Lque6m1vv9uBwAAAACAq7TWPo4mfebpUsZx/Jym
-        ad+2DQAAAAAALjPP815rvZ15upSjWt87BAAAAACARzua9JmnBWoAAAAAAJ5HoAYAAAAAIEKgBgAAAAAg
-        QqAGAAAAACBCoAYAAAAAIEKgBgAAAAAgQqAGAAAAACBCoAYAAAAAIEKgBgAAAAAgQqAGAAAAACBCoAYA
-        AAAAIEKgBgAAAAAgQqAGAAAAACBCoAYAAAAAIEKgBgAAAAAgQqAGAAAAACBCoAYAAAAAIEKgBgAAAAAg
-        QqAGAAAAACBCoAYAAAAAIEKgBgAAAAAgQqAGAAAAACBCoAYAAAAAIEKgBgAAAAAgQqAGAAAAACBCoAYA
-        AAAAIEKgBgAAAAAgQqAGAAAAACBCoAYAAAAAIEKgBgAAAAAgQqAGAAAAACBCoAYAAAAAIEKgBgAAAAAg
-        QqAGAAAAACBCoAYAAAAAIEKgBgAAAAAgQqAGAAAAACBCoAYAAAAAIEKgBgAAAAAgQqAGAAAAACBCoAYA
-        AAAAIOJfoK613pZluXsIAAAAAACPsq7r3vf995mn/z6oX4dh+DqqNQAAAAAAXOWI0621tzNPm5mZmZmZ
-        mZmZmZk9e6X8AH7CXxPkUSjKAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAABWcAAAAwCAYAAAB9ncj0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAH+SURBVHhe7dqxbYRAFEXRKcWluAK3SWDBDIFTt0BGuCIj
+        cIIrwMYisbThsi85TzrZr+DqFzMzMzMzMzMzMzMLreu6l1rr++92AAAAAACu0Vr7OHrsmWZLGcfxc5qm
+        fds2AAAAAAAuMs/zXmu9nWm2lKPY3jsEAAAAAOCxjh57pllxFgAAAADgWcRZAAAAAIAAcRYAAAAAIECc
+        BQAAAAAIEGcBAAAAAALEWQAAAACAAHEWAAAAACBAnAUAAAAACBBnAQAAAAACxFkAAAAAgABxFgAAAAAg
+        QJwFAAAAAAgQZwEAAAAAAsRZAAAAAIAAcRYAAAAAIECcBQAAAAAIEGcBAAAAAALEWQAAAACAAHEWAAAA
+        ACBAnAUAAAAACBBnAQAAAAACxFkAAAAAgABxFgAAAAAgQJwFAAAAAAgQZwEAAAAAAsRZAAAAAIAAcRYA
+        AAAAIECcBQAAAAAIEGcBAAAAAALEWQAAAACAAHEWAAAAACBAnAUAAAAACBBnAQAAAAACxFkAAAAAgABx
+        FgAAAAAgQJwFAAAAAAgQZwEAAAAAAsRZAAAAAIAAcRYAAAAAIECcBQAAAAAIEGcBAAAAAAL+xdla621Z
+        lruHAAAAAAA8xrque9/332ea/fucfR2G4esotgAAAAAAXOMIs621tzPNmpmZmZmZmZmZmdlzV8oPvLVJ
+        6wiKIQAAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="MaLopEP.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using TracNghiemCSDLPT.Others;
@@ -285,11 +286,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             _selectedRowLop = LopBindingSource.Position;
             //  InfoPanel.Enabled = true;
             ComboMaKH.Enabled = TextTenLop.Enabled = TextMaLop.Enabled = true;
-            InfoPanel.ForeColor = TextMaLop.ForeColor =
+            TextMaLop.ForeColor =
                 TextTenLop.ForeColor = ComboMaKH.ForeColor = Utils.ActiveColor;
 
-            InfoPanel.Text = "Thêm mới thông tin lớp";
-
+            Utils.ConfigInfoPanelAppearance(InfoPanel, "Thêm mới thông tin lớp", Utils.AddColor);
             SetIdleButtonEnabledLop(false);
             SetInputButtonEnabledLop(true);
 
@@ -317,7 +317,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.LopTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.LopTableAdapter.Fill(this.TN_CSDLPTDataSet.LOP);
 
-            InfoPanel.Text = "Thông tin lớp";
+            Utils.ConfigInfoPanelAppearance(InfoPanel, "Thông tin lớp", Utils.DisabledColor);
             if (_state == State.AddLop)
                 LopBindingSource.Position = _selectedRowLop;
 
@@ -359,8 +359,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             TextMaLop.Text = TextMaLop.Text.Trim();
 
-            InfoPanel.Text = "Sửa thông tin lớp";
-
+            Utils.ConfigInfoPanelAppearance(InfoPanel, "Sửa thông tin lớp", Utils.EditColor);
             SetIdleButtonEnabledLop(false);
             SetInputButtonEnabledLop(true);
             SetSvState(false);
@@ -564,7 +563,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
                 _state = State.Idle;
 
-                InfoPanel.Text = "Thông tin lớp";
+                Utils.ConfigInfoPanelAppearance(InfoPanel, "Thông tin lớp", Utils.DisabledColor);
                 Utils.SetTextEditError(MaLopEP, TextMaLop, null);
                 Utils.SetTextEditError(TenLopEP, TextTenLop, null);
                 SetSvState(true);
@@ -914,6 +913,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 catch (Exception ex)
                 {
                     Utils.ShowErrorMessage("Không thể lưu thông tin sinh viên, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi ghi sinh viên");
+                    Debug.Assert(false);
                     return;
                 }
                 SetLopState(true);

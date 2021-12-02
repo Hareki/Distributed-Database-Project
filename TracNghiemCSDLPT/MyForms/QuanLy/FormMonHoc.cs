@@ -76,19 +76,20 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void SetIdleButtonEnabled(bool state)
         {
-            buttonThem.Enabled = buttonXoa.Enabled = buttonUndo.Enabled = buttonRedo.Enabled =
+          //  buttonUndo.Enabled = buttonRedo.Enabled
+            buttonThem.Enabled = buttonXoa.Enabled  =
                  buttonSua.Enabled = state;
             if (Utils.IsTruong()) buttonLamMoi.Enabled = true;
             else buttonLamMoi.Enabled = state;
 
-            if (state == false)
-            {
-                buttonUndo.BackColor = buttonRedo.BackColor = Color.FromArgb(247, 247, 247);
-            }
-            else
-            {
-                buttonUndo.BackColor = buttonRedo.BackColor = Color.FromArgb(240, 240, 240);
-            }
+            //if (state == false)
+            //{
+            //    buttonUndo.BackColor = buttonRedo.BackColor = Color.FromArgb(247, 247, 247);
+            //}
+            //else
+            //{
+            //    buttonUndo.BackColor = buttonRedo.BackColor = Color.FromArgb(240, 240, 240);
+            //}
         }
         private void SetInputButtonEnabled(bool state)
         {
@@ -100,7 +101,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             _selectedRow = MonHocBindingSource.Position;
             InfoPanel.Enabled = true;
-            InfoPanel.ForeColor = TextMaMH.ForeColor =
+            TextMaMH.ForeColor =
                 TextTenMH.ForeColor = _activeForeColor;
 
             //InfoPanel.Text = "Thêm mới thông tin môn học";

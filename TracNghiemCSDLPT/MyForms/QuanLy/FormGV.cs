@@ -145,10 +145,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void CoSoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CoSoComboBox.SelectedValue.ToString() == "System.Data.DataRowView")
+            if (CoSoComboBox.SelectedValue.ToString().Trim() == "System.Data.DataRowView")
                 return;
             string login, pass;
-            string serverName = CoSoComboBox.SelectedValue.ToString();
+            string serverName = CoSoComboBox.SelectedValue.ToString().Trim();
             if (CoSoComboBox.SelectedIndex != DBConnection.IndexCS)//Không cần check loginGV, vì ko bao giờ hiện CB này
             {
                 login = DBConnection.RemoteLogin;
@@ -337,11 +337,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         private string GetCellAtRowGv(GridColumn column, int row)
         {
-            return GVGridView.GetRowCellValue(row, column).ToString();
+            return GVGridView.GetRowCellValue(row, column).ToString().Trim();
         }
         private string GetCellAtFRowGv(GridColumn column)
         {
-            return GVGridView.GetRowCellValue(GVGridView.FocusedRowHandle, column).ToString();
+            return GVGridView.GetRowCellValue(GVGridView.FocusedRowHandle, column).ToString().Trim(); ;
         }
         private void buttonSuaGV_Click(object sender, EventArgs e)
         {
@@ -362,7 +362,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             try
             {
-                _saveMaKhForReset = (KhoaBindingSource[KhoaBindingSource.Position] as DataRowView)["MAKH"].ToString();
+                _saveMaKhForReset = (KhoaBindingSource[KhoaBindingSource.Position] as DataRowView)["MAKH"].ToString().Trim();
                 LoadAllData();
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
                 //  GobackAfterReset();
@@ -429,7 +429,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             if (KhoaBindingSource.Position >= 0)
             {
-                string maKhoa = (KhoaBindingSource[KhoaBindingSource.Position] as DataRowView)["MAKH"].ToString();
+                string maKhoa = (KhoaBindingSource[KhoaBindingSource.Position] as DataRowView)["MAKH"].ToString().Trim();
                 ViewCaption.Text = "Danh sách giảng viên thuộc khoa " + maKhoa.Trim();
             }
 
@@ -459,7 +459,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             {
                 try
                 {
-                    removedGv = ((DataRowView)GVBindingSource[_selectedRowGv])["MAGV"].ToString();
+                    removedGv = ((DataRowView)GVBindingSource[_selectedRowGv])["MAGV"].ToString().Trim();
                     GVBindingSource.RemoveCurrent();
                     GVTableAdapter.Update(TN_CSDLPTDataSet.GIAOVIEN);
 

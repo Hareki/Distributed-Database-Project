@@ -55,7 +55,14 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             TextMatKhau.UseSystemPasswordChar = TextXacNhan.UseSystemPasswordChar = true;
             PhanQuyen();
         }
-
+        private void ClearErrors()
+        {
+            LookUpEP.SetError(LookUpGV, null);
+            AccTypeEP.SetError(panelCSGV, null);
+            TenDangNhapEP.SetError(TextTenDangNhap, null);
+            XacNhanEP.SetError(TextXacNhan, null);
+            MatKhauEP.SetError(TextMatKhau, null);
+        }
         private void buttonDangKy_Click(object sender, EventArgs e)
         {
             bool test1 = LookUpGV.EditValue is null;
@@ -88,6 +95,10 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
                 if (test5 && !test3)
                     TenDangNhapEP.SetError(TextTenDangNhap, "Tên tài khoản chỉ được chứa ký tự '_', '.' chữ và số");
                 return;
+            }
+            else
+            {
+                ClearErrors();
             }
             string loginName = TextTenDangNhap.Text.Trim();
             string password = TextMatKhau.Text;
@@ -142,6 +153,7 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
 
             }
             Utils.ShowMessage("Đăng ký thành công!", Others.NotiForm.FormType.Success, 1);
+            ClearErrors();
 
 
         }

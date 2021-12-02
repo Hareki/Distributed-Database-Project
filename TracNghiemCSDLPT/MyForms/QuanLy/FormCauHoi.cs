@@ -415,11 +415,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             string trinhDo = GetTrinhDo();
 
             bool test7 = false;
-            if (!int.TryParse(textMaCH.Text, out int maCh))
-            {
-                test7 = true;
-            }
-            else if (maCh <= 0)
+            int maCh = (int)textMaCH.Value;
+            if (maCh <= 0)
             {
                 test7 = true;
             }
@@ -457,6 +454,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     Utils.SetTextEditError(maCHEP, textMaCH, null);
                 Utils.ShowMessage("Vui lòng điền đầy đủ thông tin cần thiết", Others.NotiForm.FormType.Error, 2);
                 return;
+            }
+            else
+            {
+                ClearError();
             }
 
             bool testMaCh = false;

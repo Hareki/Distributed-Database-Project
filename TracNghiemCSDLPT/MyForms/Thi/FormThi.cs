@@ -193,7 +193,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             for (int i = 0; i < summaryGridView.RowCount; i++)
             {
                 SummaryItem item = (summaryGridView.GetRow(i) as SummaryItem);
-                if (item.DaChon.Equals(string.Empty))
+                if (item.DaChon.Equals(string.Empty) || item.DaChon.Equals(" "))
                 {
                     result += item.STT + ", ";
                 }
@@ -1033,6 +1033,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 }
             }
             double mark = ((double)soCauDung * ((double)10 / (double)soCauThi));
+           // mark = Math.Round(mark / (double)5, 1) * 5;
             mark = Math.Round((double)mark, 1);
             double[] result = { mark, soCauDung };
             return result;

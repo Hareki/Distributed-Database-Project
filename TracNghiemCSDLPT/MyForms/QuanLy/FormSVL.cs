@@ -436,6 +436,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             detailView.MakeRowVisible(detailView.RowCount - 1);
         }
 
+        private void ClearLopErrors()
+        {
+            Utils.SetTextEditError(MaLopEP, TextMaLop, null);
+            Utils.SetTextEditError(TenLopEP, TextTenLop, null);
+        }
         private void GobackAfterReset()
         {//lỗi dòng cuối, chưa chạy dc
             GridView detailView;
@@ -460,8 +465,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         private void ButtonXacNhanLop_Click(object sender, EventArgs e)
         {
-            TextMaLop.Text = TextMaLop.Text.Trim();
-            TextTenLop.Text = Utils.CapitalizeString
+            string maLop = TextMaLop.Text = TextMaLop.Text.Trim();
+            string tenLop = TextTenLop.Text = Utils.CapitalizeString
                 (TextTenLop.Text, Utils.CapitalMode.FirstWordOnly);
             bool test1 = string.IsNullOrEmpty(TextTenLop.Text);
             bool test2 = string.IsNullOrEmpty(TextMaLop.Text);
@@ -480,12 +485,39 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 Utils.ShowMessage("Vui lòng điền đầy đủ thông tin cần thiết", Others.NotiForm.FormType.Error, 2);
                 return;
             }
+            else
+            {
+                ClearLopErrors();
+            }
             if (TextMaLop.Text.Length > 8)
             {
                 Utils.ShowMessage("Mã lớp không được quá 8 ký tự", Others.NotiForm.FormType.Warning, 2);
                 Utils.SetTextEditError(MaLopEP, TextMaLop, "Mã lớp không được quá 8 ký tự");
                 return;
             }
+            bool test3 = !Utils.IsMathRegex(maLop, Utils.RegexType.IDRegex);
+            bool test4 = !Utils.IsMathRegex(tenLop, Utils.RegexType.LetterDigits);
+
+            if (test3 || test4)
+            {
+                if (test3)
+                    Utils.SetTextEditError(MaLopEP, TextMaLop, "Mã lớp chỉ được chứa chữ không dấu và số");
+                else
+                    Utils.SetTextEditError(MaLopEP, TextMaLop, null);
+                if (test4)
+                    Utils.SetTextEditError(TenLopEP, TextTenLop, "Tên lớp chỉ được chứa chữ và số");
+                else
+                    Utils.SetTextEditError(TenLopEP, TextTenLop, null);
+
+
+                Utils.ShowMessage("Vui lòng điền thông tin hợp lệ", Others.NotiForm.FormType.Error, 2);
+                return;
+            }
+            else
+            {
+                ClearLopErrors();
+            }
+
             test1 = test2 = false;
             if (!_origMaLop.ToLower().Equals(TextMaLop.Text.ToLower()))
                 test1 = AlreadyExistsLop(TextMaLop.Text, true);
@@ -505,6 +537,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
                 Utils.ShowMessage("Thông tin vừa nhập đã tồn tại", Others.NotiForm.FormType.Error, 2);
                 return;
+            }
+            else
+            {
+                ClearLopErrors();
             }
             try
             {
@@ -617,82 +653,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             SinhVienGridView.SetRowCellValue(row, column, value);
         }
 
-        private void SinhVienGridView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
-        {
-
-            //String maSV = getCellAtFRowSV(colMASV);
-            //String ho = getCellAtFRowSV(colHO);
-            //String ten = getCellAtFRowSV(colTEN);
-            //bool maError = false, hoError = false, tenError = false;
-            //ho = Utils.CapitalizeString(ho, Utils.CapitalMode.EveryWord);
-            //ten = Utils.CapitalizeString(ten, Utils.CapitalMode.EveryWord);
-            //if (string.IsNullOrEmpty(maSV))
-            //{
-            //    SinhVienGridView.SetColumnError(colMASV, "Vui lòng nhập mã sinh viên");
-            //    e.Valid = canSaveSV = false;
-            //    maError = true;
-
-            //}
-            //if (maSV.Length > 8)
-            //{
-            //    SinhVienGridView.SetColumnError(colMASV, "Mã sinh viên không vượt quá 8 ký tự");
-            //    e.Valid = canSaveSV = false;
-            //    maError = true;
-
-            //}
-
-
-            //bool test1 = false;
-            //if (!origMaSV.ToLower().Trim().Equals(maSV.Trim()))
-            //    test1 = AlreadyExistsSV(maSV);
-
-            //if (test1)
-            //{
-            //    SinhVienGridView.SetColumnError(colMASV, "Mã sinh viên đã tồn tại");
-            //    e.Valid = false;
-            //    maError = true;
-            //}
-            //if (!maError)
-            //    SinhVienGridView.SetColumnError(colMASV, null);
-
-
-            //if (string.IsNullOrEmpty(ho))
-            //{
-            //    SinhVienGridView.SetColumnError(colHO, "Vui lòng nhập họ và tên đệm sinh viên");
-            //    e.Valid = false;
-            //    hoError = true;
-            //}
-            //if (!Utils.IsMathRegex(ho, Utils.RegexType.LetterOnly))
-            //{
-            //    SinhVienGridView.SetColumnError(colHO, "Họ, tên đệm của SV chỉ được chứa chữ");
-            //    e.Valid = false;
-            //    hoError = true;
-            //}
-
-            //if (!hoError)
-            //    SinhVienGridView.SetColumnError(colHO, null);
-
-
-            //if (string.IsNullOrEmpty(ten))
-            //{
-
-            //    SinhVienGridView.SetColumnError(colTEN, "Vui lòng nhập tên sinh viên");
-            //    e.Valid = false;
-            //    tenError = true;
-            //}
-            //if (!Utils.IsMathRegex(ten, Utils.RegexType.LetterOnly))
-            //{
-            //    SinhVienGridView.SetColumnError(colTEN, "Tên của SV chỉ được chứa chữ");
-            //    e.Valid = false;
-            //    tenError = true;
-            //}
-            //if (!tenError)
-            //    SinhVienGridView.SetColumnError(colTEN, null);
-
-
-            //canSaveSV = e.Valid;
-
-        }
 
         private string ValidateMaSV(string maSv)
         {
@@ -700,6 +660,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 return "Vui lòng nhập mã sinh viên";
             if (maSv.Length > 8)
                 return "Mã sinh viên không vượt quá 8 ký tự";
+            if (!Utils.IsMathRegex(maSv, Utils.RegexType.IDRegex))
+                return "Mã sinh viên chỉ được chứa chữ không dấu và số";
 
             bool test1 = false;
             if (!_origMaSV.Trim().Equals(maSv.Trim()))
@@ -988,7 +950,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void SinhVienGridView_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
         {
-            if(_state == State.AddSv || _state == State.EditSv)
+            if (_state == State.AddSv || _state == State.EditSv)
                 e.Allow = false;
         }
     }

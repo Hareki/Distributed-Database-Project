@@ -68,7 +68,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textMaCH = new DevExpress.XtraEditors.TextEdit();
+            this.textMaCH = new DevExpress.XtraEditors.SpinEdit();
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.label13 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -728,11 +728,20 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // textMaCH
             // 
             this.textMaCH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.BoDeBindingSource, "CAUHOI", true));
-            this.textMaCH.Location = new System.Drawing.Point(177, 60);
+            this.textMaCH.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.textMaCH.Location = new System.Drawing.Point(182, 60);
             this.textMaCH.Name = "textMaCH";
             this.textMaCH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.textMaCH.Properties.Appearance.Options.UseFont = true;
-            this.textMaCH.Size = new System.Drawing.Size(139, 34);
+            this.textMaCH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.textMaCH.Properties.IsFloatValue = false;
+            this.textMaCH.Properties.MaskSettings.Set("mask", "N00");
+            this.textMaCH.Size = new System.Drawing.Size(101, 34);
             this.textMaCH.TabIndex = 22;
             // 
             // separatorControl1
@@ -741,10 +750,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             | System.Windows.Forms.AnchorStyles.Right)));
             this.separatorControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.separatorControl1.LineOrientation = System.Windows.Forms.Orientation.Vertical;
-            this.separatorControl1.Location = new System.Drawing.Point(382, 4);
+            this.separatorControl1.Location = new System.Drawing.Point(403, 4);
             this.separatorControl1.Name = "separatorControl1";
             this.separatorControl1.Padding = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.separatorControl1.Size = new System.Drawing.Size(25, 93);
+            this.separatorControl1.Size = new System.Drawing.Size(25, 91);
             this.separatorControl1.TabIndex = 21;
             // 
             // label13
@@ -1443,7 +1452,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private System.Windows.Forms.ErrorProvider choiceCEP;
         private System.Windows.Forms.ErrorProvider choiceDEP;
         private System.Windows.Forms.ErrorProvider maCHEP;
-        private DevExpress.XtraEditors.TextEdit textMaCH;
         private System.Windows.Forms.BindingSource BaiThiBindingSource;
         private TN_CSDLPTDataSetTableAdapters.BAITHITableAdapter BaiThiTableAdapter;
         private Guna.UI2.WinForms.Guna2Button buttonHuy;
@@ -1452,5 +1460,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private System.Windows.Forms.ToolTip toolTip2;
         private Guna.UI2.WinForms.Guna2PictureBox tipXoa;
         private Guna.UI2.WinForms.Guna2PictureBox tipSua;
+        private DevExpress.XtraEditors.SpinEdit textMaCH;
     }
 }

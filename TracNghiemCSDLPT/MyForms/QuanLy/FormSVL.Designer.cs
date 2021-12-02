@@ -706,7 +706,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.SinhVienGridView.ShownEditor += new System.EventHandler(this.SinhVienGridView_ShownEditor);
             this.SinhVienGridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.SinhVienGridView_FocusedRowChanged);
             this.SinhVienGridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.SinhVienGridView_InvalidRowException);
-            this.SinhVienGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.SinhVienGridView_ValidateRow);
+           
             // 
             // colMASV
             // 

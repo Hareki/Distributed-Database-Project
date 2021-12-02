@@ -263,7 +263,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 return "Vui lòng nhập mã giảng viên";
             if (maGV.Length > 8)
                 return "Mã giảng viên không vượt quá 8 ký tự";
-
+            if (!Utils.IsMathRegex(maGV, Utils.RegexType.IDRegex))
+                return "Mã giảng viên chỉ được chứa chữ không dấu và số";
             bool test1 = false;
             if (!_origMaGv.Trim().Equals(maGV.Trim()))
             {

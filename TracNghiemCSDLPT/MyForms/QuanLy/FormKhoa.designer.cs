@@ -347,9 +347,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.TextMaCS.Enabled = false;
             this.TextMaCS.Location = new System.Drawing.Point(397, 195);
             this.TextMaCS.Name = "TextMaCS";
-            this.TextMaCS.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
+            this.TextMaCS.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextMaCS.Properties.Appearance.Options.UseFont = true;
-            this.TextMaCS.Size = new System.Drawing.Size(288, 34);
+            this.TextMaCS.Size = new System.Drawing.Size(288, 38);
             this.TextMaCS.TabIndex = 8;
             // 
             // KhoaBindingSource
@@ -367,10 +367,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.TextTenKhoa.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.KhoaBindingSource, "TENKH", true));
             this.TextTenKhoa.Location = new System.Drawing.Point(397, 138);
             this.TextTenKhoa.Name = "TextTenKhoa";
-            this.TextTenKhoa.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
+            this.TextTenKhoa.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextTenKhoa.Properties.Appearance.Options.UseFont = true;
             this.TextTenKhoa.Properties.MaxLength = 50;
-            this.TextTenKhoa.Size = new System.Drawing.Size(288, 34);
+            this.TextTenKhoa.Size = new System.Drawing.Size(288, 38);
             this.TextTenKhoa.TabIndex = 7;
             // 
             // TextMaKhoa
@@ -378,10 +378,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.TextMaKhoa.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.KhoaBindingSource, "MAKH", true));
             this.TextMaKhoa.Location = new System.Drawing.Point(397, 81);
             this.TextMaKhoa.Name = "TextMaKhoa";
-            this.TextMaKhoa.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
+            this.TextMaKhoa.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextMaKhoa.Properties.Appearance.Options.UseFont = true;
             this.TextMaKhoa.Properties.MaxLength = 8;
-            this.TextMaKhoa.Size = new System.Drawing.Size(288, 34);
+            this.TextMaKhoa.Size = new System.Drawing.Size(288, 38);
             this.TextMaKhoa.TabIndex = 5;
             // 
             // pictureBox1

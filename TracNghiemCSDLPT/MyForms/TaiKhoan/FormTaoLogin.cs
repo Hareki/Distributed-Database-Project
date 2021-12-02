@@ -63,7 +63,7 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             bool test3 = string.IsNullOrEmpty(TextTenDangNhap.Text);
             bool test4 = !TextMatKhau.Text.Equals(TextXacNhan.Text) || string.IsNullOrEmpty(TextMatKhau.Text);
             bool test5 = !Utils.IsMathRegex(TextTenDangNhap.Text, Utils.RegexType.LoginNameRegex);
-            if (test1 || test2 || test3 || test4)
+            if (test1 || test2 || test3 || test4 || test5)
             {
                 Utils.ShowMessage("Vui lòng xem lại thông tin đã nhập", Others.NotiForm.FormType.Error, 2);
                 if (test1)
@@ -86,7 +86,7 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
                     MatKhauEP.SetError(TextMatKhau, null);
                 }
                 if (test5 && !test3)
-                    TenDangNhapEP.SetError(TextTenDangNhap, "Tên tài khoản chỉ được chứa ký tự '/', '.' chữ và số");
+                    TenDangNhapEP.SetError(TextTenDangNhap, "Tên tài khoản chỉ được chứa ký tự '_', '.' chữ và số");
                 return;
             }
             string loginName = TextTenDangNhap.Text.Trim();

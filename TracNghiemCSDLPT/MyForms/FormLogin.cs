@@ -21,7 +21,7 @@ namespace TracNghiemCSDLPT.MyForms
         {
             InitializeComponent();
             InitializeUI();
-            AutoFilledSV();
+            AutoFilledCS();
         }
         public StateProperties ErrorState;
         private Color _errorColor = Color.FromArgb(236, 65, 52);
@@ -382,7 +382,9 @@ namespace TracNghiemCSDLPT.MyForms
         protected override void DrawBackground(GraphicsCache cache)
         {
             base.DrawBackground(cache);
-            cache.FillRectangle(Color.FromArgb(255, 255, 255), CaptionBounds);
+            Rectangle bounds = new Rectangle(this.CaptionBounds.X + 1, this.CaptionBounds.Y,
+                this.CaptionBounds.Width - 2, this.CaptionBounds.Height);
+            cache.FillRectangle(Color.FromArgb(255, 255, 255), bounds);
         }
     }
 }

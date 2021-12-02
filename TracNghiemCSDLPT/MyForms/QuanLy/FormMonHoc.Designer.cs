@@ -300,7 +300,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.TextTenMH.Location = new System.Drawing.Point(373, 141);
             this.TextTenMH.Name = "TextTenMH";
             this.TextTenMH.Properties.Appearance.BorderColor = System.Drawing.Color.Silver;
-            this.TextTenMH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextTenMH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextTenMH.Properties.Appearance.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.TextTenMH.Properties.Appearance.Options.UseBorderColor = true;
             this.TextTenMH.Properties.Appearance.Options.UseFont = true;
@@ -315,7 +315,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.TextMaMH.Location = new System.Drawing.Point(373, 78);
             this.TextMaMH.Name = "TextMaMH";
             this.TextMaMH.Properties.Appearance.BorderColor = System.Drawing.Color.Silver;
-            this.TextMaMH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextMaMH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextMaMH.Properties.Appearance.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.TextMaMH.Properties.Appearance.Options.UseBorderColor = true;
             this.TextMaMH.Properties.Appearance.Options.UseFont = true;

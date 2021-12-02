@@ -43,11 +43,12 @@ namespace TracNghiemCSDLPT
 
         public enum RegexType
         {
-            LetterDigits, LetterOnly, LoginNameRegex
+            LetterDigits, LetterOnly, LoginNameRegex, IDRegex
         }
         private static Regex _letterDigitsRegex = new Regex(@"^[\p{L}\s0-9]*$");
         private static Regex _letterOnlyRegex = new Regex(@"^[\p{L}\s]*$");
         private static Regex _loginNameRegex = new Regex(@"^[._A-Za-z0-9]*$");
+        private static Regex _idRegex = new Regex(@"^[A-Za-z0-9]*$");
         public static bool IsMathRegex(string testString, RegexType type)
         {
             switch (type)
@@ -58,6 +59,8 @@ namespace TracNghiemCSDLPT
                     return _letterOnlyRegex.IsMatch(testString);
                 case RegexType.LoginNameRegex:
                     return _loginNameRegex.IsMatch(testString);
+                case RegexType.IDRegex:
+                    return _idRegex.IsMatch(testString); 
                 default:
                     return false;
             }
@@ -65,7 +68,7 @@ namespace TracNghiemCSDLPT
 
         public enum CapitalMode
         {
-            FirstWordOnly, EveryWord
+            FirstWordOnly, EveryWord//every word = chuẩn hóa tên riêng, chỉ cho phép viết hoa đầu mỗi từ, FirstWord only = chuẩn hóa chính tả, viết hoa chữ cái đầu của string
         }
         public static string CapitalizeString(string name, CapitalMode mode)
         {

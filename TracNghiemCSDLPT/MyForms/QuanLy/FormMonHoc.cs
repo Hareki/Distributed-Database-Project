@@ -54,7 +54,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         private void LoadAllData()
         {
-           
+
             this.MonHocTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.BoDeTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.GV_DKTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
@@ -71,7 +71,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             LoadAllData();
             CheckButtonState();
             PhanQuyen();
-      //      Utils.ConfigControlColor(InfoPanel);
+            //      Utils.ConfigControlColor(InfoPanel);
         }
 
         private void SetIdleButtonEnabled(bool state)
@@ -239,15 +239,15 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 }
                 return myReader.HasRows;
             }
-                
+
         }
         private void buttonXacNhan_Click(object sender, EventArgs e)
         {
-            TextMaMH.Text = TextMaMH.Text.Trim();
-            TextTenMH.Text = Utils.CapitalizeString
+            string maMh = TextMaMH.Text = TextMaMH.Text.Trim();
+            string tenMh = TextTenMH.Text = Utils.CapitalizeString
                 (TextTenMH.Text, Utils.CapitalMode.FirstWordOnly);
-            bool test1 = string.IsNullOrEmpty(TextMaMH.Text);
-            bool test2 = string.IsNullOrEmpty(TextTenMH.Text);
+            bool test1 = string.IsNullOrEmpty(maMh);
+            bool test2 = string.IsNullOrEmpty(tenMh);
             if (test1 || test2)
             {
                 if (test1)
@@ -263,18 +263,49 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 Utils.ShowMessage("Vui lòng điền đầy đủ thông tin cần thiết", Others.NotiForm.FormType.Error, 2);
                 return;
             }
-            if (TextMaMH.Text.Length > 5)
+            else
+            {
+                ClearErrors();
+            }
+
+
+
+            if (maMh.Length > 5)
             {
                 Utils.ShowMessage("Mã môn học không được quá 5 ký tự", Others.NotiForm.FormType.Warning, 2);
                 Utils.SetTextEditError(MaMHEP, TextMaMH, "Mã môn học không được quá 5 ký tự");
                 return;
             }
-            test1 = test2 = false;
-            if (!_origMaMH.ToLower().Equals(TextMaMH.Text.ToLower()))
-                test1 = AlreadyExists(TextMaMH.Text, true);
 
-            if (!_origTenMh.ToLower().Equals(TextTenMH.Text.ToLower()))
-                test2 = AlreadyExists(TextTenMH.Text, false);
+            bool test3 = !Utils.IsMathRegex(maMh, Utils.RegexType.IDRegex);
+            bool test4 = !Utils.IsMathRegex(tenMh, Utils.RegexType.LetterDigits);
+            if (test3 || test4)
+            {
+                if (test3)
+                    Utils.SetTextEditError(MaMHEP, TextMaMH, "Mã môn học chỉ được chứa chữ không dấu và số");
+                else
+                    Utils.SetTextEditError(MaMHEP, TextMaMH, null);
+                if (test4)
+                    Utils.SetTextEditError(TenMHEP, TextTenMH, "Tên môn học chỉ được chứa chữ và số");
+                else
+                    Utils.SetTextEditError(TenMHEP, TextTenMH, null);
+
+
+                Utils.ShowMessage("Vui lòng điền thông tin hợp lệ", Others.NotiForm.FormType.Error, 2);
+                return;
+            }
+            else
+            {
+                ClearErrors();
+            }
+
+
+            test1 = test2 = false;
+            if (!_origMaMH.ToLower().Equals(maMh.ToLower()))
+                test1 = AlreadyExists(maMh, true);
+
+            if (!_origTenMh.ToLower().Equals(tenMh.ToLower()))
+                test2 = AlreadyExists(tenMh, false);
 
 
             if (test1 || test2)
@@ -291,6 +322,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 Utils.ShowMessage("Thông tin vừa nhập đã tồn tại", Others.NotiForm.FormType.Error, 2);
                 return;
             }
+
 
 
             try

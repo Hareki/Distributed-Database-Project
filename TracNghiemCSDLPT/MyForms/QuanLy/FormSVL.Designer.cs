@@ -30,7 +30,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             System.Windows.Forms.Label mALOPLabel;
             System.Windows.Forms.Label tENLOPLabel;
             System.Windows.Forms.Label mAKHLabel;
@@ -49,8 +49,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
             this.KhoaTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.KHOATableAdapter();
             this.tableAdapterManager = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
-            this.ComboMaKH = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.Khoa2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonLamMoiLop = new Guna.UI2.WinForms.Guna2Button();
             this.buttonSuaLop = new Guna.UI2.WinForms.Guna2Button();
             this.buttonThemLop = new Guna.UI2.WinForms.Guna2Button();
@@ -95,12 +93,17 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             this.BangDiemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BangDiemTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.BANGDIEMTableAdapter();
-            this.lOPBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.Khoa2TableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.KHOA2TableAdapter();
+            this.FKLopKhoaBds = new System.Windows.Forms.BindingSource(this.components);
             this.buttonUndoLop = new Guna.UI2.WinForms.Guna2CircleButton();
             this.buttonRedoLop = new Guna.UI2.WinForms.Guna2CircleButton();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.InfoPanel = new Bunifu.UI.WinForms.BunifuGroupBox();
+            this.ComboMaKH = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.DSKhoaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMAKH2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTENKH1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DSKhoaTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.DSKhoaTableAdapter();
             mALOPLabel = new System.Windows.Forms.Label();
             tENLOPLabel = new System.Windows.Forms.Label();
             mAKHLabel = new System.Windows.Forms.Label();
@@ -109,7 +112,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             ((System.ComponentModel.ISupportInitialize)(this.KhoaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KhoaGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Khoa2BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextTenLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LopBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextMaLop.Properties)).BeginInit();
@@ -128,9 +130,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BangDiemBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FKLopKhoaBds)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.InfoPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ComboMaKH.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSKhoaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // LopGridView
@@ -221,14 +226,14 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             | System.Windows.Forms.AnchorStyles.Right)));
             this.KhoaGridControl.DataSource = this.KhoaBindingSource;
             this.KhoaGridControl.Font = new System.Drawing.Font("Teko SemiBold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            gridLevelNode2.LevelTemplate = this.LopGridView;
-            gridLevelNode2.RelationName = "FK_LOP_KHOA";
+            gridLevelNode1.LevelTemplate = this.LopGridView;
+            gridLevelNode1.RelationName = "FK_LOP_KHOA";
             this.KhoaGridControl.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.KhoaGridControl.Location = new System.Drawing.Point(8, 67);
             this.KhoaGridControl.MainView = this.KhoaGridView;
             this.KhoaGridControl.Name = "KhoaGridControl";
-            this.KhoaGridControl.Size = new System.Drawing.Size(1002, 351);
+            this.KhoaGridControl.Size = new System.Drawing.Size(1016, 351);
             this.KhoaGridControl.TabIndex = 13;
             this.KhoaGridControl.ToolTipController = this.toolTipController1;
             this.KhoaGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -389,33 +394,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.tableAdapterManager.MONHOCTableAdapter = null;
             this.tableAdapterManager.SINHVIENTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // ComboMaKH
-            // 
-            this.ComboMaKH.BackColor = System.Drawing.Color.Transparent;
-            this.ComboMaKH.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.ComboMaKH.DataSource = this.Khoa2BindingSource;
-            this.ComboMaKH.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.ComboMaKH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboMaKH.Enabled = false;
-            this.ComboMaKH.FocusedColor = System.Drawing.Color.Empty;
-            this.ComboMaKH.FocusedState.Parent = this.ComboMaKH;
-            this.ComboMaKH.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ComboMaKH.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ComboMaKH.FormattingEnabled = true;
-            this.ComboMaKH.HoverState.Parent = this.ComboMaKH;
-            this.ComboMaKH.ItemHeight = 30;
-            this.ComboMaKH.ItemsAppearance.Parent = this.ComboMaKH;
-            this.ComboMaKH.Location = new System.Drawing.Point(22, 280);
-            this.ComboMaKH.Name = "ComboMaKH";
-            this.ComboMaKH.ShadowDecoration.Parent = this.ComboMaKH;
-            this.ComboMaKH.Size = new System.Drawing.Size(333, 36);
-            this.ComboMaKH.TabIndex = 20;
-            // 
-            // Khoa2BindingSource
-            // 
-            this.Khoa2BindingSource.DataMember = "KHOA2";
-            this.Khoa2BindingSource.DataSource = this.TN_CSDLPTDataSet;
             // 
             // buttonLamMoiLop
             // 
@@ -609,7 +587,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.SinhVienGridControl.Name = "SinhVienGridControl";
             this.SinhVienGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemDateEdit1});
-            this.SinhVienGridControl.Size = new System.Drawing.Size(1381, 311);
+            this.SinhVienGridControl.Size = new System.Drawing.Size(1395, 328);
             this.SinhVienGridControl.TabIndex = 15;
             this.SinhVienGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.SinhVienGridView,
@@ -769,7 +747,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.panel1.Controls.Add(this.buttonXoaSV);
             this.panel1.Location = new System.Drawing.Point(8, 445);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(155, 357);
+            this.panel1.Size = new System.Drawing.Size(155, 374);
             this.panel1.TabIndex = 16;
             // 
             // buttonLamMoiSV
@@ -787,7 +765,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonLamMoiSV.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.buttonLamMoiSV.ImageOffset = new System.Drawing.Point(-3, 0);
             this.buttonLamMoiSV.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonLamMoiSV.Location = new System.Drawing.Point(9, 268);
+            this.buttonLamMoiSV.Location = new System.Drawing.Point(9, 277);
             this.buttonLamMoiSV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
             this.buttonLamMoiSV.Name = "buttonLamMoiSV";
             this.buttonLamMoiSV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
@@ -813,7 +791,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonThemSV.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.buttonThemSV.ImageOffset = new System.Drawing.Point(-3, 0);
             this.buttonThemSV.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonThemSV.Location = new System.Drawing.Point(9, 43);
+            this.buttonThemSV.Location = new System.Drawing.Point(9, 52);
             this.buttonThemSV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
             this.buttonThemSV.Name = "buttonThemSV";
             this.buttonThemSV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
@@ -839,7 +817,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonSuaSV.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.buttonSuaSV.ImageOffset = new System.Drawing.Point(-3, 0);
             this.buttonSuaSV.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonSuaSV.Location = new System.Drawing.Point(9, 193);
+            this.buttonSuaSV.Location = new System.Drawing.Point(9, 202);
             this.buttonSuaSV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
             this.buttonSuaSV.Name = "buttonSuaSV";
             this.buttonSuaSV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
@@ -865,7 +843,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonXoaSV.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.buttonXoaSV.ImageOffset = new System.Drawing.Point(-3, 0);
             this.buttonXoaSV.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonXoaSV.Location = new System.Drawing.Point(9, 118);
+            this.buttonXoaSV.Location = new System.Drawing.Point(9, 127);
             this.buttonXoaSV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
             this.buttonXoaSV.Name = "buttonXoaSV";
             this.buttonXoaSV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
@@ -902,7 +880,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
             this.bunifuSeparator1.Orientation = Bunifu.UI.WinForms.BunifuSeparator.LineOrientation.Horizontal;
-            this.bunifuSeparator1.Size = new System.Drawing.Size(1557, 13);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(1571, 13);
             this.bunifuSeparator1.TabIndex = 19;
             // 
             // LopTableAdapter
@@ -1015,7 +993,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.ViewCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.ViewCaption.Font = new System.Drawing.Font("Baloo 2", 13.8F, System.Drawing.FontStyle.Bold);
             this.ViewCaption.ForeColor = System.Drawing.Color.Black;
-            this.ViewCaption.Location = new System.Drawing.Point(458, 8);
+            this.ViewCaption.Location = new System.Drawing.Point(465, 8);
             this.ViewCaption.Name = "ViewCaption";
             this.ViewCaption.Size = new System.Drawing.Size(405, 39);
             this.ViewCaption.TabIndex = 29;
@@ -1039,7 +1017,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.bunifuPanel1.Location = new System.Drawing.Point(170, 445);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(1383, 48);
+            this.bunifuPanel1.Size = new System.Drawing.Size(1397, 48);
             this.bunifuPanel1.TabIndex = 31;
             // 
             // buttonUndoSV
@@ -1055,7 +1033,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonUndoSV.HoverState.Parent = this.buttonUndoSV;
             this.buttonUndoSV.Image = global::TracNghiemCSDLPT.Properties.Resources.undo_480px1;
             this.buttonUndoSV.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonUndoSV.Location = new System.Drawing.Point(1250, 10);
+            this.buttonUndoSV.Location = new System.Drawing.Point(1264, 10);
             this.buttonUndoSV.Margin = new System.Windows.Forms.Padding(3, 3, 11, 3);
             this.buttonUndoSV.Name = "buttonUndoSV";
             this.buttonUndoSV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -1076,7 +1054,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonRedoSV.HoverState.Parent = this.buttonRedoSV;
             this.buttonRedoSV.Image = global::TracNghiemCSDLPT.Properties.Resources.redo_480px;
             this.buttonRedoSV.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonRedoSV.Location = new System.Drawing.Point(1325, 10);
+            this.buttonRedoSV.Location = new System.Drawing.Point(1339, 10);
             this.buttonRedoSV.Margin = new System.Windows.Forms.Padding(23, 10, 17, 3);
             this.buttonRedoSV.Name = "buttonRedoSV";
             this.buttonRedoSV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -1101,14 +1079,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.BangDiemTableAdapter.ClearBeforeFill = true;
             // 
-            // lOPBindingSource1
+            // FKLopKhoaBds
             // 
-            this.lOPBindingSource1.DataMember = "FK_LOP_KHOA";
-            this.lOPBindingSource1.DataSource = this.KhoaBindingSource;
-            // 
-            // Khoa2TableAdapter
-            // 
-            this.Khoa2TableAdapter.ClearBeforeFill = true;
+            this.FKLopKhoaBds.DataMember = "FK_LOP_KHOA";
+            this.FKLopKhoaBds.DataSource = this.KhoaBindingSource;
             // 
             // buttonUndoLop
             // 
@@ -1124,7 +1098,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonUndoLop.HoverState.Parent = this.buttonUndoLop;
             this.buttonUndoLop.Image = global::TracNghiemCSDLPT.Properties.Resources.undo_480px1;
             this.buttonUndoLop.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonUndoLop.Location = new System.Drawing.Point(889, 76);
+            this.buttonUndoLop.Location = new System.Drawing.Point(903, 76);
             this.buttonUndoLop.Margin = new System.Windows.Forms.Padding(3, 3, 11, 3);
             this.buttonUndoLop.Name = "buttonUndoLop";
             this.buttonUndoLop.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -1147,7 +1121,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonRedoLop.HoverState.Parent = this.buttonRedoLop;
             this.buttonRedoLop.Image = global::TracNghiemCSDLPT.Properties.Resources.redo_480px;
             this.buttonRedoLop.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonRedoLop.Location = new System.Drawing.Point(960, 76);
+            this.buttonRedoLop.Location = new System.Drawing.Point(974, 76);
             this.buttonRedoLop.Margin = new System.Windows.Forms.Padding(23, 5, 17, 3);
             this.buttonRedoLop.Name = "buttonRedoLop";
             this.buttonRedoLop.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -1179,18 +1153,100 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.InfoPanel.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.InfoPanel.LabelIndent = 10;
             this.InfoPanel.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
-            this.InfoPanel.Location = new System.Drawing.Point(1017, 49);
+            this.InfoPanel.Location = new System.Drawing.Point(1031, 49);
             this.InfoPanel.Name = "InfoPanel";
             this.InfoPanel.Size = new System.Drawing.Size(530, 369);
             this.InfoPanel.TabIndex = 34;
             this.InfoPanel.TabStop = false;
             this.InfoPanel.Text = "Thông tin lớp";
             // 
+            // ComboMaKH
+            // 
+            this.ComboMaKH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ComboMaKH.Enabled = false;
+            this.ComboMaKH.Location = new System.Drawing.Point(22, 280);
+            this.ComboMaKH.Name = "ComboMaKH";
+            this.ComboMaKH.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.ComboMaKH.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.ComboMaKH.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.ComboMaKH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboMaKH.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.ComboMaKH.Properties.Appearance.Options.UseBackColor = true;
+            this.ComboMaKH.Properties.Appearance.Options.UseBorderColor = true;
+            this.ComboMaKH.Properties.Appearance.Options.UseFont = true;
+            this.ComboMaKH.Properties.Appearance.Options.UseForeColor = true;
+            this.ComboMaKH.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.ComboMaKH.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(126)))));
+            this.ComboMaKH.Properties.AppearanceDisabled.Options.UseBackColor = true;
+            this.ComboMaKH.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.ComboMaKH.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
+            this.ComboMaKH.Properties.AppearanceDropDown.Options.UseForeColor = true;
+            this.ComboMaKH.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.ComboMaKH.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Black;
+            this.ComboMaKH.Properties.AppearanceFocused.Options.UseBorderColor = true;
+            this.ComboMaKH.Properties.AppearanceFocused.Options.UseForeColor = true;
+            this.ComboMaKH.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Black;
+            this.ComboMaKH.Properties.AppearanceReadOnly.Options.UseForeColor = true;
+            this.ComboMaKH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ComboMaKH.Properties.DataSource = this.DSKhoaBindingSource;
+            this.ComboMaKH.Properties.DisplayMember = "FullInfo";
+            this.ComboMaKH.Properties.NullText = "Chọn môn thi";
+            this.ComboMaKH.Properties.PopupView = this.gridView1;
+            this.ComboMaKH.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
+            this.ComboMaKH.Size = new System.Drawing.Size(334, 38);
+            this.ComboMaKH.TabIndex = 57;
+            // 
+            // DSKhoaBindingSource
+            // 
+            this.DSKhoaBindingSource.DataMember = "DSKhoa";
+            this.DSKhoaBindingSource.DataSource = this.TN_CSDLPTDataSet;
+            // 
+            // gridView1
+            // 
+            this.gridView1.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(255)))), ((int)(((byte)(215)))));
+            this.gridView1.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold);
+            this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Baloo 2", 12F);
+            this.gridView1.Appearance.Row.ForeColor = System.Drawing.Color.Black;
+            this.gridView1.Appearance.Row.Options.UseFont = true;
+            this.gridView1.Appearance.Row.Options.UseForeColor = true;
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMAKH2,
+            this.colTENKH1});
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsEditForm.PopupEditFormWidth = 361;
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.OptionsView.ShowIndicator = false;
+            // 
+            // colMAKH2
+            // 
+            this.colMAKH2.Caption = "Mã khoa";
+            this.colMAKH2.FieldName = "MAKH";
+            this.colMAKH2.Name = "colMAKH2";
+            this.colMAKH2.Visible = true;
+            this.colMAKH2.VisibleIndex = 0;
+            // 
+            // colTENKH1
+            // 
+            this.colTENKH1.Caption = "Tên khoa";
+            this.colTENKH1.FieldName = "TENKH";
+            this.colTENKH1.Name = "colTENKH1";
+            this.colTENKH1.Visible = true;
+            this.colTENKH1.VisibleIndex = 1;
+            // 
+            // DSKhoaTableAdapter
+            // 
+            this.DSKhoaTableAdapter.ClearBeforeFill = true;
+            // 
             // FormSvl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1559, 805);
+            this.ClientSize = new System.Drawing.Size(1573, 822);
             this.Controls.Add(this.buttonUndoLop);
             this.Controls.Add(this.buttonRedoLop);
             this.Controls.Add(this.CoSoComboBox);
@@ -1210,7 +1266,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             ((System.ComponentModel.ISupportInitialize)(this.KhoaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KhoaGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Khoa2BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextTenLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LopBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextMaLop.Properties)).EndInit();
@@ -1230,10 +1285,13 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BangDiemBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FKLopKhoaBds)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.InfoPanel.ResumeLayout(false);
             this.InfoPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ComboMaKH.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSKhoaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1287,7 +1345,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private System.Windows.Forms.ErrorProvider MaLopEP;
         private System.Windows.Forms.ErrorProvider TenLopEP;
         private System.Windows.Forms.ErrorProvider MaKhoaEP;
-        private Guna.UI2.WinForms.Guna2ComboBox ComboMaKH;
         private System.Windows.Forms.BindingSource GV_DKBindingSource;
         private TN_CSDLPTDataSetTableAdapters.GIAOVIEN_DANGKYTableAdapter GV_DKTableAdapter;
         private System.Windows.Forms.Label ViewCaption;
@@ -1298,14 +1355,18 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private DevExpress.Utils.ToolTipController toolTipController1;
         private System.Windows.Forms.BindingSource BangDiemBindingSource;
         private TN_CSDLPTDataSetTableAdapters.BANGDIEMTableAdapter BangDiemTableAdapter;
-        private System.Windows.Forms.BindingSource lOPBindingSource1;
-        private System.Windows.Forms.BindingSource Khoa2BindingSource;
-        private TN_CSDLPTDataSetTableAdapters.KHOA2TableAdapter Khoa2TableAdapter;
+        private System.Windows.Forms.BindingSource FKLopKhoaBds;
         private Guna.UI2.WinForms.Guna2CircleButton buttonUndoLop;
         private Guna.UI2.WinForms.Guna2CircleButton buttonRedoLop;
         private Guna.UI2.WinForms.Guna2CircleButton buttonUndoSV;
         private Guna.UI2.WinForms.Guna2CircleButton buttonRedoSV;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private Bunifu.UI.WinForms.BunifuGroupBox InfoPanel;
+        private DevExpress.XtraEditors.GridLookUpEdit ComboMaKH;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private System.Windows.Forms.BindingSource DSKhoaBindingSource;
+        private TN_CSDLPTDataSetTableAdapters.DSKhoaTableAdapter DSKhoaTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colMAKH2;
+        private DevExpress.XtraGrid.Columns.GridColumn colTENKH1;
     }
 }

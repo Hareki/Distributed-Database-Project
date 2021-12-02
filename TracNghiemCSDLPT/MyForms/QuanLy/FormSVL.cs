@@ -44,7 +44,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private bool _opened = false;
         private int _selectedRowLop;
         private int _selectedRowSV;
-        private int _saveKhIndex;
+        private DataRowView _saveKhIndex;
 
         private string _origMaLop = "~!@#$%";
         private string _origTenLop = "~!@#$%";
@@ -81,14 +81,14 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.SinhVienTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.GV_DKTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.BangDiemTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.Khoa2TableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.DSKhoaTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
 
             this.KhoaTableAdapter.Fill(this.TN_CSDLPTDataSet.KHOA);
             this.LopTableAdapter.Fill(this.TN_CSDLPTDataSet.LOP);
             this.SinhVienTableAdapter.Fill(this.TN_CSDLPTDataSet.SINHVIEN);
             this.GV_DKTableAdapter.Fill(this.TN_CSDLPTDataSet.GIAOVIEN_DANGKY);
             this.BangDiemTableAdapter.Fill(this.TN_CSDLPTDataSet.BANGDIEM);
-            this.Khoa2TableAdapter.Fill(this.TN_CSDLPTDataSet.KHOA2);
+            this.DSKhoaTableAdapter.Fill(this.TN_CSDLPTDataSet.DSKhoa);
 
             CheckButtonStateLop();
             //    checkButtonStateSV(); lúc nãy chưa có mã lớp, để ở đây sẽ không có dữ liệu
@@ -152,12 +152,15 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.ViewCaption.Text = "Danh sách sinh viên thuộc lớp " + maLop2.Trim();
 
             string maKh = ((DataRowView)LopBindingSource[LopBindingSource.Position])["MAKH"].ToString();
-            Khoa2BindingSource.Position = Khoa2BindingSource.Find("MAKH", maKh);
+            DSKhoaBindingSource.Position = DSKhoaBindingSource.Find("MAKH", maKh);
+            ComboMaKH.EditValue = DSKhoaBindingSource[DSKhoaBindingSource.Position];
             return detailView;
 
         }
         private void FormSVL_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'TN_CSDLPTDataSet.DSKhoa' table. You can move, or remove it, as needed.
+            this.DSKhoaTableAdapter.Fill(this.TN_CSDLPTDataSet.DSKhoa);
 
 
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
@@ -170,9 +173,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
             this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
 
-            //  this.ComboMaKH.DataSource = KhoaBindingSource;
-            this.ComboMaKH.DisplayMember = "TENKH";
-            this.ComboMaKH.ValueMember = "MAKH";
 
             KhoaGridView.ExpandMasterRow(0); // dùng để trigger LopGridView FocusedRochanged
             GridView view = GetCorrTextBoxData(true);
@@ -293,10 +293,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             SetIdleButtonEnabledLop(false);
             SetInputButtonEnabledLop(true);
 
-            _saveKhIndex = ComboMaKH.SelectedIndex;
+            _saveKhIndex = ComboMaKH.EditValue as DataRowView;
             KhoaGridControl.Enabled = false;
             // KhoaBindingSource.SuspendBinding();
-            ComboMaKH.SelectedIndex = 0;
+            ComboMaKH.EditValue = null;
             SetSvState(false);
             _state = State.AddLop;
             LopBindingSource.AddNew();
@@ -311,7 +311,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             KhoaGridControl.Enabled = true;
             // KhoaBindingSource.ResumeBinding();
-            ComboMaKH.SelectedIndex = _saveKhIndex;
+            ComboMaKH.EditValue = _saveKhIndex;
             SetDefaultOrigValueLop();
 
             this.LopTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
@@ -417,7 +417,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private void GoToNewlyCreatedRowLop()
         {
             GridView detailView;
-            int row = KhoaGridView.LocateByDisplayText(0, colMAKH, ComboMaKH.SelectedValue.ToString());
+            int row = KhoaGridView.LocateByDisplayText(0, colMAKH, Utils.GetLookUpValue(ComboMaKH, "MAKH"));
             //Console.WriteLine("Row: " + row);
 
             KhoaGridView.FocusedRowHandle = row;
@@ -459,7 +459,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             detailView.Focus();
 
             //  detailView.FocusedRowHandle = LopBindingSource.Find("MALOP", TextMaLop.Text);
-            detailView.FocusedRowHandle = lOPBindingSource1.Find("MALOP", _saveMaLopForReset);
+            detailView.FocusedRowHandle = FKLopKhoaBds.Find("MALOP", _saveMaLopForReset);
 
         }
         private void ButtonXacNhanLop_Click(object sender, EventArgs e)
@@ -547,7 +547,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 //  KhoaBindingSource.ResumeBinding();
                 //     ComboMaKH.SelectedIndex = saveKHIndex;
                 // TextMaKH.Text = ComboMaKH.SelectedValue.ToString();//truyền giá trị vào để đủ dữ liệu trước khi end edit
-                ((DataRowView)LopBindingSource[LopBindingSource.Position])["MAKH"] = ComboMaKH.SelectedValue.ToString();
+                ((DataRowView)LopBindingSource[LopBindingSource.Position])["MAKH"] = Utils.GetLookUpValue(ComboMaKH, "MAKH");
                 LopBindingSource.EndEdit();
                 LopBindingSource.ResetCurrentItem();
                 this.LopTableAdapter.Update(this.TN_CSDLPTDataSet.LOP);
@@ -808,7 +808,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             try
             {
-                _saveMaKhForReset = ComboMaKH.SelectedValue.ToString();
+                _saveMaKhForReset = Utils.GetLookUpValue(ComboMaKH, "MAKH");
                 _saveMaLopForReset = TextMaLop.Text;
                 LoadAllData();
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);

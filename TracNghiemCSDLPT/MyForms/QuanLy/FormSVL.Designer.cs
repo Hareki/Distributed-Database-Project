@@ -308,6 +308,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.KhoaGridView.ViewCaptionHeight = 50;
             this.KhoaGridView.MasterRowGetRelationDisplayCaption += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationNameEventHandler(this.KhoaGridView_MasterRowGetRelationDisplayCaption);
             this.KhoaGridView.DetailTabStyle += new System.EventHandler<DevExpress.XtraGrid.Views.Grid.DetailTabStyleEventArgs>(this.KhoaGridView_DetailTabStyle);
+            this.KhoaGridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.KhoaGridView_FocusedRowChanged);
             // 
             // colMAKH
             // 

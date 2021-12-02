@@ -138,8 +138,14 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 detailView = KhoaGridView.GetDetailView(0, 0) as GridView;
             else
             {
-                int row = KhoaGridView.GetSelectedRows()[0];
-                detailView = KhoaGridView.GetDetailView(row, 0) as GridView;
+                if (KhoaGridView.GetSelectedRows().Length == 0)
+                    detailView = KhoaGridView.GetDetailView(0, 0) as GridView;
+                else
+                {
+                    int row = KhoaGridView.GetSelectedRows()[0];
+                    detailView = KhoaGridView.GetDetailView(row, 0) as GridView;
+                }
+
             }
             if (detailView is null) return null;
             Object test = (detailView as GridView).GetFocusedRowCellValue(colMALOP1);
@@ -338,6 +344,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 //this.LopTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
                 //this.LopTableAdapter.Fill(this.TN_CSDLPTDataSet.LOP);
                 LoadAllData();
+                this.ComboMaKH.EditValue = this.DSKhoaBindingSource[DSKhoaBindingSource.Position];
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
 
                 CheckButtonStateLop();
@@ -952,6 +959,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             if (_state == State.AddSv || _state == State.EditSv)
                 e.Allow = false;
+        }
+
+        private void KhoaGridView_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
+        {
+            GetCorrTextBoxData(false);
         }
     }
 }

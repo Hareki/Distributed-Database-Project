@@ -28,8 +28,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         State _state = State.Idle;
         List<Guna2CustomRadioButton> _rdoButtons = new List<Guna2CustomRadioButton>();
         private int _selectedRow;
-        private bool _opened = false;
-        private bool _firstTime = true;
         private void SetIdleButtonEnabled(bool state)
         {
             buttonThem.Enabled = buttonXoa.Enabled =
@@ -109,16 +107,13 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 view.Focus();
             CheckButtonState();
             PhanQuyen();
+            //for (int i = 1; i < MonHocGridView.RowCount; i++)
+            //        MonHocGridView.ExpandMasterRow(i);
         }
 
         private void BoDeGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            if (!_opened)
-            {
-                for (int i = 1; i < MonHocGridView.RowCount; i++)
-                    MonHocGridView.ExpandMasterRow(i);
-                _opened = true;
-            }
+
             GetCorrData(false);
         }
 
@@ -327,7 +322,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private string TrimText(Control textEdit)
         {
-            textEdit.Text = textEdit.Text.Trim();
+            textEdit.Text = Utils.RemoveExtraSpace(textEdit.Text);
             return textEdit.Text;
         }
 
@@ -377,25 +372,31 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         }
 
-        private void GoToNewlyCreatedRowCh()
+        private void GoToNewlyCreatedRowCh(string maCauHoi)
         {
             GridView detailView;
             string maMh = Utils.GetLookUpString(MHCombo, "MAMH");
             int row = MonHocGridView.LocateByDisplayText(0, colMAMH, Utils.AddExtraWhiteSpace(maMh, 5));
             MonHocGridView.FocusedRowHandle = row;
+            MonHocGridView.RefreshDetailTab(row);
             MonHocGridView.Focus();
             MonHocGridView.ExpandMasterRow(row);
             detailView = MonHocGridView.GetDetailView(row, 0) as GridView;
             if (detailView is null)
             {
                 Utils.ShowErrorMessage("Lỗi không xác định", "Lỗi");
+
                 Console.WriteLine(System.Environment.StackTrace);
                 return;
             }
 
             detailView.Focus();
-            detailView.FocusedRowHandle = detailView.RowCount - 1;
-            detailView.MakeRowVisible(detailView.RowCount - 1);
+            //detailView.FocusedRowHandle = detailView.RowCount - 1;
+            //detailView.MakeRowVisible(detailView.RowCount - 1);
+
+            int rowToGo = detailView.LocateByDisplayText(0, colCAUHOI, maCauHoi);
+            detailView.FocusedRowHandle = rowToGo;
+            detailView.MakeRowVisible(rowToGo);
 
         }
 
@@ -433,6 +434,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         private void buttonXacNhan_Click(object sender, EventArgs e)
         {
+
+
             bool test1 = string.IsNullOrEmpty(TrimText(textChoiceA));
             bool test2 = string.IsNullOrEmpty(TrimText(textChoiceB));
             bool test3 = string.IsNullOrEmpty(TrimText(textChoiceC));
@@ -490,6 +493,44 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 ClearError();
             }
 
+            bool test8 = textChoiceA.Text.Length > 256;
+            bool test9 = textChoiceB.Text.Length > 256;
+            bool test10 = textChoiceC.Text.Length > 256;
+            bool test11 = textChoiceD.Text.Length > 256;
+            bool test12 = textNoiDung.Text.Length > 300;
+            if (test8 || test9 || test10 || test11 || test12)
+            {
+                if (test8)
+                    Utils.SetTextEditError(choiceAEP, textChoiceA, "Nội dung câu trả lời không vượt quá 256 ký tự");
+                else
+                    Utils.SetTextEditError(choiceAEP, textChoiceA, null);
+                if (test9)
+                    Utils.SetTextEditError(choiceBEP, textChoiceB, "Nội dung câu trả lời không vượt quá 256 ký tự");
+                else
+                    Utils.SetTextEditError(choiceBEP, textChoiceB, null);
+                if (test10)
+                    Utils.SetTextEditError(choiceCEP, textChoiceC, "Nội dung câu trả lời không vượt quá 256 ký tự");
+                else
+                    Utils.SetTextEditError(choiceCEP, textChoiceC, null);
+                if (test11)
+                    Utils.SetTextEditError(choiceDEP, textChoiceD, "Nội dung câu trả lời không vượt quá 256 ký tự");
+                else
+                    Utils.SetTextEditError(choiceDEP, textChoiceD, null);
+                if (test12)
+                    Utils.SetTextEditError(noiDungEP, textNoiDung, "Nội dung câu hỏi không vượt quá 300 ký tự");
+                else
+                    Utils.SetTextEditError(noiDungEP, textNoiDung, null);
+
+                Utils.ShowMessage("Thông tin nhập quá dài", Others.NotiForm.FormType.Error, 1);
+                return;
+            }
+            else
+            {
+                ClearError();
+            }
+
+
+
             bool testMaCh = false;
             if (_origMaCh != maCh)
                 testMaCh = AlreadyExistsCh(maCh);
@@ -541,7 +582,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
                 else if (_state == State.Add)
                 {
-                    GoToNewlyCreatedRowCh();
+                    GoToNewlyCreatedRowCh(maCh.ToString());
                     Utils.ShowMessage("Thêm câu hỏi thành công", Others.NotiForm.FormType.Success, 2);
                 }
 

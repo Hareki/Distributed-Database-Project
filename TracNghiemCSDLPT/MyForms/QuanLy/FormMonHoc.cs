@@ -49,9 +49,13 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void CheckButtonState()
         {
-            if (MonHocBindingSource.Count == 0)
-                buttonXoa.Enabled = buttonSua.Enabled = false;
-            else buttonXoa.Enabled = buttonSua.Enabled = true;
+            if (Utils.IsCoSo())
+            {
+                if (MonHocBindingSource.Count == 0)
+                    buttonXoa.Enabled = buttonSua.Enabled = false;
+                else buttonXoa.Enabled = buttonSua.Enabled = true;
+            }
+
         }
         private void LoadAllData()
         {

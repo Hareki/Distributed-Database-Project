@@ -177,7 +177,7 @@ namespace TracNghiemCSDLPT
         public static string AddExtraWhiteSpace(string text, int totalLength)
         {
             string result = text;
-            for (int i = 0; i < totalLength; i++)
+            for (int i = text.Length; i < totalLength; i++)
             {
                 result += " ";
             }

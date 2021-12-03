@@ -40,6 +40,7 @@ namespace TracNghiemCSDLPT.MyForms
             this.label1 = new System.Windows.Forms.Label();
             this.CSEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ComboBoxCoSo = new Guna.UI2.WinForms.Guna2ComboBox();
             this.buttonThoat = new Guna.UI2.WinForms.Guna2Button();
             this.buttonDangNhap = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -51,7 +52,6 @@ namespace TracNghiemCSDLPT.MyForms
             this.PanelGV = new Bunifu.UI.WinForms.BunifuPanel();
             this.rdoGV = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.LabelGiangVien = new System.Windows.Forms.Label();
-            this.ComboBoxCoSo = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoginEP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PasswordEP)).BeginInit();
@@ -136,10 +136,35 @@ namespace TracNghiemCSDLPT.MyForms
             this.panel1.Size = new System.Drawing.Size(453, 540);
             this.panel1.TabIndex = 14;
             // 
+            // ComboBoxCoSo
+            // 
+            this.ComboBoxCoSo.Animated = true;
+            this.ComboBoxCoSo.BackColor = System.Drawing.Color.Transparent;
+            this.ComboBoxCoSo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(164)))), ((int)(((byte)(236)))));
+            this.ComboBoxCoSo.BorderRadius = 3;
+            this.ComboBoxCoSo.BorderThickness = 2;
+            this.ComboBoxCoSo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ComboBoxCoSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxCoSo.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
+            this.ComboBoxCoSo.FocusedColor = System.Drawing.Color.Empty;
+            this.ComboBoxCoSo.FocusedState.Parent = this.ComboBoxCoSo;
+            this.ComboBoxCoSo.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboBoxCoSo.ForeColor = System.Drawing.Color.White;
+            this.ComboBoxCoSo.FormattingEnabled = true;
+            this.ComboBoxCoSo.HoverState.Parent = this.ComboBoxCoSo;
+            this.ComboBoxCoSo.ItemHeight = 30;
+            this.ComboBoxCoSo.ItemsAppearance.Parent = this.ComboBoxCoSo;
+            this.ComboBoxCoSo.Location = new System.Drawing.Point(20, 169);
+            this.ComboBoxCoSo.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
+            this.ComboBoxCoSo.Name = "ComboBoxCoSo";
+            this.ComboBoxCoSo.ShadowDecoration.Parent = this.ComboBoxCoSo;
+            this.ComboBoxCoSo.Size = new System.Drawing.Size(410, 36);
+            this.ComboBoxCoSo.TabIndex = 43;
+            this.ComboBoxCoSo.TextOffset = new System.Drawing.Point(3, 3);
+            // 
             // buttonThoat
             // 
             this.buttonThoat.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonThoat.Animated = true;
             this.buttonThoat.BorderRadius = 8;
             this.buttonThoat.CheckedState.Parent = this.buttonThoat;
             this.buttonThoat.CustomImages.Parent = this.buttonThoat;
@@ -162,7 +187,6 @@ namespace TracNghiemCSDLPT.MyForms
             // buttonDangNhap
             // 
             this.buttonDangNhap.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonDangNhap.Animated = true;
             this.buttonDangNhap.BorderRadius = 8;
             this.buttonDangNhap.CheckedState.Parent = this.buttonDangNhap;
             this.buttonDangNhap.CustomImages.Parent = this.buttonDangNhap;
@@ -361,32 +385,6 @@ namespace TracNghiemCSDLPT.MyForms
             this.LabelGiangVien.TabIndex = 4;
             this.LabelGiangVien.Text = "Giảng viên";
             this.LabelGiangVien.Click += new System.EventHandler(this.LabelGiangVien_Click);
-            // 
-            // ComboBoxCoSo
-            // 
-            this.ComboBoxCoSo.Animated = true;
-            this.ComboBoxCoSo.BackColor = System.Drawing.Color.Transparent;
-            this.ComboBoxCoSo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(164)))), ((int)(((byte)(236)))));
-            this.ComboBoxCoSo.BorderRadius = 3;
-            this.ComboBoxCoSo.BorderThickness = 2;
-            this.ComboBoxCoSo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.ComboBoxCoSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboBoxCoSo.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
-            this.ComboBoxCoSo.FocusedColor = System.Drawing.Color.Empty;
-            this.ComboBoxCoSo.FocusedState.Parent = this.ComboBoxCoSo;
-            this.ComboBoxCoSo.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ComboBoxCoSo.ForeColor = System.Drawing.Color.White;
-            this.ComboBoxCoSo.FormattingEnabled = true;
-            this.ComboBoxCoSo.HoverState.Parent = this.ComboBoxCoSo;
-            this.ComboBoxCoSo.ItemHeight = 30;
-            this.ComboBoxCoSo.ItemsAppearance.Parent = this.ComboBoxCoSo;
-            this.ComboBoxCoSo.Location = new System.Drawing.Point(20, 169);
-            this.ComboBoxCoSo.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
-            this.ComboBoxCoSo.Name = "ComboBoxCoSo";
-            this.ComboBoxCoSo.ShadowDecoration.Parent = this.ComboBoxCoSo;
-            this.ComboBoxCoSo.Size = new System.Drawing.Size(410, 36);
-            this.ComboBoxCoSo.TabIndex = 43;
-            this.ComboBoxCoSo.TextOffset = new System.Drawing.Point(3, 3);
             // 
             // FormLogin
             // 

@@ -151,11 +151,11 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             int lan = GetLanFromRdo();
             if (!(LookUpLop.EditValue is null) && !(LookUpMh.EditValue is null) && lan != -1)
             {
-                string maLop = Utils.GetLookUpValue(LookUpLop, "MALOP");
-                string maMh = Utils.GetLookUpValue(LookUpMh, "MAMH");
+                string maLop = Utils.GetLookUpString(LookUpLop, "MALOP");
+                string maMh = Utils.GetLookUpString(LookUpMh, "MAMH");
 
-                string tenLop = Utils.GetLookUpValue(LookUpLop, "TENLOP");
-                string tenMh = Utils.GetLookUpValue(LookUpMh, "TENMH");
+                string tenLop = Utils.GetLookUpString(LookUpLop, "TENLOP");
+                string tenMh = Utils.GetLookUpString(LookUpMh, "TENMH");
 
                 DateTime ngayThi = GetNgayThiFromSP(maLop, maMh, lan);
                 if (DateTime.Compare(ngayThi, DateTime.MinValue) == 0)
@@ -186,17 +186,17 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         }
         private void LookUpLop_EditValueChanged(object sender, EventArgs e)
         {
-            LoadMonThiCuaLop(Utils.GetLookUpValue(LookUpLop, "MALOP"));
+            LoadMonThiCuaLop(Utils.GetLookUpString(LookUpLop, "MALOP"));
             ClearInfo();
         }
 
         private string GetMaMhFromLookUp()
         {
-            return Utils.GetLookUpValue(LookUpMh, "MAMH");
+            return Utils.GetLookUpString(LookUpMh, "MAMH");
         }
         private string GetMaLopFromLookUp()
         {
-            return Utils.GetLookUpValue(LookUpLop, "MALOP");
+            return Utils.GetLookUpString(LookUpLop, "MALOP");
         }
         private void LookUpMh_EditValueChanged(object sender, EventArgs e)
         {

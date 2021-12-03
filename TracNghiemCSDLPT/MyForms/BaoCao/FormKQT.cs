@@ -159,7 +159,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         private string GetHoTenSvFromLookUp()
         {
             Debug.Assert(!isSv());
-            return Utils.GetLookUpValue(LookUpSv, "HoTen");
+            return Utils.GetLookUpString(LookUpSv, "HoTen");
         }
 
         private void buttonPrint_Click(object sender, EventArgs e)
@@ -218,7 +218,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
 
         private void LookUpSv_EditValueChanged(object sender, EventArgs e)
         {
-            LoadMonThiCuaSv(Utils.GetLookUpValue(LookUpSv, "MASV"));
+            LoadMonThiCuaSv(Utils.GetLookUpString(LookUpSv, "MASV"));
             ClearInfo();
         }
 
@@ -237,11 +237,11 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
 
         private string GetMaSvFromLookUp()
         {
-            return Utils.GetLookUpValue(LookUpSv, "MASV");
+            return Utils.GetLookUpString(LookUpSv, "MASV");
         }
         private string GetMaMhFromLookUp()
         {
-            return Utils.GetLookUpValue(LookUpMh, "MAMH");
+            return Utils.GetLookUpString(LookUpMh, "MAMH");
         }
         private bool isSv()
         {

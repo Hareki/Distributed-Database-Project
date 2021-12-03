@@ -362,8 +362,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             if (GetLan() == 2)
             {
-                string maMh = Utils.GetLookUpValue(LookUpMh, "MAMH");
-                string maLop = Utils.GetLookUpValue(LookUpLop, "MALOP");
+                string maMh = Utils.GetLookUpString(LookUpMh, "MAMH");
+                string maLop = Utils.GetLookUpString(LookUpLop, "MALOP");
 
                 List<Para> paraList = new List<Para>();
                 paraList.Add(new Para("@MaMH", maMh));
@@ -452,9 +452,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             //string maMh = LookUpMh.SelectedValue.ToString().Trim();
             //string maLop = LookUpLop.SelectedValue.ToString().Trim();
 
-            string maGV = Utils.GetLookUpValue(LookUpGV, "MAGV");
-            string maMh = Utils.GetLookUpValue(LookUpMh, "MAMH");
-            string maLop = Utils.GetLookUpValue(LookUpLop, "MALOP");
+            string maGV = Utils.GetLookUpString(LookUpGV, "MAGV");
+            string maMh = Utils.GetLookUpString(LookUpMh, "MAMH");
+            string maLop = Utils.GetLookUpString(LookUpLop, "MALOP");
 
             string trinhDo = GetTrinhDo();
             string ngayThi = ((DateTime)NgayThi.EditValue).ToString("dd/MM/yyyy");
@@ -531,8 +531,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 Utils.ShowMessage("Sửa thông tin đăng ký thi thành công", Others.NotiForm.FormType.Success, 2);
             }
 
-            string tenMh = Utils.GetLookUpValue(LookUpMh, "TENMH");
-            string tenLop = Utils.GetLookUpValue(LookUpLop, "TENLOP"); // phải để trước, để sau sẽ trigger GetCorrData làm dữ liệu bị sai
+            string tenMh = Utils.GetLookUpString(LookUpMh, "TENMH");
+            string tenLop = Utils.GetLookUpString(LookUpLop, "TENLOP"); // phải để trước, để sau sẽ trigger GetCorrData làm dữ liệu bị sai
             LoadGvdk2();
             GVDK2BindingSource.Position = FindGvdk2Row(tenMh, tenLop, (short)lan);
 
@@ -580,8 +580,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 SaveOrigInput();
                 ConfigInputState();
                 Utils.ConfigInfoPanelAppearance(InfoPanel, "Sửa thông tin đăng ký thi", Utils.EditColor);
-                _origMaLop = Utils.GetLookUpValue(LookUpLop, "MALOP");
-                _origMaMH = Utils.GetLookUpValue(LookUpMh, "MAMH");
+                _origMaLop = Utils.GetLookUpString(LookUpLop, "MALOP");
+                _origMaMH = Utils.GetLookUpString(LookUpMh, "MAMH");
                 _origLan = GetLan();
                 _state = State.Edit;
                 SetLanTrinhDoGV();
@@ -601,8 +601,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             {
                 if (Utils.ShowConfirmMessage("Bạn có chắc muốn xóa thông tin đăng ký thi này?", "Xác nhận"))
                 {
-                    string maMh = Utils.GetLookUpValue(LookUpMh, "MAMH");
-                    string maLop = Utils.GetLookUpValue(LookUpLop, "MALOP");
+                    string maMh = Utils.GetLookUpString(LookUpMh, "MAMH");
+                    string maLop = Utils.GetLookUpString(LookUpLop, "MALOP");
                     int lan = GetLan();
                     List<Para> paraList = new List<Para>();
                     paraList.Add(new Para("@OldMaMH", maMh));
@@ -876,8 +876,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             if (LookUpMh.EditValue != null && LookUpLop.EditValue != null)
             {
-                string maMh = Utils.GetLookUpValue(LookUpMh, "MAMH");
-                string maLop = Utils.GetLookUpValue(LookUpLop, "MALOP");
+                string maMh = Utils.GetLookUpString(LookUpMh, "MAMH");
+                string maLop = Utils.GetLookUpString(LookUpLop, "MALOP");
                 if (maMh != "System.Data.DataRowView" && maLop != "System.Data.DataRowView")
                 {
                     List<Para> paraList = new List<Para>();

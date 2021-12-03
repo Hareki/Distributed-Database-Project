@@ -70,7 +70,7 @@ namespace TracNghiemCSDLPT
         {
             if (string.IsNullOrEmpty(text)) return string.Empty;
             return Regex.Replace(text.Trim(), @"\s+", " ");
-        } 
+        }
         public enum CapitalMode
         {
             FirstWordOnly, EveryWord//every word = chuẩn hóa tên riêng, chỉ cho phép viết hoa đầu mỗi từ, FirstWord only = chuẩn hóa chính tả, viết hoa chữ cái đầu của string
@@ -130,7 +130,7 @@ namespace TracNghiemCSDLPT
         }
         public static string GetCellStringBds(BindingSource bds, int rowIndex, string columnName)
         {
-            return (bds[rowIndex] as DataRowView)[columnName].ToString();
+            return (bds[rowIndex] as DataRowView)[columnName].ToString().Trim();
         }
         public static object GetCellValueBds(BindingSource bds, int rowIndex, string columnName)
         {
@@ -167,11 +167,22 @@ namespace TracNghiemCSDLPT
             infoPanel.ForeColor = color;
         }
 
-        public static string GetLookUpValue(GridLookUpEdit lookUp, string columnName)
+        public static string GetLookUpString(GridLookUpEdit lookUp, string columnName)
         {
             if (lookUp.GetSelectedDataRow() != null)
                 return (lookUp.GetSelectedDataRow() as DataRowView)[columnName].ToString().Trim();
             else return string.Empty;
         }
+
+        public static string AddExtraWhiteSpace(string text, int totalLength)
+        {
+            string result = text;
+            for (int i = 0; i < totalLength; i++)
+            {
+                result += " ";
+            }
+            return result;
+        }
+
     }
 }

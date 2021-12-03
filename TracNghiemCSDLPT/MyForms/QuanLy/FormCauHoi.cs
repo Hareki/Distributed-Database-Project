@@ -29,6 +29,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         List<Guna2CustomRadioButton> _rdoButtons = new List<Guna2CustomRadioButton>();
         private int _selectedRow;
         private bool _opened = false;
+        private bool _firstTime = true;
         private void SetIdleButtonEnabled(bool state)
         {
             buttonThem.Enabled = buttonXoa.Enabled =
@@ -71,25 +72,31 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             this.MonHocTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.BoDeTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.MH2TableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.DSMHTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.DSGVTCSTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.BaiThiTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
 
             this.MonHocTableAdapter.Fill(this.TN_CSDLPTDataSet.MONHOC);
             this.BoDeTableAdapter.Fill(this.TN_CSDLPTDataSet.BODE);
-            this.MH2TableAdapter.Fill(this.TN_CSDLPTDataSet.MONHOC2);
+            this.DSMHTableAdapter.Fill(this.TN_CSDLPTDataSet.DSMH);
             this.DSGVTCSTableAdapter.Fill(this.TN_CSDLPTDataSet.DSGIAOVIENTCS);
             this.BaiThiTableAdapter.Fill(this.TN_CSDLPTDataSet.BAITHI);
-        }
 
+        }
+        private void SetCorrLookUpDataAfterReset()
+        {
+            string maMh = Utils.GetCellStringBds(BoDeBindingSource, 0, "MAMH").Trim();
+            DSMHBindingSource.Position = DSMHBindingSource.Find("MAMH", maMh);
+            MHCombo.EditValue = DSMHBindingSource[DSMHBindingSource.Position];
+        }
         private void FormCauHoi_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'TN_CSDLPTDataSet.DSMH' table. You can move, or remove it, as needed.
+            this.DSMHTableAdapter.Fill(this.TN_CSDLPTDataSet.DSMH);
 
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
             LoadAllData();
-            MHCombo.DataSource = MH2BindingSource;
-            MHCombo.DisplayMember = "TENMH";
-            MHCombo.ValueMember = "MAMH";
+            SetCorrLookUpDataAfterReset();
 
             _rdoButtons.Add(rdoDA_A);
             _rdoButtons.Add(rdoDA_B);
@@ -134,7 +141,21 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             if (e.RelationIndex == 0)
                 e.RelationName = $"Câu hỏi thuộc môn {tenMon}";
         }
+        private GridView GetCurrentDetailView()
+        {
+            GridView detailView = null;
 
+            //int row = MonHocGridView.GetSelectedRows()[0];
+            //detailView = MonHocGridView.GetDetailView(row, 0) as GridView;
+            if (MonHocGridView.GetSelectedRows().Length == 0)
+                detailView = MonHocGridView.GetDetailView(0, 0) as GridView;
+            else
+            {
+                int row = MonHocGridView.GetSelectedRows()[0];
+                detailView = MonHocGridView.GetDetailView(row, 0) as GridView;
+            }
+            return detailView;
+        }
         private void MonHocGridView_DetailTabStyle(object sender, DetailTabStyleEventArgs e)
         {
             e.Appearance.Header.Font = new Font("Baloo 2", 10.0F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
@@ -151,13 +172,25 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private GridView GetCorrData(bool getFirstRow)
         {
-            GridView detailView;
+            //if (_firstTime)
+            //{
+            //    buttonThem.Enabled = buttonXoa.Enabled = buttonSua.Enabled = false;
+            //    _firstTime = false;
+            //}
+            GridView detailView = null;
             if (getFirstRow)
                 detailView = MonHocGridView.GetDetailView(0, 0) as GridView;
             else
             {
-                int row = MonHocGridView.GetSelectedRows()[0];
-                detailView = MonHocGridView.GetDetailView(row, 0) as GridView;
+                //int row = MonHocGridView.GetSelectedRows()[0];
+                //detailView = MonHocGridView.GetDetailView(row, 0) as GridView;
+                if (MonHocGridView.GetSelectedRows().Length == 0)
+                    detailView = MonHocGridView.GetDetailView(0, 0) as GridView;
+                else
+                {
+                    int row = MonHocGridView.GetSelectedRows()[0];
+                    detailView = MonHocGridView.GetDetailView(row, 0) as GridView;
+                }
             }
             if (detailView is null) return null;
             Object test = (detailView as GridView).GetFocusedRowCellValue(colCAUHOI);
@@ -168,7 +201,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             BoDeBindingSource.Position = BoDeBindingSource.Find("CAUHOI", maCauHoi);
 
             string maMh = ((DataRowView)BoDeBindingSource[BoDeBindingSource.Position])["MAMH"].ToString();
-            MH2BindingSource.Position = MH2BindingSource.Find("MAMH", maMh);
+
+            DSMHBindingSource.Position = DSMHBindingSource.Find("MAMH", maMh);
+            MHCombo.EditValue = DSMHBindingSource[DSMHBindingSource.Position];
 
             string maGV = ((DataRowView)BoDeBindingSource[BoDeBindingSource.Position])["MAGV"].ToString();
             DSGVTCSBindingSource.Position = DSGVTCSBindingSource.Find("MAGV", maGV);
@@ -258,7 +293,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 string maGV = (BoDeBindingSource[BoDeBindingSource.Position] as DataRowView)["MAGV"].ToString();
                 maGV = maGV.Trim();
                 bool test1 = BoDeBindingSource.Count == 0;
-                bool test2 = !maGV.Equals(DBConnection.UserName);
+                //  bool test2 = !maGV.Equals(DBConnection.UserName);
+                bool test2 = false;
                 if (test1 || test2)
                 {
                     buttonXoa.Enabled = buttonSua.Enabled = false;
@@ -277,6 +313,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             try
             {
                 LoadAllData();
+                SetCorrLookUpDataAfterReset();
                 CheckButtonState();
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
             }
@@ -343,8 +380,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private void GoToNewlyCreatedRowCh()
         {
             GridView detailView;
-            int row = MonHocGridView.LocateByDisplayText(0, colMAMH, MHCombo.SelectedValue.ToString());
-
+            string maMh = Utils.GetLookUpString(MHCombo, "MAMH");
+            int row = MonHocGridView.LocateByDisplayText(0, colMAMH, Utils.AddExtraWhiteSpace(maMh, 5));
             MonHocGridView.FocusedRowHandle = row;
             MonHocGridView.Focus();
             MonHocGridView.ExpandMasterRow(row);
@@ -404,7 +441,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             bool test6 = string.IsNullOrEmpty(TrimText(textMaCH));
 
             string maGV = labelGVSoan.Text.Split('-')[0].Trim();
-            string maMh = MHCombo.SelectedValue.ToString();
+            string maMh = Utils.AddExtraWhiteSpace(Utils.GetLookUpString(MHCombo, "MAMH"), 5);
             string trinhDo = GetTrinhDo();
 
             bool test7 = false;
@@ -495,7 +532,13 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 BoDeBindingSource.ResetCurrentItem();
                 this.BoDeTableAdapter.Update(this.TN_CSDLPTDataSet.BODE);
                 if (_state == State.Edit)
+                {
                     Utils.ShowMessage("Sửa thông tin câu hỏi thành công", Others.NotiForm.FormType.Success, 2);
+                    GridView detailView = GetCurrentDetailView();
+                    if (detailView != null)
+                        detailView.FocusedRowHandle = _selectedRow;
+                }
+
                 else if (_state == State.Add)
                 {
                     GoToNewlyCreatedRowCh();
@@ -568,7 +611,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void buttonSua_Click(object sender, EventArgs e)
         {
-            string maMh = MHCombo.SelectedValue.ToString();
+            string maMh = Utils.AddExtraWhiteSpace(Utils.GetLookUpString(MHCombo, "MAMH"), 5);
             string trinhDo = GetTrinhDo();
             if (CanPressEditDelete(maMh, trinhDo))
             {
@@ -578,10 +621,17 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 SetInputButtonEnabled(true);
 
                 _origMaCh = int.Parse(textMaCH.Text);
-                _origMaMh = MHCombo.SelectedValue.ToString();
+                _origMaMh = Utils.AddExtraWhiteSpace(Utils.GetLookUpString(MHCombo, "MAMH"), 5);
                 _origTrinhDo = GetTrinhDo();
                 MonHocGridControl.Enabled = false;
                 _state = State.Edit;
+
+                GridView detailView = GetCurrentDetailView();
+                if (detailView != null)
+                {
+                    _selectedRow = detailView.FocusedRowHandle;
+                }
+
             }
             else
             {
@@ -621,7 +671,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
 
 
-            string maMh = MHCombo.SelectedValue.ToString();
+            string maMh = Utils.AddExtraWhiteSpace(Utils.GetLookUpString(MHCombo, "MAMH"), 5);
             string trinhDo = GetTrinhDo();
             List<string> result = CanDeleteEdit(trinhDo, maMh);
             if (result.Count > 0)

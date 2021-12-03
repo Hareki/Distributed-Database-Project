@@ -280,7 +280,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
         private string GetMaMhFromLookUp()
         {
-            return Utils.GetLookUpValue(LookUpMonHoc, "MAMH");
+            return Utils.GetLookUpString(LookUpMonHoc, "MAMH");
         }
         private int GetLan()
         {
@@ -495,7 +495,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             if (!isSv())
             {
-                LoadMonThiTuongUng(Utils.GetLookUpValue(LookUpLop, "MALOP"));
+                LoadMonThiTuongUng(Utils.GetLookUpString(LookUpLop, "MALOP"));
                 ClearInfo();
             }
         }
@@ -758,7 +758,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         }
         private void BtnBatDauThi_Click(object sender, EventArgs e)
         {
-            string maLop = isSv() ? GetMaLopSv() : Utils.GetLookUpValue(LookUpLop, "MALOP");
+            string maLop = isSv() ? GetMaLopSv() : Utils.GetLookUpString(LookUpLop, "MALOP");
             string maMh = GetMaMhFromLookUp();
             string trinhDo = lblTrinhDo.Text;
             string soCauYeuCau = lblSoCauThi.Text;
@@ -841,11 +841,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 }
                 else
                 {
-                    maLop = Utils.GetLookUpValue(LookUpLop, "MALOP");
+                    maLop = Utils.GetLookUpString(LookUpLop, "MALOP");
                     trongNgay = 0;
                 }
                 List<Para> paraList = new List<Para>();
-                paraList.Add(new Para("@MAMH", Utils.GetLookUpValue(LookUpMonHoc, "MAMH")));
+                paraList.Add(new Para("@MAMH", Utils.GetLookUpString(LookUpMonHoc, "MAMH")));
                 paraList.Add(new Para("@MALOP", maLop));
                 paraList.Add(new Para("@TrongNgay", trongNgay));
                 string spName = "usp_Thi_LayThongTinThiCuaLopVaMonTuongUng";

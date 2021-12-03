@@ -591,7 +591,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 //  KhoaBindingSource.ResumeBinding();
                 //     ComboMaKH.SelectedIndex = saveKHIndex;
                 // TextMaKH.Text = ComboMaKH.SelectedValue.ToString();//truyền giá trị vào để đủ dữ liệu trước khi end edit
-                ((DataRowView)LopBindingSource[LopBindingSource.Position])["MAKH"] = Utils.GetLookUpValue(ComboMaKH, "MAKH");
+                ((DataRowView)LopBindingSource[LopBindingSource.Position])["MAKH"] = Utils.GetLookUpString(ComboMaKH, "MAKH");
                 LopBindingSource.EndEdit();
                 LopBindingSource.ResetCurrentItem();
                 this.LopTableAdapter.Update(this.TN_CSDLPTDataSet.LOP);
@@ -873,7 +873,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             try
             {
-                _saveMaKhForReset = Utils.GetLookUpValue(ComboMaKH, "MAKH");
+                _saveMaKhForReset = Utils.GetLookUpString(ComboMaKH, "MAKH");
                 _saveMaLopForReset = TextMaLop.Text;
                 LoadAllData();
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);

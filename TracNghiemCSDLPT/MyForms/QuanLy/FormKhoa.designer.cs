@@ -87,27 +87,30 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // mAKHLabel
             // 
             mAKHLabel.AutoSize = true;
-            mAKHLabel.Location = new System.Drawing.Point(250, 76);
+            mAKHLabel.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mAKHLabel.Location = new System.Drawing.Point(353, 80);
             mAKHLabel.Name = "mAKHLabel";
-            mAKHLabel.Size = new System.Drawing.Size(111, 40);
+            mAKHLabel.Size = new System.Drawing.Size(92, 32);
             mAKHLabel.TabIndex = 5;
             mAKHLabel.Text = "Mã khoa";
             // 
             // tENKHLabel
             // 
             tENKHLabel.AutoSize = true;
-            tENKHLabel.Location = new System.Drawing.Point(250, 133);
+            tENKHLabel.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tENKHLabel.Location = new System.Drawing.Point(346, 140);
             tENKHLabel.Name = "tENKHLabel";
-            tENKHLabel.Size = new System.Drawing.Size(119, 40);
+            tENKHLabel.Size = new System.Drawing.Size(99, 32);
             tENKHLabel.TabIndex = 6;
             tENKHLabel.Text = "Tên Khoa";
             // 
             // LabelMaCS
             // 
             LabelMaCS.AutoSize = true;
-            LabelMaCS.Location = new System.Drawing.Point(250, 190);
+            LabelMaCS.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            LabelMaCS.Location = new System.Drawing.Point(349, 196);
             LabelMaCS.Name = "LabelMaCS";
-            LabelMaCS.Size = new System.Drawing.Size(116, 40);
+            LabelMaCS.Size = new System.Drawing.Size(96, 32);
             LabelMaCS.TabIndex = 7;
             LabelMaCS.Text = "Mã cơ sở";
             // 
@@ -146,7 +149,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonHuy.HoverState.Parent = this.buttonHuy;
             this.buttonHuy.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
             this.buttonHuy.ImageSize = new System.Drawing.Size(31, 31);
-            this.buttonHuy.Location = new System.Drawing.Point(1111, 210);
+            this.buttonHuy.Location = new System.Drawing.Point(1110, 210);
             this.buttonHuy.Margin = new System.Windows.Forms.Padding(11, 3, 3, 3);
             this.buttonHuy.Name = "buttonHuy";
             this.buttonHuy.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -167,7 +170,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonXacNhan.HoverState.Parent = this.buttonXacNhan;
             this.buttonXacNhan.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
             this.buttonXacNhan.ImageSize = new System.Drawing.Size(31, 31);
-            this.buttonXacNhan.Location = new System.Drawing.Point(1111, 157);
+            this.buttonXacNhan.Location = new System.Drawing.Point(1110, 157);
             this.buttonXacNhan.Margin = new System.Windows.Forms.Padding(11, 9, 8, 20);
             this.buttonXacNhan.Name = "buttonXacNhan";
             this.buttonXacNhan.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -181,7 +184,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonSua.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonSua.Animated = true;
-            this.buttonSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonSua.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.buttonSua.BorderRadius = 8;
+            this.buttonSua.BorderThickness = 1;
             this.buttonSua.CheckedState.Parent = this.buttonSua;
             this.buttonSua.CustomImages.Parent = this.buttonSua;
             this.buttonSua.FillColor = System.Drawing.Color.Gainsboro;
@@ -191,7 +196,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonSua.HoverState.Parent = this.buttonSua;
             this.buttonSua.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_480px;
             this.buttonSua.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonSua.Location = new System.Drawing.Point(735, 341);
+            this.buttonSua.Location = new System.Drawing.Point(708, 341);
             this.buttonSua.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonSua.Name = "buttonSua";
             this.buttonSua.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
@@ -206,7 +211,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonThem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonThem.Animated = true;
-            this.buttonThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonThem.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.buttonThem.BorderRadius = 8;
+            this.buttonThem.BorderThickness = 1;
             this.buttonThem.CheckedState.Parent = this.buttonThem;
             this.buttonThem.CustomImages.Parent = this.buttonThem;
             this.buttonThem.FillColor = System.Drawing.Color.Gainsboro;
@@ -216,7 +223,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonThem.HoverState.Parent = this.buttonThem;
             this.buttonThem.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
             this.buttonThem.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonThem.Location = new System.Drawing.Point(230, 341);
+            this.buttonThem.Location = new System.Drawing.Point(267, 341);
             this.buttonThem.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonThem.Name = "buttonThem";
             this.buttonThem.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
@@ -231,7 +238,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonLamMoi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonLamMoi.Animated = true;
-            this.buttonLamMoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonLamMoi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.buttonLamMoi.BorderRadius = 8;
             this.buttonLamMoi.CheckedState.Parent = this.buttonLamMoi;
             this.buttonLamMoi.CustomImages.Parent = this.buttonLamMoi;
             this.buttonLamMoi.FillColor = System.Drawing.Color.Gainsboro;
@@ -241,7 +249,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonLamMoi.HoverState.Parent = this.buttonLamMoi;
             this.buttonLamMoi.Image = global::TracNghiemCSDLPT.Properties.Resources.reset_480px;
             this.buttonLamMoi.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonLamMoi.Location = new System.Drawing.Point(987, 341);
+            this.buttonLamMoi.Location = new System.Drawing.Point(928, 341);
             this.buttonLamMoi.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonLamMoi.Name = "buttonLamMoi";
             this.buttonLamMoi.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
@@ -256,7 +264,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonXoa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonXoa.Animated = true;
-            this.buttonXoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonXoa.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.buttonXoa.BorderRadius = 8;
+            this.buttonXoa.BorderThickness = 1;
             this.buttonXoa.CheckedState.Parent = this.buttonXoa;
             this.buttonXoa.CustomImages.Parent = this.buttonXoa;
             this.buttonXoa.FillColor = System.Drawing.Color.Gainsboro;
@@ -266,7 +276,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonXoa.HoverState.Parent = this.buttonXoa;
             this.buttonXoa.Image = global::TracNghiemCSDLPT.Properties.Resources.minus_sign_480px;
             this.buttonXoa.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonXoa.Location = new System.Drawing.Point(482, 342);
+            this.buttonXoa.Location = new System.Drawing.Point(487, 342);
             this.buttonXoa.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonXoa.Name = "buttonXoa";
             this.buttonXoa.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
@@ -319,8 +329,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.InfoPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.InfoPanel.BorderColor = System.Drawing.Color.LightGray;
-            this.InfoPanel.BorderRadius = 1;
-            this.InfoPanel.BorderThickness = 1;
+            this.InfoPanel.BorderRadius = 8;
+            this.InfoPanel.BorderThickness = 2;
             this.InfoPanel.Controls.Add(LabelMaCS);
             this.InfoPanel.Controls.Add(this.TextMaCS);
             this.InfoPanel.Controls.Add(tENKHLabel);
@@ -334,9 +344,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.InfoPanel.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.InfoPanel.LabelIndent = 10;
             this.InfoPanel.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
-            this.InfoPanel.Location = new System.Drawing.Point(338, 57);
+            this.InfoPanel.Location = new System.Drawing.Point(267, 74);
             this.InfoPanel.Name = "InfoPanel";
-            this.InfoPanel.Size = new System.Drawing.Size(741, 274);
+            this.InfoPanel.Size = new System.Drawing.Size(829, 257);
             this.InfoPanel.TabIndex = 0;
             this.InfoPanel.TabStop = false;
             this.InfoPanel.Text = "Thông tin khoa";
@@ -345,12 +355,14 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.TextMaCS.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.KhoaBindingSource, "MACS", true));
             this.TextMaCS.Enabled = false;
-            this.TextMaCS.Location = new System.Drawing.Point(397, 195);
+            this.TextMaCS.Location = new System.Drawing.Point(454, 194);
             this.TextMaCS.Name = "TextMaCS";
             this.TextMaCS.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextMaCS.Properties.Appearance.Options.UseFont = true;
             this.TextMaCS.Size = new System.Drawing.Size(288, 38);
             this.TextMaCS.TabIndex = 8;
+            this.TextMaCS.Enter += new System.EventHandler(this.Editor_GotFocus);
+            this.TextMaCS.Leave += new System.EventHandler(this.Editor_LostFocus);
             // 
             // KhoaBindingSource
             // 
@@ -365,31 +377,35 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // TextTenKhoa
             // 
             this.TextTenKhoa.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.KhoaBindingSource, "TENKH", true));
-            this.TextTenKhoa.Location = new System.Drawing.Point(397, 138);
+            this.TextTenKhoa.Location = new System.Drawing.Point(454, 137);
             this.TextTenKhoa.Name = "TextTenKhoa";
             this.TextTenKhoa.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextTenKhoa.Properties.Appearance.Options.UseFont = true;
             this.TextTenKhoa.Properties.MaxLength = 50;
             this.TextTenKhoa.Size = new System.Drawing.Size(288, 38);
             this.TextTenKhoa.TabIndex = 7;
+            this.TextTenKhoa.Enter += new System.EventHandler(this.Editor_GotFocus);
+            this.TextTenKhoa.Leave += new System.EventHandler(this.Editor_LostFocus);
             // 
             // TextMaKhoa
             // 
             this.TextMaKhoa.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.KhoaBindingSource, "MAKH", true));
-            this.TextMaKhoa.Location = new System.Drawing.Point(397, 81);
+            this.TextMaKhoa.Location = new System.Drawing.Point(454, 80);
             this.TextMaKhoa.Name = "TextMaKhoa";
             this.TextMaKhoa.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextMaKhoa.Properties.Appearance.Options.UseFont = true;
             this.TextMaKhoa.Properties.MaxLength = 8;
             this.TextMaKhoa.Size = new System.Drawing.Size(288, 38);
             this.TextMaKhoa.TabIndex = 5;
+            this.TextMaKhoa.Enter += new System.EventHandler(this.Editor_GotFocus);
+            this.TextMaKhoa.Leave += new System.EventHandler(this.Editor_LostFocus);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.school_disabled;
-            this.pictureBox1.Location = new System.Drawing.Point(54, 73);
+            this.pictureBox1.Location = new System.Drawing.Point(53, 66);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(146, 156);
+            this.pictureBox1.Size = new System.Drawing.Size(205, 166);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;

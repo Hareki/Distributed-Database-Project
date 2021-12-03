@@ -1012,6 +1012,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonLamMoi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonLamMoi.Animated = true;
+            this.buttonLamMoi.BorderRadius = 8;
             this.buttonLamMoi.CheckedState.Parent = this.buttonLamMoi;
             this.buttonLamMoi.CustomImages.Parent = this.buttonLamMoi;
             this.buttonLamMoi.FillColor = System.Drawing.Color.Gainsboro;
@@ -1038,6 +1039,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonThem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonThem.Animated = true;
+            this.buttonThem.BorderRadius = 8;
             this.buttonThem.CheckedState.Parent = this.buttonThem;
             this.buttonThem.CustomImages.Parent = this.buttonThem;
             this.buttonThem.FillColor = System.Drawing.Color.Gainsboro;
@@ -1064,6 +1066,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonSua.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonSua.Animated = true;
+            this.buttonSua.BorderRadius = 8;
             this.buttonSua.CheckedState.Parent = this.buttonSua;
             this.buttonSua.CustomImages.Parent = this.buttonSua;
             this.buttonSua.FillColor = System.Drawing.Color.Gainsboro;
@@ -1091,6 +1094,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonXoa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonXoa.Animated = true;
+            this.buttonXoa.BorderRadius = 8;
             this.buttonXoa.CheckedState.Parent = this.buttonXoa;
             this.buttonXoa.CustomImages.Parent = this.buttonXoa;
             this.buttonXoa.FillColor = System.Drawing.Color.Gainsboro;
@@ -1258,6 +1262,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonXacNhan.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonXacNhan.Animated = true;
+            this.buttonXacNhan.BorderRadius = 5;
             this.buttonXacNhan.CheckedState.Parent = this.buttonXacNhan;
             this.buttonXacNhan.CustomImages.Parent = this.buttonXacNhan;
             this.buttonXacNhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
@@ -1282,6 +1287,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonHuy.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonHuy.Animated = true;
+            this.buttonHuy.BorderRadius = 5;
             this.buttonHuy.CheckedState.Parent = this.buttonHuy;
             this.buttonHuy.CustomImages.Parent = this.buttonHuy;
             this.buttonHuy.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));

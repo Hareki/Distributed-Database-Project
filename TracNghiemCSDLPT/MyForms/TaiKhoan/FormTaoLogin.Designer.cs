@@ -440,7 +440,7 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             this.ToggleHienMK.CheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.ToggleHienMK.CheckedState.InnerColor = System.Drawing.Color.White;
             this.ToggleHienMK.CheckedState.Parent = this.ToggleHienMK;
-            this.ToggleHienMK.Location = new System.Drawing.Point(285, 565);
+            this.ToggleHienMK.Location = new System.Drawing.Point(302, 560);
             this.ToggleHienMK.Name = "ToggleHienMK";
             this.ToggleHienMK.ShadowDecoration.Parent = this.ToggleHienMK;
             this.ToggleHienMK.Size = new System.Drawing.Size(40, 20);
@@ -537,7 +537,7 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             this.buttonHuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonHuy.Font = new System.Drawing.Font("Baloo 2 SemiBold", 13.8F, System.Drawing.FontStyle.Bold);
             this.buttonHuy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonHuy.Location = new System.Drawing.Point(63, 595);
+            this.buttonHuy.Location = new System.Drawing.Point(37, 595);
             this.buttonHuy.Name = "buttonHuy";
             this.buttonHuy.Size = new System.Drawing.Size(186, 46);
             this.buttonHuy.TabIndex = 26;
@@ -631,7 +631,7 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.White;
             this.label8.Font = new System.Drawing.Font("Baloo 2", 10.8F);
-            this.label8.Location = new System.Drawing.Point(331, 560);
+            this.label8.Location = new System.Drawing.Point(348, 555);
             this.label8.Margin = new System.Windows.Forms.Padding(3, 0, 11, 15);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(128, 30);

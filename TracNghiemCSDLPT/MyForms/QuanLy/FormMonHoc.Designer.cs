@@ -274,7 +274,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.InfoPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.InfoPanel.BorderColor = System.Drawing.Color.LightGray;
-            this.InfoPanel.BorderRadius = 1;
+            this.InfoPanel.BorderRadius = 8;
             this.InfoPanel.BorderThickness = 2;
             this.InfoPanel.Controls.Add(LabelTenMH);
             this.InfoPanel.Controls.Add(this.TextTenMH);
@@ -287,9 +287,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.InfoPanel.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.InfoPanel.LabelIndent = 10;
             this.InfoPanel.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
-            this.InfoPanel.Location = new System.Drawing.Point(311, 7);
+            this.InfoPanel.Location = new System.Drawing.Point(294, 7);
             this.InfoPanel.Name = "InfoPanel";
-            this.InfoPanel.Size = new System.Drawing.Size(741, 253);
+            this.InfoPanel.Size = new System.Drawing.Size(775, 253);
             this.InfoPanel.TabIndex = 12;
             this.InfoPanel.TabStop = false;
             this.InfoPanel.Text = "Thông tin môn học";
@@ -308,6 +308,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.TextTenMH.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.TextTenMH.Size = new System.Drawing.Size(288, 38);
             this.TextTenMH.TabIndex = 6;
+            this.TextTenMH.Enter += new System.EventHandler(this.Editor_GotFocus);
+            this.TextTenMH.Leave += new System.EventHandler(this.Editor_LostFocus);
             // 
             // TextMaMH
             // 
@@ -323,6 +325,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.TextMaMH.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.TextMaMH.Size = new System.Drawing.Size(288, 38);
             this.TextMaMH.TabIndex = 5;
+            this.TextMaMH.Enter += new System.EventHandler(this.Editor_GotFocus);
+            this.TextMaMH.Leave += new System.EventHandler(this.Editor_LostFocus);
             // 
             // buttonHuy
             // 
@@ -335,7 +339,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonHuy.HoverState.Parent = this.buttonHuy;
             this.buttonHuy.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
             this.buttonHuy.ImageSize = new System.Drawing.Size(31, 31);
-            this.buttonHuy.Location = new System.Drawing.Point(1066, 143);
+            this.buttonHuy.Location = new System.Drawing.Point(1084, 143);
             this.buttonHuy.Margin = new System.Windows.Forms.Padding(11, 0, 3, 3);
             this.buttonHuy.Name = "buttonHuy";
             this.buttonHuy.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -356,7 +360,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonXacNhan.HoverState.Parent = this.buttonXacNhan;
             this.buttonXacNhan.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
             this.buttonXacNhan.ImageSize = new System.Drawing.Size(31, 31);
-            this.buttonXacNhan.Location = new System.Drawing.Point(1066, 93);
+            this.buttonXacNhan.Location = new System.Drawing.Point(1084, 93);
             this.buttonXacNhan.Margin = new System.Windows.Forms.Padding(11, 9, 8, 20);
             this.buttonXacNhan.Name = "buttonXacNhan";
             this.buttonXacNhan.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -465,7 +469,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonXoa.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonXoa.Animated = true;
-            this.buttonXoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonXoa.BorderRadius = 8;
             this.buttonXoa.CheckedState.Parent = this.buttonXoa;
             this.buttonXoa.CustomImages.Parent = this.buttonXoa;
             this.buttonXoa.FillColor = System.Drawing.Color.Gainsboro;
@@ -489,7 +493,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonLamMoi.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonLamMoi.Animated = true;
-            this.buttonLamMoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonLamMoi.BorderRadius = 8;
             this.buttonLamMoi.CheckedState.Parent = this.buttonLamMoi;
             this.buttonLamMoi.CustomImages.Parent = this.buttonLamMoi;
             this.buttonLamMoi.FillColor = System.Drawing.Color.Gainsboro;
@@ -513,7 +517,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonThem.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonThem.Animated = true;
-            this.buttonThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonThem.BorderRadius = 8;
             this.buttonThem.CheckedState.Parent = this.buttonThem;
             this.buttonThem.Cursor = System.Windows.Forms.Cursors.Default;
             this.buttonThem.CustomImages.Parent = this.buttonThem;
@@ -538,7 +542,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonSua.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonSua.Animated = true;
-            this.buttonSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonSua.BorderRadius = 8;
             this.buttonSua.CheckedState.Parent = this.buttonSua;
             this.buttonSua.CustomImages.Parent = this.buttonSua;
             this.buttonSua.FillColor = System.Drawing.Color.Gainsboro;

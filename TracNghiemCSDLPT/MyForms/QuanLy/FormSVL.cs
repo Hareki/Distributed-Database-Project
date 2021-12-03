@@ -1,4 +1,5 @@
 ﻿using DevExpress.Utils;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.DXErrorProvider;
 using DevExpress.XtraEditors.ViewInfo;
@@ -964,6 +965,28 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private void KhoaGridView_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
         {
             GetCorrTextBoxData(false);
+        }
+        private Color GetCorrColor()
+        {
+            switch (_state)
+            {
+                case State.AddLop:
+                    return Utils.AddColor;
+                case State.EditLop:
+                    return Utils.EditColor;
+                default:
+                    return Utils.DisabledColor;
+            }
+        }
+        private void Editor_GotFocus(object sender, EventArgs e)
+        {
+            (sender as BaseEdit).Properties.Appearance.BorderColor = GetCorrColor();
+            (sender as BaseEdit).Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+        }
+        private void Editor_LostFocus(object sender, EventArgs e)
+        {
+
+            (sender as BaseEdit).Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
         }
     }
 }

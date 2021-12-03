@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -240,6 +241,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             _state = State.Add;
             KhoaBindingSource.AddNew();
             TextMaCS.Text = _maCs;
+            buttonXacNhan.Focus();
+
         }
 
         private void ResetTextEditErrors()
@@ -478,6 +481,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             _state = State.Edit;
             _origMaKH = TextMaKhoa.Text.Trim().ToLower();
             _origTenKH = TextTenKhoa.Text.Trim().ToLower();
+            buttonXacNhan.Focus();
         }
 
 
@@ -594,6 +598,29 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.school;
             else
                 pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.school_disabled;
+        }
+
+        private Color GetCorrColor()
+        {
+            switch (_state)
+            {
+                case State.Add:
+                    return Utils.AddColor;
+                case State.Edit:
+                    return Utils.EditColor;
+                default:
+                    return Utils.DisabledColor;
+            }
+        }
+        private void Editor_GotFocus(object sender, EventArgs e)
+        {
+            (sender as BaseEdit).Properties.Appearance.BorderColor = GetCorrColor();
+            (sender as BaseEdit).Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+        }
+        private void Editor_LostFocus(object sender, EventArgs e)
+        {
+
+            (sender as BaseEdit).Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
         }
     }
 }

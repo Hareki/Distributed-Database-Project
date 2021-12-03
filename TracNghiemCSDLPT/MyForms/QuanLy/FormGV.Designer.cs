@@ -547,6 +547,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonLamMoiGV.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonLamMoiGV.Animated = true;
+            this.buttonLamMoiGV.BorderRadius = 8;
             this.buttonLamMoiGV.CheckedState.Parent = this.buttonLamMoiGV;
             this.buttonLamMoiGV.CustomImages.Parent = this.buttonLamMoiGV;
             this.buttonLamMoiGV.FillColor = System.Drawing.Color.Gainsboro;
@@ -573,6 +574,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonThemGV.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonThemGV.Animated = true;
+            this.buttonThemGV.BorderRadius = 8;
             this.buttonThemGV.CheckedState.Parent = this.buttonThemGV;
             this.buttonThemGV.CustomImages.Parent = this.buttonThemGV;
             this.buttonThemGV.FillColor = System.Drawing.Color.Gainsboro;
@@ -599,6 +601,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonSuaGV.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonSuaGV.Animated = true;
+            this.buttonSuaGV.BorderRadius = 8;
             this.buttonSuaGV.CheckedState.Parent = this.buttonSuaGV;
             this.buttonSuaGV.CustomImages.Parent = this.buttonSuaGV;
             this.buttonSuaGV.FillColor = System.Drawing.Color.Gainsboro;
@@ -625,6 +628,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonXoaGV.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonXoaGV.Animated = true;
+            this.buttonXoaGV.BorderRadius = 8;
             this.buttonXoaGV.CheckedState.Parent = this.buttonXoaGV;
             this.buttonXoaGV.CustomImages.Parent = this.buttonXoaGV;
             this.buttonXoaGV.FillColor = System.Drawing.Color.Gainsboro;

@@ -60,7 +60,7 @@ namespace TracNghiemCSDLPT
                 case RegexType.LoginNameRegex:
                     return _loginNameRegex.IsMatch(testString);
                 case RegexType.IDRegex:
-                    return _idRegex.IsMatch(testString); 
+                    return _idRegex.IsMatch(testString);
                 default:
                     return false;
             }

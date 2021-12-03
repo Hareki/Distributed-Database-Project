@@ -400,6 +400,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonLamMoiLop.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonLamMoiLop.Animated = true;
+            this.buttonLamMoiLop.BorderRadius = 8;
             this.buttonLamMoiLop.CheckedState.Parent = this.buttonLamMoiLop;
             this.buttonLamMoiLop.CustomImages.Parent = this.buttonLamMoiLop;
             this.buttonLamMoiLop.FillColor = System.Drawing.Color.Gainsboro;
@@ -426,6 +427,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonSuaLop.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonSuaLop.Animated = true;
+            this.buttonSuaLop.BorderRadius = 8;
             this.buttonSuaLop.CheckedState.Parent = this.buttonSuaLop;
             this.buttonSuaLop.CustomImages.Parent = this.buttonSuaLop;
             this.buttonSuaLop.FillColor = System.Drawing.Color.Gainsboro;
@@ -452,6 +454,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonThemLop.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonThemLop.Animated = true;
+            this.buttonThemLop.BorderRadius = 8;
             this.buttonThemLop.CheckedState.Parent = this.buttonThemLop;
             this.buttonThemLop.CustomImages.Parent = this.buttonThemLop;
             this.buttonThemLop.FillColor = System.Drawing.Color.Gainsboro;
@@ -478,6 +481,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonXoaLop.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonXoaLop.Animated = true;
+            this.buttonXoaLop.BorderRadius = 8;
             this.buttonXoaLop.CheckedState.Parent = this.buttonXoaLop;
             this.buttonXoaLop.CustomImages.Parent = this.buttonXoaLop;
             this.buttonXoaLop.FillColor = System.Drawing.Color.Gainsboro;
@@ -534,6 +538,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.TextTenLop.Properties.Appearance.Options.UseForeColor = true;
             this.TextTenLop.Size = new System.Drawing.Size(334, 38);
             this.TextTenLop.TabIndex = 3;
+            this.TextTenLop.Enter += new System.EventHandler(this.Editor_GotFocus);
+            this.TextTenLop.Leave += new System.EventHandler(this.Editor_LostFocus);
             // 
             // LopBindingSource
             // 
@@ -554,6 +560,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.TextMaLop.Properties.Appearance.Options.UseForeColor = true;
             this.TextMaLop.Size = new System.Drawing.Size(333, 38);
             this.TextMaLop.TabIndex = 1;
+            this.TextMaLop.Enter += new System.EventHandler(this.Editor_GotFocus);
+            this.TextMaLop.Leave += new System.EventHandler(this.Editor_LostFocus);
             // 
             // buttonXacNhanLop
             // 
@@ -755,6 +763,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonLamMoiSV.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonLamMoiSV.Animated = true;
+            this.buttonLamMoiSV.BorderRadius = 10;
             this.buttonLamMoiSV.CheckedState.Parent = this.buttonLamMoiSV;
             this.buttonLamMoiSV.CustomImages.Parent = this.buttonLamMoiSV;
             this.buttonLamMoiSV.FillColor = System.Drawing.Color.Gainsboro;
@@ -781,6 +790,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonThemSV.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonThemSV.Animated = true;
+            this.buttonThemSV.BorderRadius = 10;
             this.buttonThemSV.CheckedState.Parent = this.buttonThemSV;
             this.buttonThemSV.CustomImages.Parent = this.buttonThemSV;
             this.buttonThemSV.FillColor = System.Drawing.Color.Gainsboro;
@@ -807,6 +817,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonSuaSV.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonSuaSV.Animated = true;
+            this.buttonSuaSV.BorderRadius = 10;
             this.buttonSuaSV.CheckedState.Parent = this.buttonSuaSV;
             this.buttonSuaSV.CustomImages.Parent = this.buttonSuaSV;
             this.buttonSuaSV.FillColor = System.Drawing.Color.Gainsboro;
@@ -833,6 +844,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonXoaSV.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonXoaSV.Animated = true;
+            this.buttonXoaSV.BorderRadius = 10;
             this.buttonXoaSV.CheckedState.Parent = this.buttonXoaSV;
             this.buttonXoaSV.CustomImages.Parent = this.buttonXoaSV;
             this.buttonXoaSV.FillColor = System.Drawing.Color.Gainsboro;
@@ -1135,7 +1147,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.InfoPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.InfoPanel.BorderColor = System.Drawing.Color.LightGray;
-            this.InfoPanel.BorderRadius = 1;
+            this.InfoPanel.BorderRadius = 8;
             this.InfoPanel.BorderThickness = 2;
             this.InfoPanel.Controls.Add(this.ComboMaKH);
             this.InfoPanel.Controls.Add(this.buttonThemLop);
@@ -1192,7 +1204,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.ComboMaKH.Properties.DataSource = this.DSKhoaBindingSource;
             this.ComboMaKH.Properties.DisplayMember = "FullInfo";
-            this.ComboMaKH.Properties.NullText = "Chọn môn thi";
+            this.ComboMaKH.Properties.NullText = "Chọn khoa";
             this.ComboMaKH.Properties.PopupView = this.gridView1;
             this.ComboMaKH.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
             this.ComboMaKH.Size = new System.Drawing.Size(334, 38);

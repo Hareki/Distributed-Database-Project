@@ -36,6 +36,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.label2 = new System.Windows.Forms.Label();
             this.CoSoComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonPrint = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,37 +52,36 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENMH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpSv = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.DSSVBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHoTen = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.DSSVBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DSMHTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.DSMHTableAdapter();
             this.tableAdapterManager = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
             this.DSSVTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.DSSVTableAdapter();
             this.usp_Report_KQT_LayMonDaThiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usp_Report_KQT_LayMonDaThiTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.usp_Report_KQT_LayMonDaThiTableAdapter();
-            this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usp_Report_KQT_LaySVThuocLopDaDuThiTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.usp_Report_KQT_LaySVThuocLopDaDuThiTableAdapter();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHoTen = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panelLan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpMh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSMHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpSv.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DSSVBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSSVBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usp_Report_KQT_LayMonDaThiBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuPanel1
@@ -170,6 +170,19 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.panel1.Size = new System.Drawing.Size(535, 606);
             this.panel1.TabIndex = 1;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox3.Image = global::TracNghiemCSDLPT.Properties.Resources.info_480px;
+            this.pictureBox3.Location = new System.Drawing.Point(47, 558);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(33, 45);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 54;
+            this.pictureBox3.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox3, resources.GetString("pictureBox3.ToolTip"));
+            // 
             // buttonCancel
             // 
             this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -177,7 +190,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCancel.Font = new System.Drawing.Font("Baloo 2 SemiBold", 13.8F, System.Drawing.FontStyle.Bold);
             this.buttonCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonCancel.Location = new System.Drawing.Point(285, 404);
+            this.buttonCancel.Location = new System.Drawing.Point(47, 404);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(207, 46);
             this.buttonCancel.TabIndex = 52;
@@ -188,11 +201,11 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             // buttonPrint
             // 
             this.buttonPrint.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
+            this.buttonPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(110)))), ((int)(((byte)(190)))));
             this.buttonPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPrint.Font = new System.Drawing.Font("Baloo 2 SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPrint.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonPrint.Location = new System.Drawing.Point(47, 404);
+            this.buttonPrint.Location = new System.Drawing.Point(285, 404);
             this.buttonPrint.Name = "buttonPrint";
             this.buttonPrint.Size = new System.Drawing.Size(207, 46);
             this.buttonPrint.TabIndex = 51;
@@ -381,10 +394,10 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.LookUpSv.TabIndex = 30;
             this.LookUpSv.EditValueChanged += new System.EventHandler(this.LookUpSv_EditValueChanged);
             // 
-            // DSSVBindingSource
+            // usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource
             // 
-            this.DSSVBindingSource.DataMember = "DSSV";
-            this.DSSVBindingSource.DataSource = this.TN_CSDLPTDataSet;
+            this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource.DataMember = "usp_Report_KQT_LaySVThuocLopDaDuThi";
+            this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource.DataSource = this.TN_CSDLPTDataSet;
             // 
             // gridLookUpEdit1View
             // 
@@ -404,84 +417,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             this.gridLookUpEdit1View.OptionsView.ShowIndicator = false;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label7.Font = new System.Drawing.Font("Baloo 2", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(110)))), ((int)(((byte)(190)))));
-            this.label7.Location = new System.Drawing.Point(214, 5);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(215, 93);
-            this.label7.TabIndex = 25;
-            this.label7.Text = "Kết quả bài thi trắc nghiệm";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox2.Image = global::TracNghiemCSDLPT.Properties.Resources.logo31;
-            this.pictureBox2.Location = new System.Drawing.Point(105, 5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(103, 65);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 24;
-            this.pictureBox2.TabStop = false;
-            // 
-            // DSMHTableAdapter
-            // 
-            this.DSMHTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.BAITHITableAdapter = null;
-            this.tableAdapterManager.BANGDIEMTableAdapter = null;
-            this.tableAdapterManager.BODE_BKTableAdapter = null;
-            this.tableAdapterManager.BODETableAdapter = null;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.COSOTableAdapter = null;
-            this.tableAdapterManager.GIAOVIEN_DANGKYTableAdapter = null;
-            this.tableAdapterManager.GIAOVIENTableAdapter = null;
-            this.tableAdapterManager.KHOATableAdapter = null;
-            this.tableAdapterManager.LOPTableAdapter = null;
-            this.tableAdapterManager.MONHOCTableAdapter = null;
-            this.tableAdapterManager.SINHVIENTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // DSSVTableAdapter
-            // 
-            this.DSSVTableAdapter.ClearBeforeFill = true;
-            // 
-            // usp_Report_KQT_LayMonDaThiBindingSource
-            // 
-            this.usp_Report_KQT_LayMonDaThiBindingSource.DataMember = "usp_Report_KQT_LayMonDaThi";
-            this.usp_Report_KQT_LayMonDaThiBindingSource.DataSource = this.TN_CSDLPTDataSet;
-            // 
-            // usp_Report_KQT_LayMonDaThiTableAdapter
-            // 
-            this.usp_Report_KQT_LayMonDaThiTableAdapter.ClearBeforeFill = true;
-            // 
-            // usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource
-            // 
-            this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource.DataMember = "usp_Report_KQT_LaySVThuocLopDaDuThi";
-            this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource.DataSource = this.TN_CSDLPTDataSet;
-            // 
-            // usp_Report_KQT_LaySVThuocLopDaDuThiTableAdapter
-            // 
-            this.usp_Report_KQT_LaySVThuocLopDaDuThiTableAdapter.ClearBeforeFill = true;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox3.Image = global::TracNghiemCSDLPT.Properties.Resources.info_480px;
-            this.pictureBox3.Location = new System.Drawing.Point(47, 558);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(33, 45);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 54;
-            this.pictureBox3.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox3, resources.GetString("pictureBox3.ToolTip"));
             // 
             // colMASV
             // 
@@ -518,6 +453,71 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.colMALOP.VisibleIndex = 2;
             this.colMALOP.Width = 103;
             // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label7.Font = new System.Drawing.Font("Baloo 2", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(110)))), ((int)(((byte)(190)))));
+            this.label7.Location = new System.Drawing.Point(214, 5);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(215, 93);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Kết quả bài thi trắc nghiệm";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox2.Image = global::TracNghiemCSDLPT.Properties.Resources.logo31;
+            this.pictureBox2.Location = new System.Drawing.Point(105, 5);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(103, 65);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 24;
+            this.pictureBox2.TabStop = false;
+            // 
+            // DSSVBindingSource
+            // 
+            this.DSSVBindingSource.DataMember = "DSSV";
+            this.DSSVBindingSource.DataSource = this.TN_CSDLPTDataSet;
+            // 
+            // DSMHTableAdapter
+            // 
+            this.DSMHTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BAITHITableAdapter = null;
+            this.tableAdapterManager.BANGDIEMTableAdapter = null;
+            this.tableAdapterManager.BODE_BKTableAdapter = null;
+            this.tableAdapterManager.BODETableAdapter = null;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.COSOTableAdapter = null;
+            this.tableAdapterManager.GIAOVIEN_DANGKYTableAdapter = null;
+            this.tableAdapterManager.GIAOVIENTableAdapter = null;
+            this.tableAdapterManager.KHOATableAdapter = null;
+            this.tableAdapterManager.LOPTableAdapter = null;
+            this.tableAdapterManager.MONHOCTableAdapter = null;
+            this.tableAdapterManager.SINHVIENTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // DSSVTableAdapter
+            // 
+            this.DSSVTableAdapter.ClearBeforeFill = true;
+            // 
+            // usp_Report_KQT_LayMonDaThiBindingSource
+            // 
+            this.usp_Report_KQT_LayMonDaThiBindingSource.DataMember = "usp_Report_KQT_LayMonDaThi";
+            this.usp_Report_KQT_LayMonDaThiBindingSource.DataSource = this.TN_CSDLPTDataSet;
+            // 
+            // usp_Report_KQT_LayMonDaThiTableAdapter
+            // 
+            this.usp_Report_KQT_LayMonDaThiTableAdapter.ClearBeforeFill = true;
+            // 
+            // usp_Report_KQT_LaySVThuocLopDaDuThiTableAdapter
+            // 
+            this.usp_Report_KQT_LaySVThuocLopDaDuThiTableAdapter.ClearBeforeFill = true;
+            // 
             // FormKQT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -532,6 +532,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panelLan.ResumeLayout(false);
             this.panelLan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpMh.Properties)).EndInit();
@@ -539,12 +540,11 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpSv.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DSSVBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSSVBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usp_Report_KQT_LayMonDaThiBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }

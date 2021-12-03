@@ -267,7 +267,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.bunifuPanel1.Location = new System.Drawing.Point(0, 12);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(1362, 266);
+            this.bunifuPanel1.Size = new System.Drawing.Size(1362, 261);
             this.bunifuPanel1.TabIndex = 10;
             // 
             // InfoPanel
@@ -287,7 +287,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.InfoPanel.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.InfoPanel.LabelIndent = 10;
             this.InfoPanel.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
-            this.InfoPanel.Location = new System.Drawing.Point(294, 7);
+            this.InfoPanel.Location = new System.Drawing.Point(289, 4);
             this.InfoPanel.Name = "InfoPanel";
             this.InfoPanel.Size = new System.Drawing.Size(775, 253);
             this.InfoPanel.TabIndex = 12;
@@ -339,7 +339,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonHuy.HoverState.Parent = this.buttonHuy;
             this.buttonHuy.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
             this.buttonHuy.ImageSize = new System.Drawing.Size(31, 31);
-            this.buttonHuy.Location = new System.Drawing.Point(1084, 143);
+            this.buttonHuy.Location = new System.Drawing.Point(1084, 140);
             this.buttonHuy.Margin = new System.Windows.Forms.Padding(11, 0, 3, 3);
             this.buttonHuy.Name = "buttonHuy";
             this.buttonHuy.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -360,7 +360,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonXacNhan.HoverState.Parent = this.buttonXacNhan;
             this.buttonXacNhan.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
             this.buttonXacNhan.ImageSize = new System.Drawing.Size(31, 31);
-            this.buttonXacNhan.Location = new System.Drawing.Point(1084, 93);
+            this.buttonXacNhan.Location = new System.Drawing.Point(1084, 90);
             this.buttonXacNhan.Margin = new System.Windows.Forms.Padding(11, 9, 8, 20);
             this.buttonXacNhan.Name = "buttonXacNhan";
             this.buttonXacNhan.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -479,7 +479,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonXoa.HoverState.Parent = this.buttonXoa;
             this.buttonXoa.Image = global::TracNghiemCSDLPT.Properties.Resources.minus_sign_480px;
             this.buttonXoa.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonXoa.Location = new System.Drawing.Point(496, 289);
+            this.buttonXoa.Location = new System.Drawing.Point(491, 287);
             this.buttonXoa.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonXoa.Name = "buttonXoa";
             this.buttonXoa.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
@@ -503,7 +503,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonLamMoi.HoverState.Parent = this.buttonLamMoi;
             this.buttonLamMoi.Image = global::TracNghiemCSDLPT.Properties.Resources.reset_480px;
             this.buttonLamMoi.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonLamMoi.Location = new System.Drawing.Point(901, 288);
+            this.buttonLamMoi.Location = new System.Drawing.Point(896, 286);
             this.buttonLamMoi.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonLamMoi.Name = "buttonLamMoi";
             this.buttonLamMoi.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
@@ -528,7 +528,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonThem.HoverState.Parent = this.buttonThem;
             this.buttonThem.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
             this.buttonThem.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonThem.Location = new System.Drawing.Point(294, 289);
+            this.buttonThem.Location = new System.Drawing.Point(289, 287);
             this.buttonThem.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonThem.Name = "buttonThem";
             this.buttonThem.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
@@ -552,7 +552,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonSua.HoverState.Parent = this.buttonSua;
             this.buttonSua.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_480px;
             this.buttonSua.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonSua.Location = new System.Drawing.Point(698, 287);
+            this.buttonSua.Location = new System.Drawing.Point(693, 285);
             this.buttonSua.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonSua.Name = "buttonSua";
             this.buttonSua.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));

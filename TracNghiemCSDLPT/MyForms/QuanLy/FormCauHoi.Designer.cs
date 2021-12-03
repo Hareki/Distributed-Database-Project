@@ -72,9 +72,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.label13 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.MHCombo = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.MH2BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.MHCombo = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.MH2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
             this.InfoPanel = new System.Windows.Forms.Panel();
             this.textNoiDung = new DevExpress.XtraEditors.MemoEdit();
@@ -345,6 +345,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.MonHocGridView.ViewCaption = "Danh sách câu hỏi theo môn học";
             this.MonHocGridView.MasterRowGetRelationDisplayCaption += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationNameEventHandler(this.MonHocGridView_MasterRowGetRelationDisplayCaption);
             this.MonHocGridView.DetailTabStyle += new System.EventHandler<DevExpress.XtraGrid.Views.Grid.DetailTabStyleEventArgs>(this.MonHocGridView_DetailTabStyle);
+            this.MonHocGridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.MonHocGridView_FocusedRowChanged);
             // 
             // colMAMH
             // 
@@ -400,7 +401,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.rdoDA_A.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.rdoDA_A.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rdoDA_A.CheckedState.Parent = this.rdoDA_A;
-            this.rdoDA_A.Location = new System.Drawing.Point(24, 53);
+            this.rdoDA_A.Location = new System.Drawing.Point(25, 53);
             this.rdoDA_A.Name = "rdoDA_A";
             this.rdoDA_A.ShadowDecoration.Parent = this.rdoDA_A;
             this.rdoDA_A.Size = new System.Drawing.Size(20, 20);
@@ -489,7 +490,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.info_480px_disabled;
-            this.pictureBox1.Location = new System.Drawing.Point(14, 205);
+            this.pictureBox1.Location = new System.Drawing.Point(16, 205);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(38, 30);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -638,11 +639,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.label7.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(8, 35);
+            this.label7.Location = new System.Drawing.Point(17, 34);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(142, 30);
             this.label7.TabIndex = 17;
             this.label7.Text = "Giáo viên soạn:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // labelGVSoan
             // 
@@ -650,7 +652,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.labelGVSoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.labelGVSoan.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.DSGVTCSBindingSource, "FullInfo", true));
             this.labelGVSoan.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGVSoan.Location = new System.Drawing.Point(177, 32);
+            this.labelGVSoan.Location = new System.Drawing.Point(177, 31);
             this.labelGVSoan.Name = "labelGVSoan";
             this.labelGVSoan.Size = new System.Drawing.Size(181, 30);
             this.labelGVSoan.TabIndex = 19;
@@ -666,7 +668,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.label9.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(47, 66);
+            this.label9.Location = new System.Drawing.Point(51, 64);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(108, 30);
             this.label9.TabIndex = 17;
@@ -684,10 +686,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.bunifuPanel1.BorderRadius = 25;
             this.bunifuPanel1.BorderThickness = 1;
             this.bunifuPanel1.Controls.Add(this.tableLayoutPanel1);
-            this.bunifuPanel1.Location = new System.Drawing.Point(69, 167);
+            this.bunifuPanel1.Location = new System.Drawing.Point(57, 167);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(703, 112);
+            this.bunifuPanel1.Size = new System.Drawing.Size(691, 112);
             this.bunifuPanel1.TabIndex = 22;
             // 
             // tableLayoutPanel1
@@ -697,15 +699,15 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.49133F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.50867F));
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(7, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(692, 106);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(681, 106);
             this.tableLayoutPanel1.TabIndex = 23;
             // 
             // panel2
@@ -722,7 +724,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(409, 100);
+            this.panel2.Size = new System.Drawing.Size(371, 100);
             this.panel2.TabIndex = 26;
             // 
             // textMaCH
@@ -735,7 +737,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             0});
             this.textMaCH.Location = new System.Drawing.Point(182, 60);
             this.textMaCH.Name = "textMaCH";
-            this.textMaCH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F);
+            this.textMaCH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textMaCH.Properties.Appearance.Options.UseFont = true;
             this.textMaCH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -750,7 +752,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             | System.Windows.Forms.AnchorStyles.Right)));
             this.separatorControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.separatorControl1.LineOrientation = System.Windows.Forms.Orientation.Vertical;
-            this.separatorControl1.Location = new System.Drawing.Point(403, 4);
+            this.separatorControl1.Location = new System.Drawing.Point(365, 4);
             this.separatorControl1.Name = "separatorControl1";
             this.separatorControl1.Padding = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.separatorControl1.Size = new System.Drawing.Size(25, 91);
@@ -773,36 +775,23 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.panel3.Controls.Add(this.MHCombo);
             this.panel3.Controls.Add(this.label10);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(418, 3);
+            this.panel3.Location = new System.Drawing.Point(380, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(271, 100);
+            this.panel3.Size = new System.Drawing.Size(298, 100);
             this.panel3.TabIndex = 27;
             // 
             // MHCombo
             // 
-            this.MHCombo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.MHCombo.BackColor = System.Drawing.Color.Transparent;
-            this.MHCombo.DataSource = this.MH2BindingSource;
-            this.MHCombo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.MHCombo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.MHCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MHCombo.FocusedColor = System.Drawing.Color.Empty;
-            this.MHCombo.FocusedState.Parent = this.MHCombo;
-            this.MHCombo.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.MHCombo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.MHCombo.Font = new System.Drawing.Font("Baloo 2", 10.8F);
+            this.MHCombo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
             this.MHCombo.FormattingEnabled = true;
-            this.MHCombo.HoverState.Parent = this.MHCombo;
-            this.MHCombo.ItemHeight = 30;
-            this.MHCombo.ItemsAppearance.Parent = this.MHCombo;
-            this.MHCombo.Location = new System.Drawing.Point(7, 47);
+            this.MHCombo.Location = new System.Drawing.Point(8, 50);
             this.MHCombo.Name = "MHCombo";
-            this.MHCombo.ShadowDecoration.Parent = this.MHCombo;
-            this.MHCombo.Size = new System.Drawing.Size(247, 36);
+            this.MHCombo.Size = new System.Drawing.Size(273, 36);
             this.MHCombo.TabIndex = 18;
-            // 
-            // MH2BindingSource
-            // 
-            this.MH2BindingSource.DataMember = "MONHOC2";
-            this.MH2BindingSource.DataSource = this.TN_CSDLPTDataSet;
             // 
             // label10
             // 
@@ -815,6 +804,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.label10.Size = new System.Drawing.Size(90, 30);
             this.label10.TabIndex = 17;
             this.label10.Text = "Môn học:";
+            // 
+            // MH2BindingSource
+            // 
+            this.MH2BindingSource.DataMember = "MONHOC2";
+            this.MH2BindingSource.DataSource = this.TN_CSDLPTDataSet;
             // 
             // bunifuPanel2
             // 
@@ -836,7 +830,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.bunifuPanel2.Location = new System.Drawing.Point(56, 169);
             this.bunifuPanel2.Name = "bunifuPanel2";
             this.bunifuPanel2.ShowBorders = true;
-            this.bunifuPanel2.Size = new System.Drawing.Size(715, 112);
+            this.bunifuPanel2.Size = new System.Drawing.Size(691, 112);
             this.bunifuPanel2.TabIndex = 23;
             // 
             // InfoPanel
@@ -1136,7 +1130,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // tipSua
             // 
             this.tipSua.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tipSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(206)))), ((int)(((byte)(206)))));
+            this.tipSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.tipSua.Image = global::TracNghiemCSDLPT.Properties.Resources.help_480px;
             this.tipSua.Location = new System.Drawing.Point(115, 151);
             this.tipSua.Name = "tipSua";
@@ -1151,9 +1145,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // tipXoa
             // 
             this.tipXoa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tipXoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(206)))), ((int)(((byte)(206)))));
+            this.tipXoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.tipXoa.Image = global::TracNghiemCSDLPT.Properties.Resources.help_480px;
-            this.tipXoa.Location = new System.Drawing.Point(115, 84);
+            this.tipXoa.Location = new System.Drawing.Point(115, 85);
             this.tipXoa.Name = "tipXoa";
             this.tipXoa.ShadowDecoration.Parent = this.tipXoa;
             this.tipXoa.Size = new System.Drawing.Size(29, 25);
@@ -1192,6 +1186,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonUndo.ShadowDecoration.Parent = this.buttonUndo;
             this.buttonUndo.Size = new System.Drawing.Size(37, 32);
             this.buttonUndo.TabIndex = 34;
+            this.buttonUndo.Visible = false;
             // 
             // buttonRedo
             // 
@@ -1214,6 +1209,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonRedo.ShadowDecoration.Parent = this.buttonRedo;
             this.buttonRedo.Size = new System.Drawing.Size(37, 32);
             this.buttonRedo.TabIndex = 35;
+            this.buttonRedo.Visible = false;
             // 
             // DSGVTCSTableAdapter
             // 
@@ -1271,7 +1267,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonXacNhan.HoverState.FillColor = System.Drawing.Color.Gainsboro;
             this.buttonXacNhan.HoverState.Parent = this.buttonXacNhan;
             this.buttonXacNhan.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
-            this.buttonXacNhan.ImageSize = new System.Drawing.Size(30, 30);
             this.buttonXacNhan.Location = new System.Drawing.Point(158, 5);
             this.buttonXacNhan.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.buttonXacNhan.Name = "buttonXacNhan";
@@ -1296,7 +1291,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonHuy.HoverState.FillColor = System.Drawing.Color.Gainsboro;
             this.buttonHuy.HoverState.Parent = this.buttonHuy;
             this.buttonHuy.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
-            this.buttonHuy.ImageSize = new System.Drawing.Size(30, 30);
             this.buttonHuy.Location = new System.Drawing.Point(333, 2);
             this.buttonHuy.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.buttonHuy.Name = "buttonHuy";
@@ -1434,7 +1428,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
-        private Guna.UI2.WinForms.Guna2ComboBox MHCombo;
         private DevExpress.XtraEditors.MemoEdit textNoiDung;
         private DevExpress.XtraEditors.MemoEdit textChoiceB;
         private DevExpress.XtraEditors.MemoEdit textChoiceD;
@@ -1468,5 +1461,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private Guna.UI2.WinForms.Guna2PictureBox tipXoa;
         private Guna.UI2.WinForms.Guna2PictureBox tipSua;
         private DevExpress.XtraEditors.SpinEdit textMaCH;
+        private System.Windows.Forms.ComboBox MHCombo;
     }
 }

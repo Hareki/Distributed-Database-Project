@@ -87,7 +87,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
             LoadAllData();
-
+            MHCombo.DataSource = MH2BindingSource;
             MHCombo.DisplayMember = "TENMH";
             MHCombo.ValueMember = "MAMH";
 
@@ -262,17 +262,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 if (test1 || test2)
                 {
                     buttonXoa.Enabled = buttonSua.Enabled = false;
-                    if (test2)
-                    {
-                        tipXoa.Visible = true;
-                        tipSua.Visible = true;
-                    }
                 }
                 else
                 {
                     buttonXoa.Enabled = buttonSua.Enabled = true;
-                    tipXoa.Visible = false;
-                    tipSua.Visible = false;
                 }
             }
         }
@@ -355,7 +348,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             MonHocGridView.FocusedRowHandle = row;
             MonHocGridView.Focus();
             MonHocGridView.ExpandMasterRow(row);
-            detailView = MonHocGridView.GetDetailView(row, 1) as GridView;
+            detailView = MonHocGridView.GetDetailView(row, 0) as GridView;
             if (detailView is null)
             {
                 Utils.ShowErrorMessage("Lỗi không xác định", "Lỗi");
@@ -676,20 +669,18 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void buttonXoa_EnabledChanged(object sender, EventArgs e)
         {
-            if (buttonXoa.Enabled)
-                toolTip2.SetToolTip(buttonXoa, "Không thể xóa câu hỏi của giảng viên khác!");
-            else
-                toolTip2.SetToolTip(buttonXoa, null);
+            tipXoa.Visible = !buttonXoa.Enabled;
+
         }
 
         private void buttonSua_EnabledChanged(object sender, EventArgs e)
         {
-            if (buttonSua.Enabled)
-                toolTip2.SetToolTip(buttonSua, "Không thể sửa câu hỏi của giảng viên khác!");
-            else
-                toolTip2.SetToolTip(buttonSua, null);
+            tipSua.Visible = !buttonSua.Enabled;
         }
 
-
+        private void MonHocGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            GetCorrData(false);
+        }
     }
 }

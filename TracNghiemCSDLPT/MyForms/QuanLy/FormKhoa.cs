@@ -73,11 +73,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void LoadCombobox()
         {
-            this.CoSoComboBox.DataSource = DBConnection.BsSubcribers;
-            this.CoSoComboBox.DisplayMember = "TENCS";
-            this.CoSoComboBox.ValueMember = "TENSERVER";
-            this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
-            this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
+            //this.CoSoComboBox.DataSource = DBConnection.BsSubcribers;
+            //this.CoSoComboBox.DisplayMember = "TENCS";
+            //this.CoSoComboBox.ValueMember = "TENSERVER";
+            //this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
+            //this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
+            Utils.BindingComboData(CoSoComboBox, _previousIndexCS);
         }
 
         private void LoadAllData()

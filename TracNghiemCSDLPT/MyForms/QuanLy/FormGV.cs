@@ -82,11 +82,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
 
-            this.CoSoComboBox.DataSource = DBConnection.BsSubcribers;
-            this.CoSoComboBox.DisplayMember = "TENCS";
-            this.CoSoComboBox.ValueMember = "TENSERVER";
-            this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
-            this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
+            //this.CoSoComboBox.DataSource = DBConnection.BsSubcribers;
+            //this.CoSoComboBox.DisplayMember = "TENCS";
+            //this.CoSoComboBox.ValueMember = "TENSERVER";
+            //this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
+            //this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
+            Utils.BindingComboData(CoSoComboBox, _previousIndexCS);
             CheckButtonStateGv();
             PhanQuyen();
         }
@@ -184,8 +185,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             bool test1 = (GetError(GetEditingIndexGv(), colMAGV) == string.Empty);
             bool test2 = (GetError(GetEditingIndexGv(), colHO) == string.Empty);
             bool test3 = (GetError(GetEditingIndexGv(), colTEN) == string.Empty);
+            bool test4 = (GetError(GetEditingIndexGv(), colDIACHI) == string.Empty);
             GVGridView.ClearColumnErrors(); // lệnh này chỉ clear các cột bị lỗi trong show_editor (và chỉ có 1 cột bị chịu tác động của show_editor tại 1 thời điểm)
-            if (test1 && test2 & test3)
+            if (test1 && test2 & test3 && test4)
             {
                 try
                 {
@@ -195,6 +197,16 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
                     string ten = Utils.CapitalizeString(GetCellAtRowGv(colTEN, editingIndex), Utils.CapitalMode.EveryWord);
                     SetCellAtRowGv(colTEN, ten, editingIndex);
+
+                    string maGv = GetCellAtFRowGv(colMAGV).Trim();
+                    if (!maGv.Equals(_origMaGv))
+                    {
+                        if (!RenameUser(_origMaGv, maGv))
+                        {
+                            Utils.ShowErrorMessage("Xảy ra lỗi khi đổi username, chặn quá trình cập nhật", "Lỗi");
+                            return;
+                        }
+                    }
 
                     GVBindingSource.EndEdit();
                     GVBindingSource.ResetCurrentItem();
@@ -246,17 +258,26 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 String maGV = GetCellAtRowGv(colMAGV, rowHandle);
                 String ho = GetCellAtRowGv(colHO, rowHandle);
                 String ten = GetCellAtRowGv(colTEN, rowHandle);
+                String diaChi = GetCellAtRowGv(colDIACHI, rowHandle);
                 if (column.Equals(view.Columns["MAGV"]))
                     return ValidateMaGv(maGV);
                 else if (column.Equals(view.Columns["HO"]))
-                    return ValidateHoGv(ho, rowHandle);
+                    return ValidateHoGv(ho);
                 else if (column.Equals(view.Columns["TEN"]))
-                    return ValidateTenGv(ten, rowHandle);
+                    return ValidateTenGv(ten);
+                else if (column.Equals(view.Columns["DIACHI"]))
+                    return ValidateDiaChi(diaChi);
             }
             return string.Empty;
         }
 
-
+        private string ValidateDiaChi(string diaChi)
+        {
+            diaChi = Utils.RemoveExtraSpace(diaChi);
+            if (diaChi.Length > 100)
+                return "Địa chỉ không vượt quá 100 ký tự";
+            return string.Empty;
+        }
         private string ValidateMaGv(string maGV)
         {
             if (string.IsNullOrEmpty(maGV))
@@ -278,7 +299,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             return string.Empty;
         }
-        private string ValidateHoGv(string ho, int row)
+        private string ValidateHoGv(string ho)
         {
             ho = Utils.CapitalizeString(ho, Utils.CapitalMode.EveryWord);
             // setCellAtRowGV(colHO, ho, row);
@@ -287,9 +308,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             if (!Utils.IsMathRegex(ho, Utils.RegexType.LetterOnly))
                 return "Họ, tên đệm của GV chỉ được chứa chữ";
+
+            if (ho.Length > 40)
+                return "Họ giảng viên không vượt quá 40 ký tự";
             return string.Empty;
         }
-        private string ValidateTenGv(string ten, int row)
+        private string ValidateTenGv(string ten)
         {
             ten = Utils.CapitalizeString(ten, Utils.CapitalMode.EveryWord);
             //    setCellAtRowGV(colTEN, ten, row);
@@ -298,9 +322,28 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             if (!Utils.IsMathRegex(ten, Utils.RegexType.LetterOnly))
                 return "Tên của giảng viên chỉ được chứa chữ";
+
+            if (ten.Length > 10)
+                return "Tên giảng viên không vượt quá 10 ký tự";
             return string.Empty;
         }
 
+        private bool RenameUser(string oldUserName, string newUsername)
+        {
+            List<Para> paraList = new List<Para>();
+            paraList.Add(new Para("@OldUsername", oldUserName));
+            paraList.Add(new Para("@NewUserName", newUsername));
+
+            string spName = "usp_Login_RenameUser";
+            bool success = DBConnection.ExecuteSqlNonQuerySP(spName, paraList);
+            if (!success)
+            {
+                Console.WriteLine(System.Environment.StackTrace);
+                return false;
+            }
+
+            return true;
+        }
 
         private bool AlreadyExistsGv(string testName)
         {
@@ -478,7 +521,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                         else
                         {
                             myReader.Read();
-                           // Utils.ShowMessage("Mã của task xóa login: " + myReader.GetValue(0), Others.NotiForm.FormType.Error, 2);
+                            // Utils.ShowMessage("Mã của task xóa login: " + myReader.GetValue(0), Others.NotiForm.FormType.Error, 2);
                         }
                     }
 

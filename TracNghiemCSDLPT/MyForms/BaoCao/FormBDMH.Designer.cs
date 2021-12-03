@@ -38,8 +38,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonPrint = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.panelLan = new System.Windows.Forms.Panel();
             this.rdo1 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
@@ -62,6 +60,8 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.usp_Report_BDMH_LayLopDaDKBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usp_Report_BDMH_LayLopDaDKTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.usp_Report_BDMH_LayLopDaDKTableAdapter();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.buttonPrint = new Guna.UI2.WinForms.Guna2Button();
+            this.buttonCancel = new Guna.UI2.WinForms.Guna2Button();
             this.bunifuPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -135,11 +135,11 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.buttonCancel);
+            this.panel1.Controls.Add(this.buttonPrint);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.buttonCancel);
-            this.panel1.Controls.Add(this.buttonPrint);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.panelLan);
             this.panel1.Controls.Add(this.LookUpMh);
@@ -181,36 +181,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.pictureBox3.TabIndex = 55;
             this.pictureBox3.TabStop = false;
             this.toolTip1.SetToolTip(this.pictureBox3, resources.GetString("pictureBox3.ToolTip"));
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(202)))), ((int)(((byte)(202)))));
-            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancel.Font = new System.Drawing.Font("Baloo 2 SemiBold", 13.8F, System.Drawing.FontStyle.Bold);
-            this.buttonCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonCancel.Location = new System.Drawing.Point(47, 426);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(207, 46);
-            this.buttonCancel.TabIndex = 52;
-            this.buttonCancel.Text = "Hủy";
-            this.buttonCancel.UseVisualStyleBackColor = false;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
-            // 
-            // buttonPrint
-            // 
-            this.buttonPrint.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(110)))), ((int)(((byte)(190)))));
-            this.buttonPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPrint.Font = new System.Drawing.Font("Baloo 2 SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPrint.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonPrint.Location = new System.Drawing.Point(285, 426);
-            this.buttonPrint.Name = "buttonPrint";
-            this.buttonPrint.Size = new System.Drawing.Size(207, 46);
-            this.buttonPrint.TabIndex = 51;
-            this.buttonPrint.Text = "In xem trước";
-            this.buttonPrint.UseVisualStyleBackColor = false;
-            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
             // 
             // label6
             // 
@@ -476,6 +446,54 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             // 
             this.usp_Report_BDMH_LayLopDaDKTableAdapter.ClearBeforeFill = true;
             // 
+            // buttonPrint
+            // 
+            this.buttonPrint.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonPrint.Animated = true;
+            this.buttonPrint.BorderRadius = 8;
+            this.buttonPrint.CheckedState.Parent = this.buttonPrint;
+            this.buttonPrint.CustomImages.Parent = this.buttonPrint;
+            this.buttonPrint.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
+            this.buttonPrint.Font = new System.Drawing.Font("Baloo 2", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPrint.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonPrint.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(147)))), ((int)(((byte)(219)))));
+            this.buttonPrint.HoverState.Parent = this.buttonPrint;
+            this.buttonPrint.ImageSize = new System.Drawing.Size(35, 35);
+            this.buttonPrint.Location = new System.Drawing.Point(285, 426);
+            this.buttonPrint.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.buttonPrint.ShadowDecoration.Parent = this.buttonPrint;
+            this.buttonPrint.Size = new System.Drawing.Size(207, 46);
+            this.buttonPrint.TabIndex = 43;
+            this.buttonPrint.Text = "In xem trước";
+            this.buttonPrint.TextOffset = new System.Drawing.Point(3, 0);
+            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonCancel.Animated = true;
+            this.buttonCancel.BorderRadius = 8;
+            this.buttonCancel.CheckedState.Parent = this.buttonCancel;
+            this.buttonCancel.CustomImages.Parent = this.buttonCancel;
+            this.buttonCancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(202)))), ((int)(((byte)(202)))));
+            this.buttonCancel.Font = new System.Drawing.Font("Baloo 2", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonCancel.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.buttonCancel.HoverState.Parent = this.buttonCancel;
+            this.buttonCancel.ImageSize = new System.Drawing.Size(35, 35);
+            this.buttonCancel.Location = new System.Drawing.Point(47, 426);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.buttonCancel.ShadowDecoration.Parent = this.buttonCancel;
+            this.buttonCancel.Size = new System.Drawing.Size(207, 46);
+            this.buttonCancel.TabIndex = 43;
+            this.buttonCancel.Text = "Hủy";
+            this.buttonCancel.TextOffset = new System.Drawing.Point(3, 0);
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
             // FormBDMH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -512,8 +530,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2ComboBox CoSoComboBox;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button buttonPrint;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panelLan;
         private Guna.UI2.WinForms.Guna2CustomRadioButton rdo1;
@@ -539,5 +555,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2Button buttonPrint;
+        private Guna.UI2.WinForms.Guna2Button buttonCancel;
     }
 }

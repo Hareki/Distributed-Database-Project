@@ -245,7 +245,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         private void buttonXacNhan_Click(object sender, EventArgs e)
         {
-            string maMh = TextMaMH.Text = TextMaMH.Text.Trim();
+            string maMh = TextMaMH.Text = Utils.RemoveExtraSpace(TextMaMH.Text);
             string tenMh = TextTenMH.Text = Utils.CapitalizeString
                 (TextTenMH.Text, Utils.CapitalMode.FirstWordOnly);
             bool test1 = string.IsNullOrEmpty(maMh);
@@ -271,11 +271,21 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
 
 
-
-            if (maMh.Length > 5)
+            bool test5 = maMh.Length > 5;
+            bool test6 = tenMh.Length > 40;
+            if (test5 || test6)
             {
-                Utils.ShowMessage("Mã môn học không được quá 5 ký tự", Others.NotiForm.FormType.Warning, 2);
-                Utils.SetTextEditError(MaMHEP, TextMaMH, "Mã môn học không được quá 5 ký tự");
+                if (test5)
+                    Utils.SetTextEditError(MaMHEP, TextMaMH, "Mã môn học không được quá 5 ký tự");
+                else
+                    Utils.SetTextEditError(MaMHEP, TextMaMH, null);
+
+                if (test6)
+                    Utils.SetTextEditError(TenMHEP, TextTenMH, "Tên môn học không được quá 40 ký tự");
+                else
+                    Utils.SetTextEditError(TenMHEP, TextTenMH, null);
+
+                Utils.ShowMessage("Thông tin nhập quá dài", Others.NotiForm.FormType.Warning, 1);
                 return;
             }
 

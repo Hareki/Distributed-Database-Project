@@ -174,11 +174,13 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             LoadAllData();
 
-            this.CoSoComboBox.DataSource = DBConnection.BsSubcribers;
-            this.CoSoComboBox.DisplayMember = "TENCS";
-            this.CoSoComboBox.ValueMember = "TENSERVER";
-            this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
-            this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
+            //this.CoSoComboBox.DataSource = DBConnection.BsSubcribers;
+            //this.CoSoComboBox.DisplayMember = "TENCS";
+            //this.CoSoComboBox.ValueMember = "TENSERVER";
+            //this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
+            //this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
+
+            Utils.BindingComboData(CoSoComboBox, _previousIndexCS);
 
 
             KhoaGridView.ExpandMasterRow(0); // dùng để trigger LopGridView FocusedRochanged
@@ -422,10 +424,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
 
         }
-        private void GoToNewlyCreatedRowLop()
+        private void GoToNewlyCreatedRowLop(string maLop)
         {
             GridView detailView;
-            int row = KhoaGridView.LocateByDisplayText(0, colMAKH, Utils.GetLookUpValue(ComboMaKH, "MAKH"));
+            string maKhWithRedunantSpace = (ComboMaKH.GetSelectedDataRow() as DataRowView)["MAKH"].ToString();//Do trong grid view thật sự có khoảng trắng
+            int row = KhoaGridView.LocateByDisplayText(0, colMAKH, maKhWithRedunantSpace);
             //Console.WriteLine("Row: " + row);
 
             KhoaGridView.FocusedRowHandle = row;
@@ -434,13 +437,15 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             detailView = KhoaGridView.GetDetailView(row, 0) as GridView;
             if (detailView is null)
             {
-                Utils.ShowErrorMessage("Lỗi không xác định", "Lỗi");
+                Utils.ShowErrorMessage("Lỗi không xác định (GoToNewlyCreatedRowLop)", "Lỗi");
                 Console.WriteLine(System.Environment.StackTrace);
                 return;
             }
             detailView.Focus();
-            detailView.FocusedRowHandle = detailView.RowCount - 1;
-            detailView.MakeRowVisible(detailView.RowCount - 1);
+            //    int rowToGo = detailView.RowCount - 1;
+            int rowToGo = detailView.LocateByDisplayText(0, colMALOP1, maLop);
+            detailView.FocusedRowHandle = rowToGo;
+            detailView.MakeRowVisible(rowToGo);
         }
 
         private void ClearLopErrors()
@@ -470,15 +475,26 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             detailView.FocusedRowHandle = FKLopKhoaBds.Find("MALOP", _saveMaLopForReset);
 
         }
+        private string GetMaLopWithRedunantSpaces(string maLop)
+        {
+            string result = maLop;
+            Debug.Assert(8 - maLop.Length >= 0);
+            for (int i = 0; i < 8 - maLop.Length; i++)
+            {
+                result += " ";
+            }
+            return result;
+        }
         private void ButtonXacNhanLop_Click(object sender, EventArgs e)
         {
-            string maLop = TextMaLop.Text = TextMaLop.Text.Trim();
+            string maLop = TextMaLop.Text = Utils.RemoveExtraSpace(TextMaLop.Text);
             string tenLop = TextTenLop.Text = Utils.CapitalizeString
                 (TextTenLop.Text, Utils.CapitalMode.FirstWordOnly);
-            bool test1 = string.IsNullOrEmpty(TextTenLop.Text);
-            bool test2 = string.IsNullOrEmpty(TextMaLop.Text);
+            bool test1 = string.IsNullOrEmpty(maLop);
+            bool test2 = string.IsNullOrEmpty(tenLop);
+            bool testKH = ComboMaKH.EditValue == null;
 
-            if (test1 || test2)
+            if (test1 || test2 || testKH)
             {
                 if (test1)
                     Utils.SetTextEditError(MaLopEP, TextMaLop, "Vui lòng nhập mã lớp");
@@ -488,6 +504,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     Utils.SetTextEditError(TenLopEP, TextTenLop, "Vui lòng nhập tên lớp");
                 else
                     Utils.SetTextEditError(TenLopEP, TextTenLop, null);
+                if (testKH)
+                    Utils.SetTextEditError(MaKhoaEP, ComboMaKH, "Vui lòng nhập khoa");
+                else
+                    Utils.SetTextEditError(MaKhoaEP, ComboMaKH, null);
+
 
                 Utils.ShowMessage("Vui lòng điền đầy đủ thông tin cần thiết", Others.NotiForm.FormType.Error, 2);
                 return;
@@ -496,12 +517,27 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             {
                 ClearLopErrors();
             }
-            if (TextMaLop.Text.Length > 8)
+
+
+            bool test5 = maLop.Length > 8;
+            bool test6 = tenLop.Length > 40;
+            if (test5 || test6)
             {
-                Utils.ShowMessage("Mã lớp không được quá 8 ký tự", Others.NotiForm.FormType.Warning, 2);
-                Utils.SetTextEditError(MaLopEP, TextMaLop, "Mã lớp không được quá 8 ký tự");
+                if (test5)
+                    Utils.SetTextEditError(MaLopEP, TextMaLop, "Mã lớp không được quá 8 ký tự");
+                else
+                    Utils.SetTextEditError(MaLopEP, TextMaLop, null);
+
+                if (test6)
+                    Utils.SetTextEditError(TenLopEP, TextTenLop, "Tên lớp không được quá 40 ký tự");
+                else
+                    Utils.SetTextEditError(TenLopEP, TextTenLop, null);
+
+                Utils.ShowMessage("Thông tin nhập quá dài", Others.NotiForm.FormType.Warning, 1);
                 return;
             }
+
+
             bool test3 = !Utils.IsMathRegex(maLop, Utils.RegexType.IDRegex);
             bool test4 = !Utils.IsMathRegex(tenLop, Utils.RegexType.LetterDigits);
 
@@ -564,7 +600,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     Utils.ShowMessage("Sửa lớp thành công", Others.NotiForm.FormType.Success, 1);
                 else if (_state == State.AddLop)
                 {
-                    GoToNewlyCreatedRowLop();
+                    GoToNewlyCreatedRowLop(GetMaLopWithRedunantSpaces(maLop));
                     Utils.ShowMessage("Thêm lớp thành công", Others.NotiForm.FormType.Success, 1);
                 }
 
@@ -647,9 +683,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         }
 
-        private string GetCellAtRowSV(GridColumn column, int row)
+        private object GetCellValueAtRowSv(GridColumn column, int row)
         {
-            return SinhVienGridView.GetRowCellValue(row, column).ToString();
+            return SinhVienGridView.GetRowCellValue(row, column);
         }
         private string GetCellAtFRowSV(GridColumn column)
         {
@@ -663,6 +699,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private string ValidateMaSV(string maSv)
         {
+            maSv = Utils.RemoveExtraSpace(maSv);
             if (string.IsNullOrEmpty(maSv))
                 return "Vui lòng nhập mã sinh viên";
             if (maSv.Length > 8)
@@ -692,6 +729,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             if (!Utils.IsMathRegex(ho, Utils.RegexType.LetterOnly))
                 return "Họ, tên đệm của SV chỉ được chứa chữ";
+
+            if (ho.Length > 40)
+                return "Họ sinh viên không vượt quá 40 ký tự";
             return string.Empty;
         }
         private string ValidateTenSv(string ten, int row)
@@ -703,6 +743,23 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             if (!Utils.IsMathRegex(ten, Utils.RegexType.LetterOnly))
                 return "Tên của sinh viên chỉ được chứa chữ";
+
+            if (ten.Length > 10)
+                return "Tên sinh viên không vượt quá 10 ký tự";
+            return string.Empty;
+        }
+
+        private string ValidateDiaChi(string diaChi, int row)
+        {
+            diaChi = Utils.RemoveExtraSpace(diaChi);
+            if (diaChi.Length > 100)
+                return "Địa chỉ không vượt quá 100 ký tự";
+            return string.Empty;
+        }
+        private string ValidateNgaySinh(DateTime ngaySinh, int row)
+        {
+            if (DateTime.Now.Year - ngaySinh.Year < 18)
+                return "Sinh viên phải đủ 18 tuổi";
             return string.Empty;
         }
 
@@ -838,15 +895,31 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             if (CheckTheRow(rowHandle))
             {
                 GridView view = SinhVienGridView;
-                String maSv = GetCellAtRowSV(colMASV, rowHandle);
-                String ho = GetCellAtRowSV(colHO, rowHandle);
-                String ten = GetCellAtRowSV(colTEN, rowHandle);
+                String maSv = GetCellValueAtRowSv(colMASV, rowHandle).ToString().Trim();
+                String ho = GetCellValueAtRowSv(colHO, rowHandle).ToString().Trim();
+                String ten = GetCellValueAtRowSv(colTEN, rowHandle).ToString().Trim();
+                String diaChi = GetCellValueAtRowSv(colDIACHI, rowHandle).ToString().Trim();
+                DateTime ngaySinh;
+                if (string.IsNullOrEmpty(GetCellValueAtRowSv(colNGAYSINH, rowHandle).ToString()))
+                {
+                    ngaySinh = DateTime.MinValue;
+                }
+                else
+                {
+                    ngaySinh = (DateTime)GetCellValueAtRowSv(colNGAYSINH, rowHandle);
+                }
+
                 if (column.Equals(view.Columns["MASV"]))
                     return ValidateMaSV(maSv);
                 else if (column.Equals(view.Columns["HO"]))
                     return ValidateHoSV(ho, rowHandle);
                 else if (column.Equals(view.Columns["TEN"]))
                     return ValidateTenSv(ten, rowHandle);
+                else if (column.Equals(view.Columns["DIACHI"]))
+                    return ValidateDiaChi(diaChi, rowHandle);
+                else if (column.Equals(view.Columns["NGAYSINH"]))
+                    return ValidateNgaySinh(ngaySinh, rowHandle);
+
             }
             return string.Empty;
         }
@@ -892,16 +965,18 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             bool test1 = (GetError(GetEditingIndexSv(), colMASV) == string.Empty);
             bool test2 = (GetError(GetEditingIndexSv(), colHO) == string.Empty);
             bool test3 = (GetError(GetEditingIndexSv(), colTEN) == string.Empty);
+            bool test4 = (GetError(GetEditingIndexSv(), colDIACHI) == string.Empty);
+            bool test5 = (GetError(GetEditingIndexSv(), colNGAYSINH) == string.Empty);
             SinhVienGridView.ClearColumnErrors(); // lệnh này chỉ clear các cột bị lỗi trong show_editor (và chỉ có 1 cột bị chịu tác động của show_editor tại 1 thời điểm)
-            if (test1 && test2 & test3)
+            if (test1 && test2 & test3 && test4 && test5)
             {
                 try
                 {
                     int editingIndex = GetEditingIndexSv();
-                    string ho = Utils.CapitalizeString(GetCellAtRowSV(colHO, editingIndex), Utils.CapitalMode.EveryWord);
+                    string ho = Utils.CapitalizeString(GetCellValueAtRowSv(colHO, editingIndex).ToString(), Utils.CapitalMode.EveryWord);
                     SetCellAtRowSV(colHO, ho, editingIndex);
 
-                    string ten = Utils.CapitalizeString(GetCellAtRowSV(colTEN, editingIndex), Utils.CapitalMode.EveryWord);
+                    string ten = Utils.CapitalizeString(GetCellValueAtRowSv(colTEN, editingIndex).ToString(), Utils.CapitalMode.EveryWord);
                     SetCellAtRowSV(colTEN, ten, editingIndex);
 
                     SinhVienBindingSource.EndEdit();

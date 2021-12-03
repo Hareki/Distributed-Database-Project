@@ -714,6 +714,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonUndoGV.ShadowDecoration.Parent = this.buttonUndoGV;
             this.buttonUndoGV.Size = new System.Drawing.Size(37, 32);
             this.buttonUndoGV.TabIndex = 30;
+            this.buttonUndoGV.Visible = false;
             // 
             // buttonXacNhanGV
             // 
@@ -757,6 +758,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonRedoGV.ShadowDecoration.Parent = this.buttonRedoGV;
             this.buttonRedoGV.Size = new System.Drawing.Size(37, 32);
             this.buttonRedoGV.TabIndex = 31;
+            this.buttonRedoGV.Visible = false;
             // 
             // ViewCaption
             // 

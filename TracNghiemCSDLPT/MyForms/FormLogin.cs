@@ -33,7 +33,7 @@ namespace TracNghiemCSDLPT.MyForms
                 return;
             }
             ComboBoxCoSo.DataSource = DBConnection.BsSubcribers.DataSource = dataTable;
-            ComboBoxCoSo.DisplayMember = "TENCS";
+            ComboBoxCoSo.DisplayMember = "FullInfo";
             ComboBoxCoSo.ValueMember = "TENSERVER";
             ComboBoxCoSo.SelectedIndex = -1;
         }

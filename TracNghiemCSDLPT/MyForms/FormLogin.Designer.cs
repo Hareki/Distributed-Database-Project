@@ -33,7 +33,6 @@ namespace TracNghiemCSDLPT.MyForms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.ComboBoxCoSo = new Guna.UI2.WinForms.Guna2ComboBox();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.LoginEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.PasswordEP = new System.Windows.Forms.ErrorProvider(this.components);
@@ -52,6 +51,7 @@ namespace TracNghiemCSDLPT.MyForms
             this.PanelGV = new Bunifu.UI.WinForms.BunifuPanel();
             this.rdoGV = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.LabelGiangVien = new System.Windows.Forms.Label();
+            this.ComboBoxCoSo = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoginEP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PasswordEP)).BeginInit();
@@ -84,32 +84,6 @@ namespace TracNghiemCSDLPT.MyForms
             this.label2.Size = new System.Drawing.Size(67, 30);
             this.label2.TabIndex = 4;
             this.label2.Text = "Vai trò";
-            // 
-            // ComboBoxCoSo
-            // 
-            this.ComboBoxCoSo.Animated = true;
-            this.ComboBoxCoSo.BackColor = System.Drawing.Color.Transparent;
-            this.ComboBoxCoSo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(208)))), ((int)(((byte)(213)))));
-            this.ComboBoxCoSo.BorderRadius = 3;
-            this.ComboBoxCoSo.BorderThickness = 2;
-            this.ComboBoxCoSo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.ComboBoxCoSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboBoxCoSo.FocusedColor = System.Drawing.Color.Empty;
-            this.ComboBoxCoSo.FocusedState.Parent = this.ComboBoxCoSo;
-            this.ComboBoxCoSo.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ComboBoxCoSo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(110)))), ((int)(((byte)(190)))));
-            this.ComboBoxCoSo.FormattingEnabled = true;
-            this.ComboBoxCoSo.HoverState.Parent = this.ComboBoxCoSo;
-            this.ComboBoxCoSo.ItemHeight = 30;
-            this.ComboBoxCoSo.ItemsAppearance.Parent = this.ComboBoxCoSo;
-            this.ComboBoxCoSo.Location = new System.Drawing.Point(17, 169);
-            this.ComboBoxCoSo.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
-            this.ComboBoxCoSo.Name = "ComboBoxCoSo";
-            this.ComboBoxCoSo.ShadowDecoration.Parent = this.ComboBoxCoSo;
-            this.ComboBoxCoSo.Size = new System.Drawing.Size(413, 36);
-            this.ComboBoxCoSo.TabIndex = 12;
-            this.ComboBoxCoSo.TextOffset = new System.Drawing.Point(3, 3);
-            this.ComboBoxCoSo.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCoSo_SelectedIndexChanged);
             // 
             // LoginEP
             // 
@@ -146,13 +120,13 @@ namespace TracNghiemCSDLPT.MyForms
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.Controls.Add(this.ComboBoxCoSo);
             this.panel1.Controls.Add(this.buttonThoat);
             this.panel1.Controls.Add(this.buttonDangNhap);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.TextLogin);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.TextPassword);
-            this.panel1.Controls.Add(this.ComboBoxCoSo);
             this.panel1.Controls.Add(this.PanelSV);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.PanelGV);
@@ -192,7 +166,7 @@ namespace TracNghiemCSDLPT.MyForms
             this.buttonDangNhap.BorderRadius = 8;
             this.buttonDangNhap.CheckedState.Parent = this.buttonDangNhap;
             this.buttonDangNhap.CustomImages.Parent = this.buttonDangNhap;
-            this.buttonDangNhap.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(110)))), ((int)(((byte)(190)))));
+            this.buttonDangNhap.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
             this.buttonDangNhap.Font = new System.Drawing.Font("Baloo 2", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDangNhap.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonDangNhap.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(147)))), ((int)(((byte)(219)))));
@@ -388,6 +362,32 @@ namespace TracNghiemCSDLPT.MyForms
             this.LabelGiangVien.Text = "Giảng viên";
             this.LabelGiangVien.Click += new System.EventHandler(this.LabelGiangVien_Click);
             // 
+            // ComboBoxCoSo
+            // 
+            this.ComboBoxCoSo.Animated = true;
+            this.ComboBoxCoSo.BackColor = System.Drawing.Color.Transparent;
+            this.ComboBoxCoSo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(164)))), ((int)(((byte)(236)))));
+            this.ComboBoxCoSo.BorderRadius = 3;
+            this.ComboBoxCoSo.BorderThickness = 2;
+            this.ComboBoxCoSo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ComboBoxCoSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxCoSo.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
+            this.ComboBoxCoSo.FocusedColor = System.Drawing.Color.Empty;
+            this.ComboBoxCoSo.FocusedState.Parent = this.ComboBoxCoSo;
+            this.ComboBoxCoSo.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboBoxCoSo.ForeColor = System.Drawing.Color.White;
+            this.ComboBoxCoSo.FormattingEnabled = true;
+            this.ComboBoxCoSo.HoverState.Parent = this.ComboBoxCoSo;
+            this.ComboBoxCoSo.ItemHeight = 30;
+            this.ComboBoxCoSo.ItemsAppearance.Parent = this.ComboBoxCoSo;
+            this.ComboBoxCoSo.Location = new System.Drawing.Point(20, 169);
+            this.ComboBoxCoSo.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
+            this.ComboBoxCoSo.Name = "ComboBoxCoSo";
+            this.ComboBoxCoSo.ShadowDecoration.Parent = this.ComboBoxCoSo;
+            this.ComboBoxCoSo.Size = new System.Drawing.Size(410, 36);
+            this.ComboBoxCoSo.TabIndex = 43;
+            this.ComboBoxCoSo.TextOffset = new System.Drawing.Point(3, 3);
+            // 
             // FormLogin
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -428,7 +428,6 @@ namespace TracNghiemCSDLPT.MyForms
         private Guna.UI2.WinForms.Guna2CustomRadioButton rdoGV;
         private Bunifu.UI.WinForms.BunifuPanel PanelGV;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2ComboBox ComboBoxCoSo;
         private Bunifu.UI.WinForms.BunifuPanel PanelSV;
         private Guna.UI2.WinForms.Guna2CustomRadioButton rdoSV;
         private System.Windows.Forms.Label LabelSinhVien;
@@ -443,5 +442,6 @@ namespace TracNghiemCSDLPT.MyForms
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2Button buttonDangNhap;
         private Guna.UI2.WinForms.Guna2Button buttonThoat;
+        private Guna.UI2.WinForms.Guna2ComboBox ComboBoxCoSo;
     }
 }

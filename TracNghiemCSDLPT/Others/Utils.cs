@@ -66,13 +66,18 @@ namespace TracNghiemCSDLPT
             }
         }
 
+        public static string RemoveExtraSpace(string text)
+        {
+            if (string.IsNullOrEmpty(text)) return string.Empty;
+            return Regex.Replace(text.Trim(), @"\s+", " ");
+        } 
         public enum CapitalMode
         {
             FirstWordOnly, EveryWord//every word = chuẩn hóa tên riêng, chỉ cho phép viết hoa đầu mỗi từ, FirstWord only = chuẩn hóa chính tả, viết hoa chữ cái đầu của string
         }
         public static string CapitalizeString(string name, CapitalMode mode)
         {
-            string temp = Regex.Replace(name.Trim(), @"\s+", " ");
+            string temp = RemoveExtraSpace(name);
             if (temp.Equals("")) return "";
             if (mode == CapitalMode.FirstWordOnly)
                 return temp.Substring(0, 1).ToUpper() + temp.Substring(1);
@@ -118,7 +123,7 @@ namespace TracNghiemCSDLPT
         public static void BindingComboData(System.Windows.Forms.ComboBox coSoComboBox, int previousIndexCS)
         {
             coSoComboBox.DataSource = DBConnection.BsSubcribers;
-            coSoComboBox.DisplayMember = "TENCS";
+            coSoComboBox.DisplayMember = "FullInfo";
             coSoComboBox.ValueMember = "TENSERVER";
             coSoComboBox.SelectedIndex = DBConnection.IndexCS;
             previousIndexCS = coSoComboBox.SelectedIndex;

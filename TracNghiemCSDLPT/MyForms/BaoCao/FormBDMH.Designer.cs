@@ -35,6 +35,8 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.label2 = new System.Windows.Forms.Label();
             this.CoSoComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonPrint = new System.Windows.Forms.Button();
@@ -52,8 +54,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENLOP = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TN_CSDLPTDataSet();
             this.tableAdapterManager = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
@@ -64,13 +64,13 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panelLan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpMh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usp_Report_BDMH_LayMonDaDKBindingSource)).BeginInit();
@@ -135,6 +135,8 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.buttonCancel);
             this.panel1.Controls.Add(this.buttonPrint);
@@ -142,12 +144,30 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.panel1.Controls.Add(this.panelLan);
             this.panel1.Controls.Add(this.LookUpMh);
             this.panel1.Controls.Add(this.LookUpLop);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Location = new System.Drawing.Point(10, 77);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(535, 606);
             this.panel1.TabIndex = 1;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::TracNghiemCSDLPT.Properties.Resources.CSDLPT_Logo1;
+            this.pictureBox2.Location = new System.Drawing.Point(139, 14);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(84, 91);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 56;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Baloo 2", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.label3.Location = new System.Drawing.Point(229, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(167, 91);
+            this.label3.TabIndex = 57;
+            this.label3.Text = "Bảng điểm môn học";
             // 
             // pictureBox3
             // 
@@ -169,7 +189,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCancel.Font = new System.Drawing.Font("Baloo 2 SemiBold", 13.8F, System.Drawing.FontStyle.Bold);
             this.buttonCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonCancel.Location = new System.Drawing.Point(47, 395);
+            this.buttonCancel.Location = new System.Drawing.Point(47, 426);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(207, 46);
             this.buttonCancel.TabIndex = 52;
@@ -184,7 +204,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.buttonPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPrint.Font = new System.Drawing.Font("Baloo 2 SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPrint.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonPrint.Location = new System.Drawing.Point(285, 395);
+            this.buttonPrint.Location = new System.Drawing.Point(285, 426);
             this.buttonPrint.Name = "buttonPrint";
             this.buttonPrint.Size = new System.Drawing.Size(207, 46);
             this.buttonPrint.TabIndex = 51;
@@ -199,7 +219,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.label6.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label6.Location = new System.Drawing.Point(42, 315);
+            this.label6.Location = new System.Drawing.Point(42, 346);
             this.label6.Margin = new System.Windows.Forms.Padding(3, 0, 11, 5);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 30);
@@ -212,7 +232,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.panelLan.Controls.Add(this.label15);
             this.panelLan.Controls.Add(this.label13);
             this.panelLan.Controls.Add(this.rdo2);
-            this.panelLan.Location = new System.Drawing.Point(124, 309);
+            this.panelLan.Location = new System.Drawing.Point(124, 340);
             this.panelLan.Margin = new System.Windows.Forms.Padding(3, 3, 3, 40);
             this.panelLan.Name = "panelLan";
             this.panelLan.Size = new System.Drawing.Size(145, 43);
@@ -287,7 +307,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             // 
             // LookUpMh
             // 
-            this.LookUpMh.Location = new System.Drawing.Point(47, 237);
+            this.LookUpMh.Location = new System.Drawing.Point(47, 268);
             this.LookUpMh.Margin = new System.Windows.Forms.Padding(3, 3, 3, 40);
             this.LookUpMh.Name = "LookUpMh";
             this.LookUpMh.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -346,7 +366,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             // 
             // LookUpLop
             // 
-            this.LookUpLop.Location = new System.Drawing.Point(47, 156);
+            this.LookUpLop.Location = new System.Drawing.Point(47, 187);
             this.LookUpLop.Margin = new System.Windows.Forms.Padding(3, 3, 3, 40);
             this.LookUpLop.Name = "LookUpLop";
             this.LookUpLop.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -401,28 +421,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.colTENLOP.Visible = true;
             this.colTENLOP.VisibleIndex = 1;
             this.colTENLOP.Width = 300;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label7.Font = new System.Drawing.Font("Baloo 2", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(110)))), ((int)(((byte)(190)))));
-            this.label7.Location = new System.Drawing.Point(183, 5);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(278, 93);
-            this.label7.TabIndex = 25;
-            this.label7.Text = "Bảng điểm môn học";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox2.Image = global::TracNghiemCSDLPT.Properties.Resources.logo31;
-            this.pictureBox2.Location = new System.Drawing.Point(74, 5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(103, 65);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 24;
-            this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -484,6 +482,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1624, 813);
             this.Controls.Add(this.bunifuPanel1);
+            this.IconOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.CSDLPT_Logo1;
             this.Name = "FormBDMH";
             this.Text = "Bảng điểm MH";
             this.Load += new System.EventHandler(this.FormBDMH_Load);
@@ -491,6 +490,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.bunifuPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panelLan.ResumeLayout(false);
             this.panelLan.PerformLayout();
@@ -498,7 +498,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usp_Report_BDMH_LayMonDaDKBindingSource)).EndInit();
@@ -527,8 +526,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         private DevExpress.XtraGrid.Columns.GridColumn colTENMH;
         private DevExpress.XtraEditors.GridLookUpEdit LookUpLop;
         private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private TN_CSDLPTDataSet TN_CSDLPTDataSet;
         private TN_CSDLPTDataSetTableAdapters.TableAdapterManager tableAdapterManager;
@@ -540,5 +537,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         private TN_CSDLPTDataSetTableAdapters.usp_Report_BDMH_LayLopDaDKTableAdapter usp_Report_BDMH_LayLopDaDKTableAdapter;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label3;
     }
 }

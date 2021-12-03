@@ -36,6 +36,8 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.label2 = new System.Windows.Forms.Label();
             this.CoSoComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonPrint = new System.Windows.Forms.Button();
@@ -57,8 +59,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHoTen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.DSSVBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DSMHTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.DSMHTableAdapter();
             this.tableAdapterManager = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
@@ -70,6 +70,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.bunifuPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panelLan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpMh.Properties)).BeginInit();
@@ -79,7 +80,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             ((System.ComponentModel.ISupportInitialize)(this.LookUpSv.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSSVBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usp_Report_KQT_LayMonDaThiBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -156,6 +156,8 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.buttonCancel);
             this.panel1.Controls.Add(this.buttonPrint);
@@ -163,12 +165,30 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.panel1.Controls.Add(this.panelLan);
             this.panel1.Controls.Add(this.LookUpMh);
             this.panel1.Controls.Add(this.LookUpSv);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Location = new System.Drawing.Point(10, 77);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(535, 606);
             this.panel1.TabIndex = 1;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::TracNghiemCSDLPT.Properties.Resources.CSDLPT_Logo1;
+            this.pictureBox2.Location = new System.Drawing.Point(114, 17);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(84, 91);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 58;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Baloo 2", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.label3.Location = new System.Drawing.Point(204, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(217, 91);
+            this.label3.TabIndex = 59;
+            this.label3.Text = "Kết quả bài thi trắc nghiệm";
             // 
             // pictureBox3
             // 
@@ -453,28 +473,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.colMALOP.VisibleIndex = 2;
             this.colMALOP.Width = 103;
             // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label7.Font = new System.Drawing.Font("Baloo 2", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(110)))), ((int)(((byte)(190)))));
-            this.label7.Location = new System.Drawing.Point(214, 5);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(215, 93);
-            this.label7.TabIndex = 25;
-            this.label7.Text = "Kết quả bài thi trắc nghiệm";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox2.Image = global::TracNghiemCSDLPT.Properties.Resources.logo31;
-            this.pictureBox2.Location = new System.Drawing.Point(105, 5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(103, 65);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 24;
-            this.pictureBox2.TabStop = false;
-            // 
             // DSSVBindingSource
             // 
             this.DSSVBindingSource.DataMember = "DSSV";
@@ -524,6 +522,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1624, 813);
             this.Controls.Add(this.bunifuPanel1);
+            this.IconOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.CSDLPT_Logo1;
             this.Name = "FormKQT";
             this.Text = "Kết quả thi";
             this.Load += new System.EventHandler(this.FormKQT_Load);
@@ -532,6 +531,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panelLan.ResumeLayout(false);
             this.panelLan.PerformLayout();
@@ -542,7 +542,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             ((System.ComponentModel.ISupportInitialize)(this.LookUpSv.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSSVBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usp_Report_KQT_LayMonDaThiBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -555,8 +554,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2ComboBox CoSoComboBox;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private DevExpress.XtraEditors.GridLookUpEdit LookUpMh;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
@@ -587,5 +584,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         private DevExpress.XtraGrid.Columns.GridColumn colHoTen;
         private DevExpress.XtraGrid.Columns.GridColumn colMALOP;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -1409,6 +1409,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.Controls.Add(this.InfoPanel);
             this.Controls.Add(this.GVDK2GridControl);
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("FormDkThi.IconOptions.Icon")));
+            this.IconOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.CSDLPT_Logo1;
             this.Name = "FormDkThi";
             this.Text = "Đăng ký thi";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormDKThi_FormClosing);

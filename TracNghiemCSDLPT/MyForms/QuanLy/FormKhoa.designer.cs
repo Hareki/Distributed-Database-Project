@@ -611,7 +611,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.Controls.Add(this.buttonUndo);
             this.Controls.Add(this.buttonRedo);
             this.Controls.Add(this.KhoaGridControl);
-            this.IconOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.logo2;
+            this.IconOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.CSDLPT_Logo1;
             this.Name = "FormKhoa";
             this.Text = "Khoa";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormKhoa_FormClosing);

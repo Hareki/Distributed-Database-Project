@@ -783,5 +783,11 @@
   <ItemGroup>
     <None Include="Resources\submit.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CSDLPT_Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CSDLPT_Logo1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

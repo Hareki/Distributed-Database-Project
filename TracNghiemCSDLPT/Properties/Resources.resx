@@ -172,14 +172,17 @@
   <data name="info_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\info_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ok_45px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ok_45px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="start-up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\start-up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="student_male_480px2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\student_male_480px2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="add_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="warning_shield_45px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\warning_shield_45px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="scorecard_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\scorecard_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -192,6 +195,12 @@
   </data>
   <data name="school_500px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\school_500px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="undo white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\undo white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CSDLPT_Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSDLPT_Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="question-mark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\question-mark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,9 +217,6 @@
   <data name="lock_500px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lock_500px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cancel_35px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cancel_35px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="note_disabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\note_disabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -226,17 +232,14 @@
   <data name="box_settings_500px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\box_settings_500px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="user_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="medical-history-doctor-svgrepo-com" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\medical-history-doctor-svgrepo-com.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="restart_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\restart_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cancel_40px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cancel_40px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ok_45px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ok_45px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="help_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\help_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -247,8 +250,8 @@
   <data name="report_file_512px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\report_file_512px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="warning_shield_45px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\warning_shield_45px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cancel_40px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancel_40px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="undo_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\undo_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -274,8 +277,8 @@
   <data name="minus_40px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minus_40px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="undo white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\undo white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="user_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="redo_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\redo_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -292,6 +295,9 @@
   <data name="error_45px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\error_45px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="submit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\submit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="class_208px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\class_208px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -307,9 +313,6 @@
   <data name="choice_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\choice_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="start-up" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\start-up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="add_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -322,8 +325,8 @@
   <data name="info_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\info_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="school_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\school_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="eye_512px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eye_512px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -331,14 +334,17 @@
   <data name="exclamation_mark_512px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exclamation_mark_512px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="eye_512px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eye_512px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cancel_35px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancel_35px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="info_45px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\info_45px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="error_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\error_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="school_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\school_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="account2_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\account2_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -397,7 +403,7 @@
   <data name="undo_480px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\undo_480px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="submit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\submit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CSDLPT_Logo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSDLPT_Logo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

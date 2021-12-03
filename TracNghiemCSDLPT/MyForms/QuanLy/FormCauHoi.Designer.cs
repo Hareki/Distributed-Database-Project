@@ -1335,6 +1335,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.Controls.Add(this.InfoPanel);
             this.Controls.Add(this.MonHocGridControl);
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("FormCauHoi.IconOptions.Icon")));
+            this.IconOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.CSDLPT_Logo1;
             this.Name = "FormCauHoi";
             this.Text = "Câu hỏi";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCauHoi_FormClosing);

@@ -936,6 +936,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlThongTinThi);
+            this.IconOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.CSDLPT_Logo1;
             this.Name = "FormThi";
             this.Text = "Dự thi";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormThi_FormClosing);

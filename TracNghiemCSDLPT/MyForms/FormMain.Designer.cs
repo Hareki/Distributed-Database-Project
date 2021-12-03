@@ -403,6 +403,7 @@ namespace TracNghiemCSDLPT.MyForms
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("MainView.IconOptions.Icon")));
+            this.IconOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.CSDLPT_Logo1;
             this.IsMdiContainer = true;
             this.Name = "MainView";
             this.Ribbon = this.ribbon;

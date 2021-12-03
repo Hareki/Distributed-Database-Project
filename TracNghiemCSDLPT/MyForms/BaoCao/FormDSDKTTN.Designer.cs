@@ -31,28 +31,33 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDSDKTTN));
+            this.dateEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.dateTo = new DevExpress.XtraEditors.DateEdit();
             this.dateFrom = new DevExpress.XtraEditors.DateEdit();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.buttonPrint = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dateEP = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dateEP)).BeginInit();
             this.bunifuPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTo.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateFrom.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateFrom.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEP)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dateEP
+            // 
+            this.dateEP.ContainerControl = this;
+            this.dateEP.Icon = ((System.Drawing.Icon)(resources.GetObject("dateEP.Icon")));
             // 
             // bunifuPanel1
             // 
@@ -77,23 +82,43 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.dateTo);
             this.panel1.Controls.Add(this.dateFrom);
             this.panel1.Controls.Add(this.buttonCancel);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.buttonPrint);
             this.panel1.Location = new System.Drawing.Point(10, 77);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(535, 606);
             this.panel1.TabIndex = 1;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::TracNghiemCSDLPT.Properties.Resources.CSDLPT_Logo1;
+            this.pictureBox2.Location = new System.Drawing.Point(57, 24);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(84, 91);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 58;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Baloo 2", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.label3.Location = new System.Drawing.Point(147, 24);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(335, 91);
+            this.label3.TabIndex = 59;
+            this.label3.Text = "Danh sách đăng ký thi trắc nghiệm của 2 cơ sở";
+            // 
             // dateTo
             // 
             this.dateTo.EditValue = new System.DateTime(2021, 11, 23, 20, 52, 9, 0);
-            this.dateTo.Location = new System.Drawing.Point(127, 293);
+            this.dateTo.Location = new System.Drawing.Point(126, 278);
             this.dateTo.Name = "dateTo";
             this.dateTo.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.dateTo.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 13.8F);
@@ -127,7 +152,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCancel.Font = new System.Drawing.Font("Baloo 2 SemiBold", 13.8F, System.Drawing.FontStyle.Bold);
             this.buttonCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonCancel.Location = new System.Drawing.Point(126, 436);
+            this.buttonCancel.Location = new System.Drawing.Point(126, 422);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(287, 46);
             this.buttonCancel.TabIndex = 30;
@@ -163,28 +188,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.label6.TabIndex = 28;
             this.label6.Text = "Từ ngày";
             // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label7.Font = new System.Drawing.Font("Baloo 2", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(110)))), ((int)(((byte)(190)))));
-            this.label7.Location = new System.Drawing.Point(157, 5);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(329, 94);
-            this.label7.TabIndex = 25;
-            this.label7.Text = "Danh sách đăng ký thi trắc nghiệm của 2 cơ sở\r\n";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox2.Image = global::TracNghiemCSDLPT.Properties.Resources.logo31;
-            this.pictureBox2.Location = new System.Drawing.Point(48, 5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(103, 65);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 24;
-            this.pictureBox2.TabStop = false;
-            // 
             // buttonPrint
             // 
             this.buttonPrint.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -192,7 +195,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.buttonPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPrint.Font = new System.Drawing.Font("Baloo 2 SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPrint.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonPrint.Location = new System.Drawing.Point(126, 362);
+            this.buttonPrint.Location = new System.Drawing.Point(126, 350);
             this.buttonPrint.Name = "buttonPrint";
             this.buttonPrint.Size = new System.Drawing.Size(287, 46);
             this.buttonPrint.TabIndex = 23;
@@ -214,29 +217,25 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // dateEP
-            // 
-            this.dateEP.ContainerControl = this;
-            this.dateEP.Icon = ((System.Drawing.Icon)(resources.GetObject("dateEP.Icon")));
-            // 
             // FormDSDKTTN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1624, 813);
             this.Controls.Add(this.bunifuPanel1);
+            this.IconOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.CSDLPT_Logo1;
             this.Name = "FormDSDKTTN";
             this.Text = "Danh sách đăng ký thi TN";
+            ((System.ComponentModel.ISupportInitialize)(this.dateEP)).EndInit();
             this.bunifuPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTo.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateFrom.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateFrom.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEP)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -245,8 +244,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
 
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button buttonPrint;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
@@ -255,5 +252,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         private DevExpress.XtraEditors.DateEdit dateTo;
         private DevExpress.XtraEditors.DateEdit dateFrom;
         private System.Windows.Forms.ErrorProvider dateEP;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -852,6 +852,7 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             this.ClientSize = new System.Drawing.Size(1624, 813);
             this.Controls.Add(this.bunifuPanel1);
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("FormTaoLogin.IconOptions.Icon")));
+            this.IconOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.CSDLPT_Logo1;
             this.Name = "FormTaoLogin";
             this.Text = "Đăng ký tài khoản";
             this.Load += new System.EventHandler(this.FormTaoLogin_Load);

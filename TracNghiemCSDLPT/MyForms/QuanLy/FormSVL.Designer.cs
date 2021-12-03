@@ -1270,6 +1270,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.KhoaGridControl);
             this.Controls.Add(this.InfoPanel);
+            this.IconOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.CSDLPT_Logo1;
             this.Name = "FormSvl";
             this.Text = "Sinh viên và lớp";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormSVL_FormClosing);

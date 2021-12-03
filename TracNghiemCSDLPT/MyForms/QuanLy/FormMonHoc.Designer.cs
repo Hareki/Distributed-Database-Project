@@ -592,6 +592,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.Controls.Add(this.buttonLamMoi);
             this.Controls.Add(this.buttonXoa);
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("FormMonHoc.IconOptions.Icon")));
+            this.IconOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.CSDLPT_Logo1;
             this.Name = "FormMonHoc";
             this.Text = "Môn học";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMonHoc_FormClosing);

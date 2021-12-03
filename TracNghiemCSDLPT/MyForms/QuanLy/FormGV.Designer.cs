@@ -803,6 +803,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("FormGv.IconOptions.Icon")));
+            this.IconOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.CSDLPT_Logo1;
             this.Name = "FormGv";
             this.Text = "Giáo viên";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormGV_FormClosing);

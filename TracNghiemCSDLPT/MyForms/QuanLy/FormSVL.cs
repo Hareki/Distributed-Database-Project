@@ -49,14 +49,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private int _selectedRowSV;
         private DataRowView _saveKhoaValue;
 
-        private string _origMaLop = null;
-        private string _origTenLop = null;
+        private string _origMaLop = string.Empty;
+        private string _origTenLop = string.Empty;
 
-        private string _origMaSV = null;
+        private string _origMaSV = string.Empty;
         private int _editingSvIndex;
 
-        private string _saveMaKhForReset;
-        private string _saveMaLopForReset;
 
 
 
@@ -316,7 +314,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void ResetOrigValue()
         {
-            _origMaLop = _origTenLop = null;
+            _origMaLop = _origTenLop = string.Empty;
         }
 
         private void SaveOrigValue()
@@ -326,9 +324,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         private void ConfigIdleState_Lop()
         {
-            this.LopTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.LopTableAdapter.Fill(this.TN_CSDLPTDataSet.LOP);
-
             ResetOrigValue();
 
             _state = State.Idle;
@@ -472,28 +467,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             Utils.SetTextEditError(MaLopEP, TextMaLop, null);
             Utils.SetTextEditError(TenLopEP, TextTenLop, null);
-        }
-        private void GobackAfterReset()
-        {//lỗi dòng cuối, chưa chạy dc
-            GridView detailView;
-            int row = KhoaGridView.LocateByDisplayText(0, colMAKH, _saveMaKhForReset);
-            //   Console.WriteLine("Row: " + row);
-
-            KhoaGridView.FocusedRowHandle = row;
-            KhoaGridView.Focus();
-            KhoaGridView.ExpandMasterRow(row);
-            detailView = KhoaGridView.GetDetailView(row, 0) as GridView;
-            if (detailView is null)
-            {
-                Utils.ShowErrorMessage("Lỗi không xác định", "Lỗi");
-                Console.WriteLine(System.Environment.StackTrace);
-                return;
-            }
-            detailView.Focus();
-
-            //  detailView.FocusedRowHandle = LopBindingSource.Find("MALOP", TextMaLop.Text);
-            detailView.FocusedRowHandle = FKLopKhoaBds.Find("MALOP", _saveMaLopForReset);
-
         }
         private string GetMaLopWithRedunantSpaces(string maLop)
         {
@@ -1062,7 +1035,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             _state = State.Idle;
             SetCorrButtonsState_SV();
-            _origMaSV = null; ;
+            _origMaSV = string.Empty; ;
             SinhVienGridView.ClearColumnErrors();
 
             Utils.SetCustomizationEnabled(SinhVienGridView, true);

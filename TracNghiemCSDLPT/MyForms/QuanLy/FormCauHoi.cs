@@ -23,8 +23,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
 
         private int _origMaCh = -1;
-        private string _origMaMh = null;
-        private string _origTrinhDo = null;
+        private string _origMaMh = string.Empty;
+        private string _origTrinhDo = string.Empty;
         State _state = State.Idle;
         List<Guna2CustomRadioButton> _rdoButtons = new List<Guna2CustomRadioButton>();
         private int _selectedRow;
@@ -37,8 +37,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private void ResetOrigValue()
         {
             _origMaCh = -1;
-            _origMaMh = null;
-            _origTrinhDo = null;
+            _origMaMh = string.Empty;
+            _origTrinhDo = string.Empty;
 
         }
         private void PhanQuyen()
@@ -596,9 +596,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void ConfigIdleState()
         {
-            this.BoDeTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.BoDeTableAdapter.Fill(this.TN_CSDLPTDataSet.BODE);
-
             ResetOrigValue();
 
             _state = State.Idle;

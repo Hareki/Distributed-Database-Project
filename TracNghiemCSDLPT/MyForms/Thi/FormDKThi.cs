@@ -28,8 +28,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         readonly Color _activeForeColor = Color.FromArgb(72, 70, 68);
         readonly Color _disabledForeColor = SystemColors.AppWorkspace;
         private int _previousIndexCS;
-        private string _origMaMH = "!@#$%";
-        private string _origMaLop = "!@#$%";
+        private string _origMaMH = string.Empty;
+        private string _origMaLop = string.Empty;
         private int _origLan = -1;
         //------------Dùng trong add---------??
         private int _origSoCau;
@@ -82,8 +82,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         }
         private void ResetOrigValue()
         {
-            _origMaMH = null;
-            _origMaLop = null;
+            _origMaMH = string.Empty;
+            _origMaLop = string.Empty;
             _origLan = -1;
         }
         private void PhanQuyen()

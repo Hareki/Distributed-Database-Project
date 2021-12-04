@@ -59,14 +59,14 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.cardView1 = new DevExpress.XtraGrid.Views.Card.CardView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonLamMoiGV = new Guna.UI2.WinForms.Guna2Button();
-            this.buttonThemGV = new Guna.UI2.WinForms.Guna2Button();
-            this.buttonSuaGV = new Guna.UI2.WinForms.Guna2Button();
-            this.buttonXoaGV = new Guna.UI2.WinForms.Guna2Button();
+            this.buttonLamMoi = new Guna.UI2.WinForms.Guna2Button();
+            this.buttonThem = new Guna.UI2.WinForms.Guna2Button();
+            this.buttonSua = new Guna.UI2.WinForms.Guna2Button();
+            this.buttonXoa = new Guna.UI2.WinForms.Guna2Button();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.buttonHuyGV = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.buttonHuy = new Guna.UI2.WinForms.Guna2CircleButton();
             this.buttonUndoGV = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.buttonXacNhanGV = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.buttonXacNhan = new Guna.UI2.WinForms.Guna2CircleButton();
             this.buttonRedoGV = new Guna.UI2.WinForms.Guna2CircleButton();
             this.ViewCaption = new System.Windows.Forms.Label();
             this.BoDeBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -302,7 +302,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.EnabledChanged += new System.EventHandler(this.pictureBox1_EnabledChanged);
             // 
             // CoSoComboBox
             // 
@@ -340,7 +339,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.label1.Size = new System.Drawing.Size(107, 30);
             this.label1.TabIndex = 21;
             this.label1.Text = "Chọn cơ sở";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // bunifuSeparator1
             // 
@@ -534,122 +532,122 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.Controls.Add(this.buttonLamMoiGV);
-            this.panel1.Controls.Add(this.buttonThemGV);
-            this.panel1.Controls.Add(this.buttonSuaGV);
-            this.panel1.Controls.Add(this.buttonXoaGV);
+            this.panel1.Controls.Add(this.buttonLamMoi);
+            this.panel1.Controls.Add(this.buttonThem);
+            this.panel1.Controls.Add(this.buttonSua);
+            this.panel1.Controls.Add(this.buttonXoa);
             this.panel1.Location = new System.Drawing.Point(11, 436);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(155, 381);
             this.panel1.TabIndex = 26;
             // 
-            // buttonLamMoiGV
+            // buttonLamMoi
             // 
-            this.buttonLamMoiGV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonLamMoiGV.Animated = true;
-            this.buttonLamMoiGV.BorderRadius = 8;
-            this.buttonLamMoiGV.CheckedState.Parent = this.buttonLamMoiGV;
-            this.buttonLamMoiGV.CustomImages.Parent = this.buttonLamMoiGV;
-            this.buttonLamMoiGV.FillColor = System.Drawing.Color.Gainsboro;
-            this.buttonLamMoiGV.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLamMoiGV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.buttonLamMoiGV.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.buttonLamMoiGV.HoverState.Parent = this.buttonLamMoiGV;
-            this.buttonLamMoiGV.Image = global::TracNghiemCSDLPT.Properties.Resources.reset_480px;
-            this.buttonLamMoiGV.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.buttonLamMoiGV.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonLamMoiGV.Location = new System.Drawing.Point(9, 280);
-            this.buttonLamMoiGV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
-            this.buttonLamMoiGV.Name = "buttonLamMoiGV";
-            this.buttonLamMoiGV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.buttonLamMoiGV.ShadowDecoration.Parent = this.buttonLamMoiGV;
-            this.buttonLamMoiGV.Size = new System.Drawing.Size(137, 45);
-            this.buttonLamMoiGV.TabIndex = 22;
-            this.buttonLamMoiGV.Text = "Làm mới";
-            this.buttonLamMoiGV.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.buttonLamMoiGV.TextOffset = new System.Drawing.Point(3, 0);
-            this.buttonLamMoiGV.Click += new System.EventHandler(this.buttonLamMoiGV_Click);
+            this.buttonLamMoi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonLamMoi.Animated = true;
+            this.buttonLamMoi.BorderRadius = 8;
+            this.buttonLamMoi.CheckedState.Parent = this.buttonLamMoi;
+            this.buttonLamMoi.CustomImages.Parent = this.buttonLamMoi;
+            this.buttonLamMoi.FillColor = System.Drawing.Color.Gainsboro;
+            this.buttonLamMoi.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLamMoi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
+            this.buttonLamMoi.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.buttonLamMoi.HoverState.Parent = this.buttonLamMoi;
+            this.buttonLamMoi.Image = global::TracNghiemCSDLPT.Properties.Resources.reset_480px;
+            this.buttonLamMoi.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.buttonLamMoi.ImageSize = new System.Drawing.Size(35, 35);
+            this.buttonLamMoi.Location = new System.Drawing.Point(9, 280);
+            this.buttonLamMoi.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
+            this.buttonLamMoi.Name = "buttonLamMoi";
+            this.buttonLamMoi.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.buttonLamMoi.ShadowDecoration.Parent = this.buttonLamMoi;
+            this.buttonLamMoi.Size = new System.Drawing.Size(137, 45);
+            this.buttonLamMoi.TabIndex = 22;
+            this.buttonLamMoi.Text = "Làm mới";
+            this.buttonLamMoi.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.buttonLamMoi.TextOffset = new System.Drawing.Point(3, 0);
+            this.buttonLamMoi.Click += new System.EventHandler(this.buttonLamMoiGV_Click);
             // 
-            // buttonThemGV
+            // buttonThem
             // 
-            this.buttonThemGV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonThemGV.Animated = true;
-            this.buttonThemGV.BorderRadius = 8;
-            this.buttonThemGV.CheckedState.Parent = this.buttonThemGV;
-            this.buttonThemGV.CustomImages.Parent = this.buttonThemGV;
-            this.buttonThemGV.FillColor = System.Drawing.Color.Gainsboro;
-            this.buttonThemGV.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonThemGV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.buttonThemGV.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.buttonThemGV.HoverState.Parent = this.buttonThemGV;
-            this.buttonThemGV.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
-            this.buttonThemGV.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.buttonThemGV.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonThemGV.Location = new System.Drawing.Point(9, 55);
-            this.buttonThemGV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
-            this.buttonThemGV.Name = "buttonThemGV";
-            this.buttonThemGV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.buttonThemGV.ShadowDecoration.Parent = this.buttonThemGV;
-            this.buttonThemGV.Size = new System.Drawing.Size(137, 45);
-            this.buttonThemGV.TabIndex = 21;
-            this.buttonThemGV.Text = "Thêm";
-            this.buttonThemGV.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.buttonThemGV.TextOffset = new System.Drawing.Point(3, 0);
-            this.buttonThemGV.Click += new System.EventHandler(this.buttonThemGV_Click);
+            this.buttonThem.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonThem.Animated = true;
+            this.buttonThem.BorderRadius = 8;
+            this.buttonThem.CheckedState.Parent = this.buttonThem;
+            this.buttonThem.CustomImages.Parent = this.buttonThem;
+            this.buttonThem.FillColor = System.Drawing.Color.Gainsboro;
+            this.buttonThem.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonThem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
+            this.buttonThem.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.buttonThem.HoverState.Parent = this.buttonThem;
+            this.buttonThem.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
+            this.buttonThem.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.buttonThem.ImageSize = new System.Drawing.Size(35, 35);
+            this.buttonThem.Location = new System.Drawing.Point(9, 55);
+            this.buttonThem.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
+            this.buttonThem.Name = "buttonThem";
+            this.buttonThem.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.buttonThem.ShadowDecoration.Parent = this.buttonThem;
+            this.buttonThem.Size = new System.Drawing.Size(137, 45);
+            this.buttonThem.TabIndex = 21;
+            this.buttonThem.Text = "Thêm";
+            this.buttonThem.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.buttonThem.TextOffset = new System.Drawing.Point(3, 0);
+            this.buttonThem.Click += new System.EventHandler(this.ButtonThem_Click);
             // 
-            // buttonSuaGV
+            // buttonSua
             // 
-            this.buttonSuaGV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonSuaGV.Animated = true;
-            this.buttonSuaGV.BorderRadius = 8;
-            this.buttonSuaGV.CheckedState.Parent = this.buttonSuaGV;
-            this.buttonSuaGV.CustomImages.Parent = this.buttonSuaGV;
-            this.buttonSuaGV.FillColor = System.Drawing.Color.Gainsboro;
-            this.buttonSuaGV.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSuaGV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.buttonSuaGV.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.buttonSuaGV.HoverState.Parent = this.buttonSuaGV;
-            this.buttonSuaGV.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_480px;
-            this.buttonSuaGV.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.buttonSuaGV.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonSuaGV.Location = new System.Drawing.Point(9, 205);
-            this.buttonSuaGV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
-            this.buttonSuaGV.Name = "buttonSuaGV";
-            this.buttonSuaGV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.buttonSuaGV.ShadowDecoration.Parent = this.buttonSuaGV;
-            this.buttonSuaGV.Size = new System.Drawing.Size(137, 45);
-            this.buttonSuaGV.TabIndex = 20;
-            this.buttonSuaGV.Text = "Sửa";
-            this.buttonSuaGV.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.buttonSuaGV.TextOffset = new System.Drawing.Point(3, 0);
-            this.buttonSuaGV.Click += new System.EventHandler(this.buttonSuaGV_Click);
+            this.buttonSua.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonSua.Animated = true;
+            this.buttonSua.BorderRadius = 8;
+            this.buttonSua.CheckedState.Parent = this.buttonSua;
+            this.buttonSua.CustomImages.Parent = this.buttonSua;
+            this.buttonSua.FillColor = System.Drawing.Color.Gainsboro;
+            this.buttonSua.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
+            this.buttonSua.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.buttonSua.HoverState.Parent = this.buttonSua;
+            this.buttonSua.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_480px;
+            this.buttonSua.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.buttonSua.ImageSize = new System.Drawing.Size(35, 35);
+            this.buttonSua.Location = new System.Drawing.Point(9, 205);
+            this.buttonSua.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
+            this.buttonSua.Name = "buttonSua";
+            this.buttonSua.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.buttonSua.ShadowDecoration.Parent = this.buttonSua;
+            this.buttonSua.Size = new System.Drawing.Size(137, 45);
+            this.buttonSua.TabIndex = 20;
+            this.buttonSua.Text = "Sửa";
+            this.buttonSua.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.buttonSua.TextOffset = new System.Drawing.Point(3, 0);
+            this.buttonSua.Click += new System.EventHandler(this.ButtonSua_Click);
             // 
-            // buttonXoaGV
+            // buttonXoa
             // 
-            this.buttonXoaGV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonXoaGV.Animated = true;
-            this.buttonXoaGV.BorderRadius = 8;
-            this.buttonXoaGV.CheckedState.Parent = this.buttonXoaGV;
-            this.buttonXoaGV.CustomImages.Parent = this.buttonXoaGV;
-            this.buttonXoaGV.FillColor = System.Drawing.Color.Gainsboro;
-            this.buttonXoaGV.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonXoaGV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.buttonXoaGV.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.buttonXoaGV.HoverState.Parent = this.buttonXoaGV;
-            this.buttonXoaGV.Image = global::TracNghiemCSDLPT.Properties.Resources.minus_sign_480px;
-            this.buttonXoaGV.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.buttonXoaGV.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonXoaGV.Location = new System.Drawing.Point(9, 130);
-            this.buttonXoaGV.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
-            this.buttonXoaGV.Name = "buttonXoaGV";
-            this.buttonXoaGV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.buttonXoaGV.ShadowDecoration.Parent = this.buttonXoaGV;
-            this.buttonXoaGV.Size = new System.Drawing.Size(137, 45);
-            this.buttonXoaGV.TabIndex = 23;
-            this.buttonXoaGV.Text = "Xóa";
-            this.buttonXoaGV.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.buttonXoaGV.TextOffset = new System.Drawing.Point(3, 0);
-            this.buttonXoaGV.Click += new System.EventHandler(this.buttonXoaGV_Click);
+            this.buttonXoa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonXoa.Animated = true;
+            this.buttonXoa.BorderRadius = 8;
+            this.buttonXoa.CheckedState.Parent = this.buttonXoa;
+            this.buttonXoa.CustomImages.Parent = this.buttonXoa;
+            this.buttonXoa.FillColor = System.Drawing.Color.Gainsboro;
+            this.buttonXoa.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonXoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
+            this.buttonXoa.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.buttonXoa.HoverState.Parent = this.buttonXoa;
+            this.buttonXoa.Image = global::TracNghiemCSDLPT.Properties.Resources.minus_sign_480px;
+            this.buttonXoa.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.buttonXoa.ImageSize = new System.Drawing.Size(35, 35);
+            this.buttonXoa.Location = new System.Drawing.Point(9, 130);
+            this.buttonXoa.Margin = new System.Windows.Forms.Padding(3, 3, 3, 27);
+            this.buttonXoa.Name = "buttonXoa";
+            this.buttonXoa.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.buttonXoa.ShadowDecoration.Parent = this.buttonXoa;
+            this.buttonXoa.Size = new System.Drawing.Size(137, 45);
+            this.buttonXoa.TabIndex = 23;
+            this.buttonXoa.Text = "Xóa";
+            this.buttonXoa.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.buttonXoa.TextOffset = new System.Drawing.Point(3, 0);
+            this.buttonXoa.Click += new System.EventHandler(this.ButtonXoa_Click);
             // 
             // bunifuPanel1
             // 
@@ -661,9 +659,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.bunifuPanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
             this.bunifuPanel1.BorderRadius = 3;
             this.bunifuPanel1.BorderThickness = 1;
-            this.bunifuPanel1.Controls.Add(this.buttonHuyGV);
+            this.bunifuPanel1.Controls.Add(this.buttonHuy);
             this.bunifuPanel1.Controls.Add(this.buttonUndoGV);
-            this.bunifuPanel1.Controls.Add(this.buttonXacNhanGV);
+            this.bunifuPanel1.Controls.Add(this.buttonXacNhan);
             this.bunifuPanel1.Controls.Add(this.buttonRedoGV);
             this.bunifuPanel1.Controls.Add(this.ViewCaption);
             this.bunifuPanel1.Location = new System.Drawing.Point(183, 436);
@@ -672,26 +670,26 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.bunifuPanel1.Size = new System.Drawing.Size(1512, 51);
             this.bunifuPanel1.TabIndex = 32;
             // 
-            // buttonHuyGV
+            // buttonHuy
             // 
-            this.buttonHuyGV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(24)))));
-            this.buttonHuyGV.CheckedState.Parent = this.buttonHuyGV;
-            this.buttonHuyGV.CustomImages.Parent = this.buttonHuyGV;
-            this.buttonHuyGV.FillColor = System.Drawing.Color.Transparent;
-            this.buttonHuyGV.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonHuyGV.ForeColor = System.Drawing.Color.White;
-            this.buttonHuyGV.HoverState.Parent = this.buttonHuyGV;
-            this.buttonHuyGV.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
-            this.buttonHuyGV.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonHuyGV.Location = new System.Drawing.Point(77, 10);
-            this.buttonHuyGV.Margin = new System.Windows.Forms.Padding(3, 3, 57, 3);
-            this.buttonHuyGV.Name = "buttonHuyGV";
-            this.buttonHuyGV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.buttonHuyGV.ShadowDecoration.Parent = this.buttonHuyGV;
-            this.buttonHuyGV.Size = new System.Drawing.Size(34, 30);
-            this.buttonHuyGV.TabIndex = 25;
-            this.buttonHuyGV.Visible = false;
-            this.buttonHuyGV.Click += new System.EventHandler(this.ButtonHuyGV_Click);
+            this.buttonHuy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(24)))));
+            this.buttonHuy.CheckedState.Parent = this.buttonHuy;
+            this.buttonHuy.CustomImages.Parent = this.buttonHuy;
+            this.buttonHuy.FillColor = System.Drawing.Color.Transparent;
+            this.buttonHuy.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonHuy.ForeColor = System.Drawing.Color.White;
+            this.buttonHuy.HoverState.Parent = this.buttonHuy;
+            this.buttonHuy.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
+            this.buttonHuy.ImageSize = new System.Drawing.Size(30, 30);
+            this.buttonHuy.Location = new System.Drawing.Point(77, 10);
+            this.buttonHuy.Margin = new System.Windows.Forms.Padding(3, 3, 57, 3);
+            this.buttonHuy.Name = "buttonHuy";
+            this.buttonHuy.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.buttonHuy.ShadowDecoration.Parent = this.buttonHuy;
+            this.buttonHuy.Size = new System.Drawing.Size(34, 30);
+            this.buttonHuy.TabIndex = 25;
+            this.buttonHuy.Visible = false;
+            this.buttonHuy.Click += new System.EventHandler(this.ButtonHuy_Click);
             // 
             // buttonUndoGV
             // 
@@ -716,26 +714,26 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonUndoGV.TabIndex = 30;
             this.buttonUndoGV.Visible = false;
             // 
-            // buttonXacNhanGV
+            // buttonXacNhan
             // 
-            this.buttonXacNhanGV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(24)))));
-            this.buttonXacNhanGV.CheckedState.Parent = this.buttonXacNhanGV;
-            this.buttonXacNhanGV.CustomImages.Parent = this.buttonXacNhanGV;
-            this.buttonXacNhanGV.FillColor = System.Drawing.Color.Transparent;
-            this.buttonXacNhanGV.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonXacNhanGV.ForeColor = System.Drawing.Color.White;
-            this.buttonXacNhanGV.HoverState.Parent = this.buttonXacNhanGV;
-            this.buttonXacNhanGV.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
-            this.buttonXacNhanGV.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonXacNhanGV.Location = new System.Drawing.Point(17, 10);
-            this.buttonXacNhanGV.Margin = new System.Windows.Forms.Padding(17, 0, 23, 3);
-            this.buttonXacNhanGV.Name = "buttonXacNhanGV";
-            this.buttonXacNhanGV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.buttonXacNhanGV.ShadowDecoration.Parent = this.buttonXacNhanGV;
-            this.buttonXacNhanGV.Size = new System.Drawing.Size(34, 30);
-            this.buttonXacNhanGV.TabIndex = 28;
-            this.buttonXacNhanGV.Visible = false;
-            this.buttonXacNhanGV.Click += new System.EventHandler(this.buttonXacNhanGV_Click);
+            this.buttonXacNhan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(24)))));
+            this.buttonXacNhan.CheckedState.Parent = this.buttonXacNhan;
+            this.buttonXacNhan.CustomImages.Parent = this.buttonXacNhan;
+            this.buttonXacNhan.FillColor = System.Drawing.Color.Transparent;
+            this.buttonXacNhan.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonXacNhan.ForeColor = System.Drawing.Color.White;
+            this.buttonXacNhan.HoverState.Parent = this.buttonXacNhan;
+            this.buttonXacNhan.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
+            this.buttonXacNhan.ImageSize = new System.Drawing.Size(30, 30);
+            this.buttonXacNhan.Location = new System.Drawing.Point(17, 10);
+            this.buttonXacNhan.Margin = new System.Windows.Forms.Padding(17, 0, 23, 3);
+            this.buttonXacNhan.Name = "buttonXacNhan";
+            this.buttonXacNhan.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.buttonXacNhan.ShadowDecoration.Parent = this.buttonXacNhan;
+            this.buttonXacNhan.Size = new System.Drawing.Size(34, 30);
+            this.buttonXacNhan.TabIndex = 28;
+            this.buttonXacNhan.Visible = false;
+            this.buttonXacNhan.Click += new System.EventHandler(this.ButtonXacNhan_Click);
             // 
             // buttonRedoGV
             // 
@@ -856,14 +854,14 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEdit1;
         private DevExpress.XtraGrid.Views.Card.CardView cardView1;
         private System.Windows.Forms.Panel panel1;
-        private Guna.UI2.WinForms.Guna2Button buttonLamMoiGV;
-        private Guna.UI2.WinForms.Guna2Button buttonThemGV;
-        private Guna.UI2.WinForms.Guna2Button buttonSuaGV;
-        private Guna.UI2.WinForms.Guna2Button buttonXoaGV;
+        private Guna.UI2.WinForms.Guna2Button buttonLamMoi;
+        private Guna.UI2.WinForms.Guna2Button buttonThem;
+        private Guna.UI2.WinForms.Guna2Button buttonSua;
+        private Guna.UI2.WinForms.Guna2Button buttonXoa;
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel1;
         private System.Windows.Forms.Label ViewCaption;
-        private Guna.UI2.WinForms.Guna2CircleButton buttonXacNhanGV;
-        private Guna.UI2.WinForms.Guna2CircleButton buttonHuyGV;
+        private Guna.UI2.WinForms.Guna2CircleButton buttonXacNhan;
+        private Guna.UI2.WinForms.Guna2CircleButton buttonHuy;
         private TN_CSDLPTDataSetTableAdapters.GIAOVIENTableAdapter GVTableAdapter;
         private System.Windows.Forms.BindingSource GVBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colMAGV;

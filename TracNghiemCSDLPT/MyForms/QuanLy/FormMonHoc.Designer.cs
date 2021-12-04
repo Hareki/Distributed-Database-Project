@@ -43,7 +43,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.bar4 = new DevExpress.XtraBars.Bar();
             this.bar5 = new DevExpress.XtraBars.Bar();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ImageBook = new System.Windows.Forms.PictureBox();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.InfoPanel = new Bunifu.UI.WinForms.BunifuGroupBox();
             this.TextTenMH = new DevExpress.XtraEditors.TextEdit();
@@ -74,7 +74,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MonHocGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageBook)).BeginInit();
             this.bunifuPanel1.SuspendLayout();
             this.InfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TextTenMH.Properties)).BeginInit();
@@ -240,16 +240,16 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.bar5.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar5.Text = "Custom 4";
             // 
-            // pictureBox1
+            // ImageBook
             // 
-            this.pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.book_500px_disabled;
-            this.pictureBox1.Location = new System.Drawing.Point(71, 47);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(146, 156);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.EnabledChanged += new System.EventHandler(this.pictureBox1_EnabledChanged);
+            this.ImageBook.Image = global::TracNghiemCSDLPT.Properties.Resources.book_500px_disabled;
+            this.ImageBook.Location = new System.Drawing.Point(71, 47);
+            this.ImageBook.Name = "ImageBook";
+            this.ImageBook.Size = new System.Drawing.Size(146, 156);
+            this.ImageBook.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ImageBook.TabIndex = 4;
+            this.ImageBook.TabStop = false;
+            this.ImageBook.EnabledChanged += new System.EventHandler(this.ImageBook_EnabledChanged);
             // 
             // bunifuPanel1
             // 
@@ -280,7 +280,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.InfoPanel.Controls.Add(this.TextTenMH);
             this.InfoPanel.Controls.Add(LabelMaMH);
             this.InfoPanel.Controls.Add(this.TextMaMH);
-            this.InfoPanel.Controls.Add(this.pictureBox1);
+            this.InfoPanel.Controls.Add(this.ImageBook);
             this.InfoPanel.Enabled = false;
             this.InfoPanel.Font = new System.Drawing.Font("Baloo 2", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoPanel.ForeColor = System.Drawing.SystemColors.AppWorkspace;
@@ -347,7 +347,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonHuy.Size = new System.Drawing.Size(34, 30);
             this.buttonHuy.TabIndex = 2;
             this.buttonHuy.Visible = false;
-            this.buttonHuy.Click += new System.EventHandler(this.buttonHuy_Click);
+            this.buttonHuy.Click += new System.EventHandler(this.ButtonHuy_Click);
             // 
             // buttonXacNhan
             // 
@@ -368,7 +368,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonXacNhan.Size = new System.Drawing.Size(34, 30);
             this.buttonXacNhan.TabIndex = 2;
             this.buttonXacNhan.Visible = false;
-            this.buttonXacNhan.Click += new System.EventHandler(this.buttonXacNhan_Click);
+            this.buttonXacNhan.Click += new System.EventHandler(this.ButtonXacNhan_Click);
             // 
             // buttonRedo
             // 
@@ -487,7 +487,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonXoa.Size = new System.Drawing.Size(168, 45);
             this.buttonXoa.TabIndex = 11;
             this.buttonXoa.Text = "Xóa";
-            this.buttonXoa.Click += new System.EventHandler(this.buttonXoa_Click);
+            this.buttonXoa.Click += new System.EventHandler(this.ButtonXoa_Click);
             // 
             // buttonLamMoi
             // 
@@ -536,7 +536,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonThem.Size = new System.Drawing.Size(168, 45);
             this.buttonThem.TabIndex = 11;
             this.buttonThem.Text = "Thêm";
-            this.buttonThem.Click += new System.EventHandler(this.buttonThem_Click);
+            this.buttonThem.Click += new System.EventHandler(this.ButtonThem_Click);
             // 
             // buttonSua
             // 
@@ -560,7 +560,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonSua.Size = new System.Drawing.Size(168, 45);
             this.buttonSua.TabIndex = 11;
             this.buttonSua.Text = "Sửa";
-            this.buttonSua.Click += new System.EventHandler(this.buttonSua_Click);
+            this.buttonSua.Click += new System.EventHandler(this.ButtonSua_Click);
             // 
             // MaMHEP
             // 
@@ -602,7 +602,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MonHocGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageBook)).EndInit();
             this.bunifuPanel1.ResumeLayout(false);
             this.InfoPanel.ResumeLayout(false);
             this.InfoPanel.PerformLayout();
@@ -621,7 +621,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private DevExpress.XtraBars.Bar bar1;
         private DevExpress.XtraBars.Bar bar4;
         private DevExpress.XtraBars.Bar bar5;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox ImageBook;
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel1;
         private Guna.UI2.WinForms.Guna2CircleButton buttonXacNhan;
         private Guna.UI2.WinForms.Guna2CircleButton buttonHuy;

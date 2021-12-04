@@ -159,6 +159,8 @@ namespace TracNghiemCSDLPT
             gridView1.OptionsCustomization.AllowSort = enabled;
             gridView1.OptionsCustomization.AllowFilter = enabled;
             gridView1.OptionsCustomization.AllowGroup = enabled;
+
+            //refresh Customization
             gridView1.ActiveFilter.Clear();
             gridView1.ClearSorting();
             gridView1.ClearGrouping();
@@ -191,6 +193,21 @@ namespace TracNghiemCSDLPT
                 result += " ";
             }
             return result;
+        }
+
+        public static string GetCellStringGridView(GridView view, GridColumn column, int row)
+        {
+            if (row < 0)
+                return view.GetRowCellValue(view.FocusedRowHandle, column).ToString().Trim();
+            else
+                return view.GetRowCellValue(row, column).ToString().Trim();
+        }
+        public static void SetCellValueGridView(GridView view, GridColumn column, int row, object value)
+        {
+            if (row < 0)
+                view.SetRowCellValue(view.FocusedRowHandle, column, value);
+            else
+                view.SetRowCellValue(row, column, value);
         }
 
     }

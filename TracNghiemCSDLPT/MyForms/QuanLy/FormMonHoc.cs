@@ -23,6 +23,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             {
                 case "TRUONG":
                     SetIdleButtonEnabled(false);
+                    buttonLamMoi.Enabled = true;
                     break;
                 case "GIAOVIEN":
                     SetIdleButtonEnabled(false);
@@ -31,33 +32,16 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         }
 
-        readonly Color _activeForeColor = Color.FromArgb(72, 70, 68);
-        readonly Color _disabledForeColor = SystemColors.AppWorkspace;
         State _state = State.Idle;
-        string _origMaMH = "~!@#$%";
-        string _origTenMh = "~!@#$%";
+        string _origMaMH = null;
+        string _origTenMh = null;
 
-        private void SetDefaultOrigValue()
-        {
-            _origTenMh = "~!@#$%";
-            _origMaMH = "~!@#$%";
-        }
         enum State
         {
             Add, Edit, Idle
         }
 
-        private void CheckButtonState()
-        {
-            if (Utils.IsCoSo())
-            {
-                if (MonHocBindingSource.Count == 0)
-                    buttonXoa.Enabled = buttonSua.Enabled = false;
-                else if (_state != State.Add && _state != State.Edit)
-                    buttonXoa.Enabled = buttonSua.Enabled = true;
-            }
 
-        }
         private void LoadAllData()
         {
 
@@ -75,92 +59,126 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             this.TN_CSDLPTDataSet.EnforceConstraints = false;//phải có dòng này, nếu không khi refresh sẽ ko cho, do môn học là khóa chính, đã trỏ ra các bảng khác
             LoadAllData();
-            CheckButtonState();
             PhanQuyen();
-            //      Utils.ConfigControlColor(InfoPanel);
+            SetCorrButtonsState();
         }
 
         private void SetIdleButtonEnabled(bool state)
         {
-            //  buttonUndo.Enabled = buttonRedo.Enabled
             buttonThem.Enabled = buttonXoa.Enabled =
-                 buttonSua.Enabled = state;
-            if (Utils.IsTruong()) buttonLamMoi.Enabled = true;
-            else buttonLamMoi.Enabled = state;
+                 buttonSua.Enabled = buttonLamMoi.Enabled = state;
 
-            //if (state == false)
-            //{
-            //    buttonUndo.BackColor = buttonRedo.BackColor = Color.FromArgb(247, 247, 247);
-            //}
-            //else
-            //{
-            //    buttonUndo.BackColor = buttonRedo.BackColor = Color.FromArgb(240, 240, 240);
-            //}
         }
-        private void SetInputButtonEnabled(bool state)
+        private void SetInputButtonVisible(bool state)
         {
             buttonHuy.Visible = buttonXacNhan.Visible = state;
         }
 
 
-        private void buttonThem_Click(object sender, EventArgs e)
+
+        private void SetCorrButtonsState()
         {
-            _selectedRow = MonHocBindingSource.Position;
-            InfoPanel.Enabled = true;
-            TextMaMH.ForeColor =
-                TextTenMH.ForeColor = _activeForeColor;
+            if (Utils.IsCoSo())
+            {
+                switch (_state)
+                {
+                    case State.Add:
+                        SetInputButtonVisible(true);
+                        SetIdleButtonEnabled(false);
+                        break;
+                    case State.Edit:
+                        SetInputButtonVisible(true);
+                        SetIdleButtonEnabled(false);
+                        break;
+                    case State.Idle:
+                        SetInputButtonVisible(false);
 
-            //InfoPanel.Text = "Thêm mới thông tin môn học";
-            //InfoPanel.ForeColor = Utils.AddColor;
-            Utils.ConfigInfoPanelAppearance(InfoPanel, "Thêm mới thông tin môn học", Utils.AddColor);
+                        if (MonHocBindingSource.Count > 0)
+                            SetIdleButtonEnabled(true);
+                        else SetIdleButtonEnabled(false);
 
-            SetIdleButtonEnabled(false);
-            SetInputButtonEnabled(true);
-
-            MonHocGridControl.Enabled = false;
-            _state = State.Add;
-            MonHocBindingSource.AddNew();
+                        break;
+                }
+            }
+        }
+        private void SetInputColor(Color color)
+        {
+            TextMaMH.ForeColor = TextTenMH.ForeColor = color;
+        }
+        private void ButtonThem_Click(object sender, EventArgs e)
+        {
+            ConfigAddingState();
         }
 
-        private void buttonHuy_Click(object sender, EventArgs e)
+        private void ButtonHuy_Click(object sender, EventArgs e)
         {
-            InfoPanel.Enabled = false;
-            InfoPanel.ForeColor = TextMaMH.ForeColor =
-                TextTenMH.ForeColor = _disabledForeColor;
-            MonHocGridControl.Enabled = true;
+            ConfigIdleState();
+        }
+
+        private void SaveOrigValue()
+        {
+            _origMaMH = TextMaMH.Text;
+            _origTenMh = Utils.CapitalizeString(TextTenMH.Text, Utils.CapitalMode.FirstWordOnly);
+        }
+
+        private void ResetOrigValue()
+        {
+            _origMaMH = _origTenMh = null;
+        }
+
+        private void ConfigIdleState()
+        {
+            ResetOrigValue();
+
+            _state = State.Idle;
+            SetInputColor(Utils.DisabledColor);
             MonHocBindingSource.CancelEdit();
-            //InfoPanel.Text = "Thông tin môn học";
-            //InfoPanel.ForeColor = Utils.DisabledColor;
-            Utils.ConfigInfoPanelAppearance(InfoPanel, "Thông tin môn học", Utils.DisabledColor);
+            SetCorrButtonsState();
+            ClearErrors();
+
             if (_state == State.Add)
                 MonHocBindingSource.Position = _selectedRow;
-            SetIdleButtonEnabled(true);
-            SetInputButtonEnabled(false);
-            Utils.SetTextEditError(TenMHEP, TextTenMH, null);
-            Utils.SetTextEditError(MaMHEP, TextMaMH, null);
-            _state = State.Idle;
-            SetDefaultOrigValue();
+
+
+            Utils.ConfigInfoPanelAppearance(InfoPanel, "Thông tin môn học", Utils.DisabledColor);
+            InfoPanel.Enabled = false;
+
+            MonHocGridControl.Enabled = true;
 
         }
-
-        private void buttonSua_Click(object sender, EventArgs e)
+        private void ConfigAddingState()
         {
+            _selectedRow = MonHocBindingSource.Position;
+
+            _state = State.Add;
+            SetCorrButtonsState();
+            MonHocBindingSource.AddNew();
+            SetInputColor(Utils.ActiveColor);
+
+
+            Utils.ConfigInfoPanelAppearance(InfoPanel, "Thêm mới thông tin môn học", Utils.AddColor);
             InfoPanel.Enabled = true;
-            InfoPanel.ForeColor = TextMaMH.ForeColor =
-                TextTenMH.ForeColor = _activeForeColor;
 
-            //InfoPanel.Text = "Sửa thông tin môn học";
-            //InfoPanel.ForeColor = Utils.EditColor;
-            Utils.ConfigInfoPanelAppearance(InfoPanel, "Sửa thông tin môn học", Utils.EditColor);
-            TextMaMH.Text = TextMaMH.Text.Trim();
-
-            SetIdleButtonEnabled(false);
-            SetInputButtonEnabled(true);
-
-            _origMaMH = TextMaMH.Text.Trim();
-            _origTenMh = Utils.CapitalizeString(TextTenMH.Text, Utils.CapitalMode.FirstWordOnly);
             MonHocGridControl.Enabled = false;
+
+        }
+        private void ConfigEditingState()
+        {
+            TextMaMH.Text = Utils.RemoveExtraSpace(TextMaMH.Text);
+            SaveOrigValue();
+
             _state = State.Edit;
+            SetCorrButtonsState();
+            SetInputColor(Utils.ActiveColor);
+
+            Utils.ConfigInfoPanelAppearance(InfoPanel, "Sửa thông tin môn học", Utils.EditColor);
+            InfoPanel.Enabled = true;
+
+            MonHocGridControl.Enabled = false;
+        }
+        private void ButtonSua_Click(object sender, EventArgs e)
+        {
+            ConfigEditingState();
         }
 
         private void buttonLamMoi_Click(object sender, EventArgs e)
@@ -169,8 +187,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             {
                 LoadAllData();
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
-
-                CheckButtonState();
+                SetCorrButtonsState();
             }
             catch (Exception ex)
             {
@@ -180,9 +197,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
         }
 
-        private void buttonXoa_Click(object sender, EventArgs e)
+        private void ButtonXoa_Click(object sender, EventArgs e)
         {
-            string removedMH = "";
+            string removedMH = string.Empty;
             _selectedRow = MonHocBindingSource.Position;
             if (BoDeBindingSource.Count > 0)
             {
@@ -218,7 +235,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 }
             }
 
-            CheckButtonState();
+            SetCorrButtonsState();
         }
 
         private bool AlreadyExists(string testName, bool isId)
@@ -248,7 +265,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
 
         }
-        private void buttonXacNhan_Click(object sender, EventArgs e)
+        private void ButtonXacNhan_Click(object sender, EventArgs e)
         {
             string maMh = TextMaMH.Text = Utils.RemoveExtraSpace(TextMaMH.Text);
             string tenMh = TextTenMH.Text = Utils.CapitalizeString
@@ -354,8 +371,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     Utils.ShowMessage("Thêm môn học thành công", Others.NotiForm.FormType.Success, 1);
                 _state = State.Idle;
 
-                //InfoPanel.Text = "Thông tin môn học";
-                //InfoPanel.ForeColor = Utils.DisabledColor;
                 Utils.ConfigInfoPanelAppearance(InfoPanel, "Thông tin môn học", Utils.DisabledColor);
                 ClearErrors();
 
@@ -365,20 +380,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 Utils.ShowErrorMessage("Không thể lưu môn học, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi ghi môn học");
                 return;
             }
-            
+
             ConfigIdleState();
-        }
-
-        private void ConfigIdleState()
-        {
-            MonHocGridControl.Enabled = true;
-            InfoPanel.Enabled = false;
-            InfoPanel.ForeColor = TextMaMH.ForeColor =
-                TextTenMH.ForeColor = _disabledForeColor;
-            SetIdleButtonEnabled(true);
-            SetInputButtonEnabled(false);
-            SetDefaultOrigValue();
-
         }
 
         private void FormMonHoc_FormClosing(object sender, FormClosingEventArgs e)
@@ -388,15 +391,15 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     e.Cancel = true;
         }
 
-        private void pictureBox1_EnabledChanged(object sender, EventArgs e)
+        private void ImageBook_EnabledChanged(object sender, EventArgs e)
         {
-            if (pictureBox1.Enabled)
+            if (ImageBook.Enabled)
             {
-                this.pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.book_500px;
+                this.ImageBook.Image = global::TracNghiemCSDLPT.Properties.Resources.book_500px;
             }
             else
             {
-                this.pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.book_500px_disabled;
+                this.ImageBook.Image = global::TracNghiemCSDLPT.Properties.Resources.book_500px_disabled;
             }
         }
         private void ClearErrors()

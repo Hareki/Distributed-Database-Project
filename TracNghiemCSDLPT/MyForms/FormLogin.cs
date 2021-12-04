@@ -21,7 +21,7 @@ namespace TracNghiemCSDLPT.MyForms
         {
             InitializeComponent();
             InitializeUI();
-            AutoFilledTruong();
+            AutoFilledCS();
         }
         public StateProperties ErrorState;
         private Color _errorColor = Color.FromArgb(236, 65, 52);

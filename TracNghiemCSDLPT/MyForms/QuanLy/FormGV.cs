@@ -26,9 +26,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         private int _selectedRowGv;
         private int _previousIndexCS;
-        private string _origMaGv = "~!@#$%";
+        private string _origMaGv = string.Empty;
         private int _editingGvIndex;
-        private string _saveMaKhForReset;
+
 
         private void LoadAllData()
         {
@@ -54,7 +54,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             switch (DBConnection.NhomQuyen)
             {
                 case "TRUONG":
-                    SetIdleButtonEnabledGv(false);
+                    SetIdleButtonEnabled(false);
                     break;
                 case "COSO":
                     CoSoComboBox.Enabled = false;
@@ -68,9 +68,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             if (Utils.IsCoSo())
             {
                 if (KhoaBindingSource.Count == 0)
-                    buttonXoaGV.Enabled = buttonSuaGV.Enabled = false;
+                    buttonXoa.Enabled = buttonSua.Enabled = false;
                 else if (_state != State.Add && _state != State.Edit)
-                    buttonXoaGV.Enabled = buttonSuaGV.Enabled = true;
+                    buttonXoa.Enabled = buttonSua.Enabled = true;
             }
 
         }
@@ -96,19 +96,19 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
 
 
-        private void SetIdleButtonEnabledGv(bool state)
+        private void SetIdleButtonEnabled(bool state)
         {
-            buttonThemGV.Enabled = buttonSuaGV.Enabled = buttonUndoGV.Enabled =
-              buttonRedoGV.Enabled = buttonXoaGV.Enabled = state;
-            if (Utils.IsTruong()) buttonLamMoiGV.Enabled = true;
-            else buttonLamMoiGV.Enabled = state;
+            buttonThem.Enabled = buttonSua.Enabled = buttonUndoGV.Enabled =
+              buttonRedoGV.Enabled = buttonXoa.Enabled = state;
+            if (Utils.IsTruong()) buttonLamMoi.Enabled = true;
+            else buttonLamMoi.Enabled = state;
         }
 
-        private void SetInputButtonEnabledGv(bool state)
+        private void SetInputButtonVisible(bool state)
         {
-            buttonHuyGV.Visible = buttonXacNhanGV.Visible = state;
+            buttonHuy.Visible = buttonXacNhan.Visible = state;
         }
-        private void SetKhoaState(bool state)
+        private void SetKhoaGridControlEnabled(bool state)
         {
             KhoaGridControl.Enabled = state;
             Image img = state == true ? global::TracNghiemCSDLPT.Properties.Resources.asd
@@ -116,32 +116,74 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.pictureBox1.Image = img;
         }
 
-        private void buttonThemGV_Click(object sender, EventArgs e)
+        private void SetCorrButtonsState()
+        {
+            if (Utils.IsCoSo())
+            {
+                switch (_state)
+                {
+                    case State.Add:
+                        SetInputButtonVisible(true);
+                        SetIdleButtonEnabled(false);
+                        break;
+                    case State.Edit:
+                        SetInputButtonVisible(true);
+                        SetIdleButtonEnabled(false);
+                        break;
+                    case State.Idle:
+                        SetInputButtonVisible(false);
+
+                        if (KhoaBindingSource.Count > 0)
+                            SetIdleButtonEnabled(true);
+                        else SetIdleButtonEnabled(false);
+
+                        break;
+                }
+            }
+        }
+        private void ConfigAddingState()
         {
             _selectedRowGv = GVBindingSource.Position;
-            //   SetKhoaState(false);
-            //    SetIdleButtonEnabledGV(false);
-            SetInputButtonEnabledGv(true);
-            Utils.SetCustomizationEnabled(GVGridView, false);
+
             _state = State.Add;
-            GVGridView.OptionsBehavior.Editable = true;
+            SetCorrButtonsState();
             GVBindingSource.AddNew();
+
+            //kết hợp set enabled và reset Customization để hàng chỉnh sửa (hoặc thêm) không bị dịch dời
+            Utils.SetCustomizationEnabled(GVGridView, false);
+            GVGridView.OptionsBehavior.Editable = true;
         }
 
-        private void ButtonHuyGV_Click(object sender, EventArgs e)
-        {
-            GVGridView.OptionsBehavior.Editable = false;
 
+        private void ButtonThem_Click(object sender, EventArgs e)
+        {
+            ConfigAddingState();
+            GVGridView.ClearColumnErrors();
+        }
+
+        private void ButtonHuy_Click(object sender, EventArgs e)
+        {
+            ConfigIdleState();
+        }
+
+        private void ConfigIdleState()
+        {
+            //??
             this.GVTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.GVTableAdapter.Fill(TN_CSDLPTDataSet.GIAOVIEN);
+
+            _state = State.Idle;
+            GVGridView.ClearColumnErrors();
+            SetCorrButtonsState();
+            _origMaGv = string.Empty;
+
             Utils.SetCustomizationEnabled(GVGridView, true);
+            GVGridView.OptionsBehavior.Editable = false;
+
             if (_state == State.Add)
                 GVBindingSource.Position = _selectedRowGv;
-            _state = State.Idle;
-            SetIdleButtonEnabledGv(true);
-            SetInputButtonEnabledGv(false);
-            SetDefaultOrigValue();
-            SetKhoaState(true);
+
+            SetKhoaGridControlEnabled(true);
         }
 
         private void CoSoComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -175,12 +217,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
 
 
-        private void SetCellAtRowGv(GridColumn column, string value, int row)
-        {
-            GVGridView.SetRowCellValue(row, column, value);
-        }
 
-        private void buttonXacNhanGV_Click(object sender, EventArgs e)
+
+        private void ButtonXacNhan_Click(object sender, EventArgs e)
         {
             bool test1 = (GetError(GetEditingIndexGv(), colMAGV) == string.Empty);
             bool test2 = (GetError(GetEditingIndexGv(), colHO) == string.Empty);
@@ -192,13 +231,14 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 try
                 {
                     int editingIndex = GetEditingIndexGv();
-                    string ho = Utils.CapitalizeString(GetCellAtRowGv(colHO, editingIndex), Utils.CapitalMode.EveryWord);
-                    SetCellAtRowGv(colHO, ho, editingIndex);
+                    string ho = Utils.CapitalizeString(Utils.GetCellStringGridView(GVGridView, colHO, editingIndex), Utils.CapitalMode.EveryWord);
+                    Utils.SetCellValueGridView(GVGridView, colHO, editingIndex, ho);
 
-                    string ten = Utils.CapitalizeString(GetCellAtRowGv(colTEN, editingIndex), Utils.CapitalMode.EveryWord);
-                    SetCellAtRowGv(colTEN, ten, editingIndex);
+                    string ten = Utils.GetCellStringGridView(GVGridView, colTEN, editingIndex);
+                    ten = Utils.CapitalizeString(ten, Utils.CapitalMode.EveryWord);
+                    Utils.SetCellValueGridView(GVGridView, colTEN, editingIndex, ten);
 
-                    string maGv = GetCellAtFRowGv(colMAGV).Trim();
+                    string maGv = Utils.GetCellStringGridView(GVGridView, colMAGV, -1);
                     if (!maGv.Equals(_origMaGv))
                     {
                         if (!RenameUser(_origMaGv, maGv))
@@ -215,11 +255,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                         Utils.ShowMessage("Sửa thông tin giảng viên thành công", Others.NotiForm.FormType.Success, 2);
                     else if (_state == State.Add)
                         Utils.ShowMessage("Thêm thông tin giảng viên thành công", Others.NotiForm.FormType.Success, 2);
-                    _state = State.Idle;
-                    GVGridView.ClearColumnErrors();
-                    CheckButtonStateGv();
-                    SetDefaultOrigValue();
-                    Utils.SetCustomizationEnabled(GVGridView, true);
+
 
                 }
                 catch (Exception ex)
@@ -227,9 +263,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     Utils.ShowErrorMessage("Không thể lưu thông tin giảng viên, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi ghi nhân viên");
                     return;
                 }
-                SetKhoaState(true);
-                SetIdleButtonEnabledGv(true);
-                SetInputButtonEnabledGv(false);
+                SetKhoaGridControlEnabled(true);
+                SetIdleButtonEnabled(true);
+                SetInputButtonVisible(false);
             }
             else
             {
@@ -239,7 +275,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private bool CheckTheRow(int rowHandle)
         {
             //lúc add new() row handle chưa có dữ liệu (= -2147483647), khi select qua row khác rồi select lại thì mới nhận
-            bool test1 = _state != State.Add && _state != State.Edit;
+            bool test1 = _state == State.Idle;
             bool test2A = rowHandle == GVGridView.RowCount - 1;
             // bool test2b = rowHandle == -2147483647;
             bool test3 = rowHandle == _editingGvIndex;
@@ -255,10 +291,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             if (CheckTheRow(rowHandle))
             {
                 GridView view = GVGridView;
-                String maGV = GetCellAtRowGv(colMAGV, rowHandle);
-                String ho = GetCellAtRowGv(colHO, rowHandle);
-                String ten = GetCellAtRowGv(colTEN, rowHandle);
-                String diaChi = GetCellAtRowGv(colDIACHI, rowHandle);
+                String maGV = Utils.GetCellStringGridView(GVGridView, colMAGV, rowHandle);
+                String ho = Utils.GetCellStringGridView(GVGridView, colHO, rowHandle);
+                String ten = Utils.GetCellStringGridView(GVGridView, colTEN, rowHandle);
+                String diaChi = Utils.GetCellStringGridView(GVGridView, colDIACHI, rowHandle);
                 if (column.Equals(view.Columns["MAGV"]))
                     return ValidateMaGv(maGV);
                 else if (column.Equals(view.Columns["HO"]))
@@ -378,38 +414,37 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 return GVGridView.RowCount - 1;
             return -1;
         }
-        private string GetCellAtRowGv(GridColumn column, int row)
+        private void ButtonSua_Click(object sender, EventArgs e)
         {
-            return GVGridView.GetRowCellValue(row, column).ToString().Trim();
+            ConfigEditingState();
         }
-        private string GetCellAtFRowGv(GridColumn column)
+        private void ConfigEditingState()
         {
-            return GVGridView.GetRowCellValue(GVGridView.FocusedRowHandle, column).ToString().Trim(); ;
-        }
-        private void buttonSuaGV_Click(object sender, EventArgs e)
-        {
-            SetKhoaState(false);
-            SetIdleButtonEnabledGv(false);
-            SetInputButtonEnabledGv(true);
-            Utils.SetCustomizationEnabled(GVGridView, false);
-            string maGV = GetCellAtFRowGv(colMAGV).Trim();
-            GVGridView.SetRowCellValue(GVGridView.FocusedRowHandle, colMAGV, maGV);
+            string maGV = Utils.GetCellStringGridView(GVGridView, colMAGV, -1);
+            _origMaGv = maGV;
+
+            //Set lại cell value, bỏ khoảng trắng do char(n) của SQL;
+            Utils.SetCellValueGridView(GVGridView, colMAGV, -1, maGV);
 
             _editingGvIndex = GVGridView.FocusedRowHandle;
-            GVGridView.OptionsBehavior.Editable = true;
-            _origMaGv = GetCellAtFRowGv(colMAGV).Trim();
+
             _state = State.Edit;
+            SetCorrButtonsState();
+
+            //kết hợp set enabled và reset Customization để hàng chỉnh sửa (hoặc thêm) không bị dịch dời
+            Utils.SetCustomizationEnabled(GVGridView, false);
+            GVGridView.OptionsBehavior.Editable = true;
+
+            SetKhoaGridControlEnabled(false);
         }
 
         private void buttonLamMoiGV_Click(object sender, EventArgs e)
         {
             try
             {
-                _saveMaKhForReset = (KhoaBindingSource[KhoaBindingSource.Position] as DataRowView)["MAKH"].ToString().Trim();
                 LoadAllData();
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
-                //  GobackAfterReset();
-                CheckButtonStateGv();
+                SetCorrButtonsState();
             }
             catch (Exception ex)
             {
@@ -478,7 +513,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         }
 
-        private void buttonXoaGV_Click(object sender, EventArgs e)
+        private void ButtonXoa_Click(object sender, EventArgs e)
         {
             string removedGv = "";
             _selectedRowGv = GVBindingSource.Position;
@@ -492,7 +527,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 Utils.ShowMessage("Giảng viên này đã soạn đề, không thể xóa", Others.NotiForm.FormType.Error, 2);
                 return;
             }
-            if (GetCellAtFRowGv(colMAGV).Equals(DBConnection.UserName))
+            if (Utils.GetCellStringGridView(GVGridView, colMAGV, -1).Equals(DBConnection.UserName))
             {
                 Utils.ShowMessage("Không thể tự xóa chính bản thân mình", Others.NotiForm.FormType.Error, 2);
                 return;
@@ -537,8 +572,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     GVBindingSource.Position = GVBindingSource.Find("MAGV", removedGv);
                     return;
                 }
+                finally
+                {
+                    ConfigIdleState();
+                }
             }
-            CheckButtonStateGv();
+
         }
 
         private void FormGV_FormClosing(object sender, FormClosingEventArgs e)
@@ -548,14 +587,5 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     e.Cancel = true;
         }
 
-        private void pictureBox1_EnabledChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

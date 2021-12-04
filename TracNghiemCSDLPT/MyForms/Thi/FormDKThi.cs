@@ -37,7 +37,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private DateTime _origNgayThi;
 
 
-        private void SetInputButtonEnabled(bool state)
+        private void SetInputButtonVisible(bool state)
         {
             buttonHuy.Visible = buttonXacNhan.Visible = state;
         }
@@ -80,10 +80,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             LoadDsgv();
             LoadGvdk2();
         }
-        private void SetOrigDefaultValue()
+        private void ResetOrigValue()
         {
-            _origMaMH = "!@#$%";
-            _origMaLop = "!@#$%";
+            _origMaMH = null;
+            _origMaLop = null;
             _origLan = -1;
         }
         private void PhanQuyen()
@@ -112,13 +112,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private void SetIdleButtonEnabled(bool state)
         {
             buttonThem.Enabled = buttonXoa.Enabled = buttonUndo.Enabled = buttonRedo.Enabled =
-                 buttonSua.Enabled = state;
-            if (Utils.IsTruong()) buttonLamMoi.Enabled = true;
-            else buttonLamMoi.Enabled = state;
-            if (state == false)
-                buttonUndo.BackColor = buttonRedo.BackColor = Color.FromArgb(247, 247, 247);
-            else
-                buttonUndo.BackColor = buttonRedo.BackColor = Color.FromArgb(240, 240, 240);
+                 buttonSua.Enabled = buttonLamMoi.Enabled = state;
+
+
         }
 
 
@@ -153,7 +149,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             PhanQuyen();
             Utils.ConfigControlColor(InfoPanel);
             GVDK2GridView.Columns["NGAYTHI"].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
-            CheckButtonState();
+            SetCorrButtonsState();
         }
 
         private void pictureBox1_EnabledChanged(object sender, EventArgs e)
@@ -170,11 +166,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             InfoPanel.ForeColor = LookUpGV.ForeColor =
                 LookUpLop.ForeColor = LookUpMh.ForeColor = _activeForeColor;
             SetIdleButtonEnabled(false);
-            SetInputButtonEnabled(true);
+            SetInputButtonVisible(true);
             GVDK2GridControl.Enabled = false;
 
         }
-        private void SaveOrigInput()
+        private void SaveOrigValue()
         {
             //do không dùng binding source nên phải lưu lại những giá trị này, nếu ko sẽ bị lỗi :<
             _selectedRow = GVDK2BindingSource.Position;
@@ -182,10 +178,14 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             _origSoCau = int.Parse(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "SOCAUTHI"));
             _origNgayThi =
             DateTime.ParseExact(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "NGAYTHI"), "dd/MM/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+
+            _origMaLop = Utils.GetLookUpString(LookUpLop, "MALOP");
+            _origMaMH = Utils.GetLookUpString(LookUpMh, "MAMH");
+            _origLan = GetLan();
         }
         private void buttonThem_Click(object sender, EventArgs e)
         {
-            SaveOrigInput();
+            SaveOrigValue();
             ConfigInputState();
             Utils.ConfigInfoPanelAppearance(InfoPanel, "Thêm thông tin đăng ký thi", Utils.AddColor);
             SetBlankDataInput();
@@ -202,52 +202,75 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             NgayThiEP.SetError(NgayThi, null);
         }
 
-        private void ConfigIdleState()
+        private void RestoreValueToOrig()
         {
-            GVDK2GridControl.Enabled = true;
-            InfoPanel.Enabled = false;
-            InfoPanel.ForeColor = LookUpGV.ForeColor =
-                LookUpLop.ForeColor = LookUpMh.ForeColor = _disabledForeColor;
-            SetIdleButtonEnabled(true);
-            SetInputButtonEnabled(false);
-            ClearErrors();
-            SetOrigDefaultValue();
-
-            Utils.ConfigInfoPanelAppearance(InfoPanel, "Thông tin đăng ký thi", Utils.DisabledColor);
-        }
-        private void buttonHuy_Click(object sender, EventArgs e)
-        {
-
-            GVDK2BindingSource.Position = _selectedRow;
             Utils.SetCellValueBds(GVDK2BindingSource, _selectedRow, "THOIGIAN", _origThoiGian);
             Utils.SetCellValueBds(GVDK2BindingSource, _selectedRow, "SOCAUTHI", _origSoCau);
             Utils.SetCellValueBds(GVDK2BindingSource, _selectedRow, "NGAYTHI", _origNgayThi);
+
             spinSoCau.Value = _origSoCau;
             spinThoiGian.Value = _origThoiGian;
             NgayThi.EditValue = _origNgayThi;
-            GetCorrData();
-
-            ConfigIdleState();
-            _state = State.Idle;
-
         }
-        private void CheckButtonState()
+        private void buttonHuy_Click(object sender, EventArgs e)
+        {
+            GVDK2BindingSource.Position = _selectedRow;
+            ConfigIdleState();
+            RestoreValueToOrig();
+            GetCorrData();
+        }
+        private void SetInputColor(Color color)
+        {
+            InfoPanel.ForeColor = LookUpGV.ForeColor =
+                LookUpLop.ForeColor = LookUpMh.ForeColor = color;
+        }
+
+        private void ConfigIdleState()
+        {
+            _state = State.Idle;
+            SetInputColor(Utils.DisabledColor);
+            SetCorrButtonsState();
+
+            GVDK2GridControl.Enabled = true;
+            InfoPanel.Enabled = false;
+
+            ClearErrors();
+            ResetOrigValue();
+
+            Utils.ConfigInfoPanelAppearance(InfoPanel, "Thông tin đăng ký thi", Utils.DisabledColor);
+        }
+        private void SetCorrButtonsState()
         {
             if (Utils.IsCoSo())
             {
-                if (GVDK2BindingSource.Count == 0)
-                    buttonXoa.Enabled = buttonSua.Enabled = false;
-                else if (_state != State.Add && _state != State.Edit)
-                    buttonXoa.Enabled = buttonSua.Enabled = true;
-            }
+                switch (_state)
+                {
+                    case State.Add:
+                        SetInputButtonVisible(true);
+                        SetIdleButtonEnabled(false);
+                        break;
+                    case State.Edit:
+                        SetInputButtonVisible(true);
+                        SetIdleButtonEnabled(false);
+                        break;
+                    case State.Idle:
+                        SetInputButtonVisible(false);
 
+                        if (GVDK2BindingSource.Count > 0)
+                            SetIdleButtonEnabled(true);
+                        else SetIdleButtonEnabled(false);
+
+                        break;
+                }
+            }
         }
+
         private void buttonLamMoi_Click(object sender, EventArgs e)
         {
             try
             {
                 LoadAllData();
-                CheckButtonState();
+                SetCorrButtonsState();
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
 
             }
@@ -546,10 +569,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             string tenLop = Utils.GetLookUpString(LookUpLop, "TENLOP"); // phải để trước, để sau sẽ trigger GetCorrData làm dữ liệu bị sai
             LoadGvdk2();
             GVDK2BindingSource.Position = FindGvdk2Row(tenMh, tenLop, (short)lan);
-
             ConfigIdleState();
-            _state = State.Idle;
-           // CheckButtonState();
+
         }
         private int FindGvdk2Row(string tenMh, string tenLop, short lan)
         {
@@ -589,13 +610,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             if (CanDeleteEdit(NgayThi.DateTime))
             {
-                SaveOrigInput();
+                _state = State.Edit;
+                SaveOrigValue();
                 ConfigInputState();
                 Utils.ConfigInfoPanelAppearance(InfoPanel, "Sửa thông tin đăng ký thi", Utils.EditColor);
-                _origMaLop = Utils.GetLookUpString(LookUpLop, "MALOP");
-                _origMaMH = Utils.GetLookUpString(LookUpMh, "MAMH");
-                _origLan = GetLan();
-                _state = State.Edit;
                 SetLanTrinhDoGV();
             }
             else
@@ -603,7 +621,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 Utils.ShowMessage("Không thể chỉnh sửa do đợt thi đã kết thúc hoặc đang diễn ra", NotiForm.FormType.Error, 3);
                 return;
             }
-
         }
 
         private void buttonXoa_Click(object sender, EventArgs e)
@@ -631,12 +648,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                             Utils.ShowMessage("Xóa thông tin đăng ký thi thành công", NotiForm.FormType.Success, 2);
                             myReader.Close();// do ở dưới cần mở kết nối mới, nên phải đóng thủ công
                             LoadGvdk2();
-                            CheckButtonState();
+                            SetCorrButtonsState();
                             return;
                         }
                     }
-
-
                 }
             }
             else

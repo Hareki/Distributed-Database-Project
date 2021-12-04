@@ -504,7 +504,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.toolTip1.SetToolTip(this.pictureBox1, "-Đáp án: nhấp vào các lựa chọn ở trên để đặt nó làm đáp án.\r\n-Giáo viên soạn: Đượ" +
         "c lấy tự động theo thông tin đăng nhập, không thể sửa.\r\n-Mã câu hỏi: Nhập vào mộ" +
         "t số nguyên dương và không trùng.\r\n");
-            this.pictureBox1.EnabledChanged += new System.EventHandler(this.pictureBox1_EnabledChanged);
+            this.pictureBox1.EnabledChanged += new System.EventHandler(this.IconInfor_EnabledChanged);
             // 
             // toolTip1
             // 

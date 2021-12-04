@@ -44,10 +44,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.BoDeTableAdapter.Fill(this.TN_CSDLPTDataSet.BODE);
 
         }
-        private void SetDefaultOrigValue()
-        {
-            _origMaGv = "~!@#$%";
-        }
+
 
         private void PhanQuyen()
         {
@@ -55,6 +52,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             {
                 case "TRUONG":
                     SetIdleButtonEnabled(false);
+                    buttonLamMoi.Enabled = true;
                     break;
                 case "COSO":
                     CoSoComboBox.Enabled = false;
@@ -147,11 +145,13 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             _state = State.Add;
             SetCorrButtonsState();
-            GVBindingSource.AddNew();
 
             //kết hợp set enabled và reset Customization để hàng chỉnh sửa (hoặc thêm) không bị dịch dời
             Utils.SetCustomizationEnabled(GVGridView, false);
             GVGridView.OptionsBehavior.Editable = true;
+
+            //phải để add new ở cuối => RowHandle trong custom drawcell sẽ ko update kịp (= min int) thì khi vừa bấm nút thêm sẽ ko bị báo lỗi thiếu dữ liệu (do lúc đầu code logic đã thế)
+            GVBindingSource.AddNew();
         }
 
 
@@ -164,18 +164,16 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private void ButtonHuy_Click(object sender, EventArgs e)
         {
             ConfigIdleState();
+            GVBindingSource.CancelEdit();
         }
 
         private void ConfigIdleState()
         {
-            //??
-            this.GVTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.GVTableAdapter.Fill(TN_CSDLPTDataSet.GIAOVIEN);
-
             _state = State.Idle;
-            GVGridView.ClearColumnErrors();
             SetCorrButtonsState();
+            GVGridView.ClearColumnErrors();
             _origMaGv = string.Empty;
+
 
             Utils.SetCustomizationEnabled(GVGridView, true);
             GVGridView.OptionsBehavior.Editable = false;
@@ -263,9 +261,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     Utils.ShowErrorMessage("Không thể lưu thông tin giảng viên, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi ghi nhân viên");
                     return;
                 }
-                SetKhoaGridControlEnabled(true);
-                SetIdleButtonEnabled(true);
-                SetInputButtonVisible(false);
+                finally
+                {
+                    ConfigIdleState();
+                }
+
             }
             else
             {
@@ -422,7 +422,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             string maGV = Utils.GetCellStringGridView(GVGridView, colMAGV, -1);
             _origMaGv = maGV;
-
             //Set lại cell value, bỏ khoảng trắng do char(n) của SQL;
             Utils.SetCellValueGridView(GVGridView, colMAGV, -1, maGV);
 

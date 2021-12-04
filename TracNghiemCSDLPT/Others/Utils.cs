@@ -202,6 +202,14 @@ namespace TracNghiemCSDLPT
             else
                 return view.GetRowCellValue(row, column).ToString().Trim();
         }
+
+        public static object GetCellValueGridView(GridView view, GridColumn column, int row)
+        {
+            if (row < 0)
+                return view.GetRowCellValue(view.FocusedRowHandle, column);
+            else
+                return view.GetRowCellValue(row, column);
+        }
         public static void SetCellValueGridView(GridView view, GridColumn column, int row, object value)
         {
             if (row < 0)

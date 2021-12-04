@@ -113,6 +113,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private void ButtonHuy_Click(object sender, EventArgs e)
         {
             ConfigIdleState();
+            MonHocBindingSource.CancelEdit();
         }
 
         private void SaveOrigValue()
@@ -128,11 +129,13 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void ConfigIdleState()
         {
+            this.MonHocTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.MonHocTableAdapter.Fill(this.TN_CSDLPTDataSet.MONHOC);
             ResetOrigValue();
 
             _state = State.Idle;
             SetInputColor(Utils.DisabledColor);
-            MonHocBindingSource.CancelEdit();
+            
             SetCorrButtonsState();
             ClearErrors();
 

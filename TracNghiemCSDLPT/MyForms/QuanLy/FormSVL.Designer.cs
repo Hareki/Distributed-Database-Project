@@ -811,7 +811,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonThemSV.TabIndex = 21;
             this.buttonThemSV.Text = "Thêm";
             this.buttonThemSV.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.buttonThemSV.Click += new System.EventHandler(this.buttonThemSV_Click);
+            this.buttonThemSV.Click += new System.EventHandler(this.ButtonThemSV_Click);
             // 
             // buttonSuaSV
             // 

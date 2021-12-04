@@ -23,33 +23,22 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
 
         private int _origMaCh = -1;
-        private string _origMaMh = "!@#$%";
-        private string _origTrinhDo = "!@#$%";
+        private string _origMaMh = null;
+        private string _origTrinhDo = null;
         State _state = State.Idle;
         List<Guna2CustomRadioButton> _rdoButtons = new List<Guna2CustomRadioButton>();
         private int _selectedRow;
         private void SetIdleButtonEnabled(bool state)
         {
             buttonThem.Enabled = buttonXoa.Enabled =
-                 buttonSua.Enabled = state;
-            if (Utils.IsTruong() || Utils.IsCoSo()) buttonLamMoi.Enabled = true;
-            else buttonLamMoi.Enabled = state;
-
-            if (state == false)
-            {
-                buttonUndo.BackColor = buttonRedo.BackColor = Color.FromArgb(247, 247, 247);
-            }
-            else
-            {
-                buttonUndo.BackColor = buttonRedo.BackColor = Color.FromArgb(240, 240, 240);
-            }
+                 buttonSua.Enabled = buttonLamMoi.Enabled = state;
         }
 
-        private void SetDefaultOrigValue()
+        private void ResetOrigValue()
         {
             _origMaCh = -1;
-            _origMaMh = "!@#$%";
-            _origTrinhDo = "!@#$%";
+            _origMaMh = null;
+            _origTrinhDo = null;
 
         }
         private void PhanQuyen()
@@ -105,7 +94,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             GridView view = GetCorrData(true);
             if (view != null)
                 view.Focus();
-            CheckButtonState();
+            SetCorrButtonsState();
             PhanQuyen();
             //for (int i = 1; i < MonHocGridView.RowCount; i++)
             //        MonHocGridView.ExpandMasterRow(i);
@@ -167,11 +156,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private GridView GetCorrData(bool getFirstRow)
         {
-            //if (_firstTime)
-            //{
-            //    buttonThem.Enabled = buttonXoa.Enabled = buttonSua.Enabled = false;
-            //    _firstTime = false;
-            //}
+
             GridView detailView = null;
             if (getFirstRow)
                 detailView = MonHocGridView.GetDetailView(0, 0) as GridView;
@@ -203,7 +188,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             string maGV = ((DataRowView)BoDeBindingSource[BoDeBindingSource.Position])["MAGV"].ToString();
             DSGVTCSBindingSource.Position = DSGVTCSBindingSource.Find("MAGV", maGV);
 
-            CheckButtonState();
+            SetCorrButtonsState();
             return detailView;
 
         }
@@ -259,7 +244,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
 
 
-        private void SetInputButtonEnabled(bool state)
+        private void SetInputButtonVisible(bool state)
         {
             panelInput.Visible = buttonXacNhan.Visible = buttonHuy.Visible = state;
         }
@@ -270,7 +255,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
 
             SetIdleButtonEnabled(false);
-            SetInputButtonEnabled(true);
+            SetInputButtonVisible(true);
 
             MonHocGridControl.Enabled = false;
             _state = State.Add;
@@ -281,21 +266,31 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             textMaCH.EditValue = 0;
         }
 
-        private void CheckButtonState()
+        private void SetCorrButtonsState()
         {
             if (Utils.IsGV())
             {
-                string maGV = (BoDeBindingSource[BoDeBindingSource.Position] as DataRowView)["MAGV"].ToString();
-                maGV = maGV.Trim();
-                bool test1 = BoDeBindingSource.Count == 0;
-                bool test2 = !maGV.Equals(DBConnection.UserName);
-                if (test1 || test2)
+                switch (_state)
                 {
-                    buttonXoa.Enabled = buttonSua.Enabled = false;
-                }
-                else
-                {
-                    buttonXoa.Enabled = buttonSua.Enabled = true;
+                    case State.Add:
+                        SetInputButtonVisible(true);
+                        SetIdleButtonEnabled(false);
+                        break;
+                    case State.Edit:
+                        SetInputButtonVisible(true);
+                        SetIdleButtonEnabled(false);
+                        break;
+                    case State.Idle:
+                        string maGV = Utils.GetCellStringBds(BoDeBindingSource, BoDeBindingSource.Position, "MAGV");
+                        bool test1 = BoDeBindingSource.Count == 0;
+                        bool test2 = !maGV.Equals(DBConnection.UserName);
+                        if (test1 || test2)
+                        {
+                            SetIdleButtonEnabled(false);
+                            buttonLamMoi.Enabled = true;
+                        }
+                        SetInputButtonVisible(false);
+                        break;
                 }
             }
         }
@@ -309,7 +304,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 LoadAllData();
                 SetCorrLookUpDataAfterReset();
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
-                CheckButtonState();
+                SetCorrButtonsState();
             }
             catch (Exception ex)
             {
@@ -585,15 +580,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     Utils.ShowMessage("Thêm câu hỏi thành công", Others.NotiForm.FormType.Success, 2);
                 }
 
-
-                _state = State.Idle;
-
-                ClearError();
-
-
-                CheckButtonState();
-                SetDefaultOrigValue();
-
             }
             catch (Exception ex)
             {
@@ -601,12 +587,30 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 Console.WriteLine(ex.StackTrace);
                 return;
             }
+            finally
+            {
+                ConfigIdleState();
+            }
+
+        }
+
+        private void ConfigIdleState()
+        {
+            this.BoDeTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.BoDeTableAdapter.Fill(this.TN_CSDLPTDataSet.BODE);
+
+            ResetOrigValue();
+
+            _state = State.Idle;
+            SetCorrButtonsState();
+            ClearError();
+            
+
             MonHocGridControl.Enabled = true;
-
-
             InfoPanel.Enabled = false;
-            SetIdleButtonEnabled(true);
-            SetInputButtonEnabled(false);
+
+            if (_state == State.Add)
+                BoDeBindingSource.Position = _selectedRow;
         }
 
         private void BoDeBindingSource_CurrentItemChanged(object sender, EventArgs e)
@@ -656,15 +660,14 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             if (CanPressEditDelete(maMh, trinhDo))
             {
                 InfoPanel.Enabled = true;
+                MonHocGridControl.Enabled = false;
 
-                SetIdleButtonEnabled(false);
-                SetInputButtonEnabled(true);
+                _state = State.Edit;
+                SetCorrButtonsState();
 
                 _origMaCh = int.Parse(textMaCH.Text);
                 _origMaMh = Utils.AddExtraWhiteSpace(Utils.GetLookUpString(MHCombo, "MAMH"), 5);
                 _origTrinhDo = GetTrinhDo();
-                MonHocGridControl.Enabled = false;
-                _state = State.Edit;
 
                 GridView detailView = GetCurrentDetailView();
                 if (detailView != null)
@@ -683,20 +686,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void buttonHuy_Click(object sender, EventArgs e)
         {
-            InfoPanel.Enabled = false;
-
-
-            MonHocGridControl.Enabled = true;
-            SetDefaultOrigValue();
-
+            ConfigIdleState();
             BoDeBindingSource.CancelEdit();
-            if (_state == State.Add)
-                BoDeBindingSource.Position = _selectedRow;
-            SetIdleButtonEnabled(true);
-            SetInputButtonEnabled(false);
-            _state = State.Idle;
-
-            ClearError();
         }
 
         private void buttonXoa_Click(object sender, EventArgs e)
@@ -709,8 +700,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 Utils.ShowMessage("Không thể xóa, vì câu hỏi đã được sử dụng để thi", Others.NotiForm.FormType.Error, 2);
                 return;
             }
-
-
             string maMh = Utils.AddExtraWhiteSpace(Utils.GetLookUpString(MHCombo, "MAMH"), 5);
             string trinhDo = GetTrinhDo();
             List<string> result = CanDeleteEdit(trinhDo, maMh);
@@ -747,10 +736,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     return;
                 }
             }
-            CheckButtonState();
+            SetCorrButtonsState();
         }
 
-        private void pictureBox1_EnabledChanged(object sender, EventArgs e)
+        private void IconInfor_EnabledChanged(object sender, EventArgs e)
         {
             Image image = pictureBox1.Enabled ? global::TracNghiemCSDLPT.Properties.Resources.info_480px :
                 global::TracNghiemCSDLPT.Properties.Resources.info_480px_disabled;

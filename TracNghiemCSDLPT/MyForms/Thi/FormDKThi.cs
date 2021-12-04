@@ -153,7 +153,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             PhanQuyen();
             Utils.ConfigControlColor(InfoPanel);
             GVDK2GridView.Columns["NGAYTHI"].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
-
+            CheckButtonState();
         }
 
         private void pictureBox1_EnabledChanged(object sender, EventArgs e)
@@ -231,12 +231,23 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             _state = State.Idle;
 
         }
+        private void CheckButtonState()
+        {
+            if (Utils.IsCoSo())
+            {
+                if (GVDK2BindingSource.Count == 0)
+                    buttonXoa.Enabled = buttonSua.Enabled = false;
+                else if (_state != State.Add && _state != State.Edit)
+                    buttonXoa.Enabled = buttonSua.Enabled = true;
+            }
 
+        }
         private void buttonLamMoi_Click(object sender, EventArgs e)
         {
             try
             {
                 LoadAllData();
+                CheckButtonState();
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
 
             }
@@ -538,6 +549,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
             ConfigIdleState();
             _state = State.Idle;
+           // CheckButtonState();
         }
         private int FindGvdk2Row(string tenMh, string tenLop, short lan)
         {
@@ -619,6 +631,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                             Utils.ShowMessage("Xóa thông tin đăng ký thi thành công", NotiForm.FormType.Success, 2);
                             myReader.Close();// do ở dưới cần mở kết nối mới, nên phải đóng thủ công
                             LoadGvdk2();
+                            CheckButtonState();
                             return;
                         }
                     }
@@ -694,7 +707,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             {
                 GetCorrData();
                 //  Console.WriteLine((LookUpMh.GetSelectedDataRow() as DataRowView)[0].ToString());
-             //   Console.WriteLine((LookUpGV.GetSelectedDataRow() as DataRowView)[0].ToString());
+                //   Console.WriteLine((LookUpGV.GetSelectedDataRow() as DataRowView)[0].ToString());
             }
 
         }

@@ -111,7 +111,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void CheckButtonStateLop()
         {
-            if (DBConnection.NhomQuyen.Equals("COSO"))
+            if (Utils.IsCoSo())
             {
                 if (LopBindingSource.Count == 0)
                     buttonXoaLop.Enabled = buttonSuaLop.Enabled = false;
@@ -122,7 +122,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void CheckButtonStateSV()
         {
-            if (DBConnection.NhomQuyen.Equals("COSO"))
+            if (Utils.IsCoSo())
             {
                 if (SinhVienBindingSource.Count == 0)
                     buttonXoaSV.Enabled = buttonSuaSV.Enabled = false;

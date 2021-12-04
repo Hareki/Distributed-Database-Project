@@ -53,7 +53,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             {
                 if (MonHocBindingSource.Count == 0)
                     buttonXoa.Enabled = buttonSua.Enabled = false;
-                else buttonXoa.Enabled = buttonSua.Enabled = true;
+                else if (_state != State.Add && _state != State.Edit)
+                    buttonXoa.Enabled = buttonSua.Enabled = true;
             }
 
         }
@@ -364,6 +365,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 Utils.ShowErrorMessage("Không thể lưu môn học, xin vui lòng thử lại sau\n" + ex.Message, "Lỗi ghi môn học");
                 return;
             }
+            
+            ConfigIdleState();
+        }
+
+        private void ConfigIdleState()
+        {
             MonHocGridControl.Enabled = true;
             InfoPanel.Enabled = false;
             InfoPanel.ForeColor = TextMaMH.ForeColor =
@@ -371,7 +378,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             SetIdleButtonEnabled(true);
             SetInputButtonEnabled(false);
             SetDefaultOrigValue();
-            CheckButtonState();
+
         }
 
         private void FormMonHoc_FormClosing(object sender, FormClosingEventArgs e)

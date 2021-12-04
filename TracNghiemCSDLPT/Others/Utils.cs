@@ -119,6 +119,15 @@ namespace TracNghiemCSDLPT
         {
             return DBConnection.NhomQuyen.Equals("COSO");
         }
+        public static bool IsGV()
+        {
+            return DBConnection.NhomQuyen.Equals("GIAOVIEN");
+        }
+        public static bool IsSV()
+        {
+            return DBConnection.NhomQuyen.Equals("SINHVIEN");
+        }
+
 
         public static void BindingComboData(System.Windows.Forms.ComboBox coSoComboBox, int previousIndexCS)
         {

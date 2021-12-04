@@ -283,13 +283,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void CheckButtonState()
         {
-            if (DBConnection.NhomQuyen.Equals("GIAOVIEN"))
+            if (Utils.IsGV())
             {
                 string maGV = (BoDeBindingSource[BoDeBindingSource.Position] as DataRowView)["MAGV"].ToString();
                 maGV = maGV.Trim();
                 bool test1 = BoDeBindingSource.Count == 0;
-                //  bool test2 = !maGV.Equals(DBConnection.UserName);
-                bool test2 = false;
+                bool test2 = !maGV.Equals(DBConnection.UserName);
                 if (test1 || test2)
                 {
                     buttonXoa.Enabled = buttonSua.Enabled = false;
@@ -309,8 +308,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             {
                 LoadAllData();
                 SetCorrLookUpDataAfterReset();
-                CheckButtonState();
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
+                CheckButtonState();
             }
             catch (Exception ex)
             {

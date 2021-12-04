@@ -171,14 +171,18 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void CheckButtonState()
         {
-            if (KhoaBindingSource.Count == 0)
+            if (Utils.IsCoSo())
             {
-                buttonXoa.Enabled = buttonSua.Enabled = false;
+                if (KhoaBindingSource.Count == 0)
+                {
+                    buttonXoa.Enabled = buttonSua.Enabled = false;
+                }
+                else
+                {
+                    buttonXoa.Enabled = buttonSua.Enabled = true;
+                }
             }
-            else
-            {
-                buttonXoa.Enabled = buttonSua.Enabled = true;
-            }
+            
         }
 
         private void SetIdleButtonEnabled(bool state)

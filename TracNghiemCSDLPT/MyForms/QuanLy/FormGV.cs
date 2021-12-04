@@ -65,7 +65,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void CheckButtonStateGv()
         {
-            if (DBConnection.NhomQuyen.Equals("COSO"))
+            if (Utils.IsCoSo())
             {
                 if (KhoaBindingSource.Count == 0)
                     buttonXoaGV.Enabled = buttonSuaGV.Enabled = false;

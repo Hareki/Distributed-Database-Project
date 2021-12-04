@@ -22,7 +22,7 @@ namespace TracNghiemCSDLPT.MyForms
             switch (DBConnection.NhomQuyen)
             {
                 case "TRUONG":
-                    buttonToChucThi.Enabled = buttonThamGiaThi.Enabled = false;
+                    buttonThamGiaThi.Enabled = false;
                     break;
                 case "COSO":
                     buttonThamGiaThi.Caption = "Thi thử";

@@ -141,6 +141,7 @@ namespace TracNghiemCSDLPT.MyForms
 
         private void MainView_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (this.MdiChildren.Length == 0)
                 if (!Utils.ShowConfirmMessage("Xác nhận thoát chương trình?", "Xác nhận"))
                     e.Cancel = true;
         }

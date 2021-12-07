@@ -538,7 +538,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     {
                         if (myReader == null)
                         {
-                            Utils.ShowMessage("Xảy ra lỗi khi xóa login và user của giáo viên tương ứng", Others.NotiForm.FormType.Error, 2);
+                            Utils.ShowMessage("Xảy ra lỗi khi xóa login và user của giáo viên tương ứng", Others.NotiForm.FormType.Error, 3);
                             Console.WriteLine(System.Environment.StackTrace);
                             return;
                         }

@@ -68,7 +68,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textMaCH = new DevExpress.XtraEditors.SpinEdit();
+            this.spinMaCH = new DevExpress.XtraEditors.SpinEdit();
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.label13 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -127,7 +127,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.bunifuPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textMaCH.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinMaCH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MHCombo.Properties)).BeginInit();
@@ -719,7 +719,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.panel2.AutoScroll = true;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.panel2.Controls.Add(this.textMaCH);
+            this.panel2.Controls.Add(this.spinMaCH);
             this.panel2.Controls.Add(this.separatorControl1);
             this.panel2.Controls.Add(this.labelDapAn);
             this.panel2.Controls.Add(this.label9);
@@ -734,22 +734,22 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             // textMaCH
             // 
-            this.textMaCH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.BoDeBindingSource, "CAUHOI", true));
-            this.textMaCH.EditValue = new decimal(new int[] {
+            this.spinMaCH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.BoDeBindingSource, "CAUHOI", true));
+            this.spinMaCH.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.textMaCH.Location = new System.Drawing.Point(182, 60);
-            this.textMaCH.Name = "textMaCH";
-            this.textMaCH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textMaCH.Properties.Appearance.Options.UseFont = true;
-            this.textMaCH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.spinMaCH.Location = new System.Drawing.Point(182, 60);
+            this.spinMaCH.Name = "textMaCH";
+            this.spinMaCH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.spinMaCH.Properties.Appearance.Options.UseFont = true;
+            this.spinMaCH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.textMaCH.Properties.IsFloatValue = false;
-            this.textMaCH.Properties.MaskSettings.Set("mask", "N00");
-            this.textMaCH.Size = new System.Drawing.Size(101, 34);
-            this.textMaCH.TabIndex = 22;
+            this.spinMaCH.Properties.IsFloatValue = false;
+            this.spinMaCH.Properties.MaskSettings.Set("mask", "N00");
+            this.spinMaCH.Size = new System.Drawing.Size(101, 34);
+            this.spinMaCH.TabIndex = 22;
             // 
             // separatorControl1
             // 
@@ -1410,7 +1410,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textMaCH.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinMaCH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -1524,7 +1524,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private System.Windows.Forms.ToolTip toolTip2;
         private Guna.UI2.WinForms.Guna2PictureBox tipXoa;
         private Guna.UI2.WinForms.Guna2PictureBox tipSua;
-        private DevExpress.XtraEditors.SpinEdit textMaCH;
+        private DevExpress.XtraEditors.SpinEdit spinMaCH;
         private DevExpress.XtraEditors.GridLookUpEdit MHCombo;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.BindingSource DSMHBindingSource;

@@ -264,7 +264,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private void buttonThem_Click(object sender, EventArgs e)
         {
             _selectedRow = BoDeBindingSource.Position;
-            InfoPanel.Enabled = true;
+            SetInfoPanelEnabled(true);
 
 
             SetIdleButtonEnabled(false);
@@ -276,7 +276,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             labelGVSoan.Text = DBConnection.UserName + " - " + DBConnection.HoTen;
             rdoA.Checked = true;
             rdoDA_A.Checked = true;
-            textMaCH.EditValue = 0;
+            spinMaCH.EditValue = 0;
         }
 
         private void SetCorrButtonsState()
@@ -372,7 +372,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         }
 
-        private void GoToNewlyCreatedRowCh(string maCauHoi)
+        private void SetFocusedDetailRow(string maCauHoi)
         {
             GridView detailView;
             string maMh = Utils.GetLookUpString(MHCombo, "MAMH");
@@ -407,7 +407,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             Utils.SetTextEditError(choiceCEP, textChoiceC, null);
             Utils.SetTextEditError(choiceDEP, textChoiceD, null);
             Utils.SetTextEditError(noiDungEP, textNoiDung, null);
-            Utils.SetTextEditError(maCHEP, textMaCH, null);
+            Utils.SetTextEditError(maCHEP, spinMaCH, null);
         }
 
         private List<string> CanDeleteEdit(string trinhDo, string maMh)
@@ -441,14 +441,14 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             bool test3 = string.IsNullOrEmpty(TrimText(textChoiceC));
             bool test4 = string.IsNullOrEmpty(TrimText(textChoiceD));
             bool test5 = string.IsNullOrEmpty(TrimText(textNoiDung));
-            bool test6 = string.IsNullOrEmpty(TrimText(textMaCH));
+            bool test6 = string.IsNullOrEmpty(TrimText(spinMaCH));
 
             string maGV = labelGVSoan.Text.Split('-')[0].Trim();
             string maMh = Utils.AddExtraWhiteSpace(Utils.GetLookUpString(MHCombo, "MAMH"), 5);
             string trinhDo = GetTrinhDo();
 
             bool test7 = false;
-            int maCh = (int)textMaCH.Value;
+            int maCh = (int)spinMaCH.Value;
             if (maCh <= 0)
             {
                 test7 = true;
@@ -478,13 +478,13 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 else
                     Utils.SetTextEditError(noiDungEP, textNoiDung, null);
                 if (test6)
-                    Utils.SetTextEditError(maCHEP, textMaCH, "Vui lòng nhập mã câu hỏi");
+                    Utils.SetTextEditError(maCHEP, spinMaCH, "Vui lòng nhập mã câu hỏi");
                 else
-                    Utils.SetTextEditError(maCHEP, textMaCH, null);
+                    Utils.SetTextEditError(maCHEP, spinMaCH, null);
                 if (test7)
-                    Utils.SetTextEditError(maCHEP, textMaCH, "Vui lòng nhập mã câu hỏi là một số nguyên dương");
+                    Utils.SetTextEditError(maCHEP, spinMaCH, "Vui lòng nhập mã câu hỏi là một số nguyên dương");
                 else
-                    Utils.SetTextEditError(maCHEP, textMaCH, null);
+                    Utils.SetTextEditError(maCHEP, spinMaCH, null);
                 Utils.ShowMessage("Vui lòng điền đầy đủ thông tin cần thiết", Others.NotiForm.FormType.Error, 2);
                 return;
             }
@@ -537,12 +537,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             if (testMaCh)
             {
-                Utils.SetTextEditError(maCHEP, textMaCH, "Mã câu hỏi đã tồn tại");
+                Utils.SetTextEditError(maCHEP, spinMaCH, "Mã câu hỏi đã tồn tại");
                 Utils.ShowMessage("Thông tin vừa nhập đã tồn tại", Others.NotiForm.FormType.Error, 2);
                 return;
             }
             else
-                Utils.SetTextEditError(maCHEP, textMaCH, null);
+                Utils.SetTextEditError(maCHEP, spinMaCH, null);
 
             if (_state == State.Edit && !(_origMaMh.Equals(maMh)) || !(_origTrinhDo.Equals(trinhDo)))
             {
@@ -572,19 +572,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 BoDeBindingSource.EndEdit();
                 BoDeBindingSource.ResetCurrentItem();
                 this.BoDeTableAdapter.Update(this.TN_CSDLPTDataSet.BODE);
-                if (_state == State.Edit)
-                {
-                    Utils.ShowMessage("Sửa thông tin câu hỏi thành công", Others.NotiForm.FormType.Success, 2);
-                    GridView detailView = GetCurrentDetailView();
-                    if (detailView != null)
-                        detailView.FocusedRowHandle = _selectedRow;
-                }
 
+                if (_state == State.Edit)
+                    Utils.ShowMessage("Sửa thông tin câu hỏi thành công", Others.NotiForm.FormType.Success, 2);
                 else if (_state == State.Add)
-                {
-                    GoToNewlyCreatedRowCh(maCh.ToString());
                     Utils.ShowMessage("Thêm câu hỏi thành công", Others.NotiForm.FormType.Success, 2);
-                }
+                SetFocusedDetailRow(maCh.ToString());
 
             }
             catch (Exception ex)
@@ -610,7 +603,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
 
             MonHocGridControl.Enabled = true;
-            InfoPanel.Enabled = false;
+            SetInfoPanelEnabled(false);
 
             if (_state == State.Add)
                 BoDeBindingSource.Position = _selectedRow;
@@ -656,19 +649,27 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
         }
 
+        private void SetInfoPanelEnabled(bool state)
+        {
+            InfoPanel.Enabled = state;
+            if (state == true && _state == State.Edit)
+                spinMaCH.Enabled = false;
+
+        }
+
         private void buttonSua_Click(object sender, EventArgs e)
         {
             string maMh = Utils.AddExtraWhiteSpace(Utils.GetLookUpString(MHCombo, "MAMH"), 5);
             string trinhDo = GetTrinhDo();
             if (CanPressEditDelete(maMh, trinhDo))
             {
-                InfoPanel.Enabled = true;
-                MonHocGridControl.Enabled = false;
-
                 _state = State.Edit;
                 SetCorrButtonsState();
 
-                _origMaCh = int.Parse(textMaCH.Text);
+                SetInfoPanelEnabled(true);
+                MonHocGridControl.Enabled = false;
+
+                _origMaCh = int.Parse(spinMaCH.Text);
                 _origMaMh = Utils.AddExtraWhiteSpace(Utils.GetLookUpString(MHCombo, "MAMH"), 5);
                 _origTrinhDo = GetTrinhDo();
 

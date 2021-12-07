@@ -115,7 +115,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void BoDeGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-
             GetCorrData(false);
         }
 

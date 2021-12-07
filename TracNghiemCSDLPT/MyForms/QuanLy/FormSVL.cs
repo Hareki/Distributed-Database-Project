@@ -782,7 +782,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             string maSv = Utils.GetCellStringGridView(SinhVienGridView, colMASV, -1);
             _origMaSV = maSv;
-            Utils.SetCellValueGridView(SinhVienGridView, colMASV, -1, maSv);
+            Utils.SetCellValueGridView(SinhVienGridView, colMASV, -1, maSv);//loại bỏ khoảng trắng thừa
 
             _editingSvIndex = SinhVienGridView.FocusedRowHandle;
 

@@ -732,7 +732,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.panel2.Size = new System.Drawing.Size(373, 102);
             this.panel2.TabIndex = 26;
             // 
-            // textMaCH
+            // spinMaCH
             // 
             this.spinMaCH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.BoDeBindingSource, "CAUHOI", true));
             this.spinMaCH.EditValue = new decimal(new int[] {
@@ -741,7 +741,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             0,
             0});
             this.spinMaCH.Location = new System.Drawing.Point(182, 60);
-            this.spinMaCH.Name = "textMaCH";
+            this.spinMaCH.Name = "spinMaCH";
             this.spinMaCH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinMaCH.Properties.Appearance.Options.UseFont = true;
             this.spinMaCH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {

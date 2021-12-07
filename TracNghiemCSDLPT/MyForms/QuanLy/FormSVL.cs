@@ -44,7 +44,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
 
         private int _previousIndexCS;
-        private bool _opened = false;
         private int _selectedRowLop;
         private int _selectedRowSV;
         private DataRowView _saveKhoaValue;
@@ -168,7 +167,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             Utils.BindingComboData(CoSoComboBox, _previousIndexCS);
 
 
-            KhoaGridView.ExpandMasterRow(0); // dùng để trigger LopGridView FocusedRochanged
+            KhoaGridView.ExpandMasterRow(0);
             GridView view = GetCorrTextBoxData(true);
             if (view != null)
                 view.Focus();
@@ -179,12 +178,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void LopGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            if (!_opened)
-            {
-                for (int i = 1; i < KhoaGridView.RowCount; i++)
-                    KhoaGridView.ExpandMasterRow(i);
-                _opened = true;
-            }
             GetCorrTextBoxData(false);
         }
 
@@ -296,8 +289,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             SetInputColor_Lop(Utils.ActiveColor);
 
             Utils.ConfigInfoPanelAppearance(InfoPanel, "Thêm mới thông tin lớp", Utils.AddColor);
-            InfoPanel.Enabled = true;
-            // ComboMaKH.Enabled = TextTenLop.Enabled = TextMaLop.Enabled = true;
+            SetInfoPanelEnabled(true);
 
             KhoaGridControl.Enabled = false;
             SetSvState(false);
@@ -349,7 +341,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void SetInfoPanelEnabled(bool enabled)
         {
-            //  InfoPanel.Enabled = enabled;
+            // InfoPanel.Enabled = enabled; không thể set panel vì có các nút ở trong, sẽ bị set theo
             ComboMaKH.Enabled = TextTenLop.Enabled = TextMaLop.Enabled = enabled;
         }
 

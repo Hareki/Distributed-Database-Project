@@ -219,7 +219,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.KhoaGridView.Appearance.OddRow.Options.UseForeColor = true;
             this.KhoaGridView.Appearance.Preview.Font = new System.Drawing.Font("Baloo 2", 10.2F);
             this.KhoaGridView.Appearance.Preview.Options.UseFont = true;
-            this.KhoaGridView.Appearance.Row.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KhoaGridView.Appearance.Row.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KhoaGridView.Appearance.Row.Options.UseFont = true;
             this.KhoaGridView.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(255)))), ((int)(((byte)(215)))));
             this.KhoaGridView.Appearance.SelectedRow.Font = new System.Drawing.Font("Baloo 2", 12F);

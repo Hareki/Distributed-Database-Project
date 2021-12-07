@@ -138,6 +138,12 @@ namespace TracNghiemCSDLPT.MyForms
             //ShowForm(typeof(FormThi));
             (new FormThi()).ShowDialog();
         }
+
+        private void MainView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+                if (!Utils.ShowConfirmMessage("Xác nhận thoát chương trình?", "Xác nhận"))
+                    e.Cancel = true;
+        }
     }
 
 }

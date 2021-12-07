@@ -111,9 +111,16 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         }
         private void SetIdleButtonEnabled(bool state)
         {
-            buttonThem.Enabled = buttonXoa.Enabled = buttonUndo.Enabled = buttonRedo.Enabled =
+            if (GVDK2BindingSource.Count == 0 && state == true)
+            {
+                buttonXoa.Enabled = buttonSua.Enabled = false;
+                buttonThem.Enabled = buttonLamMoi.Enabled = true;
+            }
+            else
+            {
+                buttonThem.Enabled = buttonXoa.Enabled =
                  buttonSua.Enabled = buttonLamMoi.Enabled = state;
-
+            }
 
         }
 
@@ -255,11 +262,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                         break;
                     case State.Idle:
                         SetInputButtonVisible(false);
-
-                        if (GVDK2BindingSource.Count > 0)
-                            SetIdleButtonEnabled(true);
-                        else SetIdleButtonEnabled(false);
-
+                        SetIdleButtonEnabled(true);
                         break;
                 }
             }

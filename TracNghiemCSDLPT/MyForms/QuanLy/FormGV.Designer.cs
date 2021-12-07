@@ -405,6 +405,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.GVBindingSource.DataMember = "FK_GIAOVIEN_KHOA";
             this.GVBindingSource.DataSource = this.KhoaBindingSource;
+            this.GVBindingSource.CurrentChanged += new System.EventHandler(this.GVBindingSource_CurrentChanged);
             // 
             // GVGridView
             // 

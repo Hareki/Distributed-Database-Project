@@ -74,32 +74,26 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         private void FormGV_Load(object sender, EventArgs e)
         {
-
-
             LoadAllData();
-
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
-
-            //this.CoSoComboBox.DataSource = DBConnection.BsSubcribers;
-            //this.CoSoComboBox.DisplayMember = "TENCS";
-            //this.CoSoComboBox.ValueMember = "TENSERVER";
-            //this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
-            //this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
             Utils.BindingComboData(CoSoComboBox, _previousIndexCS);
             CheckButtonStateGv();
             PhanQuyen();
         }
 
-
-
-
-
         private void SetIdleButtonEnabled(bool state)
         {
-            buttonThem.Enabled = buttonSua.Enabled = buttonUndoGV.Enabled =
-              buttonRedoGV.Enabled = buttonXoa.Enabled = state;
-            if (Utils.IsTruong()) buttonLamMoi.Enabled = true;
-            else buttonLamMoi.Enabled = state;
+            if (GVBindingSource.Count == 0 && state == true)
+            {
+                buttonXoa.Enabled = buttonSua.Enabled = false;
+                buttonThem.Enabled = buttonLamMoi.Enabled = true;
+            }
+            else
+            {
+                buttonThem.Enabled = buttonSua.Enabled =
+              buttonXoa.Enabled = state;
+            }
+
         }
 
         private void SetInputButtonVisible(bool state)
@@ -130,11 +124,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                         break;
                     case State.Idle:
                         SetInputButtonVisible(false);
-
-                        if (KhoaBindingSource.Count > 0)
-                            SetIdleButtonEnabled(true);
-                        else SetIdleButtonEnabled(false);
-
+                        SetIdleButtonEnabled(true);
                         break;
                 }
             }
@@ -163,12 +153,15 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void ButtonHuy_Click(object sender, EventArgs e)
         {
-            ConfigIdleState();
             GVBindingSource.CancelEdit();
+            ConfigIdleState();
         }
 
         private void ConfigIdleState()
         {
+            if (_state == State.Add)
+                GVBindingSource.Position = _selectedRowGv;
+
             _state = State.Idle;
             SetCorrButtonsState();
             GVGridView.ClearColumnErrors();
@@ -177,9 +170,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             Utils.SetCustomizationEnabled(GVGridView, true);
             GVGridView.OptionsBehavior.Editable = false;
-
-            if (_state == State.Add)
-                GVBindingSource.Position = _selectedRowGv;
 
             SetKhoaGridControlEnabled(true);
         }
@@ -237,7 +227,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     Utils.SetCellValueGridView(GVGridView, colTEN, editingIndex, ten);
 
                     string maGv = Utils.GetCellStringGridView(GVGridView, colMAGV, -1);
-                    if (!maGv.Equals(_origMaGv))
+                    if (!maGv.Equals(_origMaGv) && _state == State.Edit)
                     {
                         if (!RenameUser(_origMaGv, maGv))
                         {
@@ -586,5 +576,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     e.Cancel = true;
         }
 
+        private void GVBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+            SetCorrButtonsState();
+        }
     }
 }

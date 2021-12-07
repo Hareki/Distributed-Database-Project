@@ -30,8 +30,21 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private int _selectedRow;
         private void SetIdleButtonEnabled(bool state)
         {
-            buttonThem.Enabled = buttonXoa.Enabled =
-                 buttonSua.Enabled = buttonLamMoi.Enabled = state;
+            string maGV = Utils.GetCellStringBds(BoDeBindingSource, BoDeBindingSource.Position, "MAGV");
+            bool test1 = BoDeBindingSource.Count == 0;
+            bool test2 = !maGV.Equals(DBConnection.UserName);
+            bool test3 = state == true;
+            if ((test1 || test2) && test3)
+            {
+                buttonThem.Enabled = buttonLamMoi.Enabled = true;
+                buttonXoa.Enabled = buttonSua.Enabled = false;
+            }
+            else
+            {
+                buttonThem.Enabled = buttonXoa.Enabled =
+                   buttonSua.Enabled = buttonLamMoi.Enabled = state;
+            }
+
         }
 
         private void ResetOrigValue()
@@ -281,14 +294,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                         SetIdleButtonEnabled(false);
                         break;
                     case State.Idle:
-                        string maGV = Utils.GetCellStringBds(BoDeBindingSource, BoDeBindingSource.Position, "MAGV");
-                        bool test1 = BoDeBindingSource.Count == 0;
-                        bool test2 = !maGV.Equals(DBConnection.UserName);
-                        if (test1 || test2)
-                        {
-                            SetIdleButtonEnabled(false);
-                            buttonLamMoi.Enabled = true;
-                        }
+                        SetIdleButtonEnabled(true);
                         SetInputButtonVisible(false);
                         break;
                 }
@@ -601,7 +607,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             _state = State.Idle;
             SetCorrButtonsState();
             ClearError();
-            
+
 
             MonHocGridControl.Enabled = true;
             InfoPanel.Enabled = false;
@@ -683,8 +689,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void buttonHuy_Click(object sender, EventArgs e)
         {
-            ConfigIdleState();
             BoDeBindingSource.CancelEdit();
+            ConfigIdleState();
         }
 
         private void buttonXoa_Click(object sender, EventArgs e)

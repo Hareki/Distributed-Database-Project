@@ -32,7 +32,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             {
                 case "TRUONG":
                     SetIdleButtonEnabledSv(false);
-                    SetIdleButtonEnabledLop(false);
+                    SetIdleButtonEnabled_Lop(false);
                     buttonLamMoiSV.Enabled = true;
                     buttonLamMoiLop.Enabled = true;
                     break;
@@ -81,7 +81,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.BangDiemTableAdapter.Fill(this.TN_CSDLPTDataSet.BANGDIEM);
             this.DSKhoaTableAdapter.Fill(this.TN_CSDLPTDataSet.DSKhoa);
 
-            CheckButtonStateLop();
+            SetCorrButtonsState_Lop();
             //    checkButtonStateSV(); lúc nãy chưa có mã lớp, để ở đây sẽ không có dữ liệu
         }
         private bool CheckTheRow(int rowHandle)
@@ -99,28 +99,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             return false;
         }
 
-        private void CheckButtonStateLop()
-        {
-            if (Utils.IsCoSo())
-            {
-                if (LopBindingSource.Count == 0)
-                    buttonXoaLop.Enabled = buttonSuaLop.Enabled = false;
-                else buttonXoaLop.Enabled = buttonSuaLop.Enabled = true;
-            }
-
-        }
-
-        private void CheckButtonStateSV()
-        {
-            if (Utils.IsCoSo())
-            {
-                if (SinhVienBindingSource.Count == 0)
-                    buttonXoaSV.Enabled = buttonSuaSV.Enabled = false;
-                else if (_state != State.AddSv && _state != State.EditSv)
-                    buttonXoaSV.Enabled = buttonSuaSV.Enabled = true;
-            }
-
-        }
 
         private GridView GetCorrTextBoxData(bool getFirstRow)
         {
@@ -171,7 +149,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             GridView view = GetCorrTextBoxData(true);
             if (view != null)
                 view.Focus();
-            CheckButtonStateSV();
+            SetCorrButtonsState_SV();
             PhanQuyen();
 
         }
@@ -225,45 +203,40 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
         }
 
-        private void SetIdleButtonEnabledLop(bool state)
+        private void SetIdleButtonEnabled_Lop(bool state)
         {
-            buttonThemLop.Enabled = buttonSuaLop.Enabled = buttonUndoLop.Enabled = buttonRedoLop.Enabled =
-                buttonXoaLop.Enabled = state;
-            if (Utils.IsTruong()) buttonLamMoiLop.Enabled = true;
-            else buttonLamMoiLop.Enabled = state;
-
-
-            if (state == false)
+            if (LopBindingSource.Count == 0 && state == true)
             {
-                buttonUndoLop.BackColor = buttonRedoLop.BackColor = Color.FromArgb(247, 247, 247);
+                buttonXoaLop.Enabled = buttonSuaLop.Enabled = false;
+                buttonThemLop.Enabled = buttonLamMoiLop.Enabled = true;
             }
             else
             {
-                buttonUndoLop.BackColor = buttonRedoLop.BackColor = Color.FromArgb(240, 240, 240);
+                buttonThemLop.Enabled = buttonSuaLop.Enabled =
+                buttonXoaLop.Enabled = buttonLamMoiLop.Enabled = state;
             }
         }
-        private void SetInputButtonVisibleLop(bool state)
+        private void SetInputButtonVisible_Lop(bool state)
         {
             buttonHuyLop.Visible = buttonXacNhanLop.Visible = state;
         }
 
         private void SetIdleButtonEnabledSv(bool state)
         {
-            buttonThemSV.Enabled = buttonSuaSV.Enabled = buttonUndoSV.Enabled = buttonRedoSV.Enabled =
-                buttonXoaSV.Enabled = state;
-            if (Utils.IsTruong()) buttonLamMoiSV.Enabled = true;
-            else buttonLamMoiSV.Enabled = state;
-
-            if (state == false)
+            if (SinhVienBindingSource.Count == 0 && state == true)
             {
-                buttonUndoSV.BackColor = buttonRedoSV.BackColor = Color.FromArgb(247, 247, 247);
+                buttonXoaSV.Enabled = buttonSuaSV.Enabled = false;
+                buttonThemSV.Enabled = buttonLamMoiSV.Enabled = true;
             }
             else
             {
-                buttonUndoSV.BackColor = buttonRedoSV.BackColor = Color.FromArgb(240, 240, 240);
+                buttonThemSV.Enabled = buttonSuaSV.Enabled =
+                buttonXoaSV.Enabled = state;
             }
+
+
         }
-        private void SetInputButtonEnabledSv(bool state)
+        private void SetInputButtonVisibleSv(bool state)
         {
             buttonHuySV.Visible = buttonXacNhanSV.Visible = state;
         }
@@ -300,8 +273,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void buttonHuyLop_Click(object sender, EventArgs e)
         {
-            ConfigIdleState_Lop();
             LopBindingSource.CancelEdit();
+            ConfigIdleState_Lop();
         }
 
         private void ResetOrigValue()
@@ -318,16 +291,14 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             ResetOrigValue();
 
+            if (_state == State.AddLop)
+                LopBindingSource.Position = _selectedRowLop;
+
             _state = State.Idle;
             SetCorrButtonsState_Lop();
             SetSvState(true);
 
             SetInputColor_Lop(Utils.DisabledColor);
-
-
-
-            if (_state == State.AddLop)
-                LopBindingSource.Position = _selectedRowLop;
 
             Utils.ConfigInfoPanelAppearance(InfoPanel, "Thông tin lớp", Utils.DisabledColor);
 
@@ -354,7 +325,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 this.ComboMaKH.EditValue = this.DSKhoaBindingSource[DSKhoaBindingSource.Position];
                 Utils.ShowMessage("Làm mới thành công", Others.NotiForm.FormType.Success, 1);
 
-                CheckButtonStateLop();
+                SetCorrButtonsState_Lop();
             }
             catch (Exception ex)
             {
@@ -641,19 +612,16 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 switch (_state)
                 {
                     case State.AddSv:
-                        SetInputButtonEnabledSv(true);
+                        SetInputButtonVisibleSv(true);
                         SetIdleButtonEnabledSv(false);
                         break;
                     case State.EditSv:
-                        SetInputButtonEnabledSv(true);
+                        SetInputButtonVisibleSv(true);
                         SetIdleButtonEnabledSv(false);
                         break;
                     case State.Idle:
-                        SetInputButtonEnabledSv(false);
-
-                        if (SinhVienBindingSource.Count > 0)
-                            SetIdleButtonEnabledSv(true);
-                        else SetIdleButtonEnabledSv(false);
+                        SetInputButtonVisibleSv(false);
+                        SetIdleButtonEnabledSv(true);
 
                         break;
                 }
@@ -819,7 +787,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             _editingSvIndex = SinhVienGridView.FocusedRowHandle;
 
             _state = State.EditSv;
-            SetCorrButtonsState_Lop();
+            SetCorrButtonsState_SV();
 
             Utils.SetCustomizationEnabled(SinhVienGridView, false);
             SinhVienGridView.OptionsBehavior.Editable = true;
@@ -835,19 +803,16 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 switch (_state)
                 {
                     case State.AddLop:
-                        SetInputButtonVisibleLop(true);
-                        SetIdleButtonEnabledLop(false);
+                        SetInputButtonVisible_Lop(true);
+                        SetIdleButtonEnabled_Lop(false);
                         break;
                     case State.EditLop:
-                        SetInputButtonVisibleLop(true);
-                        SetIdleButtonEnabledLop(false);
+                        SetInputButtonVisible_Lop(true);
+                        SetIdleButtonEnabled_Lop(false);
                         break;
                     case State.Idle:
-                        SetInputButtonVisibleLop(false);
-
-                        if (LopBindingSource.Count > 0)
-                            SetIdleButtonEnabledLop(true);
-                        else SetIdleButtonEnabledLop(false);
+                        SetInputButtonVisible_Lop(false);
+                        SetIdleButtonEnabled_Lop(true);
 
                         break;
                 }
@@ -882,7 +847,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 }
             }
 
-            CheckButtonStateSV();
+            SetCorrButtonsState_SV();
         }
 
         private void buttonLamMoiSV_Click(object sender, EventArgs e)
@@ -948,7 +913,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void SinhVienBindingSource_CurrentChanged(object sender, EventArgs e)
         {
-            CheckButtonStateSV();
+            SetCorrButtonsState_SV();
         }
 
         private void SinhVienGridView_ShownEditor(object sender, EventArgs e)
@@ -1019,12 +984,15 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void buttonHuySV_Click(object sender, EventArgs e)
         {
-            ConfigIdleState_SV();
             SinhVienBindingSource.CancelEdit();
+            ConfigIdleState_SV();
         }
 
         private void ConfigIdleState_SV()
         {
+            if (_state == State.AddSv)
+                SinhVienBindingSource.Position = _selectedRowSV;
+
             _state = State.Idle;
             SetCorrButtonsState_SV();
             _origMaSV = string.Empty; ;
@@ -1032,9 +1000,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             Utils.SetCustomizationEnabled(SinhVienGridView, true);
             SinhVienGridView.OptionsBehavior.Editable = false;
-
-            if (_state == State.AddSv)
-                SinhVienBindingSource.Position = _selectedRowSV;
 
             SetLopEnabled(true);
         }

@@ -1053,6 +1053,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonUndoSV.ShadowDecoration.Parent = this.buttonUndoSV;
             this.buttonUndoSV.Size = new System.Drawing.Size(37, 32);
             this.buttonUndoSV.TabIndex = 32;
+            this.buttonUndoSV.Visible = false;
             // 
             // buttonRedoSV
             // 
@@ -1074,6 +1075,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonRedoSV.ShadowDecoration.Parent = this.buttonRedoSV;
             this.buttonRedoSV.Size = new System.Drawing.Size(37, 32);
             this.buttonRedoSV.TabIndex = 33;
+            this.buttonRedoSV.Visible = false;
             // 
             // errorProvider1
             // 

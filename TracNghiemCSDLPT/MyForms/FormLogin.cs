@@ -21,7 +21,7 @@ namespace TracNghiemCSDLPT.MyForms
         {
             InitializeComponent();
             InitializeUI();
-            AutoFilledCS();
+            AutoFilledSV();
         }
         public StateProperties ErrorState;
         private Color _errorColor = Color.FromArgb(236, 65, 52);
@@ -65,8 +65,8 @@ namespace TracNghiemCSDLPT.MyForms
         {
             ComboBoxCoSo.SelectedIndex = 0;
             rdoSV.Checked = true;
-            TextLogin.Text = "003";
-            TextPassword.Text = "shiba234";
+            TextLogin.Text = "115";
+            TextPassword.Text = "shiba123";
 
         }
         private void AutoFilledCS()

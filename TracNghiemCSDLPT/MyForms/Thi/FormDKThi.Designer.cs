@@ -180,7 +180,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label9.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(23, 40);
+            this.label9.Location = new System.Drawing.Point(36, 92);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(127, 30);
             this.label9.TabIndex = 21;
@@ -216,7 +216,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label10.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(65, 97);
+            this.label10.Location = new System.Drawing.Point(78, 36);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(85, 30);
             this.label10.TabIndex = 19;
@@ -310,7 +310,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // LookUpGV
             // 
             this.LookUpGV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LookUpGV.Location = new System.Drawing.Point(169, 36);
+            this.LookUpGV.Location = new System.Drawing.Point(169, 88);
             this.LookUpGV.Name = "LookUpGV";
             this.LookUpGV.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.LookUpGV.Properties.Appearance.BackColor = System.Drawing.Color.White;
@@ -342,6 +342,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.LookUpGV.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
             this.LookUpGV.Size = new System.Drawing.Size(459, 38);
             this.LookUpGV.TabIndex = 34;
+            this.LookUpGV.EnabledChanged += new System.EventHandler(this.LookUpGV_EnabledChanged);
             // 
             // DSGVBindingSource
             // 
@@ -548,7 +549,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label3.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(62, 148);
+            this.label3.Location = new System.Drawing.Point(75, 148);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 30);
             this.label3.TabIndex = 26;
@@ -672,7 +673,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // LookUpMh
             // 
             this.LookUpMh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LookUpMh.Location = new System.Drawing.Point(169, 99);
+            this.LookUpMh.Location = new System.Drawing.Point(169, 33);
             this.LookUpMh.Name = "LookUpMh";
             this.LookUpMh.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.LookUpMh.Properties.Appearance.BackColor = System.Drawing.Color.White;
@@ -874,6 +875,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.panelTrinhDo.Name = "panelTrinhDo";
             this.panelTrinhDo.Size = new System.Drawing.Size(459, 79);
             this.panelTrinhDo.TabIndex = 49;
+            this.panelTrinhDo.EnabledChanged += new System.EventHandler(this.panelTrinhDo_EnabledChanged);
             // 
             // panelLan
             // 

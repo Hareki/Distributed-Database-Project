@@ -202,9 +202,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private void buttonThem_Click(object sender, EventArgs e)
         {
             SaveOrigValue();
+            SetBlankDataInput();
             ConfigInputState();
             Utils.ConfigInfoPanelAppearance(InfoPanel, "Thêm thông tin đăng ký thi", Utils.AddColor);
-            SetBlankDataInput();
             _state = State.Add;
             SetLanTrinhDoGV();
         }
@@ -1002,6 +1002,22 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             if (_state != State.Idle)
             {
                 SetLanTrinhDoGV();
+            }
+        }
+
+        private void LookUpGV_EnabledChanged(object sender, EventArgs e)
+        {
+            if(LookUpGV.Enabled == true && (LookUpLop.EditValue == null || LookUpMh.EditValue == null))
+            {
+                LookUpGV.Enabled = false;
+            }
+        }
+
+        private void panelTrinhDo_EnabledChanged(object sender, EventArgs e)
+        {
+            if (panelTrinhDo.Enabled == true && (LookUpLop.EditValue == null || LookUpMh.EditValue == null))
+            {
+                panelTrinhDo.Enabled = false;
             }
         }
     }

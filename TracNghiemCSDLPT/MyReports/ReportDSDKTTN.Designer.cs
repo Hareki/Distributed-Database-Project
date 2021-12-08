@@ -575,7 +575,7 @@ namespace TracNghiemCSDLPT.MyReports
             this.DetailData1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DetailData1.ForeColor = System.Drawing.Color.Black;
             this.DetailData1.Name = "DetailData1";
-            this.DetailData1.Padding = new DevExpress.XtraPrinting.PaddingInfo(6, 6, 6, 6, 100F);
+            this.DetailData1.Padding = new DevExpress.XtraPrinting.PaddingInfo(6, 6, 10, 10, 100F);
             this.DetailData1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // DetailData3_Odd
@@ -620,20 +620,22 @@ namespace TracNghiemCSDLPT.MyReports
             this.xrLabel4.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Sum(Iif([DATHI] == \'X\',1,0 ))")});
             this.xrLabel4.Font = new System.Drawing.Font("Times New Roman", 13.8F);
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(550F, 20.83333F);
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(562.2223F, 20.83333F);
             this.xrLabel4.Multiline = true;
             this.xrLabel4.Name = "xrLabel4";
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel4.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel4.SizeF = new System.Drawing.SizeF(56.11102F, 23F);
             this.xrLabel4.StylePriority.UseFont = false;
+            this.xrLabel4.StylePriority.UseTextAlignment = false;
             xrSummary2.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrLabel4.Summary = xrSummary2;
             this.xrLabel4.Text = "xrLabel2";
+            this.xrLabel4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // xrLabel3
             // 
             this.xrLabel3.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(401.6668F, 20.83333F);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(413.8889F, 20.83333F);
             this.xrLabel3.Multiline = true;
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace TracNghiemCSDLPT.Others
@@ -161,6 +162,7 @@ namespace TracNghiemCSDLPT.Others
                 SubcriberConnection.Close();
                 Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
                 Console.WriteLine(ex.StackTrace);
+                Debug.Assert(false);
                 SubcriberConnection.Close();
                 return null;
             }
@@ -189,6 +191,7 @@ namespace TracNghiemCSDLPT.Others
                 SubcriberConnection.Close();
                 Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
                 SubcriberConnection.Close();
+                Debug.Assert(false);
                 Console.WriteLine(ex.StackTrace);
                 return null;
             }
@@ -218,6 +221,7 @@ namespace TracNghiemCSDLPT.Others
                 SubcriberConnection.Close();
                 Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
                 SubcriberConnection.Close();
+                Debug.Assert(false);
                 Console.WriteLine(ex.StackTrace);
                 return null;
             }
@@ -241,6 +245,7 @@ namespace TracNghiemCSDLPT.Others
                 SubcriberConnection.Close();
                 Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
                 Console.WriteLine(ex.StackTrace);
+                Debug.Assert(false);
                 return null;
             }
 
@@ -264,6 +269,7 @@ namespace TracNghiemCSDLPT.Others
                 Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
                 Console.WriteLine(ex.StackTrace);
                 SubcriberConnection.Close();
+                Debug.Assert(false);
                 return false;
             }
         }
@@ -290,6 +296,7 @@ namespace TracNghiemCSDLPT.Others
                 Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
                 SubcriberConnection.Close();
                 Console.WriteLine(ex.StackTrace);
+                Debug.Assert(false);
                 return false;
             }
         }

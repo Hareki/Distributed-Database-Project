@@ -186,14 +186,18 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             //do không dùng binding source nên phải lưu lại những giá trị này, nếu ko sẽ bị lỗi :<
             _selectedRow = GVDK2BindingSource.Position;
-            _origThoiGian = int.Parse(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "THOIGIAN"));
-            _origSoCau = int.Parse(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "SOCAUTHI"));
-            _origNgayThi =
-            DateTime.ParseExact(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "NGAYTHI"), "dd/MM/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+            if(_selectedRow >= 0)
+            {
+                _origThoiGian = int.Parse(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "THOIGIAN"));
+                _origSoCau = int.Parse(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "SOCAUTHI"));
+                _origNgayThi =
+                DateTime.ParseExact(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "NGAYTHI"), "dd/MM/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
 
-            _origMaLop = Utils.GetLookUpString(LookUpLop, "MALOP");
-            _origMaMH = Utils.GetLookUpString(LookUpMh, "MAMH");
-            _origLan = GetLan();
+                _origMaLop = Utils.GetLookUpString(LookUpLop, "MALOP");
+                _origMaMH = Utils.GetLookUpString(LookUpMh, "MAMH");
+                _origLan = GetLan();
+            }
+           
         }
         private void buttonThem_Click(object sender, EventArgs e)
         {
@@ -228,8 +232,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             GVDK2BindingSource.Position = _selectedRow;
             ConfigIdleState();
-            RestoreValueToOrig();
-            GetCorrData();
+            if(GVDK2BindingSource.Position >= 0)
+            {
+                RestoreValueToOrig();
+                GetCorrData();
+            }
+            
         }
         private void SetInputColor(Color color)
         {
@@ -437,7 +445,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             bool test2 = !rdoA.Checked && !rdoB.Checked && !rdoC.Checked;
             bool test3 = !rdo1.Checked && !rdo2.Checked;
             bool test4 = spinSoCau.Value < 10 || spinSoCau.Value > 100;
-            bool test5 = spinThoiGian.Value < 15 || spinSoCau.Value > 60;
+            bool test5 = spinThoiGian.Value < 15 || spinThoiGian.Value > 60;
             bool test6 = !CanDeleteEdit(NgayThi.DateTime);
             bool test7 = LookUpLop.EditValue is null;
             bool test8 = LookUpMh.EditValue is null;

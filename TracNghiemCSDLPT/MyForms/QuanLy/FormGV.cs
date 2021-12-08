@@ -24,7 +24,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             Add, Edit, Idle
         }
-        private int _selectedRowGv;
+        private int _selectedRow;
         private int _previousIndexCS;
         private string _origMaGv = string.Empty;
         private int _editingGvIndex;
@@ -131,7 +131,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         private void ConfigAddingState()
         {
-            _selectedRowGv = GVBindingSource.Position;
+            _selectedRow = GVBindingSource.Position;
 
             _state = State.Add;
             SetCorrButtonsState();
@@ -160,7 +160,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private void ConfigIdleState()
         {
             if (_state == State.Add)
-                GVBindingSource.Position = _selectedRowGv;
+                GVBindingSource.Position = _selectedRow;
 
             _state = State.Idle;
             SetCorrButtonsState();
@@ -504,7 +504,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private void ButtonXoa_Click(object sender, EventArgs e)
         {
             string removedGv = "";
-            _selectedRowGv = GVBindingSource.Position;
+            _selectedRow = GVBindingSource.Position;
             if (GVDKBindingSource.Count > 0)
             {
                 Utils.ShowMessage("Giảng viên này đã tổ chức thi, không thể xóa", Others.NotiForm.FormType.Error, 2);
@@ -525,7 +525,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             {
                 try
                 {
-                    removedGv = ((DataRowView)GVBindingSource[_selectedRowGv])["MAGV"].ToString().Trim();
+                    removedGv = ((DataRowView)GVBindingSource[_selectedRow])["MAGV"].ToString().Trim();
                    
                     //Xóa user và login tương ứng (nếu có)
                     List<Para> paraList = new List<Para>();

@@ -244,7 +244,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.spinSoCau.Properties.IsFloatValue = false;
             this.spinSoCau.Properties.MaskSettings.Set("mask", "N00");
             this.spinSoCau.Properties.MaxValue = new decimal(new int[] {
-            999,
+            100,
             0,
             0,
             0});
@@ -290,7 +290,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label7.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(934, 172);
+            this.label7.Location = new System.Drawing.Point(943, 170);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(119, 30);
             this.label7.TabIndex = 30;
@@ -462,7 +462,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             0,
             0,
             0});
-            this.spinThoiGian.Location = new System.Drawing.Point(1077, 163);
+            this.spinThoiGian.Location = new System.Drawing.Point(1068, 161);
             this.spinThoiGian.Name = "spinThoiGian";
             this.spinThoiGian.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinThoiGian.Properties.Appearance.Options.UseFont = true;
@@ -475,7 +475,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.spinThoiGian.Properties.IsFloatValue = false;
             this.spinThoiGian.Properties.MaskSettings.Set("mask", "N00");
             this.spinThoiGian.Properties.MaxValue = new decimal(new int[] {
-            99,
+            60,
             0,
             0,
             0});
@@ -561,7 +561,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label14.Enabled = false;
             this.label14.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(1000, 100);
+            this.label14.Location = new System.Drawing.Point(991, 100);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(71, 30);
             this.label14.TabIndex = 26;
@@ -615,7 +615,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.labelPhut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.labelPhut.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.labelPhut.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelPhut.Location = new System.Drawing.Point(1174, 170);
+            this.labelPhut.Location = new System.Drawing.Point(1164, 170);
             this.labelPhut.Margin = new System.Windows.Forms.Padding(3, 0, 11, 5);
             this.labelPhut.Name = "labelPhut";
             this.labelPhut.Size = new System.Drawing.Size(50, 30);
@@ -881,7 +881,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.panelLan.Controls.Add(this.label15);
             this.panelLan.Controls.Add(this.label13);
             this.panelLan.Controls.Add(this.rdo2);
-            this.panelLan.Location = new System.Drawing.Point(1067, 94);
+            this.panelLan.Location = new System.Drawing.Point(1068, 97);
             this.panelLan.Name = "panelLan";
             this.panelLan.Size = new System.Drawing.Size(130, 43);
             this.panelLan.TabIndex = 48;
@@ -1249,6 +1249,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonUndo.ShadowDecoration.Parent = this.buttonUndo;
             this.buttonUndo.Size = new System.Drawing.Size(37, 32);
             this.buttonUndo.TabIndex = 44;
+            this.buttonUndo.Visible = false;
             // 
             // buttonRedo
             // 
@@ -1271,6 +1272,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonRedo.ShadowDecoration.Parent = this.buttonRedo;
             this.buttonRedo.Size = new System.Drawing.Size(37, 32);
             this.buttonRedo.TabIndex = 45;
+            this.buttonRedo.Visible = false;
             // 
             // GVDK2TableAdapter
             // 

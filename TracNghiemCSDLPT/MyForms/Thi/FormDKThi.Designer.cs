@@ -1304,7 +1304,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.CoSoComboBox.ItemHeight = 30;
             this.CoSoComboBox.ItemsAppearance.Parent = this.CoSoComboBox;
             this.CoSoComboBox.Location = new System.Drawing.Point(740, 9);
-            this.CoSoComboBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
+            this.CoSoComboBox.Margin = new System.Windows.Forms.Padding(10, 0, 3, 10);
             this.CoSoComboBox.Name = "CoSoComboBox";
             this.CoSoComboBox.ShadowDecoration.Parent = this.CoSoComboBox;
             this.CoSoComboBox.Size = new System.Drawing.Size(290, 36);
@@ -1317,7 +1317,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label16.Location = new System.Drawing.Point(611, 15);
+            this.label16.Location = new System.Drawing.Point(613, 12);
+            this.label16.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(107, 30);
             this.label16.TabIndex = 46;

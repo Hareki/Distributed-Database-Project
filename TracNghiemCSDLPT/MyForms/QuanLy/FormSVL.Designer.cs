@@ -872,6 +872,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(2, 22);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 30);
             this.label1.TabIndex = 18;
@@ -922,8 +923,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.CoSoComboBox.HoverState.Parent = this.CoSoComboBox;
             this.CoSoComboBox.ItemHeight = 30;
             this.CoSoComboBox.ItemsAppearance.Parent = this.CoSoComboBox;
-            this.CoSoComboBox.Location = new System.Drawing.Point(131, 16);
-            this.CoSoComboBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
+            this.CoSoComboBox.Location = new System.Drawing.Point(129, 16);
+            this.CoSoComboBox.Margin = new System.Windows.Forms.Padding(10, 0, 3, 10);
             this.CoSoComboBox.Name = "CoSoComboBox";
             this.CoSoComboBox.ShadowDecoration.Parent = this.CoSoComboBox;
             this.CoSoComboBox.Size = new System.Drawing.Size(290, 36);

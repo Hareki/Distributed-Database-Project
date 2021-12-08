@@ -143,7 +143,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             // buttonPrint
             // 
             this.buttonPrint.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonPrint.Animated = true;
             this.buttonPrint.BorderRadius = 8;
             this.buttonPrint.CheckedState.Parent = this.buttonPrint;
             this.buttonPrint.CustomImages.Parent = this.buttonPrint;
@@ -426,7 +425,8 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(611, 26);
+            this.label2.Location = new System.Drawing.Point(597, 24);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 30);
             this.label2.TabIndex = 32;
@@ -450,6 +450,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.CoSoComboBox.ItemHeight = 30;
             this.CoSoComboBox.ItemsAppearance.Parent = this.CoSoComboBox;
             this.CoSoComboBox.Location = new System.Drawing.Point(724, 21);
+            this.CoSoComboBox.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.CoSoComboBox.Name = "CoSoComboBox";
             this.CoSoComboBox.ShadowDecoration.Parent = this.CoSoComboBox;
             this.CoSoComboBox.Size = new System.Drawing.Size(286, 36);

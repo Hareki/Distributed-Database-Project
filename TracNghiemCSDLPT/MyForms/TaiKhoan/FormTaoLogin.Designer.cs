@@ -44,10 +44,13 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.CoSoComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panelTruong = new Bunifu.UI.WinForms.BunifuPanel();
-            this.rdoTruong = new Guna.UI2.WinForms.Guna2CustomRadioButton();
-            this.label9 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.buttonCancel = new Guna.UI2.WinForms.Guna2Button();
+            this.buttonPrint = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.LookUpGV = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -59,7 +62,6 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             this.TextMatKhau = new Bunifu.UI.WinForms.BunifuTextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -70,6 +72,10 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             this.PanelCS = new Bunifu.UI.WinForms.BunifuPanel();
             this.rdoCS = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.LabelCoSo = new System.Windows.Forms.Label();
+            this.pnlTruong = new System.Windows.Forms.Panel();
+            this.panelTruong = new Bunifu.UI.WinForms.BunifuPanel();
+            this.rdoTruong = new Guna.UI2.WinForms.Guna2CustomRadioButton();
+            this.label9 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.DSGVBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TN_CSDLPTDataSet();
@@ -82,21 +88,16 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             this.MatKhauEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.DSGVTCSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DSGVTCSTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.DSGIAOVIENTCSTableAdapter();
-            this.buttonPrint = new Guna.UI2.WinForms.Guna2Button();
-            this.buttonCancel = new Guna.UI2.WinForms.Guna2Button();
-            this.CoSoComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.pnlTruong = new System.Windows.Forms.Panel();
             this.bunifuPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panelTruong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpGV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelCSGV.SuspendLayout();
             this.PanelGV.SuspendLayout();
             this.PanelCS.SuspendLayout();
+            this.pnlTruong.SuspendLayout();
+            this.panelTruong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSGVBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).BeginInit();
@@ -106,7 +107,6 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             ((System.ComponentModel.ISupportInitialize)(this.XacNhanEP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MatKhauEP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSGVTCSBindingSource)).BeginInit();
-            this.pnlTruong.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuPanel1
@@ -127,6 +127,48 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             this.bunifuPanel1.ShowBorders = true;
             this.bunifuPanel1.Size = new System.Drawing.Size(1026, 708);
             this.bunifuPanel1.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.label4.Location = new System.Drawing.Point(600, 21);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(107, 30);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Chọn cơ sở";
+            // 
+            // CoSoComboBox
+            // 
+            this.CoSoComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CoSoComboBox.Animated = true;
+            this.CoSoComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.CoSoComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(164)))), ((int)(((byte)(236)))));
+            this.CoSoComboBox.BorderRadius = 3;
+            this.CoSoComboBox.BorderThickness = 2;
+            this.CoSoComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.CoSoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CoSoComboBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
+            this.CoSoComboBox.FocusedColor = System.Drawing.Color.Empty;
+            this.CoSoComboBox.FocusedState.Parent = this.CoSoComboBox;
+            this.CoSoComboBox.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CoSoComboBox.ForeColor = System.Drawing.Color.White;
+            this.CoSoComboBox.FormattingEnabled = true;
+            this.CoSoComboBox.HoverState.Parent = this.CoSoComboBox;
+            this.CoSoComboBox.ItemHeight = 30;
+            this.CoSoComboBox.ItemsAppearance.Parent = this.CoSoComboBox;
+            this.CoSoComboBox.Location = new System.Drawing.Point(727, 15);
+            this.CoSoComboBox.Margin = new System.Windows.Forms.Padding(10, 0, 3, 10);
+            this.CoSoComboBox.Name = "CoSoComboBox";
+            this.CoSoComboBox.ShadowDecoration.Parent = this.CoSoComboBox;
+            this.CoSoComboBox.Size = new System.Drawing.Size(290, 36);
+            this.CoSoComboBox.TabIndex = 24;
+            this.CoSoComboBox.TextOffset = new System.Drawing.Point(3, 3);
+            this.CoSoComboBox.SelectedIndexChanged += new System.EventHandler(this.CoSoComboBox_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -156,55 +198,77 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             this.panel1.Size = new System.Drawing.Size(535, 622);
             this.panel1.TabIndex = 1;
             // 
-            // panelTruong
+            // label5
             // 
-            this.panelTruong.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panelTruong.BackgroundColor = System.Drawing.Color.White;
-            this.panelTruong.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelTruong.BackgroundImage")));
-            this.panelTruong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelTruong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(208)))), ((int)(((byte)(213)))));
-            this.panelTruong.BorderRadius = 10;
-            this.panelTruong.BorderThickness = 2;
-            this.panelTruong.Controls.Add(this.rdoTruong);
-            this.panelTruong.Controls.Add(this.label9);
-            this.panelTruong.Location = new System.Drawing.Point(120, 8);
-            this.panelTruong.Margin = new System.Windows.Forms.Padding(3, 0, 11, 15);
-            this.panelTruong.Name = "panelTruong";
-            this.panelTruong.ShowBorders = true;
-            this.panelTruong.Size = new System.Drawing.Size(207, 50);
-            this.panelTruong.TabIndex = 18;
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.Font = new System.Drawing.Font("Baloo 2", 10.8F);
+            this.label5.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label5.Location = new System.Drawing.Point(44, 165);
+            this.label5.Margin = new System.Windows.Forms.Padding(3, 0, 11, 5);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(126, 30);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Loại tài khoản";
             // 
-            // rdoTruong
+            // label7
             // 
-            this.rdoTruong.Animated = true;
-            this.rdoTruong.Checked = true;
-            this.rdoTruong.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rdoTruong.CheckedState.BorderThickness = 0;
-            this.rdoTruong.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rdoTruong.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.rdoTruong.CheckedState.Parent = this.rdoTruong;
-            this.rdoTruong.Location = new System.Drawing.Point(48, 14);
-            this.rdoTruong.Margin = new System.Windows.Forms.Padding(6, 3, 0, 15);
-            this.rdoTruong.Name = "rdoTruong";
-            this.rdoTruong.ShadowDecoration.Parent = this.rdoTruong;
-            this.rdoTruong.Size = new System.Drawing.Size(22, 22);
-            this.rdoTruong.TabIndex = 2;
-            this.rdoTruong.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.rdoTruong.UncheckedState.BorderThickness = 2;
-            this.rdoTruong.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.rdoTruong.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.rdoTruong.UncheckedState.Parent = this.rdoTruong;
+            this.label7.Font = new System.Drawing.Font("Baloo 2", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.label7.Location = new System.Drawing.Point(215, 13);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(216, 68);
+            this.label7.TabIndex = 58;
+            this.label7.Text = "Tạo tài khoản";
             // 
-            // label9
+            // buttonCancel
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.White;
-            this.label9.Font = new System.Drawing.Font("Baloo 2", 10.8F);
-            this.label9.Location = new System.Drawing.Point(77, 10);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 30);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Trường";
+            this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonCancel.Animated = true;
+            this.buttonCancel.BorderRadius = 8;
+            this.buttonCancel.CheckedState.Parent = this.buttonCancel;
+            this.buttonCancel.CustomImages.Parent = this.buttonCancel;
+            this.buttonCancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(202)))), ((int)(((byte)(202)))));
+            this.buttonCancel.Font = new System.Drawing.Font("Baloo 2", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonCancel.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.buttonCancel.HoverState.Parent = this.buttonCancel;
+            this.buttonCancel.ImageSize = new System.Drawing.Size(35, 35);
+            this.buttonCancel.Location = new System.Drawing.Point(46, 569);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.buttonCancel.ShadowDecoration.Parent = this.buttonCancel;
+            this.buttonCancel.Size = new System.Drawing.Size(186, 46);
+            this.buttonCancel.TabIndex = 44;
+            this.buttonCancel.Text = "Hủy";
+            this.buttonCancel.TextOffset = new System.Drawing.Point(3, 0);
+            this.buttonCancel.Click += new System.EventHandler(this.buttonHuy_Click);
+            // 
+            // buttonPrint
+            // 
+            this.buttonPrint.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonPrint.Animated = true;
+            this.buttonPrint.BorderRadius = 8;
+            this.buttonPrint.CheckedState.Parent = this.buttonPrint;
+            this.buttonPrint.CustomImages.Parent = this.buttonPrint;
+            this.buttonPrint.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
+            this.buttonPrint.Font = new System.Drawing.Font("Baloo 2", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPrint.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonPrint.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(147)))), ((int)(((byte)(219)))));
+            this.buttonPrint.HoverState.Parent = this.buttonPrint;
+            this.buttonPrint.ImageSize = new System.Drawing.Size(35, 35);
+            this.buttonPrint.Location = new System.Drawing.Point(304, 569);
+            this.buttonPrint.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.buttonPrint.ShadowDecoration.Parent = this.buttonPrint;
+            this.buttonPrint.Size = new System.Drawing.Size(186, 46);
+            this.buttonPrint.TabIndex = 44;
+            this.buttonPrint.Text = "Đăng ký";
+            this.buttonPrint.TextOffset = new System.Drawing.Point(3, 0);
+            this.buttonPrint.Click += new System.EventHandler(this.buttonDangKy_Click);
             // 
             // label2
             // 
@@ -563,20 +627,6 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             this.label6.TabIndex = 14;
             this.label6.Text = "Giảng viên";
             // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Font = new System.Drawing.Font("Baloo 2", 10.8F);
-            this.label5.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label5.Location = new System.Drawing.Point(44, 165);
-            this.label5.Margin = new System.Windows.Forms.Padding(3, 0, 11, 5);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(126, 30);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Loại tài khoản";
-            // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -733,6 +783,65 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             this.LabelCoSo.Text = "Cơ sở";
             this.LabelCoSo.Click += new System.EventHandler(this.LabelCoSo_Click);
             // 
+            // pnlTruong
+            // 
+            this.pnlTruong.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlTruong.Controls.Add(this.panelTruong);
+            this.pnlTruong.Location = new System.Drawing.Point(44, 192);
+            this.pnlTruong.Name = "pnlTruong";
+            this.pnlTruong.Size = new System.Drawing.Size(446, 67);
+            this.pnlTruong.TabIndex = 19;
+            // 
+            // panelTruong
+            // 
+            this.panelTruong.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelTruong.BackgroundColor = System.Drawing.Color.White;
+            this.panelTruong.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelTruong.BackgroundImage")));
+            this.panelTruong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelTruong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(208)))), ((int)(((byte)(213)))));
+            this.panelTruong.BorderRadius = 10;
+            this.panelTruong.BorderThickness = 2;
+            this.panelTruong.Controls.Add(this.rdoTruong);
+            this.panelTruong.Controls.Add(this.label9);
+            this.panelTruong.Location = new System.Drawing.Point(120, 8);
+            this.panelTruong.Margin = new System.Windows.Forms.Padding(3, 0, 11, 15);
+            this.panelTruong.Name = "panelTruong";
+            this.panelTruong.ShowBorders = true;
+            this.panelTruong.Size = new System.Drawing.Size(207, 50);
+            this.panelTruong.TabIndex = 18;
+            // 
+            // rdoTruong
+            // 
+            this.rdoTruong.Animated = true;
+            this.rdoTruong.Checked = true;
+            this.rdoTruong.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdoTruong.CheckedState.BorderThickness = 0;
+            this.rdoTruong.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdoTruong.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rdoTruong.CheckedState.Parent = this.rdoTruong;
+            this.rdoTruong.Location = new System.Drawing.Point(48, 14);
+            this.rdoTruong.Margin = new System.Windows.Forms.Padding(6, 3, 0, 15);
+            this.rdoTruong.Name = "rdoTruong";
+            this.rdoTruong.ShadowDecoration.Parent = this.rdoTruong;
+            this.rdoTruong.Size = new System.Drawing.Size(22, 22);
+            this.rdoTruong.TabIndex = 2;
+            this.rdoTruong.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rdoTruong.UncheckedState.BorderThickness = 2;
+            this.rdoTruong.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rdoTruong.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rdoTruong.UncheckedState.Parent = this.rdoTruong;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.Font = new System.Drawing.Font("Baloo 2", 10.8F);
+            this.label9.Location = new System.Drawing.Point(77, 10);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(71, 30);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Trường";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -812,114 +921,6 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             // 
             this.DSGVTCSTableAdapter.ClearBeforeFill = true;
             // 
-            // buttonPrint
-            // 
-            this.buttonPrint.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonPrint.Animated = true;
-            this.buttonPrint.BorderRadius = 8;
-            this.buttonPrint.CheckedState.Parent = this.buttonPrint;
-            this.buttonPrint.CustomImages.Parent = this.buttonPrint;
-            this.buttonPrint.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
-            this.buttonPrint.Font = new System.Drawing.Font("Baloo 2", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPrint.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonPrint.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(147)))), ((int)(((byte)(219)))));
-            this.buttonPrint.HoverState.Parent = this.buttonPrint;
-            this.buttonPrint.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonPrint.Location = new System.Drawing.Point(304, 569);
-            this.buttonPrint.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
-            this.buttonPrint.Name = "buttonPrint";
-            this.buttonPrint.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.buttonPrint.ShadowDecoration.Parent = this.buttonPrint;
-            this.buttonPrint.Size = new System.Drawing.Size(186, 46);
-            this.buttonPrint.TabIndex = 44;
-            this.buttonPrint.Text = "Đăng ký";
-            this.buttonPrint.TextOffset = new System.Drawing.Point(3, 0);
-            this.buttonPrint.Click += new System.EventHandler(this.buttonDangKy_Click);
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonCancel.Animated = true;
-            this.buttonCancel.BorderRadius = 8;
-            this.buttonCancel.CheckedState.Parent = this.buttonCancel;
-            this.buttonCancel.CustomImages.Parent = this.buttonCancel;
-            this.buttonCancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(202)))), ((int)(((byte)(202)))));
-            this.buttonCancel.Font = new System.Drawing.Font("Baloo 2", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonCancel.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.buttonCancel.HoverState.Parent = this.buttonCancel;
-            this.buttonCancel.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonCancel.Location = new System.Drawing.Point(46, 569);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.buttonCancel.ShadowDecoration.Parent = this.buttonCancel;
-            this.buttonCancel.Size = new System.Drawing.Size(186, 46);
-            this.buttonCancel.TabIndex = 44;
-            this.buttonCancel.Text = "Hủy";
-            this.buttonCancel.TextOffset = new System.Drawing.Point(3, 0);
-            this.buttonCancel.Click += new System.EventHandler(this.buttonHuy_Click);
-            // 
-            // CoSoComboBox
-            // 
-            this.CoSoComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CoSoComboBox.Animated = true;
-            this.CoSoComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.CoSoComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(164)))), ((int)(((byte)(236)))));
-            this.CoSoComboBox.BorderRadius = 3;
-            this.CoSoComboBox.BorderThickness = 2;
-            this.CoSoComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.CoSoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CoSoComboBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
-            this.CoSoComboBox.FocusedColor = System.Drawing.Color.Empty;
-            this.CoSoComboBox.FocusedState.Parent = this.CoSoComboBox;
-            this.CoSoComboBox.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CoSoComboBox.ForeColor = System.Drawing.Color.White;
-            this.CoSoComboBox.FormattingEnabled = true;
-            this.CoSoComboBox.HoverState.Parent = this.CoSoComboBox;
-            this.CoSoComboBox.ItemHeight = 30;
-            this.CoSoComboBox.ItemsAppearance.Parent = this.CoSoComboBox;
-            this.CoSoComboBox.Location = new System.Drawing.Point(727, 15);
-            this.CoSoComboBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
-            this.CoSoComboBox.Name = "CoSoComboBox";
-            this.CoSoComboBox.ShadowDecoration.Parent = this.CoSoComboBox;
-            this.CoSoComboBox.Size = new System.Drawing.Size(290, 36);
-            this.CoSoComboBox.TabIndex = 24;
-            this.CoSoComboBox.TextOffset = new System.Drawing.Point(3, 3);
-            this.CoSoComboBox.SelectedIndexChanged += new System.EventHandler(this.CoSoComboBox_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
-            this.label4.Location = new System.Drawing.Point(614, 21);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 30);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "Chọn cơ sở";
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Baloo 2", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
-            this.label7.Location = new System.Drawing.Point(215, 13);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(216, 68);
-            this.label7.TabIndex = 58;
-            this.label7.Text = "Tạo tài khoản";
-            // 
-            // pnlTruong
-            // 
-            this.pnlTruong.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlTruong.Controls.Add(this.panelTruong);
-            this.pnlTruong.Location = new System.Drawing.Point(44, 192);
-            this.pnlTruong.Name = "pnlTruong";
-            this.pnlTruong.Size = new System.Drawing.Size(446, 67);
-            this.pnlTruong.TabIndex = 19;
-            // 
             // FormTaoLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -935,8 +936,6 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             this.bunifuPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panelTruong.ResumeLayout(false);
-            this.panelTruong.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpGV.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -945,6 +944,9 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             this.PanelGV.PerformLayout();
             this.PanelCS.ResumeLayout(false);
             this.PanelCS.PerformLayout();
+            this.pnlTruong.ResumeLayout(false);
+            this.panelTruong.ResumeLayout(false);
+            this.panelTruong.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSGVBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).EndInit();
@@ -954,7 +956,6 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             ((System.ComponentModel.ISupportInitialize)(this.XacNhanEP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MatKhauEP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSGVTCSBindingSource)).EndInit();
-            this.pnlTruong.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

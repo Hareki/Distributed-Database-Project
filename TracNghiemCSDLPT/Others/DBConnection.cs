@@ -197,6 +197,35 @@ namespace TracNghiemCSDLPT.Others
             }
         }
 
+        public static int ExecuteRemovingUserLogin(string spName, List<Para> paraList)
+        {
+            SqlCommand sqlCmd = new SqlCommand(spName, SubcriberConnection);
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            foreach (Para element in paraList)
+            {
+                sqlCmd.Parameters.Add(new SqlParameter(element.ValueName, element.RealValue));
+            }
+
+            if (SubcriberConnection.State == ConnectionState.Closed)
+                SubcriberConnection.Open();
+            try
+            {
+                sqlCmd.ExecuteNonQuery();
+                return 0;
+            }
+            catch (SqlException ex)
+            {
+                SubcriberConnection.Close();
+                if (ex.Number == 15434)
+                    return 1;
+                Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
+                SubcriberConnection.Close();
+                Console.WriteLine(ex.StackTrace);
+                Debug.Assert(false);
+                return 2;
+            }
+        }
+
         public static DataTable ExecuteSqlDataTableSP(string spName, List<Para> paraList)
         {
             DataTable result = new DataTable();

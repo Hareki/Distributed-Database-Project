@@ -453,7 +453,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 info.CalcViewInfo(e.Cache.Graphics);
             }
 
-
             //----
             if (e.RowHandle == GVGridView.FocusedRowHandle) return;
             if (_state == State.Add)
@@ -527,27 +526,27 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 try
                 {
                     removedGv = ((DataRowView)GVBindingSource[_selectedRowGv])["MAGV"].ToString().Trim();
-                    GVBindingSource.RemoveCurrent();
-                    GVTableAdapter.Update(TN_CSDLPTDataSet.GIAOVIEN);
-
+                   
                     //Xóa user và login tương ứng (nếu có)
                     List<Para> paraList = new List<Para>();
                     paraList.Add(new Para("@UserName", removedGv.Trim()));
                     string spName = "usp_Login_RemoveLoginUser";
-                    using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
+                    int result = DBConnection.ExecuteRemovingUserLogin(spName, paraList);
+                    switch (result)
                     {
-                        if (myReader == null)
-                        {
-                            Utils.ShowMessage("Xảy ra lỗi khi xóa login và user của giáo viên tương ứng", Others.NotiForm.FormType.Error, 3);
-                            Console.WriteLine(System.Environment.StackTrace);
+                        case 1:
+                            Utils.ShowMessage("Tài khoản của giảng viên này đang đăng nhập trong hệ thống, không thể xóa!", Others.NotiForm.FormType.Error, 3);
                             return;
-                        }
-                        else
-                        {
-                            myReader.Read();
-                            // Utils.ShowMessage("Mã của task xóa login: " + myReader.GetValue(0), Others.NotiForm.FormType.Error, 2);
-                        }
+                        case 2:
+                            Utils.ShowErrorMessage("Xảy ra lỗi khi cố gắng xóa thông tin login của giảng viên, chặn xóa", "Lỗi");
+                            return;
                     }
+
+                   
+                    GVBindingSource.RemoveCurrent();
+                    GVTableAdapter.Update(TN_CSDLPTDataSet.GIAOVIEN);
+
+                    
 
 
 

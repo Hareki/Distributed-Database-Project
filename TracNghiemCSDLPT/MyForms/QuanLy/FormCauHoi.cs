@@ -39,6 +39,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 buttonThem.Enabled = buttonLamMoi.Enabled = true;
                 buttonXoa.Enabled = buttonSua.Enabled = false;
             }
+            else if (state == false && !Utils.IsGV())
+            {
+                buttonLamMoi.Enabled = true;
+                buttonThem.Enabled = buttonXoa.Enabled = buttonSua.Enabled = false;
+            }
             else
             {
                 buttonThem.Enabled = buttonXoa.Enabled =

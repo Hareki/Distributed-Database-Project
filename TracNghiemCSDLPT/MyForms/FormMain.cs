@@ -117,9 +117,9 @@ namespace TracNghiemCSDLPT.MyForms
         {
             if (Utils.ShowConfirmMessage("Bạn có chắc muốn đăng xuất khỏi hệ thống?", "Xác nhận"))
             {
-                Program.LoginInstance = new FormLogin();
-                Program.LoginInstance.Show();
-                this.Hide();
+                this.Dispose();
+                Application.Restart();
+
             }
         }
 

@@ -116,6 +116,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 buttonXoa.Enabled = buttonSua.Enabled = false;
                 buttonThem.Enabled = buttonLamMoi.Enabled = true;
             }
+            else if (Utils.IsTruong() && state == false)
+            {
+                buttonXoa.Enabled = buttonSua.Enabled = buttonThem.Enabled = false;
+                buttonLamMoi.Enabled = true;
+            }
             else
             {
                 buttonThem.Enabled = buttonXoa.Enabled =

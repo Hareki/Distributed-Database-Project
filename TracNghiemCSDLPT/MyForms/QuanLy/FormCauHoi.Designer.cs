@@ -848,19 +848,26 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             // colMAMH1
             // 
+            this.colMAMH1.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(164)))), ((int)(((byte)(236)))));
+            this.colMAMH1.AppearanceHeader.Options.UseBackColor = true;
             this.colMAMH1.Caption = "Mã MH";
             this.colMAMH1.FieldName = "MAMH";
             this.colMAMH1.Name = "colMAMH1";
+            this.colMAMH1.OptionsColumn.FixedWidth = true;
             this.colMAMH1.Visible = true;
             this.colMAMH1.VisibleIndex = 0;
+            this.colMAMH1.Width = 100;
             // 
             // colTENMH1
             // 
+            this.colTENMH1.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(164)))), ((int)(((byte)(236)))));
+            this.colTENMH1.AppearanceHeader.Options.UseBackColor = true;
             this.colTENMH1.Caption = "Tên môn học";
             this.colTENMH1.FieldName = "TENMH";
             this.colTENMH1.Name = "colTENMH1";
             this.colTENMH1.Visible = true;
             this.colTENMH1.VisibleIndex = 1;
+            this.colTENMH1.Width = 300;
             // 
             // label10
             // 
@@ -1318,13 +1325,13 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonXacNhan.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonXacNhan.Animated = true;
-            this.buttonXacNhan.BorderRadius = 5;
+            this.buttonXacNhan.BorderRadius = 8;
             this.buttonXacNhan.CheckedState.Parent = this.buttonXacNhan;
             this.buttonXacNhan.CustomImages.Parent = this.buttonXacNhan;
-            this.buttonXacNhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonXacNhan.FillColor = System.Drawing.Color.Gainsboro;
             this.buttonXacNhan.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonXacNhan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.buttonXacNhan.HoverState.FillColor = System.Drawing.Color.Gainsboro;
+            this.buttonXacNhan.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonXacNhan.HoverState.Parent = this.buttonXacNhan;
             this.buttonXacNhan.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
             this.buttonXacNhan.Location = new System.Drawing.Point(158, 5);
@@ -1342,13 +1349,13 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonHuy.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonHuy.Animated = true;
-            this.buttonHuy.BorderRadius = 5;
+            this.buttonHuy.BorderRadius = 8;
             this.buttonHuy.CheckedState.Parent = this.buttonHuy;
             this.buttonHuy.CustomImages.Parent = this.buttonHuy;
-            this.buttonHuy.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonHuy.FillColor = System.Drawing.Color.Gainsboro;
             this.buttonHuy.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonHuy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.buttonHuy.HoverState.FillColor = System.Drawing.Color.Gainsboro;
+            this.buttonHuy.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonHuy.HoverState.Parent = this.buttonHuy;
             this.buttonHuy.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
             this.buttonHuy.Location = new System.Drawing.Point(333, 2);

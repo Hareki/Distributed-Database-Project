@@ -27,7 +27,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             PhanQuyen();
             InitThongTinThi();
             Utils.ConfigControlColor(pnlThongTinThi);
-            savingTimer.Start();
+            saveTimeLeftTimer.Start();
         }
 
 
@@ -1014,29 +1014,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             General, Timer, Detail
         }
-        private void SavingTimer_Tick(object sender, EventArgs e)
-        {
-            if (countDownTimer.Enabled && Utils.IsSV())
-            {
-                List<Para> paraList = new List<Para>();
-                paraList.Add(new Para("@MaBangDiem", _maBangDiem));
-                paraList.Add(new Para("@Phut", _min));
-                paraList.Add(new Para("@Giay", _sec));
 
-                string spName = "usp_Thi_BTDL_Chung_Update";
-                bool success = DBConnection.ExecuteSqlNonQuerySP(spName, paraList);
-                if (!success)
-                {
-                    Console.WriteLine(System.Environment.StackTrace);
-                    return;
-                }
-            }
-        }
 
         private void SaveTimeLeftTimer_Tick(object sender, EventArgs e)
         {
-            if (Utils.IsSV())
-                UpdateOrInsertBTDLChung(_maBangDiem, _min, _sec, false);
+            UpdateOrInsertBTDLChung(_maBangDiem, _min, _sec, false);
         }
 
         private double[] GetResult()
@@ -1053,7 +1035,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             }
             double mark = ((double)soCauDung * ((double)10 / (double)soCauThi));
             mark = Math.Round(mark / (double)5, 1) * 5;
-           // mark = Math.Round((double)mark, 1);
+            // mark = Math.Round((double)mark, 1);
             double[] result = { mark, soCauDung };
             return result;
         }

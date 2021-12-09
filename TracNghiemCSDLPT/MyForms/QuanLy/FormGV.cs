@@ -20,6 +20,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             InitializeComponent();
         }
         State _state = State.Idle;
+        private bool _cancelEdit = false;
         enum State
         {
             Add, Edit, Idle
@@ -153,6 +154,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void ButtonHuy_Click(object sender, EventArgs e)
         {
+            _cancelEdit = true;
             GVBindingSource.CancelEdit();
             ConfigIdleState();
         }
@@ -469,6 +471,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void GVGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
+            if(GVGridView.RowCount == 1 && _cancelEdit == true)
+            {
+                _cancelEdit = false;
+                return;
+            }
             bool test1 = _state == State.Add && (e.FocusedRowHandle == GVGridView.RowCount - 1
                 || e.FocusedRowHandle == -2147483647);
             bool test2 = _state == State.Edit && e.FocusedRowHandle == _editingGvIndex;

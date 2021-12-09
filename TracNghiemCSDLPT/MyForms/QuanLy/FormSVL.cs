@@ -25,7 +25,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             InitializeComponent();
 
         }
-
+        private bool _cancelEditSV = false;
         private void PhanQuyen()
         {
             switch (DBConnection.NhomQuyen)
@@ -764,14 +764,20 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void SinhVienGridView_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
         {
-            bool test1 = _state == State.AddSv && (e.FocusedRowHandle == SinhVienGridView.RowCount - 1
+            if (SinhVienGridView.RowCount == 1 && _cancelEditSV == true)
+            {
+                _cancelEditSV = false;
+                return;
+            }
+                bool test1 = _state == State.AddSv && (e.FocusedRowHandle == SinhVienGridView.RowCount - 1
                 || e.FocusedRowHandle == -2147483647);
-            bool test2 = _state == State.EditSv && e.FocusedRowHandle == _editingSvIndex;
+                bool test2 = _state == State.EditSv && e.FocusedRowHandle == _editingSvIndex;
 
-            if (test1 || test2)
-                SinhVienGridView.OptionsBehavior.Editable = true;
-            else
-                SinhVienGridView.OptionsBehavior.Editable = false;
+                if (test1 || test2)
+                    SinhVienGridView.OptionsBehavior.Editable = true;
+                else
+                    SinhVienGridView.OptionsBehavior.Editable = false;
+            
         }
         private void buttonSuaSV_Click(object sender, EventArgs e)
         {
@@ -984,6 +990,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void buttonHuySV_Click(object sender, EventArgs e)
         {
+            _cancelEditSV = true;
             SinhVienBindingSource.CancelEdit();
             ConfigIdleState_SV();
         }

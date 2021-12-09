@@ -178,10 +178,10 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             | System.Windows.Forms.AnchorStyles.Right)));
             this.KhoaGridControl.DataSource = this.KhoaBindingSource;
             this.KhoaGridControl.Font = new System.Drawing.Font("Teko SemiBold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KhoaGridControl.Location = new System.Drawing.Point(11, 52);
+            this.KhoaGridControl.Location = new System.Drawing.Point(11, 66);
             this.KhoaGridControl.MainView = this.KhoaGridView;
             this.KhoaGridControl.Name = "KhoaGridControl";
-            this.KhoaGridControl.Size = new System.Drawing.Size(1152, 351);
+            this.KhoaGridControl.Size = new System.Drawing.Size(1152, 337);
             this.KhoaGridControl.TabIndex = 14;
             this.KhoaGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.KhoaGridView,
@@ -296,9 +296,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.asd;
-            this.pictureBox1.Location = new System.Drawing.Point(1169, 52);
+            this.pictureBox1.Location = new System.Drawing.Point(1169, 66);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(526, 351);
+            this.pictureBox1.Size = new System.Drawing.Size(526, 337);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
@@ -321,8 +321,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.CoSoComboBox.HoverState.Parent = this.CoSoComboBox;
             this.CoSoComboBox.ItemHeight = 30;
             this.CoSoComboBox.ItemsAppearance.Parent = this.CoSoComboBox;
-            this.CoSoComboBox.Location = new System.Drawing.Point(142, 3);
-            this.CoSoComboBox.Margin = new System.Windows.Forms.Padding(10, 0, 3, 10);
+            this.CoSoComboBox.Location = new System.Drawing.Point(144, 19);
+            this.CoSoComboBox.Margin = new System.Windows.Forms.Padding(10, 10, 3, 10);
             this.CoSoComboBox.Name = "CoSoComboBox";
             this.CoSoComboBox.ShadowDecoration.Parent = this.CoSoComboBox;
             this.CoSoComboBox.Size = new System.Drawing.Size(290, 36);
@@ -334,8 +334,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(15, 6);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
+            this.label1.Location = new System.Drawing.Point(17, 22);
+            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 10, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 30);
             this.label1.TabIndex = 21;

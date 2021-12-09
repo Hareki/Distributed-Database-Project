@@ -27,7 +27,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             PhanQuyen();
             InitThongTinThi();
             Utils.ConfigControlColor(pnlThongTinThi);
-            saveTimeLeftTimer.Start();
         }
 
 
@@ -842,6 +841,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
 
             countDownTimer.Start();
+            saveTimeLeftTimer.Start();
             btnNopBai.Enabled = true;
         }
 

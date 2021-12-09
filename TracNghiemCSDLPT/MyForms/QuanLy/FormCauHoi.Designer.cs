@@ -483,7 +483,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(35, 11);
+            this.label1.Location = new System.Drawing.Point(36, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 60);
             this.label1.TabIndex = 17;
@@ -923,7 +923,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.textNoiDung.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textNoiDung.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.BoDeBindingSource, "NOIDUNG", true));
-            this.textNoiDung.Location = new System.Drawing.Point(107, 10);
+            this.textNoiDung.Location = new System.Drawing.Point(108, 27);
             this.textNoiDung.Name = "textNoiDung";
             this.textNoiDung.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.textNoiDung.Properties.Appearance.Options.UseFont = true;

@@ -418,7 +418,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 List<Para> paraList = new List<Para>();
                 paraList.Add(new Para("@MaMH", maMh));
                 paraList.Add(new Para("@MaLop", maLop));
-                paraList.Add(new Para("@NgayThiL2", NgayThi.DateTime));
+                paraList.Add(new Para("@NgayThi", NgayThi.DateTime));
                 string spName = "usp_GVDK_CheckAddingL2Poss";
                 using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
                 {

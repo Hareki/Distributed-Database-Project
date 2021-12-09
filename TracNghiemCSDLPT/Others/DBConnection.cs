@@ -155,6 +155,7 @@ namespace TracNghiemCSDLPT.Others
             try
             {
                 result = sqlCmd.ExecuteReader();
+                SubcriberConnection.Close();
                 return result;
             }
             catch (SqlException ex)
@@ -211,6 +212,7 @@ namespace TracNghiemCSDLPT.Others
             try
             {
                 sqlCmd.ExecuteNonQuery();
+                SubcriberConnection.Close();
                 return 0;
             }
             catch (SqlException ex)
@@ -243,6 +245,7 @@ namespace TracNghiemCSDLPT.Others
                 var reader = sqlCmd.ExecuteReader();
                 result.Load(reader);
                 reader.Close();
+                SubcriberConnection.Close();
                 return result;
             }
             catch (SqlException ex)
@@ -291,6 +294,7 @@ namespace TracNghiemCSDLPT.Others
             try
             {
                 sqlCmd.ExecuteNonQuery();
+                SubcriberConnection.Close();
                 return true;
             }
             catch (SqlException ex)
@@ -317,6 +321,7 @@ namespace TracNghiemCSDLPT.Others
             try
             {
                 sqlCmd.ExecuteNonQuery();
+                SubcriberConnection.Close();
                 return true;
             }
             catch (SqlException ex)

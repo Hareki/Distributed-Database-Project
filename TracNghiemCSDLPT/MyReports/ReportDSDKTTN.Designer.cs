@@ -419,7 +419,7 @@ namespace TracNghiemCSDLPT.MyReports
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell2.BorderWidth = 1F;
             this.xrTableCell2.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumRecordNumber()")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(sumRecordNumber() == 0, null, sumRecordNumber())\n")});
             this.xrTableCell2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell2.Multiline = true;
             this.xrTableCell2.Name = "xrTableCell2";
@@ -618,7 +618,7 @@ namespace TracNghiemCSDLPT.MyReports
             // xrLabel4
             // 
             this.xrLabel4.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Sum(Iif([DATHI] == \'X\',1,0 ))")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(Sum(Iif([DATHI] == \'X\',1,0 )) < 1,0,Sum(Iif([DATHI] == \'X\',1,0 )))")});
             this.xrLabel4.Font = new System.Drawing.Font("Times New Roman", 13.8F);
             this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(562.2223F, 20.83333F);
             this.xrLabel4.Multiline = true;

@@ -33,8 +33,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
 
         State _state = State.Idle;
-        string _origMaMH = null;
-        string _origTenMh = null;
+        string _origMaMH = string.Empty;
+        string _origTenMh = string.Empty;
 
         enum State
         {
@@ -124,7 +124,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void ResetOrigValue()
         {
-            _origMaMH = _origTenMh = null;
+            _origMaMH = _origTenMh = string.Empty;
         }
 
         private void ConfigIdleState()

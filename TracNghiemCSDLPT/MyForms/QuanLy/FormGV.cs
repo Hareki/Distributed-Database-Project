@@ -140,7 +140,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             //kết hợp set enabled và reset Customization để hàng chỉnh sửa (hoặc thêm) không bị dịch dời
             Utils.SetCustomizationEnabled(GVGridView, false);
             GVGridView.OptionsBehavior.Editable = true;
-
+            SetKhoaGridControlEnabled(false);
             //phải để add new ở cuối => RowHandle trong custom drawcell sẽ ko update kịp (= min int) thì khi vừa bấm nút thêm sẽ ko bị báo lỗi thiếu dữ liệu (do lúc đầu code logic đã thế)
             GVBindingSource.AddNew();
         }

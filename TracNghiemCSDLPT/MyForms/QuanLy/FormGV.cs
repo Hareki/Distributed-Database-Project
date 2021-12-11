@@ -264,7 +264,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 Utils.ShowMessage("Vui lòng xem lại thông tin đã nhập", Others.NotiForm.FormType.Error, 2);
             }
         }
-        private bool CheckTheRow(int rowHandle)
+        private bool CheckTheRow(int rowHandle)//kiểm tra xem có cần validate row này hay ko
         {
             //lúc add new() row handle chưa có dữ liệu (= -2147483647), khi select qua row khác rồi select lại thì mới nhận
             bool test1 = _state == State.Idle;
@@ -471,7 +471,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void GVGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            if(GVGridView.RowCount == 1 && _cancelEdit == true)
+            if(GVGridView.RowCount == 1 && _cancelEdit == true)//chỉ có 1 hàng và cancel edit => hủy luôn hàng đó => GVGridView trống => lỗi
             {
                 _cancelEdit = false;
                 return;

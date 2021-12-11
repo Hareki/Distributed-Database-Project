@@ -205,8 +205,8 @@
   </metadata>
   <data name="pictureBox3.ToolTip" xml:space="preserve">
     <value>Nhằm hạn chế việc loãng, dư thừa dữ liệu, các thông tin đầu vào sẽ được chọn lọc, cụ thể như sau
-  - Lớp: chỉ hiện những lớp có lịch thi từ ngày hiện tại trở về trước
-  - Môn thi: chỉ hiện những môn thi tương ứng với lớp đã chọn có ngày thi nhỏ hơn hoặc bằng ngày hiện tại
+  - Lớp: chỉ hiện những lớp có lịch thi nhỏ hơn hoặc bằng ngày hôm qua
+  - Môn thi: chỉ hiện những môn thi tương ứng với lớp đã chọn có ngày thi nhỏ hơn hoặc bằng ngày hôm qua
   - Lần thi: sẽ được tự động chọn  và vô hiệu hóa thay đổi nếu chỉ có 1 lần thi</value>
   </data>
   <metadata name="TN_CSDLPTDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

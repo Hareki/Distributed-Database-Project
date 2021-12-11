@@ -38,7 +38,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private string _daChon = "";
         private string _dapAn = "";
         private FormThi _parentThi;
-
+        private bool blockCheckChanged = false;
         public FormThi ParentThi
         {
             get { return _parentThi; }
@@ -59,12 +59,13 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             _rdoList[3] = rdoD;
 
         }
-        private void UncheckAllOtherRdos(Guna2CustomRadioButton rdo)
+        private void UncheckAllOtherRdos(Guna2CustomRadioButton rdo, bool block)
         {
             for (int i = 0; i < _rdoList.Length; i++)
             {
                 if (_rdoList[i] != rdo)
                 {
+                    if (block) blockCheckChanged = true;
                     _rdoList[i].Checked = false;
                 }
             }
@@ -161,25 +162,31 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
         public void SetRdo(string daChon)
         {
+            blockCheckChanged = true;
             switch (daChon)
             {
                 case "A":
                     rdoA.Checked = true;
-                    UncheckAllOtherRdos(rdoA);
+                    this.DaChon = "A";
+                    UncheckAllOtherRdos(rdoA, true);//set từ rdo thì ko cho kích hoạt event check changed
                     break;
                 case "B":
                     rdoB.Checked = true;
-                    UncheckAllOtherRdos(rdoB);
+                    this.DaChon = "B";
+                    //UncheckAllOtherRdos(rdoB, true);
                     break;
                 case "C":
                     rdoC.Checked = true;
-                    UncheckAllOtherRdos(rdoC);
+                    this.DaChon = "C";
+                    UncheckAllOtherRdos(rdoC, true);
                     break;
                 case "D":
-                    rdoA.Checked = true;
-                    UncheckAllOtherRdos(rdoD);
+                    rdoD.Checked = true;
+                    this.DaChon = "D";
+                    UncheckAllOtherRdos(rdoD, true);
                     break;
                 case " ":
+                    blockCheckChanged = false;//do không có đáp án thì nó sẽ vào đây, nên chỉnh lại cho nó ko block nữa
                     break;
                 default:
                     Debug.Assert(false);
@@ -189,16 +196,19 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
         private void Rdo_CheckedChanged(object sender, EventArgs e)
         {
-            Guna2CustomRadioButton rdo = sender as Guna2CustomRadioButton;
-            if (rdo.Checked)
+            if (!blockCheckChanged)
             {
-                UncheckAllOtherRdos(rdo);
-                string daChon = rdo.Tag.ToString();
-                ParentThi.UpdateSummaryTable(STT, daChon, true);
-                ParentThi.UpdateBTDLChiTiet(_maBangDiem, STT, daChon);
-                this.DaChon = daChon;
+                Guna2CustomRadioButton rdo = sender as Guna2CustomRadioButton;
+                if (rdo.Checked)
+                {
+                    UncheckAllOtherRdos(rdo, false);//set bằng tay mới kích hoạt check changed
+                    string daChon = rdo.Tag.ToString();
+                    ParentThi.UpdateSummaryTable(STT, daChon, true);
+                    ParentThi.UpdateBTDLChiTiet(_maBangDiem, STT, daChon);
+                    this.DaChon = daChon;
+                }
             }
-
+            blockCheckChanged = false;
         }
     }
 

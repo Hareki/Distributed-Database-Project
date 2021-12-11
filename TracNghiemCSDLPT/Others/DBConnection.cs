@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace TracNghiemCSDLPT.Others
@@ -154,6 +155,7 @@ namespace TracNghiemCSDLPT.Others
             try
             {
                 result = sqlCmd.ExecuteReader();
+                SubcriberConnection.Close();
                 return result;
             }
             catch (SqlException ex)
@@ -161,6 +163,7 @@ namespace TracNghiemCSDLPT.Others
                 SubcriberConnection.Close();
                 Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
                 Console.WriteLine(ex.StackTrace);
+                Debug.Assert(false);
                 SubcriberConnection.Close();
                 return null;
             }
@@ -189,8 +192,39 @@ namespace TracNghiemCSDLPT.Others
                 SubcriberConnection.Close();
                 Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
                 SubcriberConnection.Close();
+                Debug.Assert(false);
                 Console.WriteLine(ex.StackTrace);
                 return null;
+            }
+        }
+
+        public static int ExecuteRemovingUserLogin(string spName, List<Para> paraList)
+        {
+            SqlCommand sqlCmd = new SqlCommand(spName, SubcriberConnection);
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            foreach (Para element in paraList)
+            {
+                sqlCmd.Parameters.Add(new SqlParameter(element.ValueName, element.RealValue));
+            }
+
+            if (SubcriberConnection.State == ConnectionState.Closed)
+                SubcriberConnection.Open();
+            try
+            {
+                sqlCmd.ExecuteNonQuery();
+                SubcriberConnection.Close();
+                return 0;
+            }
+            catch (SqlException ex)
+            {
+                SubcriberConnection.Close();
+                if (ex.Number == 15434)
+                    return 1;
+                Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
+                SubcriberConnection.Close();
+                Console.WriteLine(ex.StackTrace);
+                Debug.Assert(false);
+                return 2;
             }
         }
 
@@ -211,6 +245,7 @@ namespace TracNghiemCSDLPT.Others
                 var reader = sqlCmd.ExecuteReader();
                 result.Load(reader);
                 reader.Close();
+                SubcriberConnection.Close();
                 return result;
             }
             catch (SqlException ex)
@@ -218,6 +253,7 @@ namespace TracNghiemCSDLPT.Others
                 SubcriberConnection.Close();
                 Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
                 SubcriberConnection.Close();
+                Debug.Assert(false);
                 Console.WriteLine(ex.StackTrace);
                 return null;
             }
@@ -241,6 +277,7 @@ namespace TracNghiemCSDLPT.Others
                 SubcriberConnection.Close();
                 Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
                 Console.WriteLine(ex.StackTrace);
+                Debug.Assert(false);
                 return null;
             }
 
@@ -257,6 +294,7 @@ namespace TracNghiemCSDLPT.Others
             try
             {
                 sqlCmd.ExecuteNonQuery();
+                SubcriberConnection.Close();
                 return true;
             }
             catch (SqlException ex)
@@ -264,6 +302,7 @@ namespace TracNghiemCSDLPT.Others
                 Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
                 Console.WriteLine(ex.StackTrace);
                 SubcriberConnection.Close();
+                Debug.Assert(false);
                 return false;
             }
         }
@@ -282,6 +321,7 @@ namespace TracNghiemCSDLPT.Others
             try
             {
                 sqlCmd.ExecuteNonQuery();
+                SubcriberConnection.Close();
                 return true;
             }
             catch (SqlException ex)
@@ -290,6 +330,7 @@ namespace TracNghiemCSDLPT.Others
                 Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
                 SubcriberConnection.Close();
                 Console.WriteLine(ex.StackTrace);
+                Debug.Assert(false);
                 return false;
             }
         }

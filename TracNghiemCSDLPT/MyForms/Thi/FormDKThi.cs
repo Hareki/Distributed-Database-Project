@@ -28,8 +28,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         readonly Color _activeForeColor = Color.FromArgb(72, 70, 68);
         readonly Color _disabledForeColor = SystemColors.AppWorkspace;
         private int _previousIndexCS;
-        private string _origMaMH = "!@#$%";
-        private string _origMaLop = "!@#$%";
+        private string _origMaMH = string.Empty;
+        private string _origMaLop = string.Empty;
         private int _origLan = -1;
         //------------Dùng trong add---------??
         private int _origSoCau;
@@ -82,8 +82,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         }
         private void ResetOrigValue()
         {
-            _origMaMH = null;
-            _origMaLop = null;
+            _origMaMH = string.Empty;
+            _origMaLop = string.Empty;
             _origLan = -1;
         }
         private void PhanQuyen()
@@ -111,9 +111,21 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         }
         private void SetIdleButtonEnabled(bool state)
         {
-            buttonThem.Enabled = buttonXoa.Enabled = buttonUndo.Enabled = buttonRedo.Enabled =
+            if (GVDK2BindingSource.Count == 0 && state == true)
+            {
+                buttonXoa.Enabled = buttonSua.Enabled = false;
+                buttonThem.Enabled = buttonLamMoi.Enabled = true;
+            }
+            else if (Utils.IsTruong() && state == false)
+            {
+                buttonXoa.Enabled = buttonSua.Enabled = buttonThem.Enabled = false;
+                buttonLamMoi.Enabled = true;
+            }
+            else
+            {
+                buttonThem.Enabled = buttonXoa.Enabled =
                  buttonSua.Enabled = buttonLamMoi.Enabled = state;
-
+            }
 
         }
 
@@ -174,21 +186,25 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             //do không dùng binding source nên phải lưu lại những giá trị này, nếu ko sẽ bị lỗi :<
             _selectedRow = GVDK2BindingSource.Position;
-            _origThoiGian = int.Parse(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "THOIGIAN"));
-            _origSoCau = int.Parse(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "SOCAUTHI"));
-            _origNgayThi =
-            DateTime.ParseExact(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "NGAYTHI"), "dd/MM/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+            if(_selectedRow >= 0)
+            {
+                _origThoiGian = int.Parse(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "THOIGIAN"));
+                _origSoCau = int.Parse(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "SOCAUTHI"));
+                _origNgayThi =
+                DateTime.ParseExact(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "NGAYTHI"), "dd/MM/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
 
-            _origMaLop = Utils.GetLookUpString(LookUpLop, "MALOP");
-            _origMaMH = Utils.GetLookUpString(LookUpMh, "MAMH");
-            _origLan = GetLan();
+                _origMaLop = Utils.GetLookUpString(LookUpLop, "MALOP");
+                _origMaMH = Utils.GetLookUpString(LookUpMh, "MAMH");
+                _origLan = GetLan();
+            }
+           
         }
         private void buttonThem_Click(object sender, EventArgs e)
         {
             SaveOrigValue();
+            SetBlankDataInput();
             ConfigInputState();
             Utils.ConfigInfoPanelAppearance(InfoPanel, "Thêm thông tin đăng ký thi", Utils.AddColor);
-            SetBlankDataInput();
             _state = State.Add;
             SetLanTrinhDoGV();
         }
@@ -216,8 +232,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             GVDK2BindingSource.Position = _selectedRow;
             ConfigIdleState();
-            RestoreValueToOrig();
-            GetCorrData();
+            if(GVDK2BindingSource.Position >= 0)
+            {
+                RestoreValueToOrig();
+                GetCorrData();
+            }
+            
         }
         private void SetInputColor(Color color)
         {
@@ -255,11 +275,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                         break;
                     case State.Idle:
                         SetInputButtonVisible(false);
-
-                        if (GVDK2BindingSource.Count > 0)
-                            SetIdleButtonEnabled(true);
-                        else SetIdleButtonEnabled(false);
-
+                        SetIdleButtonEnabled(true);
                         break;
                 }
             }
@@ -402,7 +418,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 List<Para> paraList = new List<Para>();
                 paraList.Add(new Para("@MaMH", maMh));
                 paraList.Add(new Para("@MaLop", maLop));
-                paraList.Add(new Para("@NgayThiL2", NgayThi.DateTime));
+                paraList.Add(new Para("@NgayThi", NgayThi.DateTime));
                 string spName = "usp_GVDK_CheckAddingL2Poss";
                 using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
                 {
@@ -429,7 +445,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             bool test2 = !rdoA.Checked && !rdoB.Checked && !rdoC.Checked;
             bool test3 = !rdo1.Checked && !rdo2.Checked;
             bool test4 = spinSoCau.Value < 10 || spinSoCau.Value > 100;
-            bool test5 = spinThoiGian.Value < 15 || spinSoCau.Value > 60;
+            bool test5 = spinThoiGian.Value < 15 || spinThoiGian.Value > 60;
             bool test6 = !CanDeleteEdit(NgayThi.DateTime);
             bool test7 = LookUpLop.EditValue is null;
             bool test8 = LookUpMh.EditValue is null;
@@ -986,6 +1002,22 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             if (_state != State.Idle)
             {
                 SetLanTrinhDoGV();
+            }
+        }
+
+        private void LookUpGV_EnabledChanged(object sender, EventArgs e)
+        {
+            if(LookUpGV.Enabled == true && (LookUpLop.EditValue == null || LookUpMh.EditValue == null))
+            {
+                LookUpGV.Enabled = false;
+            }
+        }
+
+        private void panelTrinhDo_EnabledChanged(object sender, EventArgs e)
+        {
+            if (panelTrinhDo.Enabled == true && (LookUpLop.EditValue == null || LookUpMh.EditValue == null))
+            {
+                panelTrinhDo.Enabled = false;
             }
         }
     }

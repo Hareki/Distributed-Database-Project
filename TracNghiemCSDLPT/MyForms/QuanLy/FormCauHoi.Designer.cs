@@ -68,7 +68,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textMaCH = new DevExpress.XtraEditors.SpinEdit();
+            this.spinMaCH = new DevExpress.XtraEditors.SpinEdit();
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.label13 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -127,7 +127,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.bunifuPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textMaCH.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinMaCH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MHCombo.Properties)).BeginInit();
@@ -483,7 +483,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(35, 11);
+            this.label1.Location = new System.Drawing.Point(36, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 60);
             this.label1.TabIndex = 17;
@@ -719,7 +719,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.panel2.AutoScroll = true;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.panel2.Controls.Add(this.textMaCH);
+            this.panel2.Controls.Add(this.spinMaCH);
             this.panel2.Controls.Add(this.separatorControl1);
             this.panel2.Controls.Add(this.labelDapAn);
             this.panel2.Controls.Add(this.label9);
@@ -732,24 +732,24 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.panel2.Size = new System.Drawing.Size(373, 102);
             this.panel2.TabIndex = 26;
             // 
-            // textMaCH
+            // spinMaCH
             // 
-            this.textMaCH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.BoDeBindingSource, "CAUHOI", true));
-            this.textMaCH.EditValue = new decimal(new int[] {
+            this.spinMaCH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.BoDeBindingSource, "CAUHOI", true));
+            this.spinMaCH.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.textMaCH.Location = new System.Drawing.Point(182, 60);
-            this.textMaCH.Name = "textMaCH";
-            this.textMaCH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textMaCH.Properties.Appearance.Options.UseFont = true;
-            this.textMaCH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.spinMaCH.Location = new System.Drawing.Point(182, 60);
+            this.spinMaCH.Name = "spinMaCH";
+            this.spinMaCH.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.spinMaCH.Properties.Appearance.Options.UseFont = true;
+            this.spinMaCH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.textMaCH.Properties.IsFloatValue = false;
-            this.textMaCH.Properties.MaskSettings.Set("mask", "N00");
-            this.textMaCH.Size = new System.Drawing.Size(101, 34);
-            this.textMaCH.TabIndex = 22;
+            this.spinMaCH.Properties.IsFloatValue = false;
+            this.spinMaCH.Properties.MaskSettings.Set("mask", "N00");
+            this.spinMaCH.Size = new System.Drawing.Size(101, 34);
+            this.spinMaCH.TabIndex = 22;
             // 
             // separatorControl1
             // 
@@ -848,19 +848,26 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             // colMAMH1
             // 
+            this.colMAMH1.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(164)))), ((int)(((byte)(236)))));
+            this.colMAMH1.AppearanceHeader.Options.UseBackColor = true;
             this.colMAMH1.Caption = "Mã MH";
             this.colMAMH1.FieldName = "MAMH";
             this.colMAMH1.Name = "colMAMH1";
+            this.colMAMH1.OptionsColumn.FixedWidth = true;
             this.colMAMH1.Visible = true;
             this.colMAMH1.VisibleIndex = 0;
+            this.colMAMH1.Width = 100;
             // 
             // colTENMH1
             // 
+            this.colTENMH1.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(164)))), ((int)(((byte)(236)))));
+            this.colTENMH1.AppearanceHeader.Options.UseBackColor = true;
             this.colTENMH1.Caption = "Tên môn học";
             this.colTENMH1.FieldName = "TENMH";
             this.colTENMH1.Name = "colTENMH1";
             this.colTENMH1.Visible = true;
             this.colTENMH1.VisibleIndex = 1;
+            this.colTENMH1.Width = 300;
             // 
             // label10
             // 
@@ -916,7 +923,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.textNoiDung.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textNoiDung.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.BoDeBindingSource, "NOIDUNG", true));
-            this.textNoiDung.Location = new System.Drawing.Point(107, 10);
+            this.textNoiDung.Location = new System.Drawing.Point(108, 27);
             this.textNoiDung.Name = "textNoiDung";
             this.textNoiDung.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.textNoiDung.Properties.Appearance.Options.UseFont = true;
@@ -1318,13 +1325,13 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonXacNhan.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonXacNhan.Animated = true;
-            this.buttonXacNhan.BorderRadius = 5;
+            this.buttonXacNhan.BorderRadius = 8;
             this.buttonXacNhan.CheckedState.Parent = this.buttonXacNhan;
             this.buttonXacNhan.CustomImages.Parent = this.buttonXacNhan;
-            this.buttonXacNhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonXacNhan.FillColor = System.Drawing.Color.Gainsboro;
             this.buttonXacNhan.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonXacNhan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.buttonXacNhan.HoverState.FillColor = System.Drawing.Color.Gainsboro;
+            this.buttonXacNhan.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonXacNhan.HoverState.Parent = this.buttonXacNhan;
             this.buttonXacNhan.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
             this.buttonXacNhan.Location = new System.Drawing.Point(158, 5);
@@ -1342,13 +1349,13 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.buttonHuy.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonHuy.Animated = true;
-            this.buttonHuy.BorderRadius = 5;
+            this.buttonHuy.BorderRadius = 8;
             this.buttonHuy.CheckedState.Parent = this.buttonHuy;
             this.buttonHuy.CustomImages.Parent = this.buttonHuy;
-            this.buttonHuy.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(216)))), ((int)(((byte)(219)))));
+            this.buttonHuy.FillColor = System.Drawing.Color.Gainsboro;
             this.buttonHuy.Font = new System.Drawing.Font("Baloo 2 ExtraBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonHuy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.buttonHuy.HoverState.FillColor = System.Drawing.Color.Gainsboro;
+            this.buttonHuy.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonHuy.HoverState.Parent = this.buttonHuy;
             this.buttonHuy.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
             this.buttonHuy.Location = new System.Drawing.Point(333, 2);
@@ -1410,7 +1417,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textMaCH.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinMaCH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -1524,7 +1531,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private System.Windows.Forms.ToolTip toolTip2;
         private Guna.UI2.WinForms.Guna2PictureBox tipXoa;
         private Guna.UI2.WinForms.Guna2PictureBox tipSua;
-        private DevExpress.XtraEditors.SpinEdit textMaCH;
+        private DevExpress.XtraEditors.SpinEdit spinMaCH;
         private DevExpress.XtraEditors.GridLookUpEdit MHCombo;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.BindingSource DSMHBindingSource;

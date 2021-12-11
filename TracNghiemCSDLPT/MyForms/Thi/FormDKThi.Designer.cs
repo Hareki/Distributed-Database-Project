@@ -180,7 +180,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label9.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(23, 40);
+            this.label9.Location = new System.Drawing.Point(36, 92);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(127, 30);
             this.label9.TabIndex = 21;
@@ -216,7 +216,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label10.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(65, 97);
+            this.label10.Location = new System.Drawing.Point(78, 36);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(85, 30);
             this.label10.TabIndex = 19;
@@ -244,7 +244,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.spinSoCau.Properties.IsFloatValue = false;
             this.spinSoCau.Properties.MaskSettings.Set("mask", "N00");
             this.spinSoCau.Properties.MaxValue = new decimal(new int[] {
-            999,
+            100,
             0,
             0,
             0});
@@ -290,7 +290,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label7.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(934, 172);
+            this.label7.Location = new System.Drawing.Point(943, 170);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(119, 30);
             this.label7.TabIndex = 30;
@@ -310,7 +310,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // LookUpGV
             // 
             this.LookUpGV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LookUpGV.Location = new System.Drawing.Point(169, 36);
+            this.LookUpGV.Location = new System.Drawing.Point(169, 88);
             this.LookUpGV.Name = "LookUpGV";
             this.LookUpGV.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.LookUpGV.Properties.Appearance.BackColor = System.Drawing.Color.White;
@@ -342,6 +342,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.LookUpGV.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
             this.LookUpGV.Size = new System.Drawing.Size(459, 38);
             this.LookUpGV.TabIndex = 34;
+            this.LookUpGV.EnabledChanged += new System.EventHandler(this.LookUpGV_EnabledChanged);
             // 
             // DSGVBindingSource
             // 
@@ -462,7 +463,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             0,
             0,
             0});
-            this.spinThoiGian.Location = new System.Drawing.Point(1077, 163);
+            this.spinThoiGian.Location = new System.Drawing.Point(1068, 161);
             this.spinThoiGian.Name = "spinThoiGian";
             this.spinThoiGian.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinThoiGian.Properties.Appearance.Options.UseFont = true;
@@ -475,7 +476,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.spinThoiGian.Properties.IsFloatValue = false;
             this.spinThoiGian.Properties.MaskSettings.Set("mask", "N00");
             this.spinThoiGian.Properties.MaxValue = new decimal(new int[] {
-            99,
+            60,
             0,
             0,
             0});
@@ -548,7 +549,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label3.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(62, 148);
+            this.label3.Location = new System.Drawing.Point(75, 148);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 30);
             this.label3.TabIndex = 26;
@@ -561,7 +562,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label14.Enabled = false;
             this.label14.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(1000, 100);
+            this.label14.Location = new System.Drawing.Point(991, 100);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(71, 30);
             this.label14.TabIndex = 26;
@@ -615,7 +616,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.labelPhut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.labelPhut.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.labelPhut.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelPhut.Location = new System.Drawing.Point(1174, 170);
+            this.labelPhut.Location = new System.Drawing.Point(1164, 170);
             this.labelPhut.Margin = new System.Windows.Forms.Padding(3, 0, 11, 5);
             this.labelPhut.Name = "labelPhut";
             this.labelPhut.Size = new System.Drawing.Size(50, 30);
@@ -672,7 +673,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // LookUpMh
             // 
             this.LookUpMh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LookUpMh.Location = new System.Drawing.Point(169, 99);
+            this.LookUpMh.Location = new System.Drawing.Point(169, 33);
             this.LookUpMh.Name = "LookUpMh";
             this.LookUpMh.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.LookUpMh.Properties.Appearance.BackColor = System.Drawing.Color.White;
@@ -874,6 +875,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.panelTrinhDo.Name = "panelTrinhDo";
             this.panelTrinhDo.Size = new System.Drawing.Size(459, 79);
             this.panelTrinhDo.TabIndex = 49;
+            this.panelTrinhDo.EnabledChanged += new System.EventHandler(this.panelTrinhDo_EnabledChanged);
             // 
             // panelLan
             // 
@@ -881,7 +883,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.panelLan.Controls.Add(this.label15);
             this.panelLan.Controls.Add(this.label13);
             this.panelLan.Controls.Add(this.rdo2);
-            this.panelLan.Location = new System.Drawing.Point(1067, 94);
+            this.panelLan.Location = new System.Drawing.Point(1068, 97);
             this.panelLan.Name = "panelLan";
             this.panelLan.Size = new System.Drawing.Size(130, 43);
             this.panelLan.TabIndex = 48;
@@ -1249,6 +1251,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonUndo.ShadowDecoration.Parent = this.buttonUndo;
             this.buttonUndo.Size = new System.Drawing.Size(37, 32);
             this.buttonUndo.TabIndex = 44;
+            this.buttonUndo.Visible = false;
             // 
             // buttonRedo
             // 
@@ -1271,6 +1274,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonRedo.ShadowDecoration.Parent = this.buttonRedo;
             this.buttonRedo.Size = new System.Drawing.Size(37, 32);
             this.buttonRedo.TabIndex = 45;
+            this.buttonRedo.Visible = false;
             // 
             // GVDK2TableAdapter
             // 
@@ -1300,7 +1304,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.CoSoComboBox.ItemHeight = 30;
             this.CoSoComboBox.ItemsAppearance.Parent = this.CoSoComboBox;
             this.CoSoComboBox.Location = new System.Drawing.Point(740, 9);
-            this.CoSoComboBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
+            this.CoSoComboBox.Margin = new System.Windows.Forms.Padding(10, 0, 3, 10);
             this.CoSoComboBox.Name = "CoSoComboBox";
             this.CoSoComboBox.ShadowDecoration.Parent = this.CoSoComboBox;
             this.CoSoComboBox.Size = new System.Drawing.Size(290, 36);
@@ -1313,7 +1317,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label16.Location = new System.Drawing.Point(611, 15);
+            this.label16.Location = new System.Drawing.Point(613, 12);
+            this.label16.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(107, 30);
             this.label16.TabIndex = 46;

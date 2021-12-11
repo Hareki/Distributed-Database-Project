@@ -91,7 +91,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.countDownTimer = new System.Windows.Forms.Timer(this.components);
             this.usp_Thi_LayMonThiCuaLopTuongUng_TrongNgayBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usp_Thi_LayMonThiCuaLopTuongUng_TrongNgayTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.usp_Thi_LayMonThiCuaLopTuongUng_TrongNgayTableAdapter();
-            this.savingTimer = new System.Windows.Forms.Timer(this.components);
             this.saveTimeLeftTimer = new System.Windows.Forms.Timer(this.components);
             label7 = new System.Windows.Forms.Label();
             label12 = new System.Windows.Forms.Label();
@@ -916,11 +915,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             this.usp_Thi_LayMonThiCuaLopTuongUng_TrongNgayTableAdapter.ClearBeforeFill = true;
             // 
-            // savingTimer
-            // 
-            this.savingTimer.Interval = 5000;
-            this.savingTimer.Tick += new System.EventHandler(this.SavingTimer_Tick);
-            // 
             // saveTimeLeftTimer
             // 
             this.saveTimeLeftTimer.Interval = 15000;
@@ -1037,7 +1031,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         private DevExpress.XtraGrid.Columns.GridColumn colDaChon;
         private System.Windows.Forms.BindingSource usp_Thi_LayMonThiCuaLopTuongUng_TrongNgayBindingSource;
         private TN_CSDLPTDataSetTableAdapters.usp_Thi_LayMonThiCuaLopTuongUng_TrongNgayTableAdapter usp_Thi_LayMonThiCuaLopTuongUng_TrongNgayTableAdapter;
-        private System.Windows.Forms.Timer savingTimer;
         private System.Windows.Forms.Timer saveTimeLeftTimer;
     }
 }

@@ -117,9 +117,9 @@ namespace TracNghiemCSDLPT.MyForms
         {
             if (Utils.ShowConfirmMessage("Bạn có chắc muốn đăng xuất khỏi hệ thống?", "Xác nhận"))
             {
-                Program.LoginInstance = new FormLogin();
-                Program.LoginInstance.Show();
-                this.Hide();
+                this.Dispose();
+                Application.Restart();
+
             }
         }
 
@@ -137,6 +137,13 @@ namespace TracNghiemCSDLPT.MyForms
         {
             //ShowForm(typeof(FormThi));
             (new FormThi()).ShowDialog();
+        }
+
+        private void MainView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.MdiChildren.Length == 0)
+                if (!Utils.ShowConfirmMessage("Xác nhận thoát chương trình?", "Xác nhận"))
+                    e.Cancel = true;
         }
     }
 

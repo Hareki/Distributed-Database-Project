@@ -32,9 +32,9 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBDMH));
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.CoSoComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonCancel = new Guna.UI2.WinForms.Guna2Button();
+            this.buttonPrint = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -53,6 +53,8 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENLOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CoSoComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.TN_CSDLPTDataSet = new TracNghiemCSDLPT.TN_CSDLPTDataSet();
             this.tableAdapterManager = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
             this.usp_Report_BDMH_LayMonDaDKBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -60,8 +62,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.usp_Report_BDMH_LayLopDaDKBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usp_Report_BDMH_LayLopDaDKTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.usp_Report_BDMH_LayLopDaDKTableAdapter();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.buttonPrint = new Guna.UI2.WinForms.Guna2Button();
-            this.buttonCancel = new Guna.UI2.WinForms.Guna2Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.bunifuPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -75,6 +76,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usp_Report_BDMH_LayMonDaDKBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usp_Report_BDMH_LayLopDaDKBindingSource)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuPanel1
@@ -86,8 +88,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuPanel1.BorderRadius = 3;
             this.bunifuPanel1.BorderThickness = 1;
-            this.bunifuPanel1.Controls.Add(this.label2);
-            this.bunifuPanel1.Controls.Add(this.CoSoComboBox);
             this.bunifuPanel1.Controls.Add(this.panel1);
             this.bunifuPanel1.Controls.Add(this.pictureBox1);
             this.bunifuPanel1.Location = new System.Drawing.Point(299, 52);
@@ -95,39 +95,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.bunifuPanel1.ShowBorders = true;
             this.bunifuPanel1.Size = new System.Drawing.Size(1026, 708);
             this.bunifuPanel1.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(5, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 30);
-            this.label2.TabIndex = 32;
-            this.label2.Text = "Chọn cơ sở";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // CoSoComboBox
-            // 
-            this.CoSoComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.CoSoComboBox.BorderRadius = 3;
-            this.CoSoComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.CoSoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CoSoComboBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
-            this.CoSoComboBox.FocusedColor = System.Drawing.Color.Empty;
-            this.CoSoComboBox.FocusedState.Parent = this.CoSoComboBox;
-            this.CoSoComboBox.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold);
-            this.CoSoComboBox.ForeColor = System.Drawing.Color.White;
-            this.CoSoComboBox.FormattingEnabled = true;
-            this.CoSoComboBox.HoverState.Parent = this.CoSoComboBox;
-            this.CoSoComboBox.ItemHeight = 30;
-            this.CoSoComboBox.ItemsAppearance.Parent = this.CoSoComboBox;
-            this.CoSoComboBox.Location = new System.Drawing.Point(137, 16);
-            this.CoSoComboBox.Name = "CoSoComboBox";
-            this.CoSoComboBox.ShadowDecoration.Parent = this.CoSoComboBox;
-            this.CoSoComboBox.Size = new System.Drawing.Size(286, 36);
-            this.CoSoComboBox.TabIndex = 31;
-            this.CoSoComboBox.SelectedIndexChanged += new System.EventHandler(this.CoSoComboBox_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -148,6 +115,53 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(535, 606);
             this.panel1.TabIndex = 1;
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonCancel.Animated = true;
+            this.buttonCancel.BorderRadius = 8;
+            this.buttonCancel.CheckedState.Parent = this.buttonCancel;
+            this.buttonCancel.CustomImages.Parent = this.buttonCancel;
+            this.buttonCancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(202)))), ((int)(((byte)(202)))));
+            this.buttonCancel.Font = new System.Drawing.Font("Baloo 2", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonCancel.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.buttonCancel.HoverState.Parent = this.buttonCancel;
+            this.buttonCancel.ImageSize = new System.Drawing.Size(35, 35);
+            this.buttonCancel.Location = new System.Drawing.Point(47, 445);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.buttonCancel.ShadowDecoration.Parent = this.buttonCancel;
+            this.buttonCancel.Size = new System.Drawing.Size(207, 46);
+            this.buttonCancel.TabIndex = 43;
+            this.buttonCancel.Text = "Hủy";
+            this.buttonCancel.TextOffset = new System.Drawing.Point(3, 0);
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // buttonPrint
+            // 
+            this.buttonPrint.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonPrint.BorderRadius = 8;
+            this.buttonPrint.CheckedState.Parent = this.buttonPrint;
+            this.buttonPrint.CustomImages.Parent = this.buttonPrint;
+            this.buttonPrint.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
+            this.buttonPrint.Font = new System.Drawing.Font("Baloo 2", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPrint.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonPrint.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(147)))), ((int)(((byte)(219)))));
+            this.buttonPrint.HoverState.Parent = this.buttonPrint;
+            this.buttonPrint.ImageSize = new System.Drawing.Size(35, 35);
+            this.buttonPrint.Location = new System.Drawing.Point(285, 445);
+            this.buttonPrint.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.buttonPrint.ShadowDecoration.Parent = this.buttonPrint;
+            this.buttonPrint.Size = new System.Drawing.Size(207, 46);
+            this.buttonPrint.TabIndex = 43;
+            this.buttonPrint.Text = "In xem trước";
+            this.buttonPrint.TextOffset = new System.Drawing.Point(3, 0);
+            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
             // 
             // pictureBox2
             // 
@@ -174,7 +188,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.Image = global::TracNghiemCSDLPT.Properties.Resources.info_480px;
-            this.pictureBox3.Location = new System.Drawing.Point(47, 558);
+            this.pictureBox3.Location = new System.Drawing.Point(499, 558);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(33, 45);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -189,7 +203,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.label6.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label6.Location = new System.Drawing.Point(42, 346);
+            this.label6.Location = new System.Drawing.Point(42, 365);
             this.label6.Margin = new System.Windows.Forms.Padding(3, 0, 11, 5);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 30);
@@ -202,7 +216,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.panelLan.Controls.Add(this.label15);
             this.panelLan.Controls.Add(this.label13);
             this.panelLan.Controls.Add(this.rdo2);
-            this.panelLan.Location = new System.Drawing.Point(124, 340);
+            this.panelLan.Location = new System.Drawing.Point(124, 359);
             this.panelLan.Margin = new System.Windows.Forms.Padding(3, 3, 3, 40);
             this.panelLan.Name = "panelLan";
             this.panelLan.Size = new System.Drawing.Size(145, 43);
@@ -277,7 +291,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             // 
             // LookUpMh
             // 
-            this.LookUpMh.Location = new System.Drawing.Point(47, 268);
+            this.LookUpMh.Location = new System.Drawing.Point(47, 287);
             this.LookUpMh.Margin = new System.Windows.Forms.Padding(3, 3, 3, 40);
             this.LookUpMh.Name = "LookUpMh";
             this.LookUpMh.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -336,7 +350,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             // 
             // LookUpLop
             // 
-            this.LookUpLop.Location = new System.Drawing.Point(47, 187);
+            this.LookUpLop.Location = new System.Drawing.Point(47, 206);
             this.LookUpLop.Margin = new System.Windows.Forms.Padding(3, 3, 3, 40);
             this.LookUpLop.Name = "LookUpLop";
             this.LookUpLop.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -406,6 +420,43 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(597, 24);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 30);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "Chọn cơ sở";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // CoSoComboBox
+            // 
+            this.CoSoComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CoSoComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.CoSoComboBox.BorderRadius = 3;
+            this.CoSoComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.CoSoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CoSoComboBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
+            this.CoSoComboBox.FocusedColor = System.Drawing.Color.Empty;
+            this.CoSoComboBox.FocusedState.Parent = this.CoSoComboBox;
+            this.CoSoComboBox.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Bold);
+            this.CoSoComboBox.ForeColor = System.Drawing.Color.White;
+            this.CoSoComboBox.FormattingEnabled = true;
+            this.CoSoComboBox.HoverState.Parent = this.CoSoComboBox;
+            this.CoSoComboBox.ItemHeight = 30;
+            this.CoSoComboBox.ItemsAppearance.Parent = this.CoSoComboBox;
+            this.CoSoComboBox.Location = new System.Drawing.Point(724, 21);
+            this.CoSoComboBox.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.CoSoComboBox.Name = "CoSoComboBox";
+            this.CoSoComboBox.ShadowDecoration.Parent = this.CoSoComboBox;
+            this.CoSoComboBox.Size = new System.Drawing.Size(286, 36);
+            this.CoSoComboBox.TabIndex = 31;
+            this.CoSoComboBox.SelectedIndexChanged += new System.EventHandler(this.CoSoComboBox_SelectedIndexChanged);
+            // 
             // TN_CSDLPTDataSet
             // 
             this.TN_CSDLPTDataSet.DataSetName = "TN_CSDLPTDataSet";
@@ -446,66 +497,29 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             // 
             this.usp_Report_BDMH_LayLopDaDKTableAdapter.ClearBeforeFill = true;
             // 
-            // buttonPrint
+            // panel2
             // 
-            this.buttonPrint.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonPrint.Animated = true;
-            this.buttonPrint.BorderRadius = 8;
-            this.buttonPrint.CheckedState.Parent = this.buttonPrint;
-            this.buttonPrint.CustomImages.Parent = this.buttonPrint;
-            this.buttonPrint.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(163)))), ((int)(((byte)(236)))));
-            this.buttonPrint.Font = new System.Drawing.Font("Baloo 2", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPrint.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonPrint.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(147)))), ((int)(((byte)(219)))));
-            this.buttonPrint.HoverState.Parent = this.buttonPrint;
-            this.buttonPrint.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonPrint.Location = new System.Drawing.Point(285, 426);
-            this.buttonPrint.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
-            this.buttonPrint.Name = "buttonPrint";
-            this.buttonPrint.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.buttonPrint.ShadowDecoration.Parent = this.buttonPrint;
-            this.buttonPrint.Size = new System.Drawing.Size(207, 46);
-            this.buttonPrint.TabIndex = 43;
-            this.buttonPrint.Text = "In xem trước";
-            this.buttonPrint.TextOffset = new System.Drawing.Point(3, 0);
-            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonCancel.Animated = true;
-            this.buttonCancel.BorderRadius = 8;
-            this.buttonCancel.CheckedState.Parent = this.buttonCancel;
-            this.buttonCancel.CustomImages.Parent = this.buttonCancel;
-            this.buttonCancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(202)))), ((int)(((byte)(202)))));
-            this.buttonCancel.Font = new System.Drawing.Font("Baloo 2", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonCancel.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.buttonCancel.HoverState.Parent = this.buttonCancel;
-            this.buttonCancel.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonCancel.Location = new System.Drawing.Point(47, 426);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.buttonCancel.ShadowDecoration.Parent = this.buttonCancel;
-            this.buttonCancel.Size = new System.Drawing.Size(207, 46);
-            this.buttonCancel.TabIndex = 43;
-            this.buttonCancel.Text = "Hủy";
-            this.buttonCancel.TextOffset = new System.Drawing.Point(3, 0);
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.CoSoComboBox);
+            this.panel2.Location = new System.Drawing.Point(309, 77);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1013, 60);
+            this.panel2.TabIndex = 4;
             // 
             // FormBDMH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1624, 813);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.bunifuPanel1);
             this.IconOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.CSDLPT_Logo1;
             this.Name = "FormBDMH";
             this.Text = "Bảng điểm MH";
             this.Load += new System.EventHandler(this.FormBDMH_Load);
             this.bunifuPanel1.ResumeLayout(false);
-            this.bunifuPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -520,6 +534,8 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usp_Report_BDMH_LayMonDaDKBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usp_Report_BDMH_LayLopDaDKBindingSource)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -557,5 +573,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2Button buttonPrint;
         private Guna.UI2.WinForms.Guna2Button buttonCancel;
+        private System.Windows.Forms.Panel panel2;
     }
 }

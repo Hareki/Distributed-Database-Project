@@ -43,6 +43,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
                 case "SINHVIEN":
                     CoSoComboBox.Enabled = false;
                     ConfigSvLookUps();
+                    toolTip.Visible = false;
                     break;
                 default:
                     Debug.Assert(false);
@@ -123,8 +124,8 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
 
         private void LoadAllSv()
         {
-            this.usp_Report_KQT_LaySVThuocLopDaDuThiTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.usp_Report_KQT_LaySVThuocLopDaDuThiTableAdapter.Fill(this.TN_CSDLPTDataSet.usp_Report_KQT_LaySVThuocLopDaDuThi);
+            this.usp_Report_KQT_LaySVDaDuThiTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.usp_Report_KQT_LaySVDaDuThiTableAdapter.Fill(this.TN_CSDLPTDataSet.usp_Report_KQT_LaySVDaDuThi);
         }
         private void ConfigLookupMh() // chỉ là config những thuộc tính cơ, bản chưa có dữ liệu
         {
@@ -135,11 +136,13 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         private void ConfigGvLookUps()
         {
             LoadAllSv();
-            LookUpSv.Properties.DataSource = this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource;
+            LookUpSv.Properties.DataSource = this.usp_Report_KQT_LaySVDaDuThiBindingSource;
             LookUpSv.Properties.DisplayMember = "FullInfo";
         }
         private void FormKQT_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'TN_CSDLPTDataSet.usp_Report_KQT_LaySVDaDuThi' table. You can move, or remove it, as needed.
+            this.usp_Report_KQT_LaySVDaDuThiTableAdapter.Fill(this.TN_CSDLPTDataSet.usp_Report_KQT_LaySVDaDuThi);
             Utils.BindingComboData(this.CoSoComboBox, _previousIndexCS);
             ConfigLookupMh();
             PhanQuyen();

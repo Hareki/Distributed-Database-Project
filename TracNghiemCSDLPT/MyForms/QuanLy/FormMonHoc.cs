@@ -65,8 +65,17 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void SetIdleButtonEnabled(bool state)
         {
-            buttonThem.Enabled = buttonXoa.Enabled =
+            if (MonHocBindingSource.Count == 0 && state == true)
+            {
+                buttonXoa.Enabled = buttonSua.Enabled = false;
+                buttonThem.Enabled = buttonLamMoi.Enabled = true;
+            }
+            else
+            {
+                buttonThem.Enabled = buttonXoa.Enabled =
                  buttonSua.Enabled = buttonLamMoi.Enabled = state;
+            }
+
 
         }
         private void SetInputButtonVisible(bool state)
@@ -92,10 +101,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                         break;
                     case State.Idle:
                         SetInputButtonVisible(false);
-
-                        if (MonHocBindingSource.Count > 0)
-                            SetIdleButtonEnabled(true);
-                        else SetIdleButtonEnabled(false);
+                        SetIdleButtonEnabled(true);
 
                         break;
                 }
@@ -112,8 +118,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void ButtonHuy_Click(object sender, EventArgs e)
         {
-            ConfigIdleState();
             MonHocBindingSource.CancelEdit();
+            ConfigIdleState();
         }
 
         private void SaveOrigValue()
@@ -129,18 +135,15 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void ConfigIdleState()
         {
-            this.MonHocTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.MonHocTableAdapter.Fill(this.TN_CSDLPTDataSet.MONHOC);
             ResetOrigValue();
+            if (_state == State.Add)
+                MonHocBindingSource.Position = _selectedRow;
 
             _state = State.Idle;
             SetInputColor(Utils.DisabledColor);
-            
+
             SetCorrButtonsState();
             ClearErrors();
-
-            if (_state == State.Add)
-                MonHocBindingSource.Position = _selectedRow;
 
 
             Utils.ConfigInfoPanelAppearance(InfoPanel, "Thông tin môn học", Utils.DisabledColor);

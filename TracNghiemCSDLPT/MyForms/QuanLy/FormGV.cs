@@ -20,11 +20,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             InitializeComponent();
         }
         State _state = State.Idle;
+        private bool _cancelEdit = false;
         enum State
         {
             Add, Edit, Idle
         }
-        private int _selectedRowGv;
+        private int _selectedRow;
         private int _previousIndexCS;
         private string _origMaGv = string.Empty;
         private int _editingGvIndex;
@@ -74,32 +75,26 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         private void FormGV_Load(object sender, EventArgs e)
         {
-
-
             LoadAllData();
-
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
-
-            //this.CoSoComboBox.DataSource = DBConnection.BsSubcribers;
-            //this.CoSoComboBox.DisplayMember = "TENCS";
-            //this.CoSoComboBox.ValueMember = "TENSERVER";
-            //this.CoSoComboBox.SelectedIndex = DBConnection.IndexCS;
-            //this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
             Utils.BindingComboData(CoSoComboBox, _previousIndexCS);
             CheckButtonStateGv();
             PhanQuyen();
         }
 
-
-
-
-
         private void SetIdleButtonEnabled(bool state)
         {
-            buttonThem.Enabled = buttonSua.Enabled = buttonUndoGV.Enabled =
-              buttonRedoGV.Enabled = buttonXoa.Enabled = state;
-            if (Utils.IsTruong()) buttonLamMoi.Enabled = true;
-            else buttonLamMoi.Enabled = state;
+            if (GVBindingSource.Count == 0 && state == true)
+            {
+                buttonXoa.Enabled = buttonSua.Enabled = false;
+                buttonThem.Enabled = buttonLamMoi.Enabled = true;
+            }
+            else
+            {
+                buttonThem.Enabled = buttonSua.Enabled =
+              buttonXoa.Enabled = state;
+            }
+
         }
 
         private void SetInputButtonVisible(bool state)
@@ -130,18 +125,14 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                         break;
                     case State.Idle:
                         SetInputButtonVisible(false);
-
-                        if (KhoaBindingSource.Count > 0)
-                            SetIdleButtonEnabled(true);
-                        else SetIdleButtonEnabled(false);
-
+                        SetIdleButtonEnabled(true);
                         break;
                 }
             }
         }
         private void ConfigAddingState()
         {
-            _selectedRowGv = GVBindingSource.Position;
+            _selectedRow = GVBindingSource.Position;
 
             _state = State.Add;
             SetCorrButtonsState();
@@ -163,12 +154,16 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void ButtonHuy_Click(object sender, EventArgs e)
         {
-            ConfigIdleState();
+            _cancelEdit = true;
             GVBindingSource.CancelEdit();
+            ConfigIdleState();
         }
 
         private void ConfigIdleState()
         {
+            if (_state == State.Add)
+                GVBindingSource.Position = _selectedRow;
+
             _state = State.Idle;
             SetCorrButtonsState();
             GVGridView.ClearColumnErrors();
@@ -177,9 +172,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
             Utils.SetCustomizationEnabled(GVGridView, true);
             GVGridView.OptionsBehavior.Editable = false;
-
-            if (_state == State.Add)
-                GVBindingSource.Position = _selectedRowGv;
 
             SetKhoaGridControlEnabled(true);
         }
@@ -237,7 +229,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     Utils.SetCellValueGridView(GVGridView, colTEN, editingIndex, ten);
 
                     string maGv = Utils.GetCellStringGridView(GVGridView, colMAGV, -1);
-                    if (!maGv.Equals(_origMaGv))
+                    if (!maGv.Equals(_origMaGv) && _state == State.Edit)
                     {
                         if (!RenameUser(_origMaGv, maGv))
                         {
@@ -463,7 +455,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                 info.CalcViewInfo(e.Cache.Graphics);
             }
 
-
             //----
             if (e.RowHandle == GVGridView.FocusedRowHandle) return;
             if (_state == State.Add)
@@ -480,6 +471,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void GVGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
+            if(GVGridView.RowCount == 1 && _cancelEdit == true)
+            {
+                _cancelEdit = false;
+                return;
+            }
             bool test1 = _state == State.Add && (e.FocusedRowHandle == GVGridView.RowCount - 1
                 || e.FocusedRowHandle == -2147483647);
             bool test2 = _state == State.Edit && e.FocusedRowHandle == _editingGvIndex;
@@ -515,7 +511,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private void ButtonXoa_Click(object sender, EventArgs e)
         {
             string removedGv = "";
-            _selectedRowGv = GVBindingSource.Position;
+            _selectedRow = GVBindingSource.Position;
             if (GVDKBindingSource.Count > 0)
             {
                 Utils.ShowMessage("Giảng viên này đã tổ chức thi, không thể xóa", Others.NotiForm.FormType.Error, 2);
@@ -536,28 +532,28 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             {
                 try
                 {
-                    removedGv = ((DataRowView)GVBindingSource[_selectedRowGv])["MAGV"].ToString().Trim();
-                    GVBindingSource.RemoveCurrent();
-                    GVTableAdapter.Update(TN_CSDLPTDataSet.GIAOVIEN);
-
+                    removedGv = ((DataRowView)GVBindingSource[_selectedRow])["MAGV"].ToString().Trim();
+                   
                     //Xóa user và login tương ứng (nếu có)
                     List<Para> paraList = new List<Para>();
                     paraList.Add(new Para("@UserName", removedGv.Trim()));
                     string spName = "usp_Login_RemoveLoginUser";
-                    using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
+                    int result = DBConnection.ExecuteRemovingUserLogin(spName, paraList);
+                    switch (result)
                     {
-                        if (myReader == null)
-                        {
-                            Utils.ShowMessage("Xảy ra lỗi khi xóa login và user của giáo viên tương ứng", Others.NotiForm.FormType.Error, 2);
-                            Console.WriteLine(System.Environment.StackTrace);
+                        case 1:
+                            Utils.ShowMessage("Tài khoản của giảng viên này đang đăng nhập trong hệ thống, không thể xóa!", Others.NotiForm.FormType.Error, 3);
                             return;
-                        }
-                        else
-                        {
-                            myReader.Read();
-                            // Utils.ShowMessage("Mã của task xóa login: " + myReader.GetValue(0), Others.NotiForm.FormType.Error, 2);
-                        }
+                        case 2:
+                            Utils.ShowErrorMessage("Xảy ra lỗi khi cố gắng xóa thông tin login của giảng viên, chặn xóa", "Lỗi");
+                            return;
                     }
+
+                   
+                    GVBindingSource.RemoveCurrent();
+                    GVTableAdapter.Update(TN_CSDLPTDataSet.GIAOVIEN);
+
+                    
 
 
 
@@ -586,5 +582,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
                     e.Cancel = true;
         }
 
+        private void GVBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+            SetCorrButtonsState();
+        }
     }
 }

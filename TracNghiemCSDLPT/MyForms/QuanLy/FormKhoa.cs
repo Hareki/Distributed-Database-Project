@@ -40,8 +40,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private int _previousIndexCS;
         private int _oldPositionRow;
-        private string _origMaKH = "~!@#$%";
-        private string _origTenKH = "~!@#$%";
+        private string _origMaKH = string.Empty;
+        private string _origTenKH = string.Empty;
         private string _maCs;
 
         private readonly Stack<Khoa> _undoStack = new Stack<Khoa>();
@@ -56,8 +56,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void SetDefaultOrigValue()
         {
-            _origMaKH = "~!@#$%";
-            _origTenKH = "~!@#$%";
+            _origMaKH = string.Empty;
+            _origTenKH = string.Empty;
 
         }
         private void FormKhoa_Load(object sender, EventArgs e)

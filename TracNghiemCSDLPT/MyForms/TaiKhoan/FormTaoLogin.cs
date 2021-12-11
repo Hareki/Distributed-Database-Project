@@ -13,19 +13,21 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             InitializeComponent();
         }
 
+        private int _previousIndexCS;
         private void PhanQuyen()
         {
             switch (DBConnection.NhomQuyen)
             {
                 case "TRUONG":
-                    LoadGvData();
-                    LookUpGV.Properties.DataSource = DSGVBindingSource;
+                    LoadGvtcsData();
+                    LookUpGV.Properties.DataSource = DSGVTCSBindingSource;
                     LookUpGV.Properties.DisplayMember = "FullInfo";
                     LookUpGV.Properties.ValueMember = "MaGV";
-                    panelCSGV.SendToBack();
+                    pnlTruong.BringToFront();
                     panelCSGV.Visible = false;
                     rdoCS.Checked = rdoGV.Checked = false;
                     rdoTruong.Checked = true;
+                    this.CoSoComboBox.Enabled = true;
                     break;
                 case "COSO":
                     LoadGvtcsData();
@@ -35,6 +37,7 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
                     rdoTruong.Checked = false;
                     panelTruong.Visible = false;
                     panelCSGV.BringToFront();
+                    this.CoSoComboBox.Enabled = false;
                     break;
             }
         }
@@ -53,6 +56,7 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
         private void FormTaoLogin_Load(object sender, EventArgs e)
         {
             TextMatKhau.UseSystemPasswordChar = TextXacNhan.UseSystemPasswordChar = true;
+            Utils.BindingComboData(CoSoComboBox, _previousIndexCS);
             PhanQuyen();
         }
         private void ClearErrors()
@@ -70,7 +74,8 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             bool test3 = string.IsNullOrEmpty(TextTenDangNhap.Text);
             bool test4 = !TextMatKhau.Text.Equals(TextXacNhan.Text) || string.IsNullOrEmpty(TextMatKhau.Text);
             bool test5 = !Utils.IsMathRegex(TextTenDangNhap.Text, Utils.RegexType.LoginNameRegex);
-            if (test1 || test2 || test3 || test4 || test5)
+            bool test6 = TextTenDangNhap.Text.Length > 20;
+            if (test1 || test2 || test3 || test4 || test5 || test6)
             {
                 Utils.ShowMessage("Vui lòng xem lại thông tin đã nhập", Others.NotiForm.FormType.Error, 2);
                 if (test1)
@@ -94,6 +99,8 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
                 }
                 if (test5 && !test3)
                     TenDangNhapEP.SetError(TextTenDangNhap, "Tên tài khoản chỉ được chứa ký tự '_', '.' chữ và số");
+                if (test6)
+                    TenDangNhapEP.SetError(TextTenDangNhap, "Tên tài khoản không quá 20 ký tự");
                 return;
             }
             else
@@ -146,6 +153,7 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
                             TextTenDangNhap.Text = TextMatKhau.Text =
                             TextXacNhan.Text = string.Empty;
                             rdoCS.Checked = rdoGV.Checked = false;
+                            LookUpGV.EditValue = null;
                             break;
                         }
                 }
@@ -181,6 +189,36 @@ namespace TracNghiemCSDLPT.MyForms.TaiKhoan
             if (Utils.ShowConfirmMessage("Hủy thao tác đăng ký tài khoản? Mọi dữ liệu đang nhập sẽ bị xóa.", "Xác nhận"))
             {
                 this.Close();
+            }
+        }
+
+        private void CoSoComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CoSoComboBox.SelectedValue.ToString().Trim() == "System.Data.DataRowView")
+                return;
+            string login, pass;
+            string serverName = CoSoComboBox.SelectedValue.ToString().Trim();
+            if (CoSoComboBox.SelectedIndex != DBConnection.IndexCS)//Không cần check loginGV, vì ko bao giờ hiện CB này
+            {
+                login = DBConnection.RemoteLogin;
+                pass = DBConnection.RemotePassword;
+            }
+            else
+            {
+                login = DBConnection.LoginName;
+                pass = DBConnection.Password;
+            }
+            bool success = DBConnection.ConnectToSubcriber(login, pass, serverName);
+            if (!success)
+            {
+                Utils.ShowMessage("Tạm thời không thể kết nối đến cơ sở này", Others.NotiForm.FormType.Error, 2);
+                this.CoSoComboBox.SelectedIndex = this._previousIndexCS;
+                return;
+            }
+            else
+            {
+                LoadGvtcsData();
+                this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
             }
         }
     }

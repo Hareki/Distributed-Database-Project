@@ -176,7 +176,6 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             _selectedRow = GVDK2BindingSource.Position;
             _origThoiGian = int.Parse(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "THOIGIAN"));
             _origSoCau = int.Parse(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "SOCAUTHI"));
-            string test = Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "NGAYTHI");
             _origNgayThi =
             DateTime.ParseExact(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "NGAYTHI"), "dd/MM/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
 

@@ -102,7 +102,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.rdoA.Location = new System.Drawing.Point(2, 17);
             this.rdoA.Name = "rdoA";
             this.rdoA.ShadowDecoration.Parent = this.rdoA;
-            this.rdoA.Size = new System.Drawing.Size(20, 20);
+            this.rdoA.Size = new System.Drawing.Size(22, 22);
             this.rdoA.TabIndex = 3;
             this.rdoA.Tag = "A";
             this.rdoA.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -167,7 +167,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.rdoB.Location = new System.Drawing.Point(2, 17);
             this.rdoB.Name = "rdoB";
             this.rdoB.ShadowDecoration.Parent = this.rdoB;
-            this.rdoB.Size = new System.Drawing.Size(20, 20);
+            this.rdoB.Size = new System.Drawing.Size(22, 22);
             this.rdoB.TabIndex = 3;
             this.rdoB.Tag = "B";
             this.rdoB.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -221,7 +221,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.rdoC.Location = new System.Drawing.Point(2, 17);
             this.rdoC.Name = "rdoC";
             this.rdoC.ShadowDecoration.Parent = this.rdoC;
-            this.rdoC.Size = new System.Drawing.Size(20, 20);
+            this.rdoC.Size = new System.Drawing.Size(22, 22);
             this.rdoC.TabIndex = 3;
             this.rdoC.Tag = "C";
             this.rdoC.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -275,7 +275,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.rdoD.Location = new System.Drawing.Point(2, 17);
             this.rdoD.Name = "rdoD";
             this.rdoD.ShadowDecoration.Parent = this.rdoD;
-            this.rdoD.Size = new System.Drawing.Size(20, 20);
+            this.rdoD.Size = new System.Drawing.Size(22, 22);
             this.rdoD.TabIndex = 3;
             this.rdoD.Tag = "D";
             this.rdoD.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));

@@ -134,10 +134,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         private void FormSVL_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'TN_CSDLPTDataSet.DSKhoa' table. You can move, or remove it, as needed.
-            this.DSKhoaTableAdapter.Fill(this.TN_CSDLPTDataSet.DSKhoa);
-
-
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
 
             LoadAllData();

@@ -96,9 +96,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         }
         private void FormCauHoi_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'TN_CSDLPTDataSet.DSMH' table. You can move, or remove it, as needed.
-            this.DSMHTableAdapter.Fill(this.TN_CSDLPTDataSet.DSMH);
-
             this.TN_CSDLPTDataSet.EnforceConstraints = false;
             LoadAllData();
             SetCorrLookUpDataAfterReset();

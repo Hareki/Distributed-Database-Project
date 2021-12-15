@@ -180,7 +180,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label9.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(36, 92);
+            this.label9.Location = new System.Drawing.Point(15, 94);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(127, 30);
             this.label9.TabIndex = 21;
@@ -192,7 +192,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label1.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(713, 39);
+            this.label1.Location = new System.Drawing.Point(624, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 30);
             this.label1.TabIndex = 21;
@@ -204,7 +204,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label8.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(664, 167);
+            this.label8.Location = new System.Drawing.Point(581, 167);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(95, 30);
             this.label8.TabIndex = 30;
@@ -216,7 +216,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label10.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(78, 36);
+            this.label10.Location = new System.Drawing.Point(57, 36);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(85, 30);
             this.label10.TabIndex = 19;
@@ -231,7 +231,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             0,
             0,
             0});
-            this.spinSoCau.Location = new System.Drawing.Point(765, 163);
+            this.spinSoCau.Location = new System.Drawing.Point(676, 163);
             this.spinSoCau.Name = "spinSoCau";
             this.spinSoCau.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinSoCau.Properties.Appearance.Options.UseFont = true;
@@ -253,7 +253,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             0,
             0,
             0});
-            this.spinSoCau.Size = new System.Drawing.Size(90, 38);
+            this.spinSoCau.Size = new System.Drawing.Size(79, 38);
             this.spinSoCau.TabIndex = 33;
             // 
             // GVDK2BindingSource
@@ -267,7 +267,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label2.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(675, 103);
+            this.label2.Location = new System.Drawing.Point(591, 103);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 30);
             this.label2.TabIndex = 30;
@@ -278,7 +278,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label5.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(34, 44);
+            this.label5.Location = new System.Drawing.Point(30, 44);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(271, 30);
             this.label5.TabIndex = 29;
@@ -290,7 +290,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label7.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(943, 170);
+            this.label7.Location = new System.Drawing.Point(825, 167);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(119, 30);
             this.label7.TabIndex = 30;
@@ -301,7 +301,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label4.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(34, 5);
+            this.label4.Location = new System.Drawing.Point(30, 5);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(217, 30);
             this.label4.TabIndex = 28;
@@ -310,7 +310,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // LookUpGV
             // 
             this.LookUpGV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LookUpGV.Location = new System.Drawing.Point(169, 88);
+            this.LookUpGV.Location = new System.Drawing.Point(148, 88);
             this.LookUpGV.Name = "LookUpGV";
             this.LookUpGV.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.LookUpGV.Properties.Appearance.BackColor = System.Drawing.Color.White;
@@ -340,7 +340,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.LookUpGV.Properties.NullText = "Chọn giáo viên đăng ký thi";
             this.LookUpGV.Properties.PopupView = this.gridLookUpEdit1View;
             this.LookUpGV.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
-            this.LookUpGV.Size = new System.Drawing.Size(459, 38);
+            this.LookUpGV.Size = new System.Drawing.Size(402, 38);
             this.LookUpGV.TabIndex = 34;
             this.LookUpGV.EnabledChanged += new System.EventHandler(this.LookUpGV_EnabledChanged);
             // 
@@ -379,11 +379,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.colMAGV.AppearanceHeader.Options.UseForeColor = true;
             this.colMAGV.Caption = "Mã GV";
             this.colMAGV.FieldName = "MAGV";
-            this.colMAGV.MinWidth = 23;
             this.colMAGV.Name = "colMAGV";
             this.colMAGV.Visible = true;
             this.colMAGV.VisibleIndex = 0;
-            this.colMAGV.Width = 103;
+            this.colMAGV.Width = 90;
             // 
             // colHoTen
             // 
@@ -393,11 +392,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.colHoTen.AppearanceHeader.Options.UseForeColor = true;
             this.colHoTen.Caption = "Họ và tên";
             this.colHoTen.FieldName = "HoTen";
-            this.colHoTen.MinWidth = 23;
             this.colHoTen.Name = "colHoTen";
             this.colHoTen.Visible = true;
             this.colHoTen.VisibleIndex = 1;
-            this.colHoTen.Width = 354;
+            this.colHoTen.Width = 310;
             // 
             // label13
             // 
@@ -405,7 +403,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label13.Enabled = false;
             this.label13.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(42, 6);
+            this.label13.Location = new System.Drawing.Point(37, 6);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(20, 30);
             this.label13.TabIndex = 28;
@@ -423,7 +421,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.rdoB.Location = new System.Drawing.Point(3, 49);
             this.rdoB.Name = "rdoB";
             this.rdoB.ShadowDecoration.Parent = this.rdoB;
-            this.rdoB.Size = new System.Drawing.Size(20, 20);
+            this.rdoB.Size = new System.Drawing.Size(22, 22);
             this.rdoB.TabIndex = 25;
             this.rdoB.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdoB.UncheckedState.BorderThickness = 2;
@@ -436,7 +434,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label6.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(344, 6);
+            this.label6.Location = new System.Drawing.Point(301, 6);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(112, 30);
             this.label6.TabIndex = 27;
@@ -448,7 +446,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label15.Enabled = false;
             this.label15.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(99, 6);
+            this.label15.Location = new System.Drawing.Point(87, 6);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(23, 30);
             this.label15.TabIndex = 27;
@@ -463,7 +461,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             0,
             0,
             0});
-            this.spinThoiGian.Location = new System.Drawing.Point(1068, 161);
+            this.spinThoiGian.Location = new System.Drawing.Point(944, 163);
             this.spinThoiGian.Name = "spinThoiGian";
             this.spinThoiGian.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinThoiGian.Properties.Appearance.Options.UseFont = true;
@@ -485,7 +483,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             0,
             0,
             0});
-            this.spinThoiGian.Size = new System.Drawing.Size(90, 38);
+            this.spinThoiGian.Size = new System.Drawing.Size(79, 38);
             this.spinThoiGian.TabIndex = 33;
             // 
             // rdoA
@@ -500,7 +498,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.rdoA.Location = new System.Drawing.Point(3, 9);
             this.rdoA.Name = "rdoA";
             this.rdoA.ShadowDecoration.Parent = this.rdoA;
-            this.rdoA.Size = new System.Drawing.Size(20, 20);
+            this.rdoA.Size = new System.Drawing.Size(22, 22);
             this.rdoA.TabIndex = 24;
             this.rdoA.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdoA.UncheckedState.BorderThickness = 2;
@@ -515,8 +513,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.labelCau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.labelCau.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.labelCau.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelCau.Location = new System.Drawing.Point(867, 167);
-            this.labelCau.Margin = new System.Windows.Forms.Padding(3, 0, 11, 5);
+            this.labelCau.Location = new System.Drawing.Point(766, 167);
+            this.labelCau.Margin = new System.Windows.Forms.Padding(3, 0, 10, 5);
             this.labelCau.Name = "labelCau";
             this.labelCau.Size = new System.Drawing.Size(41, 30);
             this.labelCau.TabIndex = 36;
@@ -532,10 +530,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.rdo1.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rdo1.CheckedState.Parent = this.rdo1;
             this.rdo1.Enabled = false;
-            this.rdo1.Location = new System.Drawing.Point(12, 11);
+            this.rdo1.Location = new System.Drawing.Point(10, 11);
             this.rdo1.Name = "rdo1";
             this.rdo1.ShadowDecoration.Parent = this.rdo1;
-            this.rdo1.Size = new System.Drawing.Size(20, 20);
+            this.rdo1.Size = new System.Drawing.Size(22, 22);
             this.rdo1.TabIndex = 24;
             this.rdo1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdo1.UncheckedState.BorderThickness = 2;
@@ -549,7 +547,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label3.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(75, 148);
+            this.label3.Location = new System.Drawing.Point(54, 148);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 30);
             this.label3.TabIndex = 26;
@@ -562,7 +560,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label14.Enabled = false;
             this.label14.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(991, 100);
+            this.label14.Location = new System.Drawing.Point(867, 100);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(71, 30);
             this.label14.TabIndex = 26;
@@ -577,10 +575,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.rdoC.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.rdoC.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rdoC.CheckedState.Parent = this.rdoC;
-            this.rdoC.Location = new System.Drawing.Point(318, 9);
+            this.rdoC.Location = new System.Drawing.Point(278, 9);
             this.rdoC.Name = "rdoC";
             this.rdoC.ShadowDecoration.Parent = this.rdoC;
-            this.rdoC.Size = new System.Drawing.Size(20, 20);
+            this.rdoC.Size = new System.Drawing.Size(22, 22);
             this.rdoC.TabIndex = 23;
             this.rdoC.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdoC.UncheckedState.BorderThickness = 2;
@@ -598,10 +596,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.rdo2.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rdo2.CheckedState.Parent = this.rdo2;
             this.rdo2.Enabled = false;
-            this.rdo2.Location = new System.Drawing.Point(70, 11);
+            this.rdo2.Location = new System.Drawing.Point(61, 11);
             this.rdo2.Name = "rdo2";
             this.rdo2.ShadowDecoration.Parent = this.rdo2;
-            this.rdo2.Size = new System.Drawing.Size(20, 20);
+            this.rdo2.Size = new System.Drawing.Size(22, 22);
             this.rdo2.TabIndex = 23;
             this.rdo2.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdo2.UncheckedState.BorderThickness = 2;
@@ -616,8 +614,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.labelPhut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.labelPhut.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.labelPhut.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelPhut.Location = new System.Drawing.Point(1164, 170);
-            this.labelPhut.Margin = new System.Windows.Forms.Padding(3, 0, 11, 5);
+            this.labelPhut.Location = new System.Drawing.Point(1031, 167);
+            this.labelPhut.Margin = new System.Windows.Forms.Padding(3, 0, 10, 5);
             this.labelPhut.Name = "labelPhut";
             this.labelPhut.Size = new System.Drawing.Size(50, 30);
             this.labelPhut.TabIndex = 36;
@@ -628,9 +626,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.note_disabled1;
-            this.pictureBox1.Location = new System.Drawing.Point(49, 71);
+            this.pictureBox1.Location = new System.Drawing.Point(43, 71);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(234, 212);
+            this.pictureBox1.Size = new System.Drawing.Size(205, 212);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 38;
             this.pictureBox1.TabStop = false;
@@ -663,17 +661,17 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.bunifuPanel1.Controls.Add(this.label14);
             this.bunifuPanel1.Controls.Add(this.labelCau);
             this.bunifuPanel1.Controls.Add(this.spinThoiGian);
-            this.bunifuPanel1.Location = new System.Drawing.Point(310, 47);
-            this.bunifuPanel1.Margin = new System.Windows.Forms.Padding(3, 3, 34, 3);
+            this.bunifuPanel1.Location = new System.Drawing.Point(271, 47);
+            this.bunifuPanel1.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(1247, 256);
+            this.bunifuPanel1.Size = new System.Drawing.Size(1091, 256);
             this.bunifuPanel1.TabIndex = 37;
             // 
             // LookUpMh
             // 
             this.LookUpMh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LookUpMh.Location = new System.Drawing.Point(169, 33);
+            this.LookUpMh.Location = new System.Drawing.Point(148, 33);
             this.LookUpMh.Name = "LookUpMh";
             this.LookUpMh.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.LookUpMh.Properties.Appearance.BackColor = System.Drawing.Color.White;
@@ -703,7 +701,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.LookUpMh.Properties.NullText = "Chọn môn thi";
             this.LookUpMh.Properties.PopupView = this.gridView1;
             this.LookUpMh.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
-            this.LookUpMh.Size = new System.Drawing.Size(459, 38);
+            this.LookUpMh.Size = new System.Drawing.Size(402, 38);
             this.LookUpMh.TabIndex = 56;
             this.LookUpMh.EditValueChanged += new System.EventHandler(this.LookUpMhLop_EditValueChanged);
             // 
@@ -740,10 +738,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.colMAMH.AppearanceHeader.Options.UseForeColor = true;
             this.colMAMH.Caption = "Mã MH";
             this.colMAMH.FieldName = "MAMH";
+            this.colMAMH.MinWidth = 17;
             this.colMAMH.Name = "colMAMH";
             this.colMAMH.Visible = true;
             this.colMAMH.VisibleIndex = 0;
-            this.colMAMH.Width = 103;
+            this.colMAMH.Width = 90;
             // 
             // colTENMH1
             // 
@@ -753,15 +752,16 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.colTENMH1.AppearanceHeader.Options.UseForeColor = true;
             this.colTENMH1.Caption = "Tên môn học";
             this.colTENMH1.FieldName = "TENMH";
+            this.colTENMH1.MinWidth = 17;
             this.colTENMH1.Name = "colTENMH1";
             this.colTENMH1.Visible = true;
             this.colTENMH1.VisibleIndex = 1;
-            this.colTENMH1.Width = 297;
+            this.colTENMH1.Width = 260;
             // 
             // LookUpLop
             // 
             this.LookUpLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LookUpLop.Location = new System.Drawing.Point(765, 34);
+            this.LookUpLop.Location = new System.Drawing.Point(676, 33);
             this.LookUpLop.Name = "LookUpLop";
             this.LookUpLop.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.LookUpLop.Properties.Appearance.BackColor = System.Drawing.Color.White;
@@ -791,7 +791,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.LookUpLop.Properties.NullText = "Chọn lớp thi";
             this.LookUpLop.Properties.PopupView = this.gridView2;
             this.LookUpLop.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
-            this.LookUpLop.Size = new System.Drawing.Size(459, 38);
+            this.LookUpLop.Size = new System.Drawing.Size(402, 38);
             this.LookUpLop.TabIndex = 55;
             this.LookUpLop.EditValueChanged += new System.EventHandler(this.LookUpMhLop_EditValueChanged);
             // 
@@ -828,10 +828,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.colMALOP.AppearanceHeader.Options.UseForeColor = true;
             this.colMALOP.Caption = "Mã lớp";
             this.colMALOP.FieldName = "MALOP";
+            this.colMALOP.MinWidth = 17;
             this.colMALOP.Name = "colMALOP";
             this.colMALOP.Visible = true;
             this.colMALOP.VisibleIndex = 0;
-            this.colMALOP.Width = 103;
+            this.colMALOP.Width = 90;
             // 
             // colTENLOP1
             // 
@@ -841,16 +842,17 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.colTENLOP1.AppearanceHeader.Options.UseForeColor = true;
             this.colTENLOP1.Caption = "Tên lớp";
             this.colTENLOP1.FieldName = "TENLOP";
+            this.colTENLOP1.MinWidth = 17;
             this.colTENLOP1.Name = "colTENLOP1";
             this.colTENLOP1.Visible = true;
             this.colTENLOP1.VisibleIndex = 1;
-            this.colTENLOP1.Width = 297;
+            this.colTENLOP1.Width = 260;
             // 
             // NgayThi
             // 
             this.NgayThi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.GVDK2BindingSource, "NGAYTHI", true));
             this.NgayThi.EditValue = null;
-            this.NgayThi.Location = new System.Drawing.Point(765, 99);
+            this.NgayThi.Location = new System.Drawing.Point(676, 100);
             this.NgayThi.Name = "NgayThi";
             this.NgayThi.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.NgayThi.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F);
@@ -859,7 +861,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.NgayThi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.NgayThi.Size = new System.Drawing.Size(191, 38);
+            this.NgayThi.Size = new System.Drawing.Size(167, 38);
             this.NgayThi.TabIndex = 52;
             // 
             // panelTrinhDo
@@ -871,9 +873,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.panelTrinhDo.Controls.Add(this.label6);
             this.panelTrinhDo.Controls.Add(this.label5);
             this.panelTrinhDo.Enabled = false;
-            this.panelTrinhDo.Location = new System.Drawing.Point(169, 143);
+            this.panelTrinhDo.Location = new System.Drawing.Point(148, 143);
             this.panelTrinhDo.Name = "panelTrinhDo";
-            this.panelTrinhDo.Size = new System.Drawing.Size(459, 79);
+            this.panelTrinhDo.Size = new System.Drawing.Size(409, 79);
             this.panelTrinhDo.TabIndex = 49;
             this.panelTrinhDo.EnabledChanged += new System.EventHandler(this.panelTrinhDo_EnabledChanged);
             // 
@@ -883,18 +885,18 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.panelLan.Controls.Add(this.label15);
             this.panelLan.Controls.Add(this.label13);
             this.panelLan.Controls.Add(this.rdo2);
-            this.panelLan.Location = new System.Drawing.Point(1068, 97);
+            this.panelLan.Location = new System.Drawing.Point(944, 95);
             this.panelLan.Name = "panelLan";
-            this.panelLan.Size = new System.Drawing.Size(130, 43);
+            this.panelLan.Size = new System.Drawing.Size(114, 43);
             this.panelLan.TabIndex = 48;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = global::TracNghiemCSDLPT.Properties.Resources.info_480px_disabled;
-            this.pictureBox2.Location = new System.Drawing.Point(1565, 258);
+            this.pictureBox2.Location = new System.Drawing.Point(1369, 258);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(38, 45);
+            this.pictureBox2.Size = new System.Drawing.Size(33, 45);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 53;
             this.pictureBox2.TabStop = false;
@@ -908,10 +910,10 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GVDK2GridControl.DataSource = this.GVDK2BindingSource;
             this.GVDK2GridControl.Font = new System.Drawing.Font("Teko SemiBold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GVDK2GridControl.Location = new System.Drawing.Point(15, 414);
+            this.GVDK2GridControl.Location = new System.Drawing.Point(13, 414);
             this.GVDK2GridControl.MainView = this.GVDK2GridView;
             this.GVDK2GridControl.Name = "GVDK2GridControl";
-            this.GVDK2GridControl.Size = new System.Drawing.Size(1612, 452);
+            this.GVDK2GridControl.Size = new System.Drawing.Size(1410, 452);
             this.GVDK2GridControl.TabIndex = 36;
             this.GVDK2GridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GVDK2GridView,
@@ -981,11 +983,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.colMAGV1.AppearanceHeader.Options.UseBackColor = true;
             this.colMAGV1.Caption = "Mã GV";
             this.colMAGV1.FieldName = "MAGV";
-            this.colMAGV1.MinWidth = 25;
+            this.colMAGV1.MinWidth = 22;
             this.colMAGV1.Name = "colMAGV1";
             this.colMAGV1.Visible = true;
             this.colMAGV1.VisibleIndex = 0;
-            this.colMAGV1.Width = 360;
+            this.colMAGV1.Width = 315;
             // 
             // colHOTEN1
             // 
@@ -993,11 +995,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.colHOTEN1.AppearanceHeader.Options.UseBackColor = true;
             this.colHOTEN1.Caption = "Họ tên GV";
             this.colHOTEN1.FieldName = "HOTEN";
-            this.colHOTEN1.MinWidth = 25;
+            this.colHOTEN1.MinWidth = 22;
             this.colHOTEN1.Name = "colHOTEN1";
             this.colHOTEN1.Visible = true;
             this.colHOTEN1.VisibleIndex = 1;
-            this.colHOTEN1.Width = 360;
+            this.colHOTEN1.Width = 315;
             // 
             // colTENMH
             // 
@@ -1005,11 +1007,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.colTENMH.AppearanceHeader.Options.UseBackColor = true;
             this.colTENMH.Caption = "Môn thi";
             this.colTENMH.FieldName = "TENMH";
-            this.colTENMH.MinWidth = 25;
+            this.colTENMH.MinWidth = 22;
             this.colTENMH.Name = "colTENMH";
             this.colTENMH.Visible = true;
             this.colTENMH.VisibleIndex = 2;
-            this.colTENMH.Width = 360;
+            this.colTENMH.Width = 315;
             // 
             // colTENLOP
             // 
@@ -1017,11 +1019,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.colTENLOP.AppearanceHeader.Options.UseBackColor = true;
             this.colTENLOP.Caption = "Tên lớp";
             this.colTENLOP.FieldName = "TENLOP";
-            this.colTENLOP.MinWidth = 25;
+            this.colTENLOP.MinWidth = 22;
             this.colTENLOP.Name = "colTENLOP";
             this.colTENLOP.Visible = true;
             this.colTENLOP.VisibleIndex = 3;
-            this.colTENLOP.Width = 360;
+            this.colTENLOP.Width = 315;
             // 
             // colNGAYTHI
             // 
@@ -1033,11 +1035,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.colNGAYTHI.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colNGAYTHI.Caption = "Ngày thi";
             this.colNGAYTHI.FieldName = "NGAYTHI";
-            this.colNGAYTHI.MinWidth = 25;
+            this.colNGAYTHI.MinWidth = 22;
             this.colNGAYTHI.Name = "colNGAYTHI";
             this.colNGAYTHI.Visible = true;
             this.colNGAYTHI.VisibleIndex = 4;
-            this.colNGAYTHI.Width = 150;
+            this.colNGAYTHI.Width = 131;
             // 
             // colLAN
             // 
@@ -1049,15 +1051,14 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.colLAN.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colLAN.Caption = "Lần thi";
             this.colLAN.FieldName = "LAN";
-            this.colLAN.MinWidth = 100;
+            this.colLAN.MinWidth = 87;
             this.colLAN.Name = "colLAN";
             this.colLAN.Visible = true;
             this.colLAN.VisibleIndex = 5;
-            this.colLAN.Width = 100;
+            this.colLAN.Width = 87;
             // 
             // cardView1
             // 
-            this.cardView1.CardWidth = 229;
             this.cardView1.GridControl = this.GVDK2GridControl;
             this.cardView1.Name = "cardView1";
             this.cardView1.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Auto;
@@ -1079,9 +1080,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.InfoPanel.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.InfoPanel.LabelIndent = 10;
             this.InfoPanel.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
-            this.InfoPanel.Location = new System.Drawing.Point(11, 38);
+            this.InfoPanel.Location = new System.Drawing.Point(10, 38);
             this.InfoPanel.Name = "InfoPanel";
-            this.InfoPanel.Size = new System.Drawing.Size(1616, 309);
+            this.InfoPanel.Size = new System.Drawing.Size(1414, 309);
             this.InfoPanel.TabIndex = 39;
             this.InfoPanel.TabStop = false;
             this.InfoPanel.Text = "Thông tin đăng ký thi trắc nghiệm";
@@ -1099,12 +1100,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonHuy.HoverState.Parent = this.buttonHuy;
             this.buttonHuy.Image = global::TracNghiemCSDLPT.Properties.Resources.cancel_480px;
             this.buttonHuy.ImageSize = new System.Drawing.Size(31, 31);
-            this.buttonHuy.Location = new System.Drawing.Point(1573, 117);
-            this.buttonHuy.Margin = new System.Windows.Forms.Padding(11, 0, 3, 3);
+            this.buttonHuy.Location = new System.Drawing.Point(1376, 117);
+            this.buttonHuy.Margin = new System.Windows.Forms.Padding(10, 0, 3, 3);
             this.buttonHuy.Name = "buttonHuy";
             this.buttonHuy.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.buttonHuy.ShadowDecoration.Parent = this.buttonHuy;
-            this.buttonHuy.Size = new System.Drawing.Size(34, 30);
+            this.buttonHuy.Size = new System.Drawing.Size(30, 30);
             this.buttonHuy.TabIndex = 39;
             this.buttonHuy.Visible = false;
             this.buttonHuy.Click += new System.EventHandler(this.buttonHuy_Click);
@@ -1120,12 +1121,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonXacNhan.HoverState.Parent = this.buttonXacNhan;
             this.buttonXacNhan.Image = global::TracNghiemCSDLPT.Properties.Resources.ok_480px;
             this.buttonXacNhan.ImageSize = new System.Drawing.Size(31, 31);
-            this.buttonXacNhan.Location = new System.Drawing.Point(1573, 47);
-            this.buttonXacNhan.Margin = new System.Windows.Forms.Padding(11, 9, 8, 20);
+            this.buttonXacNhan.Location = new System.Drawing.Point(1376, 47);
+            this.buttonXacNhan.Margin = new System.Windows.Forms.Padding(10, 9, 7, 20);
             this.buttonXacNhan.Name = "buttonXacNhan";
             this.buttonXacNhan.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.buttonXacNhan.ShadowDecoration.Parent = this.buttonXacNhan;
-            this.buttonXacNhan.Size = new System.Drawing.Size(34, 30);
+            this.buttonXacNhan.Size = new System.Drawing.Size(30, 30);
             this.buttonXacNhan.TabIndex = 40;
             this.buttonXacNhan.Visible = false;
             this.buttonXacNhan.Click += new System.EventHandler(this.buttonXacNhan_Click);
@@ -1144,12 +1145,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonSua.HoverState.Parent = this.buttonSua;
             this.buttonSua.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_480px;
             this.buttonSua.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonSua.Location = new System.Drawing.Point(641, 5);
+            this.buttonSua.Location = new System.Drawing.Point(561, 5);
             this.buttonSua.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonSua.Name = "buttonSua";
             this.buttonSua.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonSua.ShadowDecoration.Parent = this.buttonSua;
-            this.buttonSua.Size = new System.Drawing.Size(168, 45);
+            this.buttonSua.Size = new System.Drawing.Size(147, 45);
             this.buttonSua.TabIndex = 40;
             this.buttonSua.Text = "Sửa";
             this.buttonSua.TextOffset = new System.Drawing.Point(3, 0);
@@ -1169,12 +1170,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonThem.HoverState.Parent = this.buttonThem;
             this.buttonThem.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
             this.buttonThem.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonThem.Location = new System.Drawing.Point(215, 5);
+            this.buttonThem.Location = new System.Drawing.Point(188, 5);
             this.buttonThem.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonThem.Name = "buttonThem";
             this.buttonThem.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonThem.ShadowDecoration.Parent = this.buttonThem;
-            this.buttonThem.Size = new System.Drawing.Size(168, 45);
+            this.buttonThem.Size = new System.Drawing.Size(147, 45);
             this.buttonThem.TabIndex = 41;
             this.buttonThem.Text = "Thêm";
             this.buttonThem.TextOffset = new System.Drawing.Point(3, 0);
@@ -1194,12 +1195,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonLamMoi.HoverState.Parent = this.buttonLamMoi;
             this.buttonLamMoi.Image = global::TracNghiemCSDLPT.Properties.Resources.reset_480px;
             this.buttonLamMoi.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonLamMoi.Location = new System.Drawing.Point(864, 5);
+            this.buttonLamMoi.Location = new System.Drawing.Point(756, 5);
             this.buttonLamMoi.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonLamMoi.Name = "buttonLamMoi";
             this.buttonLamMoi.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonLamMoi.ShadowDecoration.Parent = this.buttonLamMoi;
-            this.buttonLamMoi.Size = new System.Drawing.Size(168, 45);
+            this.buttonLamMoi.Size = new System.Drawing.Size(147, 45);
             this.buttonLamMoi.TabIndex = 42;
             this.buttonLamMoi.Text = "Làm mới";
             this.buttonLamMoi.TextOffset = new System.Drawing.Point(3, 0);
@@ -1219,12 +1220,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonXoa.HoverState.Parent = this.buttonXoa;
             this.buttonXoa.Image = global::TracNghiemCSDLPT.Properties.Resources.minus_sign_480px;
             this.buttonXoa.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonXoa.Location = new System.Drawing.Point(429, 5);
+            this.buttonXoa.Location = new System.Drawing.Point(375, 5);
             this.buttonXoa.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonXoa.Name = "buttonXoa";
             this.buttonXoa.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonXoa.ShadowDecoration.Parent = this.buttonXoa;
-            this.buttonXoa.Size = new System.Drawing.Size(168, 45);
+            this.buttonXoa.Size = new System.Drawing.Size(147, 45);
             this.buttonXoa.TabIndex = 43;
             this.buttonXoa.Text = "Xóa";
             this.buttonXoa.TextOffset = new System.Drawing.Point(3, 0);
@@ -1244,12 +1245,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonUndo.HoverState.Parent = this.buttonUndo;
             this.buttonUndo.Image = global::TracNghiemCSDLPT.Properties.Resources.undo_480px1;
             this.buttonUndo.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonUndo.Location = new System.Drawing.Point(1500, 418);
-            this.buttonUndo.Margin = new System.Windows.Forms.Padding(3, 3, 11, 3);
+            this.buttonUndo.Location = new System.Drawing.Point(1312, 418);
+            this.buttonUndo.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.buttonUndo.Name = "buttonUndo";
             this.buttonUndo.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.buttonUndo.ShadowDecoration.Parent = this.buttonUndo;
-            this.buttonUndo.Size = new System.Drawing.Size(37, 32);
+            this.buttonUndo.Size = new System.Drawing.Size(32, 32);
             this.buttonUndo.TabIndex = 44;
             this.buttonUndo.Visible = false;
             // 
@@ -1267,12 +1268,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.buttonRedo.HoverState.Parent = this.buttonRedo;
             this.buttonRedo.Image = global::TracNghiemCSDLPT.Properties.Resources.redo_480px;
             this.buttonRedo.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonRedo.Location = new System.Drawing.Point(1574, 418);
-            this.buttonRedo.Margin = new System.Windows.Forms.Padding(23, 10, 17, 3);
+            this.buttonRedo.Location = new System.Drawing.Point(1377, 418);
+            this.buttonRedo.Margin = new System.Windows.Forms.Padding(20, 10, 15, 3);
             this.buttonRedo.Name = "buttonRedo";
             this.buttonRedo.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.buttonRedo.ShadowDecoration.Parent = this.buttonRedo;
-            this.buttonRedo.Size = new System.Drawing.Size(37, 32);
+            this.buttonRedo.Size = new System.Drawing.Size(32, 32);
             this.buttonRedo.TabIndex = 45;
             this.buttonRedo.Visible = false;
             // 
@@ -1303,11 +1304,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.CoSoComboBox.HoverState.Parent = this.CoSoComboBox;
             this.CoSoComboBox.ItemHeight = 30;
             this.CoSoComboBox.ItemsAppearance.Parent = this.CoSoComboBox;
-            this.CoSoComboBox.Location = new System.Drawing.Point(740, 9);
-            this.CoSoComboBox.Margin = new System.Windows.Forms.Padding(10, 0, 3, 10);
+            this.CoSoComboBox.Location = new System.Drawing.Point(648, 9);
+            this.CoSoComboBox.Margin = new System.Windows.Forms.Padding(9, 0, 3, 10);
             this.CoSoComboBox.Name = "CoSoComboBox";
             this.CoSoComboBox.ShadowDecoration.Parent = this.CoSoComboBox;
-            this.CoSoComboBox.Size = new System.Drawing.Size(290, 36);
+            this.CoSoComboBox.Size = new System.Drawing.Size(254, 36);
             this.CoSoComboBox.TabIndex = 47;
             this.CoSoComboBox.TextOffset = new System.Drawing.Point(3, 3);
             this.CoSoComboBox.SelectedIndexChanged += new System.EventHandler(this.CoSoComboBox_SelectedIndexChanged);
@@ -1317,8 +1318,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label16.Location = new System.Drawing.Point(613, 12);
-            this.label16.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
+            this.label16.Location = new System.Drawing.Point(536, 12);
+            this.label16.Margin = new System.Windows.Forms.Padding(3, 0, 9, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(107, 30);
             this.label16.TabIndex = 46;
@@ -1386,9 +1387,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             this.panel1.Controls.Add(this.buttonXoa);
             this.panel1.Controls.Add(this.buttonSua);
             this.panel1.Controls.Add(this.buttonLamMoi);
-            this.panel1.Location = new System.Drawing.Point(351, 354);
+            this.panel1.Location = new System.Drawing.Point(307, 354);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1247, 58);
+            this.panel1.Size = new System.Drawing.Size(1091, 58);
             this.panel1.TabIndex = 44;
             // 
             // MHEP
@@ -1403,9 +1404,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             // 
             // FormDkThi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1639, 865);
+            this.ClientSize = new System.Drawing.Size(1434, 865);
             this.Controls.Add(this.CoSoComboBox);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.buttonUndo);

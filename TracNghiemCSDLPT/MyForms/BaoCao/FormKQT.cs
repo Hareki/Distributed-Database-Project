@@ -141,8 +141,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         }
         private void FormKQT_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'TN_CSDLPTDataSet.usp_Report_KQT_LaySVDaDuThi' table. You can move, or remove it, as needed.
-            this.usp_Report_KQT_LaySVDaDuThiTableAdapter.Fill(this.TN_CSDLPTDataSet.usp_Report_KQT_LaySVDaDuThi);
             Utils.BindingComboData(this.CoSoComboBox, _previousIndexCS);
             ConfigLookupMh();
             PhanQuyen();

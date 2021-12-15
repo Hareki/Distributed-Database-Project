@@ -54,11 +54,12 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENMH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpSv = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usp_Report_KQT_LaySVDaDuThiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHoTen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DSSVBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DSMHTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.DSMHTableAdapter();
             this.tableAdapterManager = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
@@ -67,7 +68,6 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.usp_Report_KQT_LayMonDaThiTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.usp_Report_KQT_LayMonDaThiTableAdapter();
             this.usp_Report_KQT_LaySVThuocLopDaDuThiTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.usp_Report_KQT_LaySVThuocLopDaDuThiTableAdapter();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.usp_Report_KQT_LaySVDaDuThiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usp_Report_KQT_LaySVDaDuThiTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.usp_Report_KQT_LaySVDaDuThiTableAdapter();
             this.bunifuPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -80,11 +80,11 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpSv.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usp_Report_KQT_LaySVDaDuThiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSSVBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usp_Report_KQT_LayMonDaThiBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usp_Report_KQT_LaySVDaDuThiBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuPanel1
@@ -100,10 +100,10 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.bunifuPanel1.Controls.Add(this.label2);
             this.bunifuPanel1.Controls.Add(this.CoSoComboBox);
             this.bunifuPanel1.Controls.Add(this.panel1);
-            this.bunifuPanel1.Location = new System.Drawing.Point(299, 52);
+            this.bunifuPanel1.Location = new System.Drawing.Point(262, 52);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(1026, 708);
+            this.bunifuPanel1.Size = new System.Drawing.Size(898, 708);
             this.bunifuPanel1.TabIndex = 2;
             // 
             // pictureBox1
@@ -113,9 +113,9 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.KQT;
-            this.pictureBox1.Location = new System.Drawing.Point(525, 77);
+            this.pictureBox1.Location = new System.Drawing.Point(459, 77);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(498, 606);
+            this.pictureBox1.Size = new System.Drawing.Size(436, 606);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -125,8 +125,8 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(610, 38);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
+            this.label2.Location = new System.Drawing.Point(534, 38);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 9, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 30);
             this.label2.TabIndex = 32;
@@ -148,11 +148,11 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.CoSoComboBox.HoverState.Parent = this.CoSoComboBox;
             this.CoSoComboBox.ItemHeight = 30;
             this.CoSoComboBox.ItemsAppearance.Parent = this.CoSoComboBox;
-            this.CoSoComboBox.Location = new System.Drawing.Point(737, 35);
-            this.CoSoComboBox.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.CoSoComboBox.Location = new System.Drawing.Point(645, 35);
+            this.CoSoComboBox.Margin = new System.Windows.Forms.Padding(9, 3, 3, 3);
             this.CoSoComboBox.Name = "CoSoComboBox";
             this.CoSoComboBox.ShadowDecoration.Parent = this.CoSoComboBox;
-            this.CoSoComboBox.Size = new System.Drawing.Size(286, 36);
+            this.CoSoComboBox.Size = new System.Drawing.Size(251, 36);
             this.CoSoComboBox.TabIndex = 31;
             this.CoSoComboBox.SelectedIndexChanged += new System.EventHandler(this.CoSoComboBox_SelectedIndexChanged);
             // 
@@ -171,9 +171,9 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.panel1.Controls.Add(this.panelLan);
             this.panel1.Controls.Add(this.LookUpMh);
             this.panel1.Controls.Add(this.LookUpSv);
-            this.panel1.Location = new System.Drawing.Point(10, 77);
+            this.panel1.Location = new System.Drawing.Point(9, 77);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(535, 606);
+            this.panel1.Size = new System.Drawing.Size(468, 606);
             this.panel1.TabIndex = 1;
             // 
             // buttonCancel
@@ -189,12 +189,12 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.buttonCancel.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonCancel.HoverState.Parent = this.buttonCancel;
             this.buttonCancel.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonCancel.Location = new System.Drawing.Point(47, 450);
+            this.buttonCancel.Location = new System.Drawing.Point(41, 450);
             this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonCancel.ShadowDecoration.Parent = this.buttonCancel;
-            this.buttonCancel.Size = new System.Drawing.Size(207, 46);
+            this.buttonCancel.Size = new System.Drawing.Size(181, 46);
             this.buttonCancel.TabIndex = 61;
             this.buttonCancel.Text = "Hủy";
             this.buttonCancel.TextOffset = new System.Drawing.Point(3, 0);
@@ -212,12 +212,12 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.buttonPrint.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(147)))), ((int)(((byte)(219)))));
             this.buttonPrint.HoverState.Parent = this.buttonPrint;
             this.buttonPrint.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonPrint.Location = new System.Drawing.Point(285, 450);
+            this.buttonPrint.Location = new System.Drawing.Point(249, 450);
             this.buttonPrint.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonPrint.Name = "buttonPrint";
             this.buttonPrint.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonPrint.ShadowDecoration.Parent = this.buttonPrint;
-            this.buttonPrint.Size = new System.Drawing.Size(207, 46);
+            this.buttonPrint.Size = new System.Drawing.Size(181, 46);
             this.buttonPrint.TabIndex = 60;
             this.buttonPrint.Text = "In xem trước";
             this.buttonPrint.TextOffset = new System.Drawing.Point(3, 0);
@@ -226,9 +226,9 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             // pictureBox2
             // 
             this.pictureBox2.Image = global::TracNghiemCSDLPT.Properties.Resources.CSDLPT_Logo1;
-            this.pictureBox2.Location = new System.Drawing.Point(114, 63);
+            this.pictureBox2.Location = new System.Drawing.Point(100, 63);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(84, 91);
+            this.pictureBox2.Size = new System.Drawing.Size(74, 91);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 58;
             this.pictureBox2.TabStop = false;
@@ -237,9 +237,9 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             // 
             this.label3.Font = new System.Drawing.Font("Baloo 2", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
-            this.label3.Location = new System.Drawing.Point(204, 63);
+            this.label3.Location = new System.Drawing.Point(178, 63);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(217, 91);
+            this.label3.Size = new System.Drawing.Size(190, 91);
             this.label3.TabIndex = 59;
             this.label3.Text = "Kết quả bài thi trắc nghiệm";
             // 
@@ -248,9 +248,9 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.toolTip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.toolTip.Image = global::TracNghiemCSDLPT.Properties.Resources.info_480px;
-            this.toolTip.Location = new System.Drawing.Point(476, 558);
+            this.toolTip.Location = new System.Drawing.Point(416, 558);
             this.toolTip.Name = "toolTip";
-            this.toolTip.Size = new System.Drawing.Size(33, 45);
+            this.toolTip.Size = new System.Drawing.Size(29, 45);
             this.toolTip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.toolTip.TabIndex = 54;
             this.toolTip.TabStop = false;
@@ -263,8 +263,8 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.label6.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label6.Location = new System.Drawing.Point(42, 361);
-            this.label6.Margin = new System.Windows.Forms.Padding(3, 0, 11, 5);
+            this.label6.Location = new System.Drawing.Point(37, 361);
+            this.label6.Margin = new System.Windows.Forms.Padding(3, 0, 10, 5);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 30);
             this.label6.TabIndex = 29;
@@ -276,10 +276,10 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.panelLan.Controls.Add(this.label15);
             this.panelLan.Controls.Add(this.label13);
             this.panelLan.Controls.Add(this.rdo2);
-            this.panelLan.Location = new System.Drawing.Point(124, 355);
+            this.panelLan.Location = new System.Drawing.Point(108, 355);
             this.panelLan.Margin = new System.Windows.Forms.Padding(3, 3, 3, 40);
             this.panelLan.Name = "panelLan";
-            this.panelLan.Size = new System.Drawing.Size(145, 43);
+            this.panelLan.Size = new System.Drawing.Size(127, 43);
             this.panelLan.TabIndex = 50;
             // 
             // rdo1
@@ -292,10 +292,10 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.rdo1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(198)))), ((int)(((byte)(203)))));
             this.rdo1.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rdo1.CheckedState.Parent = this.rdo1;
-            this.rdo1.Location = new System.Drawing.Point(16, 13);
+            this.rdo1.Location = new System.Drawing.Point(14, 13);
             this.rdo1.Name = "rdo1";
             this.rdo1.ShadowDecoration.Parent = this.rdo1;
-            this.rdo1.Size = new System.Drawing.Size(20, 20);
+            this.rdo1.Size = new System.Drawing.Size(22, 22);
             this.rdo1.TabIndex = 24;
             this.rdo1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdo1.UncheckedState.BorderThickness = 2;
@@ -310,7 +310,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.label15.BackColor = System.Drawing.Color.White;
             this.label15.Enabled = false;
             this.label15.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(119, 8);
+            this.label15.Location = new System.Drawing.Point(104, 9);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(23, 30);
             this.label15.TabIndex = 27;
@@ -322,7 +322,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.label13.BackColor = System.Drawing.Color.White;
             this.label13.Enabled = false;
             this.label13.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(42, 8);
+            this.label13.Location = new System.Drawing.Point(37, 9);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(20, 30);
             this.label13.TabIndex = 28;
@@ -338,10 +338,10 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.rdo2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(198)))), ((int)(((byte)(203)))));
             this.rdo2.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rdo2.CheckedState.Parent = this.rdo2;
-            this.rdo2.Location = new System.Drawing.Point(93, 13);
+            this.rdo2.Location = new System.Drawing.Point(81, 13);
             this.rdo2.Name = "rdo2";
             this.rdo2.ShadowDecoration.Parent = this.rdo2;
-            this.rdo2.Size = new System.Drawing.Size(20, 20);
+            this.rdo2.Size = new System.Drawing.Size(22, 22);
             this.rdo2.TabIndex = 23;
             this.rdo2.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdo2.UncheckedState.BorderThickness = 2;
@@ -351,7 +351,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             // 
             // LookUpMh
             // 
-            this.LookUpMh.Location = new System.Drawing.Point(47, 283);
+            this.LookUpMh.Location = new System.Drawing.Point(41, 283);
             this.LookUpMh.Margin = new System.Windows.Forms.Padding(3, 3, 3, 40);
             this.LookUpMh.Name = "LookUpMh";
             this.LookUpMh.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -364,7 +364,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.LookUpMh.Properties.PopupFormSize = new System.Drawing.Size(0, 300);
             this.LookUpMh.Properties.PopupView = this.gridView1;
             this.LookUpMh.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
-            this.LookUpMh.Size = new System.Drawing.Size(445, 38);
+            this.LookUpMh.Size = new System.Drawing.Size(389, 38);
             this.LookUpMh.TabIndex = 31;
             this.LookUpMh.EditValueChanged += new System.EventHandler(this.LookUpMh_EditValueChanged);
             // 
@@ -402,11 +402,12 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.colMAMH.AppearanceHeader.Options.UseBackColor = true;
             this.colMAMH.Caption = "Mã MH";
             this.colMAMH.FieldName = "MAMH";
+            this.colMAMH.MinWidth = 17;
             this.colMAMH.Name = "colMAMH";
             this.colMAMH.OptionsColumn.FixedWidth = true;
             this.colMAMH.Visible = true;
             this.colMAMH.VisibleIndex = 0;
-            this.colMAMH.Width = 100;
+            this.colMAMH.Width = 87;
             // 
             // colTENMH
             // 
@@ -414,14 +415,15 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.colTENMH.AppearanceHeader.Options.UseBackColor = true;
             this.colTENMH.Caption = "Tên môn học";
             this.colTENMH.FieldName = "TENMH";
+            this.colTENMH.MinWidth = 17;
             this.colTENMH.Name = "colTENMH";
             this.colTENMH.Visible = true;
             this.colTENMH.VisibleIndex = 1;
-            this.colTENMH.Width = 300;
+            this.colTENMH.Width = 262;
             // 
             // LookUpSv
             // 
-            this.LookUpSv.Location = new System.Drawing.Point(47, 202);
+            this.LookUpSv.Location = new System.Drawing.Point(41, 202);
             this.LookUpSv.Margin = new System.Windows.Forms.Padding(3, 3, 3, 40);
             this.LookUpSv.Name = "LookUpSv";
             this.LookUpSv.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -433,14 +435,14 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.LookUpSv.Properties.NullText = "Chọn sinh viên";
             this.LookUpSv.Properties.PopupView = this.gridLookUpEdit1View;
             this.LookUpSv.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
-            this.LookUpSv.Size = new System.Drawing.Size(445, 38);
+            this.LookUpSv.Size = new System.Drawing.Size(389, 38);
             this.LookUpSv.TabIndex = 30;
             this.LookUpSv.EditValueChanged += new System.EventHandler(this.LookUpSv_EditValueChanged);
             // 
-            // usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource
+            // usp_Report_KQT_LaySVDaDuThiBindingSource
             // 
-            this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource.DataMember = "usp_Report_KQT_LaySVThuocLopDaDuThi";
-            this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource.DataSource = this.TN_CSDLPTDataSet;
+            this.usp_Report_KQT_LaySVDaDuThiBindingSource.DataMember = "usp_Report_KQT_LaySVDaDuThi";
+            this.usp_Report_KQT_LaySVDaDuThiBindingSource.DataSource = this.TN_CSDLPTDataSet;
             // 
             // gridLookUpEdit1View
             // 
@@ -467,11 +469,12 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.colMASV.AppearanceHeader.Options.UseBackColor = true;
             this.colMASV.Caption = "Mã SV";
             this.colMASV.FieldName = "MASV";
+            this.colMASV.MinWidth = 17;
             this.colMASV.Name = "colMASV";
             this.colMASV.OptionsColumn.FixedWidth = true;
             this.colMASV.Visible = true;
             this.colMASV.VisibleIndex = 0;
-            this.colMASV.Width = 103;
+            this.colMASV.Width = 90;
             // 
             // colHoTen
             // 
@@ -479,10 +482,11 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.colHoTen.AppearanceHeader.Options.UseBackColor = true;
             this.colHoTen.Caption = "Họ tên SV";
             this.colHoTen.FieldName = "HoTen";
+            this.colHoTen.MinWidth = 17;
             this.colHoTen.Name = "colHoTen";
             this.colHoTen.Visible = true;
             this.colHoTen.VisibleIndex = 1;
-            this.colHoTen.Width = 147;
+            this.colHoTen.Width = 129;
             // 
             // colMALOP
             // 
@@ -490,11 +494,17 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.colMALOP.AppearanceHeader.Options.UseBackColor = true;
             this.colMALOP.Caption = "Lớp";
             this.colMALOP.FieldName = "MALOP";
+            this.colMALOP.MinWidth = 17;
             this.colMALOP.Name = "colMALOP";
             this.colMALOP.OptionsColumn.FixedWidth = true;
             this.colMALOP.Visible = true;
             this.colMALOP.VisibleIndex = 2;
-            this.colMALOP.Width = 103;
+            this.colMALOP.Width = 90;
+            // 
+            // usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource
+            // 
+            this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource.DataMember = "usp_Report_KQT_LaySVThuocLopDaDuThi";
+            this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource.DataSource = this.TN_CSDLPTDataSet;
             // 
             // DSSVBindingSource
             // 
@@ -539,20 +549,15 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             // 
             this.usp_Report_KQT_LaySVThuocLopDaDuThiTableAdapter.ClearBeforeFill = true;
             // 
-            // usp_Report_KQT_LaySVDaDuThiBindingSource
-            // 
-            this.usp_Report_KQT_LaySVDaDuThiBindingSource.DataMember = "usp_Report_KQT_LaySVDaDuThi";
-            this.usp_Report_KQT_LaySVDaDuThiBindingSource.DataSource = this.TN_CSDLPTDataSet;
-            // 
             // usp_Report_KQT_LaySVDaDuThiTableAdapter
             // 
             this.usp_Report_KQT_LaySVDaDuThiTableAdapter.ClearBeforeFill = true;
             // 
             // FormKQT
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1624, 813);
+            this.ClientSize = new System.Drawing.Size(1421, 813);
             this.Controls.Add(this.bunifuPanel1);
             this.IconOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.CSDLPT_Logo1;
             this.Name = "FormKQT";
@@ -572,11 +577,11 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             ((System.ComponentModel.ISupportInitialize)(this.TN_CSDLPTDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpSv.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usp_Report_KQT_LaySVDaDuThiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usp_Report_KQT_LaySVThuocLopDaDuThiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSSVBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usp_Report_KQT_LayMonDaThiBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usp_Report_KQT_LaySVDaDuThiBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

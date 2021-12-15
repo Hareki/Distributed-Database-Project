@@ -298,6 +298,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             if (CheckDeleteCondition() == false)
             {
                 deletedKhoa.ActionType = ActionType.NotValid;
+                return deletedKhoa;
             }
 
             if (Utils.ShowConfirmMessage($"Bạn có chắc muốn xóa khoa {removedTenKhoa}?", "Xác nhận"))

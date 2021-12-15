@@ -186,18 +186,21 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             //do không dùng binding source nên phải lưu lại những giá trị này, nếu ko sẽ bị lỗi :<
             _selectedRow = GVDK2BindingSource.Position;
-            if(_selectedRow >= 0)
+            if (_selectedRow >= 0)
             {
                 _origThoiGian = int.Parse(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "THOIGIAN"));
                 _origSoCau = int.Parse(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "SOCAUTHI"));
+                string systemDateFormat = CultureInfo.CurrentUICulture.DateTimeFormat.ShortDatePattern;
+                string systemTimeFormat = CultureInfo.CurrentUICulture.DateTimeFormat.LongTimePattern;
+                string systemDateTimeFormat = systemDateFormat + " " + systemTimeFormat;
                 _origNgayThi =
-                DateTime.ParseExact(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "NGAYTHI"), "dd/MM/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+                DateTime.ParseExact(Utils.GetCellStringBds(GVDK2BindingSource, _selectedRow, "NGAYTHI"), systemDateTimeFormat, CultureInfo.InvariantCulture);
 
                 _origMaLop = Utils.GetLookUpString(LookUpLop, "MALOP");
                 _origMaMH = Utils.GetLookUpString(LookUpMh, "MAMH");
                 _origLan = GetLan();
             }
-           
+
         }
         private void buttonThem_Click(object sender, EventArgs e)
         {
@@ -232,12 +235,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             GVDK2BindingSource.Position = _selectedRow;
             ConfigIdleState();
-            if(GVDK2BindingSource.Position >= 0)
+            if (GVDK2BindingSource.Position >= 0)
             {
                 RestoreValueToOrig();
                 GetCorrData();
             }
-            
+
         }
         private void SetInputColor(Color color)
         {
@@ -1007,7 +1010,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
         private void LookUpGV_EnabledChanged(object sender, EventArgs e)
         {
-            if(LookUpGV.Enabled == true && (LookUpLop.EditValue == null || LookUpMh.EditValue == null))
+            if (LookUpGV.Enabled == true && (LookUpLop.EditValue == null || LookUpMh.EditValue == null))
             {
                 LookUpGV.Enabled = false;
             }

@@ -88,8 +88,8 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuPanel1.BorderRadius = 3;
             this.bunifuPanel1.BorderThickness = 1;
-            this.bunifuPanel1.Controls.Add(this.panel1);
             this.bunifuPanel1.Controls.Add(this.pictureBox1);
+            this.bunifuPanel1.Controls.Add(this.panel1);
             this.bunifuPanel1.Location = new System.Drawing.Point(262, 52);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
@@ -113,7 +113,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.panel1.Controls.Add(this.LookUpLop);
             this.panel1.Location = new System.Drawing.Point(9, 77);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(468, 606);
+            this.panel1.Size = new System.Drawing.Size(472, 606);
             this.panel1.TabIndex = 1;
             // 
             // buttonCancel
@@ -129,7 +129,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.buttonCancel.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonCancel.HoverState.Parent = this.buttonCancel;
             this.buttonCancel.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonCancel.Location = new System.Drawing.Point(41, 445);
+            this.buttonCancel.Location = new System.Drawing.Point(43, 445);
             this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
@@ -152,7 +152,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.buttonPrint.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(147)))), ((int)(((byte)(219)))));
             this.buttonPrint.HoverState.Parent = this.buttonPrint;
             this.buttonPrint.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonPrint.Location = new System.Drawing.Point(249, 445);
+            this.buttonPrint.Location = new System.Drawing.Point(251, 445);
             this.buttonPrint.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.buttonPrint.Name = "buttonPrint";
             this.buttonPrint.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
@@ -179,7 +179,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
             this.label3.Location = new System.Drawing.Point(200, 14);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(146, 91);
+            this.label3.Size = new System.Drawing.Size(173, 91);
             this.label3.TabIndex = 57;
             this.label3.Text = "Bảng điểm môn học";
             // 
@@ -190,7 +190,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.pictureBox3.Image = global::TracNghiemCSDLPT.Properties.Resources.info_480px;
             this.pictureBox3.Location = new System.Drawing.Point(437, 558);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(29, 45);
+            this.pictureBox3.Size = new System.Drawing.Size(33, 45);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 55;
             this.pictureBox3.TabStop = false;
@@ -203,7 +203,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.Font = new System.Drawing.Font("Baloo 2", 10.8F);
             this.label6.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label6.Location = new System.Drawing.Point(37, 365);
+            this.label6.Location = new System.Drawing.Point(36, 365);
             this.label6.Margin = new System.Windows.Forms.Padding(3, 0, 10, 5);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 30);
@@ -291,7 +291,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             // 
             // LookUpMh
             // 
-            this.LookUpMh.Location = new System.Drawing.Point(41, 287);
+            this.LookUpMh.Location = new System.Drawing.Point(36, 287);
             this.LookUpMh.Margin = new System.Windows.Forms.Padding(3, 3, 3, 40);
             this.LookUpMh.Name = "LookUpMh";
             this.LookUpMh.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -303,7 +303,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.LookUpMh.Properties.PopupFormSize = new System.Drawing.Size(0, 300);
             this.LookUpMh.Properties.PopupView = this.gridView1;
             this.LookUpMh.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
-            this.LookUpMh.Size = new System.Drawing.Size(389, 38);
+            this.LookUpMh.Size = new System.Drawing.Size(401, 38);
             this.LookUpMh.TabIndex = 31;
             this.LookUpMh.EditValueChanged += new System.EventHandler(this.LookUpMh_EditValueChanged);
             // 
@@ -352,7 +352,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             // 
             // LookUpLop
             // 
-            this.LookUpLop.Location = new System.Drawing.Point(41, 206);
+            this.LookUpLop.Location = new System.Drawing.Point(36, 206);
             this.LookUpLop.Margin = new System.Windows.Forms.Padding(3, 3, 3, 40);
             this.LookUpLop.Name = "LookUpLop";
             this.LookUpLop.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -363,7 +363,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.LookUpLop.Properties.NullText = "Chọn lớp";
             this.LookUpLop.Properties.PopupView = this.gridLookUpEdit1View;
             this.LookUpLop.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
-            this.LookUpLop.Size = new System.Drawing.Size(389, 38);
+            this.LookUpLop.Size = new System.Drawing.Size(401, 38);
             this.LookUpLop.TabIndex = 30;
             this.LookUpLop.EditValueChanged += new System.EventHandler(this.LookUpLop_EditValueChanged);
             // 
@@ -417,9 +417,9 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Image = global::TracNghiemCSDLPT.Properties.Resources.transcript;
-            this.pictureBox1.Location = new System.Drawing.Point(474, 77);
+            this.pictureBox1.Location = new System.Drawing.Point(473, 77);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(421, 606);
+            this.pictureBox1.Size = new System.Drawing.Size(422, 606);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;

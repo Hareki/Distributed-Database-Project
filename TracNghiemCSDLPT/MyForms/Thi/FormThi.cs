@@ -213,6 +213,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             string soCauDung = result[1] + "/" + lblSoCauThi.Text + " câu";
             string diem = "Điểm: " + result[0];
             countDownTimer.Stop();
+            saveTimeLeftTimer.Stop();
             ResultForm formThongBaoDiem = new ResultForm(soCauDung, diem);
             this.Close();
         }
@@ -1007,7 +1008,12 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             if (countDownTimer.Enabled)
                 if (!Utils.ShowConfirmMessage("Xác nhận ngừng làm bài thi?", "Xác nhận"))
+                {
+                    countDownTimer.Stop();
+                    saveTimeLeftTimer.Stop();
                     e.Cancel = true;
+                }
+
         }
 
         enum FileType

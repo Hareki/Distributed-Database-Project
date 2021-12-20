@@ -145,31 +145,6 @@ namespace TracNghiemCSDLPT.Others
 
 
 
-        public static SqlDataReader ExecuteSqlDataReader(string query)
-        {
-            SqlDataReader result;
-            SqlCommand sqlCmd = new SqlCommand(query, SubcriberConnection);
-            sqlCmd.CommandType = CommandType.Text;
-            if (SubcriberConnection.State == ConnectionState.Closed)
-                SubcriberConnection.Open();
-            try
-            {
-                result = sqlCmd.ExecuteReader();
-                SubcriberConnection.Close();
-                return result;
-            }
-            catch (SqlException ex)
-            {
-                SubcriberConnection.Close();
-                Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
-                Console.WriteLine(ex.StackTrace);
-                Debug.Assert(false);
-                SubcriberConnection.Close();
-                return null;
-            }
-        }
-
-
         public static SqlDataReader ExecuteSqlDataReaderSP(string spName, List<Para> paraList)
         {
             SqlDataReader result;
@@ -284,28 +259,6 @@ namespace TracNghiemCSDLPT.Others
 
         }
 
-        public static bool ExecuteSqlNonQuery(string command)
-        {
-            SqlCommand sqlCmd = new SqlCommand(command, SubcriberConnection);
-            sqlCmd.CommandType = CommandType.Text;
-            sqlCmd.CommandTimeout = 600;
-            if (SubcriberConnection.State == ConnectionState.Closed)
-                SubcriberConnection.Open();
-            try
-            {
-                sqlCmd.ExecuteNonQuery();
-                SubcriberConnection.Close();
-                return true;
-            }
-            catch (SqlException ex)
-            {
-                Utils.ShowErrorMessage("Xảy ra lỗi \n" + ex.ToString(), "Lỗi kết nối");
-                Console.WriteLine(ex.StackTrace);
-                SubcriberConnection.Close();
-                Debug.Assert(false);
-                return false;
-            }
-        }
 
         public static bool ExecuteSqlNonQuerySP(string spName, List<Para> paraList)
         {

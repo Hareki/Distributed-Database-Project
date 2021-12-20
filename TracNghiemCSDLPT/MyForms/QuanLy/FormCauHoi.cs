@@ -630,12 +630,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             }
 
         }
-        private bool CanPressEditDelete(string maMh, string trinhDo)
+        private bool CanPressEdit(string maMh, string trinhDo)
         {
             List<Para> paraList = new List<Para>();
             paraList.Add(new Para("@MaMH", maMh));
             paraList.Add(new Para("@TrinhDo", trinhDo));
-            string spName = "usp_BoDe_PressingEditDeletePoss";
+            string spName = "usp_BoDe_GetPressingEditingPossibility";
             using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
             {
                 if (myReader == null)
@@ -662,7 +662,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         {
             string maMh = Utils.AddExtraWhiteSpace(Utils.GetLookUpString(MHCombo, "MAMH"), 5);
             string trinhDo = GetTrinhDo();
-            if (CanPressEditDelete(maMh, trinhDo))
+            if (CanPressEdit(maMh, trinhDo))
             {
                 _state = State.Edit;
                 SetCorrButtonsState();

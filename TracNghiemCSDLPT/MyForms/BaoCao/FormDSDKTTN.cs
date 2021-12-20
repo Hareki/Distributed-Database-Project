@@ -12,8 +12,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         public FormDSDKTTN()
         {
             InitializeComponent();
-
-
+            dateFrom.EditValue = dateTo.EditValue = DateTime.Now.Date;
         }
 
 
@@ -42,7 +41,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         {
             DateTime inputFrom = (DateTime)dateFrom.EditValue;
             DateTime inputTo = (DateTime)dateTo.EditValue;
-            if(DateTime.Compare(inputFrom,inputTo) > 0)
+            if (DateTime.Compare(inputFrom, inputTo) > 0)
             {
                 Utils.SetTextEditError(dateEP, dateFrom, "Ngày trước phải nhỏ hơn ngày sau");
                 return;
@@ -53,7 +52,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             }
             String textDateFrom = inputFrom.ToString("dd/MM/yyyy");
             String textDateTo = inputTo.ToString("dd/MM/yyyy");
-            
+
             ReportDSDKTTN report1 = new ReportDSDKTTN(textDateFrom, textDateTo, DBConnection.SubcriberConnectionString, 0);
             report1.ReportTitle.Text = "DANH SÁCH ĐĂNG KÝ THI TRẮC NGHIỆM " +
                 Utils.GetCellStringBds(DBConnection.BsSubcribers, DBConnection.IndexCS, "TENCS").ToUpper() + " TỪ NGÀY " + textDateFrom + " ĐẾN NGÀY " + textDateTo;

@@ -45,6 +45,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
         {
             this.GVDK2TableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.GVDK2TableAdapter.Fill(this.TN_CSDLPTDataSet.GVDK_ENDUSER);
+            ClearInputIfBlank();
         }
         private void LoadLop()
         {
@@ -79,6 +80,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             LoadMonHoc();
             LoadDsgv();
             LoadGvdk2();
+            
         }
         private void ResetOrigValue()
         {
@@ -162,6 +164,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             Utils.ConfigControlColor(InfoPanel);
             GVDK2GridView.Columns["NGAYTHI"].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
             SetCorrButtonsState();
+            
         }
 
         private void pictureBox1_EnabledChanged(object sender, EventArgs e)
@@ -240,6 +243,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 RestoreValueToOrig();
                 GetCorrData();
             }
+            ClearInputIfBlank();
 
         }
         private void SetInputColor(Color color)
@@ -421,7 +425,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 List<Para> paraList = new List<Para>();
                 paraList.Add(new Para("@MaMH", maMh));
                 paraList.Add(new Para("@MaLop", maLop));
-                paraList.Add(new Para("@NgayThi", NgayThi.DateTime));
+                paraList.Add(new Para("@NgayThiL2", NgayThi.DateTime));
                 string spName = "usp_GVDK_CheckAddingL2Poss";
                 using (SqlDataReader myReader = DBConnection.ExecuteSqlDataReaderSP(spName, paraList))
                 {
@@ -601,12 +605,13 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 var row = dt.Rows[i];
                 string test1 = row["TENMH"].ToString();
                 string test2 = row["TENLOP"].ToString();
-                string test3 = row["LAN"].ToString();
-                if (row["TENMH"].ToString().Equals(tenMh) && row["TENLOP"].ToString().Equals(tenLop) && (short)row["LAN"] == lan)
+                object test3 = row["LAN"];
+                if (test1.Equals(tenMh) && test2.Equals(tenLop) && (short)test3 == lan)
                 {
                     return i;
                 }
             }
+            ClearInputIfBlank();
             return -1;
         }
         //private int FindGVDK2Row(string maMH, string maLop, short lan)
@@ -642,16 +647,38 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             }
         }
 
+        private void ClearInputIfBlank()
+        {
+            if(GVDK2BindingSource.Count <= 0)
+            {
+                LookUpMh.EditValue = null;
+                LookUpGV.EditValue = null;
+                LookUpLop.EditValue = null;
+                rdoA.Checked = rdoB.Checked = rdoC.Checked = false;
+                rdo1.Checked = rdo2.Checked = false;
+
+            }
+        }
         private void buttonXoa_Click(object sender, EventArgs e)
         {
+            
             DateTime ngayThi = NgayThi.DateTime;
-            if (CanDeleteEdit(ngayThi))
+            bool checkDate = CanDeleteEdit(ngayThi);
+            int lan = GetLan();
+            bool haveL2 = false;
+            if (lan == 1)
+            {
+                string tenMh = Utils.GetLookUpString(LookUpMh, "TENMH");
+                string tenLop = Utils.GetLookUpString(LookUpLop, "TENLOP");
+                haveL2 = (FindGvdk2Row(tenMh, tenLop, (short)2) != -1);
+            }
+
+            if (checkDate && !haveL2)
             {
                 if (Utils.ShowConfirmMessage("Bạn có chắc muốn xóa thông tin đăng ký thi này?", "Xác nhận"))
                 {
                     string maMh = Utils.GetLookUpString(LookUpMh, "MAMH");
                     string maLop = Utils.GetLookUpString(LookUpLop, "MALOP");
-                    int lan = GetLan();
                     List<Para> paraList = new List<Para>();
                     paraList.Add(new Para("@OldMaMH", maMh));
                     paraList.Add(new Para("@OldMaLop", maLop));
@@ -675,7 +702,15 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             }
             else
             {
-                Utils.ShowMessage("Không thể xóa ngày thi đã kết thúc hoặc đang diễn ra", NotiForm.FormType.Warning, 2);
+                if (!checkDate)
+                {
+                    Utils.ShowMessage("Không thể xóa ngày thi đã kết thúc hoặc đang diễn ra", NotiForm.FormType.Warning, 2);
+                }
+                else
+                {
+                    Utils.ShowMessage("Không thể xóa ngày thi lần 1 khi đã tồn tại lần 2", NotiForm.FormType.Warning, 2);
+                }
+                
                 return;
             }
 

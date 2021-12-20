@@ -69,7 +69,7 @@ namespace TracNghiemCSDLPT.MyForms
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
             this.label3.Location = new System.Drawing.Point(158, 20);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 91);
+            this.label3.Size = new System.Drawing.Size(186, 91);
             this.label3.TabIndex = 8;
             this.label3.Text = "Quản lý thi trắc nghiệm";
             // 
@@ -131,7 +131,7 @@ namespace TracNghiemCSDLPT.MyForms
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.PanelGV);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(8, 13);
+            this.panel1.Location = new System.Drawing.Point(38, 22);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(396, 540);
             this.panel1.TabIndex = 14;
@@ -394,7 +394,7 @@ namespace TracNghiemCSDLPT.MyForms
             this.Appearance.Options.UseForeColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(412, 566);
+            this.ClientSize = new System.Drawing.Size(472, 584);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IconOptions.Image = global::TracNghiemCSDLPT.Properties.Resources.CSDLPT_Logo1;

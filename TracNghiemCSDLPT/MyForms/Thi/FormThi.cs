@@ -635,9 +635,9 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                     STT = i + 1,
                     MaBangDiem = Utils.IsSV() ? _maBangDiem : string.Empty,
                     NDCauHoi = Utils.GetCellStringBds(DeThiBindingSource, i, "NOIDUNG"),
-                    NDCauA = Utils.GetCellStringBds(DeThiBindingSource, i, ABCD[0]),
-                    NDCauB = Utils.GetCellStringBds(DeThiBindingSource, i, ABCD[1]),
-                    NDCauC = Utils.GetCellStringBds(DeThiBindingSource, i, ABCD[2]),
+                    NDCauA = Utils.GetCellStringBds(DeThiBindingSource, i, ABCD[0]),//D ở DB sẽ vào B ở chương trình
+                    NDCauB = Utils.GetCellStringBds(DeThiBindingSource, i, ABCD[1]),//Giá trị trong index là real ANS (trong DB)
+                    NDCauC = Utils.GetCellStringBds(DeThiBindingSource, i, ABCD[2]),//Giá tri của index + 65 là fake ANS (trong chương trình)
                     NDCauD = Utils.GetCellStringBds(DeThiBindingSource, i, ABCD[3]),
                     MaCauHoi = int.Parse(Utils.GetCellStringBds(DeThiBindingSource, i, "CAUHOI"))
                 };
@@ -663,7 +663,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             }
 
         }
-        private void LoadSummarayTable()
+        private void LoadNewSummarayTable()
         {
             GenerateMaCauHoiSummary(int.Parse(lblSoCauThi.Text));
             summaryBindingSource.DataSource = summaryItems;
@@ -753,7 +753,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 _sec = myReader.GetInt16(3);
             }
         }
-        private void FillDapAn_Summray()
+        private void FillDapAnAndSummray()
         {
             for (int i = 0; i < DeThiBindingSource.Count; i++)//đây là bindingsource với đề thi dc lưu ngữ cảnh, đồng nghĩa có thêm 2 cột là STT và đã chọn
             {
@@ -827,11 +827,11 @@ namespace TracNghiemCSDLPT.MyForms.Thi
             btnBatDauThi.Enabled = false;
             LoadBaiThi();
 
-            LoadSummarayTable();
+            LoadNewSummarayTable();
 
             if (state == TrangThaiBaiThi.DangThi && Utils.IsSV())
             {
-                FillDapAn_Summray();
+                FillDapAnAndSummray();
             }
             else
             {

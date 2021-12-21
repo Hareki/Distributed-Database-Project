@@ -173,7 +173,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 case "B":
                     rdoB.Checked = true;
                     this.DaChon = "B";
-                    //UncheckAllOtherRdos(rdoB, true);
+                    UncheckAllOtherRdos(rdoB, true);
                     break;
                 case "C":
                     rdoC.Checked = true;

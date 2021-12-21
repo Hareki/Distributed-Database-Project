@@ -27,6 +27,8 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         {
             this.usp_Report_BDMH_LayLopDaDKTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.usp_Report_BDMH_LayLopDaDKTableAdapter.Fill(this.TN_CSDLPTDataSet.usp_Report_BDMH_LayLopDaDK);
+            this.LookUpLop.EditValue = null;
+            this.LookUpMh.EditValue = null;
         }
 
         private void LoadMonThiCuaLop(string maLop)
@@ -96,6 +98,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             else
             {
                 this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
+                LoadAllLopThi();
             }
         }
 

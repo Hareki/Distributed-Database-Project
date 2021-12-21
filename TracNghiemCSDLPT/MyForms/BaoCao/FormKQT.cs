@@ -31,6 +31,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             {
                 case "TRUONG":
                     CoSoComboBox.Enabled = true;
+                    ConfigGvLookUps();
                     break;
                 case "GIAOVIEN":
                     CoSoComboBox.Enabled = false;
@@ -114,6 +115,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             else
             {
                 this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
+                this.LoadAllSv();
             }
         }
 
@@ -126,6 +128,8 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         {
             this.usp_Report_KQT_LaySVDaDuThiTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.usp_Report_KQT_LaySVDaDuThiTableAdapter.Fill(this.TN_CSDLPTDataSet.usp_Report_KQT_LaySVDaDuThi);
+            this.LookUpSv.EditValue = null;
+            this.LookUpMh.EditValue = null;
         }
         private void ConfigLookupMh() // chỉ là config những thuộc tính cơ, bản chưa có dữ liệu
         {

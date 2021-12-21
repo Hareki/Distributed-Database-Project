@@ -130,8 +130,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.DSLTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
             this.DSLTableAdapter.Fill(this.TN_CSDLPTDataSet.DSL);
             this.LookUpLop.EditValue = null;
-            this.LookUpSv.EditValue = null;
-            this.LookUpMh.EditValue = null;
+            ClearInfo(true);
         }
         private void SetLookUpMhDS() // chỉ là config những thuộc tính cơ, bản chưa có dữ liệu
         {

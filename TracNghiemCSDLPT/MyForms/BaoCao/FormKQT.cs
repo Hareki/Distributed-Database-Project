@@ -43,6 +43,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
                     break;
                 case "SINHVIEN":
                     CoSoComboBox.Enabled = false;
+                    LookUpLop.Visible = false;
                     ConfigSvLookUps();
                     toolTip.Visible = false;
                     break;
@@ -59,7 +60,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             LookUpSv.Properties.NullText = DBConnection.MaSv + " - " + DBConnection.HoTen
                 + " - " + GetMaLopFromSP(DBConnection.MaSv);
             LoadMonThiCuaSv(DBConnection.MaSv);
-            ClearInfo();
+            ClearInfo(false);
         }
 
         private string GetMaLopFromSP(string maSv)
@@ -115,7 +116,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             else
             {
                 this._previousIndexCS = this.CoSoComboBox.SelectedIndex;
-                this.LoadAllSv();
+                this.LoadAllLop();
             }
         }
 
@@ -124,31 +125,41 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.Close();
         }
 
-        private void LoadAllSv()
+        private void LoadAllLop()
         {
-            this.usp_Report_KQT_LaySVDaDuThiTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.usp_Report_KQT_LaySVDaDuThiTableAdapter.Fill(this.TN_CSDLPTDataSet.usp_Report_KQT_LaySVDaDuThi);
+            this.DSLTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.DSLTableAdapter.Fill(this.TN_CSDLPTDataSet.DSL);
+            this.LookUpLop.EditValue = null;
             this.LookUpSv.EditValue = null;
             this.LookUpMh.EditValue = null;
         }
-        private void ConfigLookupMh() // chỉ là config những thuộc tính cơ, bản chưa có dữ liệu
+        private void SetLookUpMhDS() // chỉ là config những thuộc tính cơ, bản chưa có dữ liệu
         {
             LookUpMh.Properties.DataSource = this.usp_Report_KQT_LayMonDaThiBindingSource;
             LookUpMh.Properties.DisplayMember = "FullInfo";
 
         }
+        private void SetLookUpLopDS()
+        {
+            this.LookUpLop.Properties.DataSource = this.DSLBindingSource;
+            this.LookUpLop.Properties.DisplayMember = "FullInfo";
+        }
+        private void SetLookUpSvDS()
+        {
+            this.LookUpSv.Properties.DataSource = this.usp_Report_KQT_LaySVDaDuThiTheoLopBindingSource;
+            this.LookUpSv.Properties.DisplayMember = "FullInfo";
+        }
         private void ConfigGvLookUps()
         {
-            LoadAllSv();
-            LookUpSv.Properties.DataSource = this.usp_Report_KQT_LaySVDaDuThiBindingSource;
-            LookUpSv.Properties.DisplayMember = "FullInfo";
+            LoadAllLop();
+            SetLookUpSvDS();
+
         }
         private void FormKQT_Load(object sender, EventArgs e)
         {
             Utils.BindingComboData(this.CoSoComboBox, _previousIndexCS);
-            ConfigLookupMh();
+            SetLookUpMhDS();
             PhanQuyen();
-
         }
 
         private void SetReportInfo(ReportKQT report, string tenLop, string tenSv, string tenMh, string ngayThi, string diem, int lan)
@@ -224,7 +235,7 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
         private void LookUpSv_EditValueChanged(object sender, EventArgs e)
         {
             LoadMonThiCuaSv(Utils.GetLookUpString(LookUpSv, "MASV"));
-            ClearInfo();
+            ClearInfo(false);
         }
 
         private void LoadMonThiCuaSv(string maSv)
@@ -233,8 +244,10 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
             this.usp_Report_KQT_LayMonDaThiTableAdapter.Fill(this.TN_CSDLPTDataSet.usp_Report_KQT_LayMonDaThi, maSv);
         }
 
-        private void ClearInfo()
+        private void ClearInfo(bool clearSv)
         {
+            if (clearSv)
+                LookUpSv.EditValue = null;
             LookUpMh.EditValue = null;
             rdo1.Checked = rdo2.Checked = false;
             rdo1.Enabled = rdo2.Enabled = false;
@@ -289,5 +302,18 @@ namespace TracNghiemCSDLPT.MyForms.BaoCao
                 }
             }
         }
+
+        private void LookUpLop_EditValueChanged(object sender, EventArgs e)
+        {
+            LoadSvThuocLop(Utils.GetLookUpString(LookUpLop, "MALOP"));
+            ClearInfo(true);
+        }
+
+        private void LoadSvThuocLop(string maLop)
+        {
+            this.usp_Report_KQT_LaySVDaDuThiTheoLopTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            this.usp_Report_KQT_LaySVDaDuThiTheoLopTableAdapter.Fill(this.TN_CSDLPTDataSet.usp_Report_KQT_LaySVDaDuThiTheoLop, maLop);
+        }
+
     }
 }

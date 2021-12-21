@@ -186,7 +186,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                     UncheckAllOtherRdos(rdoD, true);
                     break;
                 case " ":
-                    blockCheckChanged = false;//do không có đáp án thì nó sẽ vào đây, nên chỉnh lại cho nó ko block nữa
+                    blockCheckChanged = false;
                     break;
                 default:
                     Debug.Assert(false);

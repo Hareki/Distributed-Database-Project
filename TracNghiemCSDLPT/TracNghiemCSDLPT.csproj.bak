@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -141,17 +156,54 @@
     <Reference Include="ComponentFactory.Krypton.Toolkit">
       <HintPath>C:\Users\MINH TU\source\repos\DDBProject\packages\Krypton\ComponentFactory.Krypton.Toolkit.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Data.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Printing.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraBars.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGrid.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraNavBar.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraPrinting.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Charts.v21.1.Core, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.CodeParser.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v21.1.Core, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v21.1.Win, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v21.1.UI, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Map.v21.1.Core, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v21.1.Core, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v21.1.Core, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v21.1.Core, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v21.1.Core, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.Desktop.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v21.1.Core, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v21.1.Export, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v21.1.Core, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.TreeMap.v21.1.Core, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v21.1.UI, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v21.1.UI, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v21.1.Wizard, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v21.1.Core, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v21.1.Presets, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v21.1.Win, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraMap.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v21.1.Extensions, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v21.1.Core, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v21.1.Core.Desktop, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeMap.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeMap.v21.1.UI, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="Guna.UI">
+      <HintPath>C:\Users\MINH TU\Downloads\Compressed\TestFramework\TestFramework\[FTUApps.com] - Guna UI Framework Ultimate v2.0.0.1 + Keygen\[FTUApps.com] - Guna UI Framework Ultimate v2.0.0.1 + Keygen\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 3.5\Guna.UI.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2">
-      <HintPath>C:\Users\MINH TU\source\repos\DDBProject\packages\Guna2 UI\Guna.UI2.dll</HintPath>
+      <HintPath>..\packages\Guna2 UI\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -159,6 +211,11 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -170,17 +227,104 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyForms\TabbedForms\FormSVL.cs">
+    <Compile Include="Models\ActionType.cs" />
+    <Compile Include="Models\Khoa.cs" />
+    <Compile Include="Models\SummaryItem.cs" />
+    <Compile Include="MyForms\BaoCao\FormBDMH.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyForms\TabbedForms\FormSVL.Designer.cs">
+    <Compile Include="MyForms\BaoCao\FormBDMH.Designer.cs">
+      <DependentUpon>FormBDMH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForms\BaoCao\FormKQT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForms\BaoCao\FormKQT.Designer.cs">
+      <DependentUpon>FormKQT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForms\QuanLy\FormCauHoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForms\QuanLy\FormCauHoi.Designer.cs">
+      <DependentUpon>FormCauHoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForms\BaoCao\FormDSDKTTN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForms\BaoCao\FormDSDKTTN.Designer.cs">
+      <DependentUpon>FormDSDKTTN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForms\QuanLy\FormGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForms\QuanLy\FormGV.Designer.cs">
+      <DependentUpon>FormGV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForms\QuanLy\FormKhoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForms\QuanLy\FormKhoa.designer.cs">
+      <DependentUpon>FormKhoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForms\TaiKhoan\FormTaoLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForms\TaiKhoan\FormTaoLogin.Designer.cs">
+      <DependentUpon>FormTaoLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForms\QuanLy\FormSVL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForms\QuanLy\FormSVL.Designer.cs">
       <DependentUpon>FormSVL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForms\Thi\FormDKThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForms\Thi\FormDKThi.Designer.cs">
+      <DependentUpon>FormDKThi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForms\Thi\FormThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForms\Thi\FormThi.Designer.cs">
+      <DependentUpon>FormThi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForms\Thi\ItemCauHoi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyForms\Thi\ItemCauHoi.Designer.cs">
+      <DependentUpon>ItemCauHoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyReports\ReportBDMH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyReports\ReportBDMH.Designer.cs">
+      <DependentUpon>ReportBDMH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyReports\ReportDSDKTTN.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyReports\ReportDSDKTTN.Designer.cs">
+      <DependentUpon>ReportDSDKTTN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyReports\ReportKQT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyReports\ReportKQT.Designer.cs">
+      <DependentUpon>ReportKQT.cs</DependentUpon>
     </Compile>
     <Compile Include="Others\AlertForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Others\AlertForm.Designer.cs">
       <DependentUpon>AlertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Others\ConfirmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Others\ConfirmForm.Designer.cs">
+      <DependentUpon>ConfirmForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Others\DBConnection.cs" />
     <Compile Include="MyForms\FormLogin.cs">
@@ -195,6 +339,12 @@
     <Compile Include="MyForms\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Others\ResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Others\ResultForm.Designer.cs">
+      <DependentUpon>ResultForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Others\Test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,10 +353,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MyForms\TabbedForms\FormMonHoc.cs">
+    <Compile Include="MyForms\QuanLy\FormMonHoc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyForms\TabbedForms\FormMonHoc.Designer.cs">
+    <Compile Include="MyForms\QuanLy\FormMonHoc.Designer.cs">
       <DependentUpon>FormMonHoc.cs</DependentUpon>
     </Compile>
     <Compile Include="Others\Utils.cs" />
@@ -218,17 +368,62 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TN_CSDLPTDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="MyForms\BaoCao\FormBDMH.resx">
+      <DependentUpon>FormBDMH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForms\BaoCao\FormKQT.resx">
+      <DependentUpon>FormKQT.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForms\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForms\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyForms\TabbedForms\FormSVL.resx">
+    <EmbeddedResource Include="MyForms\QuanLy\FormCauHoi.resx">
+      <DependentUpon>FormCauHoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForms\BaoCao\FormDSDKTTN.resx">
+      <DependentUpon>FormDSDKTTN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForms\QuanLy\FormGV.resx">
+      <DependentUpon>FormGV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForms\QuanLy\FormKhoa.resx">
+      <DependentUpon>FormKhoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForms\TaiKhoan\FormTaoLogin.resx">
+      <DependentUpon>FormTaoLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForms\QuanLy\FormSVL.resx">
       <DependentUpon>FormSVL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForms\Thi\FormDKThi.resx">
+      <DependentUpon>FormDKThi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForms\Thi\FormThi.resx">
+      <DependentUpon>FormThi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForms\Thi\ItemCauHoi.resx">
+      <DependentUpon>ItemCauHoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyReports\ReportBDMH.resx">
+      <DependentUpon>ReportBDMH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyReports\ReportDSDKTTN.resx">
+      <DependentUpon>ReportDSDKTTN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyReports\ReportKQT.resx">
+      <DependentUpon>ReportKQT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Others\AlertForm.resx">
       <DependentUpon>AlertForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Others\ConfirmForm.resx">
+      <DependentUpon>ConfirmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Others\ResultForm.resx">
+      <DependentUpon>ResultForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Others\Test.resx">
       <DependentUpon>Test.cs</DependentUpon>
@@ -244,10 +439,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="MyForms\TabbedForms\FormMonHoc.resx">
+    <EmbeddedResource Include="MyForms\QuanLy\FormMonHoc.resx">
       <DependentUpon>FormMonHoc.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\TracNghiemCSDLPT.Models.SummaryItem.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -484,6 +680,114 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\school_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\registration_600px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\workspace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\school_500px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disableasd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checklist-icon-flat-13.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\medical-history-doctor-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redo white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undo white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info_480px_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\question-mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exclamation_mark_512px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help_96px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help_480px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\note.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book_500px_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\note_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\school.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\school_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\note_disabled1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KQT3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transcript.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\start-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\submit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CSDLPT_Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CSDLPT_Logo1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

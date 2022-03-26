@@ -75,11 +75,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void LoadAllData()
         {
-            this.MonHocTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.BoDeTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.DSMHTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.DSGVTCSTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
-            this.BaiThiTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            //this.MonHocTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            //this.BoDeTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            //this.DSMHTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            //this.DSGVTCSTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
+            //this.BaiThiTableAdapter.Connection.ConnectionString = DBConnection.SubcriberConnectionString;
 
             this.MonHocTableAdapter.Fill(this.TN_CSDLPTDataSet.MONHOC);
             this.BoDeTableAdapter.Fill(this.TN_CSDLPTDataSet.BODE);
@@ -109,8 +109,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             GridView view = GetCorrData(true);
             if (view != null)
                 view.Focus();
-            SetCorrButtonsState();
-            PhanQuyen();
+            //SetCorrButtonsState();
+            //PhanQuyen();
+
             //for (int i = 1; i < MonHocGridView.RowCount; i++)
             //        MonHocGridView.ExpandMasterRow(i);
         }
@@ -282,24 +283,24 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
 
         private void SetCorrButtonsState()
         {
-            if (Utils.IsGV())
-            {
-                switch (_state)
-                {
-                    case State.Add:
-                        SetInputButtonVisible(true);
-                        SetIdleButtonEnabled(false);
-                        break;
-                    case State.Edit:
-                        SetInputButtonVisible(true);
-                        SetIdleButtonEnabled(false);
-                        break;
-                    case State.Idle:
-                        SetIdleButtonEnabled(true);
-                        SetInputButtonVisible(false);
-                        break;
-                }
-            }
+            //if (Utils.IsGV())
+            //{
+            //    switch (_state)
+            //    {
+            //        case State.Add:
+            //            SetInputButtonVisible(true);
+            //            SetIdleButtonEnabled(false);
+            //            break;
+            //        case State.Edit:
+            //            SetInputButtonVisible(true);
+            //            SetIdleButtonEnabled(false);
+            //            break;
+            //        case State.Idle:
+            //            SetIdleButtonEnabled(true);
+            //            SetInputButtonVisible(false);
+            //            break;
+            //    }
+            //}
         }
 
 

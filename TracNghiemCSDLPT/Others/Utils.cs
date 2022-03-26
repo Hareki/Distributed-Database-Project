@@ -121,7 +121,8 @@ namespace TracNghiemCSDLPT
         }
         public static bool IsGV()
         {
-            return DBConnection.NhomQuyen.Equals("GIAOVIEN");
+            //return DBConnection.NhomQuyen.Equals("GIAOVIEN");
+            return true;
         }
         public static bool IsSV()
         {

@@ -272,7 +272,8 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                         fakeAnswer = ' ';
                     }
                     string daChon = GetRealAnswerByFakeAnswer(fakeAnswer, _shuffledAnswersList[i]);
-
+                    //Value: A B C D:  thứ tự trong chương trình
+                    //Key:   C D A B:  nội dung thực trên db
                     dataTable.Rows.Add(maBangDiem, maCauHoi, STT, daChon);
                 }
 
@@ -644,7 +645,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
 
 
                 //Value: A B C D:  thứ tự trong chương trình
-                //Key:   D C A B:  nội dung thực trên db
+                //Key:   C D A B:  nội dung thực trên db
                 _shuffledAnswersList.Add(new string[4] { ABCD[0], ABCD[1], ABCD[2], ABCD[3] });
 
 
@@ -793,6 +794,7 @@ namespace TracNghiemCSDLPT.MyForms.Thi
                 {
                     _maBangDiem = GenerateMbd();
                     _ngayThi = DateTime.Now;
+                    _min = int.Parse(lblThoiGian.Text.Substring(0, lblThoiGian.Text.IndexOf(' ')));
                     InsertBangDiem(_maBangDiem, 0, maSv, maMh, lan, _ngayThi);//phải insert vào trước để có mã bảng điểm
                     UpdateOrInsertBTDLChung(_maBangDiem, _min, 0, true);
                 }

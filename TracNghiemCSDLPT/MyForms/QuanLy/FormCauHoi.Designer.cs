@@ -100,8 +100,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.tipSua = new Guna.UI2.WinForms.Guna2PictureBox();
             this.tipXoa = new Guna.UI2.WinForms.Guna2PictureBox();
             this.BoDeTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.BODETableAdapter();
-            this.buttonUndo = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.buttonRedo = new Guna.UI2.WinForms.Guna2CircleButton();
             this.DSGVTCSTableAdapter = new TracNghiemCSDLPT.TN_CSDLPTDataSetTableAdapters.DSGIAOVIENTCSTableAdapter();
             this.noiDungEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.choiceAEP = new System.Windows.Forms.ErrorProvider(this.components);
@@ -266,16 +264,16 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MonHocGridControl.DataSource = this.MonHocBindingSource;
-            this.MonHocGridControl.Font = new System.Drawing.Font("Teko SemiBold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MonHocGridControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             gridLevelNode1.LevelTemplate = this.BoDeGridView;
             gridLevelNode1.RelationName = "FK_BODE_MONHOC";
             this.MonHocGridControl.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
             gridLevelNode1});
-            this.MonHocGridControl.Location = new System.Drawing.Point(148, 393);
+            this.MonHocGridControl.Location = new System.Drawing.Point(178, 393);
             this.MonHocGridControl.MainView = this.MonHocGridView;
             this.MonHocGridControl.Margin = new System.Windows.Forms.Padding(0);
             this.MonHocGridControl.Name = "MonHocGridControl";
-            this.MonHocGridControl.Size = new System.Drawing.Size(1282, 261);
+            this.MonHocGridControl.Size = new System.Drawing.Size(1282, 267);
             this.MonHocGridControl.TabIndex = 14;
             this.MonHocGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.MonHocGridView,
@@ -483,7 +481,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Baloo 2", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(32, 28);
+            this.label1.Location = new System.Drawing.Point(31, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 60);
             this.label1.TabIndex = 17;
@@ -558,7 +556,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.rdoA.Location = new System.Drawing.Point(95, 14);
             this.rdoA.Name = "rdoA";
             this.rdoA.ShadowDecoration.Parent = this.rdoA;
-            this.rdoA.Size = new System.Drawing.Size(18, 20);
+            this.rdoA.Size = new System.Drawing.Size(22, 22);
             this.rdoA.TabIndex = 0;
             this.rdoA.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdoA.UncheckedState.BorderThickness = 2;
@@ -578,7 +576,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.rdoB.Location = new System.Drawing.Point(95, 46);
             this.rdoB.Name = "rdoB";
             this.rdoB.ShadowDecoration.Parent = this.rdoB;
-            this.rdoB.Size = new System.Drawing.Size(18, 20);
+            this.rdoB.Size = new System.Drawing.Size(22, 22);
             this.rdoB.TabIndex = 0;
             this.rdoB.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdoB.UncheckedState.BorderThickness = 2;
@@ -631,7 +629,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.rdoC.Location = new System.Drawing.Point(95, 78);
             this.rdoC.Name = "rdoC";
             this.rdoC.ShadowDecoration.Parent = this.rdoC;
-            this.rdoC.Size = new System.Drawing.Size(18, 20);
+            this.rdoC.Size = new System.Drawing.Size(22, 22);
             this.rdoC.TabIndex = 0;
             this.rdoC.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdoC.UncheckedState.BorderThickness = 2;
@@ -694,7 +692,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.bunifuPanel1.Location = new System.Drawing.Point(50, 167);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(607, 114);
+            this.bunifuPanel1.Size = new System.Drawing.Size(662, 114);
             this.bunifuPanel1.TabIndex = 22;
             // 
             // tableLayoutPanel1
@@ -702,7 +700,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.49133F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.50867F));
@@ -712,7 +710,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(598, 108);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(653, 108);
             this.tableLayoutPanel1.TabIndex = 23;
             // 
             // panel2
@@ -729,7 +727,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(325, 102);
+            this.panel2.Size = new System.Drawing.Size(356, 102);
             this.panel2.TabIndex = 26;
             // 
             // spinMaCH
@@ -757,7 +755,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             | System.Windows.Forms.AnchorStyles.Right)));
             this.separatorControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.separatorControl1.LineOrientation = System.Windows.Forms.Orientation.Vertical;
-            this.separatorControl1.Location = new System.Drawing.Point(331, 4);
+            this.separatorControl1.Location = new System.Drawing.Point(362, 4);
             this.separatorControl1.Name = "separatorControl1";
             this.separatorControl1.Size = new System.Drawing.Size(22, 85);
             this.separatorControl1.TabIndex = 21;
@@ -779,9 +777,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.panel3.Controls.Add(this.MHCombo);
             this.panel3.Controls.Add(this.label10);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(334, 3);
+            this.panel3.Location = new System.Drawing.Point(365, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(261, 102);
+            this.panel3.Size = new System.Drawing.Size(285, 102);
             this.panel3.TabIndex = 27;
             // 
             // MHCombo
@@ -817,7 +815,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.MHCombo.Properties.NullText = "Chọn môn thi";
             this.MHCombo.Properties.PopupView = this.gridView1;
             this.MHCombo.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
-            this.MHCombo.Size = new System.Drawing.Size(250, 38);
+            this.MHCombo.Size = new System.Drawing.Size(274, 38);
             this.MHCombo.TabIndex = 57;
             // 
             // DSMHBindingSource
@@ -902,7 +900,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.bunifuPanel2.Location = new System.Drawing.Point(49, 169);
             this.bunifuPanel2.Name = "bunifuPanel2";
             this.bunifuPanel2.ShowBorders = true;
-            this.bunifuPanel2.Size = new System.Drawing.Size(606, 112);
+            this.bunifuPanel2.Size = new System.Drawing.Size(662, 112);
             this.bunifuPanel2.TabIndex = 23;
             // 
             // InfoPanel
@@ -913,10 +911,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.InfoPanel.Controls.Add(this.textNoiDung);
             this.InfoPanel.Controls.Add(this.TableLayout);
             this.InfoPanel.Controls.Add(this.label1);
-            this.InfoPanel.Enabled = false;
-            this.InfoPanel.Location = new System.Drawing.Point(0, 2);
+            this.InfoPanel.Location = new System.Drawing.Point(12, 2);
             this.InfoPanel.Name = "InfoPanel";
-            this.InfoPanel.Size = new System.Drawing.Size(1431, 388);
+            this.InfoPanel.Size = new System.Drawing.Size(1469, 388);
             this.InfoPanel.TabIndex = 24;
             // 
             // textNoiDung
@@ -924,11 +921,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.textNoiDung.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textNoiDung.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.BoDeBindingSource, "NOIDUNG", true));
-            this.textNoiDung.Location = new System.Drawing.Point(94, 27);
+            this.textNoiDung.Location = new System.Drawing.Point(94, 10);
             this.textNoiDung.Name = "textNoiDung";
-            this.textNoiDung.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F);
+            this.textNoiDung.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNoiDung.Properties.Appearance.Options.UseFont = true;
-            this.textNoiDung.Size = new System.Drawing.Size(1279, 56);
+            this.textNoiDung.Size = new System.Drawing.Size(1354, 73);
             this.textNoiDung.TabIndex = 25;
             // 
             // TableLayout
@@ -940,15 +937,17 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.TableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.TableLayout.Controls.Add(this.PanelBD, 1, 0);
             this.TableLayout.Controls.Add(this.PanelAC, 0, 0);
-            this.TableLayout.Location = new System.Drawing.Point(12, 89);
+            this.TableLayout.Location = new System.Drawing.Point(0, 89);
             this.TableLayout.Name = "TableLayout";
             this.TableLayout.RowCount = 1;
             this.TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TableLayout.Size = new System.Drawing.Size(1406, 292);
+            this.TableLayout.Size = new System.Drawing.Size(1469, 292);
             this.TableLayout.TabIndex = 24;
             // 
             // PanelBD
             // 
+            this.PanelBD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelBD.Controls.Add(this.textChoiceB);
             this.PanelBD.Controls.Add(this.textChoiceD);
             this.PanelBD.Controls.Add(this.rdoDA_B);
@@ -956,10 +955,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.PanelBD.Controls.Add(this.label11);
             this.PanelBD.Controls.Add(this.rdoDA_D);
             this.PanelBD.Controls.Add(this.bunifuPanel2);
-            this.PanelBD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelBD.Location = new System.Drawing.Point(706, 3);
+            this.PanelBD.Location = new System.Drawing.Point(737, 3);
             this.PanelBD.Name = "PanelBD";
-            this.PanelBD.Size = new System.Drawing.Size(697, 286);
+            this.PanelBD.Size = new System.Drawing.Size(729, 286);
             this.PanelBD.TabIndex = 25;
             // 
             // textChoiceB
@@ -969,9 +967,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.textChoiceB.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.BoDeBindingSource, "B", true));
             this.textChoiceB.Location = new System.Drawing.Point(49, 19);
             this.textChoiceB.Name = "textChoiceB";
-            this.textChoiceB.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F);
+            this.textChoiceB.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textChoiceB.Properties.Appearance.Options.UseFont = true;
-            this.textChoiceB.Size = new System.Drawing.Size(606, 54);
+            this.textChoiceB.Size = new System.Drawing.Size(662, 54);
             this.textChoiceB.TabIndex = 23;
             // 
             // textChoiceD
@@ -982,11 +980,11 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.textChoiceD.Location = new System.Drawing.Point(49, 94);
             this.textChoiceD.Name = "textChoiceD";
             this.textChoiceD.Properties.Appearance.BorderColor = System.Drawing.Color.Silver;
-            this.textChoiceD.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F);
+            this.textChoiceD.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textChoiceD.Properties.Appearance.Options.UseBorderColor = true;
             this.textChoiceD.Properties.Appearance.Options.UseFont = true;
             this.textChoiceD.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.textChoiceD.Size = new System.Drawing.Size(606, 54);
+            this.textChoiceD.Size = new System.Drawing.Size(662, 54);
             this.textChoiceD.TabIndex = 23;
             // 
             // label12
@@ -1013,6 +1011,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             // PanelAC
             // 
+            this.PanelAC.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelAC.AutoScroll = true;
             this.PanelAC.Controls.Add(this.label14);
             this.PanelAC.Controls.Add(this.textChoiceC);
@@ -1022,10 +1022,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.PanelAC.Controls.Add(this.rdoDA_C);
             this.PanelAC.Controls.Add(this.bunifuPanel1);
             this.PanelAC.Controls.Add(this.rdoDA_A);
-            this.PanelAC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelAC.Location = new System.Drawing.Point(3, 3);
             this.PanelAC.Name = "PanelAC";
-            this.PanelAC.Size = new System.Drawing.Size(697, 286);
+            this.PanelAC.Size = new System.Drawing.Size(728, 286);
             this.PanelAC.TabIndex = 25;
             // 
             // label14
@@ -1046,9 +1045,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.textChoiceC.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.BoDeBindingSource, "C", true));
             this.textChoiceC.Location = new System.Drawing.Point(50, 94);
             this.textChoiceC.Name = "textChoiceC";
-            this.textChoiceC.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F);
+            this.textChoiceC.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textChoiceC.Properties.Appearance.Options.UseFont = true;
-            this.textChoiceC.Size = new System.Drawing.Size(607, 54);
+            this.textChoiceC.Size = new System.Drawing.Size(662, 54);
             this.textChoiceC.TabIndex = 23;
             // 
             // textChoiceA
@@ -1058,9 +1057,9 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.textChoiceA.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.BoDeBindingSource, "A", true));
             this.textChoiceA.Location = new System.Drawing.Point(50, 19);
             this.textChoiceA.Name = "textChoiceA";
-            this.textChoiceA.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 10.8F);
+            this.textChoiceA.Properties.Appearance.Font = new System.Drawing.Font("Baloo 2", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textChoiceA.Properties.Appearance.Options.UseFont = true;
-            this.textChoiceA.Size = new System.Drawing.Size(607, 54);
+            this.textChoiceA.Size = new System.Drawing.Size(662, 54);
             this.textChoiceA.TabIndex = 23;
             // 
             // label2
@@ -1089,12 +1088,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonLamMoi.Image = global::TracNghiemCSDLPT.Properties.Resources.reset_480px;
             this.buttonLamMoi.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.buttonLamMoi.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonLamMoi.Location = new System.Drawing.Point(6, 206);
+            this.buttonLamMoi.Location = new System.Drawing.Point(3, 209);
             this.buttonLamMoi.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.buttonLamMoi.Name = "buttonLamMoi";
             this.buttonLamMoi.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonLamMoi.ShadowDecoration.Parent = this.buttonLamMoi;
-            this.buttonLamMoi.Size = new System.Drawing.Size(120, 45);
+            this.buttonLamMoi.Size = new System.Drawing.Size(138, 45);
             this.buttonLamMoi.TabIndex = 22;
             this.buttonLamMoi.Text = "Làm mới";
             this.buttonLamMoi.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1116,12 +1115,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonThem.Image = global::TracNghiemCSDLPT.Properties.Resources.add_480px;
             this.buttonThem.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.buttonThem.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonThem.Location = new System.Drawing.Point(6, 8);
+            this.buttonThem.Location = new System.Drawing.Point(3, 11);
             this.buttonThem.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.buttonThem.Name = "buttonThem";
             this.buttonThem.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonThem.ShadowDecoration.Parent = this.buttonThem;
-            this.buttonThem.Size = new System.Drawing.Size(120, 45);
+            this.buttonThem.Size = new System.Drawing.Size(138, 45);
             this.buttonThem.TabIndex = 21;
             this.buttonThem.Text = "Thêm";
             this.buttonThem.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1143,12 +1142,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonSua.Image = global::TracNghiemCSDLPT.Properties.Resources.edit_480px;
             this.buttonSua.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.buttonSua.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonSua.Location = new System.Drawing.Point(6, 140);
+            this.buttonSua.Location = new System.Drawing.Point(3, 143);
             this.buttonSua.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.buttonSua.Name = "buttonSua";
             this.buttonSua.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonSua.ShadowDecoration.Parent = this.buttonSua;
-            this.buttonSua.Size = new System.Drawing.Size(120, 45);
+            this.buttonSua.Size = new System.Drawing.Size(138, 45);
             this.buttonSua.TabIndex = 20;
             this.buttonSua.Text = "Sửa";
             this.buttonSua.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1171,12 +1170,12 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.buttonXoa.Image = global::TracNghiemCSDLPT.Properties.Resources.minus_sign_480px;
             this.buttonXoa.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.buttonXoa.ImageSize = new System.Drawing.Size(35, 35);
-            this.buttonXoa.Location = new System.Drawing.Point(6, 74);
+            this.buttonXoa.Location = new System.Drawing.Point(3, 77);
             this.buttonXoa.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.buttonXoa.Name = "buttonXoa";
             this.buttonXoa.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.buttonXoa.ShadowDecoration.Parent = this.buttonXoa;
-            this.buttonXoa.Size = new System.Drawing.Size(120, 45);
+            this.buttonXoa.Size = new System.Drawing.Size(138, 45);
             this.buttonXoa.TabIndex = 23;
             this.buttonXoa.Text = "Xóa";
             this.buttonXoa.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1196,7 +1195,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.panel1.Controls.Add(this.buttonXoa);
             this.panel1.Location = new System.Drawing.Point(12, 396);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(133, 258);
+            this.panel1.Size = new System.Drawing.Size(163, 264);
             this.panel1.TabIndex = 25;
             // 
             // tipSua
@@ -1204,7 +1203,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.tipSua.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tipSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.tipSua.Image = global::TracNghiemCSDLPT.Properties.Resources.help_480px;
-            this.tipSua.Location = new System.Drawing.Point(101, 151);
+            this.tipSua.Location = new System.Drawing.Point(116, 154);
             this.tipSua.Name = "tipSua";
             this.tipSua.ShadowDecoration.Parent = this.tipSua;
             this.tipSua.Size = new System.Drawing.Size(25, 25);
@@ -1219,7 +1218,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.tipXoa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tipXoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.tipXoa.Image = global::TracNghiemCSDLPT.Properties.Resources.help_480px;
-            this.tipXoa.Location = new System.Drawing.Point(101, 85);
+            this.tipXoa.Location = new System.Drawing.Point(116, 88);
             this.tipXoa.Name = "tipXoa";
             this.tipXoa.ShadowDecoration.Parent = this.tipXoa;
             this.tipXoa.Size = new System.Drawing.Size(25, 25);
@@ -1232,52 +1231,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // BoDeTableAdapter
             // 
             this.BoDeTableAdapter.ClearBeforeFill = true;
-            // 
-            // buttonUndo
-            // 
-            this.buttonUndo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUndo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.buttonUndo.CheckedState.Parent = this.buttonUndo;
-            this.buttonUndo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonUndo.CustomImages.Parent = this.buttonUndo;
-            this.buttonUndo.Enabled = false;
-            this.buttonUndo.FillColor = System.Drawing.Color.Transparent;
-            this.buttonUndo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonUndo.ForeColor = System.Drawing.Color.White;
-            this.buttonUndo.HoverState.Parent = this.buttonUndo;
-            this.buttonUndo.Image = global::TracNghiemCSDLPT.Properties.Resources.undo_480px1;
-            this.buttonUndo.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonUndo.Location = new System.Drawing.Point(1321, 396);
-            this.buttonUndo.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.buttonUndo.Name = "buttonUndo";
-            this.buttonUndo.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.buttonUndo.ShadowDecoration.Parent = this.buttonUndo;
-            this.buttonUndo.Size = new System.Drawing.Size(32, 32);
-            this.buttonUndo.TabIndex = 34;
-            this.buttonUndo.Visible = false;
-            // 
-            // buttonRedo
-            // 
-            this.buttonRedo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonRedo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.buttonRedo.CheckedState.Parent = this.buttonRedo;
-            this.buttonRedo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonRedo.CustomImages.Parent = this.buttonRedo;
-            this.buttonRedo.Enabled = false;
-            this.buttonRedo.FillColor = System.Drawing.Color.Transparent;
-            this.buttonRedo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonRedo.ForeColor = System.Drawing.Color.White;
-            this.buttonRedo.HoverState.Parent = this.buttonRedo;
-            this.buttonRedo.Image = global::TracNghiemCSDLPT.Properties.Resources.redo_480px;
-            this.buttonRedo.ImageSize = new System.Drawing.Size(30, 30);
-            this.buttonRedo.Location = new System.Drawing.Point(1383, 396);
-            this.buttonRedo.Margin = new System.Windows.Forms.Padding(20, 10, 15, 3);
-            this.buttonRedo.Name = "buttonRedo";
-            this.buttonRedo.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.buttonRedo.ShadowDecoration.Parent = this.buttonRedo;
-            this.buttonRedo.Size = new System.Drawing.Size(32, 32);
-            this.buttonRedo.TabIndex = 35;
-            this.buttonRedo.Visible = false;
             // 
             // DSGVTCSTableAdapter
             // 
@@ -1375,7 +1328,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             this.panelInput.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panelInput.Controls.Add(this.buttonXacNhan);
             this.panelInput.Controls.Add(this.buttonHuy);
-            this.panelInput.Location = new System.Drawing.Point(444, 396);
+            this.panelInput.Location = new System.Drawing.Point(477, 396);
             this.panelInput.Name = "panelInput";
             this.panelInput.Size = new System.Drawing.Size(541, 35);
             this.panelInput.TabIndex = 36;
@@ -1393,10 +1346,8 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1431, 654);
+            this.ClientSize = new System.Drawing.Size(1497, 684);
             this.Controls.Add(this.panelInput);
-            this.Controls.Add(this.buttonUndo);
-            this.Controls.Add(this.buttonRedo);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.InfoPanel);
             this.Controls.Add(this.MonHocGridControl);
@@ -1514,8 +1465,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private Guna.UI2.WinForms.Guna2CircleButton buttonUndo;
-        private Guna.UI2.WinForms.Guna2CircleButton buttonRedo;
         private System.Windows.Forms.BindingSource DSGVTCSBindingSource;
         private TN_CSDLPTDataSetTableAdapters.DSGIAOVIENTCSTableAdapter DSGVTCSTableAdapter;
         private System.Windows.Forms.ErrorProvider noiDungEP;
@@ -1530,8 +1479,6 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private Guna.UI2.WinForms.Guna2Button buttonXacNhan;
         private System.Windows.Forms.Panel panelInput;
         private System.Windows.Forms.ToolTip toolTip2;
-        private Guna.UI2.WinForms.Guna2PictureBox tipXoa;
-        private Guna.UI2.WinForms.Guna2PictureBox tipSua;
         private DevExpress.XtraEditors.SpinEdit spinMaCH;
         private DevExpress.XtraEditors.GridLookUpEdit MHCombo;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
@@ -1539,5 +1486,7 @@ namespace TracNghiemCSDLPT.MyForms.QuanLy
         private TN_CSDLPTDataSetTableAdapters.DSMHTableAdapter DSMHTableAdapter;
         private DevExpress.XtraGrid.Columns.GridColumn colMAMH1;
         private DevExpress.XtraGrid.Columns.GridColumn colTENMH1;
+        private Guna.UI2.WinForms.Guna2PictureBox tipSua;
+        private Guna.UI2.WinForms.Guna2PictureBox tipXoa;
     }
 }

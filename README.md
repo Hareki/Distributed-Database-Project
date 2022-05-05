@@ -1,6 +1,7 @@
 
 ĐỀ TÀI MÔN  CƠ SỞ DỮ LIỆU PHÂN TÁN 
 ĐỀ 1. THI TRẮC  NGHIỆM
+
 Nội dung: Thi trắc nghiệm các môn học theo các trình độ khác nhau.
 Yêu cầu: Giả sử  trường có 2 cơ sở chính : cơ sở 1  (CS1), cơ sở 2  (CS2) 
 Phân tán cơ sở dữ liệu THITN ra làm 3 mảnh với điều kiện sau: 
